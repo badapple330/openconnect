@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+	body{
+		background-image:url("../img/Earth.jpg");
+		background-size: 100%;
+		color: White;
+	}
+	#container{
+	width: auto;
+	}
+	h1.window{
+	text-align : 0 auto;
+	color:white;
+	}

@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+/*
+@media screen and (min-width: 641px){
+img{
+max-width: 100%;
+height: auto;
+width /***/:auto;　
+}
+*/
+#container{
+width:100%;
+}
+
+	body{
+		background-image:url("../img/space.png");
+		background-size: cover;
+		background-repeat:no-repeat;
+		background-position: center;
+		margin: 0;
+		color: white;
+		}
+
+	span.size{
+	font-size:250%;
+	}
+
+	#inner{
+		position:relative;
+		width:100%;
+		max-width:300px;
+		height:200px;
+		margin:0 auto;
+		text-align:center;
+		margin-bottom:80;
+	}
+
+	#inner input[type="text"]{
+	font-size:150%;
+	}
+	#inner input[type="submit"]{
+	font-size:125%
+	}
+
+	#in{
+		position:relative;
+		width:100%;
+		max-width:300px;
+		margin:0 auto;
+		text-align:center;
+		margin-top:15;
+	}
+
+
+
+	#in input[type="submit"]{
+	font-size:125%
+	}
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <package name="jp.co.internous.action" extends="struts-default">
+
+        <!-- ログイン処理 -->
+        <action name="LoginAction" class="jp.co.internous.action.LoginAction"
+            method="execute">
+            <result name="success" type="redirectAction">GetAddressAction</result>
+            <result name="error">/login.jsp</result>
+        </action>
+
+        <action name="GetAddressAction" class="jp.co.internous.action.GetAddressAction"
+            method="execute">
+            <result name="success">/applist.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="logout" class="jp.co.internous.action.LogoutAction"
+            method="execute">
+            <result name="success" type="redirectAction">GetAddressAction</result>
+        </action>
+
+        <action name="TwitterLogin" class="jp.co.internous.action.GoTwitterAction"
+            method="execute">
+            <result name="success">/applist.jsp</result>
+        </action>
+
+        <action name="LoginTwitterAction" class="jp.co.internous.action.LoginTwitterAction"
+            method="execute">
+            <result name="success" type="redirectAction">GetAddressAction</result>
+            <result name="error" type="redirectAction">GetAddressAction</result>
+        </action>
+
+        <action name="FacebookLogin" class="jp.co.internous.action.GoFacebookAction"
+            method="execute">
+            <result name="success">/applist.jsp</result>
+        </action>
+
+        <action name="LoginFacebookAction" class="jp.co.internous.action.LoginFacebookAction"
+            method="execute">
+            <result name="success" type="redirectAction">GetAddressAction</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="GoogleLogin" class="jp.co.internous.action.GoGoogleAction"
+            method="execute">
+            <result name="success">/applist.jsp</result>
+        </action>
+
+        <action name="LoginGoogleAction" class="jp.co.internous.action.LoginGoogleAction"
+            method="execute">
+            <result name="success" type="redirectAction">GetAddressAction</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="GoAdminAction" class="jp.co.internous.action.GoAdminAction"
+        method="execute">
+        <result name="success">/Administrator.jsp</result>
+        <result name="error">/LoginAdmin.jsp</result>
+        </action>
+
+        <action name="GetAddressAdminAction" class="jp.co.internous.action.GetAddressAdminAction"
+            method="execute">
+            <result name="success">/Administrator.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="UpdateAppAction" class="jp.co.internous.action.UpdateAppAction"
+            method="execute">
+            <result name="success">/Administrator.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="DeleteAppAction" class="jp.co.internous.action.DeleteAppAction"
+            method="execute">
+            <result name="success">/Administrator.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="InsertAction" class="jp.co.internous.action.InsertAction"
+            method="execute">
+            <result name="success">/Administrator.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+    </package>
+</struts>
