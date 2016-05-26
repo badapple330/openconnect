@@ -9,16 +9,16 @@
 <link href="css/KintaiChoose.css" rel="stylesheet">
 </head>
 <body>
-	<s:form action="">
+	<s:form action="GoKintaiSyussekiAction">
 			<s:submit cssClass="btn" value="出席" />
 	</s:form>
-	<s:form action="">
+	<s:form action="GoKintaiKessekiAction">
 			<s:submit cssClass="btn" value="欠席" />
 	</s:form>
-	<s:form action="">
+	<s:form action="GoKintaiTikokuAction">
 			<s:submit cssClass="btn" value="遅刻" />
 	</s:form>
-	<s:form action="">
+	<s:form action="GoKintaiMendanAction">
 			<s:submit cssClass="btn" value="面談" />
 	</s:form>
 </body>
