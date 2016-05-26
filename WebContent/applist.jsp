@@ -55,5 +55,12 @@
         </s:iterator>
         <s:property value="notLoginMsg"></s:property>
     </div>
+
+    <div class="container">
+        <h1 class="page-header">勤怠管理</h1>
+            <ul>
+                <s:a href="GoKintaiChooseAction">勤怠管理を行う方はこちらへ</s:a>
+            </ul>
+    </div>
 </body>
 </html>
