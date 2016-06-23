@@ -1,3 +1,8 @@
+/* @auther SHIORI OYAMA
+ * @since 20160623
+ * @version 1.2
+ */
+
 DROP DATABASE IF EXISTS openconnect;  /* DBを消す */
 CREATE DATABASE openconnect;  /* DBを作る */
 
@@ -68,12 +73,12 @@ values("testuser","テストユーザー","12345678"),
 
 /* サイト一覧 */
 insert into site(name,url)  /* サイト名/URL */
-values("YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/"),
-("solare","http://www.internousdev.com:8080/solare/"),
-("UESTO","http://www.internousdev.com:8080/UESTO/"),
-("WorldTravel","http://www.internousdev.com:8080/WorldTravel/"),
-("gpscoffee","http://www.internousdev.com:8080/gpscoffee/"),
-("la-poupee","http://www.internousdev.com:8080/la-poupee/");
+values("YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/"), /* YOU JUST JEWELRY */
+("solare","http://www.internousdev.com:8080/solare/"), /* solare */
+("UESTO","http://www.internousdev.com:8080/UESTO/"), /* UEST */
+("WorldTravel","http://www.internousdev.com:8080/WorldTravel/"), /* WorldTravel */
+("gpscoffee","http://www.internousdev.com:8080/gpscoffee/"), /* gpscoffee */
+("la-poupee","http://www.internousdev.com:8080/la-poupee/"); /* la-poupee */
 
 /* カレッジ生一覧 */
 insert into students(number,name,symbol,entrance)  /* 管理番号/名前/なまえ/入講年月 */
@@ -127,4 +132,5 @@ values("0001","小西 瞬","こにし しゅん","201604"),
 ("0048","藤本 徳美","ふじもと めぐみ","201606"),
 ("0049","丸井 優吾","まるい ゆうご","201606"),
 ("0050","古長 三四郎","こちょう さんしろう","201606")
-;
+;/* 管理番号は自動連番ではないため、0を含めた数字を手入力する。
+* 番号がいっぱいになった時は0001から入力していき、必要ないものは極力消去すること。 */
