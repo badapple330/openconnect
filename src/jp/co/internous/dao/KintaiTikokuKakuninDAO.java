@@ -7,18 +7,19 @@ import com.mysql.jdbc.PreparedStatement;
 import jp.co.internous.util.DBconnector;
 
 /**
- * @author internous
- *
+ * 全画面に入力された値をDTOから引きだし、resultを返すメソッド
+ * @author Sanshiro Kocho
+ * @since 2015/06/23
+ * @return result
  */
 public class KintaiTikokuKakuninDAO {
 
 
 	//ユーザー情報を追加させる為のメソッド
 	public insert(String number, String name,String reason){
-		/*
-		 * 以下SQLへデータを登録する為のインサート文
-		 * table名は[tikoku]
-		 */
+		
+		 //以下SQLへデータを登録する為のインサート
+		 //table名は[tikoku]
 	 	DBconnector con = new DBconnector();
 		String sql = "insert into kesseki (number,name,reaon) VALUES (?,?,?)";
        try{
@@ -28,7 +29,6 @@ public class KintaiTikokuKakuninDAO {
            ps.setString(3,@@@@@@@@@@@@);
 
        }catch (SQLException e) {
-       	System.out.println("SQLExceptionが発生しました");
            e.printStackTrace();
         }finally{
             try{
