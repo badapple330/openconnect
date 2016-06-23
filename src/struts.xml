@@ -7,24 +7,27 @@
 	<constant name="struts.devMode" value="true" />
 	<package name="jp.co.internous.action" extends="struts-default">
 
-		<!-- ログイン処理 -->
+		<!-- サイト追加のログイン処理 -->
 		<action name="LoginAction" class="jp.co.internous.action.LoginAction"
 			method="execute">
 			<result name="success" type="redirectAction">GetAddressAction</result>
 			<result name="error">/login.jsp</result>
 		</action>
 
+		<!-- サイト一覧を取得する -->
 		<action name="GetAddressAction" class="jp.co.internous.action.GetAddressAction"
 			method="execute">
 			<result name="success">/applist.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
+		<!-- ログアウトする -->
 		<action name="logout" class="jp.co.internous.action.LogoutAction"
 			method="execute">
 			<result name="success" type="redirectAction">GetAddressAction</result>
 		</action>
 
+		<!-- Twitterでログイン -->
 		<action name="TwitterLogin" class="jp.co.internous.action.GoTwitterAction"
 			method="execute">
 			<result name="success">/applist.jsp</result>
@@ -36,6 +39,7 @@
 			<result name="error" type="redirectAction">GetAddressAction</result>
 		</action>
 
+		<!-- Facebookでログイン -->
 		<action name="FacebookLogin" class="jp.co.internous.action.GoFacebookAction"
 			method="execute">
 			<result name="success">/applist.jsp</result>
@@ -47,6 +51,7 @@
 			<result name="error">/error.jsp</result>
 		</action>
 
+		<!-- Google+でログイン -->
 		<action name="GoogleLogin" class="jp.co.internous.action.GoGoogleAction"
 			method="execute">
 			<result name="success">/applist.jsp</result>
@@ -58,30 +63,35 @@
 			<result name="error">/error.jsp</result>
 		</action>
 
+		<!-- 管理者画面へ遷移する -->
 		<action name="GoAdminAction" class="jp.co.internous.action.GoAdminAction"
 			method="execute">
 			<result name="success">/Administrator.jsp</result>
 			<result name="error">/LoginAdmin.jsp</result>
 		</action>
 
+		<!-- サイト一覧を取得する -->
 		<action name="GetAddressAdminAction" class="jp.co.internous.action.GetAddressAdminAction"
 			method="execute">
 			<result name="success">/Administrator.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
+		<!-- サイトを更新する -->
 		<action name="UpdateAppAction" class="jp.co.internous.action.UpdateAppAction"
 			method="execute">
 			<result name="success">/Administrator.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
+		<!-- サイトを削除する -->
 		<action name="DeleteAppAction" class="jp.co.internous.action.DeleteAppAction"
 			method="execute">
 			<result name="success">/Administrator.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
+		<!-- サイトを登録する -->
 		<action name="InsertAction" class="jp.co.internous.action.InsertAction"
 			method="execute">
 			<result name="success">/Administrator.jsp</result>
@@ -94,10 +104,31 @@
 			<result name="success">/KintaiChoose.jsp</result>
 		</action>
 
+		<!-- 生徒登録画面へのログイン -->
+		<action name="KintaiLoginAction" class="jp.co.internous.action.KintaiLoginAction"
+			method="execute">
+			<result name="success" type="redirectAction">GetStudentsAction</result>
+			<result name="error">/Kintailogin.jsp</result>
+		</action>
+
 		<!-- 生徒登録への遷移 -->
 		<action name="GetStudentsAction" class="jp.co.internous.action.GetStudentsAction"
 			method="execute">
 			<result name="success">/KintaiAdmin.jsp</result>
+		</action>
+
+		<!-- 生徒一覧を取得する -->
+		<action name="GetStudentsAdminAction" class="jp.co.internous.action.GetStudentsAction"
+			method="execute">
+			<result name="success">/KintaiAdmin.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 生徒を登録する -->
+		<action name="KintaiInsertAction" class="jp.co.internous.action.KintaiInsertAction"
+			method="execute">
+			<result name="success">/KintaiAdmin.jsp</result>
+			<result name="error">/error.jsp</result>
 		</action>
 
 	</package>

@@ -14,44 +14,43 @@ public class GetStudentsDTO {
 		return number;
 	}
 	/**
-	 * @param numberのセット
+	 * @param number セットする number
 	 */
 	public void setNumber(String number) {
 		this.number = number;
 	}
 	/**
-	 * @return 氏名
+	 * @return name
 	 */
 	public String getName() {
 		return name;
 	}
 	/**
-	 * @param nameのセット
+	 * @param name セットする name
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	/**
-	 * @return しめい
+	 * @return symbol
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 	/**
-	 * @param symbolのセット
+	 * @param symbol セットする symbol
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
-
 	/**
-	 * @return 入講年月
+	 * @return entrance
 	 */
 	public String getEntrance() {
 		return entrance;
 	}
 	/**
-	 * @param entranceのセット
+	 * @param entrance セットする entrance
 	 */
 	public void setEntrance(String entrance) {
 		this.entrance = entrance;

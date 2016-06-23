@@ -13,7 +13,7 @@ import jp.co.internous.util.DBconnector;
 public class GetStudentsDAO {
 
     public List<GetStudentsDTO> select() throws SQLException {
-        List<GetStudentsDTO> siteInfoList = new ArrayList<GetStudentsDTO>();
+        List<GetStudentsDTO> studentsList = new ArrayList<GetStudentsDTO>();
         Connection con = DBconnector.getConnection();
 
         try {
@@ -26,7 +26,7 @@ public class GetStudentsDAO {
                 dto.setName(rs.getString(2));
                 dto.setSymbol(rs.getString(3));
                 dto.setEntrance(rs.getString(4));
-                siteInfoList.add(dto);
+                studentsList.add(dto);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,6 +34,6 @@ public class GetStudentsDAO {
             con.close();
         }
 
-        return siteInfoList;
+        return studentsList;
     }
 }
