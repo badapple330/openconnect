@@ -5,18 +5,16 @@ package jp.co.internous.action;
 
 import jp.co.internous.dao.DeleteAppDAO;
 import jp.co.internous.dao.KintaiTikokuKakuninDAO;
+import jp.co.internous.dto.KintaiTikokuDTO;
 
 /**
- * @author internous
- *
+ * 全画面に入力された値をDTOから引きだし、resultを返すメソッド
+ * @author Sanshiro Kocho
+ * @since 2015/06/23
+ * @return result
  */
 public class KintaiTikokuKakuninAction {
-	/**
-	 * 全画面に入力された値をDTOから引きだし、resultを返すメソッド
-	 * @author Sanshiro Kocho
-	 * @since 2015/06/23
-	 * @return result
-	 */
+	
 	String result = "error";
 
 	public String execute(){
@@ -32,6 +30,10 @@ public class KintaiTikokuKakuninAction {
 			return result;
 		}
 	}
+
+
+
+
 
 	/**
 	 * ID取得メソッド
