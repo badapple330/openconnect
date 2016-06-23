@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package jp.co.internous.dao;
 
@@ -14,18 +14,18 @@ public class KintaiTikokuKakuninDAO {
 
 
 	//ユーザー情報を追加させる為のメソッド
-public int insert( String name, String reason){
+	public insert(String number, String name,String reason){
 		/*
 		 * 以下SQLへデータを登録する為のインサート文
 		 * table名は[tikoku]
 		 */
 	 	DBconnector con = new DBconnector();
-		String sql = "insert into kesseki (name,) VALUES (?,?,?)";
+		String sql = "insert into kesseki (number,name,reaon) VALUES (?,?,?)";
        try{
            PreparedStatement ps = con.prepareStatement(sql);
            ps.setString(1,@@@@@@@@@@);
            ps.setString(2,@@@@@@@@@@@@);
-         
+           ps.setString(3,@@@@@@@@@@@@);
 
        }catch (SQLException e) {
        	System.out.println("SQLExceptionが発生しました");
@@ -37,7 +37,7 @@ public int insert( String name, String reason){
                    e.printStackTrace();
             }
         }
-       return count;
+       return;
   }
 
 }
