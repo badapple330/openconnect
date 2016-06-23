@@ -33,7 +33,7 @@ create table students(  /* 名簿のテーブルを作る */
 number varchar(5),  /* 管理番号、0001からスタート */
 name varchar(50),  /* 名前、漢字で入力、姓と名の間は半角スペースを入れる */
 symbol varchar(50),  /* ふりがな、ひらがなで入力、姓と名の間は半角スペースを入れる */
-entrance varchar(10)  /* 入講年月、例：201604 */
+entrance varchar(10),  /* 入講年月、例：201604 */
 PRIMARY KEY (number)  /* 管理番号の重複、null禁止 */
 );
 
