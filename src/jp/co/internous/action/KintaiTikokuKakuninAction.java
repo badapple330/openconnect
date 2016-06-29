@@ -3,7 +3,8 @@
  */
 package jp.co.internous.action;
 
-import jp.co.internous.dao.DeleteAppDAO;
+import com.opensymphony.xwork2.ActionSupport;
+
 import jp.co.internous.dao.KintaiTikokuKakuninDAO;
 import jp.co.internous.dto.KintaiTikokuDTO;
 
@@ -13,22 +14,23 @@ import jp.co.internous.dto.KintaiTikokuDTO;
  * @since 2015/06/23
  * @return result
  */
-public class KintaiTikokuKakuninAction {
-	
-	String result = "error";
+public class KintaiTikokuKakuninAction extends ActionSupport{
+
+	String result = ERROR;
 
 	public String execute(){
 
 		KintaiTikokuKakuninDAO dao = new KintaiTikokuKakuninDAO();
-		KintaiTikokuDTO dto = new KintaiTikokuDTO;
+		KintaiTikokuDTO dto = new KintaiTikokuDTO();
 
-		if (dao.insert(dto.@@@@@@@ )) {
-			result = "success";
-			return result;
-		} else {
-			errormsg = "失敗しました。";
-			return result;
-		}
+//		if (dao.insert(dto.@@@@@@@ )) {
+//			result = "success";
+//			return result;
+//		} else {
+//			errormsg = "失敗しました。";
+//			return result;
+//		}
+		return SUCCESS;
 	}
 
 

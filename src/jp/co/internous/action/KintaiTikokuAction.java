@@ -39,9 +39,9 @@ public class KintaiTikokuAction extends ActionSupport{
 
 	public String execute(){
 
-		if
+//		if
 
-
+		return SUCCESS;
 	}
 
 }
