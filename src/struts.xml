@@ -89,10 +89,11 @@
         </action>
 
 		<!-- 勤怠管理画面への遷移 -->
+		<!--
 		<action name="GoKintaiChooseAction" class="jp.co.internous.action.GoKintaiChooseAction"
             method="execute">
             <result name="success">/KintaiChoose.jsp</result>
-        </action>
+        </action> -->
 
     </package>
 </struts>
