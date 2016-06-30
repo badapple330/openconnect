@@ -7,13 +7,12 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import jp.co.internous.dao.GetAddressDAO;
 import jp.co.internous.dto.GetAddressDTO;
 
-import com.opensymphony.xwork2.ActionSupport;
-
 public class GetAddressAction extends ActionSupport implements SessionAware {
-    private static final long serialVersionUID = -832415808283802875L;
 
     private List<GetAddressDTO> siteInfoList = new ArrayList<GetAddressDTO>();
     private Map<String, Object> sessionMap;
