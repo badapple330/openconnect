@@ -13,23 +13,40 @@ use openconnect;  /* DBを使う */
 /* テーブル作成 */
 /* ユーザー */
 create table user (  /* ユーザーのテーブルを作る */
-id int(10) NOT NULL AUTO_INCREMENT,  /* ユーザーに番号を割り振る、自動連番 */
-user_id varchar(30),  /* ユーザーID、ログインに使用 */
-user_name varchar(50),  /* ユーザー名、使用する人の名前 */
-password varchar(50),  /* ログイン用パスワード */
-PRIMARY KEY (id)  /* idの重複、null禁止 */
+user_id int not null auto_increment,  /* ユーザーに番号を割り振る、自動連番 */
+password varchar(16) not null,   /* ユーザーのログイン用パスワード */
+name varchar(10),  /* ユーザー名、使用する人の名前 */
+name_f varchar(20),  /* ユーザー名、使用する人の名前 */
+postal varchar(8) not null,
+address varchar(30) not null,
+tel_number varchar(12) not null,
+email varchar(40) not null unique,
+sex varchar(2) not null,
+birthday date not null,
+register_day datetime not null,
+update_day datetime not null,
+userdel_flg boolean not null default FALSE,
+login_flg boolean not null default FALSE,
+user_flg int not null,
+PRIMARY KEY (user_id)  /* idの重複、null禁止 */
 );
 
 /* サイト一覧 */
 create table site(  /* サイトのテーブルを作る */
 site_id varchar(20) not null ,  /* サイトに番号を割り振る、自動連番 */
 site_name varchar(30) not null,  /* サイトの名前 */
-site_url varchar(255) not null,/* サイトのURL */
+site_url varchar(255) not null unique,/* サイトのURL */
 site_article text not null,/*サイトの記事*/
 site_group varchar(30) not null,/*グループ*/
 picture varchar(255),/*画像*/
 banner varchar(80) not null,/*バナー*/
 PRIMARY KEY (site_id)  /* idの重複、null禁止 */
+);
+
+/*権限マスター*/
+create table master(
+level_id int not null,
+level_name varchar(10) not null,
 );
 
 /* カレッジ生名簿 */
