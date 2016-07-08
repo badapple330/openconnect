@@ -42,42 +42,43 @@
 
 			<tr>
 				<th bgcolor="orange">名前（漢字）</th>
-				<td><input type="text" value="" />姓 <input type="text"
-					value="" />名</td>
+				<td><input type="text" value="" placeholder="山田" required />姓 <input type="text"
+					value="" placeholder="太郎" required />名</td>
 			</tr>
 
 
 
 			<tr>
 				<th bgcolor="orange">名前（ふりがな）</th>
-				<td><input type="text" value="" />せい <input type="text"
-					value="" />めい</td>
+				<td><input type="text" value="" placeholder="やまだ" required />せい <input type="text"
+					value=""  placeholder="たろう" required />めい</td>
 			</tr>
 
 			<tr>
 				<th bgcolor="orange">郵便番号</th>
-				<td><input type="text" id="postcode1" name="postcode1">-
-					<input type="text" id="postcode2" name="postcode2"><input
+				<td><input type="text" id="postcode1" name="postcode1" placeholder="半角数字で入力してください" required>-
+					<input type="text" id="postcode2" name="postcode2" placeholder="半角数字で入力してください" required><input
 					type="button" id="btn" name="btn" value="検索"></td>
 			</tr>
 
 			<tr>
 				<th bgcolor="orange">住所</th>
-				<td><input type="text" id="address1" name="address1">都道府県
-					<input type="text" id="address2" name="address2">市区町村 <input
-					type="text" />番地 <input type="text" />建物名等</td>
+				<td><input type="text" id="address1" name="address1" required>都道府県
+					<input type="text" id="address2" name="address2" required>市区町村 <input
+					type="text" required />番地 <input type="text" />建物名等</td>
 			</tr>
 
 			<tr>
 				<th bgcolor="orange">電話番号</th>
-				<td><input type="text" value="" size="4" maxlength=4 />- <input
-					type="text" value="" size="4" maxlength=4 />- <input type="text"
-					value="" size="4" maxlength=4 /></td>
+				<td><input type="text" value="" size="4" maxlength=4  pattern="^([0-9])" required/>- <input
+					type="text" value="" size="4" maxlength=4 pattern="^([0-9])" required />- <input type="text"
+					value="" size="4" maxlength=4 pattern="^([0-9])" required /></td>
 			</tr>
 
 			<tr>
 				<th bgcolor="orange">メールアドレス</th>
-				<td><input type="text" value="" /></td>
+				<td><input type="text" value="" pattern="^[a-zA-Z]{1}[0-9a-zA-Z]+[\w\.-]+@[\w\.-]+\.\w{2,}+$"
+				required title="○○@○○" /></td>
 			</tr>
 
 			<tr>
@@ -88,13 +89,13 @@
 
 			<tr>
 				<th bgcolor="orange">生年月日</th>
-				<td><input type="text" value="" />年 <input type="text"
-					value="" />月 <input type="text" value="" />日</td>
+				<td><input type="date" name="date" />生年月日
 			</tr>
 
 			<tr>
 				<th bgcolor="orange">パスワード</th>
-				<td><input type="text" value="" /></td>
+				<td><input type="text" value="" maxlength=16 size=50 placeholder="８～１６文字の半角英数字で入力してください"
+				pattern="^([a-zA-Z0-9]{8-16})+$" title="８～１６文字の半角英数字で入力してください"/></td>
 			</tr>
 
 
