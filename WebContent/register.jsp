@@ -53,9 +53,9 @@
 
 				<tr>
 					<th bgcolor="orange">名前（ふりがな）</th>
-					<td><input type="text" name="name_f" value=""
-						placeholder="のび" required />せい <input type="text" name="name_f"
-						value="" placeholder="のびた" required />めい</td>
+					<td><input type="text" name="name_f" value="" placeholder="のび"
+						required />せい <input type="text" name="name_f" value=""
+						placeholder="のびた" required />めい</td>
 				</tr>
 
 				<tr>
@@ -90,8 +90,8 @@
 				<tr>
 					<th bgcolor="orange">メールアドレス</th>
 					<td><input type="text" name="email"
-						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-						required title="メールアドレスを記入してください" /></td>
+						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required
+						title="メールアドレスを記入してください" /></td>
 				</tr>
 
 				<tr>
@@ -102,13 +102,14 @@
 
 				<tr>
 					<th bgcolor="orange">生年月日</th>
-					<td><input type="date" name="birthday" pattern="^[0-9]{8,8}" title="例(1997年8月23日生まれの場合)：19970823" required/>生年月日
+					<td><input type="date" name="birthday" pattern="^[0-9]{8,8}"
+						title="例(1997年8月23日生まれの場合)：19970823" required />生年月日
 				</tr>
 
 				<tr>
 					<th bgcolor="orange">パスワード</th>
-					<td><input type="text"name="password" value="" maxlength=16 size=50
-						placeholder="８～１６文字の半角英数字で入力してください"
+					<td><input type="text" name="password" value="" maxlength=16
+						size=50 placeholder="８～１６文字の半角英数字で入力してください"
 						pattern="^([a-zA-Z0-9]{8,16})+$" title="８～１６文字の半角英数字で入力してください" /></td>
 				</tr>
 
