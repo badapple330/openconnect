@@ -25,22 +25,19 @@ public class InsertDAO {
 	 * @return result
 	 * @throws SQLException
 	 */
-	public int insert(String site_id, String site_name, String site_url, String site_article, String site_group,
-			String picture, String banner) throws Exception {
+	public int insert(String site_id, String site_name, String site_url, String site_group)
+     	{
 		int result = 0;
 		new DBconnector();
 		Connection con = DBconnector.getConnection();
 		try {
-			String sql = "insert into site(site_id, site_name, site_url, site_article, site_group, picture, banner )"
-					+ "values(?,?,?,?,?,?,?)";
+			String sql = "insert into site(site_id, site_name, site_url, site_group )"
+					+ "values(?,?,?,?)";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, site_id);
 			ps.setString(2, site_name);
 			ps.setString(3, site_url);
-			ps.setString(4, site_article);
-			ps.setString(5, site_group);
-			ps.setString(6, picture);
-			ps.setString(7, banner);
+			ps.setString(4, site_group);
 			result = ps.executeUpdate();
 
 		} catch (Exception e) {

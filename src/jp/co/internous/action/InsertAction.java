@@ -28,9 +28,9 @@ public class InsertAction extends ActionSupport {
 	/**
 	 * 記事
 	 */
-
-	private String site_article;
-
+	/*
+	 * private String site_article;
+	 */
 	/**
 	 * グループ
 	 */
@@ -38,19 +38,20 @@ public class InsertAction extends ActionSupport {
 	/*
 	 * サイト写真
 	 */
-
-	private String picture;
-
+	/*
+	 * private String picture;
+	 */
 	/**
 	 * バナー
 	 */
-
-	private String banner;
-
+	/*
+	 * private String banner;
+	 */
 	private String errorMsg;
 
 	/**
 	 * 入力された値をDBに登録し、resultを返すメソッド
+	 *
 	 * @author Arima Genki
 	 * @since 2015/06/16
 	 * @return result
@@ -61,18 +62,26 @@ public class InsertAction extends ActionSupport {
 		String result = ERROR;
 		InsertDAO dao = new InsertDAO();
 		if (!dao.selectBySiteId(site_id)) {
-			if (dao.insert(site_id, site_name, site_url, site_article, site_group, picture, banner) > 0) {
+			if (dao.insert(site_id, site_name, site_url, site_group) > 0) {
 				result = SUCCESS;
 			}
-	}else{
-	    	errorMsg = "そのＩＤは別のサイトで使用されています";
+		} else {
+			errorMsg = "そのＩＤは別のサイトで使用されています";
+		}
+		return result;
 	}
-	return result;
-}
+
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
 
 	public String getSite_id() {
-			return site_id;
-		}
+		return site_id;
+	}
 
 	public void setSite_id(String site_id) {
 		this.site_id = site_id;
@@ -94,14 +103,6 @@ public class InsertAction extends ActionSupport {
 		this.site_url = site_url;
 	}
 
-	public String getSite_article() {
-		return site_article;
-	}
-
-	public void setSite_article(String site_article) {
-		this.site_article = site_article;
-	}
-
 	public String getSite_group() {
 		return site_group;
 	}
@@ -109,28 +110,7 @@ public class InsertAction extends ActionSupport {
 	public void setSite_group(String site_group) {
 		this.site_group = site_group;
 	}
-
-	public String getPicture() {
-		return picture;
-	}
-
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
-
-	public String getBanner() {
-		return banner;
-	}
-
-	public void setBanner(String banner) {
-		this.banner = banner;
-	}
-
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
-	}
 }
+
+
+
