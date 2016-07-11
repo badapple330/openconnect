@@ -31,9 +31,10 @@ user_flg int not null,
 PRIMARY KEY (user_id)  /* idの重複、null禁止 */
 );
 
+
 /* サイト一覧 */
 create table site(  /* サイトのテーブルを作る */
-site_id varchar(20) not null ,  /* サイトに番号を割り振る、自動連番 */
+site_id int not null auto_increment,  /* サイトに番号を割り振る、自動連番 */
 site_name varchar(30) not null,  /* サイトの名前 */
 site_url varchar(255) not null unique,/* サイトのURL */
 site_article text not null,/*サイトの記事*/
@@ -93,13 +94,15 @@ values("testuser","テストユーザー","12345678"),
 ("miyuki.harada","原田美由貴","internous01");
 
 /* サイト一覧 */
-insert into site(name,url)  /* サイト名/URL */
-values("YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/"), /* YOU JUST JEWELRY */
-("solare","http://www.internousdev.com:8080/solare/"), /* solare */
-("UESTO","http://www.internousdev.com:8080/UESTO/"), /* UEST */
-("WorldTravel","http://www.internousdev.com:8080/WorldTravel/"), /* WorldTravel */
-("gpscoffee","http://www.internousdev.com:8080/gpscoffee/"), /* gpscoffee */
-("la-poupee","http://www.internousdev.com:8080/la-poupee/"); /* la-poupee */
+insert into site(site_name, site_url, site_article, site_group, picture, banner)
+ /* サイト名/URL */
+values("YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/","","","",""), /* YOU JUST JEWELRY */
+("solare","http://www.internousdev.com:8080/solare/","","","",""), /* solare */
+("UESTO","http://www.internousdev.com:8080/UESTO/","","","",""), /* UEST */
+("WorldTravel","http://www.internousdev.com:8080/WorldTravel/","","","",""), /* WorldTravel */
+("gpscoffee","http://www.internousdev.com:8080/gpscoffee/","","","",""), /* gpscoffee */
+("la-poupee","http://www.internousdev.com:8080/la-poupee/","","","",""); /* la-poupee */
+
 
 /* カレッジ生一覧 */
 insert into students(number,name,symbol,entrance)  /* 管理番号/名前/なまえ/入講年月 */
