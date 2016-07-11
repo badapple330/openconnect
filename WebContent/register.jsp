@@ -44,9 +44,9 @@
 
 				<tr>
 					<th bgcolor="orange">名前（漢字）</th>
-					<td><input type="text" name="name" value="" placeholder="山田"
+					<td><input type="text" name="name" value="" placeholder="野比"
 						required />姓 <input type="text" name="name" value=""
-						placeholder="太郎" required />名</td>
+						placeholder="のびた" required />名</td>
 				</tr>
 
 
@@ -54,8 +54,8 @@
 				<tr>
 					<th bgcolor="orange">名前（ふりがな）</th>
 					<td><input type="text" name="name_f" value=""
-						placeholder="やまだ" required />せい <input type="text" name="name_f"
-						value="" placeholder="たろう" required />めい</td>
+						placeholder="のび" required />せい <input type="text" name="name_f"
+						value="" placeholder="のびた" required />めい</td>
 				</tr>
 
 				<tr>
@@ -102,7 +102,7 @@
 
 				<tr>
 					<th bgcolor="orange">生年月日</th>
-					<td><input type="date" name="birthday" />生年月日
+					<td><input type="date" name="birthday" pattern="^[0-9]{8,8}" title="例(1997年8月23日生まれの場合)：19970823" required/>生年月日
 				</tr>
 
 				<tr>
