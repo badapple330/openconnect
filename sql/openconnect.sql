@@ -20,7 +20,7 @@ name_f varchar(20),  /* ユーザー名(ふりがな) */
 postal varchar(8) not null,/*郵便番号*/
 address varchar(30) not null,/*住所*/
 tel_number varchar(12) not null,/*電話番号*/
-email varchar(40) not null,/*メールアドレス*/
+email varchar(40) not null unique,/*メールアドレス*/
 sex varchar(2) not null,/*性別*/
 birthday date not null,/*生年月日*/
 register_day datetime not null,/*登録日*/
@@ -28,7 +28,7 @@ update_day datetime not null,/*更新日*/
 userdel_flg boolean not null default FALSE,/*退会フラグ*/
 login_flg boolean not null default FALSE,/*ログインフラグ*/
 user_flg int not null,/*ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者*/
-PRIMARY KEY (email)  /* idの重複、null禁止 */
+PRIMARY KEY (user_id)  /* idの重複、null禁止 */
 );
 
 
