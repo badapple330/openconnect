@@ -1,63 +1,86 @@
 package jp.co.internous.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 import jp.co.internous.util.DBconnector;
 
-import com.mysql.jdbc.Connection;
-import com.opensymphony.xwork2.ActionSupport;
 /**
  * InsertDAO InsertActionがDBにアクセスするためのDAOクラス
+ *
  * @author Arima Genki
  * @since 2015/06/18
  * @version 1.0
  */
-public class InsertDAO extends ActionSupport {
-    private static final long serialVersionUID = -7154055684470828769L;
+public class InsertDAO {
+	/**
+	 * アプリを追加するメソッド
+	 *
+	 * @author Arima Genki
+	 * @since 2015/06/18
+	 * @param siteName
+	 * @param url
+	 * @return result
+	 * @throws SQLException
+	 */
+	public int insert(String site_id, String site_name, String site_url, String site_article, String site_group,
+			String picture, String banner) throws Exception {
+		int result = 0;
+		new DBconnector();
+		Connection con = DBconnector.getConnection();
+		try {
+			String sql = "insert into site(site_id, site_name, site_url, site_article, site_group, picture, banner )"
+					+ "values(?,?,?,?,?,?,?)";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, site_id);
+			ps.setString(2, site_name);
+			ps.setString(3, site_url);
+			ps.setString(4, site_article);
+			ps.setString(5, site_group);
+			ps.setString(6, picture);
+			ps.setString(7, banner);
+			result = ps.executeUpdate();
 
-    public Map<String, Object> sessionMap;
-    /**
-     * コネクション
-     */
-    Connection con = null;
-    /**
-     * 文字列をSQL文にして格納する
-     */
-    PreparedStatement ps2 = null;
-    /**
-     * 結果
-     */
-    private boolean result = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
-    public String error;
-    /**
-     * アプリを追加するメソッド
-     * @author Arima Genki
-     * @since 2015/06/18
-     * @param siteName
-     * @param url
-     * @return result
-     * @throws SQLException
-     */
-    public boolean insert(String siteName, String url) throws Exception {
+	/**
+	 * 抽出メソッド 指定されたログインＩＤが存在するかＤＢに接続して調べる
+	 *
+	 * @author YUKI MAEDA
+	 * @param site_id
+	 *            ユーザーID
+	 * @return 存在したらtrue、存在しなければfalse
+	 */
+	public boolean selectBySiteId(String site_id) {
+		boolean result = false;
 
-        con = (Connection) DBconnector.getConnection();
-        try {
-            String sql = "insert into site(id,name,url) select max(id) + 1, ?, ? from site ";
-            ps2 = con.prepareStatement(sql);
-            ps2.setString(1, siteName);
-            ps2.setString(2, url);
-            int rsCount = ps2.executeUpdate();
-            if (rsCount > 0) {
-                result = true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            con.close();
-        }
-        return result;
-    }
+		new DBconnector();
+		Connection con = DBconnector.getConnection();
+
+		String sql = "select * from site where site_id=?";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, site_id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
 }

@@ -50,12 +50,22 @@
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリ名：<input type="text" name="siteName" maxlength="20"
-						required>
+					<td>アプリ名：<input type="text" name="site_name" maxlength="20" required>
 					</td>
-					<td>URL：<input type="text" name="url"
+					<td>URL：<input type="text" name="site_url"
 						style="ime-mode: disabled" size="20" required>
 					</td>
+					<!--
+					<td>グループ：<select name="site_group" style="ime-mode: disabled" required>
+						<option value="group">グループ</option>
+						<option value="fashion">ファッション</option>
+						<option value="gourmet" selected>グルメ</option>
+						<option value="sports" selected>スポーツ</option>
+						<option value="entertainment" selected>エンタメ</option>
+						</select>
+					</td>
+					-->
+
 					<td><input type="submit" value="追加"></td>
 				</tr>
 			</tbody>
@@ -95,6 +105,14 @@
 					<td>URL：<input type="text" name="url"
 						style="ime-mode: disabled" size="20" required>
 					</td>
+					<td>グループ：<select name="delete_group" style="ime-mode: disabled" required>
+						<option value="group">グループ</option>
+						<option value="fashion">ファッション</option>
+						<option value="gourmet" selected>グルメ</option>
+						<option value="sports" selected>スポーツ</option>
+						<option value="entertainment" selected>エンタメ</option>
+						</select>
+					</td>
 					<td><input type="submit" value="変更"></td>
 				</tr>
 			</tbody>
@@ -113,14 +131,17 @@
 					align="center">appNAME</td>
 				<td	style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
 					align="center">URL</td>
+				<td	style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
+					align="center">GROUP</td>
 			</tr>
 			<s:iterator value="siteInfoList">
 				<tr>
 					<td	style="border: 1px solid #CCC; font-weight: bold; padding: 5px;"
-						align="center"><s:property value="id" /></td>
+						align="center"><s:property value="site_id" /></td>
 					<td style="border: 1px solid #CCC;"><s:property
-						value="siteName" /></td>
-					<td style="border: 1px solid #CCC;"><s:property value="url" /></td>
+						value="site_name" /></td>
+					<td style="border: 1px solid #CCC;"><s:property value="site_url" /></td>
+					<td style="border: 1px solid #CCC;"><s:property value="site_group" /></td>
 				</tr>
 			</s:iterator>
 		</table>
