@@ -55,9 +55,10 @@ public class registerDAO {
 	public int insert(String user_id, String password, String name, String name_f, String postal,
 			String address, String tel_number, String email, String sex, String birthday) {
 		int result = 0;
-		Connection con = new DBconnector().getConnection();
+		new DBconnector();
+		Connection con = DBconnector.getConnection();
 
-		String sql = "insert into corporation(user_id, password, name, name_f, postal, address,"
+		String sql = "insert into user(user_id, password, name, name_f, postal, address,"
 				+ "tel_number, email, sex, birthday, register_day, update_day,"
 				+ "userdel_flg, login_flg, user_flg)"
 				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -81,7 +82,7 @@ public class registerDAO {
 			ps.setString(12, "0000/00/00 00:00:00");
 			ps.setBoolean(13, false);
 			ps.setBoolean(14, false);
-			ps.setInt(14, 1);
+			ps.setInt(15, 1);
 			result = ps.executeUpdate();
 
 		} catch (Exception e) {
@@ -102,9 +103,10 @@ public class registerDAO {
 	public boolean selectByUserId(String user_id) {
 		boolean result = false;
 
-		Connection con = new DBconnector().getConnection();
+		new DBconnector();
+		Connection con = DBconnector.getConnection();
 
-		String sql = "select * from user where login_id=?";
+		String sql = "select * from user where user_id=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, user_id);

@@ -14,14 +14,14 @@ use openconnect;  /* DBを使う */
 /* ユーザー */
 create table user (  /* ユーザーのテーブルを作る */
 user_id int not null auto_increment,  /* ユーザーに番号を割り振る、自動連番 */
-password varchar(16) not null,   /* ユーザーのログイン用パスワード */
-name varchar(10),  /* ユーザー名 */
-name_f varchar(20),  /* ユーザー名(ふりがな) */
-postal varchar(8) not null,/*郵便番号*/
-address varchar(30) not null,/*住所*/
-tel_number varchar(12) not null,/*電話番号*/
-email varchar(40) not null unique,/*メールアドレス*/
-sex varchar(2) not null,/*性別*/
+password varchar(255) not null,   /* ユーザーのログイン用パスワード */
+name varchar(255),  /* ユーザー名 */
+name_f varchar(255),  /* ユーザー名(ふりがな) */
+postal varchar(255) not null,/*郵便番号*/
+address varchar(255) not null,/*住所*/
+tel_number varchar(255) not null,/*電話番号*/
+email varchar(255) not null unique,/*メールアドレス*/
+sex varchar(10) not null,/*性別*/
 birthday date not null,/*生年月日*/
 register_day datetime not null,/*登録日*/
 update_day datetime not null,/*更新日*/

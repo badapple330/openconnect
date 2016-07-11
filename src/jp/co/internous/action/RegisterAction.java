@@ -13,11 +13,6 @@ import jp.co.internous.dao.registerDAO;
 public class RegisterAction extends ActionSupport {
 
 	/**
-	 * シリアルバージョンID
-	 */
-	private static final long serialVersionUID = 47628L;
-
-	/**
 	 * ユーザーID
 	 */
 	private String user_id ;

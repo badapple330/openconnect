@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 public class DBconnector {
-public Connection getConnection(){
+public static Connection getConnection(){
 	String driverName = "com.mysql.jdbc.Driver";
 	String url = "jdbc:mysql://localhost/openconnect";
 	String user = "root";
