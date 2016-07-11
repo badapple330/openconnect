@@ -15,20 +15,20 @@ use openconnect;  /* DBを使う */
 create table user (  /* ユーザーのテーブルを作る */
 user_id int not null auto_increment,  /* ユーザーに番号を割り振る、自動連番 */
 password varchar(16) not null,   /* ユーザーのログイン用パスワード */
-name varchar(10),  /* ユーザー名、使用する人の名前 */
-name_f varchar(20),  /* ユーザー名、使用する人の名前 */
-postal varchar(8) not null,
-address varchar(30) not null,
-tel_number varchar(12) not null,
-email varchar(40) not null unique,
-sex varchar(2) not null,
-birthday date not null,
-register_day datetime not null,
-update_day datetime not null,
-userdel_flg boolean not null default FALSE,
-login_flg boolean not null default FALSE,
-user_flg int not null,
-PRIMARY KEY (user_id)  /* idの重複、null禁止 */
+name varchar(10),  /* ユーザー名 */
+name_f varchar(20),  /* ユーザー名(ふりがな) */
+postal varchar(8) not null,/*郵便番号*/
+address varchar(30) not null,/*住所*/
+tel_number varchar(12) not null,/*電話番号*/
+email varchar(40) not null,/*メールアドレス*/
+sex varchar(2) not null,/*性別*/
+birthday date not null,/*生年月日*/
+register_day datetime not null,/*登録日*/
+update_day datetime not null,/*更新日*/
+userdel_flg boolean not null default FALSE,/*退会フラグ*/
+login_flg boolean not null default FALSE,/*ログインフラグ*/
+user_flg int not null,/*ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者*/
+PRIMARY KEY (email)  /* idの重複、null禁止 */
 );
 
 
@@ -47,7 +47,7 @@ PRIMARY KEY (site_id)  /* idの重複、null禁止 */
 /*権限マスター*/
 create table master(
 level_id int not null,
-level_name varchar(10) not null,
+level_name varchar(10) not null
 );
 
 /* カレッジ生名簿 */
@@ -87,26 +87,33 @@ name varchar(50)  /* 名前 名簿に登録されている名前 */
 );
 
 /* データ登録 */
-/* ユーザー一覧 */
-insert into user(user_id, user_name, password)  /* ユーザーID/名前/パスワード */
-values("testuser","テストユーザー","12345678"),
-("takuma.inoue","井上琢磨","internous01"),
-("miyuki.harada","原田美由貴","internous01");
+/* ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
+insert into user(user_id,password,name,name_f,postal,address,tel_number,email,sex,birthday,register_day,update_day,userdel_flg,login_flg,user_flg)values
+("1","12345678","テスト管理者","てすとかんりしゃ","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","0312345678","testadmin@gmail.com","男","1993-12-24","2016-07-01 13:00:00","2016-07-11 12:11:25",FALSE,FALSE,"2"),
+("2","internous01","井上琢磨","いのうえたくま","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09012341234","takuma.inoue@gmail.com","男","1990-09-25","2016-07-01 13:00:00","2016-07-11 13:54:20",FALSE,FALSE,"2"),
+("3","internous01","原田美由貴","はらだみゆき","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09045674567","miyuki.harada@gmail.com","女","1992-05-03","2016-07-01 13:00:00","2016-07-11 13:00:00",FALSE,FALSE,"2")
+;
 
-/* サイト一覧 */
-insert into site(site_name, site_url, site_article, site_group, picture, banner)
- /* サイト名/URL */
-values("YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/","","","",""), /* YOU JUST JEWELRY */
+/* サイト一覧 / サイト名/URL */
+insert into site(site_name, site_url, site_article, site_group, picture, banner)values
+("YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/","","","",""), /* YOU JUST JEWELRY */
 ("solare","http://www.internousdev.com:8080/solare/","","","",""), /* solare */
 ("UESTO","http://www.internousdev.com:8080/UESTO/","","","",""), /* UEST */
 ("WorldTravel","http://www.internousdev.com:8080/WorldTravel/","","","",""), /* WorldTravel */
 ("gpscoffee","http://www.internousdev.com:8080/gpscoffee/","","","",""), /* gpscoffee */
 ("la-poupee","http://www.internousdev.com:8080/la-poupee/","","","",""); /* la-poupee */
 
+/*権限マスター / 権限レベルID/権限レベル名*/
+insert into master(level_id,level_name)value
+("1","ユーザー"),
+("2","管理者"),
+("3","テストユーザー"),
+("4","出品者");
 
-/* カレッジ生一覧 */
-insert into students(number,name,symbol,entrance)  /* 管理番号/名前/なまえ/入講年月 */
-values("0001","小西 瞬","こにし しゅん","201604"),
+
+/* カレッジ生一覧 / 管理番号/名前/なまえ/入講年月 */
+insert into students(number,name,symbol,entrance) values
+("0001","小西 瞬","こにし しゅん","201604"),
 ("0002","高野 由佳","たかの ゆか","201604"),
 ("0003","村上 俊一","むらかみ しゅんいち","201604"),
 ("0004","山田 晃大","やまだ あきひろ","201604"),
