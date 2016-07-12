@@ -95,13 +95,14 @@ insert into user(user_id,password,name,name_f,postal,address,tel_number,email,se
 ;
 
 /* サイト一覧 / サイト名/URL */
-insert into site(site_name, site_url, /* site_article, */site_group/* picture, banner*/)values
-("YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/",""), /* YOU JUST JEWELRY */
-("solare","http://www.internousdev.com:8080/solare/",""), /* solare */
-("UESTO","http://www.internousdev.com:8080/UESTO/",""), /* UEST */
-("WorldTravel","http://www.internousdev.com:8080/WorldTravel/",""), /* WorldTravel */
-("gpscoffee","http://www.internousdev.com:8080/gpscoffee/",""), /* gpscoffee */
-("la-poupee","http://www.internousdev.com:8080/la-poupee/",""); /* la-poupee */
+/*insert into site(site_id, site_name, site_url, site_article, site_group, picture, banner)values*/
+insert into site(site_id, site_name, site_url)values
+("1","YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/"),/* YOU JUST JEWELRY */
+("2","solare","http://www.internousdev.com:8080/solare/"),/* solare */
+("3","UESTO","http://www.internousdev.com:8080/UESTO/"),/* UEST */
+("4","WorldTravel","http://www.internousdev.com:8080/WorldTravel/"),/* WorldTravel */
+("5","gpscoffee","http://www.internousdev.com:8080/gpscoffee/"),/* gpscoffee */
+("6","la-poupee","http://www.internousdev.com:8080/la-poupee/");/* la-poupee */
 
 /*権限マスター / 権限レベルID/権限レベル名*/
 insert into master(level_id,level_name)value
