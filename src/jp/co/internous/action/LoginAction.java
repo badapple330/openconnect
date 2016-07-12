@@ -2,19 +2,19 @@ package jp.co.internous.action;
 
 import java.util.Map;
 
-import jp.co.internous.dao.LoginDAO;
-
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import jp.co.internous.dao.LoginDAO;
 
 public class LoginAction extends ActionSupport implements SessionAware{
     private static final long serialVersionUID = 1422381634250534884L;
 
     public Map<String, Object> sessionMap;
 
+    private String email;
     private String password;
-    private String username;
     private String result;
 
     public String execute(){
@@ -22,11 +22,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
         LoginDAO logindao = new LoginDAO();
 
-        boolean res = logindao.select(username,password);
+        boolean res = logindao.select(email,password);
 
         if(res){
             result = SUCCESS;
-            sessionMap.put("user", username);
+            sessionMap.put("user", password);
         }
 
         return result;
@@ -52,11 +52,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
     /**
      * @return username
      */
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setSession(Map<String, Object> sessionMap) {

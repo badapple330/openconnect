@@ -2,15 +2,15 @@ package jp.co.internous.dto;
 
 public class LoginDTO {
 
-    private String userID;
+    private String email;
     private String password;
-    private String userName;
 
-    public String getUserID() {
-        return userID;
+
+    public String getEmail() {
+        return email;
     }
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -20,10 +20,5 @@ public class LoginDTO {
         this.password = password;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+
 }

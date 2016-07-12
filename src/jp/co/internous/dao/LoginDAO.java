@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import jp.co.internous.util.DBconnector;
 import jp.co.internous.dto.LoginDTO;
+import jp.co.internous.util.DBconnector;
 
 public class LoginDAO {
 
@@ -16,13 +16,13 @@ public class LoginDAO {
     private PreparedStatement stmt;
     private ResultSet result;
 
-    public boolean select(String userID, String password){
+    public boolean select(String email, String password){
         try {
             con = DBconnector.getConnection();
 
             sql = "SELECT * "
                 + "FROM user "
-                + "WHERE user_id = \"" + userID + "\" "
+                + "WHERE email = \"" + email + "\" "
                 + "AND password = \"" + password + "\""
                 ;
 
@@ -32,9 +32,8 @@ public class LoginDAO {
             while(result.next()){
                 resultDAO = true;
                 LoginDTO logindto = new LoginDTO();
-                logindto.setUserID(result.getString(1));
+                logindto.setEmail(result.getString(1));
                 logindto.setPassword(result.getString(2));
-                logindto.setUserName(result.getString(3));
             }
         } catch (Exception e) {
             e.printStackTrace();

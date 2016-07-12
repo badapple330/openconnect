@@ -23,8 +23,8 @@
                 <div class="col-sm-8 col-sm-offset-2">
                     <s:form theme="simple" id="inner" class="form-horizontal" action="LoginAction">
                         <div class="form-group">
-                            <label class="col-sm-3">ユーザー名</label>
-                            <s:textfield class="col-sm-5" name="username" value="" />
+                            <label class="col-sm-3">メールアドレス</label>
+                            <s:textfield class="col-sm-5" name="email" value="" />
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3">パスワード</label>
@@ -35,14 +35,6 @@
                             <s:submit name="submit" value="ログイン" />
                             </div>
                         </div>
-                    </s:form>
-
-                    <s:form theme="simple" id="in" class="twitter" action="TwitterLogin">
-                        <s:submit name="submit" value="TwitterLogin" />
-                    </s:form>
-
-                    <s:form theme="simple" id="in" class="google" action="GoogleOAuth">
-                        <s:submit value="GoogleLogin"></s:submit>
                     </s:form>
                 </div>
             </div>
