@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <div >
-                            <s:submit name="submit" value="ログイン" />
+                            <s:submit type="submit" value="ログイン" />
                             </div>
                         </div>
                     </s:form>
