@@ -1,6 +1,6 @@
 package jp.co.internous.dto;
 
-public class registerDTO {
+public class RegisterDTO {
 
 
 	private int user_id;

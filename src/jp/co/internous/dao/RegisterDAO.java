@@ -14,7 +14,7 @@ import jp.co.internous.util.DBconnector;
  * @author YUKI MAEDA
  * @since 2016/07/11
  */
-public class registerDAO {
+public class RegisterDAO {
 
 	/**
 	 * 挿入メソッド 指定された情報をDBに接続して挿入するメソッド
