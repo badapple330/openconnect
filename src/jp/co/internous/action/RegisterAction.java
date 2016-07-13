@@ -2,7 +2,7 @@ package jp.co.internous.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import jp.co.internous.dao.registerDAO;
+import jp.co.internous.dao.RegisterDAO;
 
 /**
  * 入力された新規情報をDAOに渡して結果を操作するためのクラス
@@ -75,7 +75,7 @@ public class RegisterAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
-		registerDAO dao = new registerDAO();
+		RegisterDAO dao = new RegisterDAO();
 		if (!dao.selectByUserId(user_id)) {
 			if (dao.insert(user_id, password, name, name_f, postal, address, tel_number, email, sex,
 				   birthday) > 0) {
