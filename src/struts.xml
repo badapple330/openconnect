@@ -90,7 +90,7 @@
 
         		<!-- register.jspで登録ボタン押下 -->
 		<action name="RegisterAction" class="jp.co.internous.action.RegisterAction" method="execute">
-			<result name="success">/index.jsp</result>
+			<result name="success" type="redirectAction">GetAddressAction</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
