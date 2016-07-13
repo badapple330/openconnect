@@ -1,5 +1,9 @@
 package jp.co.internous.action;
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import jp.co.internous.dao.RegisterDAO;
@@ -10,7 +14,8 @@ import jp.co.internous.dao.RegisterDAO;
  * @author YUKI MAEDA
  * @since 2016/07/11
  */
-public class RegisterAction extends ActionSupport {
+public class RegisterAction extends ActionSupport implements SessionAware{
+    public Map<String, Object> sessionMap;
 
 	/**
 	 * ユーザーID
@@ -80,6 +85,7 @@ public class RegisterAction extends ActionSupport {
 			if (dao.insert(user_id, password, name, name_f, postal, address, tel_number, email, sex,
 				   birthday) > 0) {
 				result = SUCCESS;
+			    sessionMap.put("user", password);
 			}
 		}else{
 			errorMsg = "そのＩＤは別のアカウントで使用されています";
@@ -174,6 +180,9 @@ public class RegisterAction extends ActionSupport {
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
 	}
+
+
+public void setSession(Map<String, Object> sessionMap) {
+    this.sessionMap = sessionMap;
 }
-
-
+}
