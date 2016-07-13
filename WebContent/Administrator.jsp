@@ -50,7 +50,8 @@
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリ名：<input type="text" name="site_name" maxlength="20" required>
+					<td>アプリ名：<input type="text" name="site_name" maxlength="20"
+						required>
 					</td>
 					<td>URL：<input type="text" name="site_url"
 						style="ime-mode: disabled" size="20" required>
@@ -105,13 +106,14 @@
 					<td>URL：<input type="text" name="url"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<td>グループ：<select name="delete_group" style="ime-mode: disabled" required>
-						<option value="group">グループ</option>
-						<option value="fashion">ファッション</option>
-						<option value="gourmet" selected>グルメ</option>
-						<option value="sports" selected>スポーツ</option>
-						<option value="entertainment" selected>エンタメ</option>
-						</select>
+					<td>グループ：<select name="delete_group"
+						style="ime-mode: disabled" required>
+							<option value="group">グループ</option>
+							<option value="fashion">ファッション</option>
+							<option value="gourmet" selected>グルメ</option>
+							<option value="sports" selected>スポーツ</option>
+							<option value="entertainment" selected>エンタメ</option>
+					</select>
 					</td>
 					<td><input type="submit" value="変更"></td>
 				</tr>
@@ -122,26 +124,34 @@
 	<br>
 	<br>
 	<s:form action="GetAddressAdminAction">
-	<input type="submit" value="アプリ一覧情報取得">
-		<table style="border: 3px solid #CCC; border-collapse: collapse; width:">
+		<input type="submit" value="アプリ一覧情報取得">
+		<table
+			style="border: 3px solid #CCC; border-collapse: collapse; width:">
 			<tr>
-				<td	style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 1px; width: 10%;"
+				<td
+					style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 1px; width: 10%;"
 					align="center">appID</td>
-				<td	style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
+				<td
+					style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
 					align="center">appNAME</td>
-				<td	style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
+				<td
+					style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
 					align="center">URL</td>
-				<td	style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
+				<td
+					style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
 					align="center">GROUP</td>
 			</tr>
 			<s:iterator value="siteInfoList">
 				<tr>
-					<td	style="border: 1px solid #CCC; font-weight: bold; padding: 5px;"
+					<td
+						style="border: 1px solid #CCC; font-weight: bold; padding: 5px;"
 						align="center"><s:property value="site_id" /></td>
 					<td style="border: 1px solid #CCC;"><s:property
-						value="site_name" /></td>
-					<td style="border: 1px solid #CCC;"><s:property value="site_url" /></td>
-					<td style="border: 1px solid #CCC;"><s:property value="site_group" /></td>
+							value="site_name" /></td>
+					<td style="border: 1px solid #CCC;"><s:property
+							value="site_url" /></td>
+					<td style="border: 1px solid #CCC;"><s:property
+							value="site_group" /></td>
 				</tr>
 			</s:iterator>
 		</table>
@@ -154,6 +164,8 @@
 	<br>
 	<p id="page-top">
 		<a href="#wrap">PAGE TOP</a>
+	</p>
+		<a href="applist.jsp">HOMEへ</a>
 	</p>
 </body>
 </html>
