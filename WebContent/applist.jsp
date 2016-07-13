@@ -24,12 +24,8 @@
 						<s:if test="notLoginMsg != null">
 							<li><a href="login.jsp" class="dropdown-toggle"
 								data-toggle="dropdown">ログイン</a></li>
-							<li><s:url id="twitterAuth" action="TwitterLogin"></s:url> <s:a
-									href="%{twitterAuth}">twitter</s:a></li>
-							<li><s:url id="googleAuth" action="GoogleLogin"></s:url> <s:a
-									href="%{googleAuth}">google</s:a></li>
-							<li><s:url id="facebookAuth" action="FacebookLogin"></s:url>
-								<s:a href="%{facebookAuth}">facebook</s:a></li>
+							<li><a href="register.jsp" class="dropdown=toggle"
+								data-toggle="dropdown">新規登録</a></li>
 						</s:if>
 						<s:else>
 							<li><a href="logout" class="dropdown-toggle"
@@ -59,9 +55,9 @@
 			<s:property value="notLoginMsg"></s:property>
 		</s:if>
 		<s:else>
-		<ul>
-			<s:a href="GoKintaiChooseAction">勤怠管理を行う方はこちらへ</s:a>
-		</ul>
+			<ul>
+				<s:a href="GoKintaiChooseAction">勤怠管理を行う方はこちらへ</s:a>
+			</ul>
 		</s:else>
 	</div>
 </body>
