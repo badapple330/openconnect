@@ -78,7 +78,7 @@
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリID：<input type="text" name="id" maxlength="4"
+					<td>アプリID：<input type="text" name="site_id" maxlength="4"
 						onkeyDown="return numOnly()" pattern="[0-9a-z]{1,10}"
 						title="半角数字で入力してください" required>
 
@@ -94,19 +94,19 @@
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリID : <input type="text" name="id" maxlength="20"
+					<td>アプリID : <input type="text" name="site_id" maxlength="20"
 						onkeyDown="return numOnly()" pattern="[0-9]{1,10}"
 						title="半角数字で入力してください" required>
 					</td>
 
-					<td>アプリ名：<input type="text" name="siteName" maxlength="20"
+					<td>アプリ名：<input type="text" name="site_name" maxlength="20"
 						required>
 					</td>
 
-					<td>URL：<input type="text" name="url"
+					<td>URL：<input type="text" name="site_url"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<td>グループ：<select name="delete_group"
+					<td>グループ：<select name="site_group"
 						style="ime-mode: disabled" required>
 							<option value="group">グループ</option>
 							<option value="fashion">ファッション</option>
