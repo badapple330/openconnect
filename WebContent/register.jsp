@@ -70,11 +70,10 @@
 
 				<tr>
 					<th bgcolor="orange">住所</th>
-					<td><input type="text" name="address" id="address1"
-						maxlength=4 required>都道府県 <input type="text"
-						name="address" id="address2"  required>市区町村 <input
-						type="text" name="address" required />番地 <input type="text"
-						name="address" />建物名等</td>
+					<td><input type="text" name="address" id="address1" required>都道府県
+						<input type="text" name="address" id="address2" required>市区町村
+						<input type="text" name="address" required />番地 <input
+						type="text" name="address" />建物名等</td>
 				</tr>
 
 				<tr>
@@ -112,7 +111,7 @@
 						placeholder="８～１６文字の半角英数字で入力してください"
 						pattern="^([a-zA-Z0-9]{8,16})+$" title="８～１６文字の半角英数字で入力してください" /></td>
 				</tr>
-					<tr>
+				<tr>
 					<th bgcolor="orange">パスワード確認</th>
 					<td><input type="text" name="passwordcheck" value="" size=50
 						placeholder="８～１６文字の半角英数字で入力してください"
