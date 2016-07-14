@@ -4,10 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import jp.co.internous.dao.GetAddressDAO;
 import jp.co.internous.dto.GetAddressDTO;
-
-import com.opensymphony.xwork2.ActionSupport;
 /**
  * InsertAction 管理者画面からサイト情報を取得する為のアクション
  * @author Arima Genki

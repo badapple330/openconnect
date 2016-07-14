@@ -26,17 +26,19 @@ public class UpdateAppDAO {
      * @param id
      * @param siteName
      * @param url
+     * @param add_group
      * @return result
      * @throws SQLException
      */
-    public boolean update(int id, String siteName, String url) throws SQLException {
+    public boolean update(int site_id, String site_name, String site_url, String site_group) throws SQLException {
         con = DBconnector.getConnection();
         try {
-            String sql = "update site set name=?,url=? where id=?";
+            String sql = "update site set site_name=?, site_url=?, site_group=? where site_id=?";
             ps = con.prepareStatement(sql);
-            ps.setString(1, siteName);
-            ps.setString(2, url);
-            ps.setInt(3, id);
+            ps.setString(1, site_name);
+            ps.setString(2, site_url);
+            ps.setString(3, site_group);
+            ps.setInt(4, site_id);
             int rsCount = ps.executeUpdate();
             if (rsCount > 0) {
                 result = true;

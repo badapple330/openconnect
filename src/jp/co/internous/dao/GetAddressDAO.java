@@ -22,9 +22,10 @@ public class GetAddressDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 GetAddressDTO dto = new GetAddressDTO();
-                dto.setId(rs.getInt(1));
-                dto.setSiteName(rs.getString(2));
-                dto.setUrl(rs.getString(3));
+                dto.setSite_id(rs.getInt(1));
+                dto.setSite_name(rs.getString(2));
+                dto.setSite_url(rs.getString(3));
+                dto.setSite_group(rs.getString(4));
                 siteInfoList.add(dto);
             }
         } catch (SQLException e) {
@@ -32,7 +33,6 @@ public class GetAddressDAO {
         } finally {
             con.close();
         }
-
         return siteInfoList;
     }
 }
