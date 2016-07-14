@@ -72,7 +72,7 @@
 					<th bgcolor="orange">住所</th>
 					<td><input type="text" name="address" id="address1"
 						maxlength=4 required>都道府県 <input type="text"
-						name="address" id="address2" maxlength=4 required>市区町村 <input
+						name="address" id="address2"  required>市区町村 <input
 						type="text" name="address" required />番地 <input type="text"
 						name="address" />建物名等</td>
 				</tr>
