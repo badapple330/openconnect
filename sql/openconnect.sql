@@ -39,7 +39,7 @@
 	site_name varchar(30) not null,  /* サイトの名前 */
 	site_url varchar(255) not null unique,/* サイトのURL */
 	/*site_article text not null,サイトの記事*/
-	site_group varchar(30),/*グループ*/
+	/*site_group varchar(30),グループ*/
 	/*picture varchar(255),画像*/
 	/*banner varchar(80) not null,バナー*/
 	PRIMARY KEY (site_id)  /* idの重複、null禁止 */
