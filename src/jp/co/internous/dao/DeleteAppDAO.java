@@ -1,48 +1,31 @@
 package jp.co.internous.dao;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import jp.co.internous.util.DBconnector;
 
 public class DeleteAppDAO {
-    int i;
-    /**
-     * コネクション
-     */
-    Connection con = null;
-    /**
-     * 文字列をSQL文にして格納する
-     */
-    PreparedStatement ps = null;
-    /**
-     * 結果
-     */
-    boolean result = false;
-    /**
-     * アプリを削除するメソッド
-     * @author Arima Genki
-     * @since 2015/06/18
-     * @param id
-     * @return result
-     * @throws SQLException
-     */
-    public boolean delete(int id) throws SQLException {
+	public int delete(int site_id) throws SQLException {
+		int count = 0;
+		DBconnector db = new DBconnector();
 
-        con = DBconnector.getConnection();
-        try {
-            String sql = "DELETE FROM site WHERE id=?";
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            i = ps.executeUpdate();
-            result = true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        ps.close();
-        con.close();
-        return result;
-    }
+		Connection con = db.getConnection();
+		String sql = "Delete from site WHERE site_id = ?";
+		try {
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1,site_id);
+		count = ps.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+				try{
+						con.close();		//DBとの接続終了
+				}catch (SQLException e){
+						e.printStackTrace();
+				}
+		}
+		return count;
+	}
 }

@@ -1,48 +1,34 @@
 package jp.co.internous.dto;
 
 public class GetAddressDTO {
+	private int site_id;
+	private String site_name;
+	private String site_url;
+	private String site_group;
 
-
-	private int id;
-	private String siteName;
-	private String url;
-	/**
-	 * @return id
-	 */
-	public int getId() {
-		return id;
+	public int getSite_id() {
+		return site_id;
 	}
-	/**
-	 * @param id セットする id
-	 */
-	public void setId(int id) {
-		this.id = id;
+	public void setSite_id(int site_id) {
+		this.site_id = site_id;
 	}
-	/**
-	 * @return siteName
-	 */
-	public String getSiteName() {
-		return siteName;
+	public String getSite_name() {
+		return site_name;
 	}
-	/**
-	 * @param siteName セットする siteName
-	 */
-	public void setSiteName(String siteName) {
-		this.siteName = siteName;
+	public void setSite_name(String site_name) {
+		this.site_name = site_name;
 	}
-	/**
-	 * @return url
-	 */
-	public String getUrl() {
-		return url;
+	public String getSite_url() {
+		return site_url;
 	}
-	/**
-	 * @param url セットする url
-	 */
-	public void setUrl(String url) {
-		this.url = url;
+	public void setSite_url(String site_url) {
+		this.site_url = site_url;
 	}
-
-
+	public String getSite_group() {
+		return site_group;
+	}
+	public void setSite_group(String site_group) {
+		this.site_group = site_group;
+	}
 
 }

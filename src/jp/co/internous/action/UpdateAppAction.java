@@ -3,11 +3,11 @@ package jp.co.internous.action;
 import java.sql.SQLException;
 import java.util.Map;
 
-import jp.co.internous.dao.UpdateAppDAO;
-
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import jp.co.internous.dao.UpdateAppDAO;
 
 /**
  * UpdateGoodsAction 管理者画面から商品情報を編集する為のアクション
@@ -18,29 +18,13 @@ import com.opensymphony.xwork2.ActionSupport;
 public class UpdateAppAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 811223625143510825L;
 
-	/**
-	 * ID
-	 */
-	private int id;
-	/**
-	 * サイト名
-	 */
-	private String siteName;
-	/**
-	 * URL
-	 */
-	private String url;
-	/**
-	 * セッション
-	 */
+	private int site_id;
+	private String site_name;
+	private String site_url;
+	private String site_group;
+
 	private Map<String, Object> sessionMap;
-	/**
-	 * エラーメッセージ
-	 */
 	public String errormsg = null;
-	/**
-	 * 結果
-	 */
 	private String result = ERROR;
 	/**
 	 * 入力された値をDBに登録されている商品に反映し、resultを返すメソッド
@@ -53,7 +37,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException {
 		UpdateAppDAO updateAppDao = new UpdateAppDAO();
 
-		if (updateAppDao.update(id, siteName, url)) {
+		if (updateAppDao.update(site_id, site_name, site_url, site_group)) {
 			try {
 				result = "success";
 			} catch (Exception e) {
@@ -64,75 +48,42 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		}
 		return result;
 	}
-	/**
-	 * ID取得メソッド
-	 * @author Arima Genki
-	 * @since 2016/06/016
-	 * @return Id
-	 */
-	public int getId() {
-		return id;
+
+
+	public int getSite_id() {
+		return site_id;
 	}
-	/**
-	 * ID格納メソッド
-	 * @author Arima Genki
-	 * @since 2016/06/016
-	 * @param Id
-	 */
-	public void setId(int id) {
-		this.id = id;
+
+	public void setSite_id(int site_id) {
+		this.site_id = site_id;
 	}
-	/**
-	 * サイト名取得メソッド
-	 * @author Arima Genki
-	 * @since 2016/06/016
-	 * @return siteName
-	 */
-	public String getSiteName() {
-		return siteName;
+
+	public String getSite_name() {
+		return site_name;
 	}
-	/**
-	 * サイト名格納メソッド
-	 * @author Arima Genki
-	 * @since 2016/06/016
-	 * @param siteName
-	 */
-	public void setSiteName(String siteName) {
-		this.siteName = siteName;
+
+	public void setSite_name(String site_name) {
+		this.site_name = site_name;
 	}
-	/**
-	 * URL取得メソッド
-	 * @author Arima Genki
-	 * @since 2016/06/016
-	 * @return url
-	 */
-	public String getUrl() {
-		return url;
+
+	public String getSite_url() {
+		return site_url;
 	}
-	/**
-	 * URL格納メソッド
-	 * @author Arima Genki
-	 * @since 2016/06/016
-	 * @param url
-	 */
-	public void setUrl(String url) {
-		this.url = url;
+
+	public void setSite_url(String site_url) {
+		this.site_url = site_url;
 	}
-	/**
-	 * セッション取得メソッド
-	 * @author Arima Genki
-	 * @since 2015/05/16
-	 * @return sessionMap
-	 */
+	public String getSite_group() {
+		return site_group;
+	}
+	public void setSite_group(String site_group) {
+		this.site_group = site_group;
+	}
+
 	public Map<String, Object> getSessionMap() {
 		return sessionMap;
 	}
-	/**
-	 * セッション格納メソッド
-	 * @author Arima Genki
-	 * @since 2015/06/16
-	 * @param sessionMap
-	 */
+
 	public void setSession(Map<String, Object> sessionMap) {
 		this.sessionMap = sessionMap;
 	}
