@@ -28,6 +28,10 @@ public class RegisterAction extends ActionSupport implements SessionAware{
 	private String password;
 
 	/**
+	 * ログインパスワード確認
+	 */
+	private String passwordcheck;
+	/**
 	 * 名前
 	 */
 	private String name;
@@ -81,7 +85,7 @@ public class RegisterAction extends ActionSupport implements SessionAware{
 	public String execute() {
 		String result = ERROR;
 		RegisterDAO dao = new RegisterDAO();
-		if (!dao.selectByUserId(user_id)) {
+		if (!dao.selectByUserId(user_id) && password.equals(passwordcheck)) {
 			if (dao.insert(user_id, password, name, name_f, postal, address, tel_number, email, sex,
 				   birthday) > 0) {
 				result = SUCCESS;
@@ -107,6 +111,15 @@ public class RegisterAction extends ActionSupport implements SessionAware{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	public String getPasswordcheck() {
+		return passwordcheck;
+	}
+
+	public void setPasswordcheck(String passwordcheck) {
+		this.passwordcheck = passwordcheck;
 	}
 
 	public String getName() {
