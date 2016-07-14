@@ -3,16 +3,6 @@
  */
 package com.internous.openconnect.attendance.DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
-
-
-
 /**
  * @author internous
  *
@@ -23,9 +13,11 @@ public class AttendanceRegisterDAO {
 	 *@author KOCHO SANSHIRO
 	 *
 	 */
+}
+/*
 	public int insert(String userName) {
 
-		int count = 0;
+
 		DBconnector db = new DBConnector();
 		Connection con = db.getConnection();
 
@@ -44,3 +36,4 @@ public class AttendanceRegisterDAO {
 		}
 	}
 	｝
+*/
