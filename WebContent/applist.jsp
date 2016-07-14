@@ -40,8 +40,8 @@
 		<h1 class="page-header">アプリ一覧</h1>
 		<s:iterator value="siteInfoList">
 			<ul>
-				<s:a href="%{url}">
-					<s:property value="siteName" />
+				<s:a href="%{site_}">
+					<s:property value="site_name" />
 					<br>
 				</s:a>
 			</ul>
