@@ -38,10 +38,10 @@
 	site_id int not null auto_increment,  /* サイトに番号を割り振る、自動連番 */
 	site_name varchar(30) not null,  /* サイトの名前 */
 	site_url varchar(255) not null unique,/* サイトのURL */
-	/*site_article text not null,サイトの記事*/
-	/*site_group varchar(30),グループ*/
-	/*picture varchar(255),画像*/
-	/*banner varchar(80) not null,バナー*/
+	site_article text not null,/*site_article text not null,サイトの記事*/
+	Genre varchar(30),/*site_group varchar(30),グループ*/
+	picture varchar(255),/*picture varchar(255),画像*/
+	banner varchar(80), /*banner varchar(80) not null,バナー*/
 	PRIMARY KEY (site_id)  /* idの重複、null禁止 */
 	);
 
@@ -90,27 +90,27 @@
 	/* データ登録 */
 	/* ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
 	insert into user(user_id,password,name,name_f,postal,address,tel_number,email,sex,birthday,handle_name,register_day,update_day,userdel_flg,login_flg,user_flg)values
-	("1","12345678","テスト管理者","てすとかんりしゃ","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","0312345678","testadmin@gmail.com","男","1993-12-24","test","2016-07-01 13:00:00","2016-07-11 12:11:25",FALSE,FALSE,"2"),
-	("2","internous01","井上琢磨","いのうえたくま","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09012341234","takuma.inoue@gmail.com","男","1990-09-25","taku","2016-07-01 13:00:00","2016-07-11 13:54:20",FALSE,FALSE,"2"),
-	("3","internous01","原田美由貴","はらだみゆき","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09045674567","miyuki.harada@gmail.com","女","1992-05-03","miyu","2016-07-01 13:00:00","2016-07-11 13:00:00",FALSE,FALSE,"2")
+	(1,"12345678","テスト管理者","てすとかんりしゃ","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","0312345678","testadmin@gmail.com","男","1993-12-24","test","2016-07-01 13:00:00","2016-07-11 12:11:25",FALSE,FALSE,"2"),
+	(2,"internous01","井上琢磨","いのうえたくま","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09012341234","takuma.inoue@gmail.com","男","1990-09-25","taku","2016-07-01 13:00:00","2016-07-11 13:54:20",FALSE,FALSE,"2"),
+	(3,"internous01","原田美由貴","はらだみゆき","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09045674567","miyuki.harada@gmail.com","女","1992-05-03","miyu","2016-07-01 13:00:00","2016-07-11 13:00:00",FALSE,FALSE,"2")
 	;
 
 	/* サイト一覧 / サイト名/URL */
 	/*insert into site(site_id, site_name, site_url, site_article, site_group, picture, banner)values*/
-	insert into site(site_id, site_name, site_url)values
-	("1","YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/","ビューティ"),/* YOU JUST JEWELRY */
-	("2","solare","http://www.internousdev.com:8080/solare/","グルメ"),/* solare */
-	("3","baseballticket","http://www.internousdev.com:8080/baseballticket/","チケット"),/* baseballticket */
-	("4","WorldTravel","http://www.internousdev.com:8080/WorldTravel/","チケット"),/* WorldTravel */
-	("5","gpscoffee","http://www.internousdev.com:8080/gpscoffee/","グルメ"),/* gpscoffee */
-	("6","la-poupee","http://www.internousdev.com:8080/la-poupee/","エンタメ");/* la-poupee */
+	insert into site(site_id, site_name, site_url,site_article,Genre,picture,banner)values
+	(1,"YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/","ジュエリーサイト","ビューティ",null,null),/* YOU JUST JEWELRY */
+	(2,"solare","http://www.internousdev.com:8080/solare/","フランス料理","グルメ",null,null),/* solare */
+	(3,"baseballticket","http://www.internousdev.com:8080/baseballticket/","野球観戦","チケット",null,null),/* baseballticket */
+	(4,"WorldTravel","http://www.internousdev.com:8080/WorldTravel/","世界旅行紹介","チケット",null,null),/* WorldTravel */
+	(5,"gpscoffee","http://www.internousdev.com:8080/gpscoffee/","コーヒー","グルメ",null,null),/* gpscoffee */
+	(6,"la-poupee","http://www.internousdev.com:8080/la-poupee/","ゲームキャラクター紹介","エンタメ",null,null);/* la-poupee */
 
 	/*権限マスター / 権限レベルID/権限レベル名*/
 	insert into master(level_id,level_name)value
-	("1","ユーザー"),
-	("2","管理者"),
-	("3","テストユーザー"),
-	("4","出品者");
+	(1,"ユーザー"),
+	(2,"管理者"),
+	(3,"テストユーザー"),
+	(4,"出品者");
 
 
 	/* カレッジ生一覧 / 管理番号/名前/なまえ/入講年月 */
