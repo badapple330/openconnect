@@ -8,57 +8,57 @@ public class AppDTOTest {
 
 
 	@Test
-	public void testGetId() {
+	public void testGetSite_id() {
 	int Id=3;
 	AppDTO expected = new AppDTO();
-	expected.setId(3);
-	assertEquals(Id, expected.getId());
+	expected.setSite_id(3);
+	assertEquals(Id, expected.getSite_id());
 	}
 
 	@Test
-	public void testSetId() {
+	public void testSetSite_id() {
 	int Id=3;
 	AppDTO expected = new AppDTO();
-	expected.setId(3);
-	int value =expected.getId();
+	expected.setSite_id(3);
+	int value =expected.getSite_id();
 	assertEquals(Id, value);
 	}
 
 	@Test
-	public void testGetSiteName() {
+	public void testGetSite_name() {
 		String siteName ="March";
 		AppDTO expected = new AppDTO();
-		expected.setSiteName(siteName);
-		assertSame(siteName,expected.getSiteName());
-		assertEquals(siteName,expected.getSiteName());
+		expected.setSite_name(siteName);
+		assertSame(siteName,expected.getSite_name());
+		assertEquals(siteName,expected.getSite_name());
 
 	}
 	@Test
-	public void testSetSiteName() {
+	public void testSetSite_name() {
 		String siteName ="March";
 		AppDTO expected = new AppDTO();
-		expected.setSiteName("March");
-		String value = expected.getSiteName();
+		expected.setSite_name("March");
+		String value = expected.getSite_name();
 		assertSame(value,siteName);
 		assertEquals(value,siteName);
 
 	}
 
 	@Test
-	public void testGetUrl() {
+	public void testGetSite_url() {
 		String url ="http://www.internousdev.com:8080/YouJustJewelry/";
 		AppDTO expected = new AppDTO();
-		expected.setUrl(url);
-		assertSame(url,expected.getUrl());
-		assertEquals(url,expected.getUrl());
+		expected.setSite_url(url);
+		assertSame(url,expected.getSite_url());
+		assertEquals(url,expected.getSite_url());
 
 	}
 	@Test
-	public void testSetUrl() {
+	public void testSetSite_url() {
 		String url ="http://www.internousdev.com:8080/YouJustJewelry/";
 		AppDTO expected = new AppDTO();
-		expected.setUrl("http://www.internousdev.com:8080/YouJustJewelry/");
-		String value = expected.getUrl();
+		expected.setSite_url("http://www.internousdev.com:8080/YouJustJewelry/");
+		String value = expected.getSite_url();
 		assertSame(value,url);
 		assertEquals(value,url);
 

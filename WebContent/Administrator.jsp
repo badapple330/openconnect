@@ -56,16 +56,14 @@
 					<td>URL：<input type="text" name="site_url"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<!--
 					<td>グループ：<select name="site_group" style="ime-mode: disabled" required>
-						<option value="group">グループ</option>
-						<option value="fashion">ファッション</option>
-						<option value="gourmet" selected>グルメ</option>
-						<option value="sports" selected>スポーツ</option>
-						<option value="entertainment" selected>エンタメ</option>
+						<option value="グループ" selected>グループ</option>
+						<option value="ファッション">ファッション</option>
+						<option value="グルメ">グルメ</option>
+						<option value="スポーツ">スポーツ</option>
+						<option value="エンタメ">エンタメ</option>
 						</select>
 					</td>
-					-->
 
 					<td><input type="submit" value="追加"></td>
 				</tr>
@@ -106,13 +104,12 @@
 					<td>URL：<input type="text" name="site_url"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<td>グループ：<select name="site_group"
-						style="ime-mode: disabled" required>
-							<option value="group">グループ</option>
-							<option value="fashion">ファッション</option>
-							<option value="gourmet" selected>グルメ</option>
-							<option value="sports" selected>スポーツ</option>
-							<option value="entertainment" selected>エンタメ</option>
+					<td>グループ：<select name="site_group" style="ime-mode: disabled" required>
+							<option value="グループ" selected>グループ</option>
+							<option value="ファッション">ファッション</option>
+							<option value="グルメ">グルメ</option>
+							<option value="スポーツ">スポーツ</option>
+							<option value="エンタメ">エンタメ</option>
 					</select>
 					</td>
 					<td><input type="submit" value="変更"></td>
