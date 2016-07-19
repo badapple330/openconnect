@@ -15,20 +15,20 @@
 	create table user (  /* ユーザーのテーブルを作る */
 	user_id int not null auto_increment,  /* ユーザーに番号を割り振る、自動連番 */
 	password varchar(255) not null,   /* ユーザーのログイン用パスワード */
-	name varchar(255),  /* ユーザー名 */
-	name_f varchar(255),  /* ユーザー名(ふりがな) */
-	postal varchar(255) not null,/*郵便番号*/
-	address varchar(255) not null,/*住所*/
-	tel_number varchar(255) not null,/*電話番号*/
+	name varchar(255) default "　",  /* ユーザー名 */
+	name_f varchar(255) default "　",  /* ユーザー名(ふりがな) */
+	postal varchar(255) not null default "　",/*郵便番号*/
+	address varchar(255) not null default "　",/*住所*/
+	tel_number varchar(255) not null default "　",/*電話番号*/
 	email varchar(255) not null unique,/*メールアドレス*/
-	sex varchar(10) not null,/*性別*/
-	birthday date not null,/*生年月日*/
+	sex varchar(10) not null default "　",/*性別*/
+	birthday date not null default 00000000,/*生年月日*/
 	handle_name varchar(16),
-	register_day datetime not null,/*登録日*/
-	update_day datetime not null,/*更新日*/
+	register_day datetime not null default 00000000000000,/*登録日*/
+	update_day datetime not null default 00000000000000,/*更新日*/
 	userdel_flg boolean not null default FALSE,/*退会フラグ*/
 	login_flg boolean not null default FALSE,/*ログインフラグ*/
-	user_flg int not null,/*ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者*/
+	user_flg int not null default 1,/*ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者*/
 	PRIMARY KEY (user_id)  /* idの重複、null禁止 */
 	);
 
@@ -120,7 +120,7 @@
 	("0003","村上 俊一","むらかみ しゅんいち","201604"),
 	("0004","山田 晃大","やまだ あきひろ","201604"),
 	("0005","冨澤 正樹","とみざわ まさき","201604"),
-	("0006","安孫子 春菜","あびこ はるな","201604"),
+	("0006","安孫子 春菜","あびこ はるな","201604"),	
 	("0007","江森 壮汰","えもり そうた","201604"),
 	("0008","大山 汐莉","おおやま しおり","201604"),
 	("0009","宮上 京介","みやがみ きょうすけ","201604"),
