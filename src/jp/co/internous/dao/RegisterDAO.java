@@ -66,6 +66,7 @@ public class RegisterDAO {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String registerDay = sdf.format(System.currentTimeMillis());
 
+
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, user_id);
