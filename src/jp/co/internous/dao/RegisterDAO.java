@@ -47,32 +47,30 @@ public class RegisterDAO {
 	 * @param userdel_flg
 	 *            ユーザー削除フラグ
 	 * @param login_flg
-	 *             ログインフラグ
+	 *            ログインフラグ
 	 * @param user_flg
-	 *             ユーザーフラグ
+	 *            ユーザーフラグ
 	 * @return result 挿入に成功したら1以上、失敗したら0
 	 */
-	public int insert(String user_id, String password, String name, String name_f, String postal,
-			String address, String tel_number, String email, String sex, String birthday) {
+	public int insert(String user_id, String password, String name, String name_f, String postal, String address,
+			String tel_number, String email, String sex, String birthday) {
 		int result = 0;
 		new DBconnector();
 		Connection con = DBconnector.getConnection();
 
 		String sql = "insert into user(user_id, password, name, name_f, postal, address,"
-				+ "tel_number, email, sex, birthday, register_day, update_day,"
-				+ "userdel_flg, login_flg, user_flg)"
+				+ "tel_number, email, sex, birthday, register_day, update_day," + "userdel_flg, login_flg, user_flg)"
 				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String registerDay = sdf.format(System.currentTimeMillis());
-
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, user_id);
 			ps.setString(2, password);
 			ps.setString(3, name);
-			ps.setString(4,name_f);
+			ps.setString(4, name_f);
 			ps.setString(5, postal);
 			ps.setString(6, address);
 			ps.setString(7, tel_number);
@@ -93,8 +91,8 @@ public class RegisterDAO {
 	}
 
 	/**
-	 * 抽出メソッド
-	 * 指定されたログインＩＤが存在するかＤＢに接続して調べる
+	 *
+	 * 指定されたユーザーＩＤが存在するかＤＢに接続して調べるメソッド
 	 *
 	 * @author YUKI MAEDA
 	 * @param user_id
