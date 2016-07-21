@@ -20,19 +20,19 @@ public class RegisterDAO {
 	 * 挿入メソッド 指定された情報をDBに接続して挿入するメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param user_id
+	 * @param userID
 	 *            ユーザーID
 	 * @param password
 	 *            パスワード
 	 * @param name
 	 *            名前
-	 * @param name_f
+	 * @param nameF
 	 *            名前(ふりがな)
 	 * @param postal
 	 *            郵便番号
 	 * @param address
 	 *            住所
-	 * @param tel_number
+	 * @param telNumber
 	 *            代表者
 	 * @param email
 	 *            メールアドレス
@@ -40,20 +40,20 @@ public class RegisterDAO {
 	 *            性別
 	 * @param birthday
 	 *            誕生日
-	 * @param register_day
+	 * @param registerDay
 	 *            登録日
-	 * @param update_day
+	 * @param updateDay
 	 *            更新日
-	 * @param userdel_flg
+	 * @param userdelFlg
 	 *            ユーザー削除フラグ
-	 * @param login_flg
+	 * @param loginFlg
 	 *            ログインフラグ
-	 * @param user_flg
+	 * @param userFlg
 	 *            ユーザーフラグ
 	 * @return result 挿入に成功したら1以上、失敗したら0
 	 */
-	public int insert(String user_id, String password, String name, String name_f, String postal, String address,
-			String tel_number, String email, String sex, String birthday) {
+	public int insert(String userID, String password, String name, String nameF, String postal, String address,
+			String telNumber, String email, String sex, String birthday) {
 		int result = 0;
 		new DBconnector();
 		Connection con = DBconnector.getConnection();
@@ -67,13 +67,13 @@ public class RegisterDAO {
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, user_id);
+			ps.setString(1, userID);
 			ps.setString(2, password);
 			ps.setString(3, name);
-			ps.setString(4, name_f);
+			ps.setString(4, nameF);
 			ps.setString(5, postal);
 			ps.setString(6, address);
-			ps.setString(7, tel_number);
+			ps.setString(7, telNumber);
 			ps.setString(8, email);
 			ps.setString(9, sex);
 			ps.setString(10, birthday);
@@ -99,7 +99,7 @@ public class RegisterDAO {
 	 *            ユーザーID
 	 * @return 存在したらtrue、存在しなければfalse
 	 */
-	public boolean selectByUserId(String user_id) {
+	public boolean selectByUserId(String userId) {
 		boolean result = false;
 
 		new DBconnector();
@@ -108,7 +108,7 @@ public class RegisterDAO {
 		String sql = "select * from user where user_id=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, user_id);
+			ps.setString(1, userId);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				result = true;

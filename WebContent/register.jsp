@@ -53,8 +53,8 @@
 
 				<tr>
 					<th bgcolor="orange">名前（ふりがな）</th>
-					<td><input type="text" name="name_f" value="" placeholder="のび"
-						required />せい <input type="text" name="name_f" value=""
+					<td><input type="text" name="nameF" value="" placeholder="のび"
+						required />せい <input type="text" name="nameF" value=""
 						placeholder="のびた" required />めい</td>
 				</tr>
 
@@ -79,11 +79,11 @@
 
 				<tr>
 					<th bgcolor="orange">電話番号</th>
-					<td><input type="text" name="tel_number" value="" size="4"
+					<td><input type="text" name="telNumber" value="" size="4"
 						maxlength=4 pattern="^[0-9]+$" required title="半角数字で入力してください" />-
-						<input type="text" name="tel_number" value="" size="4" maxlength=4
+						<input type="text" name="telNumber" value="" size="4" maxlength=4
 						pattern="^[0-9]+$" required title="半角数字で入力してください" />- <input
-						type="text" name="tel_number" value="" size="4" maxlength=4
+						type="text" name="telNumber" value="" size="4" maxlength=4
 						pattern="^[0-9]+$" required title="半角数字で入力してください" /></td>
 				</tr>
 

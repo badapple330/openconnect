@@ -20,7 +20,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	/**
 	 * ユーザーID
 	 */
-	private String user_id;
+	private String userId;
 
 	/**
 	 * ログインパスワード
@@ -39,7 +39,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	/**
 	 * 名前（ふりがな）
 	 */
-	private String name_f;
+	private String nameF;
 
 	/**
 	 * 郵便番号
@@ -54,7 +54,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	/**
 	 * 代表者
 	 */
-	private String tel_number;
+	private String telNumber;
 
 	/**
 	 * メールアドレス
@@ -85,8 +85,8 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 		RegisterDAO dao = new RegisterDAO();
-		if (!dao.selectByUserId(user_id) && password.equals(passwordcheck)) {
-			if (dao.insert(user_id, password, name, name_f, postal, address, tel_number, email, sex, birthday) > 0) {
+		if (!dao.selectByUserId(userId) && password.equals(passwordcheck)) {
+			if (dao.insert(userId, password, name, nameF, postal, address, telNumber, email, sex, birthday) > 0) {
 				result = SUCCESS;
 				sessionMap.put("user", password);
 			}
@@ -102,8 +102,8 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @author YUKI MAEDA
 	 * @return user_id 取得するユーザーID
 	 */
-	public String getUser_id() {
-		return user_id;
+	public String getUserId() {
+		return userId;
 	}
 
 	/**
@@ -113,8 +113,8 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @param user_id
 	 *            格納するユーザーID
 	 */
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	/**
@@ -187,8 +187,8 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @author YUKI MAEDA
 	 * @return name_f 取得する名前（ふりがな）
 	 */
-	public String getName_f() {
-		return name_f;
+	public String getNameF() {
+		return nameF;
 	}
 
 	/**
@@ -198,8 +198,8 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @param name_f
 	 *            格納する名前（ふりがな）
 	 */
-	public void setName_f(String name_f) {
-		this.name_f = name_f;
+	public void setNameF(String nameF) {
+		this.nameF = nameF;
 	}
 
 	/**
@@ -250,8 +250,8 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @author YUKI MAEDA
 	 * @return tel_number 取得する電話番号
 	 */
-	public String getTel_number() {
-		return tel_number;
+	public String getTelNumber() {
+		return telNumber;
 	}
 
 	/**
@@ -261,8 +261,8 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @param tel_number
 	 *            格納する電話番号
 	 */
-	public void setTel_number(String tel_number) {
-		this.tel_number = tel_number;
+	public void setTelNumber(String telNumber) {
+		this.telNumber = telNumber;
 	}
 
 	/**
