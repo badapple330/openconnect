@@ -10,18 +10,33 @@ import com.opensymphony.xwork2.ActionSupport;
 import jp.co.internous.dao.UpdateAppDAO;
 
 /**
- * UpdateGoodsAction 管理者画面から商品情報を編集する為のアクション
+ * AddAppAction 管理者画面でのアプリ追加を行うクラス
+ *
  * @author Arima Genki
  * @since 2015/06/15
- * @version 1.0
+ * @author MAIKI OKANO
+ * @since 2016/07/20
+ * @version 1.1
  */
 public class UpdateAppAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 811223625143510825L;
 
+	/**
+     * サイトID
+     */
 	private int site_id;
+	/**
+     * サイトの名前
+     */
 	private String site_name;
+	/**
+     * サイトURL
+     */
 	private String site_url;
-	private String site_group;
+	/**
+     * サイトのジャンル
+     */
+	private String genre;
 
 	private Map<String, Object> sessionMap;
 	public String errormsg = null;
@@ -30,14 +45,14 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 	 * 入力された値をDBに登録されている商品に反映し、resultを返すメソッド
 	 * @author Arima Genki
 	 * @since 2015/06/15
+	 * @author MAIKI OKANO
+	 * @since 2015/07/21
 	 * @return result
-	 * @throws SQLException
-	 * @see UpdateAppDAO
 	 */
 	public String execute() throws SQLException {
 		UpdateAppDAO updateAppDao = new UpdateAppDAO();
 
-		if (updateAppDao.update(site_id, site_name, site_url, site_group)) {
+		if (updateAppDao.update(site_id, site_name, site_url, genre)) {
 			try {
 				result = "success";
 			} catch (Exception e) {
@@ -73,11 +88,11 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 	public void setSite_url(String site_url) {
 		this.site_url = site_url;
 	}
-	public String getSite_group() {
-		return site_group;
+	public String getGenre() {
+		return genre;
 	}
-	public void setSite_group(String site_group) {
-		this.site_group = site_group;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
 	public Map<String, Object> getSessionMap() {

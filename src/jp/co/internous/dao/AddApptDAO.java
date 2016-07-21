@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import jp.co.internous.util.DBconnector;
 
-public class InsertDAO {
+public class AddApptDAO {
 	public int insert(int site_id, String site_name, String site_url, String site_group){
 		int count = 0;
 		DBconnector db = new DBconnector();
