@@ -28,7 +28,7 @@ public class GetAddressDAO {
 				dto.setSite_id(rs.getInt(1));
 				dto.setSite_name(rs.getString(2));
 				dto.setSite_url(rs.getString(3));
-				dto.setSite_group(rs.getString(4));
+				dto.setGenre(rs.getString(4));
 				siteInfoList.add(dto);
 			}
 		} catch (SQLException e) {
