@@ -4,10 +4,10 @@
 
 <html>
 <head>
-<link rel="stylesheet"  href="changeInfo.css"  type="text/css">
 <meta charset="UTF-8">
-
-
+<!-- css読み込み -->
+<link rel="stylesheet"  href="changeInfo.css"  type="text/css">
+<!-- js読み込み -->
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-2.1.0.min.js"></script>
 <script type="text/javascript"
@@ -48,63 +48,69 @@
 <h1>ユーザー情報変更</h1>
 
 	<table>
+			<!------------------   ユーザーID    ------------------->
 			<tr>
 			<th>ユーザーID</th>
 			<td><input type="text" value="" required="required"/></td>
 			</tr>
 
+			<!------------------   ユーザーPW    ------------------->
 			<tr>
 			<th>パスワード</th>
 			<td><input type="text" value="" required="required"/></td>
 			</tr>
 
+			<!------------------   PW確認    ------------------->
 			<tr>
 			<th>パスワード確認</th>
 			<td><input type="text" value="" required="required"/></td>
 			</tr>
 
+			<!------------------   氏名(漢字)    ------------------->
 			<tr>
 			<th>氏名（漢字）</th>
-			<td><input type="text" placeholder="例)山田" required="required" />姓<br>
-			<input type="text" placeholder="太郎" required="required" />名<br></td>
+			<td><input type="text" placeholder="例)山田" required="required" /><br>
+			<input type="text" placeholder="太郎" required="required" /><br></td>
 			</tr>
 
+			<!------------------   氏名(ふりがな)    ------------------->
 			<tr>
 			<th>氏名（ふりがな）</th>
-			<td><input type="text" placeholder="例)やまだ" required="required"/>せい<br><input type="text"  placeholder="例)たろう" required="required"/>めい</td>
+			<td><input type="text" placeholder="例)やまだ" required="required"/><br><input type="text"  placeholder="例)たろう" required="required"/></td>
 			</tr>
 
+			<!------------------   郵便番号    ------------------->
 			<tr>
 			<th>郵便番号〒</th>
 			<td><input type="text" value="" id="postcode1" name="postcode1" />-<input type="text" value="" id="postcode2" name="postcode2" />
 			<input type="button" id="btn" name="btn" value="検索"></td>
 			</tr>
 
+			<!------------------   住所    ------------------->
 			<tr>
 			<th>住所</th>
-			<td><input type="text" id="address1" name="address1" />都道府県<br><input type="text" id="address2" name="address2" />市区町村<br><input type="text" value="" />番地<br></td>
+			<td><input type="text" id="address1" name="address1" placeholder="都道府県"/><br><input type="text" id="address2" name="address2" placeholder="市区町村" /><br><input type="text" value=""  placeholder="番地"/><br></td>
 			</tr>
 
+			<!------------------   電話番号    ------------------->
 			<tr>
 			<th>電話番号</th>
-			<td>　 <input type="text" name="cellnum" /><br>－<input type="text" name="cellnum" /><br>－<input type="text" name="cellnum" /></td>
+			<td><input type="text" name="cellnum" />－<input type="text" name="cellnum" />－<input type="text" name="cellnum" /></td>
 			</tr>
 
+			<!------------------   メールアドレス    ------------------->
 			<tr>
 			<th>メールアドレス</th>
 			<td><input type="text" value="" /></td>
 			</tr>
 
+			<!------------------   性別    ------------------->
 			<tr>
-
 			<th>性別</th>
 			<td><input type="radio" name="gender" value="male" />男性<input type="radio" name="gender" value="female" />女性</td>
-
-
-
-
 			</tr>
 
+			<!------------------   生年月日   ------------------->
 			<tr>
 			<th>生年月日</th>
 			<td>
@@ -130,7 +136,8 @@
 
 			</td>
 			</tr>
-			<!--
+
+			<!-- 現時点では使わないためコメントアウト
 			<tr>
 			<th>固有ID（OAuth ID）</th>
 			<td><input type="text" value="" /></td>
@@ -138,6 +145,7 @@
 			-->
 	</table>
 	<br>
+	<!-- 退会ボタン -->
 	<input type="submit" value="退会する" />
 	<input type="submit" value="キャンセル" />
 </div>
