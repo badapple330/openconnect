@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+.siteList{
+	border: 3px solid #CCC;
+	border-collapse: collapse;
+}
+.siteList th{
+	height: 3em;
+	border: 2px solid #CCC;
+	background-color: #FFCC99;
+	font-weight: bold;
+	padding: 1px;
+	width: 10%;
+	align="center"
+}
+.siteList td{
+	border: 1px solid #CCC;
+	font-weight: bold;
+	padding: 5px;
+}

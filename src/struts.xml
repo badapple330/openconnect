@@ -60,32 +60,32 @@
 
         <action name="GoAdminAction" class="jp.co.internous.action.GoAdminAction"
         method="execute">
-        <result name="success">/Administrator.jsp</result>
+        <result name="success">/admin.jsp</result>
         <result name="error">/LoginAdmin.jsp</result>
         </action>
 
         <action name="GetAddressAdminAction" class="jp.co.internous.action.GetAddressAdminAction"
             method="execute">
-            <result name="success">/Administrator.jsp</result>
-            <result name="error">/Administrator.jsp</result>
+            <result name="success">/admin.jsp</result>
+            <result name="error">/admin.jsp</result>
         </action>
 
         <action name="UpdateAppAction" class="jp.co.internous.action.UpdateAppAction"
             method="execute">
-            <result name="success">/Administrator.jsp</result>
-            <result name="error">/Administrator.jsp</result>
+            <result name="success">/admin.jsp</result>
+            <result name="error">/admin.jsp</result>
         </action>
 
         <action name="DeleteAppAction" class="jp.co.internous.action.DeleteAppAction"
             method="execute">
-            <result name="success">/Administrator.jsp</result>
-            <result name="error">/Administrator.jsp</result>
+            <result name="success">/admin.jsp</result>
+            <result name="error">/admin.jsp</result>
         </action>
 
         <action name="AddAppAction" class="jp.co.internous.action.AddAppAction"
             method="execute">
-            <result name="success">/Administrator.jsp</result>
-            <result name="error">/Administrator.jsp</result>
+            <result name="success">/admin.jsp</result>
+            <result name="error">/admin.jsp</result>
         </action>
 
         		<!-- register.jspで登録ボタン押下 -->

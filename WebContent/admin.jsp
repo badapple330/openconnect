@@ -9,31 +9,7 @@
 <title>admin画面</title>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		var topBtn = $('#page-top');
-		topBtn.hide();
-		$(window).scroll(function() {
-			if ($(this).scrollTop() > 100) {
-				topBtn.fadeIn();
-			} else {
-				topBtn.fadeOut();
-			}
-		});
-		topBtn.click(function() {
-			$('body,html').animate({
-				scrollTop : 0
-			}, 500);
-			return false;
-		});
-	});
-	function numOnly() {
-		m = String.fromCharCode(event.keyCode);
-		if ("0123456789\b\r".indexOf(m, 0) < 0)
-			return false;
-		return true;
-	}
-</script>
+<script src="./js/admin.js"></script>
 </head>
 <body>
 	<div class="centerdesign">
@@ -50,8 +26,7 @@
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリ名：<input type="text" name="site_name" maxlength="20"
-						required>
+					<td>アプリ名：<input type="text" name="site_name" maxlength="20" required>
 					</td>
 					<td>URL：<input type="text" name="site_url"
 						style="ime-mode: disabled" size="20" required>
@@ -122,33 +97,21 @@
 	<br>
 	<s:form action="GetAddressAdminAction">
 		<input type="submit" value="アプリ一覧情報取得">
-		<table
-			style="border: 3px solid #CCC; border-collapse: collapse; width:">
+		<table class="siteList">
+			<thead>
 			<tr>
-				<td
-					style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 1px; width: 10%;"
-					align="center">appID</td>
-				<td
-					style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
-					align="center">appNAME</td>
-				<td
-					style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
-					align="center">URL</td>
-				<td
-					style="height: 3em; border: 2px solid #CCC; background-color: #FFCC99; font-weight: bold; padding: 5px;"
-					align="center">GROUP</td>
+				<th>appID</th>
+				<th>appNAME</th>
+				<th>URL</th>
+				<th>GROUP</th>
 			</tr>
+			</thead>
 			<s:iterator value="siteInfoList">
 				<tr>
-					<td
-						style="border: 1px solid #CCC; font-weight: bold; padding: 5px;"
-						align="center"><s:property value="site_id" /></td>
-					<td style="border: 1px solid #CCC;"><s:property
-							value="site_name" /></td>
-					<td style="border: 1px solid #CCC;"><s:property
-							value="site_url" /></td>
-					<td style="border: 1px solid #CCC;"><s:property
-							value="site_group" /></td>
+					<td align="center"><s:property value="site_id" /></td>
+					<td><s:property value="site_name" /></td>
+					<td><s:property value="site_url" /></td>
+					<td><s:property value="site_group" /></td>
 				</tr>
 			</s:iterator>
 		</table>
@@ -159,10 +122,9 @@
 	<br>
 	<br>
 	<br>
-	<p id="page-top">
+	<div id="page-top">
 		<a href="#wrap">PAGE TOP</a>
-	</p>
+	</div>
 		<a href="applist.jsp">HOMEへ</a>
-	</p>
 </body>
 </html>
