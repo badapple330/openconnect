@@ -32,11 +32,7 @@ public class AddAppAction extends ActionSupport {
      * エラーメッセージ
      */
 	private String errorMsg;
-	/*
-	private String site_article;
-	private String picture;
-	private String banner;
-	*/
+
 	/**
      * DAOにサイト情報を渡して結果を返す
      *
