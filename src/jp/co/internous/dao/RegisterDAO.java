@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
-import jp.co.internous.util.DBconnector;
+import com.internousdev.util.DBConnector;
 
 /**
  * 新規登録情報を格納するためのDAO
@@ -55,8 +55,9 @@ public class RegisterDAO {
 	public int insert(String userID, String password, String name, String nameF, String postal, String address,
 			String telNumber, String email, String sex, String birthday) {
 		int result = 0;
-		new DBconnector();
-		Connection con = DBconnector.getConnection();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection con = db.getConnection();
 
 		String sql = "insert into user(user_id, password, name, name_f, postal, address,"
 				+ "tel_number, email, sex, birthday, register_day, update_day," + "userdel_flg, login_flg, user_flg)"
@@ -102,8 +103,9 @@ public class RegisterDAO {
 	public boolean selectByUserId(String userId) {
 		boolean result = false;
 
-		new DBconnector();
-		Connection con = DBconnector.getConnection();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection con = db.getConnection();
 
 		String sql = "select * from user where user_id=?";
 		try {

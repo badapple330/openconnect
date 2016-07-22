@@ -5,13 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import jp.co.internous.util.DBconnector;
+import com.internousdev.util.DBConnector;
 
 public class AddAppDAO {
-	public int insert(int site_id, String site_name, String site_url, String site_group){
+	public int insert(int site_id, String site_name, String site_url, String site_group) {
 		int count = 0;
-		DBconnector db = new DBconnector();
-		Connection con = DBconnector.getConnection();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection con = db.getConnection();
 		String sql = "insert into site(site_id, site_name, site_url, site_group)values(?,?,?,?)";
 
 		try {
@@ -24,20 +25,21 @@ public class AddAppDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally{
-    	 try{
-	    		 con.close();
-	         }catch (SQLException e){
-	          	  e.printStackTrace();
-	         }
-	     }
-     return count;
-}
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
+	}
 
 	public boolean selectBySiteId(int site_id) {
 		boolean result = false;
-		new DBconnector();
-		Connection con = DBconnector.getConnection();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection con = db.getConnection();
 		String sql = "select * from site where site_id=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
