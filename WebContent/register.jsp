@@ -6,8 +6,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- css読み込み -->
-<link rel="stylesheet"  href="changeInfo.css"  type="text/css">
 <!-- js読み込み -->
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-2.1.0.min.js"></script>
