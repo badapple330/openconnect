@@ -7,10 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Open Connect</title>
+<!-- css読み込み  -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<!-- js読み込み -->
 <script src="js/bootstrap.js"></script>
 </head>
 <body>
+<!-- ヘッダー -->
 	<header>
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container">
@@ -22,20 +25,27 @@
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<s:if test="notLoginMsg != null">
+
 							<li><a href="login.jsp" class="dropdown-toggle"
 								data-toggle="dropdown">ログイン</a></li>
+
 							<li><a href="register.jsp" class="dropdown=toggle"
 								data-toggle="dropdown">新規登録</a></li>
 						</s:if>
+
 						<s:else>
 							<li><a href="logout" class="dropdown-toggle"
 								data-toggle="dropdown">ログアウト</a></li>
 						</s:else>
+
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
+<!-- ヘッダーはここまで -->
+
+<!-- アプリ一覧表示 -->
 	<div class="container">
 		<h1 class="page-header">アプリ一覧</h1>
 		<s:iterator value="siteInfoList">
@@ -49,6 +59,7 @@
 		<s:property value="notLoginMsg"></s:property>
 	</div>
 
+<!-- 勤怠管理サイト -->
 	<div class="container">
 		<h1 class="page-header">勤怠管理</h1>
 		<s:if test="notLoginMsg != null">
