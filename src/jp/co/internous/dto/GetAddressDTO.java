@@ -12,15 +12,15 @@ public class GetAddressDTO{
 	/**
      * サイトID
      */
-	private int site_id;
+	private int siteId;
 	/**
      * サイトの名前
      */
-	private String site_name;
+	private String siteName;
 	/**
      * サイトURL
      */
-	private String site_url;
+	private String siteUrl;
 	/**
      * サイトのジャンル
      */
@@ -30,55 +30,55 @@ public class GetAddressDTO{
      * 取得メソッド サイトIDを取得
      *
      * @author MAIKI OKANO
-     * @return site_id
+     * @return siteId
      */
-	public int getSite_id() {
-		return site_id;
+	public int getSiteId() {
+		return siteId;
 	}
 	/**
      * 格納メソッド サイトIDを格納
      *
      * @author MAIKI OKANO
-     * @param site_id
+     * @param siteId
      */
-	public void setSite_id(int site_id) {
-		this.site_id = site_id;
+	public void setSiteId(int siteId) {
+		this.siteId = siteId;
 	}
 	/**
      * 取得メソッド サイトの名前を取得
      *
      * @author MAIKI OKANO
-     * @return site_name
+     * @return siteName
      */
-	public String getSite_name() {
-		return site_name;
+	public String getSiteName() {
+		return siteName;
 	}
 	/**
      * 格納メソッド サイトの名前を格納
      *
      * @author MAIKI OKANO
-     * @param site_name
+     * @param siteName
      */
-	public void setSite_name(String site_name) {
-		this.site_name = site_name;
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
 	}
 	/**
      * 取得メソッド サイトURLを取得
      *
      * @author MAIKI OKANO
-     * @return site_url
+     * @return siteUrl
      */
-	public String getSite_url() {
-		return site_url;
+	public String getSiteUrl() {
+		return siteUrl;
 	}
 	/**
      * 格納メソッド サイトURLを格納
      *
      * @author MAIKI OKANO
-     * @param site_url
+     * @param siteUrl
      */
-	public void setSite_url(String site_url) {
-		this.site_url = site_url;
+	public void setSiteUrl(String siteUrl) {
+		this.siteUrl = siteUrl;
 	}
 	/**
      * 取得メソッド サイトのジャンルを取得
