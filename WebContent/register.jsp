@@ -45,8 +45,8 @@
 				<tr>
 					<th bgcolor="orange">名前（漢字）</th>
 					<td><input type="text" name="name" value="" placeholder="野比"
-						required />姓 <input type="text" name="name" value=""
-						placeholder="のびた" required />名</td>
+						maxlength="24" required />姓 <input type="text" name="name"
+						value="" placeholder="のびた" maxlength="25" required />名</td>
 				</tr>
 
 
@@ -54,8 +54,8 @@
 				<tr>
 					<th bgcolor="orange">名前（ふりがな）</th>
 					<td><input type="text" name="nameF" value="" placeholder="のび"
-						required />せい <input type="text" name="nameF" value=""
-						placeholder="のびた" required />めい</td>
+						maxlength="24" required />せい <input type="text" name="nameF"
+						value="" placeholder="のびた" maxlength="25" required />めい</td>
 				</tr>
 
 				<tr>
@@ -71,10 +71,11 @@
 
 				<tr>
 					<th bgcolor="orange">住所</th>
-					<td><input type="text" name="address" id="address1" required>都道府県
-						<input type="text" name="address" id="address2" required>市区町村
-						<input type="text" name="address" required />番地 <input
-						type="text" name="address" />建物名等</td>
+					<td><input type="text" name="address" id="address1"
+						maxlength="10" required>都道府県 <input type="text"
+						name="address" id="address2" maxlength="15" required>市区町村
+						<input type="text" name="address" maxlength="10" required />番地 <input
+						type="text" name="address" maxlength="15" />建物名等</td>
 				</tr>
 
 				<tr>
@@ -90,8 +91,8 @@
 				<tr>
 					<th bgcolor="orange">メールアドレス</th>
 					<td><input type="text" name="email"
-						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required
-						title="メールアドレスを記入してください" /></td>
+						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
+						required title="メールアドレスを記入してください" /></td>
 				</tr>
 
 				<tr>
