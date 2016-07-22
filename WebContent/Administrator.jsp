@@ -46,7 +46,7 @@
 		<font size="2" color="red"> </font>
 	</div>
 	<h2>アプリ追加</h2>
-	<s:form action="InsertAction">
+	<s:form action="AddAppAction">
 		<table class="wwFormTable">
 			<tbody>
 				<tr>

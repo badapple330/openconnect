@@ -17,7 +17,7 @@
         <action name="GetAddressAction" class="jp.co.internous.action.GetAddressAction"
             method="execute">
             <result name="success">/applist.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/applist.jsp</result>
         </action>
 
         <action name="logout" class="jp.co.internous.action.LogoutAction"
@@ -44,7 +44,7 @@
         <action name="LoginFacebookAction" class="jp.co.internous.action.LoginFacebookAction"
             method="execute">
             <result name="success" type="redirectAction">GetAddressAction</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/login.jsp</result>
         </action>
 
         <action name="GoogleLogin" class="jp.co.internous.action.GoGoogleAction"
@@ -55,7 +55,7 @@
         <action name="LoginGoogleAction" class="jp.co.internous.action.LoginGoogleAction"
             method="execute">
             <result name="success" type="redirectAction">GetAddressAction</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/login.jsp</result>
         </action>
 
         <action name="GoAdminAction" class="jp.co.internous.action.GoAdminAction"
@@ -67,25 +67,25 @@
         <action name="GetAddressAdminAction" class="jp.co.internous.action.GetAddressAdminAction"
             method="execute">
             <result name="success">/Administrator.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/Administrator.jsp</result>
         </action>
 
         <action name="UpdateAppAction" class="jp.co.internous.action.UpdateAppAction"
             method="execute">
             <result name="success">/Administrator.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/Administrator.jsp</result>
         </action>
 
         <action name="DeleteAppAction" class="jp.co.internous.action.DeleteAppAction"
             method="execute">
             <result name="success">/Administrator.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/Administrator.jsp</result>
         </action>
 
-        <action name="InsertAction" class="jp.co.internous.action.InsertAction"
+        <action name="AddAppAction" class="jp.co.internous.action.AddAppAction"
             method="execute">
             <result name="success">/Administrator.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/Administrator.jsp</result>
         </action>
 
         		<!-- register.jspで登録ボタン押下 -->

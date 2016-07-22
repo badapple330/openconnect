@@ -2,7 +2,7 @@ package jp.co.internous.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import jp.co.internous.dao.AddApptDAO;
+import jp.co.internous.dao.AddAppDAO;
 /**
  * AddAppAction 管理者画面でのアプリ追加を行うクラス
  *
@@ -10,7 +10,7 @@ import jp.co.internous.dao.AddApptDAO;
  * @since 2016/07/20
  * @version 1.0
  */
-public class AddAPPAction extends ActionSupport {
+public class AddAppAction extends ActionSupport {
 
 	/**
      * サイトID
@@ -45,7 +45,7 @@ public class AddAPPAction extends ActionSupport {
      */
 	public String execute() {
 		String result = ERROR;
-		AddApptDAO dao = new AddApptDAO();
+		AddAppDAO dao = new AddAppDAO();
 
 		int count = 0;
 		count = dao.insert(site_id, site_name, site_url, genre);
