@@ -19,6 +19,10 @@ import jp.co.internous.dao.UpdateAppDAO;
  * @version 1.1
  */
 public class UpdateAppAction extends ActionSupport implements SessionAware {
+
+	/**
+	 * シリアルバージョンIDの生成
+	 */
 	private static final long serialVersionUID = 811223625143510825L;
 
 	/**

@@ -1,8 +1,8 @@
 package jp.co.internous.action;
 
-import jp.co.internous.dao.LoginAdminDAO;
-
 import com.opensymphony.xwork2.ActionSupport;
+
+import jp.co.internous.dao.LoginAdminDAO;
 /**
  * GoAdminAction 管理者画面にログインするためのアクション
  * @author Sakai Shinya
@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class GoAdminAction extends ActionSupport{
 	/**
-	 *
+	 * シリアルバージョンIDの生成
 	 */
 	private static final long serialVersionUID = 1270013947997996059L;
 	/**
