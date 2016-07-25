@@ -76,6 +76,12 @@
             <result name="error">/admin.jsp</result>
         </action>
 
+        <action name="GetAddressAdminAction" class="com.internousdev.openconnect.action.GetAddressAdminAction"
+            method="execute">
+            <result name="success">/admin.jsp</result>
+            <result name="error">/admin.jsp</result>
+        </action>
+
         		<!-- register.jspで登録ボタン押下 -->
 		<action name="RegisterAction" class="com.internousdev.openconnect.action.RegisterAction" method="execute">
 			<result name="success" type="redirectAction">GetAddressAction</result>

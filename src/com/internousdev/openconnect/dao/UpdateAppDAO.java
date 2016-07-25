@@ -38,7 +38,7 @@ public class UpdateAppDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql = "update site set site_name=?, site_url=?, site_group=? where site_id=?";
+			String sql = "update site set site_name=?, site_url=?, genre=? where site_id=?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, siteName);
 			ps.setString(2, siteUrl);

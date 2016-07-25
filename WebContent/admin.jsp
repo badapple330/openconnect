@@ -26,17 +26,24 @@
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリ名：<input type="text" name="site_name" maxlength="20" required>
+					<td>アプリ名：<input type="text" name="siteName" maxlength="20" required>
 					</td>
-					<td>URL：<input type="text" name="site_url"
+					<td>URL：<input type="text" name="siteUrl"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<td>グループ：<select name="site_group" style="ime-mode: disabled" required>
-						<option value="グループ" selected>グループ</option>
-						<option value="ファッション">ファッション</option>
-						<option value="グルメ">グルメ</option>
-						<option value="スポーツ">スポーツ</option>
-						<option value="エンタメ">エンタメ</option>
+					<td>グループ：
+						<select name="genre" style="ime-mode: disabled" required>
+							<option value="グループ" selected></option>
+							<option value="観る">観る</option>
+							<option value="読む">読む</option>
+							<option value="グルメ">グルメ</option>
+							<option value="エンタメ">エンタメ</option>
+							<option value="スポーツ">スポーツ</option>
+							<option value="ファッション">ファッション</option>
+							<option value="ビューティ">ビューティ</option>
+							<option value="チケット">チケット</option>
+							<option value="レンタル">レンタル</option>
+							<option value="旅行">旅行</option>
 						</select>
 					</td>
 
@@ -51,7 +58,7 @@
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリID：<input type="text" name="site_id" maxlength="4"
+					<td>アプリID：<input type="text" name="siteId" maxlength="4"
 						onkeyDown="return numOnly()" pattern="[0-9a-z]{1,10}"
 						title="半角数字で入力してください" required>
 
@@ -67,16 +74,16 @@
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリID : <input type="text" name="site_id" maxlength="20"
+					<td>アプリID : <input type="text" name="siteId" maxlength="20"
 						onkeyDown="return numOnly()" pattern="[0-9]{1,10}"
 						title="半角数字で入力してください" required>
 					</td>
 
-					<td>アプリ名：<input type="text" name="site_name" maxlength="20"
+					<td>アプリ名：<input type="text" name="siteName" maxlength="20"
 						required>
 					</td>
 
-					<td>URL：<input type="text" name="site_url"
+					<td>URL：<input type="text" name="siteUrl"
 						style="ime-mode: disabled" size="20" required>
 					</td>
 					<td>グループ：<select name="genre" style="ime-mode: disabled" required>
@@ -114,9 +121,9 @@
 			</thead>
 			<s:iterator value="siteInfoList">
 				<tr align="center">
-					<td><s:property value="site_id" /></td>
-					<td><s:property value="site_name" /></td>
-					<td><s:property value="site_url" /></td>
+					<td><s:property value="siteId" /></td>
+					<td><s:property value="siteName" /></td>
+					<td><s:property value="siteUrl" /></td>
 					<td><s:property value="genre" /></td>
 				</tr>
 			</s:iterator>
