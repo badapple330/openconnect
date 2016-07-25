@@ -87,7 +87,13 @@ public class RegisterDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		 }finally {
+	            try{
+	                con.close();
+	            }catch(SQLException e){
+	                e.printStackTrace();
+	            }
+	        }
 		return result;
 	}
 

@@ -10,9 +10,22 @@ import java.util.List;
 import com.internousdev.openconnect.dto.GetAddressDTO;
 import com.internousdev.util.DBConnector;
 
+/**
+* GetAddressDAO
+* サイトテーブルに接続する為のクラス
+* @author MAIKI OKANO
+* @since 2016/07/25
+* @version 1.0
+*/
 public class GetAddressDAO {
 
-	public List<GetAddressDTO> select() throws SQLException {
+	/**
+	 * 抽出メソッド
+	 * ログインのした際にDBからサイト情報をリスト化して抽出し、DTOに格納する
+	 * @auther MAIKI OKANO
+	 * @return siteInfoList 抽出に成功したらSUCCESS、失敗したらERROR
+	 */
+	public List<GetAddressDTO> select(){
 		List<GetAddressDTO> siteInfoList = new ArrayList<GetAddressDTO>();
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -32,9 +45,13 @@ public class GetAddressDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			con.close();
-		}
+		 }finally {
+	            try{
+	                con.close();
+	            }catch(SQLException e){
+	                e.printStackTrace();
+	            }
+	        }
 		return siteInfoList;
 	}
 }

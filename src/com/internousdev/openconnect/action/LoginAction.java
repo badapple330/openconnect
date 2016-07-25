@@ -45,11 +45,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		result = ERROR;
 
 		LoginDAO dao = new LoginDAO();
-
 		if (dao.select(email, password)) {
 			result = SUCCESS;
 			session.clear();
-			session.put("userFlg", dao.getFlg());
+			session.put("userFlg",dao.getFlg());
 			session.put("user", password);
 			session.put("user", email);
 		}

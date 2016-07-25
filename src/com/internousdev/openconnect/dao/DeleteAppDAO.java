@@ -6,8 +6,21 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 
+/**
+* DeleteAppDAO
+* サイトテーブルに接続する為のクラス
+* @author MAIKI OKANO
+* @since 2016/07/25
+* @version 1.0
+*/
+
 public class DeleteAppDAO {
-	public int delete(int siteId) throws SQLException {
+	/**
+	 * 削除メソッド 指定された情報をDBから削除するメソッド
+	 * @param siteId サイトID
+	 * @return count 削除に成功したらSUCCESS、失敗したらERROR
+	 */
+	public int delete(int siteId){
 		int count = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");

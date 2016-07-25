@@ -7,12 +7,24 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 
+/**
+* LoginDAO
+* ユーザーテーブルに接続する為のクラス
+* @author MAIKI OKANO
+* @since 2016/07/25
+* @version 1.0
+*/
 public class LoginDAO {
 
-	private int flg;
+	private int flg = 0;
 
+	/**
+	 * 指定された情報をDBの情報と照合するメソッド
+	 * @param email
+	 * @param password
+	 * @return flg 照合に成功したらSUCCESS、失敗したらERROR
+	 */
 	public boolean select(String email, String password) {
-
 		boolean result = false;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -31,6 +43,8 @@ public class LoginDAO {
 				flg = rs.getInt("user_flg");
 				result = true;
 			}
+
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -45,10 +59,22 @@ public class LoginDAO {
 		return result;
 	}
 
+	/**
+	 * ユーザーフラグを取得メソッド
+	 *
+	 * @author YUKI MAEDA
+	 * @return flg 取得するユーザーフラグ
+	 */
 	public int getFlg() {
 		return flg;
 	}
-
+	/**
+	 * ユーザーフラグを格納するメソッド
+	 *
+	 * @auther YUKI MAEDA
+	 * @param flg
+	 *            格納するユーザーフラグ
+	 */
 	public void setFlg(int flg) {
 		this.flg = flg;
 	}

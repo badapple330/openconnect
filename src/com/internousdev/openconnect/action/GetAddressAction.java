@@ -1,6 +1,5 @@
 package com.internousdev.openconnect.action;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -48,18 +47,20 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
 
         GetAddressDAO dao = new GetAddressDAO();
         user = session.containsKey("user");
-        if (user == false) {
-            result = SUCCESS;
-            setNotLoginMsg("ログイン後に表示します。");
-            return result;
-        }
 
-        try {
+        if(user){
+        	siteInfoList = dao.select();
+            result = SUCCESS;
+
+        }else
+            setNotLoginMsg("ログイン後に表示します。");
+
+       /* try {
             siteInfoList.addAll(dao.select());
             result = SUCCESS;
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
         return result;
     }
