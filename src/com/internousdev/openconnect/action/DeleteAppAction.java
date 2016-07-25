@@ -33,13 +33,13 @@ public class DeleteAppAction extends ActionSupport {
      * @return result
      */
 	public String execute() throws SQLException {
-		String result = "error";
+		String result = ERROR;
 		DeleteAppDAO dao = new DeleteAppDAO();
 		int count =0;
 		count = dao.delete(siteId);
 
 		if (count > 0) {
-			result = "success";
+			result = SUCCESS;
 		} else {
 			errormsg = "入力された値が正しくありません";
 		}
