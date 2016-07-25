@@ -44,7 +44,10 @@
 						<label class="col-sm-3">パスワード</label>
 						<s:password class="col-sm-5" name="password" value="" />
 					</div>
+	<div class="form-group">
 
+						<s:textfield  type="hidden" name="userFlg" value="userFlg" />
+					</div>
 					<!------------------    ログイン情報を送信    ------------------->
 					<div class="form-group">
 						<div>

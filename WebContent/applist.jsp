@@ -13,7 +13,7 @@
 <script src="js/bootstrap.js"></script>
 </head>
 <body>
-<!-- ヘッダー -->
+	<!-- ヘッダー -->
 	<header>
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container">
@@ -33,25 +33,32 @@
 								data-toggle="dropdown">新規登録</a></li>
 						</s:if>
 
-						<s:else>
+						<s:if test="notLoginMsg == null">
 							<li><a href="logout" class="dropdown-toggle"
 								data-toggle="dropdown">ログアウト</a></li>
-						</s:else>
+
+						</s:if>
+						<s:if test="%{#session.userFlg == 2}">
+							<li><a href="admin.jsp" class="droptoggle"
+								data-toggle="dropdown">管理者画面</a></li>
+						</s:if>
+
+
 
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
-<!-- ヘッダーはここまで -->
+	<!-- ヘッダーはここまで -->
 
-<!-- アプリ一覧表示 -->
+	<!-- アプリ一覧表示 -->
 	<div class="container">
 		<h1 class="page-header">アプリ一覧</h1>
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{site_url}">
-					<s:property value="site_name" />
+					<s:property value="siteName" />
 					<br>
 				</s:a>
 			</ul>
@@ -59,7 +66,7 @@
 		<s:property value="notLoginMsg"></s:property>
 	</div>
 
-<!-- 勤怠管理サイト -->
+	<!-- 勤怠管理サイト -->
 	<div class="container">
 		<h1 class="page-header">勤怠管理</h1>
 		<s:if test="notLoginMsg != null">

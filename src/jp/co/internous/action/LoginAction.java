@@ -15,110 +15,71 @@ import jp.co.internous.dao.LoginDAO;
  * @since 2016/07/22
  * @version 1.1
  */
-public class LoginAction extends ActionSupport implements SessionAware{
-    private static final long serialVersionUID = 1422381634250534884L;
+public class LoginAction extends ActionSupport implements SessionAware {
+	private static final long serialVersionUID = 1422381634250534884L;
 
-    /**
-     * セッション
-     */
-    public Map<String, Object> sessionMap;
-    /**
-     * メールアドレス
-     */
-    private String email;
-    /**
-     * パスワード
-     */
-    private String password;
-    /**
-     * 戻り値
-     */
-    private String result;
+	/**
+	 * セッション
+	 */
+	public Map<String, Object> session;
+	/**
+	 * メールアドレス
+	 */
+	private String email;
+	/**
+	 * パスワード
+	 */
+	private String password;
 
-    /**
-     * DAOに入力情報を渡し、結果を返す
-     *
-     * @author MAIKI OKANO
-     * @return result
-     */
-    public String execute(){
-        result = ERROR;
+	/**
+	 * 戻り値
+	 */
+	private String result;
 
-        LoginDAO logindao = new LoginDAO();
+	/**
+	 * DAOに入力情報を渡し、結果を返す
+	 *
+	 * @author MAIKI OKANO
+	 * @return result
+	 */
+	public String execute() {
+		result = ERROR;
 
-        boolean res = logindao.select(email,password);
+		LoginDAO dao = new LoginDAO();
 
-        if(res){
-            result = SUCCESS;
-            sessionMap.put("user", email);
-        }
+		if (dao.select(email, password)) {
+			result = SUCCESS;
+			session.clear();
+			session.put("userFlg", dao.getFlg());
+			session.put("user", password);
+			session.put("user", email);
+		}
 
-        return result;
-    }
+		return result;
+	}
 
-    /**
-     * 取得メソッド セッションを取得
-     *
-     * @author MAIKI OKANO
-     * @return sessionMap
-     */
-    public Map<String, Object> getSessionMap() {
-        return sessionMap;
-    }
-    /**
-     * 格納メソッド セッションを格納
-     *
-     * @author MAIKI OKANO
-     * @param sessionMap
-     */
-    public void setSessionMap(Map<String, Object> sessionMap) {
-        this.sessionMap = sessionMap;
-    }
-    /**
-     * 取得メソッド パスワードを取得
-     *
-     * @author MAIKI OKANO
-     * @return password
-     */
-    public String getPassword() {
-        return password;
-    }
-    /**
-     * 格納メソッド パスワードを格納
-     *
-     * @author MAIKI OKANO
-     * @param password
-     */
-    public String setPassword(String password){
-        return this.password = password;
-    }
-    /**
-     * 取得メソッド メールアドレスを取得
-     *
-     * @author MAIKI OKANO
-     * @return email
-     */
-    public String getEmail() {
-        return email;
-    }
-    /**
-     * 格納メソッド メールアドレスを格納
-     *
-     * @author MAIKI OKANO
-     * @param email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    /**
-     * 格納メソッド セッションを格納
-     *
-     * @author MAIKI OKANO
-     * @param sessionMap
-     */
-    public void setSession(Map<String, Object> sessionMap) {
-        this.sessionMap = sessionMap;
-    }
+	public Map<String, Object> getSession() {
+		return session;
+	}
 
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 }

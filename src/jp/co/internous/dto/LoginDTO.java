@@ -20,7 +20,7 @@ public class LoginDTO {
     /**
      * ユーザーフラグ
      */
-    private int userFlg;
+    private String userFlg;
 
     /**
      * 取得メソッド メールアドレスを取得
@@ -64,7 +64,7 @@ public class LoginDTO {
      * @author MAIKI OKANO
      * @return userFlg
      */
-	public int getUserFlg() {
+	public String getUserFlg() {
 		return userFlg;
 	}
 	/**
@@ -73,7 +73,7 @@ public class LoginDTO {
      * @author MAIKI OKANO
      * @param userFlg
      */
-	public void setUserFlg(int userFlg) {
+	public void setUserFlg(String userFlg) {
 		this.userFlg = userFlg;
 	}
 
