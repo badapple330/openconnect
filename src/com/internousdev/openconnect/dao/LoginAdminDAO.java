@@ -36,7 +36,7 @@ public class LoginAdminDAO extends DaoClass {
 	 * @throws SQLException
 	 * @see DBconnector
 	 */
-	public boolean select(String admin_name, String admin_pass) {
+	public boolean select(String adminName, String adminPass) {
 		res = false;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -45,8 +45,8 @@ public class LoginAdminDAO extends DaoClass {
 		sql = "SELECT * FROM admin WHERE admin_name = ? AND admin_pass = ?;";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, admin_name);
-			ps.setString(2, admin_pass);
+			ps.setString(1, adminName);
+			ps.setString(2, adminPass);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				res = true;

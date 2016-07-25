@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 public class AddAppDAO {
-	public int insert(int site_id, String site_name, String site_url, String site_group) {
+	public int insert(int siteId, String siteName, String siteUrl, String siteGroup) {
 		int count = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -17,10 +17,10 @@ public class AddAppDAO {
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, site_id);
-			ps.setString(2, site_name);
-			ps.setString(3, site_url);
-			ps.setString(4, site_group);
+			ps.setInt(1, siteId);
+			ps.setString(2, siteName);
+			ps.setString(3, siteUrl);
+			ps.setString(4, siteGroup);
 			count = ps.executeUpdate();
 
 		} catch (Exception e) {
@@ -35,7 +35,7 @@ public class AddAppDAO {
 		return count;
 	}
 
-	public boolean selectBySiteId(int site_id) {
+	public boolean selectBySiteId(int siteId) {
 		boolean result = false;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -43,7 +43,7 @@ public class AddAppDAO {
 		String sql = "select * from site where site_id=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, site_id);
+			ps.setInt(1, siteId);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				result = true;

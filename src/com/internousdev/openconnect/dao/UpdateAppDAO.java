@@ -33,7 +33,7 @@ public class UpdateAppDAO {
 	 * @return result
 	 * @throws SQLException
 	 */
-	public boolean update(int site_id, String site_name, String site_url, String site_group) throws SQLException {
+	public boolean update(int siteId, String siteName, String siteUrl, String siteGroup) throws SQLException {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
@@ -41,10 +41,10 @@ public class UpdateAppDAO {
 		try {
 			String sql = "update site set site_name=?, site_url=?, site_group=? where site_id=?";
 			ps = con.prepareStatement(sql);
-			ps.setString(1, site_name);
-			ps.setString(2, site_url);
-			ps.setString(3, site_group);
-			ps.setInt(4, site_id);
+			ps.setString(1, siteName);
+			ps.setString(2, siteUrl);
+			ps.setString(3, siteGroup);
+			ps.setInt(4, siteId);
 			int rsCount = ps.executeUpdate();
 			if (rsCount > 0) {
 				result = true;
