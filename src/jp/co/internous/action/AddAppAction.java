@@ -1,5 +1,7 @@
 package jp.co.internous.action;
 
+import java.io.Serializable;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import jp.co.internous.dao.AddAppDAO;
@@ -10,8 +12,11 @@ import jp.co.internous.dao.AddAppDAO;
  * @since 2016/07/20
  * @version 1.0
  */
-public class AddAppAction extends ActionSupport {
-
+public class AddAppAction extends ActionSupport implements Serializable{
+	/**
+	 * シリアルバージョンIDの生成
+	 */
+	private static final long serialVersionUID = -7911061777161312117L;
 	/**
      * サイトID
      */

@@ -15,6 +15,12 @@ import jp.co.internous.dao.RegisterDAO;
  * @since 2016/07/11
  */
 public class RegisterAction extends ActionSupport implements SessionAware {
+
+	/**
+	 * シリアルバージョンIDの生成
+	 */
+	private static final long serialVersionUID = 2395811527732231559L;
+
 	public Map<String, Object> sessionMap;
 
 	/**

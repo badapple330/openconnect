@@ -15,6 +15,10 @@ import jp.co.internous.dao.DeleteAppDAO;
 public class DeleteAppAction extends ActionSupport {
 
 	/**
+	 * シリアルバージョンIDの生成
+	 */
+	private static final long serialVersionUID = 5892990975591315738L;
+	/**
      * サイトID
      */
 	private int site_id;

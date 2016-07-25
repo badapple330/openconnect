@@ -22,6 +22,10 @@ import jp.co.internous.dto.GetAddressDTO;
 public class GetAddressAction extends ActionSupport implements SessionAware {
 
 	/**
+	 * シリアルバージョンIDの生成
+	 */
+	private static final long serialVersionUID = -2760124519770339664L;
+	/**
      * データベースに格納されているアプリリスト
      */
     private List<GetAddressDTO> siteInfoList = new ArrayList<GetAddressDTO>();

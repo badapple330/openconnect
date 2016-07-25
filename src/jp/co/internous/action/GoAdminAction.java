@@ -1,5 +1,7 @@
 package jp.co.internous.action;
 
+import java.io.Serializable;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import jp.co.internous.dao.LoginAdminDAO;
@@ -9,7 +11,7 @@ import jp.co.internous.dao.LoginAdminDAO;
  * @since  2015/06/17
  * @version 1.0
  */
-public class GoAdminAction extends ActionSupport{
+public class GoAdminAction extends ActionSupport implements Serializable{
 	/**
 	 * シリアルバージョンIDの生成
 	 */

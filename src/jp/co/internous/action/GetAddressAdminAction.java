@@ -15,6 +15,10 @@ import jp.co.internous.dto.GetAddressDTO;
  * @version 1.0
  */
 public class GetAddressAdminAction extends ActionSupport {
+
+	/**
+	 * シリアルバージョンIDの生成
+	 */
 	private static final long serialVersionUID = -375236489777102919L;
 
 	private List<GetAddressDTO> siteInfoList = new ArrayList<GetAddressDTO>();
