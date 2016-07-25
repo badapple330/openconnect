@@ -1,92 +1,132 @@
-/* @auther SHIORI OYAMA
- * @auther MAIKI OKANO
- * @since 20160623
- * @since 20160623
- * @version 1.2
- */
-
-DROP DATABASE IF EXISTS openconnect;  /* DBを消す */
-CREATE DATABASE openconnect;  /* DBを作る */
+DROP DATABASE IF EXISTS openconnect;
+CREATE DATABASE openconnect;
 
 /* 一旦消して再度作ることでデータの重複を防ぐ */
 
-use openconnect;  /* DBを使う */
+use openconnect;
 
-/* テーブル作成 */
-/* ユーザー */
-create table user (  /* ユーザーのテーブルを作る */
-user_id int not null auto_increment,  /* ユーザーに番号を割り振る、自動連番 */
-password varchar(255) not null,   /* ユーザーのログイン用パスワード */
-name varchar(255) default "　",  /* ユーザー名 */
-name_f varchar(255) default "　",  /* ユーザー名(ふりがな) */
-postal varchar(255) not null default "　",/* comment郵便番号 */
-address varchar(255) not null default "　",/* comment住所 */
-tel_number varchar(255) not null default "　",/* comment電話番号 */
-email varchar(255) not null unique,/* commentメールアドレス */
-sex varchar(10) not null default "　",/* comment性別 comment*/
-birthday date not null default 00000000,/* 生年月日 */
+/* ユーザー情報登録 *
+ * ユーザーID = user_id
+ * パスワード = password
+ * 名前 = name
+ * 名前(ふりがな) = name_f
+ * 郵便番号 = postal
+ * 住所 = address
+ * 電話番号 = tel_number
+ * メールアドレス = email
+ * 性別 = sex
+ * 生年月日 = birthday
+ * ハンドルネーム = handle_name
+ * 登録日 = register_day
+ * 更新日 = update_day
+ * 退会フラグ = userdel_flg
+ * ログインフラグ = login_flg
+ * ユーザーフラグ = user_flg
+ */
+create table user (
+user_id int not null auto_increment,
+password varchar(255) not null,
+name varchar(255) default "　",
+name_f varchar(255) default "　",
+postal varchar(255) not null default "　",
+address varchar(255) not null default "　",
+tel_number varchar(255) not null default "　",
+email varchar(255) not null unique,
+sex varchar(10) not null default "　",
+birthday date not null default 00000000,
 handle_name varchar(16),
-register_day datetime not null default 00000000000000,/* 登録日 */
-update_day datetime not null default 00000000000000,/* comment更新日 */
-userdel_flg boolean not null default FALSE,/*退会フラグ*/
-login_flg boolean not null default TRUE,/* commentログインフラグ */
-user_flg int not null default 1,/* ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者 */
-PRIMARY KEY (user_id)  /* idの重複、null禁止 */
+register_day datetime not null default 00000000000000,
+update_day datetime not null default 00000000000000,
+userdel_flg boolean not null default FALSE,
+login_flg boolean not null default TRUE,
+user_flg int not null default 1,
+PRIMARY KEY (user_id)
 );
 
 
-/* サイト一覧 */
-create table site(  /* サイトのテーブルを作る */
-site_id int not null auto_increment,  /* サイトに番号を割り振る、自動連番 */
-site_name varchar(30) not null,  /* サイトの名前 */
-site_url varchar(255) not null unique,/* サイトのURL */
-site_article text,/* site_article text not null,サイトの記事 */
-genre varchar(30),/* site_group varchar(30),グループ */
-picture varchar(255),/* picture varchar(255),画像*/
-banner varchar(80), /* banner varchar(80) not null,バナー */
-PRIMARY KEY (site_id)  /* idの重複、null禁止 */
+/* サイト一覧情報 *
+ * サイトID = site_id
+ * サイト名 = site_name
+ * サイトURL = site_url
+ * サイト記事 = site_article
+ * グループ = genre
+ * 画像 = picture
+ * バナー = banner
+ */
+create table site(
+site_id int not null auto_increment,
+site_name varchar(30) not null,
+site_url varchar(255) not null unique,
+site_article text,
+genre varchar(30),
+picture varchar(255),
+banner varchar(80),
+PRIMARY KEY (site_id)
 );
 
-/*権限マスター*/
+/*権限マスター*
+ * 権限レベルID = level_id
+ * 権限レベル名 = level_name
+ */
 create table master(
 level_id int not null,
 level_name varchar(10) not null
 );
 
-/* カレッジ生名簿 */
-create table students(  /* 名簿のテーブルを作る */
-number varchar(5),  /* 管理番号、0001からスタート */
-name varchar(50),  /* 名前、漢字で入力、姓と名の間は半角スペースを入れる */
-symbol varchar(50),  /* ふりがな、ひらがなで入力、姓と名の間は半角スペースを入れる */
-entrance varchar(10),  /* 入講年月、例：201604 */
-PRIMARY KEY (number)  /* 管理番号の重複、null禁止 */
+/* カレッジ生名簿 *
+ * 管理番号 = number
+ * 名前 = name
+ * ふりがな = symbol
+ * 入講年月 = entrance
+ */
+create table students(
+number varchar(5),
+name varchar(50),
+symbol varchar(50),
+entrance varchar(10),
+PRIMARY KEY (number)
 );
 
-/* 遅刻登録 */
-create table tikoku(  /* 遅刻登録のテーブルを作る */
-number varchar(5),  /* 管理番号 名簿に登録されている番号 */
-name varchar(50),  /* 名前 名簿に登録されている名前 */
-reason varchar(50)  /* 遅刻の理由 */
+/* 遅刻登録 *
+ * 管理番号 = number
+ * 名前 = name
+ * 遅刻理由 = reason
+ */
+create table tikoku(
+number varchar(5),
+name varchar(50),
+reason varchar(50)
 );
 
-/* 欠席登録 */
-create table kesseki(  /* 欠席登録のテーブルを作る */
-number varchar(5),  /* 管理番号 名簿に登録されている番号 */
-name varchar(50),  /* 名前 名簿に登録されている名前 */
-reason varchar(50)  /* 欠席の理由 */
+/* 欠席登録 *
+ * 管理番号 = number
+ * 名前 = name
+ * 欠席理由 = reason
+ */
+create table kesseki(
+number varchar(5),
+name varchar(50),
+reason varchar(50)
 );
 
-/* 面談登録 */
-create table mendan(  /* 面談登録のテーブルを作る */
-number varchar(5),  /* 管理番号 名簿に登録されている番号 */
-name varchar(50),  /* 名前 名簿に登録されている名前 */
-time varchar(6)  /* 面談の開始時間 */
+/* 面談登録 *
+ * 管理番号 = number
+ * 名前 = name
+ * 面談開始時間 = time
+ */
+create table mendan(
+number varchar(5),
+name varchar(50),
+time varchar(6)
 );
 
-/* 出席登録 */
-create table syusseki(  /* 出席登録のテーブルを作る */
-number varchar(5),  /* 管理番号 名簿に登録されている番号 */
-name varchar(50)  /* 名前 名簿に登録されている名前 */
+/* 出席登録 *
+ * 管理番号 = number
+ * 名前 = name
+ */
+create table syusseki(
+number varchar(5),
+name varchar(50)
 );
 
 /* データ登録 */
