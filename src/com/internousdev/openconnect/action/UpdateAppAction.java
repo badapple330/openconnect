@@ -27,15 +27,15 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 	/**
      * サイトID
      */
-	private int site_id;
+	private int siteId;
 	/**
      * サイトの名前
      */
-	private String site_name;
+	private String siteName;
 	/**
      * サイトURL
      */
-	private String site_url;
+	private String siteUrl;
 	/**
      * サイトのジャンル
      */
@@ -64,7 +64,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException {
 		UpdateAppDAO updateAppDao = new UpdateAppDAO();
 
-		if (updateAppDao.update(site_id, site_name, site_url, genre)) {
+		if (updateAppDao.update(siteId, siteName, siteUrl, genre)) {
 			try {
 				result = "success";
 			} catch (Exception e) {
@@ -82,8 +82,8 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * @author MAIKI OKANO
      * @return site_id
      */
-	public int getSite_id() {
-		return site_id;
+	public int getSiteId() {
+		return siteId;
 	}
 	/**
      * 格納メソッド サイトIDを格納
@@ -91,8 +91,8 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * @author MAIKI OKANO
      * @param site_id
      */
-	public void setSite_id(int site_id) {
-		this.site_id = site_id;
+	public void setSiteId(int siteId) {
+		this.siteId = siteId;
 	}
 	 /**
      * 取得メソッド サイトの名前を取得
@@ -100,8 +100,8 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * @author MAIKI OKANO
      * @return site_name
      */
-	public String getSite_name() {
-		return site_name;
+	public String getSiteName() {
+		return siteName;
 	}
 	/**
      * 格納メソッド サイトの名前を格納
@@ -109,8 +109,8 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * @author MAIKI OKANO
      * @param site_name
      */
-	public void setSite_name(String site_name) {
-		this.site_name = site_name;
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
 	}
 	/**
      * 取得メソッド サイトURLを取得
@@ -118,8 +118,8 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * @author MAIKI OKANO
      * @return site_url
      */
-	public String getSite_url() {
-		return site_url;
+	public String getSiteUrl() {
+		return siteUrl;
 	}
 	/**
      * 格納メソッド サイトURLを格納
@@ -127,8 +127,8 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * @author MAIKI OKANO
      * @param site_url
      */
-	public void setSite_url(String site_url) {
-		this.site_url = site_url;
+	public void setSiteUrl(String siteUrl) {
+		this.siteUrl = siteUrl;
 	}
 	/**
      * 取得メソッド サイトのジャンルを取得

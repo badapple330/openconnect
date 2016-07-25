@@ -15,6 +15,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public abstract class ActionClass extends ActionSupport implements SessionAware{
 	/**
+	 * シリアルバージョンID生成
+	 */
+	private static final long serialVersionUID = -8931525766794225990L;
+	/**
 	 * @author Y.Gouda
 	 * @since 2015/4/30
 	 * sessionMap	SessionAwareによりマップ化されたセッションを同期させるためのMap変数
