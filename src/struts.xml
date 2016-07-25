@@ -5,91 +5,91 @@
 
 <struts>
     <constant name="struts.devMode" value="true" />
-    <package name="jp.co.internous.action" extends="struts-default">
+    <package name="com.internousdev.openconnect.action" extends="struts-default">
 
         <!-- ログイン処理 -->
-        <action name="LoginAction" class="jp.co.internous.action.LoginAction"
+        <action name="LoginAction" class="com.internousdev.openconnect.action.LoginAction"
             method="execute">
             <result name="success" type="redirectAction">GetAddressAction</result>
             <result name="error">/login.jsp</result>
         </action>
 
-        <action name="GetAddressAction" class="jp.co.internous.action.GetAddressAction"
+        <action name="GetAddressAction" class="com.internousdev.openconnect.action.GetAddressAction"
             method="execute">
             <result name="success">/applist.jsp</result>
             <result name="error">/applist.jsp</result>
         </action>
 
-        <action name="logout" class="jp.co.internous.action.LogoutAction"
+        <action name="logout" class="com.internousdev.openconnect.action.LogoutAction"
             method="execute">
             <result name="success" type="redirectAction">GetAddressAction</result>
         </action>
 
-        <action name="TwitterLogin" class="jp.co.internous.action.GoTwitterAction"
+        <action name="TwitterLogin" class="com.internousdev.openconnect.action.GoTwitterAction"
             method="execute">
             <result name="success">/applist.jsp</result>
         </action>
 
-        <action name="LoginTwitterAction" class="jp.co.internous.action.LoginTwitterAction"
+        <action name="LoginTwitterAction" class="com.internousdev.openconnect.action.LoginTwitterAction"
             method="execute">
             <result name="success" type="redirectAction">GetAddressAction</result>
             <result name="error" type="redirectAction">GetAddressAction</result>
         </action>
 
-        <action name="FacebookLogin" class="jp.co.internous.action.GoFacebookAction"
+        <action name="FacebookLogin" class="com.internousdev.openconnect.action.GoFacebookAction"
             method="execute">
             <result name="success">/applist.jsp</result>
         </action>
 
-        <action name="LoginFacebookAction" class="jp.co.internous.action.LoginFacebookAction"
+        <action name="LoginFacebookAction" class="com.internousdev.openconnect.action.LoginFacebookAction"
             method="execute">
             <result name="success" type="redirectAction">GetAddressAction</result>
             <result name="error">/login.jsp</result>
         </action>
 
-        <action name="GoogleLogin" class="jp.co.internous.action.GoGoogleAction"
+        <action name="GoogleLogin" class="com.internousdev.openconnect.action.GoGoogleAction"
             method="execute">
             <result name="success">/applist.jsp</result>
         </action>
 
-        <action name="LoginGoogleAction" class="jp.co.internous.action.LoginGoogleAction"
+        <action name="LoginGoogleAction" class="com.internousdev.openconnect.action.LoginGoogleAction"
             method="execute">
             <result name="success" type="redirectAction">GetAddressAction</result>
             <result name="error">/login.jsp</result>
         </action>
 
-        <action name="GoAdminAction" class="jp.co.internous.action.GoAdminAction"
+        <action name="GoAdminAction" class="com.internousdev.openconnect.action.GoAdminAction"
         method="execute">
         <result name="success">/admin.jsp</result>
         <result name="error">/LoginAdmin.jsp</result>
         </action>
 
-        <action name="GetAddressAdminAction" class="jp.co.internous.action.GetAddressAdminAction"
+        <action name="GetAddressAdminAction" class="com.internousdev.openconnect.action.GetAddressAdminAction"
             method="execute">
             <result name="success">/admin.jsp</result>
             <result name="error">/admin.jsp</result>
         </action>
 
-        <action name="UpdateAppAction" class="jp.co.internous.action.UpdateAppAction"
+        <action name="UpdateAppAction" class="com.internousdev.openconnect.action.UpdateAppAction"
             method="execute">
             <result name="success">/admin.jsp</result>
             <result name="error">/admin.jsp</result>
         </action>
 
-        <action name="DeleteAppAction" class="jp.co.internous.action.DeleteAppAction"
+        <action name="DeleteAppAction" class="com.internousdev.openconnect.action.DeleteAppAction"
             method="execute">
             <result name="success">/admin.jsp</result>
             <result name="error">/admin.jsp</result>
         </action>
 
-        <action name="AddAppAction" class="jp.co.internous.action.AddAppAction"
+        <action name="AddAppAction" class="com.internousdev.openconnect.action.AddAppAction"
             method="execute">
             <result name="success">/admin.jsp</result>
             <result name="error">/admin.jsp</result>
         </action>
 
         		<!-- register.jspで登録ボタン押下 -->
-		<action name="RegisterAction" class="jp.co.internous.action.RegisterAction" method="execute">
+		<action name="RegisterAction" class="com.internousdev.openconnect.action.RegisterAction" method="execute">
 			<result name="success" type="redirectAction">GetAddressAction</result>
 			<result name="error">/register.jsp</result>
 		</action>
@@ -97,7 +97,7 @@
 
 		<!-- 勤怠管理画面への遷移 -->
 		<!--
-		<action name="GoKintaiChooseAction" class="jp.co.internous.action.GoKintaiChooseAction"
+		<action name="GoKintaiChooseAction" class="com.internousdev.openconnect.action.GoKintaiChooseAction"
             method="execute">
             <result name="success">/KintaiChoose.jsp</result>
         </action> -->
