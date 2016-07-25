@@ -66,7 +66,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 
 		if (updateAppDao.update(siteId, siteName, siteUrl, genre)) {
 			try {
-				result = "success";
+				result = SUCCESS;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
