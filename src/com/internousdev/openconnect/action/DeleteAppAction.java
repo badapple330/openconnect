@@ -20,7 +20,7 @@ public class DeleteAppAction extends ActionSupport {
 	/**
      * サイトID
      */
-	private int site_id;
+	private int siteId;
 	/**
      * エラーメッセージ
      */
@@ -36,7 +36,7 @@ public class DeleteAppAction extends ActionSupport {
 		String result = "error";
 		DeleteAppDAO dao = new DeleteAppDAO();
 		int count =0;
-		count = dao.delete(site_id);
+		count = dao.delete(siteId);
 
 		if (count > 0) {
 			result = "success";
@@ -52,8 +52,8 @@ public class DeleteAppAction extends ActionSupport {
      * @author MAIKI OKANO
      * @return site_id
      */
-	public int getSite_id() {
-		return site_id;
+	public int getSiteId() {
+		return siteId;
 	}
 
 	/**
@@ -62,8 +62,8 @@ public class DeleteAppAction extends ActionSupport {
      * @author MAIKI OKANO
      * @param site_id
      */
-	public void setSite_id(int site_id) {
-		this.site_id = site_id;
+	public void setSiteId(int siteId) {
+		this.siteId = siteId;
 	}
 	/**
      * 取得メソッド エラーメッセージを取得
