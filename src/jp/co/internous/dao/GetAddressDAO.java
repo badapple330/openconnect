@@ -25,9 +25,9 @@ public class GetAddressDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				GetAddressDTO dto = new GetAddressDTO();
-				dto.setSite_id(rs.getInt(1));
-				dto.setSite_name(rs.getString(2));
-				dto.setSite_url(rs.getString(3));
+				dto.setSiteId(rs.getInt(1));
+				dto.setSiteName(rs.getString(2));
+				dto.setSiteUrl(rs.getString(3));
 				dto.setGenre(rs.getString(4));
 				siteInfoList.add(dto);
 			}
