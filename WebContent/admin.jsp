@@ -12,9 +12,9 @@
 <script src="./js/admin.js"></script>
 </head>
 <body>
-	<div class="centerdesign">
-		<h1 style="text-align: center;">管理画面</h1>
-	</div>
+<div class="centerdesign">
+	<h1 style="text-align: center;">管理画面</h1>
+</div>
 	<p class="caution">数字入力は半角のみ、 アプリID欄にはアプリIDのみ記入可能、
 		値の確認は下のアプリ一覧情報取得から行ってください。 テンキー入力不可。</p>
 	<br>
@@ -22,6 +22,11 @@
 		<font size="2" color="red"> </font>
 	</div>
 	<h2>アプリ追加</h2>
+		<s:if test="messageAdd != null">
+			<p class="msg">
+            	<s:property value="messageAdd" />
+            </p>
+        </s:if>
 	<s:form action="AddAppAction">
 		<table class="wwFormTable">
 			<tbody>
@@ -54,6 +59,11 @@
 	</s:form>
 
 	<h2>アプリ削除</h2>
+		<s:if test="messageDel != null">
+			<p class="msg">
+            	<s:property value="messageDel" />
+            </p>
+        </s:if>
 	<s:form action="DeleteAppAction">
 		<table class="wwFormTable">
 			<tbody>
@@ -70,6 +80,11 @@
 	</s:form>
 
 	<h2>アプリ変更</h2>
+		<s:if test="messageUp != null">
+			<p class="msg">
+            	<s:property value="messageUp" />
+            </p>
+        </s:if>
 	<s:form action="UpdateAppAction">
 		<table class="wwFormTable">
 			<tbody>

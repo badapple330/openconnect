@@ -22,9 +22,9 @@ public class DeleteAppAction extends ActionSupport {
      */
 	private int siteId;
 	/**
-     * エラーメッセージ
+     * メッセージ
      */
-	public String errormsg = null;
+	public String messageDel = null;
 
 	/**
      * DAOにサイト情報を渡して結果を返す
@@ -39,9 +39,10 @@ public class DeleteAppAction extends ActionSupport {
 		count = dao.delete(siteId);
 
 		if (count > 0) {
+			messageDel = "削除が完了しました";
 			result = SUCCESS;
 		} else {
-			errormsg = "入力された値が正しくありません";
+			messageDel = "入力された値が正しくありません";
 		}
 		return result;
 	}
@@ -66,23 +67,23 @@ public class DeleteAppAction extends ActionSupport {
 		this.siteId = siteId;
 	}
 	/**
-     * 取得メソッド エラーメッセージを取得
+     * 取得メソッド メッセージを取得
      *
      * @author MAIKI OKANO
-     * @return errormsg 取得するエラーメッセージ
+     * @return messageDel 取得するメッセージ
      */
-	public String getErrormsg() {
-		return errormsg;
+	public String getMessageDel() {
+		return messageDel;
 	}
 
 	/**
-     * 格納メソッド エラーメッセージを格納
+     * 格納メソッド メッセージを格納
      *
      * @author MAIKI OKANO
-     * @param errormsg 格納するエラーメッセージ
+     * @param messageDel 格納するメッセージ
      */
-	public void setErrormsg(String errormsg) {
-		this.errormsg = errormsg;
+	public void setMessageDel(String messageDel) {
+		this.messageDel = messageDel;
 	}
 }
 

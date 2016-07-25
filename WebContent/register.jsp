@@ -28,7 +28,11 @@
 			<br>
 			<br>
 			<h1>新規登録</h1>
-
+				<s:if test="errorMsg != null">
+					<div class="error">
+	            		<s:property value="errorMsg" />
+	            	</div>
+	        	</s:if>
 			<table>
 
 				<!------------------    名前(漢字)    ------------------->

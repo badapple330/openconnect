@@ -33,9 +33,9 @@ public class AddAppAction extends ActionSupport implements Serializable{
      */
 	private String genre;
 	/**
-     * エラーメッセージ
+     * メッセージ
      */
-	private String errorMsg;
+	private String messageAdd;
 
 	/**
      * DAOにサイト情報を渡して結果を返す
@@ -51,8 +51,12 @@ public class AddAppAction extends ActionSupport implements Serializable{
 		count = dao.insert(siteId, siteName, siteUrl, genre);
 
 		if(count > 0){
+			messageAdd = "追加が完了しました";
 			return SUCCESS;
+		}else{
+			messageAdd = "追加出来ませんでした";
 		}
+
 		return result;
 	}
 
@@ -129,21 +133,21 @@ public class AddAppAction extends ActionSupport implements Serializable{
 		this.genre = genre;
 	}
 	/**
-     * 取得メソッド エラーメッセージを取得
+     * 取得メソッド メッセージを取得
      *
      * @author MAIKI OKANO
-     * @return errorMsg 取得するエラーメッセージ
+     * @return messageAdd 取得するメッセージ
      */
-	public String getErrorMsg() {
-		return errorMsg;
+	public String getMessageAdd() {
+		return messageAdd;
 	}
 	/**
-     * 格納メソッド エラーメッセージを格納
+     * 格納メソッド メッセージを格納
      *
      * @author MAIKI OKANO
-     * @param errorMsg 格納するエラーメッセージ
+     * @param messageAdd 格納するメッセージ
      */
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
+	public void setMessageAdd(String messageAdd) {
+		this.messageAdd = messageAdd;
 	}
 }

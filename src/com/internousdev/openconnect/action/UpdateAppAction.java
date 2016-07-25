@@ -45,9 +45,9 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      */
 	private Map<String, Object> sessionMap;
 	/**
-     * エラーメッセージ
+     * メッセージ
      */
-	public String errormsg = null;
+	public String messageUp;
 	/**
      * 戻り値
      */
@@ -66,12 +66,13 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 
 		if (updateAppDao.update(siteId, siteName, siteUrl, genre)) {
 			try {
+				messageUp = "変更が完了しました";
 				result = SUCCESS;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else {
-			errormsg = "*正しい値を入力してください。";
+			messageUp = "正しい値を入力してください";
 		}
 		return result;
 	}
@@ -167,5 +168,24 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> sessionMap) {
 		this.sessionMap = sessionMap;
 	}
+	/**
+     * 取得メソッド メッセージを取得
+     *
+     * @author MAIKI OKANO
+     * @return messageUp 取得するメッセージ
+     */
+	public String getMessageUp() {
+		return messageUp;
+	}
+	/**
+     * 格納メソッド メッセージを格納
+     *
+     * @author MAIKI OKANO
+     * @return messageUp 格納するメッセージ
+     */
+	public void setMessageUp(String messageUp) {
+		this.messageUp = messageUp;
+	}
+
 
 }
