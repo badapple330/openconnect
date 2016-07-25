@@ -17,6 +17,10 @@ public class LoginDTO {
      * パスワード
      */
     private String password;
+    /**
+     * ユーザーフラグ
+     */
+    private int userFlg;
 
     /**
      * 取得メソッド メールアドレスを取得
@@ -54,6 +58,25 @@ public class LoginDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+    /**
+     * 取得メソッド ユーザーフラグを取得
+     *
+     * @author MAIKI OKANO
+     * @return userFlg
+     */
+	public int getUserFlg() {
+		return userFlg;
+	}
+	/**
+     * 格納メソッド ユーザーフラグを格納
+     *
+     * @author MAIKI OKANO
+     * @param userFlg
+     */
+	public void setUserFlg(int userFlg) {
+		this.userFlg = userFlg;
+	}
+
 
 
 }

@@ -90,20 +90,19 @@ name varchar(50)  /* 名前 名簿に登録されている名前 */
 /* データ登録 */
 /* ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
 insert into user(user_id,password,name,name_f,postal,address,tel_number,email,sex,birthday,handle_name,register_day,update_day,userdel_flg,login_flg,user_flg)values
-(1,"12345678","テスト管理者","てすとかんりしゃ","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","0312345678","testadmin@gmail.com","男","1993-12-24","test","2016-07-01 13:00:00","2016-07-11 12:11:25",FALSE,FALSE,"2"),
-(2,"internous01","井上琢磨","いのうえたくま","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09012341234","takuma.inoue@gmail.com","男","1990-09-25","taku","2016-07-01 13:00:00","2016-07-11 13:54:20",FALSE,FALSE,"2"),
-(3,"internous01","原田美由貴","はらだみゆき","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09045674567","miyuki.harada@gmail.com","女","1992-05-03","miyu","2016-07-01 13:00:00","2016-07-11 13:00:00",FALSE,FALSE,"2")
+(1,"testuser","インターノウス株式会社プログラマカレッジ　テストユーザー","いんたーのうすかぶしきがいしゃぷろぐらまかれっじ　てすとゆーざー","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","0312345678","internousdev.testuser@gmail.com","男","1993-12-24","testuser","2016-07-01 13:00:00","2016-07-11 12:11:25",FALSE,FALSE,"2"),
+(2,"internous01","井上琢磨","いのうえたくま","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09012341234","t.inoue@internous.co.jp","男","1990-09-25","takuma.inoe","2016-07-01 13:00:00","2016-07-11 13:54:20",FALSE,FALSE,"2"),
+(3,"internous01","原田美由貴","はらだみゆき","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09045674567","m.harada@internous.co.jp","女","1992-05-03","miyuki.harada","2016-07-01 13:00:00","2016-07-11 13:00:00",FALSE,FALSE,"2")
 ;
 
 /* サイト一覧 / サイト名/URL */
-/*insert into site(site_id, site_name, site_url, site_article, site_group, picture, banner)values*/
 insert into site(site_id, site_name, site_url,site_article,genre,picture,banner)values
-(1,"YouJustJewelry","http://www.internousdev.com:8080/YouJustJewelry/","ジュエリーサイト","ビューティ",null,null),/* YOU JUST JEWELRY */
-(2,"solare","http://www.internousdev.com:8080/solare/","フランス料理","グルメ",null,null),/* solare */
-(3,"baseballticket","http://www.internousdev.com:8080/baseballticket/","野球観戦","チケット",null,null),/* baseballticket */
-(4,"WorldTravel","http://www.internousdev.com:8080/WorldTravel/","世界旅行紹介","チケット",null,null),/* WorldTravel */
-(5,"gpscoffee","http://www.internousdev.com:8080/gpscoffee/","コーヒー","グルメ",null,null),/* gpscoffee */
-(6,"la-poupee","http://www.internousdev.com:8080/la-poupee/","ゲームキャラクター紹介","エンタメ",null,null);/* la-poupee */
+(1,"BaseBallTicket","http://www.internousdev.com/baseballTicket/","野球観戦チケットサイト","チケット",null,null),/* BaseBallTicket */
+(2,"gekidanroadshow","http://www.internousdev.com/gekidanroadshow/","舞台チケット予約サイト","チケット",null,null),/* gekidanroadshow */
+(3,"ichigoichie","http://www.internousdev.com/ichigoichie/","着物レンタルサイト","レンタル",null,null),/* ichigoichie */
+(4,"chocotime","http://www.internousdev.com/chocotime/","チョコレート販売サイト","グルメ",null,null),/* chocotime */
+(5,"kinnosawa","http://www.internousdev.com/kinnosawa/","和菓子販売サイト","グルメ",null,null),/* kinnosawa */
+(6,"kuruyama","http://www.internousdev.co/kuruyama/","ラーメン販売サイト","グルメ",null,null);/* kuruyama */
 
 /*権限マスター / 権限レベルID/権限レベル名*/
 insert into master(level_id,level_name)value

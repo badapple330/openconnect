@@ -79,12 +79,18 @@
 					<td>URL：<input type="text" name="site_url"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<td>グループ：<select name="site_group" style="ime-mode: disabled" required>
-							<option value="グループ" selected>グループ</option>
-							<option value="ファッション">ファッション</option>
+					<td>グループ：<select name="genre" style="ime-mode: disabled" required>
+							<option value="グループ" selected></option>
+							<option value="観る">観る</option>
+							<option value="読む">読む</option>
 							<option value="グルメ">グルメ</option>
-							<option value="スポーツ">スポーツ</option>
 							<option value="エンタメ">エンタメ</option>
+							<option value="スポーツ">スポーツ</option>
+							<option value="ファッション">ファッション</option>
+							<option value="ビューティ">ビューティ</option>
+							<option value="チケット">チケット</option>
+							<option value="レンタル">レンタル</option>
+							<option value="旅行">旅行</option>
 					</select>
 					</td>
 					<td><input type="submit" value="変更"></td>
@@ -107,11 +113,11 @@
 			</tr>
 			</thead>
 			<s:iterator value="siteInfoList">
-				<tr>
-					<td align="center"><s:property value="site_id" /></td>
+				<tr align="center">
+					<td><s:property value="site_id" /></td>
 					<td><s:property value="site_name" /></td>
 					<td><s:property value="site_url" /></td>
-					<td><s:property value="site_group" /></td>
+					<td><s:property value="genre" /></td>
 				</tr>
 			</s:iterator>
 		</table>
