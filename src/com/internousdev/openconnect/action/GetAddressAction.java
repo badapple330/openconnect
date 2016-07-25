@@ -51,7 +51,7 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
         user = sessionMap.containsKey("user");
         if (user == false) {
             result = SUCCESS;
-            this.setNotLoginMsg("ログイン後に表示します。");
+            setNotLoginMsg("ログイン後に表示します。");
             return result;
         }
 
