@@ -27,7 +27,7 @@ handle_name varchar(16),
 register_day datetime not null default 00000000000000,/*登録日*/
 update_day datetime not null default 00000000000000,/*更新日*/
 userdel_flg boolean not null default FALSE,/*退会フラグ*/
-login_flg boolean not null default FALSE,/*ログインフラグ*/
+login_flg boolean not null default TRUE,/*ログインフラグ*/
 user_flg int not null default 1,/*ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者*/
 PRIMARY KEY (user_id)  /* idの重複、null禁止 */
 );

@@ -81,7 +81,7 @@ public class RegisterDAO {
 			ps.setString(11, registerDay);
 			ps.setString(12, "0000/00/00 00:00:00");
 			ps.setBoolean(13, false);
-			ps.setBoolean(14, false);
+			ps.setBoolean(14, true);
 			ps.setInt(15, 1);
 			result = ps.executeUpdate();
 
