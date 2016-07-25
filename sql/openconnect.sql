@@ -1,48 +1,50 @@
-/* @auther SHIORI OYAMA
+/* comment @auther SHIORI OYAMA
+ * @auther MAIKI OKANO
+ * @since 20160623
  * @since 20160623
  * @version 1.2
  */
 
-DROP DATABASE IF EXISTS openconnect;  /* DBを消す */
-CREATE DATABASE openconnect;  /* DBを作る */
+DROP DATABASE IF EXISTS openconnect;  /* comment DBを消す */
+CREATE DATABASE openconnect;  /* comment DBを作る */
 
-/* 一旦消して再度作ることでデータの重複を防ぐ */
+/* comment 一旦消して再度作ることでデータの重複を防ぐ */
 
-use openconnect;  /* DBを使う */
+use openconnect;  /* comment DBを使う */
 
-/* テーブル作成 */
-/* ユーザー */
-create table user (  /* ユーザーのテーブルを作る */
-user_id int not null auto_increment,  /* ユーザーに番号を割り振る、自動連番 */
-password varchar(255) not null,   /* ユーザーのログイン用パスワード */
-name varchar(255) default "　",  /* ユーザー名 */
-name_f varchar(255) default "　",  /* ユーザー名(ふりがな) */
-postal varchar(255) not null default "　",/*郵便番号*/
-address varchar(255) not null default "　",/*住所*/
-tel_number varchar(255) not null default "　",/*電話番号*/
-email varchar(255) not null unique,/*メールアドレス*/
-sex varchar(10) not null default "　",/*性別*/
-birthday date not null default 00000000,/*生年月日*/
+/* comment テーブル作成 */
+/* comment ユーザー */
+create table user (  /* comment ユーザーのテーブルを作る */
+user_id int not null auto_increment,  /* comment ユーザーに番号を割り振る、自動連番 */
+password varchar(255) not null,   /* comment ユーザーのログイン用パスワード */
+name varchar(255) default "　",  /* comment ユーザー名 */
+name_f varchar(255) default "　",  /* comment ユーザー名(ふりがな) */
+postal varchar(255) not null default "　",/* comment郵便番号 */
+address varchar(255) not null default "　",/* comment住所 */
+tel_number varchar(255) not null default "　",/* comment電話番号 */
+email varchar(255) not null unique,/* commentメールアドレス */
+sex varchar(10) not null default "　",/* comment性別 comment*/
+birthday date not null default 00000000,/* comment 生年月日 */
 handle_name varchar(16),
-register_day datetime not null default 00000000000000,/*登録日*/
-update_day datetime not null default 00000000000000,/*更新日*/
+register_day datetime not null default 00000000000000,/* comment 登録日 */
+update_day datetime not null default 00000000000000,/* comment更新日 */
 userdel_flg boolean not null default FALSE,/*退会フラグ*/
-login_flg boolean not null default TRUE,/*ログインフラグ*/
-user_flg int not null default 1,/*ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者*/
-PRIMARY KEY (user_id)  /* idの重複、null禁止 */
+login_flg boolean not null default TRUE,/* commentログインフラグ */
+user_flg int not null default 1,/* comment ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者 */
+PRIMARY KEY (user_id)  /* comment idの重複、null禁止 */
 );
 
 
-/* サイト一覧 */
-create table site(  /* サイトのテーブルを作る */
-site_id int not null auto_increment,  /* サイトに番号を割り振る、自動連番 */
-site_name varchar(30) not null,  /* サイトの名前 */
-site_url varchar(255) not null unique,/* サイトのURL */
-site_article text not null,/*site_article text not null,サイトの記事*/
-genre varchar(30),/*site_group varchar(30),グループ*/
-picture varchar(255),/*picture varchar(255),画像*/
-banner varchar(80), /*banner varchar(80) not null,バナー*/
-PRIMARY KEY (site_id)  /* idの重複、null禁止 */
+/* comment サイト一覧 */
+create table site(  /* comment サイトのテーブルを作る */
+site_id int not null auto_increment,  /* comment サイトに番号を割り振る、自動連番 */
+site_name varchar(30) not null,  /* comment サイトの名前 */
+site_url varchar(255) not null unique,/* comment サイトのURL */
+site_article text not null,/* comment site_article text not null,サイトの記事 */
+genre varchar(30),/* comment site_group varchar(30),グループ */
+picture varchar(255),/* comment picture varchar(255),画像*/
+banner varchar(80), /* comment banner varchar(80) not null,バナー */
+PRIMARY KEY (site_id)  /* comment idの重複、null禁止 */
 );
 
 /*権限マスター*/
@@ -51,58 +53,58 @@ level_id int not null,
 level_name varchar(10) not null
 );
 
-/* カレッジ生名簿 */
-create table students(  /* 名簿のテーブルを作る */
-number varchar(5),  /* 管理番号、0001からスタート */
-name varchar(50),  /* 名前、漢字で入力、姓と名の間は半角スペースを入れる */
-symbol varchar(50),  /* ふりがな、ひらがなで入力、姓と名の間は半角スペースを入れる */
-entrance varchar(10),  /* 入講年月、例：201604 */
-PRIMARY KEY (number)  /* 管理番号の重複、null禁止 */
+/* comment カレッジ生名簿 */
+create table students(  /* comment 名簿のテーブルを作る */
+number varchar(5),  /* comment 管理番号、0001からスタート */
+name varchar(50),  /* comment 名前、漢字で入力、姓と名の間は半角スペースを入れる */
+symbol varchar(50),  /* comment ふりがな、ひらがなで入力、姓と名の間は半角スペースを入れる */
+entrance varchar(10),  /* comment 入講年月、例：201604 */
+PRIMARY KEY (number)  /* comment 管理番号の重複、null禁止 */
 );
 
-/* 遅刻登録 */
-create table tikoku(  /* 遅刻登録のテーブルを作る */
-number varchar(5),  /* 管理番号 名簿に登録されている番号 */
-name varchar(50),  /* 名前 名簿に登録されている名前 */
-reason varchar(50)  /* 遅刻の理由 */
+/* comment 遅刻登録 */
+create table tikoku(  /* comment 遅刻登録のテーブルを作る */
+number varchar(5),  /* comment 管理番号 名簿に登録されている番号 */
+name varchar(50),  /* comment 名前 名簿に登録されている名前 */
+reason varchar(50)  /* comment 遅刻の理由 */
 );
 
-/* 欠席登録 */
-create table kesseki(  /* 欠席登録のテーブルを作る */
-number varchar(5),  /* 管理番号 名簿に登録されている番号 */
-name varchar(50),  /* 名前 名簿に登録されている名前 */
-reason varchar(50)  /* 欠席の理由 */
+/* comment 欠席登録 */
+create table kesseki(  /* comment 欠席登録のテーブルを作る */
+number varchar(5),  /* comment 管理番号 名簿に登録されている番号 */
+name varchar(50),  /* comment 名前 名簿に登録されている名前 */
+reason varchar(50)  /* comment 欠席の理由 */
 );
 
-/* 面談登録 */
-create table mendan(  /* 面談登録のテーブルを作る */
-number varchar(5),  /* 管理番号 名簿に登録されている番号 */
-name varchar(50),  /* 名前 名簿に登録されている名前 */
-time varchar(6)  /* 面談の開始時間 */
+/* comment 面談登録 */
+create table mendan(  /* comment 面談登録のテーブルを作る */
+number varchar(5),  /* comment 管理番号 名簿に登録されている番号 */
+name varchar(50),  /* comment 名前 名簿に登録されている名前 */
+time varchar(6)  /* comment 面談の開始時間 */
 );
 
-/* 出席登録 */
-create table syusseki(  /* 出席登録のテーブルを作る */
-number varchar(5),  /* 管理番号 名簿に登録されている番号 */
-name varchar(50)  /* 名前 名簿に登録されている名前 */
+/* comment 出席登録 */
+create table syusseki(  /* comment 出席登録のテーブルを作る */
+number varchar(5),  /* comment 管理番号 名簿に登録されている番号 */
+name varchar(50)  /* comment 名前 名簿に登録されている名前 */
 );
 
-/* データ登録 */
-/* ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
+/* comment データ登録 */
+/* comment ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
 insert into user(user_id,password,name,name_f,postal,address,tel_number,email,sex,birthday,handle_name,register_day,update_day,userdel_flg,login_flg,user_flg)values
 (1,"testuser","インターノウス株式会社プログラマカレッジ　テストユーザー","いんたーのうすかぶしきがいしゃぷろぐらまかれっじ　てすとゆーざー","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","0312345678","internousdev.testuser@gmail.com","男","1993-12-24","testuser","2016-07-01 13:00:00","2016-07-11 12:11:25",FALSE,FALSE,"2"),
 (2,"internous01","井上琢磨","いのうえたくま","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09012341234","t.inoue@internous.co.jp","男","1990-09-25","takuma.inoe","2016-07-01 13:00:00","2016-07-11 13:54:20",FALSE,FALSE,"2"),
 (3,"internous01","原田美由貴","はらだみゆき","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09045674567","m.harada@internous.co.jp","女","1992-05-03","miyuki.harada","2016-07-01 13:00:00","2016-07-11 13:00:00",FALSE,FALSE,"2")
 ;
 
-/* サイト一覧 / サイト名/URL */
+/* comment サイト一覧 / サイト名/URL */
 insert into site(site_id, site_name, site_url,site_article,genre,picture,banner)values
-(1,"BaseBallTicket","http://www.internousdev.com/baseballTicket/","野球観戦チケットサイト","チケット",null,null),/* BaseBallTicket */
-(2,"gekidanroadshow","http://www.internousdev.com/gekidanroadshow/","舞台チケット予約サイト","チケット",null,null),/* gekidanroadshow */
-(3,"ichigoichie","http://www.internousdev.com/ichigoichie/","着物レンタルサイト","レンタル",null,null),/* ichigoichie */
-(4,"chocotime","http://www.internousdev.com/chocotime/","チョコレート販売サイト","グルメ",null,null),/* chocotime */
-(5,"kinnosawa","http://www.internousdev.com/kinnosawa/","和菓子販売サイト","グルメ",null,null),/* kinnosawa */
-(6,"kuruyama","http://www.internousdev.co/kuruyama/","ラーメン販売サイト","グルメ",null,null);/* kuruyama */
+(1,"BaseBallTicket","http://www.internousdev.com/baseballTicket/","野球観戦チケットサイト","チケット",null,null),/* comment BaseBallTicketサイト情報 */
+(2,"gekidanroadshow","http://www.internousdev.com/gekidanroadshow/","舞台チケット予約サイト","チケット",null,null),/* comment gekidanroadshowサイト情報 */
+(3,"ichigoichie","http://www.internousdev.com/ichigoichie/","着物レンタルサイト","レンタル",null,null),/* comment ichigoichieサイト情報 */
+(4,"chocotime","http://www.internousdev.com/chocotime/","チョコレート販売サイト","グルメ",null,null),/* comment chocotimeサイト情報 */
+(5,"kinnosawa","http://www.internousdev.com/kinnosawa/","和菓子販売サイト","グルメ",null,null),/* comment kinnosawaサイト情報 */
+(6,"kuruyama","http://www.internousdev.co/kuruyama/","ラーメン販売サイト","グルメ",null,null);/* comment kuruyamaサイト情報 */
 
 /*権限マスター / 権限レベルID/権限レベル名*/
 insert into master(level_id,level_name)value
@@ -112,7 +114,7 @@ insert into master(level_id,level_name)value
 (4,"出品者");
 
 
-/* カレッジ生一覧 / 管理番号/名前/なまえ/入講年月 */
+/* comment カレッジ生一覧 / 管理番号/名前/なまえ/入講年月 */
 insert into students(number,name,symbol,entrance) values
 ("0001","小西 瞬","こにし しゅん","201604"),
 ("0002","高野 由佳","たかの ゆか","201604"),
@@ -164,5 +166,5 @@ insert into students(number,name,symbol,entrance) values
 ("0048","藤本 徳美","ふじもと めぐみ","201606"),
 ("0049","丸井 優吾","まるい ゆうご","201606"),
 ("0050","古長 三四郎","こちょう さんしろう","201606")
-;/* 管理番号は自動連番ではないため、0を含めた数字を手入力する。
+;/* comment 管理番号は自動連番ではないため、0を含めた数字を手入力する。
 * 番号がいっぱいになった時は0001から入力していき、必要ないものは極力消去すること。 */
