@@ -50,7 +50,7 @@ public class DeleteAppAction extends ActionSupport {
      * 取得メソッド サイトIDを取得
      *
      * @author MAIKI OKANO
-     * @return site_id 取得するサイトID
+     * @return siteId 取得するサイトID
      */
 	public int getSiteId() {
 		return siteId;
@@ -60,8 +60,7 @@ public class DeleteAppAction extends ActionSupport {
      * 格納メソッド サイトIDを格納
      *
      * @author MAIKI OKANO
-     * @param site_id
-     *            格納するサイトID
+     * @param siteId 格納するサイトID
      */
 	public void setSiteId(int siteId) {
 		this.siteId = siteId;
@@ -70,7 +69,7 @@ public class DeleteAppAction extends ActionSupport {
      * 取得メソッド エラーメッセージを取得
      *
      * @author MAIKI OKANO
-     * @return errorMsg 取得するエラーメッセージ
+     * @return errormsg 取得するエラーメッセージ
      */
 	public String getErrormsg() {
 		return errormsg;
@@ -80,8 +79,7 @@ public class DeleteAppAction extends ActionSupport {
      * 格納メソッド エラーメッセージを格納
      *
      * @author MAIKI OKANO
-     * @param errorMsg
-     *            格納するエラーメッセージ
+     * @param errormsg 格納するエラーメッセージ
      */
 	public void setErrormsg(String errormsg) {
 		this.errormsg = errormsg;

@@ -30,7 +30,7 @@ public class GetAddressDTO{
      * 取得メソッド サイトIDを取得
      *
      * @author MAIKI OKANO
-     * @return siteId
+     * @return siteId 取得するサイトID
      */
 	public int getSiteId() {
 		return siteId;
@@ -39,7 +39,7 @@ public class GetAddressDTO{
      * 格納メソッド サイトIDを格納
      *
      * @author MAIKI OKANO
-     * @param siteId
+     * @param siteId 格納するサイトID
      */
 	public void setSiteId(int siteId) {
 		this.siteId = siteId;
@@ -48,7 +48,7 @@ public class GetAddressDTO{
      * 取得メソッド サイトの名前を取得
      *
      * @author MAIKI OKANO
-     * @return siteName
+     * @return siteName 取得するサイトの名前
      */
 	public String getSiteName() {
 		return siteName;
@@ -57,7 +57,7 @@ public class GetAddressDTO{
      * 格納メソッド サイトの名前を格納
      *
      * @author MAIKI OKANO
-     * @param siteName
+     * @param siteName 格納するサイトの名前
      */
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
@@ -66,7 +66,7 @@ public class GetAddressDTO{
      * 取得メソッド サイトURLを取得
      *
      * @author MAIKI OKANO
-     * @return siteUrl
+     * @return siteUrl サイトのURL
      */
 	public String getSiteUrl() {
 		return siteUrl;
@@ -75,7 +75,7 @@ public class GetAddressDTO{
      * 格納メソッド サイトURLを格納
      *
      * @author MAIKI OKANO
-     * @param siteUrl
+     * @param siteUrl 格納するサイトのURL
      */
 	public void setSiteUrl(String siteUrl) {
 		this.siteUrl = siteUrl;
@@ -84,7 +84,7 @@ public class GetAddressDTO{
      * 取得メソッド サイトのジャンルを取得
      *
      * @author MAIKI OKANO
-     * @return genrul
+     * @return genrul 取得するサイトのジャンル
      */
 	public String getGenre() {
 		return genre;
@@ -93,7 +93,7 @@ public class GetAddressDTO{
      * 格納メソッド サイトのジャンルを格納
      *
      * @author MAIKI OKANO
-     * @param genre
+     * @param genre 格納するサイトのジャンル
      */
 	public void setGenre(String genre) {
 		this.genre = genre;

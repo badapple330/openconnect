@@ -55,13 +55,6 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
         }else
             setNotLoginMsg("ログイン後に表示します。");
 
-       /* try {
-            siteInfoList.addAll(dao.select());
-            result = SUCCESS;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
         return result;
     }
 
@@ -78,7 +71,7 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
      * 格納メソッド サイトリストを格納
      *
      * @author MAIKI OKANO
-     * @param siteInfoList
+     * @param siteInfoList 格納するサイトリスト
      */
     public void setSiteInfoList(List<GetAddressDTO> siteInfoList) {
 		this.siteInfoList = siteInfoList;
@@ -87,7 +80,7 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
      * 取得メソッド セッションを取得
      *
      * @author MAIKI OKANO
-     * @return session
+     * @return session 取得するセッション
      */
     public Map<String, Object> getSession() {
         return session;
@@ -96,7 +89,7 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
      * 格納メソッド セッションを格納
      *
      * @author MAIKI OKANO
-     * @param session
+     * @param session 格納するセッション
      */
     @Override
     public void setSession(Map<String, Object> session) {
@@ -106,7 +99,7 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
      * 取得メソッド ログインエラーメッセージを取得
      *
      * @author MAIKI OKANO
-     * @return notLoginMsg
+     * @return notLoginMsg 取得するログインエラーメッセージ
      */
     public String getNotLoginMsg() {
         return notLoginMsg;
@@ -115,7 +108,7 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
      * 格納メソッド ログインエラーメッセージを格納
      *
      * @author MAIKI OKANO
-     * @param notLoginMsg
+     * @param notLoginMsg 格納するログインエラーメッセージ
      */
     public void setNotLoginMsg(String notLoginMsg) {
         this.notLoginMsg = notLoginMsg;

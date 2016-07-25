@@ -105,7 +105,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * ユーザーIDを取得するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @return user_id 取得するユーザーID
+	 * @return userId 取得するユーザーID
 	 */
 	public String getUserId() {
 		return userId;
@@ -115,8 +115,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * ユーザーIDを格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param user_id
-	 *            格納するユーザーID
+	 * @param userId 格納するユーザーID
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
@@ -135,8 +134,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	/**
 	 * パスワードを格納するためのメソッド
 	 *
-	 * @param password
-	 *            格納するパスワード
+	 * @param password 格納するパスワード
 	 *
 	 * @author YUKI MAEDA
 	 */
@@ -158,8 +156,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * パスワード(確認用)を格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param passwordcheck
-	 *            格納するパスワード(確認用)
+	 * @param passwordcheck 格納するパスワード(確認用)
 	 */
 	public void setPasswordcheck(String passwordcheck) {
 		this.passwordcheck = passwordcheck;
@@ -179,8 +176,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 名前を格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param name
-	 *            格納する名前
+	 * @param name 格納する名前
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -190,7 +186,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 名前（ふりがな）を取得するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @return name_f 取得する名前（ふりがな）
+	 * @return nameF 取得する名前（ふりがな）
 	 */
 	public String getNameF() {
 		return nameF;
@@ -200,8 +196,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 名前（ふりがな）を格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param name_f
-	 *            格納する名前（ふりがな）
+	 * @param nameF 格納する名前（ふりがな）
 	 */
 	public void setNameF(String nameF) {
 		this.nameF = nameF;
@@ -221,8 +216,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 郵便番号を格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param postal
-	 *            格納する郵便番号
+	 * @param postal 格納する郵便番号
 	 */
 	public void setPostal(String postal) {
 		this.postal = postal;
@@ -242,8 +236,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 住所を格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param address
-	 *            格納する住所
+	 * @param address 格納する住所
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -253,7 +246,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 電話番号を取得するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @return tel_number 取得する電話番号
+	 * @return telNumber 取得する電話番号
 	 */
 	public String getTelNumber() {
 		return telNumber;
@@ -263,8 +256,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 電話番号を格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param tel_number
-	 *            格納する電話番号
+	 * @param telNumber 格納する電話番号
 	 */
 	public void setTelNumber(String telNumber) {
 		this.telNumber = telNumber;
@@ -284,8 +276,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * メールアドレスを格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param email
-	 *            格納するメールアドレス
+	 * @param email 格納するメールアドレス
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -305,8 +296,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 性別を格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param sex
-	 *            格納する性別
+	 * @param sex 格納する性別
 	 */
 	public void setSex(String sex) {
 		this.sex = sex;
@@ -326,8 +316,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 生年月日を格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param birthday
-	 *            格納する生年月日
+	 * @param birthday 格納する生年月日
 	 */
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
@@ -347,8 +336,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * エラーメッセージを格納するためのメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param errorMsg
-	 *            格納するエラーメッセージ
+	 * @param errorMsg 格納するエラーメッセージ
 	 */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
@@ -358,8 +346,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 格納メソッド セッションを格納
 	 *
 	 * @author YUKI MAEDA
-	 * @param session
-	 *            セッション
+	 * @param sessionMap セッション
 	 */
 	@Override
 	public void setSession(Map<String, Object> sessionMap) {

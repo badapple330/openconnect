@@ -20,8 +20,8 @@ public class LoginDAO {
 
 	/**
 	 * 指定された情報をDBの情報と照合するメソッド
-	 * @param email
-	 * @param password
+	 * @param email メールアドレス
+	 * @param password パスワード
 	 * @return flg 照合に成功したらSUCCESS、失敗したらERROR
 	 */
 	public boolean select(String email, String password) {
@@ -71,7 +71,7 @@ public class LoginDAO {
 	/**
 	 * ユーザーフラグを格納するメソッド
 	 *
-	 * @auther YUKI MAEDA
+	 * @author YUKI MAEDA
 	 * @param flg
 	 *            格納するユーザーフラグ
 	 */

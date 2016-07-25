@@ -26,14 +26,13 @@ public class UpdateAppDAO {
 	 *
 	 * @author Arima Genki
 	 * @since 2015/06/18
-	 * @param id
-	 * @param siteName
-	 * @param url
-	 * @param add_group
-	 * @return result
-	 * @throws SQLException
+	 * @param siteId サイトID
+	 * @param siteName サイトの名前
+	 * @param siteUrl サイトのURL
+	 * @param genre サイトのジャンル
+	 * @return result 更新に成功したらSUCCESS、失敗したらERROR
 	 */
-	public boolean update(int siteId, String siteName, String siteUrl, String siteGroup) throws SQLException {
+	public boolean update(int siteId, String siteName, String siteUrl, String genre){
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
@@ -43,7 +42,7 @@ public class UpdateAppDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, siteName);
 			ps.setString(2, siteUrl);
-			ps.setString(3, siteGroup);
+			ps.setString(3, genre);
 			ps.setInt(4, siteId);
 			int rsCount = ps.executeUpdate();
 			if (rsCount > 0) {
@@ -52,8 +51,12 @@ public class UpdateAppDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
-		}
+			 try{
+	                con.close();
+	            }catch(SQLException e){
+	                e.printStackTrace();
+	            }
+	        }
 		return result;
 	}
 }

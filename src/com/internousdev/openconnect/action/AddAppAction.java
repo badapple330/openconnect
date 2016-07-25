@@ -69,8 +69,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 格納メソッド サイトIDを格納
      *
      * @author MAIKI OKANO
-     * @param siteId
-     *            格納するサイトID
+     * @param siteId 格納するサイトID
      */
 	public void setSiteId(int siteId) {
 		this.siteId = siteId;
@@ -88,8 +87,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 格納メソッド サイトの名前を格納
      *
      * @author MAIKI OKANO
-     * @param siteName
-     *            格納するサイト名前
+     * @param siteName 格納するサイト名前
      */
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
@@ -107,8 +105,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 格納メソッド サイトURLを格納
      *
      * @author MAIKI OKANO
-     * @param siteUrl
-     *            格納するサイトURL
+     * @param siteUrl 格納するサイトURL
      */
 	public void setSiteUrl(String siteUrl) {
 		this.siteUrl = siteUrl;
@@ -126,8 +123,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 格納メソッド サイトのジャンルを格納
      *
      * @author MAIKI OKANO
-     * @param genre
-     *            格納するサイトのジャンル
+     * @param genre 格納するサイトのジャンル
      */
 	public void setGenre(String genre) {
 		this.genre = genre;
@@ -145,8 +141,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 格納メソッド エラーメッセージを格納
      *
      * @author MAIKI OKANO
-     * @param errorMsg
-     *            格納するエラーメッセージ
+     * @param errorMsg 格納するエラーメッセージ
      */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;

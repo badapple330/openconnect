@@ -59,7 +59,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * セッションを取得するためのメソッド
 	 *
-	 * @auther MAIKI OKANO
+	 * @author MAIKI OKANO
 	 * @return session 取得するセッション
 	 */
 	public Map<String, Object> getSession() {
@@ -70,8 +70,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	 * セッションを格納するためのメソッド
 	 *
 	 * @author MAIKI OKANO
-	 * @param session
-	 *             格納するセッション
+	 * @param session 格納するセッション
 	 */
 	@Override
 	public void setSession(Map<String, Object> session) {
@@ -90,8 +89,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	 * メールアドレスを格納するためのメソッド
 	 *
 	 * @author MAIKI OKANO
-	 * @param email
-	 *            格納するメールアドレス
+	 * @param email 格納するメールアドレス
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -109,8 +107,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	 * パスワードを格納するためのメソッド
 	 *
 	 * @author MAIKI OKANO
-	 * @param password
-	 *            格納するパスワード
+	 * @param password 格納するパスワード
 	 */
 	public void setPassword(String password) {
 		this.password = password;

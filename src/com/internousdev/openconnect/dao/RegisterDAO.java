@@ -40,16 +40,7 @@ public class RegisterDAO {
 	 *            性別
 	 * @param birthday
 	 *            誕生日
-	 * @param registerDay
-	 *            登録日
-	 * @param updateDay
-	 *            更新日
-	 * @param userdelFlg
-	 *            ユーザー削除フラグ
-	 * @param loginFlg
-	 *            ログインフラグ
-	 * @param userFlg
-	 *            ユーザーフラグ
+	 *
 	 * @return result 挿入に成功したら1以上、失敗したら0
 	 */
 	public int insert(String userID, String password, String name, String nameF, String postal, String address,
@@ -102,7 +93,7 @@ public class RegisterDAO {
 	 * 指定されたユーザーＩＤが存在するかＤＢに接続して調べるメソッド
 	 *
 	 * @author YUKI MAEDA
-	 * @param user_id
+	 * @param userId
 	 *            ユーザーID
 	 * @return 存在したらtrue、存在しなければfalse
 	 */

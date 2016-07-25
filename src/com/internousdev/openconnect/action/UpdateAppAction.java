@@ -80,7 +80,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 取得メソッド サイトIDを取得
      *
      * @author MAIKI OKANO
-     * @return site_id 取得するサイトID
+     * @return siteId 取得するサイトID
      */
 	public int getSiteId() {
 		return siteId;
@@ -89,8 +89,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 格納メソッド サイトIDを格納
      *
      * @author MAIKI OKANO
-     * @param site_id
-     *            格納するサイトID
+     * @param siteId 格納するサイトID
      */
 	public void setSiteId(int siteId) {
 		this.siteId = siteId;
@@ -99,7 +98,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 取得メソッド サイトの名前を取得
      *
      * @author MAIKI OKANO
-     * @return site_name 取得するサイトの名前
+     * @return siteName 取得するサイトの名前
      */
 	public String getSiteName() {
 		return siteName;
@@ -108,8 +107,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 格納メソッド サイトの名前を格納
      *
      * @author MAIKI OKANO
-     * @param site_name
-     *            格納するサイトの名前
+     * @param siteName 格納するサイトの名前
      */
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
@@ -118,7 +116,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 取得メソッド サイトURLを取得
      *
      * @author MAIKI OKANO
-     * @return site_url 取得するサイトのURL
+     * @return siteUrl 取得するサイトのURL
      */
 	public String getSiteUrl() {
 		return siteUrl;
@@ -127,8 +125,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 格納メソッド サイトURLを格納
      *
      * @author MAIKI OKANO
-     * @param site_url
-     *            サイトのURL
+     * @param siteUrl サイトのURL
      */
 	public void setSiteUrl(String siteUrl) {
 		this.siteUrl = siteUrl;
@@ -146,8 +143,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 格納メソッド サイトのジャンルを格納
      *
      * @author MAIKI OKANO
-     * @param genre
-     *            格納するサイトのジャンル
+     * @param genre 格納するサイトのジャンル
      */
 	public void setGenre(String genre) {
 		this.genre = genre;
@@ -165,8 +161,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 格納メソッド セッションを格納
      *
      * @author MAIKI OKANO
-     * @param sessionMap
-     *            格納するセッションマップ
+     * @param sessionMap 格納するセッションマップ
      */
 	@Override
 	public void setSession(Map<String, Object> sessionMap) {

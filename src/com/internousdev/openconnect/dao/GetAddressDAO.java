@@ -22,7 +22,7 @@ public class GetAddressDAO {
 	/**
 	 * 抽出メソッド
 	 * ログインのした際にDBからサイト情報をリスト化して抽出し、DTOに格納する
-	 * @auther MAIKI OKANO
+	 * @author MAIKI OKANO
 	 * @return siteInfoList 抽出に成功したらSUCCESS、失敗したらERROR
 	 */
 	public List<GetAddressDTO> select(){
