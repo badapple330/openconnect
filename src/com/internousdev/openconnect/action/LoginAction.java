@@ -18,7 +18,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1422381634250534884L;
 
 	/**
-	 * セッション
+	 * セッションマップ
 	 */
 	public Map<String, Object> session;
 	/**
@@ -39,7 +39,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	 * DAOに入力情報を渡し、結果を返す
 	 *
 	 * @author MAIKI OKANO
-	 * @return result
+	 * @return result データベースの情報と照合できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {
 		result = ERROR;
@@ -57,26 +57,62 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		return result;
 	}
 
+	/**
+	 * セッションを取得するためのメソッド
+	 *
+	 * @auther MAIKI OKANO
+	 * @return session 取得するセッション
+	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
+	/**
+	 * セッションを格納するためのメソッド
+	 *
+	 * @author MAIKI OKANO
+	 * @param session
+	 *             格納するセッション
+	 */
+	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
+	/**
+	 * メールアドレスを取得するためのメソッド
+	 *
+	 * @author MAIKI OKANO
+	 * @return email 取得するメールアドレス
+	 */
 	public String getEmail() {
 		return email;
 	}
-
+	/**
+	 * メールアドレスを格納するためのメソッド
+	 *
+	 * @author MAIKI OKANO
+	 * @param email
+	 *            格納するメールアドレス
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	/**
+	 * パスワードを取得するためのメソッド
+	 *
+	 * @author MAIKI OKANO
+	 * @return password 取得するパスワード
+	 */
 	public String getPassword() {
 		return password;
 	}
-
+	/**
+	 * パスワードを格納するためのメソッド
+	 *
+	 * @author MAIKI OKANO
+	 * @param password
+	 *            格納するパスワード
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}

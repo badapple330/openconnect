@@ -58,12 +58,6 @@
             <result name="error">/login.jsp</result>
         </action>
 
-        <action name="GoAdminAction" class="com.internousdev.openconnect.action.GoAdminAction"
-        method="execute">
-        <result name="success">/admin.jsp</result>
-        <result name="error">/LoginAdmin.jsp</result>
-        </action>
-
         <action name="GetAddressAdminAction" class="com.internousdev.openconnect.action.GetAddressAdminAction"
             method="execute">
             <result name="success">/admin.jsp</result>

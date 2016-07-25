@@ -361,6 +361,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @param session
 	 *            セッション
 	 */
+	@Override
 	public void setSession(Map<String, Object> sessionMap) {
 		this.sessionMap = sessionMap;
 	}

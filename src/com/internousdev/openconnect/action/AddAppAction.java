@@ -41,7 +41,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * DAOにサイト情報を渡して結果を返す
      *
      * @author MAIKI OKANO
-     * @return result
+     * @return result データベースに情報を格納できたらSUCCESS、失敗したらERROR
      */
 	public String execute() {
 		String result = ERROR;
@@ -60,7 +60,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 取得メソッド サイトIDを取得
      *
      * @author MAIKI OKANO
-     * @return siteId
+     * @return siteId 取得するサイトID
      */
 	public int getSiteId() {
 		return siteId;
@@ -70,6 +70,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      *
      * @author MAIKI OKANO
      * @param siteId
+     *            格納するサイトID
      */
 	public void setSiteId(int siteId) {
 		this.siteId = siteId;
@@ -78,7 +79,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 取得メソッド サイトの名前を取得
      *
      * @author MAIKI OKANO
-     * @return siteName
+     * @return siteName 取得するサイトの名前
      */
 	public String getSiteName() {
 		return siteName;
@@ -88,6 +89,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      *
      * @author MAIKI OKANO
      * @param siteName
+     *            格納するサイト名前
      */
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
@@ -96,7 +98,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 取得メソッド サイトURLを取得
      *
      * @author MAIKI OKANO
-     * @return siteUrl
+     * @return siteUrl 取得するサイトURL
      */
 	public String getSiteUrl() {
 		return siteUrl;
@@ -106,6 +108,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      *
      * @author MAIKI OKANO
      * @param siteUrl
+     *            格納するサイトURL
      */
 	public void setSiteUrl(String siteUrl) {
 		this.siteUrl = siteUrl;
@@ -114,7 +117,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 取得メソッド サイトのジャンルを取得
      *
      * @author MAIKI OKANO
-     * @return genre
+     * @return genre 取得するサイトのジャンル
      */
 	public String getGenre() {
 		return genre;
@@ -124,6 +127,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      *
      * @author MAIKI OKANO
      * @param genre
+     *            格納するサイトのジャンル
      */
 	public void setGenre(String genre) {
 		this.genre = genre;
@@ -132,7 +136,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      * 取得メソッド エラーメッセージを取得
      *
      * @author MAIKI OKANO
-     * @return errorMsg
+     * @return errorMsg 取得するエラーメッセージ
      */
 	public String getErrorMsg() {
 		return errorMsg;
@@ -142,6 +146,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      *
      * @author MAIKI OKANO
      * @param errorMsg
+     *            格納するエラーメッセージ
      */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;

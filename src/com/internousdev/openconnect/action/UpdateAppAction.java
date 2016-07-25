@@ -59,7 +59,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 	 * @since 2015/06/15
 	 * @author MAIKI OKANO
 	 * @since 2015/07/21
-	 * @return result
+	 * @return result データベースの情報を更新できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() throws SQLException {
 		UpdateAppDAO updateAppDao = new UpdateAppDAO();
@@ -80,7 +80,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 取得メソッド サイトIDを取得
      *
      * @author MAIKI OKANO
-     * @return site_id
+     * @return site_id 取得するサイトID
      */
 	public int getSiteId() {
 		return siteId;
@@ -90,6 +90,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      *
      * @author MAIKI OKANO
      * @param site_id
+     *            格納するサイトID
      */
 	public void setSiteId(int siteId) {
 		this.siteId = siteId;
@@ -98,7 +99,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 取得メソッド サイトの名前を取得
      *
      * @author MAIKI OKANO
-     * @return site_name
+     * @return site_name 取得するサイトの名前
      */
 	public String getSiteName() {
 		return siteName;
@@ -108,6 +109,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      *
      * @author MAIKI OKANO
      * @param site_name
+     *            格納するサイトの名前
      */
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
@@ -116,7 +118,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 取得メソッド サイトURLを取得
      *
      * @author MAIKI OKANO
-     * @return site_url
+     * @return site_url 取得するサイトのURL
      */
 	public String getSiteUrl() {
 		return siteUrl;
@@ -126,6 +128,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      *
      * @author MAIKI OKANO
      * @param site_url
+     *            サイトのURL
      */
 	public void setSiteUrl(String siteUrl) {
 		this.siteUrl = siteUrl;
@@ -134,7 +137,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 取得メソッド サイトのジャンルを取得
      *
      * @author MAIKI OKANO
-     * @return genre
+     * @return genre 取得するサイトのジャンル
      */
 	public String getGenre() {
 		return genre;
@@ -144,6 +147,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      *
      * @author MAIKI OKANO
      * @param genre
+     *            格納するサイトのジャンル
      */
 	public void setGenre(String genre) {
 		this.genre = genre;
@@ -152,7 +156,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      * 取得メソッド セッションを取得
      *
      * @author MAIKI OKANO
-     * @return sessionMap
+     * @return sessionMap 取得するセッションマップ
      */
 	public Map<String, Object> getSessionMap() {
 		return sessionMap;
@@ -162,7 +166,9 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      *
      * @author MAIKI OKANO
      * @param sessionMap
+     *            格納するセッションマップ
      */
+	@Override
 	public void setSession(Map<String, Object> sessionMap) {
 		this.sessionMap = sessionMap;
 	}

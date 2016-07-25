@@ -30,7 +30,7 @@ public class DeleteAppAction extends ActionSupport {
      * DAOにサイト情報を渡して結果を返す
      *
      * @author MAIKI OKANO
-     * @return result
+     * @return result データベースの情報を削除できたらSUCCESS、失敗したらERROR
      */
 	public String execute() throws SQLException {
 		String result = ERROR;
@@ -50,7 +50,7 @@ public class DeleteAppAction extends ActionSupport {
      * 取得メソッド サイトIDを取得
      *
      * @author MAIKI OKANO
-     * @return site_id
+     * @return site_id 取得するサイトID
      */
 	public int getSiteId() {
 		return siteId;
@@ -61,6 +61,7 @@ public class DeleteAppAction extends ActionSupport {
      *
      * @author MAIKI OKANO
      * @param site_id
+     *            格納するサイトID
      */
 	public void setSiteId(int siteId) {
 		this.siteId = siteId;
@@ -69,7 +70,7 @@ public class DeleteAppAction extends ActionSupport {
      * 取得メソッド エラーメッセージを取得
      *
      * @author MAIKI OKANO
-     * @return errorMsg
+     * @return errorMsg 取得するエラーメッセージ
      */
 	public String getErrormsg() {
 		return errormsg;
@@ -80,6 +81,7 @@ public class DeleteAppAction extends ActionSupport {
      *
      * @author MAIKI OKANO
      * @param errorMsg
+     *            格納するエラーメッセージ
      */
 	public void setErrormsg(String errormsg) {
 		this.errormsg = errormsg;

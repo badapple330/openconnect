@@ -26,7 +26,7 @@ public class LoginDTO {
      * 取得メソッド メールアドレスを取得
      *
      * @author MAIKI OKANO
-     * @return email
+     * @return email 取得するメールアドレス
      */
     public String getEmail() {
         return email;
@@ -36,6 +36,7 @@ public class LoginDTO {
      *
      * @author MAIKI OKANO
      * @param email
+     *            格納するメールアドレス
      */
     public void setEmail(String email) {
         this.email = email;
@@ -44,7 +45,7 @@ public class LoginDTO {
      * 取得メソッド パスワードを取得
      *
      * @author MAIKI OKANO
-     * @return password
+     * @return password 取得するパスワード
      */
     public String getPassword() {
         return password;
@@ -54,6 +55,7 @@ public class LoginDTO {
      *
      * @author MAIKI OKANO
      * @param password
+     *            格納するパスワード
      */
     public void setPassword(String password) {
         this.password = password;
@@ -62,7 +64,7 @@ public class LoginDTO {
      * 取得メソッド ユーザーフラグを取得
      *
      * @author MAIKI OKANO
-     * @return userFlg
+     * @return userFlg 1取得するユーザーフラグ
      */
 	public String getUserFlg() {
 		return userFlg;
@@ -72,6 +74,7 @@ public class LoginDTO {
      *
      * @author MAIKI OKANO
      * @param userFlg
+     *            格納するユーザーフラグ
      */
 	public void setUserFlg(String userFlg) {
 		this.userFlg = userFlg;

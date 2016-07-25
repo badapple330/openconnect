@@ -25,8 +25,7 @@ public class GetAddressAdminAction extends ActionSupport {
 	 * 取得した情報をListに格納し、resultを返すメソッド
 	 * @author Arima Genki
 	 * @since 2015/06/16
-	 * @return result
-	 * @see GetAddressDAO
+	 * @return result データベースから情報を取得できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute(){
 		String result = ERROR;
@@ -43,7 +42,7 @@ public class GetAddressAdminAction extends ActionSupport {
 	 * リスト取得メソッド
 	 * @author Arima Genki
 	 * @since 2015/06/16
-	 * @return siteInfoList
+	 * @return siteInfoList 取得するサイトリスト
 	 */
 	public List<GetAddressDTO> getSiteInfoList() {
 		return siteInfoList;

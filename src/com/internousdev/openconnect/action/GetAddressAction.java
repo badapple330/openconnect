@@ -1,7 +1,6 @@
 package com.internousdev.openconnect.action;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -27,11 +26,11 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
 	/**
      * データベースに格納されているアプリリスト
      */
-    private List<GetAddressDTO> siteInfoList = new ArrayList<GetAddressDTO>();
+    private List<GetAddressDTO> siteInfoList;
     /**
      * セッション
      */
-    private Map<String, Object> sessionMap;
+    private Map<String, Object> session;
     /**
      * ログインエラーメッセージ
      */
@@ -48,7 +47,7 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
         Boolean user;
 
         GetAddressDAO dao = new GetAddressDAO();
-        user = sessionMap.containsKey("user");
+        user = session.containsKey("user");
         if (user == false) {
             result = SUCCESS;
             setNotLoginMsg("ログイン後に表示します。");
@@ -80,26 +79,27 @@ public class GetAddressAction extends ActionSupport implements SessionAware {
      * @author MAIKI OKANO
      * @param siteInfoList
      */
-    public void setSession(Map<String, Object> sessionMap) {
-        this.setSessionMap(sessionMap);
-    }
+    public void setSiteInfoList(List<GetAddressDTO> siteInfoList) {
+		this.siteInfoList = siteInfoList;
+	}
     /**
      * 取得メソッド セッションを取得
      *
      * @author MAIKI OKANO
-     * @return sessionMap
+     * @return session
      */
-    public Map<String, Object> getSessionMap() {
-        return sessionMap;
+    public Map<String, Object> getSession() {
+        return session;
     }
-    /**
+	/**
      * 格納メソッド セッションを格納
      *
      * @author MAIKI OKANO
-     * @param sessionMap
+     * @param session
      */
-    public void setSessionMap(Map<String, Object> sessionMap) {
-        this.sessionMap = sessionMap;
+    @Override
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
     }
     /**
      * 取得メソッド ログインエラーメッセージを取得

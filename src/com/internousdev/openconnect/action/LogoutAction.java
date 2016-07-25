@@ -6,7 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * LogoutAction セッションを切るクラス
+ * LogoutAction セッションを切断するクラス
  *
  * @author MAIKI OKANO
  * @since 2016/07/22
@@ -21,10 +21,10 @@ public class LogoutAction extends ActionSupport implements SessionAware {
     public Map<String, Object> sessionMap;
 
     /**
-     * セッションをクリアする
+     * セッションを切断する
      *
      * @author MAIKI OKANO
-     * @return result
+     * @return result セッションを切断し、SUCCESSを戻り値として返す
      */
     public String execute() {
 
@@ -36,7 +36,7 @@ public class LogoutAction extends ActionSupport implements SessionAware {
      * 取得メソッド セッションを取得
      *
      * @author MAIKI OKANO
-     * @return sessionMap
+     * @return sessionMap 取得するセッションマップ
      */
     public Map<String, Object> getSessionMap() {
         return sessionMap;
@@ -46,15 +46,7 @@ public class LogoutAction extends ActionSupport implements SessionAware {
      *
      * @author MAIKI OKANO
      * @param sessionMap
-     */
-    public void setSessionMap(Map<String, Object> sessionMap) {
-        this.sessionMap = sessionMap;
-    }
-    /**
-     * 格納メソッド セッションを格納
-     *
-     * @author MAIKI OKANO
-     * @param sessionMap
+     *            格納するセッションマップ
      */
     @Override
     public void setSession(Map<String, Object> sessionMap) {
