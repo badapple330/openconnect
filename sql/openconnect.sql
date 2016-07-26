@@ -138,7 +138,7 @@ insert into user(user_id,password,name,name_f,postal,address,tel_number,email,se
 ;
 
 /* サイト一覧 / サイト名/URL */
-insert into site(site_id, site_name, site_url,site_article,genre,picture,banner)values
+insert into site(site_id, site_name, site_url,genre,site_article,picture,banner)values
 (1,"BaseBallTicket","http://www.internousdev.com/baseballTicket/","野球観戦チケットサイト","チケット",null,null),/* BaseBallTicketサイト情報 */
 (2,"gekidanroadshow","http://www.internousdev.com/gekidanroadshow/","舞台チケット予約サイト","チケット",null,null),/* gekidanroadshowサイト情報 */
 (3,"ichigoichie","http://www.internousdev.com/ichigoichie/","着物レンタルサイト","レンタル",null,null),/* ichigoichieサイト情報 */
