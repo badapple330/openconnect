@@ -40,7 +40,7 @@ public class GetAddressDAO {
 				dto.setSiteId(rs.getInt(1));
 				dto.setSiteName(rs.getString(2));
 				dto.setSiteUrl(rs.getString(3));
-				dto.setGenre(rs.getString(4));
+				dto.setGenre(rs.getString(5));
 				siteInfoList.add(dto);
 			}
 		} catch (SQLException e) {

@@ -24,24 +24,24 @@ use openconnect;
  * ユーザーフラグ = user_flg
  */
 create table user (
-user_id int not null auto_increment,
-password varchar(255) not null,
-name varchar(255) default "　",
-name_f varchar(255) default "　",
-postal varchar(255) not null default "　",
-address varchar(255) not null default "　",
-tel_number varchar(255) not null default "　",
-email varchar(255) not null unique,
-sex varchar(10) not null default "　",
-birthday date not null default 00000000,
-handle_name varchar(16),
-register_day datetime not null default 00000000000000,
-update_day datetime not null default 00000000000000,
-userdel_flg boolean not null default FALSE,
-login_flg boolean not null default TRUE,
-user_flg int not null default 1,
+user_id int not null auto_increment comment 'ユーザーID',
+password varchar(255) not null comment 'パスワード',
+name varchar(255) default "　" comment '名前',
+name_f varchar(255) default "　" comment '名前(ふりがな)',
+postal varchar(255) not null default "　" comment '郵便番号',
+address varchar(255) not null default "　" comment '住所',
+tel_number varchar(255) not null default "　" comment '電話番号',
+email varchar(255) not null unique comment 'メールアドレス',
+sex varchar(10) not null default "　" comment '性別',
+birthday date not null default 00000000 comment '誕生日',
+handle_name varchar(16) comment 'ハンドルネーム',
+register_day datetime not null default 00000000000000 comment '登録日',
+update_day datetime not null default 00000000000000 comment '更新日',
+userdel_flg boolean not null default FALSE comment '退会フラグ',
+login_flg boolean not null default TRUE comment 'ログインフラグ',
+user_flg int not null default 1 comment 'ユーザーフラグ',
 PRIMARY KEY (user_id)
-);
+)comment = 'ユーザー情報格納テーブル';
 
 
 /* サイト一覧情報 *
@@ -54,24 +54,24 @@ PRIMARY KEY (user_id)
  * バナー = banner
  */
 create table site(
-site_id int not null auto_increment,
-site_name varchar(30) not null,
-site_url varchar(255) not null unique,
-site_article text,
-genre varchar(30),
-picture varchar(255),
-banner varchar(80),
+site_id int not null auto_increment comment 'サイトID',
+site_name varchar(30) not null comment 'サイト名',
+site_url varchar(255) not null unique comment 'サイトURL',
+site_article text comment 'サイト記事',
+genre varchar(30) comment 'genre',
+picture varchar(255) comment 'picture',
+banner varchar(80) comment 'banner',
 PRIMARY KEY (site_id)
-);
+)comment = 'サイト情報格納テーブル';
 
 /*権限マスター*
  * 権限レベルID = level_id
  * 権限レベル名 = level_name
  */
 create table master(
-level_id int not null,
-level_name varchar(10) not null
-);
+level_id int not null comment '権限レベルID',
+level_name varchar(10) not null  comment '権限レベル名'
+)comment = '権限マスター情報格納テーブル';
 
 /* カレッジ生名簿 *
  * 管理番号 = number
@@ -80,12 +80,12 @@ level_name varchar(10) not null
  * 入講年月 = entrance
  */
 create table students(
-number varchar(5),
-name varchar(50),
-symbol varchar(50),
-entrance varchar(10),
+number varchar(5) comment '管理番号',
+name varchar(50) comment '名前',
+symbol varchar(50) comment 'ふりがな',
+entrance varchar(10) comment '入稿年月',
 PRIMARY KEY (number)
-);
+) comment = 'カレッジ生情報格納テーブル';
 
 /* 遅刻登録 *
  * 管理番号 = number
@@ -93,10 +93,10 @@ PRIMARY KEY (number)
  * 遅刻理由 = reason
  */
 create table tikoku(
-number varchar(5),
-name varchar(50),
-reason varchar(50)
-);
+number varchar(5) comment '管理番号',
+name varchar(50) comment '名前',
+reason varchar(50) comment '遅刻理由'
+) comment = '遅刻登録情報格納テーブル';
 
 /* 欠席登録 *
  * 管理番号 = number
@@ -104,10 +104,10 @@ reason varchar(50)
  * 欠席理由 = reason
  */
 create table kesseki(
-number varchar(5),
-name varchar(50),
-reason varchar(50)
-);
+number varchar(5) comment '管理番号',
+name varchar(50) comment '名前',
+reason varchar(50) comment '欠席理由'
+) comment = '欠席登録情報格納テーブル';
 
 /* 面談登録 *
  * 管理番号 = number
@@ -115,19 +115,19 @@ reason varchar(50)
  * 面談開始時間 = time
  */
 create table mendan(
-number varchar(5),
-name varchar(50),
-time varchar(6)
-);
+number varchar(5) comment '管理番号',
+name varchar(50) comment '名前',
+time varchar(6) comment '面談開始時間'
+) comment = '面談登録情報格納テーブル';
 
 /* 出席登録 *
  * 管理番号 = number
  * 名前 = name
  */
 create table syusseki(
-number varchar(5),
-name varchar(50)
-);
+number varchar(5) comment '管理番号',
+name varchar(50) comment '名前'
+) comment = '出席登録情報格納テーブル';
 
 /* データ登録 */
 /* ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
