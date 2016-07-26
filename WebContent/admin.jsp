@@ -39,7 +39,7 @@
 					</td>
 					<td>グループ： <select name="genre" style="ime-mode: disabled"
 						required>
-							<option value="グループ" selected></option>
+							<option value="" selected>グループ</option>
 							<option value="観る">観る</option>
 							<option value="読む">読む</option>
 							<option value="グルメ">グルメ</option>
@@ -104,7 +104,7 @@
 					</td>
 					<td>グループ：<select name="genre" style="ime-mode: disabled"
 						required>
-							<option value="グループ" selected></option>
+							<option value="" selected>グループ</option>
 							<option value="観る">観る</option>
 							<option value="読む">読む</option>
 							<option value="グルメ">グルメ</option>
