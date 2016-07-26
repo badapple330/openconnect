@@ -144,7 +144,7 @@ insert into site(site_id, site_name, site_url,site_article,genre,picture,banner)
 (3,"ichigoichie","http://www.internousdev.com/ichigoichie/","着物レンタルサイト","レンタル",null,null),/* ichigoichieサイト情報 */
 (4,"chocotime","http://www.internousdev.com/chocotime/","チョコレート販売サイト","グルメ",null,null),/* chocotimeサイト情報 */
 (5,"kinnosawa","http://www.internousdev.com/kinnosawa/","和菓子販売サイト","グルメ",null,null),/* kinnosawaサイト情報 */
-(6,"kuruyama","http://www.internousdev.co/kuruyama/","ラーメン販売サイト","グルメ",null,null);/* kuruyamaサイト情報 */
+(6,"kuruyama","http://www.internousdev.com/kuruyama/","ラーメン販売サイト","グルメ",null,null);/* kuruyamaサイト情報 */
 
 /*権限マスター / 権限レベルID/権限レベル名*/
 insert into master(level_id,level_name)value
