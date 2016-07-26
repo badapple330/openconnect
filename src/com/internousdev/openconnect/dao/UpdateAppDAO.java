@@ -19,7 +19,6 @@ public class UpdateAppDAO {
 
 	PreparedStatement ps = null;
 
-	boolean result = false;
 
 	/**
 	 * アプリを編集するメソッド
@@ -32,31 +31,29 @@ public class UpdateAppDAO {
 	 * @param genre サイトのジャンル
 	 * @return result 更新に成功したらSUCCESS、失敗したらERROR
 	 */
-	public boolean update(int siteId, String siteName, String siteUrl, String genre){
+	public int update(int siteId, String siteName, String siteUrl, String genre){
+		int count = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
-
+		String sql = "update site set site_name=?, site_url=?, genre=? where site_id=?";
 		try {
-			String sql = "update site set site_name=?, site_url=?, genre=? where site_id=?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, siteName);
 			ps.setString(2, siteUrl);
 			ps.setString(3, genre);
 			ps.setInt(4, siteId);
-			int rsCount = ps.executeUpdate();
-			if (rsCount > 0) {
-				result = true;
-			}
+			count = ps.executeUpdate();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			 try{
-	                con.close();
+	                con.close();//DBとの接続終了
 	            }catch(SQLException e){
 	                e.printStackTrace();
 	            }
 	        }
-		return result;
+		return count;
 	}
 }

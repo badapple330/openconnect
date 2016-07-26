@@ -62,9 +62,10 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 	 * @return result データベースの情報を更新できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() throws SQLException {
+		String result = ERROR;
 		UpdateAppDAO updateAppDao = new UpdateAppDAO();
 
-		if (updateAppDao.update(siteId, siteName, siteUrl, genre)) {
+		if (updateAppDao.update(siteId, siteName, siteUrl, genre) > 0) {
 			try {
 				messageUp = "変更が完了しました";
 				result = SUCCESS;
@@ -185,6 +186,20 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
      */
 	public void setMessageUp(String messageUp) {
 		this.messageUp = messageUp;
+	}
+/**取得メソッド
+ *  @author TAMAMI KAKISHITA
+ *
+ * */
+	public String getResult() {
+		return result;
+	}
+/**格納メソッド
+ *  @author TAMAMI KAKISHITA
+ *
+ * */
+	public void setResult(String result) {
+		this.result = result;
 	}
 
 
