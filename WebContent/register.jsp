@@ -45,7 +45,7 @@
 				<!------------------    名前(ふりがな)    ------------------->
 				<tr>
 					<th>名前（ふりがな）</th>
-					<td><input type="text" name="nameF" value="" placeholder="のび" maxlength="80" required />
+					<td><input type="text" name="nameF" value="" placeholder="のび" maxlength="24" required />
 					    <input type="text" name="nameF" value="" placeholder="のびた" maxlength="25" required /></td>
 				</tr>
 
@@ -62,8 +62,8 @@
 					<th>住所</th>
 					<td><input type="text" name="address" id="address1" maxlength="10" required placeholder="都道府県" readonly="readonly">
 						<input type="text" name="address" id="address2" maxlength="15" required placeholder="市区町村" readonly="readonly">
-						<input type="text" name="address" maxlength="10" required placeholder="番地"/>
-						<input type="text" name="address" maxlength="15" placeholder="建物名等"/></td>
+						<input type="text" name="address" maxlength="15" required placeholder="番地"/>
+						<input type="text" name="address" maxlength="20" placeholder="建物名等"/></td>
 				</tr>
 
 				<!------------------    電話番号    ------------------->
@@ -98,17 +98,17 @@
 				<!------------------    パスワード    ------------------->
 				<tr>
 					<th>パスワード</th>
-					<td><input type="text" name="password" value="" size=50
-						placeholder="８～１６文字の半角英数字で入力してください"
-						pattern="^([a-zA-Z0-9]{8,16})+$" title="８～１６文字の半角英数字で入力してください" /></td>
+					<td><input type="text" name="password" value="" size=50 maxlength=16
+						required placeholder="８～１６文字の半角英数字で入力してください"
+						pattern="^([a-zA-Z0-9]{8,})+$" title="８～１６文字の半角英数字で入力してください" /></td>
 				</tr>
 
 				<!------------------    パスワード確認    ------------------->
 				<tr>
 					<th>パスワード確認</th>
-					<td><input type="text" name="passwordcheck" value="" size=50
-						placeholder="８～１６文字の半角英数字で入力してください"
-						pattern="^([a-zA-Z0-9]{8,16})+$" title="８～１６文字の半角英数字で入力してください" /></td>
+					<td><input type="text" name="passwordcheck" value="" size=50 maxlength=16
+						required placeholder="８～１６文字の半角英数字で入力してください"
+						pattern="^([a-zA-Z0-9]{8,})+$" title="８～１６文字の半角英数字で入力してください" /></td>
 				</tr>
 
 
