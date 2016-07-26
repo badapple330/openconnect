@@ -12,9 +12,9 @@
 <script src="./js/admin.js"></script>
 </head>
 <body>
-<div class="centerdesign">
-	<h1 style="text-align: center;">管理画面</h1>
-</div>
+	<div class="centerdesign">
+		<h1 style="text-align: center;">管理画面</h1>
+	</div>
 	<p class="caution">数字入力は半角のみ、 アプリID欄にはアプリIDのみ記入可能、
 		値の確認は下のアプリ一覧情報取得から行ってください。 テンキー入力不可。</p>
 	<br>
@@ -22,22 +22,23 @@
 		<font size="2" color="red"> </font>
 	</div>
 	<h2>アプリ追加</h2>
-		<s:if test="messageAdd != null">
-			<p class="msg">
-            	<s:property value="messageAdd" />
-            </p>
-        </s:if>
+	<s:if test="messageAdd != null">
+		<p class="msg">
+			<s:property value="messageAdd" />
+		</p>
+	</s:if>
 	<s:form action="AddAppAction">
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリ名：<input type="text" name="siteName" maxlength="20" required>
+					<td>アプリ名：<input type="text" name="siteName" maxlength="20"
+						required>
 					</td>
 					<td>URL：<input type="text" name="siteUrl"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<td>グループ：
-						<select name="genre" style="ime-mode: disabled" required>
+					<td>グループ： <select name="genre" style="ime-mode: disabled"
+						required>
 							<option value="グループ" selected></option>
 							<option value="観る">観る</option>
 							<option value="読む">読む</option>
@@ -49,7 +50,7 @@
 							<option value="チケット">チケット</option>
 							<option value="レンタル">レンタル</option>
 							<option value="旅行">旅行</option>
-						</select>
+					</select>
 					</td>
 
 					<td><input type="submit" value="追加"></td>
@@ -59,11 +60,11 @@
 	</s:form>
 
 	<h2>アプリ削除</h2>
-		<s:if test="messageDel != null">
-			<p class="msg">
-            	<s:property value="messageDel" />
-            </p>
-        </s:if>
+	<s:if test="messageDel != null">
+		<p class="msg">
+			<s:property value="messageDel" />
+		</p>
+	</s:if>
 	<s:form action="DeleteAppAction">
 		<table class="wwFormTable">
 			<tbody>
@@ -80,11 +81,11 @@
 	</s:form>
 
 	<h2>アプリ変更</h2>
-		<s:if test="messageUp != null">
-			<p class="msg">
-            	<s:property value="messageUp" />
-            </p>
-        </s:if>
+	<s:if test="messageUp != null">
+		<p class="msg">
+			<s:property value="messageUp" />
+		</p>
+	</s:if>
 	<s:form action="UpdateAppAction">
 		<table class="wwFormTable">
 			<tbody>
@@ -101,7 +102,8 @@
 					<td>URL：<input type="text" name="siteUrl"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<td>グループ：<select name="genre" style="ime-mode: disabled" required>
+					<td>グループ：<select name="genre" style="ime-mode: disabled"
+						required>
 							<option value="グループ" selected></option>
 							<option value="観る">観る</option>
 							<option value="読む">読む</option>
@@ -127,12 +129,12 @@
 		<input type="submit" value="アプリ一覧情報取得">
 		<table class="siteList">
 			<thead>
-			<tr>
-				<th>appID</th>
-				<th>appNAME</th>
-				<th>URL</th>
-				<th>GROUP</th>
-			</tr>
+				<tr>
+					<th>appID</th>
+					<th>appNAME</th>
+					<th>URL</th>
+					<th>GROUP</th>
+				</tr>
 			</thead>
 			<s:iterator value="siteInfoList">
 				<tr align="center">
@@ -153,6 +155,8 @@
 	<div id="page-top">
 		<a href="#wrap">PAGE TOP</a>
 	</div>
-		<a href="applist.jsp">HOMEへ</a>
+	<s:form action="GetAddressAction">
+		<s:submit align="center" cssClass="Button" value="HOMEへ" />
+	</s:form>
 </body>
 </html>
