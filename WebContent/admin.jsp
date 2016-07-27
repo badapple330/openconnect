@@ -69,10 +69,9 @@
 		<table class="wwFormTable">
 			<tbody>
 				<tr>
-					<td>アプリID：<input type="text" name="siteId" maxlength="4"
-						onkeyDown="return numOnly()" pattern="[0-9a-z]{1,10}"
+					<td>アプリID : <input type="text" name="siteId" maxlength="20"
+						onkeyDown="return numOnly()" pattern="[0-9]{1,10}"
 						title="半角数字で入力してください" required>
-
 					</td>
 					<td><input type="submit" value="削除"></td>
 				</tr>
