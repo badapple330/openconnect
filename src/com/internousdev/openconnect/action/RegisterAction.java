@@ -90,14 +90,16 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 		RegisterDAO dao = new RegisterDAO();
-		if (!dao.selectByUserId(userId) && password.equals(passwordcheck)) {
-			if (dao.insert(userId, password, name, nameF, postal, address, telNumber, email, sex, birthday) > 0) {
+			if(!(password.equals(passwordcheck))){
+				errorMsg = "パスワードが異なります";
+			}else if (dao.select(email)) {
+				errorMsg = "入力されたメールアドレスは別のアカウントで使用されています";
+			}else if (dao.insert(userId, password, name, nameF, postal, address, telNumber, email, sex, birthday) > 0) {
 				result = SUCCESS;
 				sessionMap.put("user", password);
+			} else {
+			errorMsg = "入力情報に誤りがあります";
 			}
-		} else {
-			errorMsg = "そのＩＤは別のアカウントで使用されています";
-		}
 		return result;
 	}
 

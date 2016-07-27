@@ -95,7 +95,7 @@
 				<!------------------    パスワード    ------------------->
 				<tr>
 					<th>パスワード</th>
-					<td><input type="text" name="password" value="" size=50 maxlength=16
+					<td><input type="password" name="password" value="" size=50 maxlength=16
 						required placeholder="８～１６文字の半角英数字で入力してください"
 						pattern="^([a-zA-Z0-9]{8,})+$" title="８～１６文字の半角英数字で入力してください" /></td>
 				</tr>

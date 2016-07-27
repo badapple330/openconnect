@@ -97,17 +97,17 @@ public class RegisterDAO {
 	 *            ユーザーID
 	 * @return 存在したらtrue、存在しなければfalse
 	 */
-	public boolean selectByUserId(String userId) {
+	public boolean select(String email) {
 		boolean result = false;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "select * from user where user_id=?";
+		String sql = "select * from user where email=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, userId);
+			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				result = true;
