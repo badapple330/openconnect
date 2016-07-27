@@ -9,12 +9,9 @@
 <!-- css読み込み -->
 <link rel="stylesheet"  href="css/register.css" type="text/css">
 <!-- js読み込み -->
-<script type="text/javascript"
-	src="//code.jquery.com/jquery-2.1.0.min.js"></script>
-<script type="text/javascript"
-	src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
-<script src="./js/register.js"></script>
-
+<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
+<script src="js/register.js"></script>
 
 <title>新規登録</title>
 </head>
@@ -60,8 +57,8 @@
 				<!------------------    住所    ------------------->
 				<tr>
 					<th>住所</th>
-					<td><input type="text" name="address" id="address1" maxlength="10" required placeholder="都道府県" readonly="readonly">
-						<input type="text" name="address" id="address2" maxlength="15" required placeholder="市区町村" readonly="readonly">
+					<td><input type="text" name="address" id="address1" maxlength="10" readonly placeholder="都道府県" >
+						<input type="text" name="address" id="address2" maxlength="15" readonly placeholder="市区町村" >
 						<input type="text" name="address" maxlength="15" required placeholder="番地"/>
 						<input type="text" name="address" maxlength="20" placeholder="建物名等"/></td>
 				</tr>
@@ -116,7 +113,7 @@
 
 			</table>
 			<!------------------    新規登録情報　送信ボタン    ------------------->
-			<td><input type="submit" value="送信"></td>
+			<td><input id="postBtn" type="submit" value="送信"></td>
 			<br>
 			<br>
 			<!------------------    リセットボタン    ------------------->
