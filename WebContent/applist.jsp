@@ -78,5 +78,13 @@
 			</ul>
 		</s:else>
 	</div>
+
+	<!-- 決済一覧状況 -->
+	<s:form action="PaymentStatus">
+		<s:submit type="submit" value="決済状況一覧" />
+	</s:form>
+	<s:form action="ListofProject">
+		<s:submit type="submit" value="プロジェクト一覧" />
+	</s:form>
 </body>
 </html>
