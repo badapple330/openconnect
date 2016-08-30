@@ -95,6 +95,10 @@
 	<s:form action="update_attendance">
 		<s:submit type="submit" value="勤怠更新" />
 	</s:form>
+	<!--決済手続き電子化 -->
+	<s:form action="header_electron_list">
+			<s:submit value="決済手続き電子化" />
+	</s:form>
 	<!--書籍一覧 -->
 	<s:form action="book_list">
 			<s:submit value="書籍一覧" />
