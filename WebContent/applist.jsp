@@ -80,20 +80,36 @@
 	</div>
 
 	<!-- 決済一覧状況 -->
-	<s:form action="PaymentStatus">
+	<s:form action="header_list">
 		<s:submit type="submit" value="決済状況一覧" />
 	</s:form>
-	<s:form action="ListofProject">
+	<!-- プロジェクト一覧 -->
+	<s:form action="project_list">
 		<s:submit type="submit" value="プロジェクト一覧" />
 	</s:form>
-
-	<s:form action="JustGoAction_booklist">
+    <!--受講生一覧 -->
+	<s:form action="students_list">
+		<s:submit type="submit" value="受講生一覧" />
+	</s:form>
+	<!--勤怠更新 -->
+	<s:form action="update_attendance">
+		<s:submit type="submit" value="勤怠更新" />
+	</s:form>
+	<!--書籍一覧 -->
+	<s:form action="book_list">
 			<s:submit value="書籍一覧" />
-		</s:form>
-
-		<s:form action="JustGoAction_booklistloan">
+	</s:form>
+    <!--書籍貸し出し -->
+	<s:form action="book_lending_list">
 			<s:submit value="書籍貸し出し" />
-		</s:form>
-
+	</s:form>
+     <!--プロジェクト進捗報告 -->
+	<s:form action="project_progress_list">
+			<s:submit value="プロジェクト進捗報告" />
+	</s:form>
+	 <!--スケジュール一覧 -->
+	 <s:form action="shedule_list">
+			<s:submit value="スケジュール一覧" />
+	 </s:form>
 </body>
 </html>
