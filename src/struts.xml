@@ -97,6 +97,18 @@
 			<result name="success">listofproject_list.jsp</result>
 		</action>
 
+		<action name="JustGoAction_booklist"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >book_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+			<action name="JustGoAction_booklistloan"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >book_list_loan.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
 		<!-- 勤怠管理画面への遷移 -->
 		<!--
 		<action name="GoKintaiChooseAction" class="com.internousdev.openconnect.action.GoKintaiChooseAction"

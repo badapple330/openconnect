@@ -86,5 +86,14 @@
 	<s:form action="ListofProject">
 		<s:submit type="submit" value="プロジェクト一覧" />
 	</s:form>
+
+	<s:form action="JustGoAction_booklist">
+			<s:submit value="書籍一覧" />
+		</s:form>
+
+		<s:form action="JustGoAction_booklistloan">
+			<s:submit value="書籍貸し出し" />
+		</s:form>
+
 </body>
 </html>
