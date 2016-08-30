@@ -9,7 +9,7 @@
 </head>
 <body>
 
-こんにちわ
+書籍貸し出し
 
 </body>
 </html>
