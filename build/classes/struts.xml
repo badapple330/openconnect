@@ -97,6 +97,73 @@
 			<result name="success">listofproject_list.jsp</result>
 		</action>
 
+		<action name="header_list"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >header_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="project_list"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >project_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="students_list"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >students_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="update_attendance"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >update_attendance.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="header_electron_list"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >header_electron_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="book_list"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >book_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="book_list_loan"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >book_list_loan.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="project_progress_list"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >project_progress_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="schedule_list"
+			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			<result name="success" >schedule_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
+<!-- 		<action name="JustGoAction_booklist" -->
+<!-- 			class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->
+<!-- 			<result name="success" >book_list.jsp</result> -->
+<!-- 			<result name="error">/register.jsp</result> -->
+<!-- 		</action> -->
+
+<!-- 			<action name="JustGoAction_booklistloan" -->
+<!-- 			class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->
+<!-- 			<result name="success" >book_list_loan.jsp</result> -->
+<!-- 			<result name="error">/register.jsp</result> -->
+<!-- 		</action> -->
+
 		<!-- 勤怠管理画面への遷移 -->
 		<!--
 		<action name="GoKintaiChooseAction" class="com.internousdev.openconnect.action.GoKintaiChooseAction"
