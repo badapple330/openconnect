@@ -99,10 +99,7 @@
 	<s:form action="book_list">
 			<s:submit value="書籍一覧" />
 	</s:form>
-    <!--書籍貸し出し -->
-	<s:form action="book_lending_list">
-			<s:submit value="書籍貸し出し" />
-	</s:form>
+
      <!--プロジェクト進捗報告 -->
 	<s:form action="project_progress_list">
 			<s:submit value="プロジェクト進捗報告" />
