@@ -109,7 +109,7 @@
 			<s:submit value="プロジェクト進捗報告" />
 	</s:form>
 	 <!--スケジュール一覧 -->
-	 <s:form action="shedule_list">
+	 <s:form action="schedule_list">
 			<s:submit value="スケジュール一覧" />
 	 </s:form>
 </body>
