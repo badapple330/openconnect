@@ -97,54 +97,56 @@
 			<result name="success">listofproject_list.jsp</result>
 		</action>
 
-		<action name="header_list"
+		<!-- 決済状況一覧画面への遷移 -->
+		<action name="decision_list"
 			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
-			<result name="success" >header_list.jsp</result>
+			<result name="success" >decision_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<!-- プロジェクト一覧画面への遷移 -->
 		<action name="project_list"
 			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
 			<result name="success" >project_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<!-- 受講生一覧画面への遷移 -->
 		<action name="students_list"
 			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
 			<result name="success" >students_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<!-- 勤怠更新画面への遷移 -->
 		<action name="update_attendance"
 			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
 			<result name="success" >update_attendance.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="header_electron_list"
+		<!-- 決済手続き電子化画面への遷移 -->
+		<action name="decision_electron_list"
 			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
-			<result name="success" >header_electron_list.jsp</result>
+			<result name="success" >decision_electron_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<!-- 書籍一覧画面への遷移 -->
 		<action name="book_list"
 			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
 			<result name="success" >book_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="book_list_loan"
-			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
-			<result name="success" >book_list_loan.jsp</result>
-			<result name="error">/register.jsp</result>
-		</action>
-
+		<!-- プロジェクト進捗画面への遷移 -->
 		<action name="project_progress_list"
 			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
 			<result name="success" >project_progress_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<!-- スケジュール画面への遷移 -->
 		<action name="schedule_list"
 			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
 			<result name="success" >schedule_list.jsp</result>

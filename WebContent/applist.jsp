@@ -80,7 +80,7 @@
 	</div>
 
 	<!-- 決済一覧状況 -->
-	<s:form action="header_list">
+	<s:form action="decision_list">
 		<s:submit type="submit" value="決済状況一覧" />
 	</s:form>
 	<!-- プロジェクト一覧 -->
@@ -96,7 +96,7 @@
 		<s:submit type="submit" value="勤怠更新" />
 	</s:form>
 	<!--決済手続き電子化 -->
-	<s:form action="header_electron_list">
+	<s:form action="decision_electron_list">
 			<s:submit value="決済手続き電子化" />
 	</s:form>
 	<!--書籍一覧 -->
