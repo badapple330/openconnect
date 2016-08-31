@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.internousdev.openconnect.action.decision_list.dto;
 
@@ -8,13 +8,14 @@ package com.internousdev.openconnect.action.decision_list.dto;
  *
  */
 public class DecisionLstDTO {
+	private String Registration;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
-
+	public String getRegistration() {
+		return Registration;
 	}
 
-}
+	public void setRegistration(String registration) {
+		Registration = registration;
+	}
+
+	}
