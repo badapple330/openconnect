@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.internousdev.openconnect.updateattendance.dao;
+package com.internousdev.openconnect.update_attendance.dto;
 
 /**
  * @author internous
  *
  */
-public class UpdateattendanceDAO {
+public class UpdateattendanceDTO {
 
 	/**
 	 * @param args

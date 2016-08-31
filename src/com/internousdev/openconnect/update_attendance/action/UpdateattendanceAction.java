@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.internousdev.openconnect.studentslist.dao;
+package com.internousdev.openconnect.update_attendance.action;
 
 /**
  * @author internous
  *
  */
-public class StudentslistDAO {
+public class UpdateattendanceAction {
 
 	/**
 	 * @param args
