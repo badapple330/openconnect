@@ -13,44 +13,9 @@
 <script src="js/bootstrap.js"></script>
 </head>
 <body>
-	<!-- ヘッダー -->
-	<header>
-		<nav class="navbar navbar-default navbar-static-top">
-			<div class="container">
-				<div class="navbar-header">
-					<h1>
-						<a href="index.jsp">Open Connect</a>
-					</h1>
-				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<s:if test="notLoginMsg != null">
 
-							<li><a href="login.jsp" class="dropdown-toggle"
-								data-toggle="dropdown">ログイン</a></li>
-
-							<li><a href="register.jsp" class="dropdown=toggle"
-								data-toggle="dropdown">新規登録</a></li>
-						</s:if>
-
-						<s:if test="notLoginMsg == null">
-							<li><a href="logout" class="dropdown-toggle"
-								data-toggle="dropdown">ログアウト</a></li>
-
-						</s:if>
-						<s:if test="%{#session.userFlg == 2}">
-							<li><a href="admin.jsp" class="droptoggle"
-								data-toggle="dropdown">管理者画面</a></li>
-						</s:if>
-
-
-
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<!-- ヘッダーはここまで -->
+	<!-- 	ヘッダー読み込み -->
+	<jsp:include page="header.jsp" />
 
 	<!-- アプリ一覧表示 -->
 	<div class="container">
