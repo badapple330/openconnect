@@ -19,7 +19,9 @@
 		<input type="submit" value="検索">
 	</s:form>
 
+<s:form action="projectEdit">
 	<table border=1>
+
 		<tr>
 			<th>ID</th>
 			<th>日付</th>
@@ -30,31 +32,42 @@
 			<th></th>
 			<th></th>
 		</tr>
+
 		<s:iterator value="projectList">
 			<tr>
-				<td class="projectid"><s:property value="projectId" /></td>
-				<td class="projectDay"><s:property value="projectDay" /></td>
-				<td class="project"><s:property value="project" /></td>
-				<td class="projectPlan"><s:property value="projectPlan" /></td>
-				<td class="projectResult"><s:property value="projectResult" /></td>
-				<td class="other"><s:property value="other" /></td>
+				<td class="projectid"><input type="text" name="projectIdList" value="<s:property value="projectId"/>"></td>
+				<td class="projectDay"><input type="text" name="projectDayList" value="<s:property value="projectDay" />"></td>
+				<td class="project"><input type="text" name="projectnameList" value="<s:property value="project" />"></td>
+				<td class="projectPlan"><input type="text" name="projectPlanList" value="<s:property value="projectPlan" />"></td>
+				<td class="projectResult"><input type="text" name="projectResultList" value="<s:property value="projectResult" />"></td>
+				<td class="other"><input type="text" name="otherList" value="<s:property value="other" />"></td>
 				<td><input type="button" class="modal-delete" value="削除" /></td>
-				<td><input type="button" class="modal-edit" value="編集" /></td>
 			</tr>
 		</s:iterator>
+
+</table>
+<input type="submit" value="編集" />
+		</s:form>
+
+
+<table border=1>
+
 		<s:iterator value="searchList">
 			<tr>
-				<td class="projectid"><s:property value="projectId" /></td>
-				<td class="projectDay"><s:property value="projectDay" /></td>
-				<td class="project"><s:property value="project" /></td>
-				<td class="projectPlan"><s:property value="projectPlan" /></td>
-				<td class="projectResult"><s:property value="projectResult" /></td>
-				<td class="other"><s:property value="other" /></td>
+				<td class="projectid"><s:property value="projectId" /><input type="text" hidden="hidden" name="projectIdList"
+							value="<s:property value="projectId"/>"></td>
+				<td class="projectDay"><input type="text" name="projectDayList" value="<s:property value="projectDay" />"></td>
+				<td class="project"><input type="text" name="projectList" value="<s:property value="project" />"></td>
+				<td class="projectPlan"><input type="text" name="projectPlanList" value="<s:property value="projectPlan" />"></td>
+				<td class="projectResult"><input type="text" name="projectResultList" value="<s:property value="projectResult" />"></td>
+				<td class="other"><input type="text" name="otherList" value="<s:property value="other" />"></td>
 				<td><input type="button" class="modal-delete" value="削除" /></td>
-				<td><input type="button" class="modal-edit" value="編集" /></td>
 			</tr>
 		</s:iterator>
 	</table>
+
+
+
 
 	<s:form action="projectCreate">
 		<input type="text" name="project">
@@ -74,16 +87,16 @@
 
 	<div id="edit">
 		編集するID
-		<s:form action="projectEdit">
+
 			<input type="text" id="edit-projectid" name="projectId">
 			<input type="text" id="edit-projectday" name="projectDay">
 			<input type="text" id="edit-project" name="project">
 			<input type="text" id="edit-projectplan" name="projectPlan">
 			<input type="text" id="edit-projectresult" name="projectResult">
 			<input type="text" id="edit-other" name="other">
-			<input type="submit" value="編集">
+
 			<input type="button" class="modal-close" value="閉じる">
-		</s:form>
+
 	</div>
 
 </body>
