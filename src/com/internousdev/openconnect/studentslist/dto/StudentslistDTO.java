@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.internousdev.openconnect.students.dto;
+package com.internousdev.openconnect.studentslist.dto;
 
 /**
  * @author internous
