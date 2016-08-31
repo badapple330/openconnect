@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>決済状況一覧></title>
+<title>決済状況一覧</title>
 </head>
 <body>
 
