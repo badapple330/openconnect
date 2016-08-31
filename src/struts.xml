@@ -134,7 +134,7 @@
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="book_list"
-			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+			class="com.internousdev.openconnect.booklist.action.BooklistAction" method="execute">
 			<result name="success" >book_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
