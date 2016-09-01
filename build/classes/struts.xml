@@ -92,16 +92,16 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-	 <!-- justgoaction -->
-<!-- 		<action name="PaymentStatus" class="com.internousdev.openconnect.action.JustGoAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success">paymentstatus_list.jsp</result> -->
-<!-- 		</action> -->
+		<!-- justgoaction -->
+		<!-- <action name="PaymentStatus" class="com.internousdev.openconnect.action.JustGoAction" -->
+		<!-- method="execute"> -->
+		<!-- <result name="success">paymentstatus_list.jsp</result> -->
+		<!-- </action> -->
 
-<!-- 		<action name="ListofProject" class="com.internousdev.openconnect.action.JustGoAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success">listofproject_list.jsp</result> -->
-<!-- 		</action>  -->
+		<!-- <action name="ListofProject" class="com.internousdev.openconnect.action.JustGoAction" -->
+		<!-- method="execute"> -->
+		<!-- <result name="success">listofproject_list.jsp</result> -->
+		<!-- </action> -->
 
 		<!-- 決済状況一覧画面への遷移 -->
 		<action name="GoDecision" class="com.internousdev.openconnect.action.JustGoAction"
@@ -110,7 +110,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-<!-- 		プロジェクト一覧画面への遷移 -->
+		<!-- プロジェクト一覧画面への遷移 -->
 		<action name="GoProject" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success">project.jsp</result>
@@ -133,7 +133,8 @@
 
 		<!-- 勤怠一覧を表示するためのアクション -->
 		<action name="UpdateAttendanceSelectAction"
-			class="com.internousdev.openconnect.updateAttendance.action.UpdateAttendanceSelectAction" method="execute">
+			class="com.internousdev.openconnect.updateAttendance.action.UpdateAttendanceSelectAction"
+			method="execute">
 			<result name="success">update_attendance.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
@@ -147,13 +148,19 @@
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
-			class="com.internousdev.openconnect.books.action.BooksAction"
+			class="com.internousdev.openconnect.books.action.BooksAction" method="execute">
+			<result name="success">books.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="BookListSearch"
+			class="com.internousdev.openconnect.booklist.action.BooklistSearchAction"
 			method="execute">
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-<!-- プロジェクト進捗画面への遷移 -->
+		<!-- プロジェクト進捗画面への遷移 -->
 		<action name="GoProjectProgress"
 			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressAction"
 			method="execute">

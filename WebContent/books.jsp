@@ -16,25 +16,47 @@
 	<h1>書籍一覧</h1>
 	<br>
 	<br> 書籍の検索
-	<input type="text" name="○○○○">
-	<input class="button" type="submit" value="検索">
 
-	<table border="1">
+	<s:form action="BookListSearch">
+		<input type="text" name="search">
+		<input class="button" type="submit" value="検索">
+	</s:form>
+
+
+	<s:iterator value="searchList">
 		<tr>
+			<td><s:property value="bookId" /></td>
+			<td><s:property value="title" /></td>
+		</tr>
+	</s:iterator>
+
+<table border="1" cellspacing="0">
+
+		<tr>
+
 			<th>id</th>
 			<th width="500">タイトル一覧</th>
 			<th></th>
+			<th></th>
+
 
 		</tr>
-		<s:iterator value="booklist">
-			<tr>
-				<td><s:property value="bookId" /></td>
-				<td><s:property value="title" /></td>
-				<td><input class="button" type="submit" value="削除"></td>
-			</tr>
-		</s:iterator>
-	</table>
 
+		<s:iterator value ="bookList">
+
+		<tr>
+
+			<td><s:property value = "bookId"/></td>
+			<td><s:property value = "title"/></td>
+			<td></td>
+			<td><input class="button" type="submit" value="削除"></td>
+
+
+		</tr>
+
+	</s:iterator>
+
+	</table>
 
 	書籍の追加
 	<input type="text" name="○○○○">

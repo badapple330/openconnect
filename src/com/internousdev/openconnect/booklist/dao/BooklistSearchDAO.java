@@ -30,7 +30,7 @@ public class BooklistSearchDAO {
 	        Connection con = db.getConnection();
 
 	        try {
-	            String sql = "SELECT*FROM book_list WHERE title LIKE '%" + search + "%'";
+	            String sql = "SELECT*FROM books WHERE title LIKE '%" + search + "%'";
 	            PreparedStatement ps = con.prepareStatement(sql);
 	            ResultSet rs = ps.executeQuery();
 

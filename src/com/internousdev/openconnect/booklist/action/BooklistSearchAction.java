@@ -6,6 +6,7 @@ package com.internousdev.openconnect.booklist.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.internousdev.openconnect.booklist.dao.BooklistSearchDAO;
 import com.internousdev.openconnect.booklist.dto.BooklistSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -31,7 +32,7 @@ public class BooklistSearchAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
-		BooklistSearchDTO dao = new BooklistSearchDTO();
+		BooklistSearchDAO dao = new BooklistSearchDAO();
 		searchList = dao.select(search);
 		if (searchList.size() != 0) {
 			result = SUCCESS;
