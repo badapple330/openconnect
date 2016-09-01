@@ -7,7 +7,7 @@ package com.internousdev.openconnect.action.decision_list.dto;
  * @author internous
  *
  */
-public class DecisionLstDTO {
+public class DecisionListRegistrationDTO {
 	private String Registration;
 
 	public String getRegistration() {

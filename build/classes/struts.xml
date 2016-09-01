@@ -140,7 +140,7 @@
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
-			class="com.internousdev.openconnect.books.action.BooksAction"
+			class="com.internousdev.openconnect.booklist.action.BooklistAction"
 			method="execute">
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>

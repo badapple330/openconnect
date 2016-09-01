@@ -6,17 +6,17 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.openconnect.action.decision_list.dao.DecisionLstDAO;
-import com.internousdev.openconnect.action.decision_list.dto.DecisionLstDTO;
+import com.internousdev.openconnect.action.decision_list.dao.DecisionListRegistrationDAO;
+import com.internousdev.openconnect.action.decision_list.dto.DecisionListRegistrationDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DecisionLstAction extends ActionSupport implements SessionAware{
+public class DecisionListRegistrationAction extends ActionSupport implements SessionAware{
 /**
  * シリアル番号
  */
 	private static final long serialVersionUID = 6053714239083263231L;
 
-	private ArrayList<DecisionLstDTO> list = new ArrayList<DecisionLstDTO>();
+	private ArrayList<DecisionListRegistrationDTO> list = new ArrayList<DecisionListRegistrationDTO>();
 
 	private Map<String, Object> session;
 
@@ -31,7 +31,7 @@ public class DecisionLstAction extends ActionSupport implements SessionAware{
 	public String execute() throws SQLException {
 
 		String result = ERROR;
-		DecisionLstDAO dao = new DecisionLstDAO();
+		DecisionListRegistrationDAO dao = new DecisionListRegistrationDAO();
 		if (dao.select(Registration)) {
 			list = dao.getRegistrationSelect();
 			session.put("Registration", list.get(0).getRegistration());
@@ -44,11 +44,11 @@ public class DecisionLstAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-	public ArrayList<DecisionLstDTO> getList() {
+	public ArrayList<DecisionListRegistrationDTO> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<DecisionLstDTO> list) {
+	public void setList(ArrayList<DecisionListRegistrationDTO> list) {
 		this.list = list;
 	}
 

@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.action.decision_list.dto.DecisionLstDTO;
+import com.internousdev.openconnect.action.decision_list.dto.DecisionListRegistrationDTO;
 import com.internousdev.util.DBConnector;
 
-public class DecisionLstDAO {
+public class DecisionListRegistrationDAO {
 	/**
 	 * ユーザー一覧情報を格納するリスト
 	 */
-	private ArrayList<DecisionLstDTO> list = new ArrayList<DecisionLstDTO>();
+	private ArrayList<DecisionListRegistrationDTO> list = new ArrayList<DecisionListRegistrationDTO>();
 
 	/**
 	 * 画面にユーザー情報一覧を表示させる為のメソッド
@@ -38,7 +38,7 @@ public class DecisionLstDAO {
 
             while(rs.next()) {
             	//括弧内はお決まり文。「終わるまで」という意味
-            	DecisionLstDTO dto = new DecisionLstDTO();
+            	DecisionListRegistrationDTO dto = new DecisionListRegistrationDTO();
             	//DTOに覚えてもらうためのセットする文
             	dto.setRegistration(rs.getString("Registration"));
             	list.add(dto);
@@ -57,15 +57,15 @@ public class DecisionLstDAO {
 
 	}
 
-	public ArrayList<DecisionLstDTO> getList() {
+	public ArrayList<DecisionListRegistrationDTO> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<DecisionLstDTO> list) {
+	public void setList(ArrayList<DecisionListRegistrationDTO> list) {
 		this.list = list;
 	}
 
-	public ArrayList<DecisionLstDTO> getRegistrationSelect() {
+	public ArrayList<DecisionListRegistrationDTO> getRegistrationSelect() {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
