@@ -4,10 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projectProgress.dao.ProjectUpdateDAO;
+import com.internousdev.openconnect.projectProgress.dao.ProjectProgressUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 //データベースにユーザー情報を削除させる為のクラス
-public class ProjectUpdateAction extends ActionSupport  {
+public class ProjectProgressUpdateAction extends ActionSupport  {
 	/**
 	 * 	シリアルID
 	 */
@@ -33,7 +33,7 @@ public class ProjectUpdateAction extends ActionSupport  {
 
 
 		String result =ERROR;
-		ProjectUpdateDAO dao = new ProjectUpdateDAO();
+		ProjectProgressUpdateDAO dao = new ProjectProgressUpdateDAO();
 		int count = 0;
 
 		for(int i=0;i<projectIdList.size();++i){

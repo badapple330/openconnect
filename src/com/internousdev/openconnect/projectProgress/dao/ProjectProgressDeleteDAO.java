@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 
-public class ProjectDeleteDAO {
+public class ProjectProgressDeleteDAO {
 
 	public int delete(int projectId){
 

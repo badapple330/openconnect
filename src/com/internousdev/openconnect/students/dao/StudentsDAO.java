@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.internousdev.openconnect.decisionElectron.dao;
+package com.internousdev.openconnect.students.dao;
 
 /**
  * @author internous
  *
  */
-public class DecisionElectronListDAO {
+public class StudentsDAO {
 
 	/**
 	 * @param args

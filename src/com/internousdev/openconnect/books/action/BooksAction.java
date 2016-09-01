@@ -3,23 +3,23 @@ package com.internousdev.openconnect.books.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.books.dao.BooklistDAO;
-import com.internousdev.openconnect.books.dto.BooklistDTO;
+import com.internousdev.openconnect.books.dao.BooksDAO;
+import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internous
  *
  */
-public class BooklistAction extends ActionSupport {
+public class BooksAction extends ActionSupport {
 
-	private List<BooklistDTO>bookList=new ArrayList<BooklistDTO>();
+	private List<BooksDTO>bookList=new ArrayList<BooksDTO>();
 
 	private static final long serialVersionUID = -7586577377473680450L;
 
 	public String execute() {
 		String result = ERROR;
-		BooklistDAO dao = new BooklistDAO();
+		BooksDAO dao = new BooksDAO();
 
 		bookList = dao.select();
 		if (!(bookList == null)) {
@@ -28,11 +28,11 @@ public class BooklistAction extends ActionSupport {
 		return result;
 	}
 
-	public List<BooklistDTO> getBooklist() {
+	public List<BooksDTO> getBooklist() {
 		return bookList;
 	}
 
-	public void setBooklist(List<BooklistDTO> booklist) {
+	public void setBooklist(List<BooksDTO> booklist) {
 		bookList = booklist;
 	}
 

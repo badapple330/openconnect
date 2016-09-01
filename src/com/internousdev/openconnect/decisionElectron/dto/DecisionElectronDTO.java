@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.internousdev.openconnect.students.action;
+package com.internousdev.openconnect.decisionElectron.dto;
 
 /**
  * @author internous
  *
  */
-public class StudentslistAction {
+public class DecisionElectronDTO {
 
 	/**
 	 * @param args

@@ -1,5 +1,5 @@
 package com.internousdev.openconnect.schedule.dao;
 
-public class SchedulelistDAO {
+public class ScheduleDAO {
 
 }

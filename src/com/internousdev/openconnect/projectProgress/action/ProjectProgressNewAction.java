@@ -4,11 +4,11 @@
 package com.internousdev.openconnect.projectProgress.action;
 
 
-import com.internousdev.openconnect.projectProgress.dao.ProjectNewDAO;
+import com.internousdev.openconnect.projectProgress.dao.ProjectProgressNewDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class ProjectNewAction extends ActionSupport{
+public class ProjectProgressNewAction extends ActionSupport{
 
 	private String projectDay;
 	private String project;
@@ -20,7 +20,7 @@ public class ProjectNewAction extends ActionSupport{
 	public String execute(){
 
 		String result=ERROR;
-		ProjectNewDAO dao = new ProjectNewDAO();
+		ProjectProgressNewDAO dao = new ProjectProgressNewDAO();
 		int count = 0;
 		count = dao.insert(projectDay,project,projectPlan,projectResult,other);
 		if (count > 0) {

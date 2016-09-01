@@ -7,7 +7,7 @@ package com.internousdev.openconnect.updateAttendance.dao;
  * @author internous
  *
  */
-public class UpdateattendanceDAO {
+public class UpdateAttendanceDAO {
 
 	/**
 	 * @param args

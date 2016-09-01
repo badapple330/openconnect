@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import com.internousdev.util.DBConnector;
 
 
-public class ProjectNewDAO {
+public class ProjectProgressNewDAO {
 
 
 	public int insert(String projectDay,String project,String projectPlan,String projectResult,String other){

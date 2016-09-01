@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.internousdev.openconnect.decisionElectron.action;
+package com.internousdev.openconnect.projectProgress.dto;
 
 /**
  * @author internous
  *
  */
-public class DecisionElectronListAction {
+public class ProjectProgressDTO {
 
 	/**
 	 * @param args

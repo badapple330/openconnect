@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.internousdev.openconnect.projectProgress.dto;
+package com.internousdev.openconnect.students.dto;
 
 /**
  * @author internous
  *
  */
-public class ProjectProgressListDTO {
+public class StudentsDTO {
 
 	/**
 	 * @param args

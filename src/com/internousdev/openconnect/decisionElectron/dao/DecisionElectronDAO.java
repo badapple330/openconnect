@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.internousdev.openconnect.updateAttendance.dto;
+package com.internousdev.openconnect.decisionElectron.dao;
 
 /**
  * @author internous
  *
  */
-public class UpdateattendanceDTO {
+public class DecisionElectronDAO {
 
 	/**
 	 * @param args

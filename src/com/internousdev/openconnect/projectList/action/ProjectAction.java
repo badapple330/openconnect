@@ -4,23 +4,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import com.internousdev.openconnect.projectList.dao.ProjectlistDAO;
-import com.internousdev.openconnect.projectList.dto.ProjectlistDTO;
+import com.internousdev.openconnect.projectList.dao.ProjectDAO;
+import com.internousdev.openconnect.projectList.dto.ProjectDTO;
 
-public class ProjectlistAction {
+public class ProjectAction {
 
 
 			private String projectname;
 
 
-			private ArrayList<ProjectlistDTO> list = new ArrayList<ProjectlistDTO>();
+			private ArrayList<ProjectDTO> list = new ArrayList<ProjectDTO>();
 
 			private Map<String, Object> session;
 
 			public String execute() throws SQLException {
 
 				String result = ERROR;
-				ProjectlistDAO dao = new ProjectlistDAO();
+				ProjectDAO dao = new ProjectDAO();
 
 				//projectに合致するものが見つかるデータをdaoのインスタンスから探す
 				if (dao.select(projectname)) {

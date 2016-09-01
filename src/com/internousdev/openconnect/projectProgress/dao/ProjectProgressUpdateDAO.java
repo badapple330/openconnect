@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 
-public class ProjectUpdateDAO {
+public class ProjectProgressUpdateDAO {
 
 
 	public int select(int projectId,String projectDay,String project,String projectPlan,String projectResult,String other) throws SQLException{

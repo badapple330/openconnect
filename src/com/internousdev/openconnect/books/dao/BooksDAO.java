@@ -10,14 +10,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.books.dto.BooklistDTO;
+import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.internousdev.util.DBConnector;
 
-public class BooklistDAO {
+public class BooksDAO {
 
-	private List<BooklistDTO>bookList=new ArrayList<BooklistDTO>();
+	private List<BooksDTO>bookList=new ArrayList<BooksDTO>();
 
-	public List<BooklistDTO> select() {
+	public List<BooksDTO> select() {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
 
@@ -27,7 +27,7 @@ public class BooklistDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				BooklistDTO dto = new BooklistDTO();
+				BooksDTO dto = new BooksDTO();
 				dto.setBookId(rs.getInt("book_id"));
 				dto.setTitle(rs.getString("title"));
 				dto.setBorrowHuman(rs.getString("borrow_human"));

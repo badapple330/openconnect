@@ -7,7 +7,7 @@ package com.internousdev.openconnect.books.dto;
  * @author internous
  *
  */
-public class BooklistDTO {
+public class BooksDTO {
 
 	private int bookId;
 	private String title;

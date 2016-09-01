@@ -1,5 +1,5 @@
 package com.internousdev.openconnect.schedule.dto;
 
-public class SchedulelistDTO {
+public class ScheduleDTO {
 
 }

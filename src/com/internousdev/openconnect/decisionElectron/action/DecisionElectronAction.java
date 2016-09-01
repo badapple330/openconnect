@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.internousdev.openconnect.updateAttendance.action;
+package com.internousdev.openconnect.decisionElectron.action;
 
 /**
  * @author internous
  *
  */
-public class UpdateattendanceAction {
+public class DecisionElectronAction {
 
 	/**
 	 * @param args

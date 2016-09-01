@@ -104,94 +104,94 @@
 		</action>
 
 		<!-- 決済状況一覧画面への遷移 -->
-		<action name="decision_list" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="GoDecision" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
-			<result name="success">decision_list.jsp</result>
+			<result name="success">decision.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- プロジェクト一覧画面への遷移 -->
-		<action name="project_list" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="GoProject" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
-			<result name="success">project_list.jsp</result>
+			<result name="success">project.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- 受講生一覧画面への遷移 -->
-		<action name="students_list" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="GoStudents" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
-			<result name="success">students_list.jsp</result>
+			<result name="success">students.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- 勤怠更新画面への遷移 -->
-		<action name="update_attendance" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="GoUpdateAttendance" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success">update_attendance.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- 決済手続き電子化画面への遷移 -->
-		<action name="decision_electron_list" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="GoDecisionElectron" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
-			<result name="success">decision_electron_list.jsp</result>
+			<result name="success">decision_electron.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- 書籍一覧画面への遷移 -->
-		<action name="book_list"
-			class="com.internousdev.openconnect.booklist.action.BooklistAction"
+		<action name="GoBooks"
+			class="com.internousdev.openconnect.books.action.BooksAction"
 			method="execute">
-			<result name="success">book_list.jsp</result>
+			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- プロジェクト進捗画面への遷移 -->
-		<action name="project_progress_list"
-			class="com.internousdev.openconnect.project_progress_list.action.ProjectAction"
+		<action name="GoProjectProgress"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressAction"
 			method="execute">
-			<result name="success">project_progress_list.jsp</result>
-			<result name="error">/project_progress_list.jsp</result>
+			<result name="success">project_progress.jsp</result>
+			<result name="error">/project_progress.jsp</result>
 		</action>
 
-		<action name="projectSearch"
-			class="com.internousdev.openconnect.project_progress_list.action.SearchResultAction"
+		<action name="ProjectSearch"
+			class="com.internousdev.openconnect.projectProgress.action.SearchResultAction"
 			method="execute">
-			<result name="success">project_progress_list.jsp</result>
-			<result name="error">/project_progress_list.jsp</result>
+			<result name="success">project_progress.jsp</result>
+			<result name="error">/project_progress.jsp</result>
 		</action>
 
-		<action name="projectCreate"
-			class="com.internousdev.openconnect.project_progress_list.action.ProjectNewAction"
+		<action name="ProjectCreate"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectNewAction"
 			method="execute">
-			<result name="success" type="chain">project_progress_list</result>
-			<result name="error">/project_progress_list.jsp</result>
+			<result name="success" type="chain">project_progress</result>
+			<result name="error">/project_progress.jsp</result>
 		</action>
 
-		<action name="projectDelete"
-			class="com.internousdev.openconnect.project_progress_list.action.ProjectDeleteAction"
+		<action name="ProjectDelete"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectDeleteAction"
 			method="execute">
-			<result name="success" type="chain">project_progress_list</result>
-			<result name="error">/project_progress_list.jsp</result>
+			<result name="success" type="chain">project_progress</result>
+			<result name="error">/project_progress.jsp</result>
 		</action>
 
-		<action name="projectEdit"
-			class="com.internousdev.openconnect.project_progress_list.action.ProjectUpdateAction"
+		<action name="ProjectEdit"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectUpdateAction"
 			method="execute">
-			<result name="success" type="chain">project_progress_list</result>
-			<result name="error">/project_progress_list.jsp</result>
+			<result name="success" type="chain">project_progress.jsp</result>
+			<result name="error">/project_progress.jsp</result>
 		</action>
 
-		<action name="backGoAction" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="BackGoAction" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success">applist.jsp</result>
-			<result name="error">/project_progress_list.jsp</result>
+			<result name="error">/project_progress.jsp</result>
 		</action>
 
 		<!-- スケジュール画面への遷移 -->
-		<action name="schedule_list" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="GoSchedule" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
-			<result name="success">schedule_list.jsp</result>
+			<result name="success">schedule.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 

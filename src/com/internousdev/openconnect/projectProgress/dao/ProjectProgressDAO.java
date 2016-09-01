@@ -10,7 +10,7 @@ import java.util.List;
 import com.internousdev.openconnect.projectProgress.dto.GetAddressDTO;
 import com.internousdev.util.DBConnector;
 
-public class ProjectDAO {
+public class ProjectProgressDAO {
 
 	private List<GetAddressDTO>projectList=new ArrayList<GetAddressDTO>();
 
