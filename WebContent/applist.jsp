@@ -45,36 +45,36 @@
 	</div>
 
 	<!-- 決済一覧状況 -->
-	<s:form action="decision_list">
+	<s:form action="GoDecision">
 		<s:submit type="submit" value="決済状況一覧" />
 	</s:form>
 	<!-- プロジェクト一覧 -->
-	<s:form action="project_list">
+	<s:form action="GoProject">
 		<s:submit type="submit" value="プロジェクト一覧" />
 	</s:form>
     <!--受講生一覧 -->
-	<s:form action="students_list">
+	<s:form action="GoStudents">
 		<s:submit type="submit" value="受講生一覧" />
 	</s:form>
 	<!--勤怠更新 -->
-	<s:form action="update_attendance">
+	<s:form action="GoUpdateAttendance">
 		<s:submit type="submit" value="勤怠更新" />
 	</s:form>
 	<!--決済手続き電子化 -->
-	<s:form action="decision_electron_list">
+	<s:form action="GoDecisionElectron">
 			<s:submit value="決済手続き電子化" />
 	</s:form>
 	<!--書籍一覧 -->
-	<s:form action="book_list">
+	<s:form action="GoBooks">
 			<s:submit value="書籍一覧" />
 	</s:form>
 
      <!--プロジェクト進捗報告 -->
-	<s:form action="project_progress_list">
+	<s:form action="GoProjectProgress">
 			<s:submit value="プロジェクト進捗報告" />
 	</s:form>
 	 <!--スケジュール一覧 -->
-	 <s:form action="schedule_list">
+	 <s:form action="GoSchedule">
 			<s:submit value="スケジュール一覧" />
 	 </s:form>
 </body>
