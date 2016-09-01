@@ -131,6 +131,13 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<!-- 勤怠一覧を表示するためのアクション -->
+		<action name="UpdateAttendanceSelectAction"
+			class="com.internousdev.openconnect.updateAttendance.action.UpdateAttendanceSelectAction" method="execute">
+			<result name="success">update_attendance.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
 		<!-- 決済手続き電子化画面への遷移 -->
 		<action name="GoDecisionElectron" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
@@ -140,7 +147,7 @@
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
-			class="com.internousdev.openconnect.booklist.action.BooklistAction"
+			class="com.internousdev.openconnect.books.action.BooksAction"
 			method="execute">
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
