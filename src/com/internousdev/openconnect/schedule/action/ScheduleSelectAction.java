@@ -9,25 +9,45 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ScheduleSelectAction extends ActionSupport {
 
-	private List<ScheduleSelectDTO> list = new ArrayList<ScheduleSelectDTO>();
+	private List<ScheduleSelectDTO> schedulelist = new ArrayList<ScheduleSelectDTO>();
+	private String search;
+	private String errorSelect;
 
 	public String execute() {
 		String result = ERROR;
 		ScheduleSelectDAO dao = new ScheduleSelectDAO();
 
-		list = dao.select();
-		if (!(list == null)) {
+		schedulelist = dao.select(search);
+		if (schedulelist.size() != 0) {
 			result = SUCCESS;
+		} else {
+			errorSelect = (getText("データがありません"));
 		}
 		return result;
 	}
 
-	public List<ScheduleSelectDTO> getList() {
-		return list;
+	public String getSearch() {
+		return search;
 	}
 
-	public void setList(List<ScheduleSelectDTO> list) {
-		this.list = list;
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	public List<ScheduleSelectDTO> getSchedulelist() {
+		return schedulelist;
+	}
+
+	public void setSchedulelist(List<ScheduleSelectDTO> schedulelist) {
+		this.schedulelist = schedulelist;
+	}
+
+	public String getErrorSelect() {
+		return errorSelect;
+	}
+
+	public void setErrorSelect(String errorSelect) {
+		this.errorSelect = errorSelect;
 	}
 
 

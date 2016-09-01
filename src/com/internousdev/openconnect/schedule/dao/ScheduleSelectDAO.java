@@ -13,13 +13,13 @@ import com.internousdev.util.DBConnector;
 
 public class ScheduleSelectDAO {
 
-	private List<ScheduleSelectDTO> list = new ArrayList<ScheduleSelectDTO>();
+	public List<ScheduleSelectDTO> schedulelist = new ArrayList<ScheduleSelectDTO>();
 
-	public List<ScheduleSelectDTO> select() {
+	public List<ScheduleSelectDTO> select(String search){
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "select * from schedule where title=?";
+		String sql = "select * from schedule where title LIKE '%" + search + "%'";
 
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -32,7 +32,7 @@ public class ScheduleSelectDAO {
               	dto.setEnddate(rs.getString("Enddate"));
               	dto.setTitle(rs.getString("title"));
               	dto.setContent(rs.getString("content"));
-            	list.add(dto);
+            	schedulelist.add(dto);
              }
          }catch (SQLException e) {
         	 e.printStackTrace();
@@ -43,7 +43,7 @@ public class ScheduleSelectDAO {
  	        	 e.printStackTrace();
  	         }
  	     }
-         return list;
+         return schedulelist;
 
 	}
 
