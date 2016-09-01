@@ -6,17 +6,17 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.openconnect.action.decision_list.dao.DecisionListRegistrationDAO;
-import com.internousdev.openconnect.action.decision_list.dto.DecisionListRegistrationDTO;
+import com.internousdev.openconnect.action.decision_list.dao.DecisionListDAO;
+import com.internousdev.openconnect.action.decision_list.dto.DecisionListDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DecisionListRegistrationAction extends ActionSupport implements SessionAware{
+public class DecisionListAction extends ActionSupport implements SessionAware{
 /**
  * シリアル番号
  */
 	private static final long serialVersionUID = 6053714239083263231L;
 
-	private ArrayList<DecisionListRegistrationDTO> list = new ArrayList<DecisionListRegistrationDTO>();
+	private ArrayList<DecisionListDTO> list = new ArrayList<DecisionListDTO>();
 
 	private Map<String, Object> session;
 
@@ -31,7 +31,23 @@ public class DecisionListRegistrationAction extends ActionSupport implements Ses
 	public String execute() throws SQLException {
 
 		String result = ERROR;
-		DecisionListRegistrationDAO dao = new DecisionListRegistrationDAO();
+		DecisionListDAO dao = new DecisionListDAO();
+		if (dao.select(project_list)) {
+			list = dao.getProjectlistSelect();
+			session.put("project_list", list.get(0).getProject_list());
+			result = SUCCESS;
+		} else {
+			errorSelect = (getText("データがありません"));
+			session.put("project_list",project_list);
+		}
+		if (dao.select(project_name)) {
+			list = dao.getProjectnameSelect();
+			session.put("project_name", list.get(0).getProject_name());
+			result = SUCCESS;
+		} else {
+			errorSelect = (getText("データがありません"));
+			session.put("project_name",project_name);
+		}
 		if (dao.select(Registration)) {
 			list = dao.getRegistrationSelect();
 			session.put("Registration", list.get(0).getRegistration());
@@ -44,11 +60,11 @@ public class DecisionListRegistrationAction extends ActionSupport implements Ses
 		return result;
 	}
 
-	public ArrayList<DecisionListRegistrationDTO> getList() {
+	public ArrayList<DecisionListDTO> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<DecisionListRegistrationDTO> list) {
+	public void setList(ArrayList<DecisionListDTO> list) {
 		this.list = list;
 	}
 
@@ -92,5 +108,6 @@ public class DecisionListRegistrationAction extends ActionSupport implements Ses
 		this.project_name = project_name;
 	}
 
+	
 
 }

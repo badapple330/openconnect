@@ -16,9 +16,11 @@
 
 <div align="center"><td>登録日・プロジェクト名・案件名のどれかを入力してください</td></div>
 <p>
-<form action="form.php" method="post">
+<!-- <form action="form.php" method="post"> -->
 <p>
+<s:form action="GoDecision">
 <input type="text"><input type="submit" value="検索" class="button">
+</s:form>
 </p>
 <br>
 <center>
@@ -45,9 +47,7 @@
 </tr>
 </table>
 
-<input type=text value="登録日" size="10"><input type=text value="氏名"size="10"><input type=text value="プロジェクト名" size="10"><input type=text value="案件名" size="10">
-<input type=submit value="追加" class="button"><br>
-<input type=submit value="編集" class="button">
+
 
 </center>
 <center><input type=submit value="戻る" class="button"></center>

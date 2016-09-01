@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.action.decision_list.dto.DecisionListRegistrationDTO;
+import com.internousdev.openconnect.action.decision_list.dto.DecisionListDTO;
 import com.internousdev.util.DBConnector;
 
-public class DecisionListRegistrationDAO {
+public class DecisionListDAO {
 	/**
 	 * ユーザー一覧情報を格納するリスト
 	 */
-	private ArrayList<DecisionListRegistrationDTO> list = new ArrayList<DecisionListRegistrationDTO>();
+	private ArrayList<DecisionListDTO> list = new ArrayList<DecisionListDTO>();
 
 	/**
 	 * 画面にユーザー情報一覧を表示させる為のメソッド
@@ -21,26 +21,29 @@ public class DecisionListRegistrationDAO {
 	 * @return result データベースからのユーザー一覧情報を格納できたか否か
 	 * @throws SQLException
 	 */
-	public boolean select(String Registration) throws SQLException {
+	public boolean select(String searchString ) throws SQLException {
+		//「searchString」←これは自由に決めて良い(わかり易い名前にする)。
 		boolean result = false;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 		//上記はお決まり文
-		String sql = "select * from decisin_list where Registration=?";
+		String sql = "select * from decisin_list where project_list=? or project_name=? or Registration=?";
 		//String sql = "select * from 何を？";//全て表示
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1,Registration);
-			//セッターする(1はお決まり)
+			ps.setString(1,searchString);
+			ps.setString(2,searchString);
+			ps.setString(3,searchString);
+			//ここでいう1｢project_list｣にあたる。2は｢project_name｣にあたる。3は｢Registration｣にあたる。
 			ResultSet rs = ps.executeQuery();
 			//上記もお決まり文
 
             while(rs.next()) {
             	//括弧内はお決まり文。「終わるまで」という意味
-            	DecisionListRegistrationDTO dto = new DecisionListRegistrationDTO();
+            	DecisionListDTO dto = new DecisionListDTO();
             	//DTOに覚えてもらうためのセットする文
-            	dto.setRegistration(rs.getString("Registration"));
+            	dto.setProject_list(rs.getString("project_list"));
             	list.add(dto);
             	result = true;
              }
@@ -57,18 +60,19 @@ public class DecisionListRegistrationDAO {
 
 	}
 
-	public ArrayList<DecisionListRegistrationDTO> getList() {
+	public ArrayList<DecisionListDTO> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<DecisionListRegistrationDTO> list) {
+	public void setList(ArrayList<DecisionListDTO> list) {
 		this.list = list;
 	}
 
-	public ArrayList<DecisionListRegistrationDTO> getRegistrationSelect() {
+	public ArrayList<DecisionListDTO> getProjectlistSelect() {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
+
 
 
 
