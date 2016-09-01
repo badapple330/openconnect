@@ -92,16 +92,16 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<!-- justgoaction -->
-		<action name="PaymentStatus" class="com.internousdev.openconnect.action.JustGoAction"
-			method="execute">
-			<result name="success">paymentstatus_list.jsp</result>
-		</action>
+	 <!-- justgoaction -->
+<!-- 		<action name="PaymentStatus" class="com.internousdev.openconnect.action.JustGoAction" -->
+<!-- 			method="execute"> -->
+<!-- 			<result name="success">paymentstatus_list.jsp</result> -->
+<!-- 		</action> -->
 
-		<action name="ListofProject" class="com.internousdev.openconnect.action.JustGoAction"
-			method="execute">
-			<result name="success">listofproject_list.jsp</result>
-		</action>
+<!-- 		<action name="ListofProject" class="com.internousdev.openconnect.action.JustGoAction" -->
+<!-- 			method="execute"> -->
+<!-- 			<result name="success">listofproject_list.jsp</result> -->
+<!-- 		</action>  -->
 
 		<!-- 決済状況一覧画面への遷移 -->
 		<action name="GoDecision" class="com.internousdev.openconnect.action.JustGoAction"
@@ -110,7 +110,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<!-- プロジェクト一覧画面への遷移 -->
+<!-- 		プロジェクト一覧画面への遷移 -->
 		<action name="GoProject" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success">project.jsp</result>
@@ -146,7 +146,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<!-- プロジェクト進捗画面への遷移 -->
+<!-- プロジェクト進捗画面への遷移 -->
 		<action name="GoProjectProgress"
 			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressAction"
 			method="execute">
@@ -162,23 +162,23 @@
 		</action>
 
 		<action name="ProjectCreate"
-			class="com.internousdev.openconnect.projectProgress.action.ProjectNewAction"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressNewAction"
 			method="execute">
-			<result name="success" type="chain">project_progress</result>
+			<result name="success" type="chain">GoProjectProgress</result>
 			<result name="error">/project_progress.jsp</result>
 		</action>
 
 		<action name="ProjectDelete"
-			class="com.internousdev.openconnect.projectProgress.action.ProjectDeleteAction"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressDeleteAction"
 			method="execute">
-			<result name="success" type="chain">project_progress</result>
+			<result name="success" type="chain">GoProjectProgress</result>
 			<result name="error">/project_progress.jsp</result>
 		</action>
 
 		<action name="ProjectEdit"
-			class="com.internousdev.openconnect.projectProgress.action.ProjectUpdateAction"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressUpdateAction"
 			method="execute">
-			<result name="success" type="chain">project_progress.jsp</result>
+			<result name="success" type="chain">GoProjectProgress</result>
 			<result name="error">/project_progress.jsp</result>
 		</action>
 

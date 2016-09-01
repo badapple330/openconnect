@@ -147,46 +147,46 @@
 		</action>
 
 <!-- プロジェクト進捗画面への遷移 -->
-<!-- 		<action name="GoProjectProgress" -->
-<!-- 			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success">project_progress.jsp</result> -->
-<!-- 			<result name="error">/project_progress.jsp</result> -->
-<!-- 		</action> -->
+		<action name="GoProjectProgress"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressAction"
+			method="execute">
+			<result name="success">project_progress.jsp</result>
+			<result name="error">/project_progress.jsp</result>
+		</action>
 
-<!-- 		<action name="ProjectSearch" -->
-<!-- 			class="com.internousdev.openconnect.projectProgress.action.SearchResultAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success">project_progress.jsp</result> -->
-<!-- 			<result name="error">/project_progress.jsp</result> -->
-<!-- 		</action> -->
+		<action name="ProjectSearch"
+			class="com.internousdev.openconnect.projectProgress.action.SearchResultAction"
+			method="execute">
+			<result name="success">project_progress.jsp</result>
+			<result name="error">/project_progress.jsp</result>
+		</action>
 
-<!-- 		<action name="ProjectCreate" -->
-<!-- 			class="com.internousdev.openconnect.projectProgress.action.ProjectNewAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success" type="chain">GoProjectProgress</result> -->
-<!-- 			<result name="error">/project_progress.jsp</result> -->
-<!-- 		</action> -->
+		<action name="ProjectCreate"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressNewAction"
+			method="execute">
+			<result name="success" type="chain">GoProjectProgress</result>
+			<result name="error">/project_progress.jsp</result>
+		</action>
 
-<!-- 		<action name="ProjectDelete" -->
-<!-- 			class="com.internousdev.openconnect.projectProgress.action.ProjectDeleteAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success" type="chain">GoProjectProgress</result> -->
-<!-- 			<result name="error">/project_progress.jsp</result> -->
-<!-- 		</action> -->
+		<action name="ProjectDelete"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressDeleteAction"
+			method="execute">
+			<result name="success" type="chain">GoProjectProgress</result>
+			<result name="error">/project_progress.jsp</result>
+		</action>
 
-<!-- 		<action name="ProjectEdit" -->
-<!-- 			class="com.internousdev.openconnect.projectProgress.action.ProjectUpdateAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success" type="chain">GoProjectProgress</result> -->
-<!-- 			<result name="error">/project_progress.jsp</result> -->
-<!-- 		</action> -->
+		<action name="ProjectEdit"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressUpdateAction"
+			method="execute">
+			<result name="success" type="chain">GoProjectProgress</result>
+			<result name="error">/project_progress.jsp</result>
+		</action>
 
-<!-- 		<action name="BackGoAction" class="com.internousdev.openconnect.action.JustGoAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success">applist.jsp</result> -->
-<!-- 			<result name="error">/project_progress.jsp</result> -->
-<!-- 		</action> -->
+		<action name="BackGoAction" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">applist.jsp</result>
+			<result name="error">/project_progress.jsp</result>
+		</action>
 
 		<!-- スケジュール画面への遷移 -->
 		<action name="GoSchedule" class="com.internousdev.openconnect.action.JustGoAction"

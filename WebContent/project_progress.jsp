@@ -15,12 +15,12 @@
 		<header><jsp:include page="header.jsp" /></header>
 		<h1>プロジェクト進捗報告</h1>
 	</div>
-	<s:form action="projectSearch">
+	<s:form action="ProjectSearch">
 		<input type="text" name="search" placeholder="プロジェクト名">
 		<input type="submit" value="検索" class="button">
 	</s:form>
 
-	<s:form action="projectEdit">
+	<s:form action="ProjectEdit">
 		<table border=1>
 			<tbody id="list_body">
 				<tr>
@@ -80,7 +80,7 @@
 		<input type="submit" class="button" value="編集" />
 	</s:form>
 
-	<s:form action="projectCreate">
+	<s:form action="ProjectCreate">
 		<input type="text" name="project" placeholder="プロジェクト名">
 		<input type="text" name="projectPlan" placeholder="進捗予定">
 		<input type="text" name="projectResult" placeholder="進捗結果">
@@ -94,7 +94,7 @@
 	</div>
 
 	<div id="delete">
-		<s:form action="projectDelete">
+		<s:form action="ProjectDelete">
 			<input type="text" id="delete-projectid" name="projectId"
 				placeholder="プロジェクトID">
 			<input type="submit" class="button" value="削除">
@@ -115,7 +115,7 @@
 	<br>
 	<br>
 	<br>
-	<s:form action="backGoAction">
+	<s:form action="BackGoAction">
 		<input type="submit" class="button" value="戻る">
 	</s:form>
 
