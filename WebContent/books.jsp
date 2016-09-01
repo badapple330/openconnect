@@ -22,21 +22,14 @@
 	<table border="1">
 		<tr>
 			<th>id</th>
-			<th width="400">タイトル一覧</th>
+			<th width="500">タイトル一覧</th>
 			<th></th>
-			<th>借りた人</th>
-			<th>借りた日付</th>
-			<th></th>
-			<th></th>
+
 		</tr>
 		<s:iterator value="booklist">
 			<tr>
 				<td><s:property value="bookId" /></td>
 				<td><s:property value="title" /></td>
-				<td>貸出可</td>
-				<td><s:property value="borrowHuman" /></td>
-				<td><s:property value="borrowDay" /></td>
-				<td></td>
 				<td><input class="button" type="submit" value="削除"></td>
 			</tr>
 		</s:iterator>
