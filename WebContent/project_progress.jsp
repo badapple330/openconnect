@@ -101,17 +101,21 @@
 			<input type="button" class="modal-close button" value="閉じる">
 		</s:form>
 	</div>
-
-	<div id="page_ctrl">
-		<ul id="page_before">
-			<li id="page_prev">prev</li>
-		</ul>
-		<ul id="page_number"></ul>
-		<ul id="page_after">
-			<li id="page_next">next</li>
-		</ul>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div id="pager">
+		<div id="page_ctrl">
+			<ul id="page_before">
+				<li id="page_prev">prev</li>
+			</ul>
+			<ul id="page_number"></ul>
+			<ul id="page_after">
+				<li id="page_next">next</li>
+			</ul>
+		</div>
 	</div>
-
 	<br>
 	<br>
 	<br>

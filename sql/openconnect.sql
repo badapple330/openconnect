@@ -208,3 +208,101 @@ insert into students(number,name,symbol,entrance) values
 ("0050","古長 三四郎","こちょう さんしろう","201606")
 ;/* 管理番号は自動連番ではないため、0を含めた数字を手入力する。
 * 番号がいっぱいになった時は0001から入力していき、必要ないものは極力消去すること。 */
+
+/*サブプロジェクト / プロジェクト一覧*/
+create table project_list (
+user_id int primary key not null,
+project_name varchar(100) not null,
+manager varchar(100) not null,
+sub_manager varchar(100) not null,
+start_date int,
+end_date int,
+release_situation varchar(255),
+note varchar(255)
+);
+
+insert into project_list
+(user_id,project_name,manager,sub_manager,start_date)values
+(1,cosmos,nitabaru,horiguchi,830,930,"undecided","undecided"),
+(2,credit,konno,nagura,830,930,"undecided","undecided");
+
+
+/*サブプロジェクト / 出席状況一覧*/
+create table attendance(
+date DATE not null comment '日付',
+id int not null AUTO_INCREMENT comment 'ユーザーID',
+attendance enum('1','2','3','4','5')default '1'  comment '出欠状況',
+interview enum('1','2') default '2' comment '面談状況',
+primary key (id));
+
+
+insert into attendance(
+date,id,attendance,interview
+)values
+(160802,1,1,1),
+(160821,2,2,1),
+(160822,3,1,2);
+
+/*サブプロジェクト / 決裁状況一覧*/
+create table decision_list(
+Registration datetime,
+user varchar(100),
+project_list varchar(100),
+project_id int,
+project_name varchar(100),
+detail varchar(255),
+i_drafting_id varchar(100),
+i_approval_id varchar(100),
+a_drafting_id varchar(100),
+cd_id varchar(100),
+i_a_d_id varchar(100),
+i_a_id varchar(100)
+);
+
+insert into decision_list(
+Registration,
+user,
+project_list,
+project_id,
+project_name,
+detail,
+i_drafting_id,
+i_approval_id,
+a_drafting_id,
+cd_id,
+i_a_d_id,
+i_a_id)value(
+"2016-08-21 13:00:00","1605.相澤","internousdev",1,"cinemajapanサイトにおけるチーム開発の実施について","-","KN-2016-05-30-005","J-2016-05-30-005","K-KN-2016-05-30-005","K-2016-05-30-005","-","-"),(
+"2016-08-22 12:00:00","1603.藤崎","internousdev",2,"Lapoupeeサイトにおける改修（遡及）の実施について","0007-データベースの接続不備改修","-","-","-","-","KN-2016-05-30-007","JK-2016-05-30-001");
+
+/*サブプロジェクト / 決裁状況一覧*/
+create table book_list(
+book_id int primary key not null auto_increment,
+title varchar(100) not null
+);
+
+insert into book_list(title)values("やさしいJAVA");
+
+
+/*サブプロジェクト / プロジェクト進捗状況*/
+create table project_progress_list(
+project_id int auto_increment key,
+project_day date not null,
+project varchar(50) not null,
+project_plan varchar(255),
+project_result varchar(255),
+other varchar(255)
+);
+
+insert into project_progress_list(
+project_day,project,project_plan,project_result,other)values
+("2009-09-07","a","b","c","d"),
+("2009-09-07","a2","b2","c2","d2"),
+("2009-09-07","a3","b3","c3","d3");
+
+
+
+
+
+
+
