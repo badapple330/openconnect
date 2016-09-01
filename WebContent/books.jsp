@@ -23,13 +23,6 @@
 	</s:form>
 
 
-	<s:iterator value="searchList">
-		<tr>
-			<td><s:property value="bookId" /></td>
-			<td><s:property value="title" /></td>
-		</tr>
-	</s:iterator>
-
 <table border="1" cellspacing="0">
 
 		<tr>
@@ -41,6 +34,13 @@
 
 
 		</tr>
+
+		<s:iterator value="searchList">
+		<tr>
+			<td><s:property value="bookId" /></td>
+			<td><s:property value="title" /></td>
+		</tr>
+	</s:iterator>
 
 		<s:iterator value ="bookList">
 
@@ -56,12 +56,23 @@
 
 	</s:iterator>
 
+	<s:iterator value="title">
+		<tr>
+			<td><s:property value="bookId" /></td>
+			<td><s:property value="title" /></td>
+		</tr>
+	</s:iterator>
+
 	</table>
 
 	書籍の追加
-
-	<input type="text" name="○○○○">
+	<s:form action="BookListCreate">
+	<input type="text" name="title">
 	<input class="button" type="submit" value="追加">
+	</s:form>
+
+
+
 	<br>
 	<input class="button" type="submit" value="編集">
 

@@ -6,7 +6,6 @@ package com.internousdev.openconnect.booklist.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 
@@ -20,8 +19,8 @@ public class BooklistNewDAO {
 
 		int count = 0;
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
-		title = sdf.format(System.currentTimeMillis());
+
+
 
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
