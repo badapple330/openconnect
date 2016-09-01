@@ -4,200 +4,213 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.devMode" value="true" />
-    <package name="com.internousdev.openconnect.action" extends="struts-default">
+	<constant name="struts.devMode" value="true" />
+	<package name="com.internousdev.openconnect.action" extends="struts-default">
 
-        <!-- ログイン処理 -->
-        <action name="LoginAction" class="com.internousdev.openconnect.action.LoginAction"
-            method="execute">
-            <result name="success" type="redirectAction">GetAddressAction</result>
-            <result name="error">/login.jsp</result>
-        </action>
+		<!-- ログイン処理 -->
+		<action name="LoginAction" class="com.internousdev.openconnect.action.LoginAction"
+			method="execute">
+			<result name="success" type="redirectAction">GetAddressAction</result>
+			<result name="error">/login.jsp</result>
+		</action>
 
-        <action name="GetAddressAction" class="com.internousdev.openconnect.action.GetAddressAction"
-            method="execute">
-            <result name="success">/applist.jsp</result>
-            <result name="error">/applist.jsp</result>
-        </action>
+		<action name="GetAddressAction"
+			class="com.internousdev.openconnect.action.GetAddressAction" method="execute">
+			<result name="success">/applist.jsp</result>
+			<result name="error">/applist.jsp</result>
+		</action>
 
-        <action name="logout" class="com.internousdev.openconnect.action.LogoutAction"
-            method="execute">
-            <result name="success" type="redirectAction">GetAddressAction</result>
-        </action>
+		<action name="logout" class="com.internousdev.openconnect.action.LogoutAction"
+			method="execute">
+			<result name="success" type="redirectAction">GetAddressAction</result>
+		</action>
 
-        <action name="TwitterLogin" class="com.internousdev.openconnect.action.GoTwitterAction"
-            method="execute">
-            <result name="success">/applist.jsp</result>
-        </action>
+		<action name="TwitterLogin"
+			class="com.internousdev.openconnect.action.GoTwitterAction" method="execute">
+			<result name="success">/applist.jsp</result>
+		</action>
 
-        <action name="LoginTwitterAction" class="com.internousdev.openconnect.action.LoginTwitterAction"
-            method="execute">
-            <result name="success" type="redirectAction">GetAddressAction</result>
-            <result name="error" type="redirectAction">GetAddressAction</result>
-        </action>
+		<action name="LoginTwitterAction"
+			class="com.internousdev.openconnect.action.LoginTwitterAction"
+			method="execute">
+			<result name="success" type="redirectAction">GetAddressAction</result>
+			<result name="error" type="redirectAction">GetAddressAction</result>
+		</action>
 
-        <action name="FacebookLogin" class="com.internousdev.openconnect.action.GoFacebookAction"
-            method="execute">
-            <result name="success">/applist.jsp</result>
-        </action>
+		<action name="FacebookLogin"
+			class="com.internousdev.openconnect.action.GoFacebookAction" method="execute">
+			<result name="success">/applist.jsp</result>
+		</action>
 
-        <action name="LoginFacebookAction" class="com.internousdev.openconnect.action.LoginFacebookAction"
-            method="execute">
-            <result name="success" type="redirectAction">GetAddressAction</result>
-            <result name="error">/login.jsp</result>
-        </action>
+		<action name="LoginFacebookAction"
+			class="com.internousdev.openconnect.action.LoginFacebookAction"
+			method="execute">
+			<result name="success" type="redirectAction">GetAddressAction</result>
+			<result name="error">/login.jsp</result>
+		</action>
 
-        <action name="GoogleLogin" class="com.internousdev.openconnect.action.GoGoogleAction"
-            method="execute">
-            <result name="success">/applist.jsp</result>
-        </action>
+		<action name="GoogleLogin"
+			class="com.internousdev.openconnect.action.GoGoogleAction" method="execute">
+			<result name="success">/applist.jsp</result>
+		</action>
 
-        <action name="LoginGoogleAction" class="com.internousdev.openconnect.action.LoginGoogleAction"
-            method="execute">
-            <result name="success" type="redirectAction">GetAddressAction</result>
-            <result name="error">/login.jsp</result>
-        </action>
+		<action name="LoginGoogleAction"
+			class="com.internousdev.openconnect.action.LoginGoogleAction" method="execute">
+			<result name="success" type="redirectAction">GetAddressAction</result>
+			<result name="error">/login.jsp</result>
+		</action>
 
-        <action name="UpdateAppAction" class="com.internousdev.openconnect.action.UpdateAppAction"
-            method="execute">
-            <result name="success">/admin.jsp</result>
-            <result name="error">/admin.jsp</result>
-        </action>
+		<action name="UpdateAppAction"
+			class="com.internousdev.openconnect.action.UpdateAppAction" method="execute">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/admin.jsp</result>
+		</action>
 
-        <action name="DeleteAppAction" class="com.internousdev.openconnect.action.DeleteAppAction"
-            method="execute">
-            <result name="success">/admin.jsp</result>
-            <result name="error">/admin.jsp</result>
-        </action>
+		<action name="DeleteAppAction"
+			class="com.internousdev.openconnect.action.DeleteAppAction" method="execute">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/admin.jsp</result>
+		</action>
 
-        <action name="AddAppAction" class="com.internousdev.openconnect.action.AddAppAction"
-            method="execute">
-            <result name="success">/admin.jsp</result>
-            <result name="error">/admin.jsp</result>
-        </action>
+		<action name="AddAppAction" class="com.internousdev.openconnect.action.AddAppAction"
+			method="execute">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/admin.jsp</result>
+		</action>
 
-        <action name="GetAddressAdminAction" class="com.internousdev.openconnect.action.GetAddressAdminAction"
-            method="execute">
-            <result name="success">/admin.jsp</result>
-            <result name="error">/admin.jsp</result>
-        </action>
+		<action name="GetAddressAdminAction"
+			class="com.internousdev.openconnect.action.GetAddressAdminAction"
+			method="execute">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/admin.jsp</result>
+		</action>
 
-        		<!-- register.jspで登録ボタン押下 -->
-		<action name="RegisterAction" class="com.internousdev.openconnect.action.RegisterAction" method="execute">
+		<!-- register.jspで登録ボタン押下 -->
+		<action name="RegisterAction"
+			class="com.internousdev.openconnect.action.RegisterAction" method="execute">
 			<result name="success" type="redirectAction">GetAddressAction</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- justgoaction -->
-		<action name="PaymentStatus" class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+		<action name="PaymentStatus" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
 			<result name="success">paymentstatus_list.jsp</result>
 		</action>
 
-		<action name="ListofProject" class="com.internousdev.openconnect.action.JustGoAction" method="execute">
+		<action name="ListofProject" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
 			<result name="success">listofproject_list.jsp</result>
 		</action>
 
 		<!-- 決済状況一覧画面への遷移 -->
-		<action name="decision_list"
-			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
-			<result name="success" >decision_list.jsp</result>
+		<action name="decision_list" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">decision_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- プロジェクト一覧画面への遷移 -->
-		<action name="project_list"
-			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
-			<result name="success" >project_list.jsp</result>
+		<action name="project_list" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">project_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- 受講生一覧画面への遷移 -->
-		<action name="students_list"
-			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
-			<result name="success" >students_list.jsp</result>
+		<action name="students_list" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">students_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- 勤怠更新画面への遷移 -->
-		<action name="update_attendance"
-			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
-			<result name="success" >update_attendance.jsp</result>
+		<action name="update_attendance" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">update_attendance.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- 決済手続き電子化画面への遷移 -->
-		<action name="decision_electron_list"
-			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
-			<result name="success" >decision_electron_list.jsp</result>
+		<action name="decision_electron_list" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">decision_electron_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="book_list"
-			class="com.internousdev.openconnect.booklist.action.BooklistAction" method="execute">
-			<result name="success" >book_list.jsp</result>
+			class="com.internousdev.openconnect.booklist.action.BooklistAction"
+			method="execute">
+			<result name="success">book_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<!-- プロジェクト進捗画面への遷移 -->
-			<!-- プロジェクト進捗画面への遷移 -->
 		<action name="project_progress_list"
-			class="com.internousdev.openconnect.project_progress_list.action.ProjectAction" method="execute">
-			<result name="success">project_progress_list.jsp</result>
-			<result name="error">/register.jsp</result>
-		</action>
-
-		<action name="projectSearch" class="com.internousdev.openconnect.project_progress_list.action.SearchResultAction"
+			class="com.internousdev.openconnect.project_progress_list.action.ProjectAction"
 			method="execute">
 			<result name="success">project_progress_list.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/project_progress_list.jsp</result>
 		</action>
 
-		<action name="projectCreate" class="com.internousdev.openconnect.project_progress_list.action.ProjectNewAction"
+		<action name="projectSearch"
+			class="com.internousdev.openconnect.project_progress_list.action.SearchResultAction"
 			method="execute">
 			<result name="success">project_progress_list.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/project_progress_list.jsp</result>
 		</action>
 
-		<action name="projectDelete" class="com.internousdev.openconnect.project_progress_list.action.ProjectDeleteAction"
+		<action name="projectCreate"
+			class="com.internousdev.openconnect.project_progress_list.action.ProjectNewAction"
 			method="execute">
-			<result name="success">project_progress_list.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="success" type="chain">project_progress_list</result>
+			<result name="error">/project_progress_list.jsp</result>
 		</action>
 
-		<action name="projectEdit" class="com.internousdev.openconnect.project_progress_list.action.ProjectUpdateAction"
+		<action name="projectDelete"
+			class="com.internousdev.openconnect.project_progress_list.action.ProjectDeleteAction"
 			method="execute">
-			<result name="success">project_progress_list.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="success" type="chain">project_progress_list</result>
+			<result name="error">/project_progress_list.jsp</result>
 		</action>
 
+		<action name="projectEdit"
+			class="com.internousdev.openconnect.project_progress_list.action.ProjectUpdateAction"
+			method="execute">
+			<result name="success" type="chain">project_progress_list</result>
+			<result name="error">/project_progress_list.jsp</result>
+		</action>
+
+		<action name="backGoAction" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">applist.jsp</result>
+			<result name="error">/project_progress_list.jsp</result>
+		</action>
 
 		<!-- スケジュール画面への遷移 -->
-		<action name="schedule_list"
-			class="com.internousdev.openconnect.action.JustGoAction" method="execute">
-			<result name="success" >schedule_list.jsp</result>
+		<action name="schedule_list" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">schedule_list.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 
-<!-- 		<action name="JustGoAction_booklist" -->
-<!-- 			class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->
-<!-- 			<result name="success" >book_list.jsp</result> -->
-<!-- 			<result name="error">/register.jsp</result> -->
-<!-- 		</action> -->
+		<!-- <action name="JustGoAction_booklist" -->
+		<!-- class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->
+		<!-- <result name="success" >book_list.jsp</result> -->
+		<!-- <result name="error">/register.jsp</result> -->
+		<!-- </action> -->
 
-<!-- 			<action name="JustGoAction_booklistloan" -->
-<!-- 			class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->
-<!-- 			<result name="success" >book_list_loan.jsp</result> -->
-<!-- 			<result name="error">/register.jsp</result> -->
-<!-- 		</action> -->
+		<!-- <action name="JustGoAction_booklistloan" -->
+		<!-- class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->
+		<!-- <result name="success" >book_list_loan.jsp</result> -->
+		<!-- <result name="error">/register.jsp</result> -->
+		<!-- </action> -->
 
 		<!-- 勤怠管理画面への遷移 -->
-		<!--
-		<action name="GoKintaiChooseAction" class="com.internousdev.openconnect.action.GoKintaiChooseAction"
-            method="execute">
-            <result name="success">/KintaiChoose.jsp</result>
-        </action> -->
+		<!-- <action name="GoKintaiChooseAction" class="com.internousdev.openconnect.action.GoKintaiChooseAction"
+			method="execute"> <result name="success">/KintaiChoose.jsp</result> </action> -->
 
-    </package>
+	</package>
 </struts>
