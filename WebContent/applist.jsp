@@ -48,34 +48,45 @@
 	<s:form action="GoDecision">
 		<s:submit type="submit" value="決済状況一覧" />
 	</s:form>
-	<!-- プロジェクト一覧 -->
+<!-- 	<!-- プロジェクト一覧 -->
 	<s:form action="GoProject">
 		<s:submit type="submit" value="プロジェクト一覧" />
 	</s:form>
-    <!--受講生一覧 -->
+<!--     受講生一覧 -->
 	<s:form action="GoStudents">
 		<s:submit type="submit" value="受講生一覧" />
 	</s:form>
-	<!--勤怠更新 -->
+<!-- 	<!--勤怠更新 -->
 	<s:form action="GoUpdateAttendance">
 		<s:submit type="submit" value="勤怠更新" />
 	</s:form>
-	<!--決済手続き電子化 -->
+<!-- 	<!--決済手続き電子化 -->
 	<s:form action="GoDecisionElectron">
 			<s:submit value="決済手続き電子化" />
 	</s:form>
-	<!--書籍一覧 -->
+<!-- 	<!--書籍一覧 -->
 	<s:form action="GoBooks">
 			<s:submit value="書籍一覧" />
 	</s:form>
 
-     <!--プロジェクト進捗報告 -->
+<!--      プロジェクト進捗報告 -->
 	<s:form action="GoProjectProgress">
 			<s:submit value="プロジェクト進捗報告" />
 	</s:form>
-	 <!--スケジュール一覧 -->
+<!-- 	 <!--スケジュール一覧 -->
 	 <s:form action="GoSchedule">
 			<s:submit value="スケジュール一覧" />
 	 </s:form>
+
+	   <!-- -->
+<%-- 	<s:form action="PaymentStatus"> --%>
+<%-- 			<s:submit value="プロジェクト進捗報告" /> --%>
+<%-- 	</s:form> --%>
+
+<%-- 	 <s:form action="ListofProject"> --%>
+<%-- 			<s:submit value="スケジュール一覧" /> --%>
+<%-- 	 </s:form> --%>
+
+
 </body>
 </html>
