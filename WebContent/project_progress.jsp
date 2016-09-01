@@ -19,8 +19,10 @@
 		<input type="text" name="search" placeholder="プロジェクト名">
 		<input type="submit" value="検索" class="button">
 	</s:form>
-		<s:form action="projectEdit">
-			<table border=1>
+
+	<s:form action="projectEdit">
+		<table border=1>
+			<tbody id="list_body">
 				<tr>
 					<th>ID</th>
 					<th>日付</th>
@@ -34,7 +36,7 @@
 				<s:iterator value="projectList">
 					<tr>
 						<td class="projectid"><input type="text" name="projectIdList"
-							value="<s:property value="projectId"/>"  size="7"></td>
+							value="<s:property value="projectId"/>" size="7"></td>
 						<td class="projectDay"><input type="text"
 							name="projectDayList" value="<s:property value="projectDay" />"
 							size="8"></td>
@@ -54,10 +56,12 @@
 
 				<s:iterator value="searchList">
 					<tr>
-						<td class="projectid2"><input type="text" name="projectIdList"
-							value="<s:property value="projectId"/>" size="7"></td>
+						<td class="projectid2"><input type="text"
+							name="projectIdList" value="<s:property value="projectId"/>"
+							size="7"></td>
 						<td class="projectDay"><input type="text"
-							name="projectDayList" value="<s:property value="projectDay" />" size="8"></td>
+							name="projectDayList" value="<s:property value="projectDay" />"
+							size="8"></td>
 						<td class="project"><input type="text" name="projectnameList"
 							value="<s:property value="project" />"></td>
 						<td class="projectPlan"><input type="text"
@@ -71,9 +75,10 @@
 							value="削除" /></td>
 					</tr>
 				</s:iterator>
-			</table>
-			<input type="submit" class="button" value="編集" />
-		</s:form>
+			</tbody>
+		</table>
+		<input type="submit" class="button" value="編集" />
+	</s:form>
 
 	<s:form action="projectCreate">
 		<input type="text" name="project" placeholder="プロジェクト名">
@@ -90,17 +95,29 @@
 
 	<div id="delete">
 		<s:form action="projectDelete">
-			<input type="text" id="delete-projectid" name="projectId" placeholder="プロジェクトID">
+			<input type="text" id="delete-projectid" name="projectId"
+				placeholder="プロジェクトID">
 			<input type="submit" class="button" value="削除">
 			<input type="button" class="modal-close button" value="閉じる">
 		</s:form>
 	</div>
-<br>
-<br>
-<br>
+
+	<div id="page_ctrl">
+		<ul id="page_before">
+			<li id="page_prev">prev</li>
+		</ul>
+		<ul id="page_number"></ul>
+		<ul id="page_after">
+			<li id="page_next">next</li>
+		</ul>
+	</div>
+
+	<br>
+	<br>
+	<br>
 	<s:form action="backGoAction">
-	<input type="submit" class="button" value="戻る">
-</s:form>
+		<input type="submit" class="button" value="戻る">
+	</s:form>
 
 </body>
 </html>
