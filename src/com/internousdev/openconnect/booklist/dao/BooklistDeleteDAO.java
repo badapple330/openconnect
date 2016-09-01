@@ -19,7 +19,7 @@ public class BooklistDeleteDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 
-		String sql = "delete from book_list where book_Id = ?";
+		String sql = "delete from books where book_Id = ?";
 
 		System.out.println(bookListId);
 		try{

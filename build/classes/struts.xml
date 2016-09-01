@@ -148,7 +148,7 @@
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
-			class="com.internousdev.openconnect.books.action.BooksAction" method="execute">
+			class="com.internousdev.openconnect.booklist.action.BooklistAction" method="execute">
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
@@ -159,6 +159,7 @@
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
+
 
 		<!-- プロジェクト進捗画面への遷移 -->
 		<action name="GoProjectProgress"
@@ -209,6 +210,13 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<!-- スケジュール画面で検索 -->
+		<action name="ScheduleSelect"
+			class="com.internousdev.openconnect.schedule.action.ScheduleSelectAction"
+			method="execute">
+			<result name="success">schedule.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
 
 		<!-- <action name="JustGoAction_booklist" -->
 		<!-- class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->

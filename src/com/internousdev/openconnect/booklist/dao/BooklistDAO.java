@@ -22,7 +22,7 @@ public class BooklistDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql="SELECT*FROM book_list ";
+			String sql="SELECT*FROM books";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 

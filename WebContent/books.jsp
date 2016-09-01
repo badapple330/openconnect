@@ -59,6 +59,7 @@
 	</table>
 
 	書籍の追加
+
 	<input type="text" name="○○○○">
 	<input class="button" type="submit" value="追加">
 	<br>
