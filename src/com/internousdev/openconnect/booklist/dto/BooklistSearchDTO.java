@@ -3,6 +3,8 @@
  */
 package com.internousdev.openconnect.booklist.dto;
 
+import java.util.List;
+
 /**
  * @author internous
  *
@@ -22,6 +24,10 @@ public class BooklistSearchDTO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public List<BooklistSearchDTO> select(String search) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 
 

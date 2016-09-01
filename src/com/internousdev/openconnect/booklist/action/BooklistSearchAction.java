@@ -6,8 +6,7 @@ package com.internousdev.openconnect.booklist.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.project_progress_list.dao.SearchResultDAO;
-import com.internousdev.openconnect.project_progress_list.dto.GetAddressDTO;
+import com.internousdev.openconnect.booklist.dto.BooklistSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -24,7 +23,7 @@ public class BooklistSearchAction extends ActionSupport {
 	/**
 	 * エラーメッセージ
 	 */
-	private List<GetAddressDTO> searchList = new ArrayList<GetAddressDTO>();
+	private List<BooklistSearchDTO> searchList = new ArrayList<BooklistSearchDTO>();
 	private String errorMsg;
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -32,7 +31,7 @@ public class BooklistSearchAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
-		SearchResultDAO dao = new SearchResultDAO();
+		BooklistSearchDTO dao = new BooklistSearchDTO();
 		searchList = dao.select(search);
 		if (searchList.size() != 0) {
 			result = SUCCESS;
@@ -58,11 +57,11 @@ public class BooklistSearchAction extends ActionSupport {
 		this.errorMsg = errorMsg;
 	}
 
-	public List<GetAddressDTO> getSearchList() {
+	public List<BooklistSearchDTO> getSearchList() {
 		return searchList;
 	}
 
-	public void setSearchList(List<GetAddressDTO> searchList) {
+	public void setSearchList(List<BooklistSearchDTO> searchList) {
 		this.searchList = searchList;
 	}
 

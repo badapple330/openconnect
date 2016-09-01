@@ -4,7 +4,7 @@ import com.internousdev.openconnect.booklist.dao.BooklistDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class BooklistDelete extends ActionSupport{
+public class BooklistDeleteAction extends ActionSupport{
 
 	private int bookId;
 
