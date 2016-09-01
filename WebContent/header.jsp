@@ -6,13 +6,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+
 <title>Insert title here</title>
 <!-- css読み込み  -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/header.css" rel="stylesheet" >
 <!-- js読み込み -->
 <script src="js/bootstrap.js"></script>
+<script src="js/header.js"></script>
 </head>
 <body>
+
+
+<div id="test">あああああ</div>
 
 <!-- ヘッダー -->
 	<header>
@@ -20,7 +29,7 @@
 			<div class="container">
 				<div class="navbar-header">
 					<h1>
-						<a href="index.jsp">Open Connect</a>
+						<a href="index.jsp" class="openConnect">Open Connect</a>
 					</h1>
 				</div>
 				<div class="collapse navbar-collapse">
@@ -39,14 +48,10 @@
 								data-toggle="dropdown">ログアウト</a></li>
 
 						</s:if>
-						<s:property value="%{#session.userFlg}"/>
 						<s:if test="%{#session.userFlg == 2}">
 							<li><a href="admin.jsp" class="droptoggle"
 								data-toggle="dropdown">管理者画面</a></li>
 						</s:if>
-
-
-
 					</ul>
 				</div>
 			</div>
