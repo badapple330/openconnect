@@ -35,7 +35,7 @@ public class SearchResultDAO {
         Connection con = db.getConnection();
 
         try {
-            String sql = "SELECT*FROM project_progress_list WHERE project LIKE '%" + search + "%'";
+            String sql = "SELECT*FROM project_progress WHERE project LIKE '%" + search + "%'";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 

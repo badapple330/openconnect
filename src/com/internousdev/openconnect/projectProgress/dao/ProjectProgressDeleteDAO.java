@@ -19,7 +19,7 @@ public class ProjectProgressDeleteDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 
-		String sql = "delete from project_progress_list where project_Id = ?";
+		String sql = "delete from project_progress where project_Id = ?";
 
 		System.out.println(projectId);
 		try{

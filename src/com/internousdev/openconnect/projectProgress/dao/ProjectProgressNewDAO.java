@@ -24,7 +24,7 @@ public class ProjectProgressNewDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "INSERT INTO project_progress_list(project_day,project,project_plan,project_result,other)VALUES(?, ?, ?, ? ,?)";
+		String sql = "INSERT INTO project_progress(project_day,project,project_plan,project_result,other)VALUES(?, ?, ?, ? ,?)";
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,projectDay);

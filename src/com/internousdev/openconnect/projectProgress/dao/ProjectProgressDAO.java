@@ -19,7 +19,7 @@ public class ProjectProgressDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql="SELECT*FROM project_progress_list ";
+			String sql="SELECT*FROM project_progress";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 

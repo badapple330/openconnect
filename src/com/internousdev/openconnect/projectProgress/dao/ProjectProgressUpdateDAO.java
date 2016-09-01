@@ -16,7 +16,7 @@ public class ProjectProgressUpdateDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE project_progress_list SET project_day=?, project=?, project_plan=?, project_result=?, other=? where project_id=?";
+		String sql = "UPDATE project_progress SET project_day=?, project=?, project_plan=?, project_result=?, other=? where project_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
