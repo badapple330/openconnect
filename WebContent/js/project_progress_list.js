@@ -3,25 +3,59 @@
 
 $(function() {
 	$(".modal-delete").click(function(){
-		$("#delete-prepare").fadeIn();
+		$(".delete").fadeIn();
+
+//		var index2 = $(".modal-delete2").index(this);
+//		$('#delete-projectid').val($('.projectIdlist').eq(index).text());
+
+		var index = $('.modal-delete').index($(this));
+		var id = $('.projectIdlist').eq(index).val();
+		$('#delete-projectid').val( id );
+
+		var index = $('.modal-delete').index($(this));
+		var day = $('.projectDaylist').eq(index).val();
+		$('#delete-projectday').val( day );
+
+		var index = $('.modal-delete').index($(this));
+		var project = $('.projectlist').eq(index).val();
+		$('#delete-projectname').val( project );
+
+		var index = $('.modal-delete').index($(this));
+		var plan = $('.projectPlanlist').eq(index).val();
+		$('#delete-projectplan').val( plan );
+
+		var index = $('.modal-delete').index($(this));
+		var result = $('.projectResultlist').eq(index).val();
+		$('#delete-projectresult').val( result );
+
+		var index = $('.modal-delete').index($(this));
+		var other = $('.otherlist').eq(index).val();
+		$('#delete-other').val( other );
+
+		var index = $('.modal-delete').index($(this));
+		var abc = $('.projectIdlist').eq(index).val();
+		$('#true-delete').val( abc );
+
 	});
 	$(".modal-close").click(function(){
-		$("#delete-prepare").fadeOut();
+		$(".delete").fadeOut();
+	});
+});
+
+
+$(function() {
+	$(".delete-true").click(function(){
+		$(".delete-prepare").fadeIn();
 	});
 });
 
 $(function() {
-	$(".delete-true").click(function(){
-		$("#delete-prepare").fadeOut();
-		$("#delete").fadeIn();
-
-		var index = $(".modal-delete").index(this);
-		$("#delete-projectid").val($(".projectid").eq(index).text());
-	});
 	$(".modal-close").click(function(){
-		$("#delete").fadeOut();
+		$(".delete-prepare").fadeOut();
 	});
 });
+
+
 
 $(function() {
 	var page = 0, page_last = 0, line = 5;
@@ -47,7 +81,7 @@ $(function() {
 		// スタイルの初期化。
 		$('#page_number').children().removeClass("current_page");
 		$('#page_first, #page_prev, #page_next, #page_last')
-				.removeClass("terminal");
+		.removeClass("terminal");
 
 		// カレントページのスタイル設定。
 		$("#page_number li").each(function() {
@@ -67,7 +101,7 @@ $(function() {
 		$('#list_body tr').hide();
 		$(
 				'#list_body tr:first, #list_body tr:gt(' + page * line
-						+ '):lt(' + line + ')').show();
+				+ '):lt(' + line + ')').show();
 		set_ctrl_style();
 	}
 
