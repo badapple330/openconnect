@@ -6,9 +6,9 @@
 <head>
 <meta charset=UTF-8>
 <title>プロジェクト進捗状況</title>
-<link rel="stylesheet" href="css/project_progress_list.css">
+<link rel="stylesheet" href="css/project_progress.css">
 <script src="js/jquery-3.1.0.min.js"></script>
-<script src="js/project_progress_list.js"></script>
+<script src="js/project_progress.js"></script>
 </head>
 <body>
 	<div class="center">
@@ -82,7 +82,7 @@
 	</s:form>
 
 	<s:form action="ProjectCreate">
-		<input type="text" name="project" placeholder="プロジェクト名">
+		<input type="text" name="project" placeholder="プロジェクト名" required>
 		<input type="text" name="projectPlan" placeholder="進捗予定">
 		<input type="text" name="projectResult" placeholder="進捗結果">
 		<input type="text" name="other" placeholder="その他報告">
