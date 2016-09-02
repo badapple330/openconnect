@@ -10,7 +10,7 @@
 <body>
 <p>プロジェクト検索</p>
 <s:form action="ScheduleSelect">
-<s:textfield name="title" label="プロジェクト検索" placeholder="件名を入力" />
+<s:textfield name="search" label="プロジェクト検索" placeholder="件名を入力" />
 <s:submit value="検索"></s:submit>
 </s:form>
 <br>
@@ -18,21 +18,40 @@
 <table border="2" cellspacing="0"style="white">
 <tr>
 
-<td>ID</td><td>開始日</td><td>終了日</td><td>件名</td><td>内容</td></FONT>
+<td>ID</td><td>開始日</td><td>終了日</td><td>件名</td><td>内容</td>
+</tr>
+
+<tbody>
+<s:form action="ScheduleUpdate">
+<s:iterator value="schedulelist" status="st">
+<tr>
+<td><input type="text" name="id" value="<s:property value="Id" />"></td>
+<td><input type="text" name="startdate" value="<s:property value="Startdate" />"></td>
+<td><input type="text" name="enddate" value="<s:property value="Enddate" />"></td>
+<td><input type="text" name="title" value="<s:property value="Title" />"></td>
+<td><input type="text" name="content" value="<s:property value="Content" />"></td>
+</tr>
+</s:iterator>
+</s:form>
+</tbody>
+</table>
+
+<br><br>
+
+<table border="2" cellspacing="0"style="white">
+<tr>
+<td>開始日</td><td>件名</td><td>内容</td><td></td>
 </tr>
 <tr>
-<s:iterator value="result" status="st">
-<td><input type="text" name="id" value="<s:property value="id" />"></td>
-<td><s:property value="Startdate" /></td>
-<td><s:property value="Enddate" /></td>
-<td><s:property value="title" /></td>
-<td><s:property value="content" /></td>
-</s:iterator>
+<s:form action="ScheduleInsert">
+<td><input type="text" name="startdate"></td>
+<td><input type="text" name="title"></td>
+<td><input type="text" name="content"></td>
+<td><button type="submit" class="button">追加</button></td>
+</s:form>
 </tr>
 </table>
-<input type="text" value="開始日"><input type="text" value="終了日"><input type="text" value="件名"><input type="text" value="内容">
 
-<button type="submit" class="button">追加</button>
 <br>
 <br>
 <button type="submit" class="button">編集</button>

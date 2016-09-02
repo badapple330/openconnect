@@ -49,8 +49,5 @@ public class ScheduleSelectAction extends ActionSupport {
 	public void setErrorSelect(String errorSelect) {
 		this.errorSelect = errorSelect;
 	}
-
-
-
-
+	
 }
