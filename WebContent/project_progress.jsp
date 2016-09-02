@@ -35,20 +35,22 @@
 				</tr>
 				<s:iterator value="projectList">
 					<tr>
-						<td class="projectid"><input type="text" name="projectIdList"
-							value="<s:property value="projectId"/>" size="7"></td>
-						<td class="projectDay"><input type="text"
-							name="projectDayList" value="<s:property value="projectDay" />"
-							size="8"></td>
-						<td class="project"><input type="text" name="projectnameList"
-							value="<s:property value="project" />"></td>
-						<td class="projectPlan"><input type="text"
-							name="projectPlanList" value="<s:property value="projectPlan" />"></td>
-						<td class="projectResult"><input type="text"
-							name="projectResultList"
-							value="<s:property value="projectResult" />"></td>
-						<td class="other"><input type="text" name="otherList"
-							value="<s:property value="other" />"></td>
+						<td><input type="text" name="projectIdList"
+							value="<s:property value="projectId"/>" size="7"
+							class="projectIdlist"></td>
+						<td><input type="text" name="projectDayList"
+							value="<s:property value="projectDay" />" size="8"
+							class="projectDaylist"></td>
+						<td><input type="text" name="projectnameList"
+							value="<s:property value="project" />" class="projectlist"></td>
+						<td><input type="text" name="projectPlanList"
+							value="<s:property value="projectPlan" />"
+							class="projectPlanlist"></td>
+						<td><input type="text" name="projectResultList"
+							value="<s:property value="projectResult" />"
+							class="projectResultlist"></td>
+						<td><input type="text" name="otherList"
+							value="<s:property value="other" />" class="otherlist"></td>
 						<td><input type="button" class="modal-delete button"
 							value="削除" /></td>
 					</tr>
@@ -56,9 +58,8 @@
 
 				<s:iterator value="searchList">
 					<tr>
-						<td class="projectid2"><input type="text"
-							name="projectIdList" value="<s:property value="projectId"/>"
-							size="7"></td>
+						<td class="projectid"><input type="text" name="projectIdList"
+							value="<s:property value="projectId"/>" size="7"></td>
 						<td class="projectDay"><input type="text"
 							name="projectDayList" value="<s:property value="projectDay" />"
 							size="8"></td>
@@ -88,19 +89,31 @@
 		<input type="submit" class="button" value="追加">
 	</s:form>
 
-	<div id="delete-prepare">
-		本当に削除しますか？ <input type="button" class="delete-true button" value="はい">
-		<input type="button" class="modal-close button" value="いいえ">
+
+
+	<div class="delete">
+		<input type="text" name="projectId" id="delete-projectid" readonly> <input
+			type="text" name="projectId" id="delete-projectday" readonly> <input
+			type="text" name="projectId" id="delete-projectname" readonly> <input
+			type="text" name="projectId" id="delete-projectplan" readonly> <input
+			type="text" name="projectId" id="delete-projectresult" readonly> <input
+			type="text" name="projectId" id="delete-other" readonly> <input
+			type="button" class="delete-true button" value="削除"> <input
+			type="button" class="modal-close button" value="閉じる">
 	</div>
 
-	<div id="delete">
+	<div class="delete-prepare">
+		本当に削除しますか？
 		<s:form action="ProjectDelete">
-			<input type="text" id="delete-projectid" name="projectId"
-				placeholder="プロジェクトID">
-			<input type="submit" class="button" value="削除">
-			<input type="button" class="modal-close button" value="閉じる">
+			<input type="hidden" name="projectId" value=""  id="true-delete">
+			<input type="submit" class="delete-true button" value="はい">
+			<input type="button" class="modal-close button" value="いいえ">
 		</s:form>
 	</div>
+
+
+
+
 	<br>
 	<br>
 	<br>

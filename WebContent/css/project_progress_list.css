@@ -1,9 +1,9 @@
 @CHARSET "UTF-8";
-#delete{
+.delete{
 	display:none;
 }
 
-#delete-prepare{
+.delete-prepare{
 	display:none;
 }
 
