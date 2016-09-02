@@ -117,6 +117,12 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+        <action name="projectSearchAction" class="com.internousdev.openconnect.projectList.action.ProjectSearchAction"
+			method="execute">
+			<result name="success">project.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
 		<!-- 受講生一覧画面への遷移 -->
 		<action name="GoStudents" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
@@ -229,7 +235,7 @@
 		<action name="ScheduleInsert"
 			class="com.internousdev.openconnect.schedule.action.ScheduleInsertAction"
 			method="execute">
-			<result name="success" type="chain">GoSchedule</result>
+			<result name="success">schedule.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
@@ -237,7 +243,7 @@
 		<action name="ScheduleUpdate"
 			class="com.internousdev.openconnect.schedule.action.ScheduleUpdateAction"
 			method="execute">
-			<result name="success" type="chain">GoSchedule</result>
+			<result name="success">schedule.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 

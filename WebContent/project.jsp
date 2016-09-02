@@ -6,17 +6,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>プロジェクト一覧</title>
-<!-- <CENTER> -->
-<!-- 	<h1>ヘッダー</h1> -->
-<!-- </CENTER> -->
+ <CENTER>
+<h1>ヘッダー</h1>
+</CENTER>
 </head>
 <body>
 
 	<p>プロジェクト検索</p>
-<input type="search" name="example1">
-<button type="submit">
-		<big>検索する</big>
-</button>
+	<s:form action ="projectSearchAction">
+<input type="text" name="search">
+<input type="submit"value="検索する">
+</s:form>
+
+
 	<table border="2" cellspacing="0" style="">
 		<tr>
 			<td>ID</td>
@@ -28,12 +30,23 @@
 			<td>備考</td>
 		</tr>
 
-		<s:iterator value="projectList">
-			<!-- 繰り返し -->
+		<s:iterator value="projectList"><!-- 繰り返し -->
 			<tr>
 				<td><s:property value="userId" /></td>
 				<td><input type="text"
 					value="<s:property value="projectName"/>"></td>
+				<td><input type="text" value="<s:property value="manager"/>"></td>
+				<td><input type="text" value="<s:property value="subManager"/>"></td>
+				<td><input type="text" value="<s:property value="startDate"/>"></td>
+				<td><input type="text" value="<s:property value="endDate"/>"></td>
+				<td><input type="text" value="<s:property value="note"/>"></td>
+			</tr>
+		</s:iterator>
+
+		<s:iterator value="searchList">
+            <tr>
+				<td><s:property value="userId" /></td>
+				<td><input type="text"value="<s:property value="projectName"/>"></td>
 				<td><input type="text" value="<s:property value="manager"/>"></td>
 				<td><input type="text" value="<s:property value="subManager"/>"></td>
 				<td><input type="text" value="<s:property value="startDate"/>"></td>
