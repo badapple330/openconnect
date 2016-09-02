@@ -211,7 +211,7 @@
 		</action>
 
 		<!-- スケジュール画面への遷移 -->
-		<action name="GoSchedule" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="GoSchedule" class="com.internousdev.openconnect.schedule.action.ScheduleFirstrunAction"
 			method="execute">
 			<result name="success">schedule.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -234,12 +234,12 @@
 		</action>
 
 		<!-- スケジュール画面で更新 -->
-<!-- 		<action name="ScheduleUpdate" -->
-<!-- 			class="com.internousdev.openconnect.schedule.action.ScheduleUpdateAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success">schedule.jsp</result> -->
-<!-- 			<result name="error">/register.jsp</result> -->
-<!-- 		</action> -->
+		<action name="ScheduleUpdate"
+			class="com.internousdev.openconnect.schedule.action.ScheduleUpdateAction"
+			method="execute">
+			<result name="success">schedule.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
 
 		<!-- <action name="JustGoAction_booklist" -->
 		<!-- class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->

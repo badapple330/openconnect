@@ -32,6 +32,7 @@
 <td><input type="text" name="content" value="<s:property value="Content" />"></td>
 </tr>
 </s:iterator>
+<button type="submit" class="button">編集</button>
 </s:form>
 </tbody>
 </table>
@@ -54,7 +55,7 @@
 
 <br>
 <br>
-<button type="submit" class="button">編集</button>
+
 <br>
 <br>
 <button type="submit" class="button">戻る</button>

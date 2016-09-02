@@ -12,7 +12,7 @@ public class ScheduleInsertDAO {
 
 		int count=0;
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection conn= (Connection) db.getConnection();;
+		Connection conn= (Connection) db.getConnection();
 		String sql="INSERT INTO schedule(Startdate, title, content) VALUES (?,?,?)";
 
 		try{
