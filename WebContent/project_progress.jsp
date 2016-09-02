@@ -51,7 +51,7 @@
 							class="projectResultlist"></td>
 						<td><input type="text" name="otherList"
 							value="<s:property value="other" />" class="otherlist"></td>
-						<td><input type="button" class="modal-delete button"
+						<td><input type="button" class="button modal-open"
 							value="削除" /></td>
 					</tr>
 				</s:iterator>
@@ -72,7 +72,7 @@
 							value="<s:property value="projectResult" />"></td>
 						<td class="other"><input type="text" name="otherList"
 							value="<s:property value="other" />"></td>
-						<td><input type="button" class="modal-delete button"
+						<td><input type="button" class="button modal-open"
 							value="削除" /></td>
 					</tr>
 				</s:iterator>
@@ -91,16 +91,21 @@
 
 
 
-	<div class="delete">
-		<input type="text" name="projectId" id="delete-projectid" readonly> <input
-			type="text" name="projectId" id="delete-projectday" readonly> <input
-			type="text" name="projectId" id="delete-projectname" readonly> <input
-			type="text" name="projectId" id="delete-projectplan" readonly> <input
-			type="text" name="projectId" id="delete-projectresult" readonly> <input
-			type="text" name="projectId" id="delete-other" readonly> <input
+
+
+
+<div id="modal-main">
+<!-- #contents START -->
+プロジェクトID
+		<input type="text" name="projectId" id="delete-projectid" readonly> <br>
+		日付<input
+			type="text" name="projectId" id="delete-projectday" readonly> <br> プロジェクト名<input
+			type="text" name="projectId" id="delete-projectname" readonly> <br>進捗予定 <input
+			type="text" name="projectId" id="delete-projectplan" readonly>  <br>進捗結果<input
+			type="text" name="projectId" id="delete-projectresult" readonly>  <br>その他報告<input
+			type="text" name="projectId" id="delete-other" readonly> <br> <input
 			type="button" class="delete-true button" value="削除"> <input
 			type="button" class="modal-close button" value="閉じる">
-	</div>
 
 	<div class="delete-prepare">
 		本当に削除しますか？
@@ -109,9 +114,14 @@
 			<input type="submit" class="delete-true button" value="はい">
 			<input type="button" class="modal-close button" value="いいえ">
 		</s:form>
+		</div>
 	</div>
 
 
+  <div id="contents">
+
+<br>
+  </div>
 
 
 	<br>
