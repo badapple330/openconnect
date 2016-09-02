@@ -54,7 +54,7 @@ PRIMARY KEY (user_id)
  * バナー = banner
  */
 create table site(
-site_id int not null auto_increment comment 'サイトID',
+site_id int primary key not null auto_increment comment 'サイトID',
 site_name varchar(30) not null comment 'サイト名',
 site_url varchar(255) not null unique comment 'サイトURL',
 site_article text comment 'サイト記事',
@@ -213,7 +213,7 @@ insert into students(number,name,symbol,entrance) values
 /*サブプロジェクト */
 
 /*サブプロジェクト / プロジェクト一覧*/
-create table project_list (
+create table project(
 user_id int primary key not null,
 project_name varchar(100) not null,
 manager varchar(100) not null,
@@ -224,7 +224,7 @@ release_situation varchar(255),
 note varchar(255)
 );
 
-insert into project_list
+insert into project
 (user_id,project_name,manager,sub_manager,start_date,end_date,release_situation,note)values
 (1,"cosmos","nitabaru-horiguchi","a",830,930,"undecided","undecided"),
 (2,"credit","konno-nagura","a",830,930,"undecided","undecided");
@@ -304,7 +304,37 @@ project_day,project,project_plan,project_result,other)values
 ("2009-09-07","a2","b2","c2","d2"),
 ("2009-09-07","a3","b3","c3","d3");
 
+/*サブプロジェクト / 決裁手続き*/
+create table operate(
+operate_id int primary key auto_increment,
+project_name varchar(100) not null,
+password varchar(100) not null
+);
 
+insert operate( project_name, password )
+values("rewrite","111"),("mira-mode","111"),("internousdev","111");
+
+/*サブプロジェクト / 決裁手続き内容*/
+create table operate_detail(
+operate_id int not null,
+day date,
+operate_type varchar(100),
+operate_state varchar(100),
+draft_name varchar(100),
+item_name varchar(100),
+summary varchar(255),
+cause varchar(255),
+building_cost int,
+profit_cost int,
+start_day date ,
+end_day date,
+plan varchar(255),
+persons int,
+foreign key(operate_id) references operate(operate_id)
+);
+
+insert operate_detail( operate_id )
+values(1),(2),(3);
 
 
 
