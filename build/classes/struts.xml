@@ -169,7 +169,21 @@
 		<action name="BookListCreate"
 			class="com.internousdev.openconnect.booklist.action.BooklistNewAction"
 			method="execute">
-			<result name="success">books.jsp</result>
+			<result name="success" type="chain">GoBooks</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="BookListDelete"
+			class="com.internousdev.openconnect.booklist.action.BooklistDeleteAction"
+			method="execute">
+			<result name="success" type="chain">GoBooks</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="BookListEdit"
+			class="com.internousdev.openconnect.booklist.action.BooklistUpdateAction"
+			method="execute">
+			<result name="success" type="chain">GoBooks</result>
 			<result name="error">/register.jsp</result>
 		</action>
 

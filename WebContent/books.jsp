@@ -22,63 +22,69 @@
 		<input class="button" type="submit" value="検索">
 	</s:form>
 
+	<s:form action="BookListEdit">
+		<table border="1" cellspacing="0">
+			<tr>
+				<th>ID</th>
+				<th width="500">タイトル一覧</th>
+				<th></th>
+				<th></th>
+			</tr>
 
-<table border="1" cellspacing="0">
+			<s:iterator value="bookList">
 
-		<tr>
+				<tr>
 
-			<th>id</th>
-			<th width="500">タイトル一覧</th>
-			<th></th>
-			<th></th>
+					<td><s:property value="bookId" /></td>
+					<td><input type="text" value="<s:property value="title" />"></td>
+					<td></td>
+					<td><input type="submit" class="button" value="削除"></td>
 
+				</tr>
 
-		</tr>
+			</s:iterator>
 
-		<s:iterator value="searchList">
-		<tr>
-			<td><s:property value="bookId" /></td>
-			<td><s:property value="title" /></td>
-		</tr>
-	</s:iterator>
+			<s:iterator value="searchList">
+				<tr>
+					<td><s:property value="bookId" /></td>
+					<td><input type="text" value="<s:property value="title" />"></td>
+				</tr>
+			</s:iterator>
 
-		<s:iterator value ="bookList">
+		</table>
 
-		<tr>
+		<s:iterator value="bookListId">
+			<tr>
+			<td><s:property value ="title"/></td>
+			<td><input type="submit" class="button" value="編集" /></td>
+			</tr>
+		</s:iterator>
+	</s:form>
 
-			<td><s:property value = "bookId"/></td>
-			<td><s:property value = "title"/></td>
-			<td></td>
-			<td><input class="button" type="submit" value="削除"></td>
+	<!-- 	<div id="delete-prepare"> -->
+	<!-- 		本当に削除しますか？ <input type="button" class="delete-true button" value="はい"> -->
+	<!-- 		<input type="button" class="modal-close button" value="いいえ"> -->
+	<!-- 	</div> -->
 
+	<div id="delete">
+		<s:form action="BookListDelete">
+			<input type="text" id="delete-booklistid" name="bookId"
+				placeholder="プロジェクトID">
+			<input type="submit" class="button" value="削除">
+			<input type="button" class="modal-close button" value="閉じる">
+		</s:form>
+	</div>
 
-		</tr>
-
-	</s:iterator>
-
-	<s:iterator value="title">
-		<tr>
-			<td><s:property value="bookId" /></td>
-			<td><s:property value="title" /></td>
-		</tr>
-	</s:iterator>
-
-	</table>
 
 	書籍の追加
 	<s:form action="BookListCreate">
-	<input type="text" name="title">
-	<input class="button" type="submit" value="追加">
+		<input type="text" name="title">
+		<input class="button" type="submit" value="追加">
 	</s:form>
 
-
-
-	<br>
-	<input class="button" type="submit" value="編集">
-
-	<br>
-	<input class="button" type="submit" value="戻る">
-
+	<s:form action="BackGoAction">
+		<input type="submit" class="button" value="戻る">
+	</s:form>
 
 </body>
 </html>
