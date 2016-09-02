@@ -12,7 +12,7 @@ import com.internousdev.util.DBConnector;
 
 public class BooklistDeleteDAO {
 
-	public int delete(int bookListId){
+	public int delete(int bookId){
 
 		int count =0;
 
@@ -21,12 +21,12 @@ public class BooklistDeleteDAO {
 
 		String sql = "delete from books where book_Id = ?";
 
-		System.out.println(bookListId);
+		System.out.println(bookId);
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, bookListId);
+			ps.setInt(1, bookId);
 			count = ps.executeUpdate();
-			System.out.println(count);
+
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally {
@@ -36,7 +36,7 @@ public class BooklistDeleteDAO {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("last:" + count);
+
 		return count;
 	}
 
