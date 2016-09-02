@@ -18,6 +18,7 @@ public class UpdateAttendanceDTO {
 	private int interview;
 
 
+
 	public int getDate(){
 		return date;
 	}

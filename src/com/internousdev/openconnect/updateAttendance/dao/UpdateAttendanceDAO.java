@@ -24,11 +24,12 @@ public class UpdateAttendanceDAO {
 	private ArrayList<UpdateAttendanceDTO> list=new ArrayList<UpdateAttendanceDTO>();
 
 	public boolean selectAll(){
-		boolean result=true;
+
+		boolean result=false;
 
 		Connection conn=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
-		String sql="select * from attendanse";
+		String sql="select * from attendance";
 
 		try{
 			PreparedStatement ps=(PreparedStatement) conn.prepareStatement(sql);
@@ -54,6 +55,8 @@ public class UpdateAttendanceDAO {
 		}
 		return result;
 	}
+
+
 
 	public ArrayList<UpdateAttendanceDTO> getList(){
 		return list;

@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>勤怠更新</title>
+
+<%-- <script type="text/javascript" src="update_attendance.js"></script> --%>
 </head>
 <body>
 <!-- ヘッダー-->
@@ -14,15 +16,18 @@
 <br>
 <br>
 <s:form action="UpdateAttendanceSelectAction">
-○月生を入力<input type="text" placeholder="半角数字を入力　例：201607">
+
+○月生を入力<input type="text" placeholder="例：201607">
 <br><br>
-日付検索　<input type="text" placeholder="日付を入力　例：20160819">
+日付検索　<input type="text" placeholder="例：20160819">
 <br>
 <s:submit type="button" value="検索" class="button"/>
 </s:form>
 <br>
 <br>
-<table class="list">
+
+<s:form action="UpdateAttendanceSelectAction">
+<table class="list"  border="1">
 		<s:if test="list.size() > 0">
 			<tr>
 				<th>日付</th>
@@ -42,26 +47,28 @@
 		</s:else>
 		<s:iterator value="list">
 			<tr>
-				<td><s:property value="date"></s:property></td>
+				<td><input type="text" value="<s:property value="date"/>"></td>
 				<td><s:property value="id"></s:property></td>
-				<td><s:property value="attendance"></s:property></td>
-				<td><s:property value="attendance"></s:property></td>
-				<td><s:property value="attendance"></s:property></td>
-				<td><s:property value="attendance"></s:property></td>
-				<td><s:property value="attendance"></s:property></td>
-				<td><s:property value="attendance"></s:property></td>
-				<td><s:property value="interview"></s:property></td>
-				<td><s:property value="interview"></s:property></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>" checked></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
+				<td><input type="radio" name="<s:property value="id"/>a" value="<s:property value="interview"/>"></td>
+				<td><input type="radio" name="<s:property value="id"/>a" value="<s:property value="interview"/>" checked></td>
 			</tr>
 		</s:iterator>
 	</table>
+
 		<br>
 	<br>
-<form action="UpdateAttendanceSelectAction">
+
 <s:submit type="button" value="更新" class="button"/>
-</form>
-<form action="GetAddressAction">
+</s:form>
+	<br>
+<s:form action="GetAddressAction">
 <s:submit type="button" value="戻る" class="button"/>
-</form>
+</s:form>
 </body>
 </html>
