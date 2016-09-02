@@ -61,7 +61,7 @@
 		<s:submit type="submit" value="勤怠更新" />
 	</s:form>
 <!-- 	<!--決済手続き電子化 -->
-	<s:form action="GoDecisionElectron">
+	<s:form action="GoOperate">
 			<s:submit value="決済手続き電子化" />
 	</s:form>
 <!-- 	<!--書籍一覧 -->

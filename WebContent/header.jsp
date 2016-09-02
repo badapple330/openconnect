@@ -20,9 +20,6 @@
 </head>
 <body>
 
-
-<div id="test">あああああ</div>
-
 <!-- ヘッダー -->
 	<header>
 		<nav class="navbar navbar-default navbar-static-top">
