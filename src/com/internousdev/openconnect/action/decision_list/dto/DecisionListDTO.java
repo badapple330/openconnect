@@ -3,12 +3,14 @@
  */
 package com.internousdev.openconnect.action.decision_list.dto;
 
+import java.sql.Date;
+
 /**
  * @author internous
  *
  */
 public class DecisionListDTO {
-	private String datetime;
+	private Date Registration;
 	private String user;
 	private String project_list;
 	private int project_id;
@@ -16,19 +18,14 @@ public class DecisionListDTO {
 	private String detail;
 	private String i_drafthing_id;
 	private String i_approval_id;
-	private String a_drafthing_id;
 	private String cd_id;
 	private String i_a_d_id;
 	private String i_a_id;
-
-
-
-
-	public String getDatetime() {
-		return datetime;
+	public Date getRegistration() {
+		return Registration;
 	}
-	public void setDatetime(String datetime) {
-		this.datetime = datetime;
+	public void setRegistration(Date registration) {
+		Registration = registration;
 	}
 	public String getUser() {
 		return user;
@@ -72,18 +69,6 @@ public class DecisionListDTO {
 	public void setI_approval_id(String i_approval_id) {
 		this.i_approval_id = i_approval_id;
 	}
-	public String getA_drafthing_id() {
-		return a_drafthing_id;
-	}
-	public void setA_drafthing_id(String a_drafthing_id) {
-		this.a_drafthing_id = a_drafthing_id;
-	}
-	public String getCd_id() {
-		return cd_id;
-	}
-	public void setCd_id(String cd_id) {
-		this.cd_id = cd_id;
-	}
 	public String getI_a_d_id() {
 		return i_a_d_id;
 	}
@@ -96,6 +81,19 @@ public class DecisionListDTO {
 	public void setI_a_id(String i_a_id) {
 		this.i_a_id = i_a_id;
 	}
+	public String getCd_id() {
+		return cd_id;
+	}
+	public void setCd_id(String cd_id) {
+		this.cd_id = cd_id;
+	}
 
 
 	}
+
+
+
+
+
+
+
