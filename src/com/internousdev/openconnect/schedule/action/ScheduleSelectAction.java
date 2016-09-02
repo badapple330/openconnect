@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ScheduleSelectAction extends ActionSupport {
 
 	private List<ScheduleSelectDTO> schedulelist = new ArrayList<ScheduleSelectDTO>();
-	private String search;
+	private String search = "";
 	private String errorSelect;
 
 	public String execute() {
@@ -49,5 +49,5 @@ public class ScheduleSelectAction extends ActionSupport {
 	public void setErrorSelect(String errorSelect) {
 		this.errorSelect = errorSelect;
 	}
-	
+
 }

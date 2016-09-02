@@ -229,7 +229,7 @@
 		<action name="ScheduleInsert"
 			class="com.internousdev.openconnect.schedule.action.ScheduleInsertAction"
 			method="execute">
-			<result name="success">schedule.jsp</result>
+			<result name="success" type="chain">GoSchedule</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
@@ -237,7 +237,7 @@
 		<action name="ScheduleUpdate"
 			class="com.internousdev.openconnect.schedule.action.ScheduleUpdateAction"
 			method="execute">
-			<result name="success">schedule.jsp</result>
+			<result name="success" type="chain">GoSchedule</result>
 			<result name="error">/register.jsp</result>
 		</action>
 

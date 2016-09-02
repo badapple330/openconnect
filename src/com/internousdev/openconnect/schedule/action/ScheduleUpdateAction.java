@@ -1,5 +1,6 @@
 package com.internousdev.openconnect.schedule.action;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ScheduleUpdateAction extends ActionSupport {
 
 	private List<Integer> id = new ArrayList<Integer>();
-	private List<String> Startdate = new ArrayList<String>();
-	private List<String> Enddate = new ArrayList<String>();
+	private List<Date> Startdate = new ArrayList<Date>();
+	private List<Date> Enddate = new ArrayList<Date>();
 	private List<String> title = new ArrayList<String>();
 	private List<String> content = new ArrayList<String>();
 
@@ -33,6 +34,8 @@ public class ScheduleUpdateAction extends ActionSupport {
 //        if(!content.matches(".{1,255}")){   //内容の検証
 //			   errorcontent = (getText("件名を入力して下さい"));
 //			   return ERROR;
+        System.out.println(Startdate);
+        System.out.println(Enddate);
         ScheduleUpdateDAO dao = new ScheduleUpdateDAO();
         int count = 0;
 
@@ -55,19 +58,21 @@ public class ScheduleUpdateAction extends ActionSupport {
 		this.id = id;
 	}
 
-	public List<String> getStartdate() {
+
+
+	public List<Date> getStartdate() {
 		return Startdate;
 	}
 
-	public void setStartdate(List<String> startdate) {
+	public void setStartdate(List<Date> startdate) {
 		Startdate = startdate;
 	}
 
-	public List<String> getEnddate() {
+	public List<Date> getEnddate() {
 		return Enddate;
 	}
 
-	public void setEnddate(List<String> enddate) {
+	public void setEnddate(List<Date> enddate) {
 		Enddate = enddate;
 	}
 

@@ -14,15 +14,19 @@
 <s:submit value="検索"></s:submit>
 </s:form>
 <br>
-<s:property value="id"/>
-<table border="2" cellspacing="0"style="white">
-<tr>
+<%-- <s:property value="id"/> --%>
 
+
+
+
+
+<s:form action="ScheduleUpdate">
+<table border="2" style="white">
+<tbody>
+<tr>
 <td>ID</td><td>開始日</td><td>終了日</td><td>件名</td><td>内容</td>
 </tr>
 
-<tbody>
-<s:form action="ScheduleUpdate">
 <s:iterator value="schedulelist" status="st">
 <tr>
 <td><input type="text" name="id" value="<s:property value="Id" />"></td>
@@ -32,32 +36,31 @@
 <td><input type="text" name="content" value="<s:property value="Content" />"></td>
 </tr>
 </s:iterator>
-<button type="submit" class="button">編集</button>
-</s:form>
 </tbody>
 </table>
+<button type="submit" class="button">編集</button>
+</s:form>
 
 <br><br>
 
+<s:form action="ScheduleInsert">
 <table border="2" cellspacing="0"style="white">
+<tbody>
 <tr>
 <td>開始日</td><td>件名</td><td>内容</td><td></td>
 </tr>
 <tr>
-<s:form action="ScheduleInsert">
 <td><input type="text" name="startdate"></td>
 <td><input type="text" name="title"></td>
 <td><input type="text" name="content"></td>
-<td><button type="submit" class="button">追加</button></td>
+<td><button type="submit" class="button">追加</button></td></tr>
 </s:form>
-</tr>
+</tbody>
 </table>
 
 <br>
-<br>
-
-<br>
-<br>
+<s:form action="GetAddressAction">
 <button type="submit" class="button">戻る</button>
+</s:form>
 </body>
 </html>

@@ -1,9 +1,11 @@
 package com.internousdev.openconnect.schedule.dto;
 
+import java.sql.Date;
+
 public class ScheduleSelectDTO {
 	private int id;
-	private String Startdate;
-	private String Enddate;
+	private Date Startdate;
+	private Date Enddate;
 	private String title;
 	private String content;
 	public int getId() {
@@ -12,16 +14,16 @@ public class ScheduleSelectDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getStartdate() {
+	public Date getStartdate() {
 		return Startdate;
 	}
-	public void setStartdate(String startdate) {
+	public void setStartdate(Date startdate) {
 		Startdate = startdate;
 	}
-	public String getEnddate() {
+	public Date getEnddate() {
 		return Enddate;
 	}
-	public void setEnddate(String enddate) {
+	public void setEnddate(Date enddate) {
 		Enddate = enddate;
 	}
 	public String getTitle() {
