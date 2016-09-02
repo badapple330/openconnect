@@ -1,40 +1,34 @@
 package com.internousdev.openconnect.projectList.action;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
-import com.internousdev.openconnect.projectList.dao.ProjectDAO;
-import com.internousdev.openconnect.projectList.dto.ProjectDTO;
+import com.internousdev.openconnect.projectList.dao.ProjectListDAO;
+import com.internousdev.openconnect.projectList.dto.ProjectListDTO;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class ProjectAction {
+public class ProjectAction extends ActionSupport{
+
+	private List<ProjectListDTO> projectList = new ArrayList<ProjectListDTO>();
 
 
-			private String projectname;
-
-
-			private ArrayList<ProjectDTO> list = new ArrayList<ProjectDTO>();
-
-			private Map<String, Object> session;
-
-			public String execute() throws SQLException {
-
-				String result = ERROR;
-				ProjectDAO dao = new ProjectDAO();
-
-				//projectに合致するものが見つかるデータをdaoのインスタンスから探す
-				if (dao.select(projectname)) {
-					list = dao.getProjectlistSelect();
-					session.put("projectname", list.get(0).getProjectname());
-					result = success;
-				} else {
-					errorSelect = (getText("データがありません"));
-					session.put(" projectname", projectname);
+				public String execute() {
+					String result = ERROR;
+					ProjectListDAO dao = new ProjectListDAO();
+					projectList = dao.select();
+					if (!(projectList == null)) {
+						result = SUCCESS;
+					}
+					return result;
 				}
 
-				return result;
+				public List<ProjectListDTO> getProjectList() {
+					return projectList;
+				}
 
-		}
+				public void setProjectList(List<ProjectListDTO> projectList) {
+					this.projectList = projectList;
+				}
 
 
-}
+			}
