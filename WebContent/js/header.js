@@ -6,36 +6,41 @@ $(function(){
 	var left = 0;
 //	setInterval(move, 100);
 //	function move(){
-//		left ++;
-//		$('.openConnect').css("left", left+'px');
+//	left ++;
+//	$('.openConnect').css("left", left+'px');
 //	}
 
 
 	// オープンコネクトの位置(左上～右下)を取得
 	var logoLeft = openConnectLogo.position().left;
 	var logoTop = openConnectLogo.position().top;
+	var logoRight = logoLeft + openConnectLogo.outerWidth();
+	var logoButtom = logoTop + openConnectLogo.outerHeight();
 
-	var rndX = Math.random() * 5 - 2.5;
-	var rndY = Math.random() * 5 - 2.5;
+	// マウスの座標
+	var mouseX;
+	var mouseY;
 
+	// ランダム移動
 	setInterval(randomMove, 50);
 
 	function randomMove(){
 
-		rndX = Math.random() * 5 - 2.5;
-		rndY = Math.random() * 5 - 2.5;
-		openConnectLogo.css('left', logoLeft+rndX );
+		if( mouseX >= logoLeft && mouseX <= logoRight &&
+				mouseY >= logoTop && mouseY <= logoButtom ){
+
+			var rndX = Math.random() * 5 - 2.5;
+			var rndY = Math.random() * 5 - 2.5;
+			openConnectLogo.css('left', rndX );
+		}
 	}
 
-	// オープンコネクトにマウスが乗っている時
-	openConnectLogo.hover(function(){
+	// マウス移動時
+	$("body").mousemove(function(e){
 
-		openConnectLogo.css('left', logoLeft+rndX );
-
+		// 座標を保存
+		mouseX = e.pageX;
+		mouseY = e.pageY;
 	});
-//
-//	$("body").mousemove(function(e){
-//
-//
-//	});
+
 });
