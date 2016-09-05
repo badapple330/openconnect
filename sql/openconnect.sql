@@ -288,12 +288,13 @@ insert into books(title)values("やさしいJAVA");
 
 /*サブプロジェクト / プロジェクト進捗状況*/
 create table project_progress(
-project_id int auto_increment key,
+project_id int,
 project_day date not null,
 project varchar(50) not null,
 project_plan varchar(255),
 project_result varchar(255),
-other varchar(255)
+other varchar(255),
+foreign key(project_id) references projects(project_id)
 );
 
 insert into project_progress(
