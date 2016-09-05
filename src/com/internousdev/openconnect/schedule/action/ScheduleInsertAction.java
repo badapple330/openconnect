@@ -2,6 +2,8 @@
  *
  */
 package com.internousdev.openconnect.schedule.action;
+import java.sql.Date;
+
 import com.internousdev.openconnect.schedule.dao.ScheduleInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -11,21 +13,21 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class ScheduleInsertAction extends ActionSupport{
 
-	private String Startdate;
+	private Date start_day;
 	private String title;
 	private String content;
-	private String errorStartdate;
+	//private String errorstart_day;
 	private String errortitle;
 	private String errorcontent;
 
 	public String execute(){
         String ret = ERROR;
         int k;
-
-        if(!Startdate.matches(".{1,255}")){   //開始日の検証
-			   errorStartdate = (getText("開始日を入力して下さい"));
-			   return ERROR;
-		}
+System.out.println(start_day);
+//        if(!start_day.matches(".{1,255}")){   //開始日の検証
+//			   errorstart_day = (getText("開始日を入力して下さい"));
+//			   return ERROR;
+//		}
 
         if(!title.matches(".{1,255}")){   //件名の検証
 			   errortitle = (getText("件名を入力して下さい"));
@@ -37,7 +39,7 @@ public class ScheduleInsertAction extends ActionSupport{
 		}
         ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-        k = dao.insert(Startdate,title,content);
+        k = dao.insert(start_day,title,content);
 
         if (k>0) {
             ret = SUCCESS;
@@ -48,12 +50,12 @@ public class ScheduleInsertAction extends ActionSupport{
 
 	}
 
-	public String getStartdate() {
-		return Startdate;
+	public Date getStart_day() {
+		return start_day;
 	}
 
-	public void setStartdate(String startdate) {
-		Startdate = startdate;
+	public void setStart_day(Date start_day) {
+		this.start_day = start_day;
 	}
 
 	public String getTitle() {
@@ -72,14 +74,6 @@ public class ScheduleInsertAction extends ActionSupport{
 		this.content = content;
 	}
 
-	public String getErrorStartdate() {
-		return errorStartdate;
-	}
-
-	public void setErrorStartdate(String errorStartdate) {
-		this.errorStartdate = errorStartdate;
-	}
-
 	public String getErrortitle() {
 		return errortitle;
 	}
@@ -95,5 +89,6 @@ public class ScheduleInsertAction extends ActionSupport{
 	public void setErrorcontent(String errorcontent) {
 		this.errorcontent = errorcontent;
 	}
+
 
 }

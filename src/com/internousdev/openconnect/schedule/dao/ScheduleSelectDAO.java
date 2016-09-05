@@ -26,11 +26,10 @@ public class ScheduleSelectDAO {
 			ResultSet rs = ps.executeQuery();
 
             while(rs.next()) {
-            	System.out.println("リストへ追加:");
             	ScheduleSelectDTO dto = new ScheduleSelectDTO();
             	dto.setId(rs.getInt("id"));
-            	try { dto.setStartdate(rs.getDate("Startdate")); }catch(Exception e){}
-            	try { dto.setEnddate(rs.getDate("Enddate")); }catch(Exception e){}
+            	try { dto.setStart_day(rs.getDate("start_day")); }catch(Exception e){}
+            	try { dto.setEnd_day(rs.getDate("end_day")); }catch(Exception e){}
               	dto.setTitle(rs.getString("title"));
               	dto.setContent(rs.getString("content"));
             	schedulelist.add(dto);
@@ -46,8 +45,6 @@ public class ScheduleSelectDAO {
  	        	 e.printStackTrace();
  	         }
  	     }
-
-		System.out.println(search + " " + schedulelist.size() + sql);
          return schedulelist;
 
 	}

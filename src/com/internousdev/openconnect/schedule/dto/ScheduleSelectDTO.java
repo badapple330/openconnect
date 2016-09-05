@@ -4,27 +4,29 @@ import java.sql.Date;
 
 public class ScheduleSelectDTO {
 	private int id;
-	private Date Startdate;
-	private Date Enddate;
+	private Date start_day;
+	private Date end_day;
 	private String title;
 	private String content;
+
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Date getStartdate() {
-		return Startdate;
+
+	public Date getStart_day() {
+		return start_day;
 	}
-	public void setStartdate(Date startdate) {
-		Startdate = startdate;
+	public void setStart_day(Date start_day) {
+		this.start_day = start_day;
 	}
-	public Date getEnddate() {
-		return Enddate;
+	public Date getEnd_day() {
+		return end_day;
 	}
-	public void setEnddate(Date enddate) {
-		Enddate = enddate;
+	public void setEnd_day(Date end_day) {
+		this.end_day = end_day;
 	}
 	public String getTitle() {
 		return title;
