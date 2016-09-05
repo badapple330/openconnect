@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.internousdev.openconnect.booklist.dao;
+package com.internousdev.openconnect.books.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 
-public class BooklistDeleteDAO {
+public class BooksDeleteDAO {
 
 	public int delete(int bookId){
 

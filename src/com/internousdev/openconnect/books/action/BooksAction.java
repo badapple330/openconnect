@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package com.internousdev.openconnect.books.action;
 
 import java.util.ArrayList;
@@ -11,9 +14,9 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internous
  *
  */
-public class BooksAction extends ActionSupport {
+public class BooksAction extends ActionSupport{
 
-	private List<BooksDTO>bookList=new ArrayList<BooksDTO>();
+	private List<BooksDTO> bookList = new ArrayList<BooksDTO>();
 
 	private static final long serialVersionUID = -7586577377473680450L;
 
@@ -28,18 +31,13 @@ public class BooksAction extends ActionSupport {
 		return result;
 	}
 
-	public List<BooksDTO> getBooklist() {
+	public List<BooksDTO> getBookList() {
 		return bookList;
 	}
 
-	public void setBooklist(List<BooksDTO> booklist) {
-		bookList = booklist;
+	public void setBookList(List<BooksDTO> bookList) {
+		this.bookList = bookList;
+
 	}
 
-
-
 }
-
-
-
-

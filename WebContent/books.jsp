@@ -17,32 +17,32 @@
 	<br>
 	<br> 書籍の検索
 
-	<s:form action="BookListSearch">
+	<s:form action="BooksSearch">
 		<input type="text" name="search">
 		<input class="button" type="submit" value="検索">
 	</s:form>
 
-	<s:form action="BookListEdit">
+	<s:form action="BooksEdit">
 		<table border="1" cellspacing="0">
 			<tr>
 				<th>ID</th>
 				<th width="500">タイトル一覧</th>
 				<th></th>
-				<th></th>
+				<th>削除</th>
 			</tr>
 
 			<s:iterator value="bookList">
 
 				<tr>
 
-					<td><s:property value="bookId" /></td>
-					<td><input type="text" value="<s:property value="title" />"></td>
+					<td><input type="text" name ="bookIdList" value ="<s:property  value="bookId" />"></td>
+					<td><input type="text" name ="titleList" value="<s:property value="title" />"></td>
 					<td></td>
 					<td><input type="submit" class="button" value="削除"></td>
 
 				</tr>
 
-			</s:iterator>
+				</s:iterator>
 
 			<s:iterator value="searchList">
 				<tr>
@@ -53,12 +53,14 @@
 
 		</table>
 
-		<s:iterator value="bookListId">
-			<tr>
-			<td><s:property value ="title"/></td>
-			<td><input type="submit" class="button" value="編集" /></td>
-			</tr>
-		</s:iterator>
+		<td><input type="submit" class="button" value="編集" /></td>
+
+<%-- 		<s:iterator value="bookListEdit"> --%>
+<!-- 			<tr> -->
+<%-- 				<td><s:property value="bookIdList" /></td> --%>
+<!-- 			</tr> -->
+<%-- 		</s:iterator> --%>
+
 	</s:form>
 
 	<!-- 	<div id="delete-prepare"> -->
@@ -66,18 +68,18 @@
 	<!-- 		<input type="button" class="modal-close button" value="いいえ"> -->
 	<!-- 	</div> -->
 
-	<div id="delete">
-		<s:form action="BookListDelete">
+	<div class="delete">
+		<s:form action="BooksDelete">
 			<input type="text" id="delete-booklistid" name="bookId"
 				placeholder="プロジェクトID">
 			<input type="submit" class="button" value="削除">
-			<input type="button" class="modal-close button" value="閉じる">
+			<!-- 			<input type="button" class="modal-close button" value="閉じる"> -->
 		</s:form>
 	</div>
 
 
 	書籍の追加
-	<s:form action="BookListCreate">
+	<s:form action="BooksCreate">
 		<input type="text" name="title">
 		<input class="button" type="submit" value="追加">
 	</s:form>

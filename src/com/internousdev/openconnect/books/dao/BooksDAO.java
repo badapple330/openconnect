@@ -22,7 +22,7 @@ public class BooksDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql="SELECT*FROM book_list ";
+			String sql="SELECT*FROM books";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
@@ -30,8 +30,7 @@ public class BooksDAO {
 				BooksDTO dto = new BooksDTO();
 				dto.setBookId(rs.getInt("book_id"));
 				dto.setTitle(rs.getString("title"));
-				dto.setBorrowHuman(rs.getString("borrow_human"));
-				dto.setBorrowDay(rs.getString("borrow_day"));
+
 
 				bookList.add(dto);
 			}

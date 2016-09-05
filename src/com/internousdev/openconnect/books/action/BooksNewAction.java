@@ -1,24 +1,24 @@
 /**
  *
  */
-package com.internousdev.openconnect.booklist.action;
+package com.internousdev.openconnect.books.action;
 
 
-import com.internousdev.openconnect.booklist.dao.BooklistNewDAO;
+import com.internousdev.openconnect.books.dao.BooksNewDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internous
  *
  */
-public class BooklistNewAction extends ActionSupport{
+public class BooksNewAction extends ActionSupport{
 
 	private String title;
 
 	public String execute(){
 
 		String result=ERROR;
-		BooklistNewDAO dao = new BooklistNewDAO();
+		BooksNewDAO dao = new BooksNewDAO();
 		int count = 0;
 		count = dao.insert(title);
 		if (count > 0) {

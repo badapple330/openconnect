@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.internousdev.openconnect.booklist.dao;
+package com.internousdev.openconnect.books.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,10 +13,10 @@ import com.internousdev.util.DBConnector;
  * @author internous
  *
  */
-public class BooklistUpdateDAO {
+public class BooksUpdateDAO {
 
 
-	public int select(String title) {
+	public int select(String title,int book_id) {
 
 		int count = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
@@ -28,6 +28,7 @@ public class BooklistUpdateDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,title);
+			ps.setInt(2,book_id);
 			count =ps.executeUpdate();
 
 		}catch (SQLException e) {

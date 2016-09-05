@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.internousdev.openconnect.booklist.dao;
+package com.internousdev.openconnect.books_loan.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,27 +10,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.booklist.dto.BooklistDTO;
+import com.internousdev.openconnect.books_loan.dto.BooksLoanDTO;
 import com.internousdev.util.DBConnector;
 
-public class BooklistDAO {
+public class BooksLoanDAO {
 
-	private List<BooklistDTO>bookList=new ArrayList<BooklistDTO>();
+	private List<BooksLoanDTO>bookList=new ArrayList<BooksLoanDTO>();
 
-	public List<BooklistDTO> select() {
+	public List<BooksLoanDTO> select() {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
 
 		try {
-			String sql="SELECT*FROM books";
+			String sql="SELECT*FROM book_list ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				BooklistDTO dto = new BooklistDTO();
+				BooksLoanDTO dto = new BooksLoanDTO();
 				dto.setBookId(rs.getInt("book_id"));
 				dto.setTitle(rs.getString("title"));
-
+				dto.setBorrowHuman(rs.getString("borrow_human"));
+				dto.setBorrowDay(rs.getString("borrow_day"));
 
 				bookList.add(dto);
 			}

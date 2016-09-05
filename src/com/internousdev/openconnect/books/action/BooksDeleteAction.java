@@ -1,15 +1,15 @@
-package com.internousdev.openconnect.booklist.action;
+package com.internousdev.openconnect.books.action;
 
-import com.internousdev.openconnect.booklist.dao.BooklistDeleteDAO;
+import com.internousdev.openconnect.books.dao.BooksDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class BooklistDeleteAction extends ActionSupport{
+public class BooksDeleteAction extends ActionSupport{
 
 	private int bookId;
 
 	public String execute(){
-		BooklistDeleteDAO dao = new BooklistDeleteDAO();
+		BooksDeleteDAO dao = new BooksDeleteDAO();
 		String result = ERROR;
 		int count = 0;
 		count = dao.delete(bookId);

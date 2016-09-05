@@ -1,20 +1,20 @@
 /**
  *
  */
-package com.internousdev.openconnect.booklist.action;
+package com.internousdev.openconnect.books.action;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.booklist.dao.BooklistSearchDAO;
-import com.internousdev.openconnect.booklist.dto.BooklistSearchDTO;
+import com.internousdev.openconnect.books.dao.BooksSearchDAO;
+import com.internousdev.openconnect.books.dto.BooksSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internous
  *
  */
-public class BooklistSearchAction extends ActionSupport {
+public class BooksSearchAction extends ActionSupport {
 
 
 	private static final long serialVersionUID = -75847044350L;
@@ -24,7 +24,7 @@ public class BooklistSearchAction extends ActionSupport {
 	/**
 	 * エラーメッセージ
 	 */
-	private List<BooklistSearchDTO> searchList = new ArrayList<BooklistSearchDTO>();
+	private List<BooksSearchDTO> searchList = new ArrayList<BooksSearchDTO>();
 	private String errorMsg;
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -32,7 +32,7 @@ public class BooklistSearchAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
-		BooklistSearchDAO dao = new BooklistSearchDAO();
+		BooksSearchDAO dao = new BooksSearchDAO();
 		searchList = dao.select(search);
 		if (searchList.size() != 0) {
 			result = SUCCESS;
@@ -58,11 +58,11 @@ public class BooklistSearchAction extends ActionSupport {
 		this.errorMsg = errorMsg;
 	}
 
-	public List<BooklistSearchDTO> getSearchList() {
+	public List<BooksSearchDTO> getSearchList() {
 		return searchList;
 	}
 
-	public void setSearchList(List<BooklistSearchDTO> searchList) {
+	public void setSearchList(List<BooksSearchDTO> searchList) {
 		this.searchList = searchList;
 	}
 

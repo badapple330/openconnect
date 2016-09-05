@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.internousdev.openconnect.booklist.dao;
+package com.internousdev.openconnect.books.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,21 +10,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.booklist.dto.BooklistSearchDTO;
+import com.internousdev.openconnect.books.dto.BooksSearchDTO;
 import com.internousdev.util.DBConnector;
 
 /**
  * @author internous
  *
  */
-public class BooklistSearchDAO {
+public class BooksSearchDAO {
 
 
-	 public List<BooklistSearchDTO> searchList = new ArrayList<BooklistSearchDTO>();
+	 public List<BooksSearchDTO> searchList = new ArrayList<BooksSearchDTO>();
 
 
 
-	    public List<BooklistSearchDTO> select(String search) {
+	    public List<BooksSearchDTO> select(String search) {
 	        DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 	                "mysql");
 	        Connection con = db.getConnection();
@@ -35,7 +35,7 @@ public class BooklistSearchDAO {
 	            ResultSet rs = ps.executeQuery();
 
 	            while (rs.next()) {
-	            	BooklistSearchDTO dto = new BooklistSearchDTO();
+	            	BooksSearchDTO dto = new BooksSearchDTO();
 
 	            	dto.setBookId(rs.getInt("book_id"));
 	            	dto.setTitle(rs.getString("title"));

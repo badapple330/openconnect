@@ -1,20 +1,20 @@
 /**
  *
  */
-package com.internousdev.openconnect.booklist.action;
+package com.internousdev.openconnect.books.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.booklist.dao.BooklistUpdateDAO;
+import com.internousdev.openconnect.books.dao.BooksUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internous
  *
  */
-public class BooklistUpdateAction extends ActionSupport {
+public class BooksUpdateAction extends ActionSupport {
 
 	private static final long serialVersionUID = -3541224046836562290L;
 
@@ -22,7 +22,7 @@ public class BooklistUpdateAction extends ActionSupport {
 	 * ID
 	 */
 	private List<Integer> bookIdList = new ArrayList<Integer>();
-	private List<String> title = new ArrayList<String>();
+	private List<String> titleList = new ArrayList<String>();
 
 	/**
 	 * ユーザー情報を更新できたか否か判定するメソッド
@@ -34,11 +34,11 @@ public class BooklistUpdateAction extends ActionSupport {
 
 
 		String result =ERROR;
-		BooklistUpdateDAO dao = new BooklistUpdateDAO();
+		BooksUpdateDAO dao = new BooksUpdateDAO();
 		int count = 0;
 
 		for(int i=0;i<bookIdList.size();++i){
-			count = dao.select(title.get(i));}
+			count = dao.select(titleList.get(i),bookIdList.get(i));}
 		if(count > 0){
 			result = SUCCESS;
 		}
@@ -54,13 +54,14 @@ public class BooklistUpdateAction extends ActionSupport {
 		this.bookIdList = bookIdList;
 	}
 
-	public List<String> getTitle() {
-		return title;
+	public List<String> getTitleList() {
+		return titleList;
 	}
 
-	public void setTitle(List<String> title) {
-		this.title = title;
+	public void setTitleList(List<String> titleList) {
+		this.titleList = titleList;
 	}
+
 
 
 

@@ -161,34 +161,34 @@
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
-			class="com.internousdev.openconnect.booklist.action.BooklistAction" method="execute">
+			class="com.internousdev.openconnect.books.action.BooksAction" method="execute">
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BookListSearch"
-			class="com.internousdev.openconnect.booklist.action.BooklistSearchAction"
+		<action name="BooksSearch"
+			class="com.internousdev.openconnect.books.action.BooksSearchAction"
 			method="execute">
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BookListCreate"
-			class="com.internousdev.openconnect.booklist.action.BooklistNewAction"
+		<action name="BooksCreate"
+			class="com.internousdev.openconnect.books.action.BooksNewAction"
 			method="execute">
 			<result name="success" type="chain">GoBooks</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BookListDelete"
-			class="com.internousdev.openconnect.booklist.action.BooklistDeleteAction"
+		<action name="BooksDelete"
+			class="com.internousdev.openconnect.books.action.BooksDeleteAction"
 			method="execute">
 			<result name="success" type="chain">GoBooks</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BookListEdit"
-			class="com.internousdev.openconnect.booklist.action.BooklistUpdateAction"
+		<action name="BooksEdit"
+			class="com.internousdev.openconnect.books.action.BooksUpdateAction"
 			method="execute">
 			<result name="success" type="chain">GoBooks</result>
 			<result name="error">/register.jsp</result>

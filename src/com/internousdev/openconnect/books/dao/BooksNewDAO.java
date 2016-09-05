@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.internousdev.openconnect.booklist.dao;
+package com.internousdev.openconnect.books.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,7 @@ import com.internousdev.util.DBConnector;
  * @author internous
  *
  */
-public class BooklistNewDAO {
+public class BooksNewDAO {
 
 	public int insert(String title) {
 
