@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projectProgress.dto.GetAddressDTO;
+import com.internousdev.openconnect.projectProgress.dto.ProjectProgressDTO;
 import com.internousdev.util.DBConnector;
 
 /**
@@ -17,7 +17,7 @@ import com.internousdev.util.DBConnector;
  * @since 2016/08/18
  * @version 1.0
  */
-public class SearchResultDAO {
+public class ProjectProgressSearchDAO {
 
     /**
      * 抽出メソッド ログインした際にDBからサイト情報をリスト化して抽出し、DTOに格納する
@@ -25,11 +25,11 @@ public class SearchResultDAO {
      * @author YUKI MAEDA
      * @return articleList 抽出に成功したらSUCCESS、失敗したらERROR
      */
-    public List<GetAddressDTO> searchList = new ArrayList<GetAddressDTO>();
+    public List<ProjectProgressDTO> searchList = new ArrayList<ProjectProgressDTO>();
 
 
 
-    public List<GetAddressDTO> select(String search) {
+    public List<ProjectProgressDTO> select(String search) {
         DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
                 "mysql");
         Connection con = db.getConnection();
@@ -40,7 +40,7 @@ public class SearchResultDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-            	GetAddressDTO dto = new GetAddressDTO();
+            	ProjectProgressDTO dto = new ProjectProgressDTO();
 
             	dto.setProjectId(rs.getInt("project_id"));
             	dto.setProjectDay(rs.getString("project_day"));

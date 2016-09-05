@@ -92,6 +92,11 @@ input {
 .modal-open {
 	color: #cc0000;
 }
+
+.modal-open2 {
+	color: #cc0000;
+}
+
 /* モーダル コンテンツエリア */
 #modal-main {
 	display: none;

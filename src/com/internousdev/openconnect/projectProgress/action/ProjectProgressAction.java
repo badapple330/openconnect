@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.projectProgress.dao.ProjectProgressDAO;
-import com.internousdev.openconnect.projectProgress.dto.GetAddressDTO;
+import com.internousdev.openconnect.projectProgress.dto.ProjectProgressDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 public class ProjectProgressAction extends ActionSupport {
 
-	private List<GetAddressDTO> projectList = new ArrayList<GetAddressDTO>();
+	private List<ProjectProgressDTO> projectList = new ArrayList<ProjectProgressDTO>();
 
 	private static final long serialVersionUID = -7586577377473680450L;
 
@@ -25,11 +25,11 @@ public class ProjectProgressAction extends ActionSupport {
 		return result;
 	}
 
-	public List<GetAddressDTO> getProjectList() {
+	public List<ProjectProgressDTO> getProjectList() {
 		return projectList;
 	}
 
-	public void setProjectList(List<GetAddressDTO> projectList) {
+	public void setProjectList(List<ProjectProgressDTO> projectList) {
 		this.projectList = projectList;
 	}
 

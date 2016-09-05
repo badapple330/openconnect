@@ -3,8 +3,8 @@ package com.internousdev.openconnect.projectProgress.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projectProgress.dao.SearchResultDAO;
-import com.internousdev.openconnect.projectProgress.dto.GetAddressDTO;
+import com.internousdev.openconnect.projectProgress.dao.ProjectProgressSearchDAO;
+import com.internousdev.openconnect.projectProgress.dto.ProjectProgressDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author YUKI MAEDA
  * @since 2016/08/11
  */
-public class SearchResultAction extends ActionSupport {
+public class ProjectProgressSearchAction extends ActionSupport {
 	/**
 	 * シリアルバージョンID
 	 */
@@ -28,7 +28,7 @@ public class SearchResultAction extends ActionSupport {
 	/**
 	 * エラーメッセージ
 	 */
-	private List<GetAddressDTO> searchList = new ArrayList<GetAddressDTO>();
+	private List<ProjectProgressDTO> searchList = new ArrayList<ProjectProgressDTO>();
 	private String errorMsg;
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -38,7 +38,7 @@ public class SearchResultAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
-		SearchResultDAO dao = new SearchResultDAO();
+		ProjectProgressSearchDAO dao = new ProjectProgressSearchDAO();
 		searchList = dao.select(search);
 		if (searchList.size() != 0) {
 			result = SUCCESS;
@@ -64,11 +64,11 @@ public class SearchResultAction extends ActionSupport {
 		this.errorMsg = errorMsg;
 	}
 
-	public List<GetAddressDTO> getSearchList() {
+	public List<ProjectProgressDTO> getSearchList() {
 		return searchList;
 	}
 
-	public void setSearchList(List<GetAddressDTO> searchList) {
+	public void setSearchList(List<ProjectProgressDTO> searchList) {
 		this.searchList = searchList;
 	}
 

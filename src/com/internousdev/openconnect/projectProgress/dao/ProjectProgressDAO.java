@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projectProgress.dto.GetAddressDTO;
+import com.internousdev.openconnect.projectProgress.dto.ProjectProgressDTO;
 import com.internousdev.util.DBConnector;
 
 public class ProjectProgressDAO {
 
-	private List<GetAddressDTO>projectList=new ArrayList<GetAddressDTO>();
+	private List<ProjectProgressDTO>projectList=new ArrayList<ProjectProgressDTO>();
 
-	public List<GetAddressDTO> select() {
+	public List<ProjectProgressDTO> select() {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
 
@@ -24,7 +24,7 @@ public class ProjectProgressDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				GetAddressDTO dto = new GetAddressDTO();
+				ProjectProgressDTO dto = new ProjectProgressDTO();
 				dto.setProjectId(rs.getInt("project_id"));
 				dto.setProjectDay(rs.getString("project_day"));
 				dto.setProject(rs.getString("project"));
