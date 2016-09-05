@@ -1,10 +1,10 @@
-package com.internousdev.openconnect.action.decision_list.action;
+package com.internousdev.openconnect.decision.action;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.action.decision_list.dao.DecisionDisplayDAO;
-import com.internousdev.openconnect.action.decision_list.dto.DecisionDisplayDTO;
+import com.internousdev.openconnect.decision.dao.DecisionDisplayDAO;
+import com.internousdev.openconnect.decision.dto.DecisionDisplayDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionDisplayAction extends ActionSupport{

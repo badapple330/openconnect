@@ -1,25 +1,25 @@
-package com.internousdev.openconnect.books_loan.action;
+package com.internousdev.openconnect.booksBorrow.action;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.books_loan.dao.BooksLoanDAO;
-import com.internousdev.openconnect.books_loan.dto.BooksLoanDTO;
+import com.internousdev.openconnect.booksBorrow.dao.BooksBorrowDAO;
+import com.internousdev.openconnect.booksBorrow.dto.BooksBorrowDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internous
  *
  */
-public class BooksLoanAction extends ActionSupport {
+public class BooksBorrowAction extends ActionSupport {
 
-	private List<BooksLoanDTO>bookList=new ArrayList<BooksLoanDTO>();
+	private List<BooksBorrowDTO>bookList=new ArrayList<BooksBorrowDTO>();
 
 	private static final long serialVersionUID = -7586577377473680450L;
 
 	public String execute() {
 		String result = ERROR;
-		BooksLoanDAO dao = new BooksLoanDAO();
+		BooksBorrowDAO dao = new BooksBorrowDAO();
 
 		bookList = dao.select();
 		if (!(bookList == null)) {
@@ -28,11 +28,11 @@ public class BooksLoanAction extends ActionSupport {
 		return result;
 	}
 
-	public List<BooksLoanDTO> getBooklist() {
+	public List<BooksBorrowDTO> getBooklist() {
 		return bookList;
 	}
 
-	public void setBooklist(List<BooksLoanDTO> booklist) {
+	public void setBooklist(List<BooksBorrowDTO> booklist) {
 		bookList = booklist;
 	}
 

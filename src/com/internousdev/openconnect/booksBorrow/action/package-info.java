@@ -5,4 +5,4 @@
  * @author internous
  *
  */
-package com.internousdev.openconnect.books_loan.action;
+package com.internousdev.openconnect.booksBorrow.action;

@@ -1,4 +1,4 @@
-package com.internousdev.openconnect.action.decision_list.dao;
+package com.internousdev.openconnect.decision.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.action.decision_list.dto.DecisionDisplayDTO;
+import com.internousdev.openconnect.decision.dto.DecisionDisplayDTO;
 import com.internousdev.util.DBConnector;
 
 public class DecisionDisplayDAO {

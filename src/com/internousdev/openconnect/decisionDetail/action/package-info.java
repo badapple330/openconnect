@@ -5,4 +5,4 @@
  * @author internous
  *
  */
-package com.internousdev.openconnect.operate.action;
+package com.internousdev.openconnect.decisionDetail.action;

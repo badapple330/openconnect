@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.internousdev.openconnect.operate.dao;
+package com.internousdev.openconnect.decisionDetail.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,22 +10,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.operate.dto.OperateDTO;
+import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.internousdev.util.DBConnector;
 
 /**
  * @author internous
  *
  */
-public class OperateDAO {
+public class DecisionDetailDAO {
 
-	public List<OperateDTO> select( String searchString ){
+	public List<DecisionDetailDTO> select( String searchString ){
 
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from operate where project_name LIKE '%" + searchString + "%'";
 
-		List<OperateDTO> list = new ArrayList<OperateDTO>();
+		List<DecisionDetailDTO> list = new ArrayList<DecisionDetailDTO>();
 
 		try{
 
@@ -35,7 +35,7 @@ public class OperateDAO {
 
 			while( rs.next() ){
 
-				OperateDTO dto = new OperateDTO();
+				DecisionDetailDTO dto = new DecisionDetailDTO();
 				dto.setOperateId( rs.getInt( "operate_id" ) );
 				dto.setProjectName( rs.getString( "project_name" ) );
 				dto.setPassword( rs.getString( "password" ) );

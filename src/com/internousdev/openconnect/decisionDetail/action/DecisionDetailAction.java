@@ -1,22 +1,22 @@
 /**
  *
  */
-package com.internousdev.openconnect.operate.action;
+package com.internousdev.openconnect.decisionDetail.action;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.operate.dao.OperateDAO;
-import com.internousdev.openconnect.operate.dto.OperateDTO;
+import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailDAO;
+import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internous
  *
  */
-public class OperateAction extends ActionSupport{
+public class DecisionDetailAction extends ActionSupport{
 
-	private List<OperateDTO> operateList = new ArrayList<OperateDTO>();
+	private List<DecisionDetailDTO> operateList = new ArrayList<DecisionDetailDTO>();
 
 	private String searchString;
 
@@ -27,7 +27,7 @@ public class OperateAction extends ActionSupport{
 	 */
 	public String execute(){
 
-		OperateDAO dao = new OperateDAO();
+		DecisionDetailDAO dao = new DecisionDetailDAO();
 
 		operateList = dao.select( searchString );
 
@@ -44,7 +44,7 @@ public class OperateAction extends ActionSupport{
 	* @author KOHEI NITABARU
 	* @return
 	*/
-	public List<OperateDTO> getOperateList() {
+	public List<DecisionDetailDTO> getOperateList() {
 		return operateList;
 	}
 
@@ -53,7 +53,7 @@ public class OperateAction extends ActionSupport{
 	* @author KOHEI NITABARU
 	* @param
 	*/
-	public void setOperateList(List<OperateDTO> operateList) {
+	public void setOperateList(List<DecisionDetailDTO> operateList) {
 		this.operateList = operateList;
 	}
 

@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.internousdev.openconnect.action.decision_list.dto;
+package com.internousdev.openconnect.decision.dto;
 
 import java.sql.Date;
 
@@ -9,7 +9,7 @@ import java.sql.Date;
  * @author internous
  *
  */
-public class DecisionListDTO {
+public class DecisionDTO {
 	private Date Registration;
 	private String user;
 	private String project_list;

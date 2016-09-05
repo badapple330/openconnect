@@ -5,4 +5,4 @@
  * @author internous
  *
  */
-package com.internousdev.openconnect.operate.dao;
+package com.internousdev.openconnect.decisionDetail.dao;

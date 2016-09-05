@@ -1,13 +1,13 @@
 /**
  *
  */
-package com.internousdev.openconnect.operate.dto;
+package com.internousdev.openconnect.decisionDetail.dto;
 
 /**
  * @author internous
  *
  */
-public class OperateDTO {
+public class DecisionDetailDTO {
 
 	private int operateId;
 	private String projectName;

@@ -1,19 +1,19 @@
-package com.internousdev.openconnect.action.decision_list.action;
+package com.internousdev.openconnect.decision.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.action.decision_list.dao.DecisionListDAO;
-import com.internousdev.openconnect.action.decision_list.dto.DecisionListDTO;
+import com.internousdev.openconnect.decision.dao.DecisionDAO;
+import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DecisionListAction extends ActionSupport{
+public class DecisionAction extends ActionSupport{
 /**
  * シリアル番号
  */
 	private static final long serialVersionUID = 6053714239083263231L;
 
-	private ArrayList<DecisionListDTO> list = new ArrayList<DecisionListDTO>();
+	private ArrayList<DecisionDTO> list = new ArrayList<DecisionDTO>();
 
 	private String errorSelect;
 
@@ -22,7 +22,7 @@ public class DecisionListAction extends ActionSupport{
 
 	public String execute() throws SQLException {
 		System.out.println(searchString);
-		DecisionListDAO dao = new DecisionListDAO();
+		DecisionDAO dao = new DecisionDAO();
 		if (dao.select(searchString)) {
 			list = dao.getList();
 		} else {
@@ -33,12 +33,12 @@ public class DecisionListAction extends ActionSupport{
 	}
 
 
-	public ArrayList<DecisionListDTO> getList() {
+	public ArrayList<DecisionDTO> getList() {
 		return list;
 	}
 
 
-	public void setList(ArrayList<DecisionListDTO> list) {
+	public void setList(ArrayList<DecisionDTO> list) {
 		this.list = list;
 	}
 

@@ -1,4 +1,4 @@
-package com.internousdev.openconnect.action.decision_list.dto;
+package com.internousdev.openconnect.decision.dto;
 
 public class DecisionDisplayDTO {
 

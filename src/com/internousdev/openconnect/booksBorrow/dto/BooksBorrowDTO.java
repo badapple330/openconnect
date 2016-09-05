@@ -1,13 +1,13 @@
 /**
  *
  */
-package com.internousdev.openconnect.books_loan.dto;
+package com.internousdev.openconnect.booksBorrow.dto;
 
 /**
  * @author internous
  *
  */
-public class BooksLoanDTO {
+public class BooksBorrowDTO {
 
 	private int bookId;
 	private String title;

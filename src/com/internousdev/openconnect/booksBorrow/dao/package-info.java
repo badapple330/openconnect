@@ -5,4 +5,4 @@
  * @author internous
  *
  */
-package com.internousdev.openconnect.books_loan.dao;
+package com.internousdev.openconnect.booksBorrow.dao;

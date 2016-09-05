@@ -1,4 +1,4 @@
-package com.internousdev.openconnect.action.decision_list.dao;
+package com.internousdev.openconnect.decision.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.action.decision_list.dto.DecisionListDTO;
+import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
 
-public class DecisionListDAO {
+public class DecisionDAO {
 	/**
 	 * ユーザー一覧情報を格納するリスト
 	 */
-	private ArrayList<DecisionListDTO> list = new ArrayList<DecisionListDTO>();
+	private ArrayList<DecisionDTO> list = new ArrayList<DecisionDTO>();
 
 	/**
 	 * 画面にユーザー情報一覧を表示させる為のメソッド
@@ -44,7 +44,7 @@ public class DecisionListDAO {
 
             while(rs.next()) {
             	//括弧内はお決まり文。「終わるまで」という意味
-            	DecisionListDTO dto = new DecisionListDTO();
+            	DecisionDTO dto = new DecisionDTO();
             	//DTOに覚えてもらうためのセットする文
             	dto.setRegistration(rs.getDate("Registration"));
             	dto.setProject_list(rs.getString("project_list"));
@@ -75,15 +75,15 @@ public class DecisionListDAO {
 
 	}
 
-	public ArrayList<DecisionListDTO> getList() {
+	public ArrayList<DecisionDTO> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<DecisionListDTO> list) {
+	public void setList(ArrayList<DecisionDTO> list) {
 		this.list = list;
 	}
 
-	public ArrayList<DecisionListDTO> getProjectlistSelect() {
+	public ArrayList<DecisionDTO> getProjectlistSelect() {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
