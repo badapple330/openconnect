@@ -10,7 +10,7 @@ import java.util.List;
 import com.internousdev.openconnect.projects.dto.ProjectListDTO;
 import com.internousdev.util.DBConnector;
 
-public class ProjectListDAO {
+public class ProjectsListDAO {
 	    /**
 	     * 抽出メソッド ログインした際にDBからサイト情報をリスト化して抽出し、DTOに格納する
 	     *

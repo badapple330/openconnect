@@ -10,7 +10,7 @@ import java.util.List;
 import com.internousdev.openconnect.projects.dto.ProjectSearchDTO;
 import com.internousdev.util.DBConnector;
 
-public class ProjectSerachDAO {
+public class ProjectsSerachDAO {
 
 	public List<ProjectSearchDTO> searchList = new ArrayList<ProjectSearchDTO>();
 

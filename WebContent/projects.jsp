@@ -13,12 +13,12 @@
 <body>
 
 	<p>プロジェクト検索</p>
-	<s:form action ="projectSearchAction">
+	<s:form action ="ProjectsSearchAction">
 <input type="text" name="search">
 <input type="submit"value="検索する">
 </s:form>
 
-<s:form action ="ProjectListEdit">
+<s:form action ="ProjectsListEdit">
 
 	<table border="2" cellspacing="0" style="">
 		<tr>

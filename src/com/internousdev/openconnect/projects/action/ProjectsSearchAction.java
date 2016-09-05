@@ -3,11 +3,11 @@ package com.internousdev.openconnect.projects.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projects.dao.ProjectSerachDAO;
+import com.internousdev.openconnect.projects.dao.ProjectsSerachDAO;
 import com.internousdev.openconnect.projects.dto.ProjectSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ProjectSearchAction extends ActionSupport{
+public class ProjectsSearchAction extends ActionSupport{
 
 	//エラーメッセージ
 
@@ -25,7 +25,7 @@ public class ProjectSearchAction extends ActionSupport{
 		 */
 		public String execute() {
 			String result = ERROR;
-			ProjectSerachDAO dao = new ProjectSerachDAO();
+			ProjectsSerachDAO dao = new ProjectsSerachDAO();
 			searchList = dao.select(search);
 			if (searchList.size() != 0) {
 				result = SUCCESS;

@@ -4,10 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projects.dao.ProjectUpdateDAO;
+import com.internousdev.openconnect.projects.dao.ProjectsUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ProjectUpdateAction extends ActionSupport{
+public class ProjectsUpdateAction extends ActionSupport{
 
 	private List<Integer> projectUserIdList= new ArrayList<Integer>();
 	private List<String> projectNameList = new ArrayList<String>();
@@ -27,7 +27,7 @@ public class ProjectUpdateAction extends ActionSupport{
 
 
 		String result =ERROR;
-		ProjectUpdateDAO dao = new ProjectUpdateDAO();
+		ProjectsUpdateDAO dao = new ProjectsUpdateDAO();
 		int count = 0;
 
 		for(int i=0;i<projectUserIdList.size();++i){

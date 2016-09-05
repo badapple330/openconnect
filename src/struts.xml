@@ -111,19 +111,19 @@
 		</action>
 
 		<!-- プロジェクト一覧画面への遷移 -->
-		<action name="GoProject" class="com.internousdev.openconnect.projects.action.ProjectAction"
+		<action name="GoProjects" class="com.internousdev.openconnect.projects.action.ProjectsAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-        <action name="projectSearchAction" class="com.internousdev.openconnect.projects.action.ProjectSearchAction"
+        <action name="ProjectsSearchAction" class="com.internousdev.openconnect.projects.action.ProjectsSearchAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="ProjectListEdit" class="com.internousdev.openconnect.projects.action.ProjectUpdateAction"
+		<action name="ProjectsListEdit" class="com.internousdev.openconnect.projects.action.ProjectsUpdateAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -153,9 +153,9 @@
 		</action>
 
 		<!-- 決済手続き電子化画面への遷移 -->
-		<action name="GoOperate" class="com.internousdev.openconnect.operate.action.OperateAction"
+		<action name="GoDecisionDetail" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
-			<result name="success">operate.jsp</result>
+			<result name="success">decision_detail.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 

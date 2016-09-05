@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 
-public class ProjectUpdateDAO {
+public class ProjectsUpdateDAO {
 
 	public int select(int  projectUserId,String projectName,String projectManager,String projectSubManager, String projectStartDate,String projectEndDate,String projectNote) throws SQLException{
 		int count = 0;
