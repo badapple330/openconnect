@@ -15,6 +15,93 @@ public class ProjectProgressDTO {
 	private String projectPlan;
 	private String projectResult;
 	private String other;
+	private int managerId;
+	private int subManagerId;
+	private String startDate;
+	private String endDate;
+	private String note;
+
+
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return
+	*/
+	public int getManagerId() {
+		return managerId;
+	}
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param
+	*/
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return
+	*/
+	public int getSubManagerId() {
+		return subManagerId;
+	}
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param
+	*/
+	public void setSubManagerId(int subManagerId) {
+		this.subManagerId = subManagerId;
+	}
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return
+	*/
+	public String getStartDate() {
+		return startDate;
+	}
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param
+	*/
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return
+	*/
+	public String getEndDate() {
+		return endDate;
+	}
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param
+	*/
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return
+	*/
+	public String getNote() {
+		return note;
+	}
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param
+	*/
+	public void setNote(String note) {
+		this.note = note;
+	}
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU

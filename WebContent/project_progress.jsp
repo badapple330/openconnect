@@ -30,6 +30,7 @@
 					<th>進捗予定</th>
 					<th>進捗結果</th>
 					<th>その他報告</th>
+
 					<th></th>
 					<th></th>
 				</tr>
@@ -52,6 +53,11 @@
 						<td><input type="text" name="otherList"
 							value="<s:property value="other" />" class="otherlist"></td>
 						<td><input type="button" class="button modal-open" value="削除" /></td>
+						<td><s:property value="managerId"/></td>
+						<td><s:property value="subManagerId"/></td>
+						<td><s:property value="startDate" /></td>
+						<td><s:property value="endDate" /></td>
+						<td><s:property value="note" /></td>
 					</tr>
 				</s:iterator>
 

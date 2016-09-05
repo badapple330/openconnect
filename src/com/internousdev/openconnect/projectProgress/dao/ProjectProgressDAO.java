@@ -28,7 +28,7 @@ public class ProjectProgressDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql="SELECT*FROM project_progress";
+			String sql="select*from project_progress inner join projects on project_progress.project_id = projects.project_id";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
@@ -40,6 +40,11 @@ public class ProjectProgressDAO {
 				dto.setProjectPlan(rs.getString("project_plan"));
 				dto.setProjectResult(rs.getString("project_result"));
 				dto.setOther(rs.getString("other"));
+				dto.setManagerId(rs.getInt("manager_id"));
+				dto.setSubManagerId(rs.getInt("sub_manager_id"));
+				dto.setStartDate(rs.getString("strat_date"));
+				dto.setEndDate(rs.getString("end_date"));
+				dto.setNote(rs.getString("note"));
 
 				projectList.add(dto);
 			}
