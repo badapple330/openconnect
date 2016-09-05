@@ -123,6 +123,13 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<action name="ProjectListEdit" class="com.internousdev.openconnect.projectList.action.ProjectUpdateAction"
+			method="execute">
+			<result name="success">project.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
 		<!-- 受講生一覧画面への遷移 -->
 		<action name="GoStudents" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
@@ -197,7 +204,7 @@
 		</action>
 
 		<action name="ProjectSearch"
-			class="com.internousdev.openconnect.projectProgress.action.SearchResultAction"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressSearchAction"
 			method="execute">
 			<result name="success">project_progress.jsp</result>
 			<result name="error">/project_progress.jsp</result>
