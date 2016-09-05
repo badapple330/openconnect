@@ -1,28 +1,28 @@
 /**
  *
  */
-package com.internousdev.openconnect.updateAttendance.dto;
+package com.internousdev.openconnect.attendance.dto;
 
 /**
  * @author internous
  *
  */
-public class UpdateAttendanceDTO {
+public class AttendanceDTO {
 
 	/**
 	 * @param args
 	 */
-	private int date;
+	private String date;
 	private int id;
 	private int attendance;
 	private int interview;
 
 
 
-	public int getDate(){
+	public String getDate(){
 		return date;
 	}
-	public void setDate(int date){
+	public void setDate(String date){
 		this.date=date;
 	}
 

@@ -15,19 +15,20 @@
 <h1>勤怠更新</h1>
 <br>
 <br>
-<s:form action="UpdateAttendanceSelectAction">
+<s:form action="AttendanceSelectAction">
 
 ○月生を入力<input type="text" placeholder="例：201607">
 <br><br>
-日付検索　<input type="text" placeholder="例：20160819">
+日付検索　<input type="text" name="attendanceDate" placeholder="例：20160819">
 <br>
 <s:submit type="button" value="検索" class="button"/>
 </s:form>
 <br>
 <br>
 
-<s:form action="UpdateAttendanceSelectAction">
+<s:form action="AttendanceSelectAction" >
 <table class="list"  border="1">
+
 		<s:if test="list.size() > 0">
 			<tr>
 				<th>日付</th>
@@ -46,17 +47,18 @@
 			<s:property value="%{errorSelect}" />
 		</s:else>
 		<s:iterator value="list">
+
 			<tr>
 				<td><input type="text" value="<s:property value="date"/>"></td>
 				<td><s:property value="id"></s:property></td>
-				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>" checked></td>
-				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
-				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
-				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
-				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
-				<td><input type="radio" name="<s:property value="id"/>" value="<s:property value="attendance"/>"></td>
-				<td><input type="radio" name="<s:property value="id"/>a" value="<s:property value="interview"/>"></td>
-				<td><input type="radio" name="<s:property value="id"/>a" value="<s:property value="interview"/>" checked></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="1" <s:property value="attendance"/>></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="2"<s:property value="attendance"/>></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="3"<s:property value="attendance"/>></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="4"<s:property value="attendance"/>></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="5"<s:property value="attendance"/>></td>
+				<td><input type="radio" name="<s:property value="id"/>" value="6"<s:property value="attendance"/>></td>
+				<td><input type="radio" name="<s:property value="id"/>a" value="1"<s:property value="interview"/>></td>
+				<td><input type="radio" name="<s:property value="id"/>a" value="2"<s:property value="interview"/>></td>
 			</tr>
 		</s:iterator>
 	</table>

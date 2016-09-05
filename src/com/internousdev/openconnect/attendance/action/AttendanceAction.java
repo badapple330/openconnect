@@ -1,20 +1,20 @@
 /**
  *
  */
-package com.internousdev.openconnect.updateAttendance.action;
+package com.internousdev.openconnect.attendance.action;
 
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.updateAttendance.dao.UpdateAttendanceDAO;
-import com.internousdev.openconnect.updateAttendance.dao.UpdateAttendanceUpDAO;
-import com.internousdev.openconnect.updateAttendance.dto.UpdateAttendanceDTO;
+import com.internousdev.openconnect.attendance.dao.AttendanceDAO;
+import com.internousdev.openconnect.attendance.dao.AttendanceUpDAO;
+import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internous
  *
  */
-public class UpdateAttendanceAction extends ActionSupport {
+public class AttendanceAction extends ActionSupport {
 
 	/**
 	 *
@@ -23,18 +23,18 @@ public class UpdateAttendanceAction extends ActionSupport {
 	/**
 	 * @param args
 	 */
-	private int date;
+	private String date;
 	private int id;
 	private int attendance;
 	private int interview;
-	private ArrayList<UpdateAttendanceDTO>list=new ArrayList<UpdateAttendanceDTO>();
+	private ArrayList<AttendanceDTO>list=new ArrayList<AttendanceDTO>();
 	private String errorSelect;
 	private String resultUpdate;
 
 	public String execute(){
 		String result=ERROR;
-		UpdateAttendanceUpDAO dao=new UpdateAttendanceUpDAO();
-		UpdateAttendanceDTO dto=new UpdateAttendanceDTO();
+		AttendanceUpDAO dao=new AttendanceUpDAO();
+		AttendanceDTO dto=new AttendanceDTO();
 
 		dto.setDate(date);
 		dto.setId(id);
@@ -56,7 +56,7 @@ public class UpdateAttendanceAction extends ActionSupport {
 	}
 
 	private void select(){
-		UpdateAttendanceDAO dao=new UpdateAttendanceDAO();
+		AttendanceDAO dao=new AttendanceDAO();
 		dao.selectAll();
 		list=dao.getList();
 		if(list.size()==0){
@@ -64,11 +64,11 @@ public class UpdateAttendanceAction extends ActionSupport {
 		}
 	}
 
-	public int getDate(){
+	public String getDate(){
 		return date;
 	}
 
-	public void setDate(int date){
+	public void setDate(String date){
 		this.date=date;
 	}
 

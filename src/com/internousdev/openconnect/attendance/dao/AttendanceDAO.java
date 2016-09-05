@@ -1,14 +1,14 @@
 /**
  *
  */
-package com.internousdev.openconnect.updateAttendance.dao;
+package com.internousdev.openconnect.attendance.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.updateAttendance.dto.UpdateAttendanceDTO;
+import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.internousdev.util.DBConnector;
 import com.mysql.jdbc.PreparedStatement;
 
@@ -16,28 +16,29 @@ import com.mysql.jdbc.PreparedStatement;
  * @author internous
  *
  */
-public class UpdateAttendanceDAO {
+public class AttendanceDAO {
 
 	/**
 	 * @param args
 	 */
-	private ArrayList<UpdateAttendanceDTO> list=new ArrayList<UpdateAttendanceDTO>();
+	private ArrayList<AttendanceDTO> list=new ArrayList<AttendanceDTO>();
 
-	public boolean selectAll(){
+	public boolean select(String date){
 
 		boolean result=false;
 
 		Connection conn=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
-		String sql="select * from attendance";
+		String sql="select * from attendance where date=?";
 
 		try{
 			PreparedStatement ps=(PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, date);
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()){
-				UpdateAttendanceDTO dto=new UpdateAttendanceDTO();
-				dto.setDate(rs.getInt("date"));
+				AttendanceDTO dto=new AttendanceDTO();
+				dto.setDate(rs.getString("date"));
 				dto.setId(rs.getInt("id"));
 				dto.setAttendance(rs.getInt("attendance"));
 				dto.setInterview(rs.getInt("interview"));
@@ -58,10 +59,10 @@ public class UpdateAttendanceDAO {
 
 
 
-	public ArrayList<UpdateAttendanceDTO> getList(){
+	public ArrayList<AttendanceDTO> getList(){
 		return list;
 	}
-	public void setList(ArrayList<UpdateAttendanceDTO> list){
+	public void setList(ArrayList<AttendanceDTO> list){
 		this.list=list;
 	}
 

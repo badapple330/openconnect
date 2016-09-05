@@ -58,7 +58,7 @@
 		<s:submit type="submit" value="受講生一覧" />
 	</s:form>
 <!-- 	<!--勤怠更新 -->
-	<s:form action="GoUpdateAttendance">
+	<s:form action="GoAttendance">
 		<s:submit type="submit" value="勤怠更新" />
 	</s:form>
 <!-- 	<!--決済手続き電子化 -->

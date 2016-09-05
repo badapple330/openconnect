@@ -1,15 +1,15 @@
-package com.internousdev.openconnect.updateAttendance.dao;
+package com.internousdev.openconnect.attendance.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.internousdev.openconnect.updateAttendance.dto.UpdateAttendanceDTO;
+import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.internousdev.util.DBConnector;
 
-public class UpdateAttendanceUpDAO {
+public class AttendanceUpDAO {
 
-	public int update(UpdateAttendanceDTO dto){
+	public int update(AttendanceDTO dto){
 		int count=0;
 
 		Connection conn=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
@@ -18,7 +18,7 @@ public class UpdateAttendanceUpDAO {
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 
-			ps.setInt(1, dto.getDate());
+			ps.setString(1, dto.getDate());
 			ps.setInt(2, dto.getAttendance());
 			ps.setInt(3, dto.getInterview());
 
