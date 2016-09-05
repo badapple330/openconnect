@@ -1,4 +1,4 @@
-package com.internousdev.openconnect.projectList.dao;
+package com.internousdev.openconnect.projects.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projectList.dto.ProjectListDTO;
+import com.internousdev.openconnect.projects.dto.ProjectListDTO;
 import com.internousdev.util.DBConnector;
 
 public class ProjectListDAO {

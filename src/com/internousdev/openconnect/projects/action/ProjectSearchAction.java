@@ -1,10 +1,10 @@
-package com.internousdev.openconnect.projectList.action;
+package com.internousdev.openconnect.projects.action;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projectList.dao.ProjectSerachDAO;
-import com.internousdev.openconnect.projectList.dto.ProjectSearchDTO;
+import com.internousdev.openconnect.projects.dao.ProjectSerachDAO;
+import com.internousdev.openconnect.projects.dto.ProjectSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProjectSearchAction extends ActionSupport{

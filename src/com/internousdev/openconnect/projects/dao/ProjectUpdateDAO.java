@@ -1,4 +1,4 @@
-package com.internousdev.openconnect.projectList.dao;
+package com.internousdev.openconnect.projects.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

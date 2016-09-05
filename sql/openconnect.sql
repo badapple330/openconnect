@@ -215,21 +215,18 @@ insert into students(number,name,symbol,entrance) values
 /*サブプロジェクト */
 
 /*サブプロジェクト / プロジェクト一覧*/
-create table project(
-user_id int  not null,
+create table projects(
+project_id  int  not null ,
 project_name varchar(100) not null,
-manager varchar(100) not null,
-sub_manager varchar(100) not null,
-start_date int,
-end_date int,
-note varchar(255)
+manager_id  int not null ,
+sub_manager_id  int not null ,
+start_date date,
+end_date date,
+note varchar(255),
+manager_name varchar(100),
+sub_manager_name varchar(100),
+primary key(project_id)
 );
-
-insert into project
-(user_id,project_name,manager,sub_manager,start_date,end_date,note)values
-(1,"cosmos","nitabaru","horiguchi",830,930,"undecided"),
-(2,"credit","konno","nagura",830,930,"undecided");
-
 
 
 /*サブプロジェクト / 勤怠一覧*/

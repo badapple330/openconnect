@@ -113,19 +113,19 @@
 		<!-- プロジェクト一覧画面への遷移 -->
 		<action name="GoProject" class="com.internousdev.openconnect.projectList.action.ProjectAction"
 			method="execute">
-			<result name="success">project.jsp</result>
+			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
         <action name="projectSearchAction" class="com.internousdev.openconnect.projectList.action.ProjectSearchAction"
 			method="execute">
-			<result name="success">project.jsp</result>
+			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<action name="ProjectListEdit" class="com.internousdev.openconnect.projectList.action.ProjectUpdateAction"
 			method="execute">
-			<result name="success">project.jsp</result>
+			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
@@ -161,34 +161,34 @@
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
-			class="com.internousdev.openconnect.books.action.BooksAction" method="execute">
+			class="com.internousdev.openconnect.booklist.action.BooklistAction" method="execute">
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BooksSearch"
-			class="com.internousdev.openconnect.books.action.BooksSearchAction"
+		<action name="BookListSearch"
+			class="com.internousdev.openconnect.booklist.action.BooklistSearchAction"
 			method="execute">
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BooksCreate"
-			class="com.internousdev.openconnect.books.action.BooksNewAction"
+		<action name="BookListCreate"
+			class="com.internousdev.openconnect.booklist.action.BooklistNewAction"
 			method="execute">
 			<result name="success" type="chain">GoBooks</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BooksDelete"
-			class="com.internousdev.openconnect.books.action.BooksDeleteAction"
+		<action name="BookListDelete"
+			class="com.internousdev.openconnect.booklist.action.BooklistDeleteAction"
 			method="execute">
 			<result name="success" type="chain">GoBooks</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BooksEdit"
-			class="com.internousdev.openconnect.books.action.BooksUpdateAction"
+		<action name="BookListEdit"
+			class="com.internousdev.openconnect.booklist.action.BooklistUpdateAction"
 			method="execute">
 			<result name="success" type="chain">GoBooks</result>
 			<result name="error">/register.jsp</result>

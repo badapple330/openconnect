@@ -1,10 +1,10 @@
-package com.internousdev.openconnect.projectList.action;
+package com.internousdev.openconnect.projects.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projectList.dao.ProjectUpdateDAO;
+import com.internousdev.openconnect.projects.dao.ProjectUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProjectUpdateAction extends ActionSupport{

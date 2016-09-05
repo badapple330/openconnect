@@ -1,4 +1,4 @@
-package com.internousdev.openconnect.projectList.dto;
+package com.internousdev.openconnect.projects.dto;
 public class ProjectListDTO {
 
 
