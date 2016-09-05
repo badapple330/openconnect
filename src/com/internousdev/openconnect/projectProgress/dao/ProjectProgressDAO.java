@@ -9,11 +9,20 @@ import java.util.List;
 
 import com.internousdev.openconnect.projectProgress.dto.ProjectProgressDTO;
 import com.internousdev.util.DBConnector;
-
+/**
+ * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
+ * @author TATUHUMI ITOU
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class ProjectProgressDAO {
 
 	private List<ProjectProgressDTO>projectList=new ArrayList<ProjectProgressDTO>();
-
+	 /**
+     * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+     * @author TATUHUMI ITOU
+     * @return  projectList 抽出に成功したらSUCCESS、失敗したらERROR
+     */
 	public List<ProjectProgressDTO> select() {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
@@ -45,7 +54,8 @@ public class ProjectProgressDAO {
 		}
 		return projectList;
 	}
-
-
+	/**
+	 * @return  searchList
+	 */
 
 }

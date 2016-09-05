@@ -9,9 +9,17 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 
-
+/**
+ * 画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のクラス
+ * @author TATUHUMI ITOU
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class ProjectProgressDeleteDAO {
-
+	 /**
+     * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
+     * @author TATUHUMI ITOU
+     */
 	public int delete(int projectId){
 
 		int count =0;

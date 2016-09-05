@@ -6,7 +6,12 @@ import java.util.List;
 
 import com.internousdev.openconnect.projectProgress.dao.ProjectProgressUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
-//データベースにユーザー情報を削除させる為のクラス
+/**
+ * 画面で受け取った更新情報を、DBへ転送する為のクラス
+ * @author TATUHUMI ITOU
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class ProjectProgressUpdateAction extends ActionSupport  {
 	/**
 	 * 	シリアルID
@@ -14,7 +19,7 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	private static final long serialVersionUID = -3541224046836562290L;
 
 	/**
-	 * ID
+	 * ID,日付、プロジェクト名、進捗予定、進捗結果、その他報告リスト
 	 */
 	private List<Integer> projectIdList = new ArrayList<Integer>();
 	private List<String> projectDayList = new ArrayList<String>();
@@ -26,7 +31,7 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	/**
 	 * ユーザー情報を更新できたか否か判定するメソッド
 	 * @result ERROR ヴァリデーションによるエラーメッセージ
-	 * @return result データベースのuser,passwordを更新できたか否か
+	 * @return result データベースの情報を更新できたか否か
 	 * @throws SQLException
 	 */
 	public String execute() throws SQLException{
@@ -46,6 +51,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 *  取得メソッド IDリストを取得する
+	 * @author TATUHUMI ITOU
 	 * @return projectIdList
 	 */
 	public List<Integer> getProjectIdList() {
@@ -53,6 +60,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 *   格納メソッド IDリストを格納する
+	 * @author TATUHUMI ITOU
 	 * @param projectIdList セットする projectIdList
 	 */
 	public void setProjectIdList(List<Integer> projectIdList) {
@@ -60,6 +69,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 * *  取得メソッド 日付リストを取得する
+	 * @author TATUHUMI ITOU
 	 * @return projectDayList
 	 */
 	public List<String> getProjectDayList() {
@@ -67,6 +78,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 * *   格納メソッド 日付リストを格納する
+	 * @author TATUHUMI ITOU
 	 * @param projectDayList セットする projectDayList
 	 */
 	public void setProjectDayList(List<String> projectDayList) {
@@ -74,6 +87,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 * * 取得メソッド プロジェクトリストを取得する
+	 * @author TATUHUMI ITOU
 	 * @return projectnameList
 	 */
 	public List<String> getProjectnameList() {
@@ -81,6 +96,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 * *   格納メソッド プロジェクトリストを格納する
+	 * @author TATUHUMI ITOU
 	 * @param projectnameList セットする projectnameList
 	 */
 	public void setProjectnameList(List<String> projectnameList) {
@@ -88,6 +105,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 *   取得メソッド 進捗予定リストを取得する
+	 * @author TATUHUMI ITOU
 	 * @return projectPlanList
 	 */
 	public List<String> getProjectPlanList() {
@@ -95,6 +114,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 * *   格納メソッド 進捗予定リストを格納する
+	 * @author TATUHUMI ITOU
 	 * @param projectPlanList セットする projectPlanList
 	 */
 	public void setProjectPlanList(List<String> projectPlanList) {
@@ -102,6 +123,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 * 取得メソッド 進捗結果リストを取得する
+	 * @author TATUHUMI ITOU
 	 * @return projectResultList
 	 */
 	public List<String> getProjectResultList() {
@@ -109,6 +132,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 * *   格納メソッド 進捗結果リストを格納する
+	 * @author TATUHUMI ITOU
 	 * @param projectResultList セットする projectResultList
 	 */
 	public void setProjectResultList(List<String> projectResultList) {
@@ -116,6 +141,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 *   取得メソッド その他報告リストを取得する
+	 * @author TATUHUMI ITOU
 	 * @return otherList
 	 */
 	public List<String> getOtherList() {
@@ -123,6 +150,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 * *   格納メソッド その他報告リストを格納する
+	 * @author TATUHUMI ITOU
 	 * @param otherList セットする otherList
 	 */
 	public void setOtherList(List<String> otherList) {

@@ -5,10 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
-
-
+/**
+ * 画面で受け取った更新情報を、DBへ転送する為のクラス
+ * @author TATUHUMI ITOU
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class ProjectProgressUpdateDAO {
-
+	  /**
+     * 更新メソッド  画面で受け取った更新情報を、DBへ転送し、更新する為のメソッド
+     * @author TATUHUMI ITOU
+     */
 
 	public int select(int projectId,String projectDay,String project,String projectPlan,String projectResult,String other) throws SQLException{
 		int count = 0;

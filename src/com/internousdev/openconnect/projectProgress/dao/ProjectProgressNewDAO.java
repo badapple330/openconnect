@@ -9,15 +9,20 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
-
-
+/**
+ * 画面で追加した一覧情報をDBへ転送する為のクラス
+ * @author TATUHUMI ITOU
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class ProjectProgressNewDAO {
-
-
+	 /**
+     * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
+     * @author TATUHUMI ITOU
+     */
 	public int insert(String projectDay,String project,String projectPlan,String projectResult,String other){
 
 		int count = 0;
-
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		projectDay = sdf.format(System.currentTimeMillis());
 

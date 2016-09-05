@@ -11,19 +11,19 @@ import com.internousdev.openconnect.projectProgress.dto.ProjectProgressDTO;
 import com.internousdev.util.DBConnector;
 
 /**
- * AdminReviewDAO レビュー情報に接続する為のクラス
+ * 似たようなキーワードをDBから検索する為のクラス
  *
- * @author YUKI MAEDA
- * @since 2016/08/18
+ * @author TATUHUMI ITOU
+ * @since 2016/09/04
  * @version 1.0
  */
 public class ProjectProgressSearchDAO {
 
     /**
-     * 抽出メソッド ログインした際にDBからサイト情報をリスト化して抽出し、DTOに格納する
+     * 抽出メソッド 似たようなキーワードの検索結果情報をリスト化して抽出し、DTOに格納する
      *
-     * @author YUKI MAEDA
-     * @return articleList 抽出に成功したらSUCCESS、失敗したらERROR
+     * @author TATUHUMI ITOU
+     * @return  searchList 抽出に成功したらSUCCESS、失敗したらERROR
      */
     public List<ProjectProgressDTO> searchList = new ArrayList<ProjectProgressDTO>();
 
@@ -63,7 +63,7 @@ public class ProjectProgressSearchDAO {
     }
 
     /**
-     * @return selectList
+     * @return  searchList
      */
 
 
