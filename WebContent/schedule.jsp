@@ -62,9 +62,9 @@
 <td>開始日</td><td>件名</td><td>内容</td><td></td>
 </tr>
 <tr>
-<td><input type="text" name="start_day"></td>
-<td><input type="text" name="title"></td>
-<td><input type="text" name="content"></td>
+<td><input type="text" name="Startdate"></td>
+<td><input type="text" name="Title"></td>
+<td><input type="text" name="Content"></td>
 <td><button type="submit" class="button">追加</button></td></tr>
 </tbody>
 </table>

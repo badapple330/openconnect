@@ -13,9 +13,9 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class ScheduleInsertAction extends ActionSupport{
 
-	private Date start_day;
-	private String title;
-	private String content;
+	private Date Startdate;
+	private String Title;
+	private String Content;
 	//private String errorstart_day;
 	private String errortitle;
 	private String errorcontent;
@@ -23,23 +23,23 @@ public class ScheduleInsertAction extends ActionSupport{
 	public String execute(){
         String ret = ERROR;
         int k;
-System.out.println(start_day);
+
 //        if(!start_day.matches(".{1,255}")){   //開始日の検証
 //			   errorstart_day = (getText("開始日を入力して下さい"));
 //			   return ERROR;
 //		}
-
-        if(!title.matches(".{1,255}")){   //件名の検証
-			   errortitle = (getText("件名を入力して下さい"));
-			   return ERROR;
-		}
-        if(!content.matches(".{1,255}")){   //内容の検証
-			   errorcontent = (getText("件名を入力して下さい"));
-			   return ERROR;
-		}
+//
+//        if(!title.matches(".{1,255}")){   //件名の検証
+//			   errortitle = (getText("件名を入力して下さい"));
+//			   return ERROR;
+//		}
+//        if(!content.matches(".{1,255}")){   //内容の検証
+//			   errorcontent = (getText("件名を入力して下さい"));
+//			   return ERROR;
+//		}
         ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-        k = dao.insert(start_day,title,content);
+        k = dao.insert(Startdate,Title,Content);
 
         if (k>0) {
             ret = SUCCESS;
@@ -50,28 +50,28 @@ System.out.println(start_day);
 
 	}
 
-	public Date getStart_day() {
-		return start_day;
+	public Date getStartdate() {
+		return Startdate;
 	}
 
-	public void setStart_day(Date start_day) {
-		this.start_day = start_day;
+	public void setStartdate(Date startdate) {
+		Startdate = startdate;
 	}
 
 	public String getTitle() {
-		return title;
+		return Title;
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
+		Title = title;
 	}
 
 	public String getContent() {
-		return content;
+		return Content;
 	}
 
 	public void setContent(String content) {
-		this.content = content;
+		Content = content;
 	}
 
 	public String getErrortitle() {
@@ -89,6 +89,7 @@ System.out.println(start_day);
 	public void setErrorcontent(String errorcontent) {
 		this.errorcontent = errorcontent;
 	}
+
 
 
 }

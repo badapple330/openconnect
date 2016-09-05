@@ -9,11 +9,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ScheduleUpdateAction extends ActionSupport {
 
-	private List<Integer> id = new ArrayList<Integer>();
-	private List<Date> Startdate = new ArrayList<Date>();
-	private List<Date> Enddate = new ArrayList<Date>();
-	private List<String> title = new ArrayList<String>();
-	private List<String> content = new ArrayList<String>();
+	private List<Integer> scheduleIdList = new ArrayList<Integer>();
+	private List<Date> scheduleStartdateList = new ArrayList<Date>();
+	private List<Date> scheduleEnddateList = new ArrayList<Date>();
+	private List<String> scheduleTitleList = new ArrayList<String>();
+	private List<String> scheduleContentList = new ArrayList<String>();
 
 //	private String errorStartdate;
 	private String errortitle;
@@ -34,13 +34,13 @@ public class ScheduleUpdateAction extends ActionSupport {
 //        if(!content.matches(".{1,255}")){   //内容の検証
 //			   errorcontent = (getText("件名を入力して下さい"));
 //			   return ERROR;
-        System.out.println(Startdate);
-        System.out.println(Enddate);
+//        System.out.println(Startdate);
+//        System.out.println(Enddate);
         ScheduleUpdateDAO dao = new ScheduleUpdateDAO();
         int count = 0;
 
-        for(int i = 0 ; i < id.size() ;++i){
-        	count = dao.update(id.get(i),Startdate.get(i),Enddate.get(i),title.get(i),content.get(i));}
+        for(int i = 0 ; i < scheduleIdList.size() ;++i){
+        	count = dao.update(scheduleIdList.get(i),scheduleStartdateList.get(i),scheduleEnddateList.get(i),scheduleTitleList.get(i),scheduleContentList.get(i));}
 
         		if ( count > 0) {
         			ret = SUCCESS;
@@ -50,47 +50,57 @@ public class ScheduleUpdateAction extends ActionSupport {
 		return ret;
 		}
 
-	public List<Integer> getId() {
-		return id;
-	}
 
-	public void setId(List<Integer> id) {
-		this.id = id;
+	public List<Integer> getScheduleIdList() {
+		return scheduleIdList;
 	}
 
 
-
-	public List<Date> getStartdate() {
-		return Startdate;
+	public void setScheduleIdList(List<Integer> scheduleIdList) {
+		this.scheduleIdList = scheduleIdList;
 	}
 
-	public void setStartdate(List<Date> startdate) {
-		Startdate = startdate;
+
+	public List<Date> getScheduleStartdateList() {
+		return scheduleStartdateList;
 	}
 
-	public List<Date> getEnddate() {
-		return Enddate;
+
+	public void setScheduleStartdateList(List<Date> scheduleStartdateList) {
+		this.scheduleStartdateList = scheduleStartdateList;
 	}
 
-	public void setEnddate(List<Date> enddate) {
-		Enddate = enddate;
+
+	public List<Date> getScheduleEnddateList() {
+		return scheduleEnddateList;
 	}
 
-	public List<String> getTitle() {
-		return title;
+
+	public void setScheduleEnddateList(List<Date> scheduleEnddateList) {
+		this.scheduleEnddateList = scheduleEnddateList;
 	}
 
-	public void setTitle(List<String> title) {
-		this.title = title;
+
+
+	public List<String> getScheduleTitleList() {
+		return scheduleTitleList;
 	}
 
-	public List<String> getContent() {
-		return content;
+
+	public void setScheduleTitleList(List<String> scheduleTitleList) {
+		this.scheduleTitleList = scheduleTitleList;
 	}
 
-	public void setContent(List<String> content) {
-		this.content = content;
+
+	public List<String> getScheduleContentList() {
+		return scheduleContentList;
 	}
+
+
+	public void setScheduleContentList(List<String> scheduleContentList) {
+		this.scheduleContentList = scheduleContentList;
+	}
+
 
 	public String getErrortitle() {
 		return errortitle;
