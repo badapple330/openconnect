@@ -29,65 +29,21 @@
 				</s:a>
 			</ul>
 		</s:iterator>
-		<s:property value="notLoginMsg"></s:property>
+		<s:property value="notLoginMsg" />
 	</div>
 
 	<!-- 勤怠管理サイト -->
-	<div class="container">
-		<h1 class="page-header">勤怠管理</h1>
-		<s:if test="notLoginMsg != null">
-			<s:property value="notLoginMsg"></s:property>
-		</s:if>
-		<s:else>
-			<ul>
-				<s:a href="GoKintaiChooseAction">勤怠管理を行う方はこちらへ</s:a>
-			</ul>
-		</s:else>
-	</div>
-
-	<!-- 決済一覧状況 -->
-	<s:form action="GoDecision">
-		<s:submit type="submit" value="決済状況一覧" />
-	</s:form>
-<!-- 	<!-- プロジェクト一覧 -->
-	<s:form action="GoProjects">
-		<s:submit type="submit" value="プロジェクト一覧" />
-	</s:form>
-<!--     受講生一覧 -->
-	<s:form action="GoStudents">
-		<s:submit type="submit" value="受講生一覧" />
-	</s:form>
-<!-- 	<!--勤怠更新 -->
-	<s:form action="GoAttendance">
-		<s:submit type="submit" value="勤怠更新" />
-	</s:form>
-<!-- 	<!--決済手続き電子化 -->
-	<s:form action="GoDecisionDetail">
-			<s:submit value="決済手続き電子化" />
-	</s:form>
-<!-- 	<!--書籍一覧 -->
-	<s:form action="GoBooks">
-			<s:submit value="書籍一覧" />
-	</s:form>
-
-<!--      プロジェクト進捗報告 -->
-	<s:form action="GoProjectProgress">
-			<s:submit value="プロジェクト進捗報告" />
-	</s:form>
-<!-- 	 <!--スケジュール一覧 -->
-	 <s:form action="GoSchedule">
-			<s:submit value="スケジュール一覧" />
-	 </s:form>
-
-	   <!-- -->
-<%-- 	<s:form action="PaymentStatus"> --%>
-<%-- 			<s:submit value="プロジェクト進捗報告" /> --%>
-<%-- 	</s:form> --%>
-
-<%-- 	 <s:form action="ListofProject"> --%>
-<%-- 			<s:submit value="スケジュール一覧" /> --%>
-<%-- 	 </s:form> --%>
-
+<!-- 	<div class="container"> -->
+<!-- 		<h1 class="page-header">勤怠管理</h1> -->
+<%-- 		<s:if test="notLoginMsg != null"> --%>
+<%-- 			<s:property value="notLoginMsg"></s:property> --%>
+<%-- 		</s:if> --%>
+<%-- 		<s:else> --%>
+<!-- 			<ul> -->
+<%-- 				<s:a href="GoKintaiChooseAction">勤怠管理を行う方はこちらへ</s:a> --%>
+<!-- 			</ul> -->
+<%-- 		</s:else> --%>
+<!-- 	</div> -->
 
 </body>
 </html>

@@ -34,28 +34,24 @@
 					<ul class="nav navbar-nav navbar-right">
 						<s:if test="%{#session.userFlg == null}">
 
-							<li><a href="login.jsp" class="dropdown-toggle"
-								data-toggle="dropdown">ログイン</a></li>
+							<li><a href="login.jsp">ログイン</a></li>
 
-							<li><a href="register.jsp" class="dropdown=toggle"
-								data-toggle="dropdown">新規登録</a></li>
+							<li><a href="register.jsp">新規登録</a></li>
 						</s:if>
 
 						<s:if test="%{#session.userFlg != null}">
-							<li><a href="logout" class="dropdown-toggle"
-								data-toggle="dropdown">ログアウト</a></li>
+							<li><a href="GoLogoutAction">ログアウト</a></li>
 
 						</s:if>
-						<s:if test="%{#session.userFlg == 2}">
-							<li><a href="admin.jsp" class="droptoggle"
-								data-toggle="dropdown">管理者画面</a></li>
+						<s:if test="%{#session.userFlg == 3}">
+							<li><a href="admin.jsp">管理者画面</a></li>
 						</s:if>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-		<div style="display: inline-flex">
+		<div class="goButton">
 			<!-- 決済一覧状況 -->
 			<s:form action="GoDecision">
 				<s:submit type="submit" value="決済状況一覧" />
@@ -80,7 +76,6 @@
 			<s:form action="GoBooks">
 				<s:submit value="書籍一覧" />
 			</s:form>
-
 			<!--      プロジェクト進捗報告 -->
 			<s:form action="GoProjectProgress">
 				<s:submit value="プロジェクト進捗報告" />

@@ -44,8 +44,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		result = ERROR;
 
+		String sql1 = "SELECT user_flg FROM users WHERE phone_email = ? AND password = ?";
+		String sql2 = "SELECT user_flg FROM users WHERE mobile_email = ? AND password = ?";
+
 		LoginDAO dao = new LoginDAO();
-		if (dao.select(email, password)) {
+		if (dao.select(email, password, sql1) || dao.select(email, password, sql2)) {
 			result = SUCCESS;
 			session.clear();
 			session.put("userFlg",dao.getFlg());

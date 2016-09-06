@@ -20,7 +20,7 @@
 			<result name="error">/applist.jsp</result>
 		</action>
 
-		<action name="logout" class="com.internousdev.openconnect.action.LogoutAction"
+		<action name="GoLogoutAction" class="com.internousdev.openconnect.action.LogoutAction"
 			method="execute">
 			<result name="success" type="redirectAction">GetAddressAction</result>
 		</action>
@@ -111,22 +111,19 @@
 		</action>
 
 		<!-- プロジェクト一覧画面への遷移 -->
-		<action name="GoProjects"
-			class="com.internousdev.openconnect.projects.action.ProjectsAction"
+		<action name="GoProjects" class="com.internousdev.openconnect.projects.action.ProjectsAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="ProjectsSearchAction"
-			class="com.internousdev.openconnect.projects.action.ProjectsSearchAction"
+        <action name="ProjectsSearchAction" class="com.internousdev.openconnect.projects.action.ProjectsSearchAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="ProjectsListEdit"
-			class="com.internousdev.openconnect.projects.action.ProjectsUpdateAction"
+		<action name="ProjectsListEdit" class="com.internousdev.openconnect.projects.action.ProjectsUpdateAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -162,11 +159,6 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="DecisionDetailSearch" class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailAction"
-			method="execute">
-			<result name="success">decision_detail.jsp</result>
-			<result name="error">/register.jsp</result>
-		</action>
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
 			class="com.internousdev.openconnect.books.action.BooksAction" method="execute">
@@ -246,8 +238,7 @@
 		</action>
 
 		<!-- スケジュール画面への遷移 -->
-		<action name="GoSchedule"
-			class="com.internousdev.openconnect.schedule.action.ScheduleFirstrunAction"
+		<action name="GoSchedule" class="com.internousdev.openconnect.schedule.action.ScheduleFirstrunAction"
 			method="execute">
 			<result name="success">schedule.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -284,6 +275,22 @@
 			<result name="success" type="chain">GoSchedule</result>
 			<result name="error">/register.jsp</result>
 		</action>
+
+		<!-- <action name="JustGoAction_booklist" -->
+		<!-- class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->
+		<!-- <result name="success" >book_list.jsp</result> -->
+		<!-- <result name="error">/register.jsp</result> -->
+		<!-- </action> -->
+
+		<!-- <action name="JustGoAction_booklistloan" -->
+		<!-- class="com.internousdev.openconnect.action.JustGoAction" method="execute"> -->
+		<!-- <result name="success" >book_list_loan.jsp</result> -->
+		<!-- <result name="error">/register.jsp</result> -->
+		<!-- </action> -->
+
+		<!-- 勤怠管理画面への遷移 -->
+		<!-- <action name="GoKintaiChooseAction" class="com.internousdev.openconnect.action.GoKintaiChooseAction"
+			method="execute"> <result name="success">/KintaiChoose.jsp</result> </action> -->
 
 	</package>
 </struts>

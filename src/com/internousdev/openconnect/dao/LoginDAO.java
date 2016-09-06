@@ -24,14 +24,11 @@ public class LoginDAO {
 	 * @param password パスワード
 	 * @return flg 照合に成功したらSUCCESS、失敗したらERROR
 	 */
-	public boolean select(String email, String password) {
+	public boolean select(String email, String password, String sql) {
 		boolean result = false;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
-
-		String sql = "SELECT user_flg FROM user WHERE email = ? AND password = ?";
-		;
 
 		try {
 

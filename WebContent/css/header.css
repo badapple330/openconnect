@@ -6,7 +6,8 @@
 }
 
 .goButton{
-	display: inline-flex
-	top: 10%
-
+	display: inline-flex;
+	top: 68px;
+	position: absolute;
+	margin: 0 auto;
 }
