@@ -111,19 +111,22 @@
 		</action>
 
 		<!-- プロジェクト一覧画面への遷移 -->
-		<action name="GoProjects" class="com.internousdev.openconnect.projects.action.ProjectsAction"
+		<action name="GoProjects"
+			class="com.internousdev.openconnect.projects.action.ProjectsAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-        <action name="ProjectsSearchAction" class="com.internousdev.openconnect.projects.action.ProjectsSearchAction"
+		<action name="ProjectsSearchAction"
+			class="com.internousdev.openconnect.projects.action.ProjectsSearchAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="ProjectsListEdit" class="com.internousdev.openconnect.projects.action.ProjectsUpdateAction"
+		<action name="ProjectsListEdit"
+			class="com.internousdev.openconnect.projects.action.ProjectsUpdateAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -153,13 +156,22 @@
 		</action>
 
 		<!-- 決済手続き電子化画面への遷移 -->
-		<action name="GoDecisionDetail" class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailAction"
+		<action name="GoDecisionDetail"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailAction"
 			method="execute">
 			<result name="success">decision_detail.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="DecisionDetailSearch" class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailSearchAction"
+		<action name="DecisionDetailSearch"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailSearchAction"
+			method="execute">
+			<result name="success">decision_detail.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="DecisionDetailDelete"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailDeleteAction"
 			method="execute">
 			<result name="success">decision_detail.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -244,7 +256,8 @@
 		</action>
 
 		<!-- スケジュール画面への遷移 -->
-		<action name="GoSchedule" class="com.internousdev.openconnect.schedule.action.ScheduleFirstrunAction"
+		<action name="GoSchedule"
+			class="com.internousdev.openconnect.schedule.action.ScheduleFirstrunAction"
 			method="execute">
 			<result name="success">schedule.jsp</result>
 			<result name="error">/register.jsp</result>
