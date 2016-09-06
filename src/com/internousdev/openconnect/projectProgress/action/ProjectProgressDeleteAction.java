@@ -21,7 +21,7 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 	/**
 	 * プロジェクトID
 	 */
-	private int projectId;
+	private int progressId;
 	/**
 	 * 実行メソッド DAOにデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -31,28 +31,30 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 		ProjectProgressDeleteDAO dao = new ProjectProgressDeleteDAO();
 		String result = ERROR;
 		int count = 0;
-		count = dao.delete(projectId);
+		count = dao.delete(progressId);
 		if(count > 0){
 			result = SUCCESS;
 		}
 		return result;
 	}
 	/**
-	 *  取得メソッド プロジェクトIDを取得する
-	 * @author TATUHUMI ITOU
-	 * @return projectId
-	 */
-	public int getProjectId() {
-		return projectId;
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return
+	*/
+	public int getProgressId() {
+		return progressId;
 	}
 	/**
-	 *   格納メソッド プロジェクトIDを格納する
-	 * @author TATUHUMI ITOU
-	 * @param projectId セットする　projectId
-	 */
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param
+	*/
+	public void setProgressId(int progressId) {
+		this.progressId = progressId;
 	}
+
+
 
 
 

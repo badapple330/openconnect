@@ -34,15 +34,16 @@ public class ProjectProgressDAO {
 
 			while (rs.next()) {
 				ProjectProgressDTO dto = new ProjectProgressDTO();
+				dto.setProgressId(rs.getInt("progress_id"));
 				dto.setProjectId(rs.getInt("project_id"));
 				dto.setProjectDay(rs.getString("project_day"));
-				dto.setProject(rs.getString("project"));
 				dto.setProjectPlan(rs.getString("project_plan"));
 				dto.setProjectResult(rs.getString("project_result"));
 				dto.setOther(rs.getString("other"));
+				dto.setProjectName(rs.getString("project_name"));
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
-				dto.setStartDate(rs.getString("strat_date"));
+				dto.setStartDate(rs.getString("start_date"));
 				dto.setEndDate(rs.getString("end_date"));
 				dto.setNote(rs.getString("note"));
 

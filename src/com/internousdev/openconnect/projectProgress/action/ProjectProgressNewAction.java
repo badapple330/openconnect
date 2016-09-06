@@ -20,8 +20,8 @@ public class ProjectProgressNewAction extends ActionSupport{
 	/**
 	 * 日付、プロジェクト名、進捗予定、進捗結果、その他報告
 	 */
+	private int projectId;
 	private String projectDay;
-	private String project;
 	private String projectPlan;
 	private String projectResult;
 	private String other;
@@ -36,12 +36,29 @@ public class ProjectProgressNewAction extends ActionSupport{
 		String result=ERROR;
 		ProjectProgressNewDAO dao = new ProjectProgressNewDAO();
 		int count = 0;
-		count = dao.insert(projectDay,project,projectPlan,projectResult,other);
+		count = dao.insert(projectId,projectDay,projectPlan,projectResult,other);
 		if (count > 0) {
 			result = SUCCESS;
 		}
 		return result;
 	}
+
+
+
+
+	public int getProjectId() {
+		return projectId;
+	}
+
+
+
+
+	public void setProjectId(int projectId) {
+		this.projectId = projectId;
+	}
+
+
+
 
 	/**
 	 *  取得メソッド キーワード日付を取得する
@@ -61,23 +78,6 @@ public class ProjectProgressNewAction extends ActionSupport{
 		this.projectDay = projectDay;
 	}
 
-	/**
-	 *  取得メソッド キーワードプロジェクトを取得する
-	 * @author TATUHUMI ITOU
-	 * @return project
-	 */
-	public String getProject() {
-		return project;
-	}
-
-	/**
-	 *   格納メソッド プロジェクトを格納する
-	 * @author TATUHUMI ITOU
-	 * @param  project セットする　 project
-	 */
-	public void setProject(String project) {
-		this.project = project;
-	}
 
 	/**
 	 *  取得メソッド 進捗予定を取得する

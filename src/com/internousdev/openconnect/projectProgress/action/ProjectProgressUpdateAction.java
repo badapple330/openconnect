@@ -21,9 +21,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	/**
 	 * ID,日付、プロジェクト名、進捗予定、進捗結果、その他報告リスト
 	 */
-	private List<Integer> projectIdList = new ArrayList<Integer>();
+	private List<Integer> progressIdList = new ArrayList<Integer>();
 	private List<String> projectDayList = new ArrayList<String>();
-	private List<String> projectnameList = new ArrayList<String>();
 	private List<String> projectPlanList = new ArrayList<String>();
 	private List<String> projectResultList = new ArrayList<String>();
 	private List<String> otherList = new ArrayList<String>();
@@ -41,8 +40,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 		ProjectProgressUpdateDAO dao = new ProjectProgressUpdateDAO();
 		int count = 0;
 
-		for(int i=0;i<projectIdList.size();++i){
-			count = dao.select(projectIdList.get(i),projectDayList.get(i),projectnameList.get(i),projectPlanList.get(i),projectResultList.get(i),otherList.get(i));}
+		for(int i=0;i<progressIdList.size();++i){
+			count = dao.select(progressIdList.get(i),projectDayList.get(i),projectPlanList.get(i),projectResultList.get(i),otherList.get(i));}
 		if(count > 0){
 			result = SUCCESS;
 		}
@@ -54,19 +53,7 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	 *  取得メソッド IDリストを取得する
 	 * @author TATUHUMI ITOU
 	 * @return projectIdList
-	 */
-	public List<Integer> getProjectIdList() {
-		return projectIdList;
-	}
 
-	/**
-	 *   格納メソッド IDリストを格納する
-	 * @author TATUHUMI ITOU
-	 * @param projectIdList セットする projectIdList
-	 */
-	public void setProjectIdList(List<Integer> projectIdList) {
-		this.projectIdList = projectIdList;
-	}
 
 	/**
 	 * *  取得メソッド 日付リストを取得する
@@ -78,6 +65,24 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return
+	*/
+	public List<Integer> getProgressIdList() {
+		return progressIdList;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param
+	*/
+	public void setProgressIdList(List<Integer> progressIdList) {
+		this.progressIdList = progressIdList;
+	}
+
+	/**
 	 * *   格納メソッド 日付リストを格納する
 	 * @author TATUHUMI ITOU
 	 * @param projectDayList セットする projectDayList
@@ -86,23 +91,7 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 		this.projectDayList = projectDayList;
 	}
 
-	/**
-	 * * 取得メソッド プロジェクトリストを取得する
-	 * @author TATUHUMI ITOU
-	 * @return projectnameList
-	 */
-	public List<String> getProjectnameList() {
-		return projectnameList;
-	}
 
-	/**
-	 * *   格納メソッド プロジェクトリストを格納する
-	 * @author TATUHUMI ITOU
-	 * @param projectnameList セットする projectnameList
-	 */
-	public void setProjectnameList(List<String> projectnameList) {
-		this.projectnameList = projectnameList;
-	}
 
 	/**
 	 *   取得メソッド 進捗予定リストを取得する

@@ -20,19 +20,19 @@ public class ProjectProgressDeleteDAO {
      * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
      * @author TATUHUMI ITOU
      */
-	public int delete(int projectId){
+	public int delete(int progressId){
 
 		int count =0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 
-		String sql = "delete from project_progress where project_Id = ?";
+		String sql = "delete from project_progress where progress_Id = ?";
 
-		System.out.println(projectId);
+		System.out.println(progressId);
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, projectId);
+			ps.setInt(1, progressId);
 			count = ps.executeUpdate();
 			System.out.println(count);
 		}catch(SQLException e){

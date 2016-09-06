@@ -44,7 +44,7 @@ $(function(){
 			$('#delete-other').val( other );
 
 			var index = $('.modal-open').index($(this));
-			var abc = $('.projectIdlist').eq(index).val();
+			var abc = $('.progressId').eq(index).val();
 			$('#true-delete').val( abc );
 
 	        $(".modal-close").click(function(){
@@ -105,7 +105,7 @@ $(function(){
 			$('#delete-other').val( other );
 
 			var index = $('.modal-open2').index($(this));
-			var abc = $('.search-projectIdlist').eq(index).val();
+			var abc = $('.search-progressId').eq(index).val();
 			$('#true-delete').val( abc );
 
 	        $(".modal-close").click(function(){
@@ -141,7 +141,7 @@ $(function(){
 
 
 $(function() {
-	var page = 0, page_last = 0, line = 5;
+	var page = 0, page_last = 0, line = 10;
 	// page      : カレントページ番号
 	// page_last : ページ総数
 	// line      : 表示行数

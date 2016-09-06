@@ -11,7 +11,7 @@ public class ProjectProgressDTO {
 
 	private int projectId;
 	private String projectDay;
-	private String project;
+	private String projectName;
 	private String projectPlan;
 	private String projectResult;
 	private String other;
@@ -20,8 +20,32 @@ public class ProjectProgressDTO {
 	private String startDate;
 	private String endDate;
 	private String note;
+	private int progressId;
 
 
+
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return
+	*/
+	public int getProgressId() {
+		return progressId;
+	}
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param
+	*/
+	public void setProgressId(int progressId) {
+		this.progressId = progressId;
+	}
+	public String getProjectName() {
+		return projectName;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
@@ -139,17 +163,7 @@ public class ProjectProgressDTO {
 	* @author KOHEI NITABARU
 	* @return
 	*/
-	public String getProject() {
-		return project;
-	}
-	/**
-	* 設定メソッド
-	* @author KOHEI NITABARU
-	* @param
-	*/
-	public void setProject(String project) {
-		this.project = project;
-	}
+
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU

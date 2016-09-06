@@ -227,6 +227,7 @@ insert books_borrow(book_id, borrow_status)values
 
 /*サブプロジェクト / プロジェクト進捗状況*/
 create table project_progress(
+progress_id int auto_increment key,
 project_id int,
 project_day date not null,
 project_plan varchar(255),
@@ -236,8 +237,8 @@ foreign key(project_id) references projects(project_id)
 );
 
 insert into project_progress()values
-(1,"2009-09-07","a","b","c"),
-(2,"2009-09-07","a2","b2","c2");
+(1,1,"2009-09-07","a","b","c"),
+(2,2,"2009-09-07","a2","b2","c2");
 
 /*サブプロジェクト / スケジュール*/
 create table schedule(

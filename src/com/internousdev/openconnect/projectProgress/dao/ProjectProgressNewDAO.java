@@ -20,7 +20,7 @@ public class ProjectProgressNewDAO {
      * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
      * @author TATUHUMI ITOU
      */
-	public int insert(String projectDay,String project,String projectPlan,String projectResult,String other){
+	public int insert(int projectId,String projectDay,String projectPlan,String projectResult,String other){
 
 		int count = 0;
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
@@ -29,11 +29,11 @@ public class ProjectProgressNewDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "INSERT INTO project_progress(project_day,project,project_plan,project_result,other)VALUES(?, ?, ?, ? ,?)";
+		String sql = "INSERT INTO project_progress(project_id,project_day,project_plan,project_result,other)VALUES(?, ?, ?, ? ,?)";
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1,projectDay);
-			ps.setString(2,project);
+			ps.setInt(1,projectId);
+			ps.setString(2,projectDay);
 			ps.setString(3,projectPlan);
 			ps.setString(4,projectResult);
 			ps.setString(5,other);
