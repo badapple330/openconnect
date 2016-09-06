@@ -20,19 +20,19 @@ public class DecisionDetailDeleteDAO {
      * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
      * @author TATUHUMI ITOU
      */
-	public int delete(int decisionId){
+	public int delete(int decisionDetailId){
 
 		int count =0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 
-		String sql = "delete from decision_detail where decision_id = ?";
+		String sql = "delete from decision_detail where decision_detail_id = ?";
 
-		System.out.println(decisionId);
+		System.out.println(decisionDetailId);
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, decisionId);
+			ps.setInt(1, decisionDetailId);
 			count = ps.executeUpdate();
 			System.out.println(count);
 		}catch(SQLException e){

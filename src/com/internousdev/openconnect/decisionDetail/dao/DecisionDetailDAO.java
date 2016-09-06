@@ -34,6 +34,7 @@ public class DecisionDetailDAO {
 
 			while (rs.next()) {
 				 DecisionDetailDTO dto = new DecisionDetailDTO();
+				 dto.setDecisionDetailId(rs.getInt("decision_detail_id"));
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setDecisionType(rs.getString("decision_type"));

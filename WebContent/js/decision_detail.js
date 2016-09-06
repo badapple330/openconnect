@@ -26,21 +26,17 @@ $(function(){
 
 
 	        var index = $('.modal-open').index($(this));
-			var id = $('.decision_id').eq(index).val();
-			$('#delete-projectid').val( id );
 
-			var day = $('.decision_name').eq(index).val();
-			$('#delete-projectday').val( day );
 
-			var project = $('.decision_type').eq(index).val();
-			$('#delete-projectname').val( project );
+			$('#delete-projectid').val($('.decision_id').eq(index).text());
 
-			var plan = $('.decision_status').eq(index).val();
-			$('#delete-projectplan').val( plan );
+			$('#delete-projectname').val($('.decision_name').eq(index).text());
 
-			var index = $('.modal-open').index($(this));
-			var abc = $('.decision_id').eq(index).val();
-			$('#true-delete').val( abc );
+			$('#decision-classify').val($('.decision_type').eq(index).text());
+
+			$('#decision-status').val($('.decision_status').eq(index).text());
+
+			$('#true-delete').val($('.decision_detail_id').eq(index).text());
 
 	        $(".modal-close").click(function(){
 	            $("#modal-main,#modal-bg").fadeOut("slow",function(){

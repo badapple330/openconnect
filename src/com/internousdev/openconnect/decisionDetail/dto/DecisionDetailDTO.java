@@ -8,6 +8,7 @@ package com.internousdev.openconnect.decisionDetail.dto;
  *
  */
 public class DecisionDetailDTO {
+
 	private int projectId;
 	private String day;
 	private String decisionType;
@@ -24,6 +25,7 @@ public class DecisionDetailDTO {
 	private int decisionId;
 	private int decisionDetailId;
 	private String projectName;
+
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU

@@ -21,7 +21,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	/**
 	 * プロジェクトID
 	 */
-	private int decisionId;
+	private int decisionDetailId;
 	/**
 	 * 実行メソッド DAOにデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -31,7 +31,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 		DecisionDetailDeleteDAO dao = new DecisionDetailDeleteDAO();
 		String result = ERROR;
 		int count = 0;
-		count = dao.delete(decisionId);
+		count = dao.delete(decisionDetailId);
 		if(count > 0){
 			result = SUCCESS;
 		}
@@ -42,16 +42,21 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	* @author KOHEI NITABARU
 	* @return
 	*/
-	public int getDecisionId() {
-		return decisionId;
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return
+	*/
+	public int getDecisionDetailId() {
+		return decisionDetailId;
 	}
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
 	* @param
 	*/
-	public void setDecisionId(int decisionId) {
-		this.decisionId = decisionId;
+	public void setDecisionDetailId(int decisionDetailId) {
+		this.decisionDetailId = decisionDetailId;
 	}
 
 
