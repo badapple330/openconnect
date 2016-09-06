@@ -4,3 +4,9 @@
 	position: relative;
 
 }
+
+.goButton{
+	display: inline-flex
+	top: 10%
+
+}

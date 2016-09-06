@@ -15,7 +15,7 @@
 	<!-- 一覧表示 -->
 	<h1>決裁手続き一覧</h1>
 	<br>
-	<s:form action="GoOperate">
+	<s:form action="GoDecisionDetail">
 	プロジェクト検索　<input type="text" placeholder="例：rewrite" name="searchString">
 	<s:submit value="検索"/>
 	</s:form>

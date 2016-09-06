@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE>
@@ -7,20 +7,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
 
 <title>Insert title here</title>
 <!-- css読み込み  -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/header.css" rel="stylesheet" >
+<link href="css/header.css" rel="stylesheet">
 <!-- js読み込み -->
 <script src="js/bootstrap.js"></script>
 <script src="js/header.js"></script>
 </head>
 <body>
 
-<!-- ヘッダー -->
+	<!-- ヘッダー -->
 	<header>
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container">
@@ -53,6 +54,43 @@
 				</div>
 			</div>
 		</nav>
+
+		<div style="display: inline-flex">
+			<!-- 決済一覧状況 -->
+			<s:form action="GoDecision">
+				<s:submit type="submit" value="決済状況一覧" />
+			</s:form>
+			<!-- 	<!-- プロジェクト一覧 -->
+			<s:form action="GoProjects">
+				<s:submit type="submit" value="プロジェクト一覧" />
+			</s:form>
+			<!--     受講生一覧 -->
+			<s:form action="GoStudents">
+				<s:submit type="submit" value="受講生一覧" />
+			</s:form>
+			<!-- 	<!--勤怠更新 -->
+			<s:form action="GoAttendance">
+				<s:submit type="submit" value="勤怠更新" />
+			</s:form>
+			<!-- 	<!--決済手続き電子化 -->
+			<s:form action="GoDecisionDetail">
+				<s:submit value="決済手続き電子化" />
+			</s:form>
+			<!-- 	<!--書籍一覧 -->
+			<s:form action="GoBooks">
+				<s:submit value="書籍一覧" />
+			</s:form>
+
+			<!--      プロジェクト進捗報告 -->
+			<s:form action="GoProjectProgress">
+				<s:submit value="プロジェクト進捗報告" />
+			</s:form>
+			<!-- 	 <!--スケジュール一覧 -->
+			<s:form action="GoSchedule">
+				<s:submit value="スケジュール一覧" />
+			</s:form>
+		</div>
+
 	</header>
 	<!-- ヘッダーはここまで -->
 
