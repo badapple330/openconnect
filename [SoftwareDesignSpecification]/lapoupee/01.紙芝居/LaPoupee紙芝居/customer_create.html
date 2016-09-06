@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link href="customer_create.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<TITLE>お客様情報登録画面</TITLE>
+
+</HEAD>
+
+
+<BODY>
+	<!-- ヘッダー -->
+
+
+	<header>
+	<div class="header_title">
+			<span class="initial">L</span>a
+			<span class="initial">P</span>oupee
+	</div>
+	</header>
+
+	<br>
+	<br>
+
+
+
+	<!-- ★メイン開始★-->
+	<s:if test="%{customer_id2==null}">
+
+		<!-- メイン カート -->
+<div id="cart">
+	<a href="cart.html">
+			<img src="./ecbzns023_007.png" />
+	</a>
+</div>
+
+		<!-- メイン お客様情報 -->
+		<!-- 顧客とエラー内容のグループ -->
+		<div class="KyakuTitle">
+			<b>【お客様情報を入力してください】</b> <br> <font size="2" color="red"><s:property
+					value="errorpass" /></font> <font size="2" color="red"><s:property
+					value="erroremailad" /></font> <font size="2" color="red"><br>
+			<s:property value="errormsg" /></font>
+		</div>
+
+
+		<!-- 顧客テーブル1 -->
+		<div id="table1">
+			<s:form action="Customer_infoAction">
+				<table style="line-height: 1.33em; border-collapse: collapse; width: 40%;"align="center" cellspacing="1″ cellpadding="5" >
+					<tbody>
+						<tr>
+							<td style="padding: 1px; border: 1px solid #CCC;" width="30%">お名前</td>
+							<td style="padding: 1px; border: 1px solid #CCC;" width="50%"><INPUT
+								type="text" name="name" size="18" placeholder="例)山田太郎">
+								<font size="2" color="red"><s:fielderror>
+										<s:param value="%{'name'}" />
+									</s:fielderror></font></td>
+						</tr>
+
+						<tr>
+							<td style="padding:1px;border: 1px solid #CCC;">パスワード</td>
+							<td style="padding:1px;border: 1px solid #CCC;"><INPUT type="password" name="pass1"size="18"  placeholder="例)yamada(4桁以上)" >
+			        	<font size="2" color="red"><s:fielderror><s:param value="%{'pass1'}" /></s:fielderror></font>
+			      </td>
+			    </tr>
+			 <tr>
+			     <td style="padding:1px;border: 1px solid #CCC;">パスワード(確認)</td>
+			      <td style="padding:1px;border: 1px solid #CCC;"><INPUT type="password"name="pass2" size="18" placeholder="例)yamada(4桁以上)" >
+			       <font size="2" color="red"><s:fielderror><s:param value="%{'pass2'}"/></s:fielderror></font>
+						</tr>
+						<tr>
+							<td style="padding: 1px; border: 1px solid #CCC;">メールアドレス</td>
+							<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+								type="text" name="emailadress1" size="18"
+								placeholder="例)xxxxxxx@xxxx.co.jp"> <font size="2"
+								color="red"><s:fielderror>
+										<s:param value="%{'emailadress1'}" />
+									</s:fielderror></font></td>
+						</tr>
+						<tr>
+							<td style="padding: 1px; border: 1px solid #CCC;">メールアドレス（確認）</td>
+							<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+								type="text" name="emailadress2" size="18"
+								placeholder="例)xxxxxxx@xxxx.co.jp"> <font size="2"
+								color="red"> <s:fielderror>
+										<s:param value="%{'emailadress2'}" />
+									</s:fielderror></font></td>
+						</tr>
+						<tr>
+							<td style="padding: 1px; border: 1px solid #CCC;">郵便番号</td>
+							<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+								type="text" name="postcode" maxlength="7" size="18"
+								placeholder="1234567"> <font size="2" color="red"><s:fielderror>
+										<s:param value="%{'postcode'}" />
+									</s:fielderror></font></td>
+						</tr>
+						<tr>
+							<td style="padding: 1px; border: 1px solid #CCC;">住所</td>
+							<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+								size="40" type="text" name="adress" size="6"
+								placeholder="例)東京都○○市○○町xxx-xxx"> <font size="2"
+								color="red"><s:fielderror>
+										<s:param value="%{'adress'}" />
+									</s:fielderror></font></td>
+						</tr>
+						<tr>
+							<td style="padding: 1px; border: 1px solid #CCC;">電話番号</td>
+							<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+								type="text" name="telnum" maxlength="11" size="18"
+								placeholder="09012345678"> <font size="2" color="red"><s:fielderror>
+										<s:param value="%{'telnum'}" />
+									</s:fielderror></font></td>
+						</tr>
+						<tr>
+					</TBODY>
+				</TABLE>
+				<br>
+				<input type="button" onclick="location.href='mypage.html'"value="登録">
+		</div>
+
+
+		<!--顧客テーブル2 -->
+	</s:if>
+	<s:else>
+
+		<!--カート2-->
+		<div id="cart">
+			<s:form action="Go2CartAction">
+				<s:submit type="image" src="./ecbzns023_007.png" />
+			</s:form>
+		</div>
+
+			<b>【お客様情報を入力してください】</b>
+		<br>
+			<font size="2" color="red"><s:property value="errorpass" /></font> <font
+				size="2" color="red"><s:property value="erroremailad" /></font> <font
+				size="2" color="red"><br>
+			<s:property value="errormsg" /></font>
+		<s:form action="ChangeInfoAction">
+			<table
+				style="line-height: 1.33em; border-collapse: collapse; width: 40%;"
+				align="center" cellspacing="1″ cellpadding="5″>
+				<tbody>
+					<tr>
+						<td style="padding: 1px; border: 1px solid #CCC;" width="30%">お名前</td>
+						<td style="padding: 1px; border: 1px solid #CCC;" width="50%"><INPUT
+							type="text" name="name" size="18"
+							value="<s:property value="name"/>" placeholder="例)山田太郎">
+							<font size="2" color="red"><s:fielderror>
+									<s:param value="%{'name'}" />
+								</s:fielderror></font></td>
+					</tr>
+					<tr>
+						<td style="padding: 1px; border: 1px solid #CCC;">パスワード</td>
+						<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+							type="password" name="pass1" size="18"
+							value='<s:property value="pass"/>' placeholder="例)yamada(4桁以上)">
+							<font size="2" color="red"><s:fielderror>
+									<s:param value="%{'pass1'}" />
+								</s:fielderror></font></td>
+					</tr>
+					<tr>
+						<td style="padding: 1px; border: 1px solid #CCC;">パスワード(確認)</td>
+						<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+							type="password" name="pass2" size="18"
+							value='<s:property value="pass"/>' placeholder="例)yamada(4桁以上)">
+							<font size="2" color="red"><s:fielderror>
+									<s:param value="%{'pass2'}" />
+								</s:fielderror></font></td>
+					</tr>
+					<tr>
+						<td style="padding: 1px; border: 1px solid #CCC;">メールアドレス</td>
+						<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+							type="text" name="emailadress1" size="18"
+							value='<s:property value="emailadd"/>'
+							placeholder="例)xxxxxxx@xxxx.co.jp"> <font size="2"
+							color="red"><s:fielderror>
+									<s:param value="%{'emailadress1'}" />
+								</s:fielderror></font></td>
+					</tr>
+					<tr>
+						<td style="padding: 1px; border: 1px solid #CCC;">メールアドレス（確認）</td>
+						<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+							type="text" name="emailadress2" size="18"
+							value='<s:property value="emailadd"/>'
+							placeholder="例)xxxxxxx@xxxx.co.jp"> <font size="2"
+							color="red"> <s:fielderror>
+									<s:param value="%{'emailadress2'}" />
+								</s:fielderror></font></td>
+					</tr>
+					<tr>
+						<td style="padding: 1px; border: 1px solid #CCC;">郵便番号</td>
+						<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+							type="text" name="postcode" maxlength="7" size="18"
+							value='<s:property value="post"/>' placeholder="1234567">
+							<font size="2" color="red"><s:fielderror>
+									<s:param value="%{'postcode'}" />
+								</s:fielderror></font></td>
+					</tr>
+					<tr>
+						<td style="padding: 1px; border: 1px solid #CCC;">住所</td>
+						<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+							size="40" type="text" name="adress" size="6"
+							value='<s:property value="add"/>'
+							placeholder="例)東京都○○市○○町xxx-xxx"> <font size="2"
+							color="red"><s:fielderror>
+									<s:param value="%{'adress'}" />
+								</s:fielderror></font></td>
+					</tr>
+					<tr>
+						<td style="padding: 1px; border: 1px solid #CCC;">電話番号</td>
+						<td style="padding: 1px; border: 1px solid #CCC;"><INPUT
+							type="text" name="telnum" maxlength="11" size="18"
+							value='<s:property value="tel"/>' placeholder="09012345678">
+							<font size="2" color="red"><s:fielderror>
+									<s:param value="%{'telnum'}" />
+								</s:fielderror></font></td>
+					</tr>
+					<tr>
+				</TBODY>
+			</TABLE>
+			<br>
+			<s:submit name="submit" value="変更" align="center" />
+		</s:form>
+	</s:else>
+
+	<!--★フッター★-->
+<footer>
+		<hr class="f_line">
+	<div>
+
+		<p class="copy">&copy; 2015 LaPoupee All Rights Reserved.</p>
+
+	</div>
+</footer>
+
+</BODY>
+</HTML>

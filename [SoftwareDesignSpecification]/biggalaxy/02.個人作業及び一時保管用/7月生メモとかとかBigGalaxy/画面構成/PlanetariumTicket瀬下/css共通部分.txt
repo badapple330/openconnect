@@ -1,0 +1,84 @@
+1.背景
+body		{
+			/* フォント指定(MacWin両方) */
+			font-family: "メイリオ",
+			"Hiragino Kaku Gothic Pro",
+			sans-serif;
+			/* 背景を指定(画像で隠れる) */
+			background-color: #edede3;
+			/* 画像を指定 */
+			background-image: url(back.png);
+			margin: 0}
+
+2.ヘッダー
+header		{
+			/*  */
+			background-color: black;
+			 border-bottom: solid 1px #aaaaaa;
+			 margin-bottom: 30px;
+			 -webkit-box-shadow: 0 1px 7px #aaaaaa;
+			 box-shadow: 0 1px 7px #aaaaaa;
+			 padding: 5px}
+
+3.フッター
+footer		{
+			/* 横幅 */
+			width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+			clear: both}
+
+4.見出し
+h1			{font-size: 38x;
+			margin-top: 0;
+			margin-bottom: 0;
+			}
+
+			/* 小見出し用 */			
+h2			{font-size: 20px;
+			margin-top: 0;
+			margin-bottom: 0;
+			}
+
+5.ボタン
+ｸﾗｽ名ｾﾚｸﾀ名	{background-color: #ffaa00;
+			background-image: -webkit-gradient(
+					to bottom,
+					red 0%,
+					blue 100%);
+			background-image: -webkit-linear-gradient(
+					to bottom,
+					red 0%,
+					blue 100%);
+			background-image: linear-gradient(
+					to bottom,
+					red 0%,
+					blue 100%);
+			padding: 10px 80px;
+			border-radius: 10px;
+			color: #000000;
+			font-weight: bold;
+			text-decoration: none;
+
+6.メッセージボックス
+article	#message
+			{
+			/* 背景色 */
+			background-color: #ffffff;
+			/* ボックスの幅 */
+			width: 900px;
+			/* ボックスの位置 */
+			margin-left: auto;
+			margin-right: auto;
+			/* 枠線の設定 */
+			border: solid 1px #aaaaaa;
+			padding: 30px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			margin-bottom: 15px;
+			-webkit-box-shadow: 1px 1px 3px #aaaaaa;
+			box-shadow: 1px 1px 3px #aaaaaa;
+			border-radius: 20px;
+			overflow: hidden
+			}

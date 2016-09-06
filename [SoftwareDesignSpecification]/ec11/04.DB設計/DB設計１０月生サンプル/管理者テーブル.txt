@@ -1,0 +1,22 @@
+<<<<<<< HEAD
+CREATE TABLE IF NOT EXISTS ADMIN_TABLE(
+-- 管理者ID
+admin_id varchar(16) not null primary key,
+-- 管理者パスワード
+admin_pass varchar(16) not null,
+-- 管理者名
+admin_name varchar(50) not null
+);
+-- 管理者データの登録（10月生）
+=======
+CREATE TABLE IF NOT EXISTS ADMIN_TABLE(
+-- 管理者ID
+admin_id varchar(16) not null primary key,
+-- 管理者パスワード
+admin_pass varchar(16) not null,
+-- 管理者名
+admin_name varchar(50) not null
+);
+-- 管理者データの登録（10月生）
+>>>>>>> 46694511a04b7cbc9649ab8935538f50658b9e37
+insert into ADMIN_TABLE(admin_id,admin_pass,admin_name) values ("12345678","commando","ジョンメイトリックス");

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>マイページ</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- CSSリンク  -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+<link href="css/header.css" rel="stylesheet" type="text/css" />
+<link href="css/footer.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!--テーブルスクロール-->
+<link href="./css/mypage_style.css" rel="stylesheet" type="text/css" />
+<!-- JSリンク -->
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="js/jquery.plainmodal.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<style>
+#usermod-window {
+	padding: 10px;
+	background-color: #fff;
+	border: gray 1px solid;
+	display: none;
+}
+#creditmod-window{
+	padding: 10px;
+	background-color: #fff;
+	border: gray 1px solid;
+	display: none;
+}
+</style>
+</head>
+<body>
+	<div id="usermod-window">
+		<form>
+			<table>
+				<tr>
+					<th colspan="2">登録内容変更</th>
+				</tr>
+				<tr>
+					<td>名前:</td>
+					<td id="name"><input type="text" placeholder="名前を入力してください" /></td>
+				</tr>
+				<tr>
+					<td>住所:</td>
+					<td><input type="text" placeholder="住所を入力してください" /></td>
+				</tr>
+				<tr>
+					<td>TEL:</td>
+					<td><input type="text" placeholder="TELを入力してください" /></td>
+				</tr>
+				<tr>
+					<td>メール:</td>
+					<td><input type="text" placeholder="メールアドレスを入力してください" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="button" 
+						value="変更を登録する" /></td>
+				</tr>
+			</table>
+		</form>
+
+	</div>
+	<div id="creditmod-window">
+		<form>
+			<table>
+				<tr>
+					<th colspan="2">登録内容変更</th>
+				</tr>
+				<tr>
+					<td>カード番号:</td>
+					<td id="name"><input type="text" placeholder="カード番号を入力してください" /></td>
+				</tr>
+				<tr>
+					<td>カード名義:</td>
+					<td><input type="text" placeholder="カード名義を入力してください" /></td>
+				</tr>
+				<tr>
+					<td>有効期限:</td>
+					<td><input type="text" placeholder="有効期限を入力してください" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="button" 
+						value="変更を登録する" /></td>
+				</tr>
+			</table>
+		</form>
+
+	</div>
+
+	<header>
+		<div class="container">
+			<div class="header-left">
+				<img class="logo" src="./img/logo.png">
+			</div>
+			<div class="header-right">
+				<input type="text" placeholder="Email" class="form-control">
+				<input type="password" placeholder="Password" class="form-control">
+				<button type="button" class="btn btn-warning">ログイン</button>
+			</div>
+			<div class="twitter">
+				<a href="#"><img src="./img/twitter.png"></a>
+			</div>
+			<div class="facebook">
+				<a href="#"><img src="./img/facebook.png"></a>
+			</div>
+			<div class="google">
+				<a href="#"><img src="./img/google.png"></a>
+			</div>
+			<div class=new-member>
+				<a href="#"><button type="button" class="btn btn-warning">新規登録</button></a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div>
+			<h1 class="text-center">マイページ</h1>
+			<hr>
+			<form>
+				<h3>登録情報</h3>
+				<table class="table-condensed" style="float:left;margin-right:50px;:">
+					<tr>
+						<th colspan="2">基本情報</th>
+					</tr>
+					<tr>
+						<td>名前:</td>
+						<td id="name">ピザ星人A</td>
+					</tr>
+					<tr>
+						<td>住所:</td>
+						<td>埼玉県川口市○○町２−５</td>
+					</tr>
+					<tr>
+						<td>TEL:</td>
+						<td>09017861111</td>
+					</tr>
+					<tr>
+						<td>メール:</td>
+						<td>pizza01@test.com</td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="button" id="user-modal-open" value="基本情報を変更する" /> <script>
+		$('#user-modal-open').click(function() {
+			$('#usermod-window').plainModal('open', {
+				overlay : {
+					color : '#fff',
+					opacity : 0.5
+				}
+			});
+		});
+	</script></td>
+					</tr>
+				</table>
+			</form>
+
+			<table class="table-condensed" style="margin-bottom:50px;">
+				<tr>
+					<th colspan="2">クレジットカード情報</th>
+				</tr>
+				<tr>
+					<td>カード番号:</td>
+					<td>9000-5000-2222-3333</td>
+				</tr>
+				<tr>
+					<td>カード名義:</td>
+					<td>PIZZA SEJIN</td>
+				</tr>
+				<tr>
+					<td>有効期限:</td>
+					<td>06/19</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<input type="button" id="credit-modal-open" value="クレジット情報を変更する" /> <script>
+		$('#credit-modal-open').click(function() {
+			$('#creditmod-window').plainModal('open', {
+				overlay : {
+					color : '#fff',
+					opacity : 0.5
+				}
+			});
+		});
+	</script>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<hr style="clear:both;">
+
+		<div name="user-history">
+			<h3>購入履歴</h3>
+			<div class="x_scroll">
+
+			<table class="sctable">
+				<tr>
+					<td colspan="2"><img alt="" src="./img/pizza01.jpg" /></td>
+					<td colspan="2"><img alt="" src="./img/pizza02.jpg" /></td>
+					<td colspan="2"><img alt="" src="./img/pizza03.jpg" /></td>
+					<td colspan="2"><img alt="" src="./img/pizza04.jpg" /></td>
+					<td colspan="2"><img alt="" src="./img/pizza05.jpg" /></td>
+				</tr>
+				<tr>
+					<td>商品名:</td>
+					<td>ピザ星人スペシャル</td>
+					<td>商品名:</td>
+					<td>ピザ星人スペシャル</td>
+					<td>商品名:</td>
+					<td>ピザ星人スペシャル</td>
+					<td>商品名:</td>
+					<td>ピザ星人スペシャル</td>
+					<td>商品名:</td>
+					<td>ピザ星人スペシャル</td>
+				</tr>
+				<tr>
+					<td>購入日:</td>
+					<td>2015年12月12日10時20分</td>
+					<td>購入日:</td>
+					<td>2015年12月12日10時20分</td>
+					<td>購入日:</td>
+					<td>2015年12月12日10時20分</td>
+					<td>購入日:</td>
+					<td>2015年12月12日10時20分</td>
+					<td>購入日:</td>
+					<td>2015年12月12日10時20分</td>
+				</tr>
+				<tr>
+					<td>値段:</td>
+					<td>2900円</td>
+					<td>値段:</td>
+					<td>2900円</td>
+					<td>値段:</td>
+					<td>2900円</td>
+					<td>値段:</td>
+					<td>2900円</td>
+					<td>値段:</td>
+					<td>2900円</td>
+				</tr>
+				<tr>
+					<td>数量:</td>
+					<td>1枚</td>
+					<td>数量:</td>
+					<td>6ピース</td>
+					<td>数量:</td>
+					<td>6ピース</td>
+					<td>数量:</td>
+					<td>2枚</td>
+					<td>数量:</td>
+					<td>1枚</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="button" value="レビューを書く" /></td>
+					<td colspan="2"><input type="button" value="レビューを書く" /></td>
+					<td colspan="2"><input type="button" value="レビューを書く" /></td>
+					<td colspan="2"><input type="button" value="レビューを書く" /></td>
+					<td colspan="2"><input type="button" value="レビューを書く" /></td>
+				</tr>
+			</table>
+			</div>
+
+		</div>
+		<hr style="margin-top:400px;">
+		<div name="coupon">
+			<h3>お手持ちのクーポン</h3>
+			<table>
+				<tr>
+					<th>クーポン内容</th>
+					<th>数量</th>
+					<th>クーポン番号</th>
+					<th>使用期限</th>
+				</tr>
+				<tr>
+					<td>全品10%OFFクーポン</td>
+					<td>1枚</td>
+					<td>D-1230</td>
+					<td>2015年12月31日</td>
+				</tr>
+			</table>
+		</div>
+		<hr>
+		<div name="remove">
+			<h3>退会</h3>
+			<input type="button" class="btn btn-danger" value="退会処理へ進む" />
+		</div>
+		<hr>
+		<div align="center">
+			<input type="button" class="btn btn-danger" value="ホームに戻る" />
+		</div>
+	</div>
+	<br>
+	<footer>
+		<a href="#" Title="会社概要">会社概要</a> <a href="#" Title="コピーライト">コピーライト</a>
+		<a href="#" Title="お問い合わせ">お問い合わせ</a> <a href="#" Title="ヘルプ">ヘルプ</a>
+		<a href="#" Title="アレルギー表記">アレルギー表記</a> <a href="#" Title="ご利用規約">ご利用規約</a>
+	</footer>
+</body>
+</html>

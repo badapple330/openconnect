@@ -1,0 +1,27 @@
+新規登録画面から遷移させるためのアクションGoCreateUserCheckActionからユーザーが入力した名前(userName)、
+パスワード(password)、メールアドレス(mailAddress)、郵便番号(zipCode)、住所(userAdress)、電話番号(telephoneNumber)
+、カード種別(typeOfCreditCard)、カード番号の下四桁(cardNumberFourDigit)、クレジットカードトークン(cardToken)
+有効期間(cardValidityPeriod)を習得
+
+名前(userId),メールアドレス(mailAddress),郵便番号(zipCode)、住所(userAdress),
+電話番号(telephoneNumber),カード種別(typeOfCreditCard)、カード番号の下四桁(cardNumberFourDigit),
+有効期間(cardValidityPeriod)を画面上に表示
+
+戻るを押した場合新規登録画面に遷移
+登録を押した場合アクションファイルgoCreateUserCompletionActionのexecuteメソッドにて
+InseertUserDAOをインスタンス化インスタンス名daoとする
+戻り値Boolean型のInseertUserメソッドを使う。
+そのメソッドはtry catchにてInsert成功したならtrue,失敗ならfalseを返す。
+そのメソッドがtrueならreturn success、falseならばreturn errorを返す。
+
+その後struts.xmlにてexecuteの戻り値がsuccessならばcreate_user_completion.jspに遷移、エラーならばmain.jspに遷移するようにする
+
+
+メソッドInseertUserの中身
+名前(userName)、パスワード(password)、メールアドレス(mailAddress)、郵便番号(zipCode)、
+住所(userAdress)、電話番号(telephoneNumber)、カード種別(typeOfCreditCard)、
+カード番号の下四桁(cardNumberFourDigit)、クレジットカードトークン(cardToken)有効期間(cardValidityPeriod)
+をInseertUserDAOをにて
+INSERT INTO user (userName,password,mailAddress,zipCode,userAdress,
+telephoneNumber,typeOfCreditCard,cardNumberFourDigit,cardToken,cardValidityPeriod) VALUES (?,?,?,?,?,?,?,?,?,?)
+のsql言語を作動させ、ユーザーデータベース内にインサートさせる

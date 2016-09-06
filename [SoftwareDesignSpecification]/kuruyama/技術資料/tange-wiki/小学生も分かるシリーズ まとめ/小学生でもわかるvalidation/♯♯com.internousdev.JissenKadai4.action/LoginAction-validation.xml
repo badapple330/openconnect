@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+  <!-- 未入力チェック -->
+
+<validators>
+      <!-- emailはlogin.jspのname="email"で紐付いている -->
+      <field name="email">
+          <field-validator type="requiredstring">
+           <!-- messageタグは画面出力 -->
+          <message>%{getText('lang.login.validEmailRS')}</message>
+          </field-validator>
+      </field>
+
+       <!-- passwordはlogin.jspのname="password"で紐付いている -->
+       <field name="password">
+           <field-validator type="requiredstring">
+           <message>%{getText('lang.login.validPasswordRS')}</message>
+           <!-- messageタグは画面出力 -->
+          </field-validator>
+        </field>
+
+	  	<!-- メールアドレスチェック -->
+	  <field name="email">
+			  <field-validator type="email">
+			  <param name="email">^[0-9a-z]{8,32}+</param>
+			  <message>%{getText('lang.login.validEmailEmail')}</message>
+		  </field-validator>
+	  </field>
+
+	  <!-- パスワードチェック -->
+	  <field name="password">
+		  	<field-validator type="regex">
+			  <!-- regexは -->
+			  <param name="regex">^[0-9a-z]{8,12}+</param>
+			  <message>%{getText('lang.login.validPasswordRG')}</message>
+			  </field-validator>
+	  </field>
+</validators>

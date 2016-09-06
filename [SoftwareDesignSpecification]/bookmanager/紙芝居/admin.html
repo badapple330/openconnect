@@ -1,0 +1,179 @@
+	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<%@ taglib prefix="s" uri="/struts-tags" %>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<html>
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>管理者情報</title>
+<style>
+
+html, body {height: 100%;}  /*高さ100%に指定*/
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color:gray;
+}
+
+.font32{
+	font-size:32px;
+}
+
+.space{
+	margin-left:30px;
+}
+
+#user_name_area{
+	float:left;
+	margin-top:5px;
+	margin-left:25px;
+}
+
+#logout{
+	float:left;
+	margin-top:10px;
+	position:absolute;
+	margin-left:1450px;
+}
+
+#left{
+	clear:both;
+	float:left;
+	width:600px;
+	height:650px;
+	margin-left:120px;
+	margin-top:30px;
+	padding-left:50px;
+	background-color:skyblue;
+}
+
+#right{
+	float:left;
+	width:600px;
+	height:650px;
+	margin-left:50px;
+	margin-top:30px;
+	padding-left:50px;
+	background-color:skyblue;
+}
+
+table{
+	background-color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<form method="get" action="#" class="search">
+
+<div id="user_name_area">
+			<span class="font32">ID：</span>
+			<span class="font32">3333</span>
+			<span class="space"></span>
+			<span class="font32">user：</span>
+			<span class="font32">田中太郎</span>
+			<span class="space"></span>
+			<span class="font32">ログイン中</span>
+</div>
+
+<div id="left">
+
+<h4>管理者情報</h4>
+ID:【登録されていればIDを表示】<br>
+名前:<input type="text" name="example" class="textBox" value="登録あれば表示"><br>
+名前の読み：<input type="text" name="example" class="textBox" value="登録あれば表示"><br>
+<br>
+現在のパスワード：【現在のパスワードをここに表示】<br>
+新しいパスワードを登録：<input type="text" name="example" class="textBox"><br>
+新しいパスワードをもう一度入力して下さい：<input type="text" name="example" class="textBox"><br>
+<br>
+登録日：【登録日を表示】<br>
+最終更新日：【最終更新日を表示】<br>
+<br>
+<input type="submit" value="登録・変更" class="btn"><br>
+<input type="submit" value="アカウント削除" class="btn"><br>
+
+</div>
+
+</form>
+<br>
+
+<div id="right">
+
+<h4>検索情報</h4>
+ID:
+<input type="text" name="example" class="textBox">～
+<input type="text" name="example" class="textBox"><br>
+名前:<input type="text" name="example" class="textBox"><br>
+名前の読み：<input type="text" name="example" class="textBox"><br>
+<br>
+登録日：<input type="text" name="example" class="textBox">～<input type="text" name="example" class="textBox"><br>
+最終更新日：<input type="text" name="example" class="textBox">～<input type="text" name="example" class="textBox"><br>
+
+<table border="1" stcellspacing="0" cellpadding="5">
+			<tr>
+				<th></th>
+				<th>ID</th>
+				<th>名前</th>
+				<th>名前の読み</th>
+				<th>登録日</th>
+				<th>最終更新日時</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>1</th>
+				<th>田中太郎</th>
+				<th>タナカタロウ</th>
+				<th>2000/01/01</th>
+				<th>2000/01/01</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>2</th>
+				<th>田中次郎</th>
+				<th>タナカジロウ</th>
+				<th>2000/01/01</th>
+				<th>2000/01/01</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>3</th>
+				<th>田中三郎</th>
+				<th>タナカサブロウ</th>
+				<th>2000/01/01</th>
+				<th>2000/01/01</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>4</th>
+				<th>田中四郎</th>
+				<th>タナカシロウ</th>
+				<th>2000/01/01</th>
+				<th>2000/01/01</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>5</th>
+				<th>田中五郎</th>
+				<th>タナカゴロウ</th>
+				<th>2000/01/01</th>
+				<th>2000/01/01</th>
+			</tr>
+		</table>
+		<input type="submit" value="検索" class="btn">
+<br>
+<br>
+
+</div>
+
+		<div id="logout">
+		<span><button onclick="location.href='http://localhost:8080/struts/MainMenu.jsp'" >戻る</button></span>
+		</div>
+
+</body>
+</html>

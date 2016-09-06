@@ -64,4 +64,3 @@ cd ../biggalaxy
 sudo git pull
 cd ../k-home
 sudo git pull
-

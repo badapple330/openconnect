@@ -1,0 +1,77 @@
+mysql -u root -p
+mysql
+
+よく使うコマンド
+
+use データベース名;
+
+show databases;
+
+show tables;
+
+select * from m_store;
+
+dorp database データベース名;
+
+dorp tables テーブル名；
+
+
+テーブルの作成の例）
+create table lesson m_store(
+
+create table m_store(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name varchar(100) NOT NULL,
+postal_code varchar(8) NOT NULL,
+address varchar(255) NOT NULL,
+tel varchar(13) NOT NULL,
+business_hours varchar(50) NOT NULL,
+created_at datetime NOT NULL,
+updated_at datetime NOT NULL
+);
+
+
+インサートの例）
+insert into テーブル名(
+
+
+insert into m_store(
+name,postal_code,address,tel,business_hours,created_at,updated_at
+)
+VALUES(
+'霞ヶ関店','100-0013','東京都千代田区霞が関3-6-15 霞ヶ関MH タワーズ7F 御茶ノ水天神ビル2F','03-6205-7707','11:00～23:00','2015/12/07 00:00:00','2015/12/07 00:00:00'
+);
+insert into m_store(
+name,postal_code,address,tel,business_hours,created_at,updated_at
+)
+VALUES(
+'池尻店','154-0005','東京都世田谷区三宿一丁目8番19号　MBA ビル1F','03-6205-7708','16:00～23:00','2015/12/07 00:00:00','2015/12/07 00:00:00'
+);
+insert into m_store(
+name,postal_code,address,tel,business_hours,created_at,updated_at
+)
+VALUES(
+'御茶ノ水店','154-0005','東京都文京区湯島3-2-12　御茶ノ水天神ビル2F','03-6205-7709','9:00～23:00','2015/12/07 00:00:00','2015/12/07 00:00:00'
+);
+
+mysqlに流すとき、テーブルが無かったら作ります
+CREATE TABLE IF NOT EXISTS テーブル名(
+
+CREATE TABLE IF NOT EXISTS m_store(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name varchar(100) NOT NULL,
+postal_code varchar(8) NOT NULL,
+address varchar(255) NOT NULL,
+tel varchar(13) NOT NULL,
+business_hours varchar(50) NOT NULL,
+created_at datetime NOT NULL,
+updated_at datetime NOT NULL
+);
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name varchar(100) NOT NULL,
+postal_code varchar(8) NOT NULL,
+address varchar(255) NOT NULL,
+tel varchar(13) NOT NULL,
+business_hours varchar(50) NOT NULL,
+created_at datetime NOT NULL,
+updated_at datetime NOT NULL

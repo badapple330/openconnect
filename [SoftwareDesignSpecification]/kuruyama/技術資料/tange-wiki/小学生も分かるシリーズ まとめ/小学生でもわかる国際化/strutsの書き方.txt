@@ -1,0 +1,20 @@
+<constant name="struts.devMode" value="simple" />
+	<constant name="struts.custom.i18n.resources" value="com.internousdev.footprinter.property.header,
+	                                                     com.internousdev.footprinter.property.login,
+	                                                     com.internousdev.footprinter.property.main,
+	                                                     com.internousdev.footprinter.property.payment-confirm,
+	                                                     com.internousdev.footprinter.property.purchase-confirm,
+	                                                     com.internousdev.footprinter.property.registration,
+	                                                     com.internousdev.footprinter.property.sign-up-confirm,
+	                                                     com.internousdev.footprinter.property.sign-up,
+	                                                     com.internousdev.footprinter.property.thankyu,
+	                                                     com.internousdev.footprinter.property.tour-detail,
+	                                                     com.internousdev.footprinter.property.tour-list,
+	                                                     com.internousdev.footprinter.property.validation,
+	                                                     com.internousdev.footprinter.property.tour-detail,
+	                                                     com.internousdev.footprinter.property.sign-up,
+	                                                     com.internousdev.footprinter.property.purchase-registration,
+	                                                     com.internousdev.footprinter.property.purchase-confirm,
+	                                                     com.internousdev.footprinter.property.payment-confirm," />
+
+‚±‚ñ‚ÈŠ´‚¶

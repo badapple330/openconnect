@@ -1,0 +1,3 @@
+<s:url var="twitter" action="login-twitter" />
+<s:a href="%{twitter}">
+<img src="img/twitter-j.png">

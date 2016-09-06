@@ -1,0 +1,57 @@
+header{
+  background: url("../img/utyuu.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header.header-left h1
+{font-family:arial black;
+font-size: 40px;
+font-style:italic;
+color:red;
+margin-left: 20px;
+}
+header .title p {
+  color: yellow;
+  margin-left: 20px;
+}
+.header-right{
+  float: right;
+  width: 30%;
+}
+
+input.form-control{
+  margin-top: 3px;
+  width: 120px;
+}
+.btn.btn-warning{
+  position: relative;
+  float: right;
+ bottom: 35px;
+ right: 135px;
+}
+.twitter{
+  position: relative;
+  float: right;
+  left: 180px;
+  top: 5px;
+}
+.facebook{
+  position: relative;
+  float: right;
+  left: 260px;
+  top: 5px;
+}
+.google{
+  position: relative;
+  float: right;
+  left: 345px;
+  top: 5px;
+}
+.new-member{
+  position: relative;
+  float: right;
+  left: 530px;
+  top: 74px;
+}
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>利用者ID確認画面</title>
+	</head>
+	<body>
+		<h1>貸出・返却</h1>
+		<h3>図書館利用者IDを入力してください</h3>
+		<form>
+			<input type ="text" name = "userid" size = "15"/>
+			<input type="submit" value = "検索"/>
+			<input type="reset" value="クリア">
+		</form>
+			<p>名前 :</p>
+			<p>コメント :</p><br>
+		<form>
+
+			<input type="button" name = "lend" value = "貸出" style="font-size:30px" onclick="location.href='http://localhost:8080/struts/Lend.html'"/>
+			<input type="button" name = "back" value = "返却" style="font-size:30px" onclick="location.href='http://localhost:8080/struts/Back.html'"/>
+
+			<div align="right"><input type="button" value="戻る" onClick="history.back()"></div>
+		</form>
+	</body>
+</html>

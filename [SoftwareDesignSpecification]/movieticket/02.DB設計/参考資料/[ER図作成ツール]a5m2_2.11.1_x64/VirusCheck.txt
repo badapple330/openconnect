@@ -1,0 +1,90 @@
+■ウィルスチェックおよびファイルのチェックサム
+　このファイルは本ソフトウェアがリリース前にウィルスチェックを行った際のレポートファイルです。
+　ただし、ウィルスに感染していないことを保証する物ではありません。
+
+　※ readme,ライセンス,更新履歴については readme.txt, license.txt, history.txtを参照して下さい。
+
+*****************************
+  ******** Virus check ********
+    *****************************
+
+ECLSコマンドラインスキャナ、バージョン8.0.304.0、(C) 1992-2014 ESET、spol. s r.o.
+機能loader、バージョン1056 (20150113)、ビルド1082
+機能perseus、バージョン1456 (20150512)、ビルド1687
+機能scanner、バージョン11771 (20150611)、ビルド24282
+機能archiver、バージョン1228 (20150528)、ビルド1230
+機能advheur、バージョン1154 (20150129)、ビルド1120
+機能cleaner、バージョン1109 (20150519)、ビルド1140
+
+コマンドライン: /log-all A5M2.exe scripts history.txt license.txt readme.txt sampledb sample 
+
+スキャン開始時刻:   06/11/15 23:11:39
+名前="A5M2.exe"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\Tool\SqlEmbededStr.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\TreeDB\FavoritesExport.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\TreeDB\FavoritesImport.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\TreeDB\OpenSchemaTable.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\TreeDB\oracle_procedureSources.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\TreeDB\oracle_viewSources.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\TreeDB\reccount_query.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\TreeTB\CsvCopy.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\TreeTB\InsertStatements.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="scripts\TreeTB\TableInfo.dms"、脅威="は正常です"、アクション=""、情報=""
+名前="history.txt"、脅威="は正常です"、アクション=""、情報=""
+名前="license.txt"、脅威="は正常です"、アクション=""、情報=""
+名前="readme.txt"、脅威="は正常です"、アクション=""、情報=""
+名前="sampledb\ShoppingSite.a5er"、脅威="は正常です"、アクション=""、情報=""
+名前="sampledb\ShoppingSite.mdb"、脅威="は正常です"、アクション=""、情報=""
+名前="sample\CreateTableDefinition.xls"、脅威="は正常です"、アクション=""、情報=""
+
+スキャン完了時刻: 06/11/15 23:11:39
+スキャン時間:         0秒(0:00:00)
+合計:            ファイル - 17、オブジェクト 17
+感染:          ファイル - 0、オブジェクト 0
+駆除:           ファイル - 0、オブジェクト 0
+
+
+*****************************
+  ****** Checksum (MD5) ******
+    *****************************
+
+\7057b8e254f6ec1ebc966b3c57545c34 *A5M2.exe
+\c6f974f2acc0c946aa926818d291652f *scripts\Tool\SqlEmbededStr.dms
+\a9be3590369bc6f7a915edda94fef679 *scripts\TreeDB\FavoritesExport.dms
+\2a19969272ea018ea03fe3548c1e24ff *scripts\TreeDB\FavoritesImport.dms
+\49c63911090abbd702ef3526ccc63244 *scripts\TreeDB\OpenSchemaTable.dms
+\77dc14d7812551958a1742ada188ce58 *scripts\TreeDB\oracle_procedureSources.dms
+\ca37ee92da3e585c21c4e493c10a82b1 *scripts\TreeDB\oracle_viewSources.dms
+\75cf57b556cba44c532e0ee3be9978d4 *scripts\TreeDB\reccount_query.dms
+\44ba3763a21800d96caed1bf13af3608 *scripts\TreeTB\CsvCopy.dms
+\445ea8e3ac9a9e888e23d2ebe8c5da4a *scripts\TreeTB\InsertStatements.dms
+\850496341a9af97d4c7222002b53e328 *scripts\TreeTB\TableInfo.dms
+\a9bf556b2d47d99a22241e6b0c0608d0 *history.txt
+\ad0b0e0f2445306558ee30e6f2556d24 *license.txt
+\c4dd6a23b7f88465112fdbbbad6a0ef7 *readme.txt
+\849b8be2401493807921ddc911b6fc05 *sampledb\ShoppingSite.a5er
+\b12a09a78bcb410d58d5e5bde2883617 *sampledb\ShoppingSite.mdb
+\2773b1f7d6869f4d3e00a9f92f72ebe9 *sample\CreateTableDefinition.xls
+
+
+*****************************
+  ****** Checksum (SHA1) ******
+    *****************************
+
+\17c27cbe4ebd26086876db7ee2433907537b664e *A5M2.exe
+\048bb44fc0088e420313a8c3582b77fc48212361 *scripts\Tool\SqlEmbededStr.dms
+\9297c992388d21c633b5e01809ead31eb61836b7 *scripts\TreeDB\FavoritesExport.dms
+\904f99f5d84f79aab0befc5a816d0e0ea5878c23 *scripts\TreeDB\FavoritesImport.dms
+\a895a7f680f52e534e2a20dbfd1c030dded7c6e1 *scripts\TreeDB\OpenSchemaTable.dms
+\f7115a8883dcf8d0e135012715c4dd894d82737e *scripts\TreeDB\oracle_procedureSources.dms
+\5fbbb227b5bcb6b16612a1530f2a7d94a3007d4e *scripts\TreeDB\oracle_viewSources.dms
+\d54dc8d763219d02a2dd82c2841bb6b3c6a048fb *scripts\TreeDB\reccount_query.dms
+\8167eb0887279f49c5f55f073951b0ec7e65a82c *scripts\TreeTB\CsvCopy.dms
+\964c0c1ddad0a286da9fc559a6129cd981cfa195 *scripts\TreeTB\InsertStatements.dms
+\1c255a7d3e5c92ed30b81bac88f301a63b0302d7 *scripts\TreeTB\TableInfo.dms
+\0feaf8bfc4d84fc0811a1bedde01aed4a6d4a73e *history.txt
+\a6a0572fc3ef3f7f6eca2f934c46c7b0e04125b1 *license.txt
+\e3cd38d8da223cc5cb03603a538f52ee60a0728f *readme.txt
+\55b4e2447bfdd80595cfe7e8a269cc83ab8f88a9 *sampledb\ShoppingSite.a5er
+\6e65a52b9269f5dcda9b6632dbad8429efd96b86 *sampledb\ShoppingSite.mdb
+\457d5e29f518fb711b374f0547ff86119c34daa4 *sample\CreateTableDefinition.xls

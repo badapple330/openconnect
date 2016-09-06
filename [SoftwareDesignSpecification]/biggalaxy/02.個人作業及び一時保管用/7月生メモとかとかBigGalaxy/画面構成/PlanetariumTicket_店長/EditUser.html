@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー情報変更 - PlanetariumTicket</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="login">
+
+<header>
+<h1><a href="index.html"><img src="logo.png" alt="">PlanetariumTicket</a></h1>
+<nav>
+<ul>
+<li><a href="index.html">トップ</a></li>
+<li><a href="ticket.html">上映作品一覧</a></li>
+<li><a href="login.html">ログイン</a></li>
+<li><a href="http://www.yahoo.co.jp/">18歳未満の方はこちら</a></li>
+</ul>
+</nav>
+</header>
+
+<section>
+<article>
+
+  <table>
+<center><h1><font size="6">顧客情報変更画面</font></h1></ceter>
+
+   <tr>
+    <th>氏名</th>
+    <td><input type="text" name="user_name" placeholder="例：南ことり" size="50"></td>
+ </tr>
+ <tr>
+    <th>ふりがな</th>
+    <td><input type="text" name="phonetic" placeholder="例：みなみことり" size="50"></td>
+ </tr>
+ <tr>
+    <th>メールアドレス(ID)</th>
+    <td><input type="email" name="e_mail" placeholder="例：kotori@mail.jp" size="50"></td>
+ </tr>
+ <tr>
+  <th>旧パスワード</th>
+    <td><input type="password" name="password" minlength="4" maxlength="16"  pattern="^[0-9A-Za-z]+$"
+       placeholder="半角英数4文字以上16文字以内で入力" size="50"></td>
+ </tr>
+     <th>新パスワード</th>
+    <td><input type="password" name="password" minlength="4" maxlength="16"  pattern="^[0-9A-Za-z]+$"
+       placeholder="半角英数4文字以上16文字以内で入力" size="50"><font size="1" </td>
+ </tr>
+ <tr>
+   <th>パスワード再入力</th>
+   <td><input type="password" name="password" minlength="4" maxlength="16"  pattern="^[0-9A-Za-z]+$" placeholder="再入力" size="50">
+     <font size="1"></td>
+ <tr>
+   <th>電話番号</th>
+   <td><input type="tel" name="tel_number"  pattern="^[0-9A-Za-z]+$" placeholder="例：0312345678(半角数字)" size="50"></td>
+ </tr>
+ <tr>
+   <th>郵便番号</th>
+   <td><input type="text" name="postal" maxlength="7"  pattern="^[0-9A-Za-z]+$"
+      placeholder="例：1234567(半角数字)" size="50" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');">
+      <font size="1" color="red"> *自動検索機能あり</font></td>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><textarea name="address" placeholder="例:東京都文京区御茶ノ水1-1-1" ></textarea><br>
+    </td>
+  </tr>
+  <tr>
+    <th>カード番号</th>
+    <td><input type="text" name="card" maxlength="9" placeholder="例：************6789(半角数字)" size="50"></td>
+ </tr>
+  <tr>
+     <th>有効期限</th>
+     <td><input type="text" name="year" placeholder="例：01" size="2"
+           maxlength="2">年<input type="text" name="manth"
+           placeholder="例：01" size="2" maxlength="2">月</td>
+ </tr>
+ <tr>
+     <th>セキュリティコード</th>
+    <td><input type="text" name="code" placeholder="例：1234"
+           size="5" maxlength="2"></td>
+ </tr>
+<tr>
+  <th>カード会社</th>
+  <td><input type="radio" name="card1" value="card1" checked="checked">mastarcard
+			<input type="radio" name="card2" value="card2">VISA <input
+				type="radio" name="card3" value="card3">JCB <br> <input
+				type="radio" name="card4" value="card4">AMEX</td>
+</tr>
+<tr>
+  <th>カード名義</th>
+		<td><input type="text" name="user_name" placeholder="例 Kotori Minami"><nobr>*半角で入力してください</nobr></td>
+</tr>
+</table>
+
+<br>
+<Div Align="center"><a href="index.html" class="button">リセット</a>
+<a href="index.html" class="button">変更</a	><DIV>
+</article>
+</section>
+
+<footer>
+<small>Copyright &copy; PlanetariumTicket, all rights
+reserved.</small>
+</footer>
+
+</body>
+</html>

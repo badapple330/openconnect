@@ -1,0 +1,68 @@
+変数名はすべて小文字で表示。関連させて、基本英語で表記。
+
+database名「bookmanager」
+
+登録日、変更日はボタンを押したときにActionで実行されてデータが入力される。
+
+Table名
+　・admin_table
+　　・admin_id		: 管理者ID,int
+　　・admin_pass 	: 管理者パス,varchar(255)
+　　・admin_name 	: 管理者名,varchar(20)
+    ・admin_name_kana 	: 管理者名(カナ),varchar(20)
+    ・enrollment_flg    :在籍フラグ,enum（0:在籍、1:退職）default 0
+　　・admin_regist_date  : 登録日(初回),datetime
+　　・admin_change_date : 変更日,datetime
+
+  ・admin_history_table
+    ・admin_history_id  :管理者履歴ID,int
+    ・change_admin_id   :変更される管理者ID←admin_tableのadmin_id,int
+    ・admin_id          :変更した管理者ID←admin_tableのadmin_id,int
+    ・change_detail     :変更箇所,varchar(20)
+    ・change_before     :変更前の内容,varchar(20)
+    ・change_after     :変更後の内容,varchar(20)
+    ・admin_history_change_date : 変更日,datetime
+
+
+　・user_table
+　　・user_id          : 利用者ID,int
+　　・user_name	       : 利用者名,varchar(20)    
+　　・user_name_kana   : 利用者名(カナ),varchar(20)
+　　・birth	       : 生年月日,date      
+　　・tel	       : 電話番号,varchar(20)
+    ・remarks          : 備考,text
+　　・enrollment_flg    :在籍フラグ,enum（0:在籍、1:退職）default 0 
+　　・user_regist_date  : 登録日,datetime
+　　・user_change_date : 変更日,datetime
+  
+  ・user_history_table
+    ・user_history_table_id  :利用者履歴ID,int
+    ・change_user_id   :変更される利用者ID←user_tableのuser_id,int
+    ・admin_id          :変更した管理者ID←admin_tableのadmin_id.int
+    ・admin_name        :変更した管理者名←admin_tableのadmin_name.varchar(20)
+    ・change_detail     :変更箇所,varchar(20)
+    ・change_before     :変更前の内容,varchar(20)
+    ・change_after     :変更後の内容,varchar(20)
+    ・user_history_change_date : 変更日,datetime
+
+
+　・book_table
+　　・book_id          : 図書ID,int
+　　・title            : タイトル,varchar(20)
+　　・writer           : 作者,varchar(20)
+　　・writer_kana      : 作者(カナ) ,varchar(20)
+　　・stock 	       : 残在庫,int
+　　・total_stock      : 総在庫,int
+　　・company 	       : 出版社,varchar(20)
+　　・year 	       : 出版年月,date       
+　　・price 	       : 価格,int
+　　・page 	       : ページ数,int
+　　・book_regist_date  : 登録日,datetime
+　　・book_change_date : 変更日,datetime
+
+　・lend_back_table
+　　・lend_back_id : 貸し返しID,int
+　　・user_id      : 利用者ID,int
+　　・book_id      : 図書ID,int
+　　・lend_day     : 貸出日,date
+　　・back_day     : 返却日,date

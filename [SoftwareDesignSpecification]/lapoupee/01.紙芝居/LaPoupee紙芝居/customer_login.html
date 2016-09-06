@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<TITLE>ログイン画面</TITLE>
+	<link href="customer_login.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY>
+<header>
+	<div class="header_title">
+			<span class="initial">L</span>a
+			<span class="initial">P</span>oupee
+	</div>
+</header>
+<br>
+<div class="cartposition">
+	<a href="cart.html">
+   		<img src="./ecbzns023_007.png" />
+	</a>
+</div>
+<s:form action ="Customer_loginAction" >
+	<div align="center">
+		<br>
+		<br><b>【すでにお客様情報登録済みの方はこちら】</b>
+		<br>
+		<br>
+		<table class="Login">
+<tbody>
+<tr>
+<th>id</th>
+<td><INPUT type="text" name="emailadress" placeholder=" 例)yamada@xxx.co.jp"></td>
+</tr>
+<tr>
+<th>password</th>
+<td><INPUT type="password" size="18" name="password" placeholder=" 例)yamada123" ></td>
+</tr>
+</tbody>
+</table>
+	</div>
+</s:form>
+<br>
+<s:submit name="submit" value="Login" align="center"/>
+<br>
+<s:submit name="submit" value="Twitter Login" align="center"/>
+
+<div align="center">
+	<br>
+	<br>
+	<br>
+
+	<b>【登録がまだの方はこちら】</b>
+	<br>
+	<br>
+
+	<input type="button" onclick="location.href='customer_create.html'"value="新規登録">
+	<br>
+	<br>
+	<br>
+	<input type="button" onclick="location.href='main.html'"value="Topへ">
+
+</div>
+<footer>
+<hr class="f_line">
+<div>
+
+		<p class="copy">&copy; 2015 LaPoupee All Rights Reserved.</p>
+
+</div>
+</footer>
+
+</BODY></HTML>

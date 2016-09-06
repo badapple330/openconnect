@@ -1,0 +1,47 @@
+package com.internousdevwork.kuruyama.action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+/**
+ * マイページに遷移させるアクションクラス
+ * @author Yuki Hoshino
+ * @version 1.0
+ * @since 1.0
+ */
+public class GoMypageAction extends ActionSupport implements SessionAware{
+
+    /**
+     * セッション
+     */
+    private Map<String,Object>session;
+
+    /**
+     * @return SUCCESS/ERROR
+     */
+    public String execute(){
+        if(!session.containsKey("id")){
+            return ERROR;
+        }
+        return SUCCESS;
+    }
+
+    /**
+     * セッションを取得するメソッド
+     * @return session セッション
+     */
+    public Map<String, Object> getSession(){
+        return session;
+    }
+
+    /**
+     * セッションを格納するメソッド
+     * @param session セッション
+     */
+    public void setSession(Map<String, Object> session){
+        this.session = session;
+    }
+}

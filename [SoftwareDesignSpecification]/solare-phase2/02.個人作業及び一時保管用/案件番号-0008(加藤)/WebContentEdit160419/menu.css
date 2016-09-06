@@ -1,0 +1,55 @@
+﻿
+body{ margin:0; padding:0;}
+body { background-color: #ffff00; }
+body8{ background-color: #ffff00; }
+}
+background-color:#0000ff; }
+html, body { height: 100%; }
+.stickyFooter{ background:#faff00; height:100; }
+.above-Footer{
+	min-height: 100%;
+	margin-bottom: -108;
+}
+.above-Footer:after {
+	content: "";
+	display: block;
+	height: 100;
+}
+hr.line {
+  height: 13px;
+  background : url(img/boda.png);
+  border: 0px none;
+}
+hr.line02 {
+  height: 65px;
+  background : url(img/kiui2.png);
+  border: 0px none;
+}
+table {
+	border-collapse: collapse;
+
+}
+TABLE{
+margin:  auto; max-width: max-content;
+}
+.table td{
+	border: solid 2px #cccccc;
+	padding: 0.5em;
+}
+body
+    {
+    text-align: center; /* 下記のautoに未対応用のセンタリング */
+    }
+
+
+hr.line {
+	height: 13px;
+	background: url(img/boda.png);
+	border: 0px none;
+}
+
+hr.line02 {
+	height: 65px;
+	background: url(img/kiui2.png);
+	border: 0px none;
+}

@@ -1,0 +1,24 @@
+OAuthアカウント 
+
+[Twitter] 
+https://apps.twitter.com/ 
+Account : internous.dev@gmail.com 
+Password : internous01 
+https://apps.twitter.com 
+ 
+[Google Plus] 
+https://console.developers.google.com/ 
+Account : internous.dev@gmail.com [アカウント追加不可] 
+Account : internous.dev02@gmail.com ［現在はこちら］ 
+Password : internous01 
+https://console.developers.google.com/ 
+ 
+[FaceBook］ 
+Account : internous.dev@gmail.com 
+Password : internous01 
+https://developers.facebook.com/apps/?action=create 
+ 
+[yahoo japan] 
+Account : internous.dev01@gmail.com 
+Password : internous_dev01 
+ 

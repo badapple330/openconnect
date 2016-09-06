@@ -1,0 +1,74 @@
+VirtualBoxとVagrantを使ってローカルにubuntu14.10を構築する方法
+
+検証機やAWS操作の練習、terminalの操作練習、ubuntu操作練習などなどにお使いください。
+一度構築さえしてしまえば北山さんが書いたAWS資料とか、色々とローカルでお遊びが出来ます。
+デュアルブートや序盤に習ったvmwareとかでも良いんですけど、vagrantがオススメです。
+これからは結合試験とかは検証機にあげてやってもらう形になる（？）と思うので多少は知っておいた方がいいかも？
+ググれば簡単に出来るんですけど、取り敢えずサクっと構築出来るようにメモっておきます。
+
+1.まずはVirtualBox（仮想マシン）をDL→インストール
+直リンこれDL＆インストールすれば良い→http://download.virtualbox.org/virtualbox/4.3.26/VirtualBox-4.3.26-98988-Win.exe
+一応公式サイトURL　https://www.virtualbox.org/
+取り敢えず全部そのままok yesでインストールしてオッケー
+
+2.Vagrantをインストール！
+こいつは簡単にサクッと仮想マシン立ち上げられるお助けツール
+これも直リン！DL＆インストール！→https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.msi
+同意してok YESでインストール
+
+3.コマンドプロンプトで構築
+vagrant box add ubuntu14.10 https://cloud-images.ubuntu.com/vagrant/utopic/current/utopic-server-cloudimg-amd64-vagrant-disk1.box
+↑コマンドを実行して仮想マシン用のイメージファイルをDLする！
+cd（カレントディレクトリ今いる場所）はどこでもいいよ！
+
+今いるディレクトリがC:\User\internousだとしたら「mkdir vagrant」（フォルダ作成））→「cd vagrant」（作成したフォルダに移動）と実行！
+
+仮想マシンを初期化して起動します！
+vagrant init ubuntu14.10
+↑これを実行すると仮想マシンの設定ファイルが生成される。
+
+vagrant up
+↑これで仮想マシンが起動！
+
+4.構築した仮想マシンに接続する
+ssh接続をする必要があるんだけど、コマンドプロンプトは標準ではsshに対応していないので「putty」を使います。
+このフォルダにputty-0.64-jp20150301.zipがあるのでどっか適当な場所に展開
+
+puttyjp.exeを実行
+ホスト名 (または IP アドレス)→127.0.0.1
+ポート→2222
+セッション一覧→localdev（名前はなんでもいい）
+
+そして保存ボタン！
+そうすると設定が保存される。
+あとは開くボタンを押せば仮想マシンubuntu様に接続されます！
+
+login as:
+と聞かれるのでvagrantと入力
+passwordもvagrantと入力すればログイン出来る。
+
+これでターミナルを使ってubuntuを操作する事が出来ます。
+
+5.終了するときの操作
+puttyの方で「sudo poweroff」と入力すればシャットダウンされます。
+
+ちなみにコマンドプロントで
+vagrant halt
+これで電源切る動作に対応
+
+vagrant suspend
+これで休止状態に対応
+
+↑でも平気ですが、安全なのは仮想マシン上で終了操作を行うこと。
+
+6.仮想マシンを立ち上げるには
+コマンドプロンプトを立ち上げて、cd vagrantでディレクトリ移動、「vagrant up」これでオッケー
+
+ちなみに構築した仮想環境を破壊したい場合は「vagrant destroy」で破壊出来ます
+
+
+この２つのツールそれぞれに興味を持った人はこちら
+Vagrantって流行ってるらしいけど何が便利なの？
+http://dev.classmethod.jp/server-side/virtual-box-vagrant/
+Windows 7マシンで、VirtualBox+Vagrantを使いUbuntu 14.04を動かす
+http://blog.kondoyoshiyuki.com/2014/06/12/windows7-vagrant-ubuntu14-04/

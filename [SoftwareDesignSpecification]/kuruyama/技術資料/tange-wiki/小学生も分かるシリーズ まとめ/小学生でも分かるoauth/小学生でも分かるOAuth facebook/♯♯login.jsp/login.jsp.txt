@@ -1,0 +1,3 @@
+<s:url var="facebook" action="login-facebook" />
+<s:a href="%{facebook}">
+<img src="img/facebook-j.png">

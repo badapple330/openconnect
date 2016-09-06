@@ -1,0 +1,14 @@
+javaからcommentListを渡す。下記をアクションに貼る(Mongoの一覧の機能を例としている)
+private ArrayList<GoAdminInquiryDTO> commentList;
+
+jspに下記。(<td>タグ内のvalueの値はGoAdminInquiryDTOのフィールド名)
+<table>
+	<s:iterator value="commentList">
+		<tr>
+			<td><s:property value="formId"></s:property></td>
+			<td><s:property value="formName"></s:property></td>
+			<td><s:property value="formAddress"></s:property></td>
+			<td><s:property value="formContents"></s:property></td>
+		</tr>
+	</s:iterator>
+</table>

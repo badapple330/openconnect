@@ -1,0 +1,20 @@
+氏名　                  session.userName
+ふりがな　              session.furigana
+メールアドレス          session.emailAddress
+パスワード              session.password
+電話番号                session.tellNumber
+郵便番号                session.postCode
+住所                    session.userAddress
+クレジットカード番号    session.creditNumber
+有効期限                session.creditYear
+                       session.creditMonth
+セキュリティーコード    session.securityCode
+カード会社              session.creditCompany
+カード名義              session.creditName
+チケット購入履歴        session.ticketList
+チケット名              session.ticketName
+チケット価格            session.ticketPrice
+チケット枚数            session.ticketNumSheet
+開催日                  session.ticketDate
+開催時間                session.ticketTime
+

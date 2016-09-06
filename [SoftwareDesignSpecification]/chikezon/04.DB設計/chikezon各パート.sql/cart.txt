@@ -1,0 +1,9 @@
+
+CREATE TABLE cart(
+session_ID VARCHAR(255) NOT NULL,
+goods_name VARCHAR(255) NOT NULL,
+sales_number INT(100) NOT NULL,
+price INT NULL,
+total_amount INT NOT NULL
+);
+

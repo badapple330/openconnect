@@ -1,0 +1,38 @@
+@charset "utf-8";
+.admin_login_header {
+	background-color: rgba(0,0,0,1.00);
+	color: rgba(255,255,255,1.00);
+	text-align: center;
+	font-size: xx-large;
+}
+.admin_login_squ {
+	width: 100px;
+}
+div .col-sm-8.col-sm-offset-2.input-group #addon1 {
+}
+.admin_header_admin {
+}
+.img-responsive-overwrite{
+    margin: 0 auto;
+}
+.text-marjin{margin: 0 auto;}
+.item-table-write{width:300px; margin: 0 auto;}
+.pre-overwrite{width:50% margin: 0 auto;}
+#map-canvas {
+    margin:5px 5px;
+    height: 20%; width:20%;
+}
+.mod-canvas {
+	position: relative;
+	overflow: hidden;
+	width:400px;
+	height: 390px;
+	margin:0 auto;
+}
+#map_canvas{
+	width: 400px;
+	height: 390px;
+}
+.pre-maxsize{max-width:300px;
+    margin:0 auto;
+    }

@@ -1,0 +1,888 @@
+@import url(http://fonts.googleapis.com/css?family=Pinyon+Script);
+@import url(http://fonts.googleapis.com/css?family=Courgette);
+
+#menu_countainer{
+ text-align:center
+}
+
+.menu  {
+ float:left;
+}
+
+h1    {text-align:center;}
+       
+h2   {font-family:Courgette;
+      font-size:3em}
+      
+      @import url(http://fonts.googleapis.com/css?family=Droid+Sans:bold+Lobster);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+/* -------------- THE button -------------- */
+.button {
+
+/* text */
+text-decoration: none;
+font: 24px/1em 'Droid Sans', sans-serif;
+font-weight: bold;
+text-shadow: rgba(255,255,255,.5) 0 1px 0;
+-webkit-user-select: none;
+-moz-user-select: none;
+user-select: none;
+
+
+/* layout */
+padding: .5em .6em .4em .6em;
+margin: .5em;
+display: inline-block;
+position: relative;
+
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+
+/* effects */
+border-top: 1px solid rgba(255,255,255,0.8);
+border-bottom: 1px solid rgba(0,0,0,0.1);
+
+background-image: -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+background-image: -moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+background-image: gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+
+-webkit-transition: background .2s ease-in-out;
+-moz-transition: background .2s ease-in-out;
+transition: background .2s ease-in-out;
+
+/* color */
+color: hsl(0, 0%, 40%) !important;
+background-color: hsl(0, 0%, 75%);
+
+-webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+-moz-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+box-shadow:	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
+/* -------------- button (tag) -------------- */
+
+button.button {
+border-left: none;
+border-right: none;
+}
+button.button:hover {
+cursor: pointer;
+}
+
+
+/* -------------- icon -------------- */
+.button:before {
+font: 1.2em/0 'Pictos', sans-serif;
+content: attr(data-icon); /* gets the icon value from the custom data attribute and puts it infront of the button label */
+margin-right: 0.4em;
+
+
+}
+/* icon only */
+.icon {
+font-weight: normal;
+font-style: normal;
+text-indent: -999em;
+}
+.icon:before {
+margin-right: 0;
+display: block;
+height: 0;
+text-indent: 0px;
+}
+
+/* -------------- colours -------------- */
+
+.button.pink {
+color: hsl(340, 100%, 30%) !important;
+background-color: hsl(340, 100%, 75%);
+-webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+-moz-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+hsl(340, 70%, 50%) 0 .1em 3px, hsl(340, 80%, 40%) 0 .3em 1px, /* color border */
+rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.pink:hover { background-color: hsl(340, 100%, 83%); }
+
+/* -------------- States -------------- */
+
+.button:hover {
+background-color: hsl(0, 0%, 83%);
+}
+
+.button:active {
+background-image: -webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+background-image: -moz-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+background-image: gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+
+-webkit-box-shadow: inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */
+rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+-moz-box-shadow: inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */
+rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+box-shadow: inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */
+rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+-webkit-transform: translateY(.2em);
+-moz-transform: translateY(.2em);
+transform: translateY(.2em);
+}
+
+.button:focus {
+outline: none;
+color: rgba(254,255,255,0.9) !important;
+text-shadow: rgba(0,0,0,0.2) 0 1px 2px;
+}
+
+/* -------------- Fonts -------------- */
+
+.serif {
+font-family: 'Lobster', serif;
+font-weight: normal;
+}
+
+
+/* -------------- Sizes -------------- */
+
+.xs { font-size: 16px; }
+.xl { font-size: 32px; }
+
+
+/* -------------- Materials -------------- */
+
+.button.glossy:after, .button.glass:after {
+content: "";
+position: absolute;
+    width: 90%;
+    height: 60%;
+    top: 0;
+    left: 5%;
+
+    -webkit-border-radius: .5em .5em 1em 1em / .5em .5em 2em 2em;
+    -moz-border-radius: .5em .5em 1em 1em / .5em .5em 2em 2em;
+    border-radius: .5em .5em 1em 1em / .5em .5em 2em 2em;
+
+    background-image: -webkit-gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+    color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) );
+    background-image: -moz-linear-gradient(left, rgba(255,255,255,.55), rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,.5) );
+    background-image: gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+    color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) );
+}
+.button.glass:active:after,
+ { opacity: .6; }
+.button.icon.glass:after { height: 75% ; }
+
+/* -------------- Glass + Transparent -------------- */
+.button.glass {
+text-shadow: rgba(255,255,255,.5) 0 -1px 0, rgba(0,0,0,0.18) 0 .18em .15em;
+}
+.button.glass:active {
+text-shadow: rgba(255,255,255,.3) 0 1px 0, rgba(0,0,0,0.15) 0 .18em .15em;
+}
+
+
+/* -------------- Shapes -------------- */
+
+/* round */
+.round, .round.glossy:after, .round.glass:after {
+border-top: none;
+-webkit-border-radius: 1em;
+-moz-border-radius: 1em;
+border-radius: 1em;
+}
+
+/* oval */
+.oval {
+border-top: none;
+padding-left: .8em;
+padding-right: .8em;
+-webkit-border-radius: 5em / 2em;
+-moz-border-radius: 5em / 2em;
+border-radius: 5em / 2em;
+}
+.oval.glossy:after, .oval.glass:after {
+top: 5%;
+-webkit-border-radius: 5em / 2em 2em 1em 1em;
+-moz-border-radius: 5em / 2em 2em 1em 1em;
+border-radius: 5em / 2em 2em 1em 1em;
+}
+.oval.icon {
+padding-left: .8em;
+padding-right: .8em;
+-webkit-border-radius: 1.5em / 1em;
+-moz-border-radius: 1.5em / 1em;
+border-radius: 1.5em / 1em;
+}
+.oval.icon.glossy:after, .oval.icon.glass:after {
+-webkit-border-radius: 1.5em / 1em;
+-moz-border-radius: 1.5em / 1em;
+border-radius: 1.5em / 1em;
+}
+
+/* brackets */
+.brackets, .brackets.glossy:after, .brackets.glass:after {
+border-top: none;
+-webkit-border-radius: .5em / 1em;
+-moz-border-radius: .5em / 1em;
+border-radius: .5em / 1em;
+}
+
+/* back */
+.back, .back.glossy:after, .back.glass:after {
+border-top-color: rgba(255,255,255,0.5);
+-webkit-border-radius: 1.6em 1.6em 1em 1em / 4em 4em 1em 1em;
+-moz-border-radius: 1.6em 1.6em 1em 1em / 4em 4em 1em 1em;
+border-radius: 1.6em 1.6em 1em 1em / 4em 4em 1em 1em;
+}
+.back.glossy:after, .back.glass:after {
+left: 6%;
+width:	88%;
+}
+
+
+/*-----------------------------information button----------------------------------*/
+
+.cube{
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  margin-top: -25px;
+  width: 120px;
+  height: 50px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-user-select: none;
+  perspective: 500px;
+}
+
+ 
+.cube div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: #000000 solid 1px;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+ 
+.cube div:nth-child(1) {
+    color: #000000;
+    background-color: #000000;
+    transform: rotateX(90deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube div:nth-child(2) {
+    color: #000000;
+    background-color: #ffffff;
+    transform: rotateX(0deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube:hover div:nth-child(1) {
+    color: #ffffff;
+    transition: all 0.2s ease;
+    transform: rotateX(0deg);
+}
+ 
+.cube:hover div:nth-child(2) {
+    background-color: #000000;
+    transition: all 0.2s ease;
+    transform: rotateX(-90deg);
+}
+
+
+
+/*-----------------------------menu button----------------------------------*/
+
+.cube1{
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  margin-top: -25px;
+  width: 120px;
+  height: 50px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-user-select: none;
+  perspective: 500px;
+}
+
+ 
+.cube1 div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: #000000 solid 1px;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+ 
+.cube1 div:nth-child(1) {
+    color: #000000;
+    background-color: #000000;
+    transform: rotateX(90deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube1 div:nth-child(2) {
+    color: #000000;
+    background-color: #ffffff;
+    transform: rotateX(0deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube1:hover div:nth-child(1) {
+    color: #ffffff;
+    transition: all 0.2s ease;
+    transform: rotateX(0deg);
+}
+ 
+.cube1:hover div:nth-child(2) {
+    background-color: #000000;
+    transition: all 0.2s ease;
+    transform: rotateX(-90deg);
+}
+
+
+
+/*-----------------------------course button----------------------------------*/
+
+.cube2{
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  margin-top: -25px;
+  width: 120px;
+  height: 50px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-user-select: none;
+  perspective: 500px;
+}
+
+ 
+.cube2 div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: #000000 solid 1px;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+ 
+.cube2 div:nth-child(1) {
+    color: #000000;
+    background-color: #000000;
+    transform: rotateX(90deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube2 div:nth-child(2) {
+    color: #000000;
+    background-color: #ffffff;
+    transform: rotateX(0deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube2:hover div:nth-child(1) {
+    color: #ffffff;
+    transition: all 0.2s ease;
+    transform: rotateX(0deg);
+}
+ 
+.cube2:hover div:nth-child(2) {
+    background-color: #000000;
+    transition: all 0.2s ease;
+    transform: rotateX(-90deg);
+}
+
+/*-----------------------------reservation button----------------------------------*/
+
+.cube3{
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  margin-top: -25px;
+  width: 120px;
+  height: 50px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-user-select: none;
+  perspective: 500px;
+}
+
+ 
+.cube3 div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: #000000 solid 1px;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+ 
+.cube3 div:nth-child(1) {
+    color: #000000;
+    background-color: #000000;
+    transform: rotateX(90deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube3 div:nth-child(2) {
+    color: #000000;
+    background-color: #ffffff;
+    transform: rotateX(0deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube3:hover div:nth-child(1) {
+    color: #ffffff;
+    transition: all 0.2s ease;
+    transform: rotateX(0deg);
+}
+ 
+.cube3:hover div:nth-child(2) {
+    background-color: #000000;
+    transition: all 0.2s ease;
+    transform: rotateX(-90deg);
+}
+
+/*-----------------------------Aboutus button----------------------------------*/
+
+.cube4{
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  margin-top: -25px;
+  width: 120px;
+  height: 50px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-user-select: none;
+  perspective: 500px;
+}
+
+ 
+.cube4 div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: #000000 solid 1px;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+ 
+.cube4 div:nth-child(1) {
+    color: #000000;
+    background-color: #000000;
+    transform: rotateX(90deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube4 div:nth-child(2) {
+    color: #000000;
+    background-color: #ffffff;
+    transform: rotateX(0deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube4:hover div:nth-child(1) {
+    color: #ffffff;
+    transition: all 0.2s ease;
+    transform: rotateX(0deg);
+}
+ 
+.cube4:hover div:nth-child(2) {
+    background-color: #000000;
+    transition: all 0.2s ease;
+    transform: rotateX(-90deg);
+}
+
+
+/*-----------------------------Shop Info button----------------------------------*/
+
+.cube5{
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  margin-top: -25px;
+  width: 120px;
+  height: 50px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-user-select: none;
+  perspective: 500px;
+  cursor: pointer;
+}
+
+ 
+.cube5 div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: #000000 solid 1px;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+ 
+.cube5 div:nth-child(1) {
+    color: #000000;
+    background-color: #000000;
+    transform: rotateX(90deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube5 div:nth-child(2) {
+    color: #000000;
+    background-color: #ffffff;
+    transform: rotateX(0deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube5:hover div:nth-child(1) {
+    color: #ffffff;
+    transition: all 0.2s ease;
+    transform: rotateX(0deg);
+}
+ 
+.cube5:hover div:nth-child(2) {
+    background-color: #000000;
+    transition: all 0.2s ease;
+    transform: rotateX(-90deg);
+}
+
+
+/*-----------------------------Mypage button----------------------------------*/
+
+.cube6{
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  margin-top: -25px;
+  width: 120px;
+  height: 50px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-user-select: none;
+  perspective: 500px;
+}
+
+ 
+.cube6 div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: #000000 solid 1px;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+ 
+.cube6 div:nth-child(1) {
+    color: #000000;
+    background-color: #000000;
+    transform: rotateX(90deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube6 div:nth-child(2) {
+    color: #000000;
+    background-color: #ffffff;
+    transform: rotateX(0deg);
+    transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+}
+ 
+.cube6:hover div:nth-child(1) {
+    color: #ffffff;
+    transition: all 0.2s ease;
+    transform: rotateX(0deg);
+}
+ 
+.cube6:hover div:nth-child(2) {
+    background-color: #000000;
+    transition: all 0.2s ease;
+    transform: rotateX(-90deg);
+}
+
+/*--------------------------------------infomation-----------------------------------------------*/
+#container{padding-top: 10px;}
+.flex-caption{min-width: 400px; 
+    width: 100%;
+    padding:20px 0;
+    color: #ccc;
+    text-align: center;
+}
+
+.flexslider{
+margin: 0 auto;
+max-width: 640px;
+}
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {max-width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+/* FlexSlider Default Theme
+*********************************/
+.flexslider {background: #fff; border: 4px solid #fff; position: relative; -webkit-border-radius: 5px; -moz-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; zoom: 1;}
+.flexslider .slides {zoom: 1;}
+.flexslider .slides > li {position: relative;}
+/* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
+.flex-container {zoom: 1; position: relative;}
+/* Caption style */
+/* IE rgba() hack */
+.flex-caption {background:none; -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); zoom: 1;}
+.flex-caption {width: 96%; padding: 2%; position: absolute; left: 0; bottom: 0; background: rgba(0,0,0,.3); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.3); font-size: 14px; line-height: 16px;}
+/* 横の次へ前へのナビゲーション */
+.flex-direction-nav li a {width: 45px; height: 45px;  display: block;position: absolute; top: 50%; cursor: pointer; text-indent: -9999px;}
+.flex-direction-nav li .next {background-position: -52px 0; right: -5px; background: url(right.png) no-repeat 0 0; }
+.flex-direction-nav li .prev {left: 5px; background: url(left.png) no-repeat 0 0; }
+.flex-direction-nav li .disabled {opacity: .3; filter:alpha(opacity=30); cursor: default;}
+/* 下のナビゲーション */
+
+.flex-control-nav {width: 100%; position: absolute; bottom: -30px; text-align: center;}
+.flex-control-nav li {margin: 0 0 0 5px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-nav li:first-child {margin: 0;}
+.flex-control-nav li a {width: 13px; height: 13px; display: block; background: url(right.png) no-repeat 0 0; cursor: pointer; text-indent: -9999px;}
+.flex-control-nav li a:hover {background-position: 0 -13px;}
+.flex-control-nav li a.active {background-position: 0 -26px; cursor: default;}
+
+
+/*-----------------------------menu1----------------------------------*/
+
+.images_area {
+  margin: 0 auto;
+  overflow:hidden;
+  width: 1040px;
+}
+
+.thumb {
+  float: left;
+  list-style-type: none;
+  margin: 0;
+  overflow:hidden ;
+  width: 500px;
+}
+
+.thumb li {
+  cursor: pointer;
+  float: left;
+  padding: 0;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.thumb li:hover {
+  opacity:0.8}
+  
+.thumb img {
+  height:145px;
+  padding:0;
+  vertical-align:bottom;
+  width:145px;
+}
+
+.top {
+  float: left;
+  height: 295px;
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  width:495px;
+}
+
+.top img {
+  height: 295px;
+  width: 495px;
+}
+
+.top img:nth-child(2),
+.top img:nth-child(3),
+.top img:nth-child(4),
+.top img:nth-child(5),
+.top img:nth-child(6){
+  display:none;
+}
+
+
+
+
+/*-----------------------------menu2----------------------------------*/
+
+.images_area2 {
+  
+  overflow:hidden;
+  width: 1040px;
+  margin-bottom:1000px
+}
+
+.thumb2 {
+  float: left;
+  list-style-type: none;
+  margin: 0;
+  overflow:hidden ;
+  width: 500px;
+}
+
+.thumb2 li {
+  cursor: pointer;
+  float: left;
+  padding: 0;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.thumb2 li:hover {
+  opacity:0.8}
+  
+.thumb2 img {
+  height:145px;
+  padding:0;
+  vertical-align:bottom;
+  width:145px;
+}
+
+.top2 {
+  float: left;
+  height: 295px;
+  list-style-type: none;
+  margin:0;
+  margin-left:140px;
+  padding:0;
+  width: 495px;
+  text-align:right
+}
+
+.top2 img {
+  height: 295px;
+  width: 495px;
+}
+
+.top2 img:nth-child(2),
+.top2 img:nth-child(3),
+.top2 img:nth-child(4),
+.top2 img:nth-child(5),
+.top2 img:nth-child(6) {
+  display:none;
+}
+
+<!-- ここまで------------------------------------------------->
+
+.images_area3 {
+  margin: 0 auto;
+  overflow:hidden;
+  width: 1040px;
+}
+
+.thumb3 {
+  float: left;
+  list-style-type: none;
+  margin: 0;
+  overflow:hidden ;
+  width: 500px;
+}
+
+.thumb3 li {
+  cursor: pointer;
+  float: left;
+  padding: 0;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.thumb3 li:hover {
+  opacity:0.8}
+  
+.thumb3 img {
+  height:145px;
+  padding:0;
+  vertical-align:bottom;
+  width:145px;
+}
+
+.top3 {
+  float: left;
+  height: 295px;
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  width:495px;
+}
+
+.top3 img {
+  height: 295px;
+  width: 495px;
+}
+
+.top3 img:nth-child(2),
+.top3 img:nth-child(3),
+.top3 img:nth-child(4),
+.top3 img:nth-child(5),
+.top3 img:nth-child(6) {
+  display:none;
+}
+

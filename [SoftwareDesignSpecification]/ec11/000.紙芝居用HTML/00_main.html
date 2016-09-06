@@ -1,0 +1,462 @@
+<<<<<<< HEAD
+<html>
+
+<head>
+
+<title>main</title>
+
+<meta http-equiv="content-style-type" content="text/css">
+
+<style type="text/css">
+
+input { 
+     height: 22px; 
+     line-height: 22px; 
+}
+
+form {
+  position: relative;
+}
+input[type="search"] {
+  width: 150px;
+  padding: 2.5px;
+  font-size: 14px;
+  border: 1px solid #cc9900;
+  border-right: 0; /* 右ボーダーなし */
+  box-sizing: border-box;
+  position: absolute;
+  top: 2;
+  left: 850;
+  border-radius: 5px 0 0 5px; /* 左上と左下に半径5pxの角丸 */
+  box-shadow: 0 0 5px #cc9966 inset; /* ボックスの内側にシャドウ */
+}
+
+input[type="search"]:focus {
+  background-color: #ffffe0;
+}
+
+input[type="submit"]{
+  font-size: 14px;
+  padding: 10px 20px;
+  border: 1px solid #cc9900;
+  position: absolute;
+  top: 2;
+  left: 980px;
+
+  
+  font-weight: bold;
+  letter-spacing: 10px; /* 文字間隔（10px追加） */
+  padding: 2px 5px 2.5px 20px; /* 右パディングをletter-spacing分差し引く */
+  background: linear-gradient(#ffcc99, #ff9900); /* グラデーション */
+  color: #ffffff;
+  border-radius: 0 5px 5px 0; /* 右上と右下に半径5pxの角丸 */
+  box-shadow: 1px 1px 1px 0 #ffffcc inset, -1px -1px 3px 0 #ff9900 inset; /* ボックスの内側にハイライトとシャドウ */
+  cursor: pointer; /* リンクカーソル */
+  text-shadow: 0 -1px 0 #cc9900; /* テキストの上方向に1pxの影を付ける */
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(#ff9900, #ffcc99); /* グラデーション */
+  box-shadow: -1px -1px 1px 0 #ffffcc inset, 1px 1px 3px 0 #ff9900 inset; /* ボックスの内側にハイライトとシャドウ */
+}
+input {
+  outline: none; /* アウトラインをリセット */
+
+}
+
+input::-moz-focus-inner { /* Firefoxのボーダーとパディングをリセット */
+  border: 0;
+  padding: 0;
+}
+
+
+.button {
+	position: relative;
+	background-color: #FF9B14;
+	border-radius: 2px;
+	color: #ffffff;
+	line-height: 52px;
+	padding: 20px 50px;
+	-webkit-transition: none;
+	transition: none;
+	box-shadow: 0 3px 0 #f7ba59;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+}
+.button:hover {
+	top: -4px;
+	box-shadow: 0 7px 0 #f7ba59;
+}
+.button:active {
+	top: 3px;
+	box-shadow: none;
+}
+
+.soutai {
+  position: relative;
+  top: 5px;
+  left: 950px;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<hr size="10" color="#000000" noshade>
+<h2><font color="#0000ff">O</font>nline <font color="#0000ff">S</font>hopping <font color="#0000ff">F</font>igure <font color="#0000ff">S</font>ite</h2>
+
+<hr size="3" color="#000000" noshade>
+商品一覧
+
+<!--テーブル1-->
+<table style="border: 0px solid #CCC;border-collapse: collapse;width: 100%;">
+  <tr>
+    <td style="height: 3em;border: 0px solid #CCC;background-color: #ffffff;font-weight: bold;padding: 5px;">&nbsp;</td>
+    <td style="height: 3em;border: 0px solid #CCC;background-color: #ffffff;font-weight: bold;padding: 5px;">&nbsp;</td>
+    <td style="height: 3em;border: 0px solid #CCC;background-color: #ffffff;font-weight: bold;padding: 5px;">
+    <form>
+    	<input type="search" class="text">
+    		<input type="submit" value="検索">
+    		</form>
+    </td>
+    <td style="height: 3em;border: 0px solid #CCC;background-color: #ffffff;font-weight: bold;padding: 5px;">
+    	<a href="01_cart.html">
+    	    <img class="soutai" src="./ecbzns023_007.png">
+    	    	</a>
+    	</td>
+  </tr>
+  
+<!--テーブル2-->
+<table style="border: 1px solid #CCC;border-collapse: collapse;width: 100%;">
+  <tr>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">商品名</td>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">値段</td>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">数量</td>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">在庫数</td>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">カート</td>
+  </tr>
+  
+<!--商品1-->
+  <tr>
+<td style="padding:10px;background-color: #FFFFFF;font-weight: normal; border: 1px solid #CCC;border-collapse: collapse;">
+    		<font color="#0000ff">素サボ</font>
+    													</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">\7,000</font>
+    			</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">&nbsp;<input type="count" class="text"></font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    	<font color="#000000">10</font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<a class="button" href="01_cart.html">カートに入れる</a>
+    </td>
+  </tr>
+  
+<!--商品2-->
+  <tr>
+<td style="padding:10px;background-color: #FFFFFF;font-weight: normal; border: 1px solid #CCC;border-collapse: collapse;">
+    		<font color="#0000ff">サボ</font>
+    													</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">\7,000</font>
+    			</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">&nbsp;<input type="count" class="text"></font>
+    		   	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+<font color="#000000">10</font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<a class="button" href="01_cart.html">カートに入れる</a>
+    </td>
+  </tr>
+  
+<!--商品3-->
+    <tr>
+<td style="padding:10px;background-color: #FFFFFF;font-weight: normal; border: 1px solid #CCC;border-collapse: collapse;">
+    		<font color="#0000ff">ルフィ</font>
+    													</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">\7,000</font>
+    			</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">&nbsp;<input type="count" class="text"></font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">10</font></font>
+    	</td>
+    	
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<a class="button" href="01_cart.html">カートに入れる</a>
+    </td>
+  </tr>
+  
+<!--商品4-->
+      <tr>
+<td style="padding:10px;background-color: #FFFFFF;font-weight: normal; border: 1px solid #CCC;border-collapse: collapse;">
+    		<font color="#0000ff">コアラ</font>
+    													</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">\7,000</font>
+    			</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">&nbsp;<input type="count" class="text"></font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">10</font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<a class="button" href="01_cart.html">カートに入れる</a>
+    </td>
+  </tr>
+</table>
+
+<hr size="10" color="#000000" noshade>
+<div>
+<ul>
+<li>Copyright 2015 INTERNOUS EC_11 All Rights Reserved / </li>
+</ul>
+</div>
+
+</body>
+
+=======
+<html>
+
+<head>
+
+<title>main</title>
+
+<meta http-equiv="content-style-type" content="text/css">
+
+<style type="text/css">
+
+input { 
+     height: 22px; 
+     line-height: 22px; 
+}
+
+form {
+  position: relative;
+}
+input[type="search"] {
+  width: 150px;
+  padding: 2.5px;
+  font-size: 14px;
+  border: 1px solid #cc9900;
+  border-right: 0; /* 右ボーダーなし */
+  box-sizing: border-box;
+  position: absolute;
+  top: 2;
+  left: 850;
+  border-radius: 5px 0 0 5px; /* 左上と左下に半径5pxの角丸 */
+  box-shadow: 0 0 5px #cc9966 inset; /* ボックスの内側にシャドウ */
+}
+
+input[type="search"]:focus {
+  background-color: #ffffe0;
+}
+
+input[type="submit"]{
+  font-size: 14px;
+  padding: 10px 20px;
+  border: 1px solid #cc9900;
+  position: absolute;
+  top: 2;
+  left: 980px;
+
+  
+  font-weight: bold;
+  letter-spacing: 10px; /* 文字間隔（10px追加） */
+  padding: 2px 5px 2.5px 20px; /* 右パディングをletter-spacing分差し引く */
+  background: linear-gradient(#ffcc99, #ff9900); /* グラデーション */
+  color: #ffffff;
+  border-radius: 0 5px 5px 0; /* 右上と右下に半径5pxの角丸 */
+  box-shadow: 1px 1px 1px 0 #ffffcc inset, -1px -1px 3px 0 #ff9900 inset; /* ボックスの内側にハイライトとシャドウ */
+  cursor: pointer; /* リンクカーソル */
+  text-shadow: 0 -1px 0 #cc9900; /* テキストの上方向に1pxの影を付ける */
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(#ff9900, #ffcc99); /* グラデーション */
+  box-shadow: -1px -1px 1px 0 #ffffcc inset, 1px 1px 3px 0 #ff9900 inset; /* ボックスの内側にハイライトとシャドウ */
+}
+input {
+  outline: none; /* アウトラインをリセット */
+
+}
+
+input::-moz-focus-inner { /* Firefoxのボーダーとパディングをリセット */
+  border: 0;
+  padding: 0;
+}
+
+
+.button {
+	position: relative;
+	background-color: #FF9B14;
+	border-radius: 2px;
+	color: #ffffff;
+	line-height: 52px;
+	padding: 20px 50px;
+	-webkit-transition: none;
+	transition: none;
+	box-shadow: 0 3px 0 #f7ba59;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+}
+.button:hover {
+	top: -4px;
+	box-shadow: 0 7px 0 #f7ba59;
+}
+.button:active {
+	top: 3px;
+	box-shadow: none;
+}
+
+.soutai {
+  position: relative;
+  top: 5px;
+  left: 950px;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<hr size="10" color="#000000" noshade>
+<h2><font color="#0000ff">O</font>nline <font color="#0000ff">S</font>hopping <font color="#0000ff">F</font>igure <font color="#0000ff">S</font>ite</h2>
+
+<hr size="3" color="#000000" noshade>
+商品一覧
+
+<!--テーブル1-->
+<table style="border: 0px solid #CCC;border-collapse: collapse;width: 100%;">
+  <tr>
+    <td style="height: 3em;border: 0px solid #CCC;background-color: #ffffff;font-weight: bold;padding: 5px;">&nbsp;</td>
+    <td style="height: 3em;border: 0px solid #CCC;background-color: #ffffff;font-weight: bold;padding: 5px;">&nbsp;</td>
+    <td style="height: 3em;border: 0px solid #CCC;background-color: #ffffff;font-weight: bold;padding: 5px;">
+    <form>
+    	<input type="search" class="text">
+    		<input type="submit" value="検索">
+    		</form>
+    </td>
+    <td style="height: 3em;border: 0px solid #CCC;background-color: #ffffff;font-weight: bold;padding: 5px;">
+    	<a href="01_cart.html">
+    	    <img class="soutai" src="./ecbzns023_007.png">
+    	    	</a>
+    	</td>
+  </tr>
+  
+<!--テーブル2-->
+<table style="border: 1px solid #CCC;border-collapse: collapse;width: 100%;">
+  <tr>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">商品名</td>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">値段</td>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">数量</td>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">在庫数</td>
+    <td style="height: 3em;border: 1px solid #CCC;background-color: #FFCC99;font-weight: bold;padding: 5px;">カート</td>
+  </tr>
+  
+<!--商品1-->
+  <tr>
+<td style="padding:10px;background-color: #FFFFFF;font-weight: normal; border: 1px solid #CCC;border-collapse: collapse;">
+    		<font color="#0000ff">素サボ</font>
+    													</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">\7,000</font>
+    			</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">&nbsp;<input type="count" class="text"></font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    	<font color="#000000">10</font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<a class="button" href="01_cart.html">カートに入れる</a>
+    </td>
+  </tr>
+  
+<!--商品2-->
+  <tr>
+<td style="padding:10px;background-color: #FFFFFF;font-weight: normal; border: 1px solid #CCC;border-collapse: collapse;">
+    		<font color="#0000ff">サボ</font>
+    													</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">\7,000</font>
+    			</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">&nbsp;<input type="count" class="text"></font>
+    		   	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+<font color="#000000">10</font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<a class="button" href="01_cart.html">カートに入れる</a>
+    </td>
+  </tr>
+  
+<!--商品3-->
+    <tr>
+<td style="padding:10px;background-color: #FFFFFF;font-weight: normal; border: 1px solid #CCC;border-collapse: collapse;">
+    		<font color="#0000ff">ルフィ</font>
+    													</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">\7,000</font>
+    			</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">&nbsp;<input type="count" class="text"></font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">10</font></font>
+    	</td>
+    	
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<a class="button" href="01_cart.html">カートに入れる</a>
+    </td>
+  </tr>
+  
+<!--商品4-->
+      <tr>
+<td style="padding:10px;background-color: #FFFFFF;font-weight: normal; border: 1px solid #CCC;border-collapse: collapse;">
+    		<font color="#0000ff">コアラ</font>
+    													</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">\7,000</font>
+    			</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">&nbsp;<input type="count" class="text"></font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<font color="#000000">10</font>
+    	</td>
+    <td style="padding:10px;border: 1px solid #CCC;">
+    		<a class="button" href="01_cart.html">カートに入れる</a>
+    </td>
+  </tr>
+</table>
+
+<hr size="10" color="#000000" noshade>
+<div>
+<ul>
+<li>Copyright 2015 INTERNOUS EC_11 All Rights Reserved / </li>
+</ul>
+</div>
+
+</body>
+
+>>>>>>> 46694511a04b7cbc9649ab8935538f50658b9e37
+</html>

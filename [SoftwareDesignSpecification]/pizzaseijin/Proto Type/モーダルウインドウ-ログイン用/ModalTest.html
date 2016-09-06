@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>モーダルtest</title>
+<style>
+#test-window {
+	padding: 10px;
+	background-color: #fff;
+	border: gray 1px solid;
+	display: none;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="js/jquery.plainmodal.min.js"></script>
+	<div id="modal-content">
+		<p>モーダルテスト</p>
+		<p>
+			<a id="modal-close">閉じる</a>
+		</p>
+	</div>
+
+	<div id="test-window">
+		<table>
+			<tr>
+				<th>ログイン画面</th>
+				<td align="right">
+					<a href="#"><img src="./img/google.png"/></a>
+					<a href="#"><img src="./img/twitter.png"/></a>
+					<a href="#"><img src="./img/facebook.png"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>メールアドレス:</td>
+				<td><input type="text" placeholder="メールアドレスを入力"></td>
+			</tr>
+			<tr>
+				<td>パスワード:</td>
+				<td><input type="text" placeholder="パスワードを入力"></td>
+			</tr>
+			<tr>
+				<td></td><td><input type="button" value="ログイン"/></td>
+			</tr>
+		</table>
+	</div>
+	
+	<input type="button" id="modal-open" value="モーダル" />
+	<script>
+		$('#modal-open').click(function() {
+			$('#test-window').plainModal('open', {
+				overlay : {
+					color : '#fff',
+					opacity : 0.5
+				}
+			});
+		});
+	</script>
+</body>
+</html>

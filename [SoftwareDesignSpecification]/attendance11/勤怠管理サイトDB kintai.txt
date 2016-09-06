@@ -1,0 +1,20 @@
+勤怠管理サイト
+
+database名 kintai
+
+Table名
+・login
+	・id      : int(11),primary key, auto_increment , not null
+	・username: varchar(255),not null,unique
+	・password: varchar(255),not null
+
+
+
+
+・kintaikanri
+	・日付: date
+	・出勤: time
+	・退勤: time
+	・id  : int(11), foreign key
+
+

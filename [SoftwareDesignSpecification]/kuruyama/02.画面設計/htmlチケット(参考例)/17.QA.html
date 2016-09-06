@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>QA</title>
+    <link rel="stylesheet" type="text/css" href="./../css/botan.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="./../css/17.QA.css">
+</head>
+<body>
+
+<div id=form>
+
+  <div class="main-form">
+    <p>以下のフォームを読み、解決しない場合はお問い合わせフォームをご入力ください。</p>
+
+      <table class="main-formin">
+        <tr>
+          <th>
+            <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
+               <a style="cursor:pointer;">▼ ログインするにはどうすればいいですか？</a>
+             </div>
+           </th>
+         </tr>
+       <tr>
+         <td>
+           <div id="open" style="display:none;clear:both;">登録メールアドレスとパスワードを入力するまたは、twitter、Facebook、Google+の認証でログインすることができます。</div>
+         </td>
+      </tr>
+      <tr>
+        <th>
+          <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;">▼ 料金支払い方法はなんですか？</a>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <div id="open1" style="display:none;clear:both;">本サイトは現在クレジットカード支払いのみ対応となっております</div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <div onclick="obj=document.getElementById('open2').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;">▼ パスワードを忘れた場合どうすればよいですか？</a>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <div id="open2" style="display:none;clear:both;">本サイトの登録に使用したメールアドレスをお問い合わせフォームにてお送りください。</div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <div onclick="obj=document.getElementById('open3').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;">▼ キャンセルしたいのですができますか？</a>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <div id="open3" style="display:none;clear:both;">本サイトキャンセルは対応しておりません。ご了承ください。</div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <div onclick="obj=document.getElementById('open4').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;">▼ 登録情報を変えたいのですがどうすればよいですか？</a>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <div id="open4" style="display:none;clear:both;">ログイン後画面上部のマイページ欄からマイページ画面に入っていただき、<br>
+            その後情報変更ボタンを押していただければ各種変更可能です。</div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <div onclick="obj=document.getElementById('open5').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;">▼ 退会方法について知りたいです</a>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <div id="open5" style="display:none;clear:both;">画面下部の退会をクリックしてください。
+</div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <div onclick="obj=document.getElementById('open6').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;">▼ 一度退会しましたが、再登録はできますか？</a>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <div id="open6" style="display:none;clear:both;">何度でもご登録できます</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="fields">
+    <p>お問い合わせフォーム</p>
+    <p><h4>☆マークの項目は入力必須となります。<h4></p>
+
+      <div class="QAform">
+<table>
+  <tr>
+
+    <th><form action="/my-handling-form-page" method="post">
+      ☆<label for="name">名前</label>
+    </th>
+      <th>
+        <input type="text" id="name" required>
+      </th>
+  </tr>
+  <tr>
+      <td>
+        ☆<label for="mail">メールアドレス</label>
+      </td>
+        <td>
+            <input type="email" id="mail" required>
+        </td>
+      <tr>
+            <td>
+                ☆<label for="msg">内容</label>
+            </td>
+            <td>
+              <textarea id="msg" required></textarea>
+            </td>
+  </table>
+  </div>
+      </form>
+
+
+      </div>
+</div>
+
+<center><button class="button9" type="submit">送信</button></center>
+<br>
+<br>
+    </body>
+</html>

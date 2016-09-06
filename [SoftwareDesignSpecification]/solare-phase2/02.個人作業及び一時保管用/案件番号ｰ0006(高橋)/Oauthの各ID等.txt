@@ -1,0 +1,20 @@
+【facebook】
+
+☆アプリID
+823562404454692
+
+☆app secret
+e6364df60762a4a98cbc2929eed24fa0
+
+☆クライアントトークン
+ead3093b5661d0f4c53d005147eac2af
+
+【Twitter】
+
+☆Consumer Key (API Key)HpSIYhLEDL8L8O267iyXodzZz
+
+☆Consumer Secret (API Secret)RgVyhoRc9Mj3bhsH9d7kKI8kSL5fykpi1oGbuN58zUxnYmx7lY
+
+Owner	internousdev
+Owner ID	2907136165
+Application Actions

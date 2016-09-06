@@ -1,0 +1,1 @@
+<result name="input">login.jsp</result>

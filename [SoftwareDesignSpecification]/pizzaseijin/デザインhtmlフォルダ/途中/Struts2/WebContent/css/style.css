@@ -1,0 +1,349 @@
+body {
+	background-color: #333333;
+	font-family:Meiryo,"MS ゴシック",sans-serif;
+	color: #ffffff;
+	font-size: 16px;
+	margin-bottom: 100px;
+}
+/* header */
+header{
+  background: url("../img/utyuu.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header.header-left h1
+{font-family:arial black;
+font-size: 40px;
+font-style:italic;
+color:red;
+margin-left: 20px;
+}
+header .title p {
+  color: yellow;
+  margin-left: 20px;
+}
+.header-right{
+  float: right;
+  width: 30%;
+}
+
+input.form-control{
+  margin-top: 3px;
+  width: 120px;
+}
+.btn.btn-warning{
+  position: relative;
+  float: right;
+ bottom: 35px;
+ right: 135px;
+}
+/***************************************/
+/* footer */
+footer{
+  background-color: black;
+  position:fixed;  /*フッターを絶対配置に指定する設定*/
+  bottom:0;
+  width: 100%;
+  heigth: 100px;
+}
+
+/***************************************/
+/* 基本table */
+table {
+  border-spacing: 0;
+  font-size:14px;
+  margin-bottom:20px;
+  margin-top:20px;
+}
+table th {
+  color: #fff;
+  padding: 8px 15px;
+  background: #B22222;
+  font-weight: bold;
+  border-left:1px solid #ddd;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+  line-height: 120%;
+  text-align: center;
+  text-shadow:0 -1px 0 rgba(34,85,136,0.9);
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+table th:first-child {
+  border-radius: 5px 0 0 0;
+}
+table th:last-child {
+  border-radius:0 5px 0 0;
+  border-right:1px solid #ddd;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1),0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+table tr td {
+  padding: 8px 15px;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  text-align: left;
+  color: #000000;
+}
+table tr td:last-child {
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+table tr {
+  background: #fff;
+}
+table tr:nth-child(2n+1) {
+  background: #f2dede;
+}
+table tr:last-child td {
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+/* スクロールバー用table */
+.sctable {
+  width: 800px;
+  overflow: hidden;
+  border-spacing: 0;
+  font-size:14px;
+}
+.sctable th {
+  color: #fff;
+  padding: 8px 15px;
+  background: #B22222;
+  font-weight: bold;
+  border-left:1px solid #ddd;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+  line-height: 120%;
+  text-align: center;
+  text-shadow:0 -1px 0 rgba(34,85,136,0.9);
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  white-space: nowrap;
+}
+.sctable th:first-child {
+  border-radius: 5px 0 0 0;
+}
+.sctable th:last-child {
+  border-radius:0 5px 0 0;
+  border-right:1px solid #ddd;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1),0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+.sctable tr td {
+  padding: 8px 15px;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  text-align: left;
+  color: #000000;
+  white-space: nowrap;
+}
+.sctable tr td:last-child {
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+.sctable tr {
+  background: #fff;
+}
+.sctable tr:nth-child(2n+1) {
+  background: #f2dede;
+}
+.sctable tr:last-child td {
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+.sctable tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+.sctable tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+.x_scroll {
+	width:100%;
+	float: left;
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+/*************************************/
+/* ナビゲーションバー */
+.nav {
+	background: #C20020;
+	width: auto;
+}
+.nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	display: block;
+	zoom: 1;
+}
+.nav ul:after {
+	content: "";
+	display: block;
+	font-size: 0;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.nav ul li {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+.nav .align-center ul {
+	text-align: center;
+}
+
+.nav .align-right ul li {
+	float: right;
+}
+
+.nav ul li a {
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	padding: 15px 25px;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 14px;
+	position: relative;
+	-webkit-transition: color .25s;
+	-moz-transition: color .25s;
+	-ms-transition: color .25s;
+	-o-transition: color .25s;
+	transition: color .25s;
+}
+.nav ul li a:hover {
+	color: #FFDA00;
+}
+.nav ul li a:hover:before {
+	width: 100%;
+}
+.nav ul li a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: -3px;
+	top: 19px;
+	height: 6px;
+	width: 6px;
+	background: #ffffff;
+	opacity: .5;
+}
+.nav ul li a:before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 0;
+	background: #FFDA00;
+	-webkit-transition: width .25s;
+	-moz-transition: width .25s;
+	-ms-transition: width .25s;
+	-o-transition: width .25s;
+	transition: width .25s;
+}
+.nav ul li.last>a:after, .nav ul li:last-child>a:after {
+	display: none;
+}
+.nav .align-right li.last>a:after, .nav .align-right li:last-child>a:after{
+	display: block;
+}
+.nav .align-right li:first-child a:after {
+	display: none;
+}
+input {
+	color: #000000;
+}
+/*  */
+.table_size {
+	width: 90%;
+}
+.table_size td:first-child{
+	width: 30%;
+}
+/*****************/
+/* 新規登録 */
+.table_user{
+	width: 40%;
+}
+.table_check{
+	width: 40%;
+}
+.table_check td:first-child{
+	width: 30%;
+}
+/*****************/
+/* 店舗一覧 */
+.store {
+	width: 70%;
+}
+.main{
+    margin: 0 auto;
+}
+
+.main h2{
+	color:#fff;
+	padding:3px 5px;
+	border-color:#990000;
+	border-width:0 0 1px 7px;
+	border-style:solid;
+	background:rgba(255,255,255,0.3);
+	width: 140px;
+    white-space: nowrap;
+}
+
+.main h4{
+	color:#fff;
+	border-bottom:#98C5F3 2px solid;
+	width:100px;
+	padding:3px;
+}
+/*****************/
+/* mypage */
+.mypage_table {
+	white-space: nowrap;
+	float:left;
+}
+.mypage {
+	margin-top: 180px;
+}
+.hr{
+	margin-top: 400px;
+}
+#usermod-window {
+	padding: 10px;
+	background-color: #fff;
+	border: gray 1px solid;
+	display: none;
+}
+#creditmod-window{
+	padding: 10px;
+	background-color: #fff;
+	border: gray 1px solid;
+	display: none;
+}
+/***********************/
+/* レビュー */
+.item_table {
+	width: 50%;
+}
+.review_table{
+	width: 100%;
+}
+.review_table td:first-child {
+	width: 100px;
+}
+/***********************/
+/* 会社概要 */
+.company {
+	width: 240px;
+	height : 180px;
+}
+/***********************/

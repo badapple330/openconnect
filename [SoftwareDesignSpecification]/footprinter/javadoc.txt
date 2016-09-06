@@ -1,0 +1,177 @@
+クラスにversionとsinceがいる(両方1.0)
+@autherは苗字(半角スペース)名前(例:@auther 丹下 陽平)
+
+
+EventDeleteAction
+一番最初のタイトルとかの部分の必要性(今回は書かないかも)。
+authorの書き方が違う。
+privateがついてるフィールド変数には全部説明がいる。
+/**
+ * ユーザID
+ */
+private int id;
+
+/**
+ * ユーザの名前
+ */
+private String name;
+
+
+EventEntryConfirmAction
+絶対パスを自動で取得
+toDateメソッドの必要性
+
+
+GoEventListAction
+一番最初のタイトルとかの部分の必要性(今回は書かないかも)。
+authorの書き方が違う。
+privateがついてるフィールド変数には全部説明がいる。
+実行メソッドの説明に不必要な改行。returnとversionの間とか
+
+
+GoFacebookAction
+使用されてないimportがある(黄色い線で引かれてると思う)。
+クラスの上のversionのつづりが間違っている。
+実行メソッドという説明のsinceは日付を書いている
+
+
+GoLoginAction
+Javadocの記載自体がまだ出来てない。
+
+
+GoSignUpAction
+Javadocの記載自体がまだ出来てない。
+
+
+GoTourDetailAction
+privateがついてるフィールド変数には全部説明がいる。
+public String execute()メソッドのJavadoc記載がない
+
+
+GoTourListAction
+privateのフィールド変数の説明にはauthorやsinceはいらない
+privateのシリアルIDだけ記載がない
+public String execute()のreturnはERRORじゃなくてStringかな
+
+
+GoUserListAction
+privateがついてるフィールド変数には全部説明がいる。
+public String execute()メソッドのJavadocがない
+
+
+LoginAction
+シリアルIDが生成されていない
+System.out.printlnの記述がexecuteメソッドに残っている
+
+
+LoginFacebookAction
+public String executeメソッドのthrowsについてJavadocの説明がない
+
+
+LoginGoogleAction
+public String executeメソッドのthrowsについてJavadocの説明がない
+
+
+LoginTwitterAction
+public String executeメソッドのthrowsについてJavadocの説明がない
+
+
+LogoutAction
+public String executeメソッドのJavadoc記述がない
+
+
+PaymentConfirmAction
+errorMsgがわかんない
+authorが未記入
+一応書いたけど、ここにSQLExceptionって必要なくね？
+
+
+SignUpConfirmAction
+privateがついてるフィールド変数には全部説明がいる。
+public String executeメソッドにJavadocの説明がない
+セッターゲッター部分にメソッドごとの説明がない
+
+
+SignUpRegistrationAction
+privateがついてるフィールド変数には全部説明がいる。
+public String executeメソッドにJavadocの説明がない
+セッターゲッター部分にメソッドごとの説明がない
+
+
+TourDetailCommentAction
+privateがついてるフィールド変数には全部説明がいる。
+public String executeメソッドにJavadocの説明がない
+Sytem.out.printlnが残っている
+
+
+UserDeleteAction
+Javadocの記載がない
+
+
+
+***********DAO****************
+AdminEventDeleteDAO
+一番上のタイトルとかはいらないかな
+privateがついてるフィールド変数には全部説明がいる。
+deleteメソッドの説明がない
+System.out.printlnが残っている。(rscountの部分がSystem.outではなく戻り値を設定し、戻り値を変更する)
+
+
+AdminEventListDAO
+一番上のタイトルはいらない
+privateがついてるフィールド変数には全部説明がいる。
+selectメソッドの説明のparamが実際の引数より多い
+
+
+MemberInfoDAO
+DBConnectorがフィールド変数だから説明とprivateがいる
+
+
+PaymentConfirmDAOを削除
+
+
+
+TourDetailDAO
+DBConnector等のフィールド変数にprivateをつけて、Javadocの説明を書く
+
+
+TourListDAO
+DBConnector等フィールド変数にprivateをつけて、Javadocの説明を書く
+
+
+UserDeleteDAO
+privateがついてるフィールド変数には全部説明がいる。
+System.out.printlnは消す。rscountのとこはsuccess、error等にして判断するようにするといいかも。
+
+
+UserListDAO
+クラスの説明がない
+privateがついてるフィールド変数には全部説明がいる。
+
+
+**************DTO**********************
+adminEventListDTO
+タイトルは今回はいらない
+privateがついてるフィールド変数には全部説明がいる。
+
+
+
+MemberInfoDTO
+Javadocの記載がない
+
+
+PaymentConfirmDTOの削除
+PaymentRegistrationDTO使ってなくね？
+PurchaseConfirmDTOで使ってないものが多い気がする
+
+
+TourDetailDTO
+privateがついてるフィールド変数には全部説明がいる。
+
+
+TourListDTO
+privateがついてるフィールド変数には全部説明がいる。
+
+
+UserListDTO
+privateがついてるフィールド変数には全部説明がいる。

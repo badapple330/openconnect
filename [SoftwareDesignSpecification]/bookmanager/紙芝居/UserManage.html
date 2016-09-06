@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta name="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<title>利用者情報</title>
+
+<style>
+
+html, body {height: 100%;}  /*高さ100%に指定*/
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color:gray;
+}
+
+.font32{
+	font-size:32px;
+}
+
+.space{
+	margin-left:30px;
+}
+
+#user_name_area{
+	float:left;
+	margin-top:5px;
+	margin-left:25px;
+}
+
+#logout{
+	float:left;
+	margin-top:10px;
+	position:absolute;
+	margin-left:1450px;
+}
+
+#left{
+	clear:both;
+	float:left;
+	width:600px;
+	height:650px;
+	margin-left:120px;
+	margin-top:30px;
+	padding-left:50px;
+	background-color:skyblue;
+}
+
+#right{
+	float:left;
+	width:600px;
+	height:650px;
+	margin-left:50px;
+	margin-top:30px;
+	padding-left:50px;
+	background-color:skyblue;
+}
+
+table{
+	background-color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="user_name_area">
+			<span class="font32">ID：</span>
+			<span class="font32">3333</span>
+			<span class="space"></span>
+			<span class="font32">user：</span>
+			<span class="font32">田中太郎</span>
+			<span class="space"></span>
+			<span class="font32">ログイン中</span>
+</div>
+
+<div id="left">
+
+<div>
+<h3>利用者情報</h3>
+<p>
+<input type="submit" value="登録">
+<input type="submit" value="変更">
+<input type="submit" value="退会">
+</p>
+</div>
+
+<div class="Entry">
+<h3>登録情報</h3>
+<form action="UserEntry" method="post">
+<table>
+	<tr><td>利用者ID:</td><td><input type="text" name="user_id" value=""></td></tr>
+
+	<tr><td>氏名：</td><td><input type="text" name="name" value=""></td></tr>
+
+	<tr><td>氏名カナ:</td><td><input type="text" name="name_kana" value=""></td></tr>
+
+	<tr><td>電話番号:</td><td><input type="text" name="tel" value=""></td></tr>
+
+	<tr><td>住所:</td><td><input type="text" name="address" value=""></td></tr>
+
+	<tr><td>生年月日:</td><td><input type="text" name="birth" value=""></td></tr>
+
+	<tr><td>備考:</td><td><textarea name="bikou" rows="4" cols="30"></textarea></td></tr>
+</table>
+
+</form>
+</div>
+
+
+<div class="table_area">
+			<table border="1" width="500">
+				<tr>
+					<th>ID</th>
+					<th>変更者</th>
+					<th>ラベル名</th>
+					<th>変更前</th>
+					<th>変更後</th>
+					<th>変更の日付</th>
+				</tr>
+				<tr>
+					<td height="50">123</td>
+					<td>満田健介</td>
+					<td>氏名</td>
+					<td>山田犬郎</td>
+					<td>山田太郎</td>
+					<td>2014/11/05</td>
+				</tr>
+				<tr>
+					<td height="50"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+
+			</table>
+		</div>
+
+</div>
+
+
+<div id="right">
+<div class="Search">
+<h3>検索情報</h3>
+<form action="UserSearch" method="post">
+<table>
+	<tr><td>利用者ID:</td><td><input type="text" name="id" value=""></td></tr>
+
+	<tr><td>氏名：</td><td><input type="text" name="name" value=""></td></tr>
+
+	<tr><td>氏名カナ:</td><td><input type="text" name="name_kana" value=""></td></tr>
+
+</table>
+<input type="submit" value="検索">
+</form>
+</div>
+
+<div class="SearchResult">
+<form action="">
+<h3>検索結果</h3>5件/100件
+<table border="1" cellspacing="0" cellpadding="5">
+
+			<tr>
+				<th></th>
+				<th>NO.</th>
+				<th>利用者ID</th>
+				<th>氏名</th>
+				<th>氏名カナ</th>
+
+			</tr>
+			<tr>
+				<th><input type="radio" name="user" value="userdata"></th>
+				<th>1</th>
+				<th>123</th>
+				<th>山田太郎</th>
+				<th>ヤマダタロウ</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="user" value="userdata"></th>
+				<th>2</th>
+				<th>456</th>
+				<th>田中一郎</th>
+				<th>タナカイチロウ</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="user" value="userdata"></th>
+				<th>3</th>
+				<th>790</th>
+				<th>鈴木二郎</th>
+				<th>スズキジロウ</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="user" value="userdata"></th>
+				<th>4</th>
+				<th>777</th>
+				<th>山本三郎</th>
+				<th>ヤマモトサブロウ</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="user" value="userdata"></th>
+				<th>5</th>
+				<th>634</th>
+				<th>宮本武蔵</th>
+				<th>ミヤモトムサシ</th>
+			</tr>
+		</table></form><br>
+
+		<input type="submit" value="選択">
+</div>
+
+</div>
+
+		<div id="logout">
+		<span><button onclick="location.href='http://localhost:8080/struts/MainMenu.jsp'" >戻る</button></span>
+		</div>
+</body>
+</html>

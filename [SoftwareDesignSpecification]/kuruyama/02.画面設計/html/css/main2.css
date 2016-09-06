@@ -1,0 +1,24 @@
+#wrapper{
+    width: 1000px;
+  	margin:auto;
+  	background-color: #fff;
+
+}
+
+
+input[type="button"] {
+    font-size: 10px;
+    font-weight: bold;
+    padding: 8px 30px;
+    background-color: #248;
+    color: #fff;
+    border-style: none;
+}
+.main{
+  margin:auto;
+}
+
+.item_table td {
+	border: solid 1px;
+	padding: 0.5em;
+}

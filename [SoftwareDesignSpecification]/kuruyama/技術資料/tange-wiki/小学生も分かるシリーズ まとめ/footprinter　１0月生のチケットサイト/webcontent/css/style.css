@@ -1,0 +1,84 @@
+body{background-color: #ffffff}
+
+header h1 {font-family: 'Impact';
+font-size: 70px;
+width: 600px;
+color:yellow;
+}
+
+header.jumbotron {
+  background: url("../img/head.jpg");
+  background-position: center center;
+  background-size: cover;
+  color: yellow;
+}
+
+header .container {
+  margin-top: 6%;
+  margin-left: 5%
+}
+
+header .midashi-btn {
+  border: 1px solid yellow;
+  color: yellow;
+  border-radius: 10;
+}
+
+header .midashi-btn:hover {
+  color: yellow;
+  border-color: yellow;
+}
+.botan{
+text-align: right;
+}
+
+.title P{
+  padding-left: 0px;
+}
+th{
+    background-color: #ccc;
+    font-size:25px;
+}
+td{
+  font-size:20px;
+}
+h3{
+  background-color: #ccc;
+}
+
+footer{background-color: #87cefa;
+  position: relative;
+  bottom:0px;
+  height:30px;
+  width:100%;
+}
+
+/* ヴァリデーションのエラーメッセージ */
+.errmsg	{
+	color: red;
+	font-size: 14px;
+	text-align:left;
+}
+
+ul	{list-style:none;}
+
+.title-name:link {
+	color:yellow;
+    text-decoration:none;
+}
+
+.title-name:visited {
+    color:yellow;
+    text-decoration:none;
+}
+.title-name:hover {
+    color:yellow;
+    text-decoration:none;
+}
+.title-name:active {
+    color:yellow;
+    text-decoration:none;
+}
+img{
+	width:180px;
+}

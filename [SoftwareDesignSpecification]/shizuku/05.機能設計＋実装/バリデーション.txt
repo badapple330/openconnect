@@ -1,0 +1,17 @@
+ECサイト構築で使うバリデーション
+
+具体例：shizukuのLoginAction、login.jsp
+
+1.inputタグを全てsタグで置き換える
+ <input type="text">　→　<s:textfield>
+ <input type="password"> → <s:password>
+ など
+ 参考：
+  https://github.com/struts-community-plugins/struts2-bootstrap/
+  下部のreadme.mdやgithub内のjspファイルに詳細
+
+2.struts.xmlを編集
+ バリデーションを行うActionクラスの遷移でresult name="input"を定義
+
+3.Actionクラス内でvalidateメソッドをオーバーライド
+ バリデーションで戻す場合はaddFieldError(フィールド名, エラーメッセージ)メソッドを呼ぶ

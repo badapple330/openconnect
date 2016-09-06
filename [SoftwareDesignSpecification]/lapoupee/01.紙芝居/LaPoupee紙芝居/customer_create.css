@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+body{
+	margin: 0;
+}
+
+header {
+	background-color: #000000;
+	transition: 1s;
+	width: 100%;
+	height: 70px;
+}
+
+header:hover {
+	background-color: white;
+}
+
+.header_title {
+	padding-left: 10%;
+	font-size: 200%;
+}
+
+.initial {
+	color: #4169E1;
+}
+
+/* ★メイン開始★ */
+
+#cart {text-align:right
+}
+
+.KyakuTitle {
+	text-align: center;
+}
+
+#table1{
+	text-align:center;
+}
+
+.table1 tr{
+	padding: 1px;
+	border: 1px solid #CCC;
+}
+
+
+/* ★フッター★ */
+.f_line{
+		border: 0;
+		height: 1px;
+		background: #333;
+		background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+		background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+		background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+		background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+		}
+		.copy{
+		text-align:center;
+		}

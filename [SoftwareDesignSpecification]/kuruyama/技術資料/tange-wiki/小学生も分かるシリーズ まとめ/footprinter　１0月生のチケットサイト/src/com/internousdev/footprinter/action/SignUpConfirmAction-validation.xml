@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="email">
+		<field-validator type="requiredstring">
+			<message>%{getText('lang.sign-up.inputmail')}</message>
+		</field-validator>
+
+		<field-validator type="email">
+			<message>%{getText('lang.sign-up.missemail')}</message>
+		</field-validator>
+	</field>
+
+	<field name="pass">
+		<field-validator type="requiredstring">
+			<message>%{getText('lang.sign-up.inputpass')}</message>
+		</field-validator>
+
+		<field-validator type="regex">
+			<param name="regex">^[0-9a-zA-Z]{8,12}+</param>
+			<message>%{getText('lang.sign-up.examplepass')}</message>
+		</field-validator>
+	</field>
+
+	<field name="name">
+		<field-validator type="requiredstring">
+			<message>%{getText('lang.sign-up.inputname')}</message>
+		</field-validator>
+		<field-validator type="regex">
+		    <param name="regex">^[ぁ-んァ-ヶ一-龠一-十a-zA-Zａ-ｚＡ-Ｚ]+$</param>
+		    <message>%{getText('lang.sign-up.inputnamemoji')}</message>
+		</field-validator>
+	</field>
+	
+	<field name="kana">
+		<field-validator type="requiredstring">
+			<message>%{getText('lang.sign-up.inputnamekana')}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+		    <param name="regex">^[ァ-ン]+$</param>
+		    <message>%{getText('lang.sign-up.inputnamekanaonly')}</message>
+		</field-validator>
+	</field>
+
+	<field name="tel">
+		<field-validator type="requiredstring">
+			<message>%{getText('lang.sign-up.inputtel')}</message>
+		</field-validator>
+
+		<field-validator type="regex">
+			<param name="regex">^[0-9]{10,11}+</param>
+			<message>%{getText('lang.sign-up.misstel')}</message>
+		</field-validator>
+	</field>
+
+</validators>

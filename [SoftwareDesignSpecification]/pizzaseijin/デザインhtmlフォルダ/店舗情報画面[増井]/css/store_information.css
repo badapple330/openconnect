@@ -1,0 +1,62 @@
+body{
+	background-color:black;
+}
+
+.badycontainer{
+	height: 783px;
+	margin-left:auto;   
+    margin-right:auto;  
+    text-align:left;    
+    width:650px;         
+}
+
+.main{
+	width: 50%;   
+    margin: 0 auto; 
+}
+
+.main h2{
+	color:#fff;
+	padding:3px 5px;
+	border-color:#990000;
+	border-width:0 0 1px 7px;
+	border-style:solid;
+	background:rgba(255,255,255,0.3);
+	width: 100px;
+}
+
+.main h4{
+	color:#fff;
+	border-bottom:#98C5F3 2px solid;
+	width:100px;
+	padding:3px;
+}
+
+.information{
+	margin-bottom:20px;
+}
+/*
+.main th{
+	color:#fff;
+}
+
+.main td{
+	color:#fff;
+}
+
+.gaiyou th{
+	border:1px solid;
+	border-color:rgba(255,255,255,0.3);
+	paddiing:5px 5px;
+	background-color:black;
+}
+
+.gaiyou td{
+	border:1px solid;
+	border-color:rgba(255,255,255,0.3);
+	padding:5px 5px;
+	background-color:rgba(255,255,255,0);
+	width:460px;
+}
+
+*/

@@ -1,0 +1,22 @@
+文字コードを宣言
+strutsを使うことを宣言
+strutsのシンプルモードを宣言（これを使うと余計なテーブルを作成しなくなります）
+パッケージにてアクションのパッケージを宣言、namespaceまで長いですが一列にしないと機能しないです
+アクションネームにてアクション（クラス）の名前を使い、飛ぶところを指定（パッケージ+クラス）
+リザルトにてjspファイルに飛びます
+
+以上
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="simple" />
+		<package name="com.internousdev.rensyuu.action" extends="struts-default," namespace="/">
+		<action name="GoSignUpAction" method="execute"
+			class="com.internousdev.rensyuu.action.GoSignUpAction">
+			<result name="success">sign-up.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,9 @@
+http://localhost:8080/shizuku/itemImage?id=1
+http://localhost:8080/shizuku/itemImage.action?id=1
+で商品画像にアクセスできます。
+id=商品IDです。
+実際には
+<img src="itemImage?id=<s:property value='itemId'>">
+や
+<img src="itemImage?id=${itemId}">
+といった使い方になると思います。

@@ -1,0 +1,44 @@
+
+headにウィンドウ↓
+<style>
+
+#piza-window {
+	padding: 10px;
+	background-color: #fff;
+	border: gray 1px solid;
+	display: none;
+}
+</style>
+
+文字にIDを振ります
+<li><a href="#" id="meetpizza">ミートピザ</a></li>
+
+
+↓ピザのウィンドウ
+	<div id="piza-window">
+		<table>
+			<tr>
+				<th>ピザ詳細</th>
+			</tr>
+			<tr>
+				<td align="right">
+					<a href="#"><img src="./img/pizza03.jpg"/></a>
+				</td>
+			</tr>
+			<tr>
+							<td>SNS</td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		$('#meetpizza').click(function() {
+			$('#piza-window').plainModal('open', {
+				overlay : {
+					color : '#fff',
+					opacity : 0.5
+				}
+			});
+		});
+	</script>
+↑
+モーダル

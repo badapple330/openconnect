@@ -1,0 +1,220 @@
+﻿package com.internousdev.lereve.action;
+
+import java.sql.Timestamp;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.lereve.dao.BuyingCompleteDAO;
+import com.opensymphony.xwork2.ActionSupport;
+
+中身自体はlereveのです
+
+javadocはきちんと書かないと後で出力して確認した際に
+書いてなかったりした場合すぐに分かるので
+しっかり書いてください
+
+分からないことがあったら熊木まで聞いてください
+
+/**
+ * BuyingCompleteAction チケット購入情報を完了する為のクラス
+ * @author Wataru Kumaki
+ * @since 2015/10/22
+ * @version 1.0
+ */
+ 
+ 	↑クラスにはクラス名、製作者、日付、バージョン
+ 
+public class BuyingCompleteAction extends ActionSupport implements SessionAware  {
+
+    /**
+     * 生成されたシリアルナンバー
+     */
+    private static final long serialVersionUID = -6891283971246144498L;
+
+	↑自動では生成されないので各自で生成してください
+
+
+    /**
+     * ユーザーID
+     */
+    private int userId;
+    /**
+     * 枚数
+     */
+    private int sheets;
+
+    /**
+     * チケットID
+     */
+    private int ticketId;
+    /**
+     * オーダーID
+     */
+    private int orderinfoId;
+    /**
+     * 合計金額
+     */
+    float totalAmount;
+
+    /**
+     * カードナンバー
+     */
+    private String cardToken;
+
+    /**
+     * セッション
+     */
+    private Map<String, Object> session;
+
+    /**
+     * 購入時間
+     */
+    private Timestamp registeredDate;
+
+	↑変数は変数名を
+
+
+    /**
+     * 実行メソッド
+     * データーベースに購入情報を格納するメソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @version 1.0
+     * @return SUCCESS
+     */
+     
+     ↑メインで実行するメソッドには実行メソッドと説明
+     　製作者、日付、バージョン
+     
+    public String execute(){
+
+        userId = (int)session.get("user_id");
+        ticketId = (int)session.get("buy_ticket");
+        cardToken = (String)session.get("buy_token");
+        sheets = (int)session.get("buy_qty");
+        totalAmount = (float)session.get("buy_ticket_price");
+
+
+
+        session.put("user_id",userId);
+        session.put("ticket_id",ticketId);
+        session.put("card_token",cardToken);
+        session.put("sheets",sheets);
+        session.put("buy_ticket_price",totalAmount);
+        session.put("registered_date",registeredDate);
+
+        BuyingCompleteDAO dao = new BuyingCompleteDAO();
+
+        dao.insert(orderinfoId,userId, ticketId, cardToken, sheets,totalAmount, registeredDate);
+
+        return SUCCESS;
+    }
+
+
+    /**
+     * ユーザーID取得メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @return userId
+     */
+     
+     ↑メソッド名、製作者、日付
+     　取得メソッドだった場合は@return 変数
+     　格納メソッドだった場合は@param 変数　変数名
+     
+    public int getuserId() {
+        return userId;
+    }
+    /**
+     * ユーザーID格納メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @param userId ユーザーID
+     */
+    public void setuserId(int userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * チケットID取得メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @return ticketId
+     */
+    public int getticketId() {
+        return ticketId;
+    }
+    /**
+     * チケットID格納メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @param ticketId チケットID
+     */
+    public void setticketId(int ticketId) {
+        this.ticketId = ticketId;
+    }
+    /**
+     * チケット枚数取得メソッド
+     * @author Wataru Kumakiu
+     * @since 2015/10/22
+     * @return sheets
+     */
+    public int getSheets() {
+        return sheets;
+    }
+    /**
+     * チケット枚数格納メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @param sheets チケット購入枚数
+     */
+    public void setSheets(int sheets) {
+        this.sheets = sheets;
+    }
+    /**
+     * 合計金額取得メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @return totalAmount
+     */
+    public float gettotalAmount() {
+        return totalAmount;
+    }
+    /**
+     * 合計金額格納メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @param totalAmount 合計金額
+     */
+    public void settotalAmount(float totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+    /**
+     * 購入時間取得メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @return registeredDate
+     */
+    public Timestamp getregisteredDate() {
+        return registeredDate;
+    }
+    /**
+     * 購入時間格納メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @param registeredDate 購入時間
+     */
+    public void setregisteredDate(Timestamp registeredDate) {
+        this.registeredDate = registeredDate;
+    }
+    /**
+     * セッション格納メソッド
+     * @author Wataru Kumaki
+     * @since 2015/10/22
+     * @param session セッション
+     */
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
+    }
+}

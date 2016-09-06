@@ -1,0 +1,35 @@
+書き方の見本＜追加分＞
+
+
+/** 
+ * <p> 
+* ユーザー情報を読み取り、その結果の判定をするメソッド<br> 
+* ログイン済みであることを知らせる文言が入力されたポップアップを表示します。<br> 
+* </p> 
+* @return result ユーザー情報からユーザーidを受け取れればSUCCESS、受け取れなければERRORを返します。 
+*/
+
+
+
+utilパッケージに入っているデータベースのクラス名の書き方
+MongoDBの指定したデータベースに接続するutilクラス
+
+
+
+メソッドをreturnしているときの書き方
+    /**
+     * 認証URL(AuthorizationUrl)を取得する為のメソッド
+     * @param config 設定
+     * @return String.format() スコープがある場合とない場合でそれぞれのURLを返します。
+     */
+    @Override
+    public String getAuthorizationUrl(OAuthConfig config) {
+        if (config.hasScope()) {
+            return String.format(SCOPED_AUTHORIZE_URL, config.getApiKey(),
+                    OAuthEncoder.encode(config.getCallback()),
+                    OAuthEncoder.encode(config.getScope()));
+        } else {
+            return String.format(AUTHORIZE_URL, config.getApiKey(),
+                    OAuthEncoder.encode(config.getCallback()));
+        }
+    }

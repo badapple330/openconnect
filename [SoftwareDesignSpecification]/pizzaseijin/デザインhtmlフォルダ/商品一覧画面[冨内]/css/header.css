@@ -1,0 +1,54 @@
+header{
+  background-image:url("../img/utyuu.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-spacing: 30px;
+
+}
+
+
+.header-right{
+  float: right;
+  width: 30%;
+}
+
+input.form-control{
+  margin-top: 3px;
+  width: 120px;
+}
+.btn.btn-danger{
+  position: relative;
+  float: right;
+ bottom: 35px;
+ right: 135px;
+}
+.twitter{
+  position: relative;
+  float: right;
+  left: 10px;
+  top: 5px;
+}
+.facebook{
+  position: relative;
+  float: right;
+  left: 80px;
+  top: 5px;
+}
+.google{
+  position: relative;
+  float: right;
+  left: 150px;
+  top: 5px;
+}
+.login{
+  position: relative;
+  float: right;
+  left: 260px;
+  top: 74px;
+}
+.new-member{
+  position: relative;
+  float: right;
+  left: 425px;
+  top: 74px;
+}

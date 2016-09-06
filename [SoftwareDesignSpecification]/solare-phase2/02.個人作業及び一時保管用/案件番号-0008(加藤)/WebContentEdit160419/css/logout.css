@@ -1,0 +1,30 @@
+﻿@CHARSET "UTF-8";
+
+button.btn1 {
+	font-size: 1.5em;
+	font-weight: bold;
+	padding: 20px 40px;
+	color: #FFF;
+	border-style: none;
+	background: #66ccff;
+	-moz-border-radius : 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-align: right;
+	-moz-border-radius: 5px;
+}
+
+button.btn2
+{
+	font-size: 1.5em;
+	font-weight: bold;
+	padding: 20px 40px;
+	color: #FFF;
+	border-style: none;
+	background: #ff3300;
+	-moz-border-radius : 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-align: right;
+	-moz-border-radius: 5px;
+}

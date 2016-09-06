@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>管理者画面 - PlanetariumTicket</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="login">
+
+<header>
+<h1><a href="index.html"><img src="logo.png" alt="">PlanetariumTicket</a></h1>
+<nav>
+<ul>
+<li><a href="index.html">トップ</a></li>
+<li><a href="ticket.html">上映作品一覧</a></li>
+<li><a href="login.html">ログイン</a></li>
+<li><a href="http://www.yahoo.co.jp/">18歳未満の方はこちら</a></li>
+</ul>
+</nav>
+</header>
+
+<article>
+<h1>メニュー</h1>
+<p Div Align="left"><a href="#stuff">ユーザー一覧</a><br></Div>
+<p Div Align="left"><a href="#stuffb">イベント編集</a></Div>
+
+<article>
+<h1 id = ”#stuff”>ユーザー一覧</h1>
+
+
+<table class="search_table">
+							<tr>
+								<td class="search"><b>ユーザー検索</b></td>
+								<td>
+									<p>メールアドレス：<input type="text" name="email" size="50" placeholder="please enter email"></p>
+									<p><input type="submit" value="検索" disabled></p>
+
+
+									<s:submit name="search" value="ユーザー検索" />
+									</s:form>
+									</td>
+							</tr>
+						</table>
+						<br />
+						<input type="button" onclick="location.href='DisplayUserInfoAction'" value="ユーザーの一覧を再表示"/>
+						<br />
+				<table class="user_table">
+
+
+							<tr>
+								<th>氏名</th>
+								<th>フリガナ</th>
+								<th>パスワード</th>
+								<th>メールアドレス</th>
+								<th>電話番号</th>
+								<th>郵便番号</th>
+								<th width="200">住所</th>
+							</tr>
+
+							<s:iterator value="telNumberList">
+							<tr class = "pg">
+								<td>瀬下航平</td>
+								<td>セシモコウヘイ</td>
+								<td>12345</td>
+								<td>seshimo@mail</td>
+								<td>09012345678</td>
+								<td>1111111</td>
+								<td>神奈川県川崎市</td>
+							</tr>
+							</s:iterator>
+
+              <s:iterator value="telNumberList">
+              <tr class = "pg">
+                <td>山下主</td>
+                <td>ヤマシタシュウ</td>
+                <td>lenovo</td>
+                <td>yamashita@yahoo.co.jp</td>
+                <td>08077665544</td>
+                <td>2222222</td>
+                <td>埼玉県さいたま市</td>
+              </tr>
+              </s:iterator>
+              <s:iterator value="telNumberList">
+							<tr class = "pg">
+								<td>木澤貴裕</td>
+								<td>キザワタカヒロ</td>
+								<td>aaa</td>
+								<td>kizawasan@mail</td>
+								<td>09009009090</td>
+								<td>33333333</td>
+								<td>東京都文京区</td>
+							</tr>
+							</s:iterator>
+              <s:iterator value="telNumberList">
+							<tr class = "pg">
+								<td>端本平佑</td>
+								<td>ハタモトダイスケ</td>
+								<td>aaaa</td>
+								<td>hatamocchan@mail</td>
+								<td>111111112</td>
+								<td>1234567</td>
+								<td>千葉県船橋市</td>
+							</tr>
+							</s:iterator>
+              <s:iterator value="telNumberList">
+							<tr class = "pg">
+								<td>柳田光</td>
+								<td>ヤナギダヒカル</td>
+								<td>asdf</td>
+								<td>yanagi-@mail</td>
+								<td>111111111</td>
+								<td>9876543</td>
+								<td>神奈川県横浜市</td>
+							</tr>
+							</s:iterator>
+              <s:iterator value="telNumberList">
+							<tr class = "pg">
+								<td>水口光</td>
+								<td>ミズグチヒカル</td>
+								<td>mizuguti</td>
+								<td>mizugutisama@mail</td>
+								<td>1111111111</td>
+								<td>1111111</td>
+								<td>群馬県高崎市</td>
+							</tr>
+							</s:iterator>
+              <s:iterator value="telNumberList">
+							<tr class = "pg">
+								<td>石川将平</td>
+								<td>ishikawamasahira</td>
+								<td>tencho</td>
+								<td>tencho@mail</td>
+								<td>09012345679</td>
+								<td>23456789</td>
+								<td>東京都中央区</td>
+							</tr>
+							</s:iterator>
+              <s:iterator value="telNumberList">
+							<tr class = "pg">
+								<td>水谷友洋</td>
+								<td>mizutanitomohiro</td>
+								<td>tomotomo</td>
+								<td>tomohiro@mail</td>
+								<td>09087657485</td>
+								<td>2187578</td>
+								<td>神奈川県相模原市</td>
+							</tr>
+							</s:iterator>
+              <s:iterator value="telNumberList">
+							<tr class = "pg">
+								<td>多湖大輔</td>
+								<td>タゴダイスケ</td>
+								<td>pippi</td>
+								<td>pippi-p@mail</td>
+								<td>09064537586</td>
+								<td>3465784</td>
+								<td>東京都練馬区</td>
+							</tr>
+							</s:iterator>
+              <s:iterator value="telNumberList">
+							<tr class = "pg">
+								<td>森川可南子</td>
+								<td>モリカワカナコ</td>
+								<td>morikawa</td>
+								<td>kanko.lenovo@mail</td>
+								<td>09084756473</td>
+								<td>6547384</td>
+								<td>神奈川県横浜市</td>
+							</tr>
+							</s:iterator>
+
+
+
+					</table>
+
+</article>
+
+
+<article>
+<h1 id = ”#stuffb” >イベント編集</h1>
+<table>
+ <tr>
+    <th>イベント名<br>編集・新規登録</th>
+    <td><input type="text" name="user_name" placeholder="例：しし座流星群" size="50"><font size="1" color="red">*入力必須</font></td>
+ </tr>
+ <tr>
+    <th>日程</th>
+    <td><input type="date" name="phonetic" placeholder="例：" size="50"><font size="1" color="red"><br>*入力必須</font></td>
+ </tr>
+ <tr>
+    <th>料金</th>
+    <td><input type="price" name="e_mail" value="¥     -" size="15"><font size="1" color="red"><br>*入力必須</font></td>
+ </tr>
+
+</table>
+<p><center><input type="submit" value="追加"></center></p>
+</article>
+
+
+</body>
+</html>

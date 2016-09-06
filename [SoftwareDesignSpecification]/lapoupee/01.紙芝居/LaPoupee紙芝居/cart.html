@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<meta http-equiv="content-style-type" content="text/css" />
+	<meta http-equiv="content-script-type" content="text/javascript" />
+	<link rel="stylesheet" type="text/css" href="cart.css">
+	<meta charset="UTF-8">
+	<TITLE>カートの中身</TITLE>
+</HEAD>
+<BODY>
+<header>
+	<div class="header_title">
+			<span class="initial">L</span>a
+			<span class="initial">P</span>oupee
+	</div>
+
+</header>
+<nav>
+	<p>
+		<span class="order1">商品を選択</span><br>
+		↓<br>
+		<span class="order2">カートの中身を確認</span><br>
+		↓<br>
+		<span class="order3">購入の確認</span><br>
+		↓<br>
+		<span class="order4">購入完了</span>
+	</p>
+</nav>
+
+<section>
+
+<div align="center">【カートの中身】</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<s:if test="%{itemlist.isEmpty()}">
+	<table  align="center"border="0" bordercolor="#CCC"bgcolor="#F9FCFE"width="300">
+		<tr>
+		<span id="font">
+			<font color=red>
+				<center>
+				<b>カートに何も入っていません</b>
+				</center>
+			</font>
+		</span>
+		<script>
+			$(".info-strip").css('font', '29px');
+		</script>
+		<tr>
+			<br>
+			<center>
+				<span id="font">
+					<font color="red"><s:property value="notgoods_id"/></font>
+					<font color="red"><s:property value="notorder_count"/></font>
+					<font color="red"><s:property value="error1"/></font>
+					<font size="2" color="red"><s:fielderror><s:param value="%{'goods_idstr'}" /></s:fielderror></font><br>
+					<font size="2" color="red"><s:fielderror><s:param value="%{'order_count'}" /></s:fielderror></font>
+					<font color="red"><s:property value="overstock"/></font>
+					<br><br>
+					<br>
+				</span>
+			</center>
+		</tr>
+	</table>
+	<table  align="center"border="0" bordercolor="#CCC"bgcolor="#F9FCFE"width="60">
+		<tr>
+			<td>
+			</td>
+		</tr>
+	</table>
+</s:if>
+
+<s:else>
+	<table style="line-height: 1.5em; border-collapse: collapse;" align="center" cellspacing="1″  width="600">
+		<tbody>
+		<tr align="center">
+			<td style="padding: 1px; background-color: #dfdfdf; font-weight: 1px solid #42B4ED; font-weight: bold;"
+			width="30%">商品名</td>
+			<td style="padding: 1px; background-color: #dfdfdf; font-weight: 1px solid #42B4ED; font-weight: bold;"
+			width="10%">数量</td>
+			<td style="padding: 1px; background-color: #dfdfdf; font-weight solid #42B4ED; font-weight: bold;"
+			width="12%">単価</td>
+			<td style="padding: 1px; background-color: #dfdfdf; font-weight solid #42B4ED; font-weight: bold;"
+			width="12%">小計</td>
+		</tr>
+		<s:iterator value="#session.itemlist">
+			<tr>
+				<td style="padding: 1px; background-color: #FFFFFF; font-weight: normal; border: 1px solid #CCC; border-collapse: collapse; width: 20%;">
+					<s:property value="goods_name" />
+				</td>
+				<td style="padding: 5px; border: 1px solid #CCC;"><s:property value="sales_numbers" /></td>
+				<td style="padding: 5px; border: 1px solid #CCC;">&yen;<s:property value="price" /></td>
+				<td style="padding: 2px; border: 1px solid #CCC;">&yen;<s:property value="total_amount" /></td>
+			</tr>
+		</s:iterator>
+			<tr>
+				<td style="padding: 8px; border: 1px solid #CCC;"></td>
+				<td style="padding: 8px; border: 1px solid #CCC;"></td>
+				<td colspan="2" style="padding: 2px; border: 1px solid #CCC;"
+				align="center">
+					<div class="price">
+						<b>合計金額:</b>&yen;
+						<s:property value="#session.total_yen"/>
+					</div>
+				</td>
+			</tr>
+		</TBODY>
+	</TABLE>
+<table  align="center"border="0" bordercolor="#CCC"bgcolor="#F9FCFE"width="600">
+	<tr>
+		<br>
+		<center>
+			<span id="font">
+				<font color="red"><s:property value="notgoods_id"/></font>
+				<font color="red"><s:property value="notorder_count"/></font>
+				<font color="red"><s:property value="error1"/></font>
+				<font size="2" color="red"><s:fielderror><s:param value="%{'goods_idstr'}" /></s:fielderror></font><br>
+				<font size="2" color="red"><s:fielderror><s:param value="%{'order_count'}" /></s:fielderror></font>
+				<font color="red"><s:property value="overstock"/></font>
+			</span>
+		</center>
+	</tr>
+</table>
+<table  align="center"border="0" bordercolor="#CCC"bgcolor="#F9FCFE"width="300">
+	<tr>
+		<td>
+			<input type="button" onclick="location.href='customer_login.html'"value="ショッピングを続ける">
+		</td>
+		<td>
+			<input type="button" onclick="location.href='customer_login.html'"value="レジに進む">
+		</td>
+		<td>
+			<input type="button" onclick="location.href='cart.html'"value="カートを空にする">
+		</td>
+	</tr>
+</table>
+</s:else>
+<br>
+<br>
+<br>
+</section>
+
+<footer>
+<hr class="f_line">
+<div>
+
+		<p class="copy">&copy; 2015 LaPoupee All Rights Reserved.</p>
+
+</div>
+</footer>
+</BODY>
+</HTML>

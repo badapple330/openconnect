@@ -1,0 +1,569 @@
+﻿ヘッダー画面
+(INPUT)
+ ＜未ログイン時＞
+ 新規登録画面(register.jsp)のヘッダー(header.jsp)からFORMタグ（もしくはaタグ？）で遷移。（GoTopActionへ）
+
+ 新規登録確認画面(registerConfirmation.jsp)のヘッダー(header.jsp)からFORMタグ（もしくはaタグ？）で遷移。（GoTopActionへ）
+
+ ログイン時のヘッダー画面から遷移。(LogoutActionへ)
+
+<LogoutAction>
+session.clear()
+return SUCCESS
+ ※return後、GoTopActionへRedirectするよう、StrutsXMLへ設定しておくこと。
+Redirectを使用し、GoTopActionへ飛ぶ。
+
+フッター画面
+ ＜ログイン時＞
+会社概要画面(companyOverview.jsp)へ遷移。(GoCompanyOverviewActionへ)
+利用規約画面へ遷移。(GoTermOfServiceActionへ)
+退会画面へ遷移。(GoWithdrawalActionへ)
+ ＜未ログイン時＞
+会社概要画面(companyOverview.jsp)へ遷移。(GoCompanyOverviewActionへ)
+
+<GoCompanyOverviewAction>
+return SUCCESS
+
+<GoTermOfServiceAction>
+return SUCCESS
+
+
+トップ画面(top.jsp)
+(INPUT)
+ ＜ログイン時＞
+ 管理者ログイン画面(administratorLogin.jsp)からFORMタグで遷移。（GoTopActionへ）
+ 　
+ 退会確認画面(withdrawalConfirmation.jsp)からFORMタグで遷移。（GoTopActionへ）
+ 
+
+ 
+ (PROCESS)
+＜WithdrawalAction＞
+ sessionにてユーザー名(user_name)を取得する。
+ WithdrawalDAOをインスタンス化(dao)する。
+ dao.delete()を使用し、sessionにて取得したユーザー名(user_name)を条件としてuserテーブルからdeleteする。
+ intにてdeleteした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定
+ 1件未満の場合：
+ resultにERRORを設定
+
+ result値をreturnする。
+
+ ※return後、GoTopActionへRedirectするよう、StrutsXMLへ設定しておくこと。
+Redirectを使用し、GoTopActionへ飛ぶ。
+
+＜GoTopAction＞
+ TopDAOをインスタンス化(dao)する。
+ dao.select()にて以下を検索する。
+ 条件：
+ 商品ID(id)、商品名（item_name）、単価（price）、売り上げ数(sales)、
+ 商品詳細(detail)、イメージファイルパス(img)を売り上げ順（降順）、
+ 登録日順（降順）削除フラグ＝０を条件として上位５件(LIMITを使用)を検索。
+ TopDTOをインスタンス化(dto)する。
+ 検索結果をdtoにSetterメソッドにて格納する。
+ resultをSUCCESSにする。
+ result値をreturnする。
+ 
+ 
+新規登録画面(register.jsp)
+(INPUT)
+ ＜ログイン時＞
+  ありえない
+ ＜未ログイン時＞
+　トップ画面(top.jsp)のヘッダー(header.jsp)からFORMタグで遷移。(GoRegisterActionへ)
+
+ (PROCESS)
+<GoRegisterAction>
+return SUCCESS
+
+
+　　
+
+新規登録確認画面(registerReport.jsp)
+(INPUT)
+ ＜ログイン時＞
+  ありえない
+ ＜未ログイン時＞
+
+新規登録画面からFORMタグで遷移。（RegisterConfirmationActionへ）
+※名前、カナ、郵便番号(post_number)、住所(address)、住所２(address_2)、住所３(address_3)、
+電話番号、メールアドレス(email_address)、メールアドレス２(email_address_2)、パスワード(password)、パスワード２(password_2)をFORMタグで受け渡しすること。
+
+<RegisterConfirmationAction>
+メールアドレス(email_address)、メールアドレス２(email_address_2)が等しいかを判断する。
+等しい場合：
+return値にSUCCESS
+等しくない場合：
+return値にERROR
+
+パスワード(password)、パスワード２(password_2)が等しいかを判断する。
+等しい場合：
+return値にSUCCESS
+等しくない場合：
+return値にERROR
+
+sessionに以下の情報を格納する。
+name、kana、post_number、phone、address、address2、address3、email_address、password
+
+return値を使用してreturnする。
+
+
+
+
+
+
+商品一覧画面(itemList.jsp)
+(INPUT)
+ ＜ログイン時＞
+　ヘッダーからどの画面からでも可
+　INPUT情報なし
+
+  商品一覧画面からFORMタグで遷移する。(AddCartActionへ)
+
+  カート画面からFORMタグで遷移する。(PurcahseActionへ)
+
+  購入手続き画面からFORMタグで遷移する。(CreditPaymentActionへ)
+
+  登録情報変更確認画面からFORMタグで遷移する。(ChangeRegistrationActionへ)
+
+　＜未ログイン時＞
+　（ヘッダーからログインした際にログイン可となる）(LoginActionへ)
+
+
+   新規登録確認画面からFORMタグで遷移する。(RegisterActionへ)
+
+（OUTPUT）
+ Iteratorにて
+ <s:property value="id" name="id">を設定しておくこと
+ ※上記をAddCartActionへ引き継ぐ。
+
+ <AddCartAction>
+ sessionにてユーザー名(user_name)を取得する。
+ AddCartDAOをインスタンス化する。
+ dao.insert()にてユーザー名、商品ID、商品名、単価、数量をcartテーブルにinsertする。
+
+ intにてinsertされた件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定。
+ 1件未満の場合：
+ resultにERRORを設定。
+
+ result値をreturnする。
+
+ <PurchaseAction>
+ sessionにてユーザー名(user_name)を取得する。
+ PurchaseDAOをインスタンス化する。
+ dao.select()を使用し、sessionにて取得したユーザー名(user_name)を条件としてcartテーブルから全情報(*)を検索する。
+ 検索するカラム：会員名、商品ID、商品名、単価、数量
+ 検索した情報をhistoryテーブルにinsertする。（下記参照）
+ (insert into history(name,id,item_name,price,number) select name,id,item_name,price,number from cart where user_name=?;)
+ preparedStatement型のps（？部分）に、DAOにから取得したユーザー名(user_name)を登録する。
+ intにてinsertした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定。
+ 1件未満の場合：
+ resultにERRORを設定。
+
+ <CreditPaymentAction>（※検討中）
+ (sessionにてcredit_numberを取得出来なかった場合)
+ JSPにてクレジットナンバー（16桁）、ユーザー名義、有効期限、セキュリティコード取得する。
+ 上記にて取得した情報を元に、クレジットナンバー(4桁)、トークンを生成する。
+ sessionにてユーザー名を取得する。
+ クレジットナンバー(4桁)、トークン、ユーザー名をDAOに受け渡す。
+ ChangeRegistrationDAOをインスタンス化する。
+ dao.update()を使用し、sessionにて取得したユーザー名(user_name)を条件としてクレジットナンバー(4桁)、トークンをuserテーブルにupdateする。
+ intにてupdateした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定。
+ 1件未満の場合：
+ resultにERRORを設定。
+
+ PurchaseDAOをインスタンス化する。
+ dao.select()を使用し、sessionにて取得したユーザー名(user_name)を条件としてcartテーブルから全情報(*)を検索する。
+ 検索するカラム：会員名、商品ID、商品名、単価、数量
+ 検索した情報をhistoryテーブルにinsertする。（下記参照）
+ (insert into history(name,id,item_name,price,number) select name,id,item_name,price,number from cart where user_name=?;)
+ preparedStatement型のps（？部分）に、DAOから取得したユーザー名(user_name)を登録する。
+ intにてinsertした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定。
+ 1件未満の場合：
+ resultにERRORを設定。
+
+ CreditPaymentDAOをインスタンス化する。
+ dao.update()を使用し、sessionにて取得したユーザー名(user_name)を条件としてhistoryテーブルの削除フラグを1にupdateする。
+ intにてupdateした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定。
+ 1件未満の場合：
+ resultにERRORを設定。
+
+ result値をreturnする。
+
+ (sessionにてcredit_numberを取得出来た場合)
+ JSPにてクレジットナンバー(4桁)を取得しているものとする。
+ CreditPaymentDAOをインスタンス化する。
+ dao.select()を使用し、sessionにて取得したユーザー名(user_name)とJSPにて取得したクレジットナンバー(4桁)を条件として、検索する。
+ booleanにて検索結果を取得する。
+ trueの場合：
+ resultにSUCCESSを設定する。
+ falseの場合：
+ resultにERRORを設定する。
+
+ dao.update()を使用し、sessionにて取得したユーザー名(user_name)を条件としてhistoryテーブルの削除フラグを1にupdateする。
+ intにてupdateした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定。
+ 1件未満の場合：
+ resultにERRORを設定。
+
+ result値をreturnする。
+ 
+
+ <LoginAction>
+ resultをERRORで初期設定する。
+ LoginDAOをインスタンス化する。
+ dao.select()を使用し、メールアドレス(email_address)とパスワード(password)を検索条件としてname、credit_numberを検索する。
+ booleanでDAOから値を取得できているかを確認する。
+ 取得できている場合(true)：
+ resultにSUCCESSを設定。
+ 取得できていない場合(false)：
+ resultにERRORを設定。
+ 
+ sessionにLoginDAOにて取得したname、credit_numberをそれぞれ登録(put)する。
+ 
+ result値をreturnする。
+ 
+ ※return後、ItemListActionへRedirectするよう、StrutsXMLへ設定しておくこと。
+Redirectを使用し、ItemListActionへ飛ぶ。
+
+<ChangeRegistrationAction>
+ sessionにてユーザー名(user_name)、変更後ユーザー名(user_name_2)、カナ、郵便番号、住所、住所２、住所３、電話番号、メールアドレス、メールアドレス２、
+ パスワード、パスワード２、クレジットナンバー（16桁）、ユーザー名義、有効期限、セキュリティコードを取得する。
+ ChangeRegistrationDAOをインスタンス化する。
+ dao.update()を使用し、sessionにて取得したユーザー名(user_name)を条件としてupdateする。
+ intにてupdateした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定する。
+ 1件未満の場合：
+ resultにERRORを設定する。
+
+ result値をreturnする。
+
+<ItemListAction>
+ ItemListDAOをインスタンス化する。
+ dao.select()にて、商品ID(item_id)、商品名(item_name)、単価(price)、売上数(stock_amount)、
+ 商品詳細(item_detail)、イメージパス(img_path)を売り上げ順（降順）削除フラグ＝０を条件として15件(LIMITを使用)検索する。
+ 
+ ※ページャー処理
+ ※　//TODO ここに処理を記入
+
+ 検索結果をItemListDTOに格納する。
+ 
+ return SUCCESS 
+
+
+
+
+<RegisterAction>
+ 上記の情報をSetterにて登録する。
+ ※画面へ<s:property>で表示できるように受け渡す。
+
+ result値をreturnする。
+ ※その後、StrutsXMLにてRedirectを使用し、ItemListActionへ飛ぶ。
+
+
+<RegisterAction>
+sessionからname、kana、post_number、phone、address、address2、address3、mailを取得する。
+RegisterDAOをインスタンス化する。
+dao.insert()を使用し、name、kana、post_number、phone、address、address2、address3、mailをuserテーブルにinsertする。
+※登録日は自動的にinsertされることとする。
+※また、登録日の取得はJavaプログラム内でCalendarクラスを用いる事とする。
+
+intにてinsertされた件数を取得する。
+1件以上ある場合：
+sessionに格納されているname以外をremoveする。
+removeする項目：
+kana、post_number、phone、address、address2、address3、mail、メールアドレス２、パスワード、パスワード２
+
+return SUCCESS
+1件未満の場合：
+return ERROR
+
+ショッピングカート画面(cart.jsp)
+(INPUT)
+ ＜ログイン時＞
+　ヘッダーからどの画面からでも可(GoCartActionへ)
+　INPUT情報ーsessionにてnameを受取る。
+
+  ショッピングカート画面にて、FORMタグで遷移する。(EditItemActionへ)
+  ショッピングカート画面にて、FORMタグで遷移する。(DeleteCartActionへ)
+
+　＜未ログイン時＞
+　ありえない
+
+（OUTPUT）
+
+　<GoCartAction>
+　sessionからnameを取得する。
+　GoCartDAOをインスタンス化する。
+  dao.select()を使用し、cartテーブルからnameを条件とし、全情報(*)を検索する。
+  検索する情報：カートID、会員名、商品ID、商品名、単価、数量
+　検索にて取得した情報をArrayList型のListに格納する。
+  booleanでDAOから値を取得できているかを確認する。
+  GoCartDTOをインスタンス化する。
+  trueの場合：
+　取得した情報をList＜GoCartDTO＞に格納する。
+　resultにSUCCESSを設定する。
+　falseの場合：
+　resultにERRORを設定する。
+　
+　result値を使用してreturnする。
+
+  <EditItemAction>
+  JSPから商品IDと数量が取得されている事とする。
+　EditItemDAOをインスタンス化する。 
+　dao.update()を使用し、商品ID(item_id)を条件として、画面から取得した数量をcartテーブルの数量にupdateする。
+　intにてupdateされた件数を取得する。
+　1件以上ある場合：
+　return SUCCESS
+  1件未満の場合：
+　return ERROR
+
+　<DeleteItemAction>
+　JSPから商品IDを取得されている事とする。
+  DeleteItemDAOをインスタンス化する。
+　dao.delete()を使用し、、cartテーブルから商品ID(item_id)を条件としてdeleteする。
+　intにてdeleteされた件数を取得する。
+　1件以上ある場合：
+　return SUCCESS
+  1件未満の場合：
+　return ERROR
+　
+購入手続き画面(purchase.jsp)
+(INPUT)
+ ＜ログイン時＞
+　ショッピングカート画面
+　INPUT情報ーsessionにてcredit_number、nameを受取る。　
+
+　フォームタグにて遷移。(GoPurchaseActionへ)
+
+　＜未ログイン時＞
+　ありえない
+　
+<GoPurchaseAction>
+return SUCCESS
+
+
+退会画面(withdrawal.jsp)
+(INPUT)
+ ＜ログイン時＞
+　フッターからログイン時に遷移。(GoWithdrawalActionへ)
+　INPUT情報なし
+　＜未ログイン時＞
+　ありえない
+
+<GoWithdrawalAction>
+return SUCCEESS
+
+
+
+退会確認画面(withdrawalConfirmation.jsp)
+(INPUT)
+ ＜ログイン時＞
+　退会画面
+　フォームタグにて遷移。(WithdrawalConfirmationActionへ)
+　INPUT情報ーsessionにてnameを受取る。
+　＜未ログイン時＞
+　ありえない
+
+<WithdrawalConfirmationAction>
+return SUCCESS
+
+
+登録情報変更画面(changeRegistration.jsp)
+(INPUT)
+ ＜ログイン時＞
+　ヘッダーから遷移可能。(GoChangeRegistrationActionへ)
+　INPUT情報ーsessionにてnameを受取る。
+　＜未ログイン時＞
+　ありえない
+
+<GoChangeRegistrationAction>
+sessionにてnameを取得する。
+GoChangeRegistrationDAOをインスタンス化する。
+dao.select()をを使用し、sessionから取得したnameを条件としてname、kana、post_number、phone、address、address2、address3、mailを検索する。
+GoChangeRegistrationDTOをインスタンス化する。
+検索結果をdtoに格納する。
+return SUCCESS
+
+登録情報変更確認画面(changeRegistrationConfirmation.jsp)
+(INPUT)
+ ＜ログイン時＞
+　登録情報変更画面
+　フォームタグにて遷移。(ChangeRegistretionConfirmationActionへ)
+  INPUT情報-sessionにて、name、kana、post_number、address、address2、address3
+   　　　　　mailを受取る。
+ ＜未ログイン時＞
+　ありえない
+
+<ChangeRegistrationConfirmationAction>
+　JSPから名前、カナ、郵便番号、住所、住所２、住所３、電話番号、メールアドレス、メールアドレス２、
+パスワード、パスワード２、クレジットナンバー（16桁）、ユーザー名義、有効期限、セキュリティコードが取得されている事とする。
+
+ 上記をsessionに格納する。
+ 
+return SUCCESS
+
+
+会社概要画面(companyOverview.jsp)
+(INPUT)
+ ＜ログイン時＞
+ すべてのフッター(footer.jsp)から遷移可。(GoCompanyOverviewActionへ)
+ 
+ ＜未ログイン時＞
+ すべてのフッター(footer.jsp)から遷移可。
+ 
+<GoCompanyOverviewAction>
+ return SUCCESS
+
+問い合わせ画面(contact.jsp)
+(INPUT)
+ ＜ログイン時＞
+ すべてのフッターから遷移可。(GoContactActionへ)
+
+ 問い合わせ画面からFROMタグで遷移可。(ContactActionへ)
+
+　＜未ログイン時＞
+　ありえない
+　
+　<GoContactAction>
+　return SUCCESS
+
+  <ContactAction>
+  JSPから問い合わせ情報を取得できているものとする。
+　sessionにてユーザー名(user_name)を取得する。
+  CntactDAOをインスタンス化する。
+　dao.insert()を使用し、sessionにて取得したユーザー名(user_name)を条件として、取得した問い合わせ情報をinsertする。
+　intにてinsertした件数を取得する。
+  1件以上ある場合：
+　resultにSUCCESSを設定する。
+　1件未満の場合：
+　resultにERRORを設定する。
+
+　result値をreturnする。
+
+管理者ログイン画面(administratorLogin.jsp)
+(INPUT)
+　特定URLのみ※実装時に確認すること。
+　
+　(AdministratorLogoutAction)
+　return SUCCESS
+　
+管理者画面(administrator.jsp)
+(INPUT)
+ ＜管理者ログイン時＞
+　管理者ログイン画面から遷移する。（AdministratorLoginActionへ）
+　
+  管理者画面からFORMタグで遷移する。(AddItemActionへ)
+
+　管理者画面からFORMタグで遷移する。(DeleteItemActionへ)
+
+　管理者画面からFORMタグで遷移する。(SearchItemActionへ)
+
+　管理者画面からFORMタグで遷移する。(UserNumberActionへ)
+
+　管理者画面からFORMタグで遷移する。(AdministratorEditItemActionへ)
+
+ admin.jsファイルをJSPにて読み込む。
+ jsファイル内：
+ $(function(){
+  $('#delete').on('click',function(){
+    $(this).parent('form').attr('action','adminDelete');
+    $(this).parent('form').submit(); 
+    })
+  $('#update').on('click',function(){
+    $(this).parent('form').attr('action','adminUpdate');
+    $(this).parent('form').submit(); 
+    })
+  })
+　
+　(AdministratorLoginAction)
+　resultをERRORで初期設定する。
+　AdministrationLoginDAOをインスタンス化する。
+  dao.select()を使用し、管理者ID(id)とパスワード(password)を検索条件として全情報(*)を取得する。
+ booleanでDAOから値を取得できているかを確認する。
+ 取得できている場合：
+ return値にSUCCESSを代入する
+ 取得できていない場合：
+ return値にERRORを代入する
+
+<AddItemAction>
+ JSPから商品名、単価、在庫数、商品詳細、イメージファイルパスを取得出来ているものとする。
+ AddItemDAOをインスタンス化する。
+ dao.insert()を使用し、上記で取得した情報をitemテーブルにinsertする。
+ intにてinsertした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定する。
+ 1件未満の場合：
+ resultにERRORを設定する。
+
+ result値をreturnする。
+
+<DeleteItemAction>
+ jsファイルを使用してFORMタグにて商品IDを取得する。
+ DeleteItemDAOをインスタンス化する。
+ dao.update()を使用し、取得した商品IDを条件として、削除フラグを1にupdateする。
+ intにてupdateした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定する。
+ 1件未満の場合：
+ resultにERRORを設定する。
+
+ result値をreturnする。
+
+<SearchItemAction>
+ JSPから商品名を取得しているものとする。
+ SearchItemDAOをインスタンス化する。
+ dao.select()を使用し、商品名を条件として検索する。
+ booleanにて検索結果を取得する。
+ trueの場合：
+ resultにSUCCESSを設定する。
+ falseの場合：
+ resultにERRORを設定する。
+
+ result値をreturnする。
+
+<UserNumberAction>
+ UserNumberDAOをインスタンス化する。
+ dao.select()を使用し、userテーブルのデータ件数を取得する。
+ booleanにて検索結果を取得する。
+ trueの場合：
+ resultにSUCCESSを設定する。
+ falseの場合：
+ resultにERRORを設定する。
+
+ result値をreturnする。
+
+<AdministratorEditItemAction>
+ jsファイルを使用してFORMタグにて商品IDと在庫数（変更）を取得する。
+ AdministratorEditItemDAOをインスタンス化する。
+ dao.update()を使用し、取得した商品IDを条件として、在庫数をupdateする。
+ intにてupdateした件数を取得する。
+ 1件以上ある場合：
+ resultにSUCCESSを設定する。
+ 1件未満の場合：
+ resultにERRORを設定する。
+
+ result値をreturnする。
+
+利用規約画面(termOfService.jsp)
+(INPUT)
+ ＜ログイン時＞
+ すべてのフッターから遷移可。(GoTermOfServiceActionへ)
+　＜未ログイン時＞
+　ありえない
+　
+　(GoTermOfServiceAction)
+　return SUCCESS

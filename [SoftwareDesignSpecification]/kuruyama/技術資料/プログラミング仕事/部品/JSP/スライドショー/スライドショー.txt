@@ -1,0 +1,19 @@
+ヘッドの中に下記貼り付け
+<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="js/infiniteslide.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#main_slide').infiniteslide({
+        });
+    });
+</script>
+
+-------------------------------------------------------------------------------
+ボディのスライドショーを出したい場所に下記貼り付け
+<div id="main_slide">
+	<ul>
+		<li><img src="img/pome1.jpg" alt="" width="800" height="400" /></li>
+		<li><img src="img/pome2.jpg" alt="" width="800" height="400" /></li>
+		<li><img src="img/pome3.jpg" alt="" width="800" height="400" /></li>
+	</ul>
+</div>

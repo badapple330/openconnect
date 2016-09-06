@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>LaPoupee - 購入確認画面</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-style-type" content="text/css" />
+	<link rel="stylesheet" type="css/text" href="confirmation.css">
+</head>
+<body>
+<header>
+	<div class="header_title">
+			<span class="initial">L</span>a
+			<span class="initial">P</span>oupee
+	</div>
+</header>
+<nav>
+	<p>
+		<span class="order1">商品を選択</span><br>
+		↓<br>
+		<span class="order2">カートの中身を確認</span><br>
+		↓<br>
+		<span class="order3">購入の確認</span><br>
+		↓<br>
+		<span class="order4">購入完了</span>
+	</p>
+</nav>
+<br>
+<br>
+<div class ="shop">
+<p><font size="3"><b>【ショッピングカート】</b></font></p>
+<table style="line-height: 1.33em; border-collapse: collapse;width: 40%;" align="center" cellspacing="1″ cellpadding="5″>
+  <tbody>
+    <tr align="center">
+    <TR>
+      <td style="padding:1px; background-color: #dfdfdf;font-weight:1px solid #42B4ED;font-weight: bold;" width="50%">商品名</td>
+      <td style="padding:1px; background-color: #dfdfdf;font-weight:1px solid #42B4ED;font-weight: bold;" width="10%">単価</td>
+      <td style="padding:1px; background-color: #dfdfdf;font-weight solid #42B4ED;font-weight: bold;" width="15%">数量</td>
+      <td style="padding:1px; background-color: #dfdfdf;font-weight solid #42B4ED;font-weight: bold;" width="15%">合計金額円</td>
+    </TR>
+
+ <tr>
+    <td style="padding:8px; border:1px solid #CCC;"></td>
+    <td style="padding:8px; border:1px solid #CCC;"></td>
+     <td colspan="2"style="padding:2px; border:1px solid #CCC;"><div class="price">
+     <b>合計金額:&yen;</b></div></td>
+    </tr>
+</TBODY>
+</TABLE>
+<br>
+<div align="center">
+	<form id="Item_AllAction" name="Item_AllAction" action="/Struts2Login/Item_AllAction.action;jsessionid=D235A595B41AB445FA76A8596F458D6A" method="post">
+<table class="wwFormTable">
+		<tr>
+    <td colspan="2">
+			<input type="button" onclick="location.href='main.html'"value="ショッピングを続ける"></div></td>
+</tr>
+
+
+	</table></form>
+
+
+
+
+</div>
+<br>
+<br>
+<br>
+<div align="center">
+<table style="line-height: 1.33em; border-collapse: collapse;width: 40%;" align="center" cellspacing="1″ cellpadding="5″>
+  <tbody>
+    <tr align="center">
+    <tr>
+      <td style="padding:1px;border: 1px solid #CCC;" width="30%">お名前</td>
+      <td style="padding:1px;border: 1px solid #CCC;"  width="50%"></td>
+    </tr>
+	<tr>
+      <td style="padding:1px;border: 1px solid #CCC;">メールアドレス</td>
+      <td style="padding:1px;border: 1px solid #CCC;"></td>
+    </tr>
+	<tr>
+         <td style="padding:1px;border: 1px solid #CCC;">郵便番号</td>
+      <td style="padding:1px;border: 1px solid #CCC;"></td>
+     </tr>
+ <tr>
+         <td style="padding:1px;border: 1px solid #CCC;">住所</td>
+      <td style="padding:1px;border: 1px solid #CCC;"></td>
+     </tr>
+ <tr>
+         <td style="padding:1px;border: 1px solid #CCC;">電話番号</td>
+      <td style="padding:1px;border: 1px solid #CCC;"></td>
+     </tr>
+   <tr>
+</TBODY>
+</TABLE>
+</div>
+<br>
+<input type="button" onclick="location.href='mypage.html'"value="変更">
+<input type="button" onclick="location.href='thankyou.html'"value="完了">
+</table></form>
+
+
+
+
+<br>
+<br>
+
+</div>
+</div>
+<footer>
+<hr class="f_line">
+<div>
+
+		<p class="copy">&copy; 2015 LaPoupee All Rights Reserved.</p>
+
+</div>
+</footer>
+</body>

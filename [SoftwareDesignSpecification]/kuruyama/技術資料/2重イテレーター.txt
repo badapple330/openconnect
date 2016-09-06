@@ -1,0 +1,35 @@
+//Dao内でリストの中のリストを作成
+while(true){
+				itemList = new ArrayList<>();
+				//3個のデータを入れたリストをデータの数作成
+				for(int i=0;i<3;i++){
+					if(!resultSet.next()){
+						break;
+					}
+					MainDTO dto =new MainDTO();
+					dto.setItemId(resultSet.getInt("item_id"));
+					dto.setItemName(resultSet.getString("item_name"));
+					dto.setExplanation(resultSet.getString("explanation"));
+					dto.setPrice(resultSet.getInt("price"));
+					dto.setImgPath(resultSet.getString("img_path"));
+					dto.setStock(resultSet.getInt("item_stock"));
+					itemList.add(dto);
+				}
+				if(itemList.size()==0){
+					break;
+				}else{
+				itemListList.add(itemList);//3個のデータを入れたリストを一つずつ格納
+				}
+を全表示させるためには
+	<!--jsp内-->
+				<!--外側のイテレータ-->
+					<s:iterator value="itemListList" status="rs"><!--status-->
+    				<tr>
+    				<!--内側のイテレータ番地を宣言する-->
+						<s:iterator value="itemListList[#rs.index]"><!--rs.indexはfor文でいうところのループ変数-->
+							<s:property value="explanation"/></td>
+           		 		</s:iterator>
+           		 	</tr>
+					</s:iterator>
+					
+					

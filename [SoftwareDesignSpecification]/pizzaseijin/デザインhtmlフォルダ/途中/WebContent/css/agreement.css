@@ -1,0 +1,171 @@
+body {
+	background-color: #333333;
+	font-family:Meiryo,"MS ゴシック",sans-serif;
+	color: #ffffff;
+	font-size: 16px;
+	margin-bottom: 100px;
+}
+/* header */
+header{
+  background: url("../img/utyuu.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header.header-left h1
+{font-family:arial black;
+font-size: 40px;
+font-style:italic;
+color:red;
+margin-left: 20px;
+}
+header .title p {
+  color: yellow;
+  margin-left: 20px;
+}
+.header-right{
+  float: right;
+  width: 30%;
+}
+
+input.form-control{
+  margin-top: 3px;
+  width: 120px;
+}
+.btn.btn-warning{
+  position: relative;
+  float: right;
+ bottom: 35px;
+ right: 135px;
+}
+/***************************************/
+/* footer */
+footer{
+  background-color: black;
+  position:fixed;  /*フッターを絶対配置に指定する設定*/ 
+  bottom:0; 
+  width: 100%;
+  heigth: 100px;
+}
+footer .copy{
+	font-size: 85%;
+	color: #ffffff;
+}
+/***************************************/
+/* ナビゲーション */
+.nav {
+	background: #C20020;
+	width: auto;
+}
+.nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	display: block;
+	zoom: 1;
+}
+.nav ul:after {
+	content: "";
+	display: block;
+	font-size: 0;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.nav ul li {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+.nav .align-center ul {
+	text-align: center;
+}
+
+.nav .align-right ul li {
+	float: right;
+}
+
+.nav ul li a {
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	padding: 15px 25px;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 14px;
+	position: relative;
+	-webkit-transition: color .25s;
+	-moz-transition: color .25s;
+	-ms-transition: color .25s;
+	-o-transition: color .25s;
+	transition: color .25s;
+}
+.nav ul li a:hover {
+	color: #FFDA00;
+}
+.nav ul li a:hover:before {
+	width: 100%;
+}
+.nav ul li a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: -3px;
+	top: 19px;
+	height: 6px;
+	width: 6px;
+	background: #ffffff;
+	opacity: .5;
+}
+.nav ul li a:before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 0;
+	background: #FFDA00;
+	-webkit-transition: width .25s;
+	-moz-transition: width .25s;
+	-ms-transition: width .25s;
+	-o-transition: width .25s;
+	transition: width .25s;
+}
+.nav ul li.last>a:after, .nav ul li:last-child>a:after {
+	display: none;
+}
+.nav .align-right li.last>a:after, .nav .align-right li:last-child>a:after{
+	display: block;
+}
+.nav .align-right li:first-child a:after {
+	display: none;
+}
+/**********************************************/
+/* tableラインなし */
+.line_del {
+	border-style: none;
+	height: 500px;
+	width: 100%;
+	color: #000000;
+}
+.line_del td:first-child {
+	vertical-align: top;
+	width: 50px;
+}
+.y_scroll {
+	height: 500px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+/* 余白 */
+.back {
+	background: #ffffff;
+	color: #000000;
+}
+.yohaku {
+	padding: 30px;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>ホーム画面</title>
+<!-- cssリンク　-->
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" href="css/slick.css">
+<link rel="stylesheet" href="css/slick-theme.css">
+<link rel="stylesheet" href="css/fonts">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+<link href="css/header.css" rel="stylesheet" type="text/css" />
+<link href="css/footer.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- JSリンク -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/slick.js"></script>
+</head>
+<script>
+$(function(){
+  $('.sample1').slick({
+    asNavFor:'.sample',
+    autoplay:true,
+    sildeToShow:1,
+    slideToScroll:1,
+    autoplay:true,
+    arrows:false,
+    fade:true,
+    infinite: true,
+  });
+
+$('.sample').slick({
+asNavFor:'.sample1',
+autoplay:true,
+slidesToShow:3,
+arrows:true,
+centerMode:true,
+centerPadding:100,
+autoplaySpeed:3000,
+arrows:true,
+speed:500,
+dots:true,
+pauseOnHover:true,
+focusOnSelect: true,
+infinite: true
+});
+});
+</script>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-left">
+        <img class="logo" src="./img/logo.png">
+      </div>
+      <div class="header-right">
+          <input type="text" placeholder="Email" class="form-control">
+          <input type="password" placeholder="Password" class="form-control">
+          <button type="button" class="btn btn-warning">ログイン</button>
+      </div>
+      <div class="twitter">
+        <a href="#"><img src="./img/twitter.png"></a>
+      </div>
+      <div class="facebook">
+        <a href="#"><img src="./img/facebook.png"></a>
+      </div>
+      <div class="google">
+        <a href="#"><img src="./img/google.png"></a>
+      </div>
+      <div class ="new-member">
+       <a href = "#"><button type="button" class="btn btn-warning">新規登録</button></a>
+      </div>
+      </div>
+  </header>
+  <div class="main">
+    <div class="contener-top">
+    <ul class="sample1">
+      <li><a href="#"><img src="img/0528nabe31_cs1e1_480x.jpg"></a></li>
+      <li><a href="#"><img src="img/1020NABE14_cs1e1_410x.jpg"></a></li>
+      <li><a href="#"><img src="img/WS2015WintGset_1_L.jpeg"></a></li>
+      <li><a href="#"><img src="img/WS2015WintPset_1_L.jpeg"></a></li>
+    </ul>
+  </div>
+  <div class="contener-middle">
+    <ul class="sample">
+      <li><a href="#"><img src="img/WS2015AtmnDbox_1_L.jpeg"></a></li>
+      <li><a href="#"><img src="img/WS2015WintDbox_1_L.jpeg"></a></li>
+      <li><a href="#"><img src="img/WS2015WintGset_1_L.jpeg"></a></li>
+      <li><a href="#"><img src="img/WS2015WintPset_1_L.jpeg"></a></li>
+    </ul>
+  </div>
+  <div class="contener-bottom">
+    <table class="table table-hover">
+      <tr><th>新着情報</th></tr>
+      <tr><td>新商品○○○○</td></tr>
+      <tr><td>新商品○○○○</td></tr>
+      <tr><td>新商品○○○○</td></tr>
+      <tr><td>新商品○○○○</td></tr>
+      <tr><td>新商品○○○○</td></tr>
+      <tr><td>新商品○○○○</td></tr>
+    </table>
+    <div class="twitter"><a class="twitter-timeline" width="500" height="250" href="https://twitter.com/internousdev" data-widget-id="671917266686971905">@internousdevさんのツイート</a></div>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    </script>
+  </div>
+</div>
+<footer>
+  <a href="#" title="会社概要">会社概要</a>
+  <a href="#" title="コピーライト">コピーライト</a>
+  <a href="#" title="お問い合わせ">お問い合わせ</a>
+  <a href="#" title="ヘルプ">ヘルプ</a>
+  <a href="#" title="アレルギー表記">アレルギー表記</a>
+  <a href="#" title="ご利用規約">ご利用規約</a>
+</footer>
+</body>
+</html>

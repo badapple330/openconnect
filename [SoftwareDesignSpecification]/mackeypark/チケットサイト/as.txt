@@ -1,0 +1,9 @@
+session.put("selectList", selectList); 
+                session.put("priceList", priceList); 
+                session.put("date", date); 
+                session.put("period",period); 
+                session.put("TicketArray", TicketArray); 
+                session.put("DesignArray", DesignArray); 
+                session.put("division", division); 
+                session.put("ticketSum", ticketSum); 
+                session.put("amount", amount);

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>お問い合わせ</title>
+   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+   <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+   <link href="css/style.css" rel="stylesheet" type="text/css" />
+   <link href="css/cart.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+function entry(){
+	radio = document.getElementsByName('pay')
+if(radio[1].checked){
+  document.getElementById('payBox').style.display = "";
+  document.getElementById('firstBox').style.display = "";
+  document.getElementById('payfirstBox').style.display = "";
+  document.getElementById('paysecoudBox').style.display = "";
+
+}else{
+  document.getElementById('payBox').style.display = "none";
+  document.getElementById('firstBox').style.display = "none";
+  document.getElementById('payfirstBox').style.display = "none";
+  document.getElementById('paysecoudBox').style.display = "none";
+
+}
+}
+function info(){
+radio = document.getElementsByName('adress')
+if(radio[1].checked) {
+  document.getElementById('a').style.display = "";
+  document.getElementById('b').style.display = "";
+  document.getElementById('c').style.display = "";
+  document.getElementById('d').style.display = "";
+  document.getElementById('e').style.display = "";
+
+}else{
+  document.getElementById('a').style.display = "none";
+  document.getElementById('b').style.display = "none";
+  document.getElementById('c').style.display = "none";
+  document.getElementById('d').style.display = "none";
+  document.getElementById('e').style.display = "none";
+
+}
+}
+</script>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="header-left">
+            <a href="#"><img class="logo" src="./img/logo.png"></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-offset-8">
+          <a href="#"><img src="./img/twitter.png"></a>
+          <a href="#"><img src="./img/facebook.png"></a>
+          <a href="#"><img src="./img/google.png"></a><br><br>
+          <button type="button" class="btn btn-danger">ログイン</button>
+          <button type="button" class="btn btn-danger">新規登録</button><br><br>
+          </div>
+        </div>
+      </div>
+    </header>
+    <br><br>
+    <div align="center">
+    <table class="form-check">
+    <tr>
+    <th colspan="4">購入確認画面</th>
+    </tr>
+
+    <tr><td>商品名</td><td>金額</td><td>枚数</td><td>ピース数</td></tr>
+    <tr>
+    <td>
+      ミートピザ
+    </td>
+    <td>
+    4000円
+    </td>
+    <td>
+    2枚
+    </td>
+    <td>
+    6ピース
+    </td>
+    </tr>
+    <tr>
+    <td>
+      ミートピザ
+    </td>
+    <td>
+    3800円
+    </td>
+    <td>
+    1枚
+    </td>
+    <td>
+    3ピース
+    </td>
+    </tr>
+    <tr>
+    <td colspan="3">
+    <div class="form-total">
+    合計:
+    </div>
+    </td>
+    <td>
+    7800円
+    </td>
+    </tr>
+
+    <tr>
+    <td colspan="4">
+    <div class="form-chiket">
+    <a href="cartend.html"><input type="button" class="btn btn-danger" value="完了"></a><br><br>
+    <a href="cart.html"><input type="button" class="btn btn-danger" value="戻る"></a>
+    </div>
+    </td>
+    </tr>
+
+    </table>
+    </div>
+	<br><br>
+  <footer>
+   <a href="company.html" Title="会社概要">会社概要</a>
+  <a href="question.html" Title="お問い合わせ">お問い合わせ</a>
+  <a href="help.html" Title="ヘルプ">ヘルプ</a>
+  <a href="allergie.html" Title="アレルギー表記">アレルギー表記</a>
+  <a href="#" Title="ご利用規約">ご利用規約</a><br>
+  コピーライト
+  </footer>
+    </body>
+</html>
+

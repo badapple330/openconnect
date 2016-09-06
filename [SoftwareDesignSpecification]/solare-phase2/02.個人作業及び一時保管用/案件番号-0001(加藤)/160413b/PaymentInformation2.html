@@ -1,0 +1,125 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags"%>
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>クレジット情報入力</title>
+            <link rel="stylesheet" href="css/design.css">
+            <style>
+                /*
+                * {
+                    border: solid 1px red;
+                }
+                */
+                
+                .button4 {
+                    margin-top: 20px;
+                    margin-right: 10px;
+                    margin-left: 10px;
+                    border-color: white;
+                    /* 文字サイズを1.4emに指定 */
+                    font-size: 1.4em;
+                    /* 縦方向に10px、
+            * 横方向に30pxの余白を指定 */
+                    padding: 10px 30px;
+                    /* 背景色を濃い青色に指定 */
+                    background-color: rgb(106, 12, 59);
+                    /* 文字色を白色に指定 */
+                    color: #fff;
+                    /* ボーダーをなくす */
+                    border-style: none;
+                }
+                
+                button.button4:hover {
+                    /* 背景色を明るい青色に指定 */
+                    background-color: rgb(150, 17, 84);
+                    /* 文字色を白色に指定 */
+                    color: #fff;
+                }
+            </style>
+        </head>
+
+        <body>
+            <form action="GoToReservationConfirmationPageAction">
+                <table id="ptable">
+                    <tr id="cardSelect">
+                        <td>カードを選択</td>
+                        <td>
+                            <select name="payment" required><s:property value="payment" />
+                                <option value="SELECT">選択してください</option>
+                                <option value="VISA">VISA</option>
+                                <option value="JCB">JCB</option>
+                                <option value="MASTER">MASTER</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr id="text1">
+                        <td>Card holder</td>
+                        <td>
+                            <input type="text" name="Card holder" size="30" pattern="^[A-Z]+$" title="大文字アルファベットで入力してください。" placeholder="名前を入力してください" required/>
+                        </td>
+                    </tr>
+
+                    <tr id="text2">
+                        <td>Card number</td>
+                        <td>
+                            <input type="password" name="Card number" size="30" pattern="[0-9]{16}" maxlength="16" title="数字のみ16桁を入力してください。" placeholder="カード番号を入力してください" required/>
+                        </td>
+                    </tr>
+
+                    <tr id="Period">
+                        <td>MONTH/YEAR</td>
+                        <td>
+                            <select name="month" required>
+                                <option value="select1">選択してください</option>
+                                <option value="select2">1</option>
+                                <option value="select3">2</option>
+                                <option value="select4">3</option>
+                                <option value="select5">4</option>
+                                <option value="select6">5</option>
+                                <option value="select7">6</option>
+                                <option value="select8">7</option>
+                                <option value="select9">8</option>
+                                <option value="select10">9</option>
+                                <option value="select11">10</option>
+                                <option value="select12">11</option>
+                                <option value="select13">12</option>
+                            </select>
+
+                            <select id="Year" name="year" required>
+                                <option value="select1">選択してください</option>
+                                <option value="select2">28</option>
+                                <option value="select3">29</option>
+                                <option value="select4">30</option>
+                                <option value="select5">31</option>
+                                <option value="select6">32</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr id="text3">
+                        <td>Security code</td>
+                        <td>
+                            <input type="password" name="security code" size="30" maxlength="4" pattern="[0-9]{3,4}" title="数字のみ3桁又は4桁を入力してください。" placeholder="セキュリティコードを入力してください" required/>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <p align="center">
+                    <input type="submit" name="btn1" value="Reservation Confirm" class="button4" />
+                </p>
+            </form>
+
+
+            <form action="BackPage2Action">
+                <p align="center">
+                    <input type="submit" name="btn2" value="Back" class="button4" />
+                </p>
+            </form>
+        </body>
+
+        </html>

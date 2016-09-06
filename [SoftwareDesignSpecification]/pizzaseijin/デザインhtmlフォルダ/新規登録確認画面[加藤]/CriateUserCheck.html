@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新規登録確認画面</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSSリンク  -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+    <link href="css/header.css" rel="stylesheet" type="text/css" />
+    <link href="css/footer.css" rel="stylesheet" type="text/css" />
+    <link href="css/CriateUserCheck.css" rel="stylesheet" type="text/css" />
+        <!-- JSリンク -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	    <header>
+      <div class="container">
+        <div class="header-left">
+          <img class="logo" src="./img/logo.png">
+        </div>
+      </div>
+    </header>
+	<div class="container text-center">
+		<h1>登録内容確認</h1>
+		<hr>
+		<div name="user-info">
+			<p>以下の内容でよろしいですか？</p>
+			<table class="table-condensed" align="center">
+				<tr><th colspan="2">お客様情報確認</th></tr>
+					<tr>
+						<td>名前:</td>
+						<td id="name">ピザ星人A</td>
+					</tr>
+					<tr>
+						<td>住所:</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>TEL:</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>メール:</td>
+						<td></td>
+					</tr>
+			</table>
+      <p></p>
+		</div>
+		<div>
+			<input type="button" class="btn btn-danger" value="訂正" />
+			<input type="button" onclick="location.href='http://localhost:8080/Struts2/新規登録完了.html'" class="btn btn-danger" value="OK" />
+		</div>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<br>
+    <footer>
+      <a href="#" Title="会社概要">会社概要</a>
+      <a href="#" Title="コピーライト">コピーライト</a>
+      <a href="#" Title="お問い合わせ">お問い合わせ</a>
+      <a href="#" Title="ヘルプ">ヘルプ</a>
+      <a href="#" Title="アレルギー表記">アレルギー表記</a>
+      <a href="#" Title="ご利用規約">ご利用規約</a>
+    </footer>
+</body>
+</html>

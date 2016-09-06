@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>新規登録</title>
+    <!-- CSSリンク  -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+    <link href="css/header.css" rel="stylesheet" type="text/css" />
+    <link href="css/footer.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/CriateUser.css" rel="stylesheet" type="text/css" />
+    <!-- JSリンク -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-left">
+          <img class="logo" src="./img/logo.png">
+        </div>
+      </div>
+    </header>
+    <h1>内容</h1>
+    <table align="center">
+  <tr><th colspan="3"><font size="4">新規登録</font></th></tr>
+  <tr>
+   <td>氏名</td>
+   <td colspan="2"><input type=text name="namae"  placeholder="記入例　御茶ノ水　太郎"></td>
+  </tr>
+  <tr>
+   <td>都道府県</td>
+   <td colspan="2"><input type=text name="postFirst" placeholder="記入例　東京都"></td>
+  </tr>
+  <tr>
+   <td>市町村区</td>
+   <td colspan="2"><input type=text name="postSecond" placeholder="記入例　千代田区"></td>
+  </tr>
+  <tr>
+   <td>番地など</td>
+   <td colspan="2"><input type=text name="postThird" placeholder="記入例　霞ヶ関3-6-15"></td>
+  </tr>
+
+  <tr>
+   <td>メールアドレス</td>
+   <td colspan="2"><input type=email name="mail1" placeholder="記入例　abcd@efg.com"></td>
+  </tr>
+  <tr>
+   <td>電話番号</td>
+   <td colspan="2"><input type=text name="telnum" placeholder="記入例　090-0000-0000"></td>
+  </tr>
+  <tr>
+     <td colspan="3">
+      <input type="button" onclick="location.href='http://localhost:8080/Struts2/CriateUserCheck.html'" class="btn btn-danger" value=" 登録 ">
+      <input type="button" onclick="location.href='http://localhost:8080/Struts2/CriateUser.html'" class="btn btn-danger" value=" 取消 ">
+     </td>
+    </tr>
+    </table>
+    <footer>
+      <a href="#" title="会社概要">会社概要</a>
+      <a href="#" title="コピーライト">コピーライト</a>
+      <a href="#" title="お問い合わせ">お問い合わせ</a>
+      <a href="#" title="ヘルプ">ヘルプ</a>
+      <a href="#" title="アレルギー表記">アレルギー表記</a>
+      <a href="#" title="ご利用規約">ご利用規約</a>
+    </footer>
+  </body>
+</html>

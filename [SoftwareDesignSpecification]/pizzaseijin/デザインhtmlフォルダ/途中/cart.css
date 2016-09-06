@@ -1,0 +1,17 @@
+.form-a{
+	position: relative;
+}
+.form-button{
+	text-align: left;
+	position: absolute;
+	bottom: 0;
+	top: 150px;
+	left: -55px;
+}
+.form-text{
+	margin-right: auto;
+}
+.table-test{
+	width:75%;
+
+}

@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>モーダルtest</title>
+<style>
+
+#piza-window {
+	padding: 10px;
+	background-color: #fff;
+	border: gray 1px solid;
+	display: none;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="js/jquery.plainmodal.min.js"></script>
+	<div id="modal-content">
+	</div>
+	<div id="piza-window">
+		<table>
+			<tr>
+				<th>ピザ詳細</th>
+				<td align="right">
+					<a href="#"><img src="./img/pizza03.jpg"/></a>
+				</td>
+			</tr>
+			<tr>
+							<th>SNS</th>
+			</tr>
+		</table>
+	</div>
+
+	<a id="modal-open">ｶﾃｺﾞﾘ</a>
+	<script>
+		$('#modal-open').click(function() {
+			$('#piza-window').plainModal('open', {
+				overlay : {
+					color : '#fff',
+					opacity : 0.5
+				}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+
+
+body{
+	margin: 0;
+}
+
+header{
+	background-color: #000000;
+	transition: 1s;
+	width: 100%;
+	height: 70px;
+}
+header:hover{
+	background-color: white;
+}
+.header_title{
+	padding-left: 10%;
+	font-size: 200%;
+}
+
+.initial{
+	color: #4169E1;
+}
+
+.f_line{
+		border: 0;
+		height: 1px;
+		background: #333;
+		background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+		background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+		background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+		background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+		}
+		.copy{
+		text-align:center;
+		}
+
+.gazou	{text-align:center;}
+
+
+.thank	{text-align:center;
+		font-family:'Dotum';
+		color:red;
+		font-size:30px;}
+
+.button	{text-align:center}

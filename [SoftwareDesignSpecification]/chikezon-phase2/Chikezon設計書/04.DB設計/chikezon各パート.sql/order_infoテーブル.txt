@@ -1,0 +1,9 @@
+create table order_info(
+customer_id int(100),
+goods_id int(100),
+order_count int(100) default 0,
+total_amount int,
+purchaseday timestamp default current_timestamp,
+foreign key(customer_id) references customer_info(customer_id),
+foreign key(goods_id) references goods(goods_id)
+);

@@ -1,0 +1,12 @@
+商品一覧画面		Main.jsp	
+カート画面 		Cart.jsp
+購入確認画面		Confirmation.jsp
+購入完了画面		Thankyou.jsp
+ログイン画面		LoginCustomer.jsp
+新規会員登録画面	CreateCustomer.jsp
+顧客情報編集画面	EditCustomer.jsp
+マイページ画面		Mypage.jsp
+退会画面		WithdrawAccount.jsp
+退会完了画面		WithdrawComplete.jsp
+管理者ログイン画面	LoginAdmin.jsp
+管理者画面		Admin.jsp

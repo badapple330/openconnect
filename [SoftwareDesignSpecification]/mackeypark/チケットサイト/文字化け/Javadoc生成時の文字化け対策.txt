@@ -1,0 +1,4 @@
+¡Javadoc¶¬Žž‚Ì•¶Žš‰»‚¯‘Îô 
+‰æ‘œ‚ðŽQl‚ÉˆÈ‰º‚Ì•¶‚ð‘}“ü‚µ‚Ä‰º‚³‚¢B 
+ 
+-noqualifier all -encoding UTF-8 -docencoding Windows-31J

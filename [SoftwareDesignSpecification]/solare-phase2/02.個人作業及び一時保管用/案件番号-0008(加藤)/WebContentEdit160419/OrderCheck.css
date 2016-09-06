@@ -1,0 +1,13 @@
+.table{
+	background-color:#cccccc;
+	width:750px;
+	height:24px;
+	border:1px solid #000000;
+	border-color:#cccccc;
+	padding:0.5em;
+
+}
+
+.table, td, th {
+    border: 2px #ff0000 solid;
+}

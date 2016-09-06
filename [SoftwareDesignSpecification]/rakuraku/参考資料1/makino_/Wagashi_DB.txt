@@ -1,0 +1,21 @@
+・データベース名
+ wgashitdb
+
+ create database wgashitdb;
+
+・テーブル名
+ product
+
+ create table product(
+id int,
+name varchar(32),
+price int,
+number int,
+materials varchar(32),
+primary key (id)
+);
+
+create table product(id int,name varchar(32),price int,number int,materials varchar(32),primary key (id));
+
+・
+ 

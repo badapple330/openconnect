@@ -1,0 +1,18 @@
+ <action name="TicketListAction" class="com.internousdevwork.mackeypark.action.TicketListAction" method="execute">
+		<result name="success">/Selection_Control.jsp</result>
+		<result name="error">/Selection_Control.jsp</result>
+		</action>
+
+
+
+
+        <!-- ‘O‚Ì‰æ–Ê‚Ìl—p -->
+		<action name="#" class="com.internousdevwork.mackeypark.action.#" method="execute">
+		<result name="success" type = "chain">TicketListAction</result>
+	    <result name="error">/#</result>
+
+        </action>
+
+		<action name="Selection_ControlAction" class="com.internousdevwork.mackeypark.action.Selection_ControlAction" method="execute">
+		<result name="success">/ŽŸ‚Ì‰æ–Ê</result>
+		<result name="error" type = "chain">TicketListAction</result>

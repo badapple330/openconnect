@@ -1,0 +1,5 @@
+テキストボックスに半角数字以外の数値を入力できないようにする方法
+onKeyup属性を以下のように設定します。
+
+<s:textfield name="test" size="1" minlength="1" maxlength="2"
+             onKeyup="this.value=this.value.replace(/[^0-9]+/,'')"/>

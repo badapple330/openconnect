@@ -1,0 +1,262 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE  html >
+<html>
+<head>
+<!-- BootstrapのCSS読み込み -->
+<link href="menu.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="BmiCalculation.js"></script>
+<title>UESUTO.COM-商品一覧-</title>
+<style type="text/css">
+html,body
+a.logo{
+outline:none;
+}
+</style>
+</head>
+<body>
+					<!-- ヘッダー -->
+	<div class="above-Footer">
+		<div>
+			<table style="background-color: #faff00; height: 200; width: 100%">
+
+				<TR>
+					<td><a class="logo" href="BackMenuAction"><img src="img/log.png"
+					alt="uesto.com"></a>
+					<td><IMG onMouseDown="return false;" src="img/kuma.gif"
+						width="100" height="100" align="right"> <IMG
+						onMouseDown="return false;" src="img/souryou.png" width="340"
+						height="151" align="right"></td>
+				</TR>
+				<tr>
+					<td colspan="2">
+						<hr class="line02" /> <jsp:include page="Header.jsp"></jsp:include>
+					</td>
+				</tr>
+			</table>
+	</div>
+								<!-- ヘッダー -->
+
+
+			<!-- bodyに左右の余白を付ける -->
+			<div style="margin-left: 10%; margin-right: 10%;">
+				<P>
+					<BR>
+					<BR>
+				</P>
+									<!-- BMIのフォーム -->
+				<FORM action="BmiAction" >
+					身長：<INPUT size="6" type="text" maxlength="4" placeholder="170"
+						name="hight" pattern="^([1-9]\d*|0)(\.\d+)?$" required
+						title="小数点以下を含む半角数値のみ受け付けます">cm
+					体重：<INPUT size="6"
+						type="text" maxlength="3" placeholder="60" name="weight"
+						pattern="^[0-9]{2,}" required title="2桁以上の半角数字のみ受け付けます">kg
+						  <INPUT type="submit" value="BMIからオススメ商品を表示→"
+						style="background-color: #ffff99"
+						onmouseover="this.style.background='#99ccff'"
+						onmouseout="this.style.background='#ffff99'" onclick=""> <BR>あなたのBMI値は
+					<s:property value="bmi"></s:property>
+					です
+				</FORM>
+				<BR> <BR> <BR> <BR>
+
+    <div class="body">
+				<s:if test="%{pickupList.isEmpty()}">
+
+					<div>商品一覧</div>
+					<font color="red"><s:property value="error" /></font>
+					<Hr Size="3" Color="#32CD32" width="200">
+					<center>
+						<table>
+
+							<tr>
+								<td><form action="MenuAction">
+										<s:if test="%{limit==0}" >
+										<input type="submit" value="健康食品"
+											style="background-color: #deb887">
+
+										</s:if>
+										<s:else>
+										<input type="submit" value="健康食品"
+											style="background-color: #ffff99"
+											onmouseover="this.style.background='#99ccff'"
+											onmouseout="this.style.background='#ffff99'">
+										<s:hidden name="limit" value="0" />
+										</s:else>
+									</form></td>
+								<td><form action="MenuAction">
+										<s:if test="%{limit==20}" >
+										<input type="submit" value="健康器具"
+											style="background-color: #deb887">
+
+										</s:if>
+										<s:else>
+										<input type="submit" value="健康器具"
+											style="background-color: #ffff99"
+											onmouseover="this.style.background='#99ccff'"
+											onmouseout="this.style.background='#ffff99'">
+										<s:hidden name="limit" value="20" />
+										</s:else>
+									</form></td>
+								<td><form action="MenuAction">
+										<s:if test="%{limit==40}" >
+										<input type="submit" value="サプリメント"
+											style="background-color: #deb887">
+
+										</s:if>
+										<s:else>
+										<input type="submit" value="サプリメント"
+											style="background-color: #ffff99"
+											onmouseover="this.style.background='#99ccff'"
+											onmouseout="this.style.background='#ffff99'">
+										<s:hidden name="limit" value="40" />
+										</s:else>
+									</form></td>
+								<td><form action="MenuAction">
+										<s:if test="%{limit==60}" >
+										<input type="submit" value="その他"
+											style="background-color: #deb887">
+
+										</s:if>
+										<s:else>
+										<input type="submit" value="その他"
+											style="background-color: #ffff99"
+											onmouseover="this.style.background='#99ccff'"
+											onmouseout="this.style.background='#ffff99'">
+										<s:hidden name="limit" value="60" />
+										</s:else>
+									</form></td>
+
+							</tr>
+						</table>
+					</center>
+
+
+
+					<TABLE class="table">
+						<TR bordercolor="#cccccc">
+							<TD align="center" bordercolor="#cccccc" bgcolor="FFFF99"
+								height="24">商品名</TD>
+							<TD align="center" bordercolor="#cccccc" bgcolor="FFFF99"
+								height="24">単価</TD>
+							<TD align="center" bordercolor="#cccccc" bgcolor="FFFF99"
+								width="180" height="24">数量</TD>
+						</TR>
+
+						<s:iterator value="goodsList" status="rs">
+
+							<tr>
+							<tr bordercolor="#cccccc">
+								<TD align="center" bordercolor="#cccccc" height="16"><s:property
+										value="goods_name" /></TD>
+								<TD align="center" bordercolor="#cccccc" height="16"><s:property
+										value="price" />円</TD>
+								<TD align="center" bordercolor="#cccccc" height="16"><s:form
+										action="GoCartAction">
+										<INPUT size="2" type="text" maxlength="2" name="order_count"
+											pattern="^[1-9][0-9]*" required title="1以上の半角数字で入力してください">
+										<s:hidden name="goods_id" />
+										<INPUT type="submit" value="カートへ入れる"
+											style="background-color: #ffff99"
+											onmouseover="this.style.background='#99ccff'"
+											onmouseout="this.style.background='#ffff99'">
+									</s:form></TD>
+							</tr>
+
+
+						</s:iterator>
+
+					</TABLE>
+
+				</s:if>
+                <s:else>
+
+
+					<div>おすすめ商品</div>
+					<Hr Size="3" Color="#32CD32" width="200">
+					<TABLE class="table">
+						<TR bordercolor="#cccccc">
+							<TD align="center" bordercolor="#cccccc" bgcolor="FFFF99"
+								height="24">商品名</TD>
+							<TD align="center" bordercolor="#cccccc" bgcolor="FFFF99"
+								height="24">単価</TD>
+							<TD align="center" bordercolor="#cccccc" bgcolor="FFFF99"
+								width="180" height="24">数量</TD>
+						</TR>
+
+						<s:iterator value="pickupList">
+
+							<tr>
+							<tr bordercolor="#cccccc">
+								<TD align="center" bordercolor="#cccccc" height="16"><s:property
+										value="goods_name" /></TD>
+								<TD align="center" bordercolor="#cccccc" height="16"><s:property
+										value="price" />円</TD>
+								<TD align="center" bordercolor="#cccccc" height="16"><s:form
+										action="GoCartAction">
+										<input type="text" maxlength="3" name="order_count" size="1"
+											required pattern="^[1-9][0-9]*" title="1以上の半角数字で入力してください" />
+										<s:hidden name="goods_id" />
+										<INPUT type="submit" value="カートへ入れる"
+											style="background-color: #ffff99"
+											onmouseover="this.style.background='#99ccff'"
+											onmouseout="this.style.background='#ffff99'">
+									</s:form></TD>
+							</tr>
+						</s:iterator>
+
+					</TABLE>
+
+
+										<!-- 商品一覧へ遷移するボタン -->
+					<form action="ReMenuAction">
+						<input type="submit" value="商 品 一 覧 に 戻 る"
+							Style="background-color: #ffff99"
+							style="background-color:#ffff99"
+							onmouseover="this.style.background='#99ccff'"
+							onmouseout="this.style.background='#ffff99'">
+					</form>
+
+			</s:else>
+
+
+
+
+					<!-- カートへ遷移するボタン -->
+				<form action="Go2CartAction">
+					<INPUT type="submit" value="カートの中身→"
+						style="background-color: #ffff99"
+						onmouseover="this.style.background='#99ccff'"
+						onmouseout="this.style.background='#ffff99'">
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+
+						<!-- 前の画面に戻るボタン -->
+	<div>
+		<br>
+		<br>
+		<br>
+		 <a href="javascript:history.back();"> <input
+			type="submit" value="前画面に戻る" style="background-color: #ffff99"
+			onmouseover="this.style.background='#99ccff'"
+			onmouseout="this.style.background='#ffff99'" /></a>
+	</div>
+					<!-- フッダー -->
+	<div class="stickyFooter">
+
+		<hr id="line" />
+		<hr id="line02/">
+		<p align="right">(C) 2015 UESUTO.com. All Rights Reserved.</p>
+		<br>
+		<br>
+
+	</div>
+</body>
+</html>

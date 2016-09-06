@@ -1,0 +1,55 @@
+WebContentの中のWEB-INFのlibの中にjarファイルを追加
+・jstl.jar
+・standard.jar
+
+struts.xml
+<constant name="struts.custom.i18n.resources" value="プロパティ名,プロパティ名,・・" />
+
+struts.xmlと同じ階層にpropertiesファイルを作る（新規→その他→一般→ファイル）
+右クリック→新規→ファイルより作成。
+ファイル名の作成例:Actionクラス名_言語名.properties
+【言語名サンプル】
+日本語　jp
+英語　  en
+
+
+国際化させたい文字の部分を↓に変更します。
+<fmt:message key="○○○" ←任意のKeyを指定します。 bundle="${lang}" />:
+記号:Keyとは国際化する為に使用する各言語のpropertiesファイル内に記載する文字を呼び出す文字になります。
+ 
+にて作成したpropertiesファイル内に、呼び出したい文字を書き込みます。
+keyに勝手に変換されます。
+↓
+例:
+id = ID　　　　　　　　　　　               この場合keyはidであり、表記する言語はIDになります。
+password = PASSWORD　　　　　               この場合keyはpasswordであり、表記する言語はPASSWORDになります。
+↑enのpropertiesファイル内の表記
+
+id = \u611B\u30C7\u30A3                     この場合keyはidであり、表記する言語は\u611B\u30C7\u30A3になります。
+password = \u3071\u3059\u308F\u30FC\u3069   この場合keyはpasswordであり、表記する言語は\u3071\u3059\u308F\u30FC\u3069になります。
+↑ja0のpropertiesファイル内の表記
+※"="以下を全角入力で日本語を入力すると自動的に
+\u3071\u3059\u308F\u30FC\u3069のように表記されます。
+
+プログラムを実行し設定しているロケールの言語で文字の表記ができれば完成です。
+※ブラウザ上の設定でロケールの変更が可能です。
+
+
+※プロパティ名_言語コード.propertiesと作る。言語コードがないと読まない。(英語en、日本語ja)
+
+jsp側表示
+表示するだけ
+<s:text name="プロパティで指定したkey名" />
+
+ボタンの時↓
+sタグ等タグの中の表示
+<s:submit value="%{getText('プロパティで指定したkey名')}" />
+
+java側表示
+(getText("プロパティで指定したkey名"));
+    ※getTextはActionSupportを継承していること。
+
+ヴァリデーション等のxmlファイル
+%{getText('プロパティで指定したkey名')}
+
+以上です。

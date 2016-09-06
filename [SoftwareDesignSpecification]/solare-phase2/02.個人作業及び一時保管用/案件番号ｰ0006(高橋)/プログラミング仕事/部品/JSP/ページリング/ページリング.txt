@@ -1,0 +1,29 @@
+以下をヘッダーに貼り付け
+<link rel="stylesheet" href="./css/animate.css">
+<script type="text/javascript" src="./js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="./js/jPages.js"></script>
+<script>
+$(function(){
+	$(".List").jPages({
+		containerID : "CList",
+            previous : "←", //前へのボタン
+	　　next : "→", //次へのボタン
+      　　　perPage : 5, //1ページに表示する個数
+        　　delay : 100, //要素間の表示速度
+            animation: "-webkit-keyframes rotateIn" //アニメーションAnimate.cssを参考に
+      });
+});
+</script>
+
+-----------------------------------------------------------------------------
+テーブルボディに下記のように紐付ける
+<tbody id="CList">
+
+-----------------------------------------------------------------------------
+ボタンを表示したい場所に下記を貼り付ける
+<div class="List"></div>
+
+----------------------------------------------------------------------------
+スクリプト文下部の中の表記で、
+下記○の場所にcssの中の@の後ろについている文言(@～)を入力すると様々なバリエーションで表示できる
+animation: "○"

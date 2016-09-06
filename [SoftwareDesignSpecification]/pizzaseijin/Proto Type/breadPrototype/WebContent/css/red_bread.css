@@ -1,0 +1,16 @@
+ul.bread li {
+	display: inline;
+	list-style: none;
+}
+
+ul.bread li:before {
+	content: " > ";
+}
+
+ul.bread li:first-child:before {
+	content: none;
+}
+
+.red {
+	font-weight: bold;
+}

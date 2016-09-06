@@ -1,0 +1,1 @@
+select item_id from ticket where item_name = '1日(大人)' and design = 'マッキー';

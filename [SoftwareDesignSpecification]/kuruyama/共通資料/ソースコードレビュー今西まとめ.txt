@@ -1,0 +1,44 @@
+済みフォルダ名　SQL →　splに
+データベース名
+ramen→kuruyama
+park→mackeypark
+DAOのデータベース名を忘れずに変える！！
+
+
+・全般
+javadocエラー無くす
+packeage.infoを適切に
+syso消す
+エラー処理の文言はe.printStackTrace();で。
+
+
+・Action
+Map<String,Object> session;
+                 ↑スペース
+原則SUCCESS,ERROR以外の値を返さない。
+返すのはなるべく早く
+もしloginerror等返すなら、小文字で。
+
+エラーメッセージ系の変数は
+～Messageに統一（～AnswerはNG)
+jspも忘れずに変更する。
+
+DAOの戻り値の評価を必ず行う。
+また、件数は<0で。マイナスが返ってくる可能性もある。
+
+
+・DAO
+データベース名変更
+戻り値voidはNG
+メソッドの命名
+insertByIdとか（何かで検索する場合はByをつける)
+
+更新系は戻り値件数。
+検索系は、booleanもしくは値。
+取り出す値が多い場合は、DTOに格納して渡す。
+↑多いの目安は？
+
+
+
+
+

@@ -1,0 +1,98 @@
+
+
+	<s:form action="Cart_checkAction">
+
+		<div class="title">
+			<s:text name="çwì¸ämîF"/></h2>
+		</div>
+
+		<div align="center">
+			<table class="riigai">
+				<tbody>
+					<tr>
+						<th><s:text name="çwì¸ì˙"/></th>
+						<script type="text/javascript">
+							myD = new Date();
+
+							myYear = myD.getFullYear();
+							myMonth = myD.getMonth() + 1;
+							myDate = myD.getDate();
+
+							date = myYear + "îN" + myMonth + "åé" + myDate + "ì˙";
+						</script>
+
+						<td class="#"><script type="text/javascript">
+							document.write(date);
+						</script></td>
+					</tr>
+					<tr>
+						<th><s:text name="ì¸âÄì˙"/></th>
+						<td class="#"><s:property value="#session.date" /></td>
+					</tr>
+					<tr>
+						<th><s:text name="óLå¯ä˙å¿"/></th>
+						<td class="#"><s:property value="#session.path" /></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="allTiketto">
+				<tbody>
+					<tr>
+						<th><s:text name="äGïø"/></th>
+						<!--îzóÒèàóùÇ‚ÇÈ-->
+						<td class="data tiketto"><s:property value="#session.ticketArray" /></td>
+						<td class="egara "><s:property value="#session.DesignArray" /></td>
+						<td class="data mai">10ñá</td>
+					</tr>
+
+
+
+					<tr>
+						<th>ã‡äz</th>
+						<td class="data tiketto">äwê∂</td>
+						<td class="data money">8000/â~</td>
+						<td class="data mai">10ñá</td>
+					</tr>
+					<tr>
+						<th></th>
+						<td class="data tiketto">ócéô</td>
+						<td class="data money">8000/â~</td>
+						<td class="data mai">10ñá</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+			<table class="allAll">
+				<tbody>
+				<tbody>
+					<tr>
+						<th>çáåv <br> ñáêî
+						</th>
+						<td class="">70ñá</td>
+					</tr>
+					<tr>
+						<th>çáåv <br> ã‡äz
+						</th>
+						<td class="">700.000â~</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div align="center">
+
+		<!--actionçÏÇÈ-->
+			<s:form action="Cart_checkAction">
+		<div align="center">
+			<button class="button9" type="submit">ämíË</button><br>
+			<button class="button8" type="submit">ñﬂÇÈ</button>
+		</div>
+		</s:form>
+
+		</div>
+
+
+
+		</s:form>

@@ -1,0 +1,800 @@
+package com.internousdev.util;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Date;
+import java.util.ResourceBundle;
+
+import com.internousdev.util.DBConnector;
+import com.internousdev.util.Utility;
+
+/**
+ * CreditCard クレジットカード情報を取り扱うためのクラス
+ * 
+ * @author MASAKI TANAKA
+ * @author TAKUMA INOUE
+ * @version 1.1
+ * @since 1.0
+ */
+public class CreditCard {
+
+	/**
+	 * プロパティ
+	 */
+	private ResourceBundle bundle = ResourceBundle.getBundle("creditcard");
+
+	/**
+	 * クレジットカードのタイプID
+	 */
+	private int typeId;
+
+	/**
+	 * クレジットカード番号
+	 */
+	private String creditCardNumber;
+
+	/**
+	 * トークン
+	 */
+	private String token;
+
+	/**
+	 * エラーメッセージ
+	 */
+	private String errorMessage;
+
+	/**
+	 * データーベースコネクター
+	 */
+	private DBConnector dbConnector;
+
+	/**
+	 * コネクション
+	 */
+	private Connection connection;
+
+	/**
+	 * <p>コンストラクタ(引数あり)<br>
+	 * クレジットカード情報を操作する為のコンストラクタを生成します。<br>
+	 * 引数にてデータベース名を指定する事で接続することができます。<br>
+	 * </p>
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 * @param database
+	 *            データーベース名
+	 */
+	public CreditCard(String database) {
+		dbConnector = new DBConnector(database);
+	}
+
+	/**
+	 * <p>コンストラクタ(引数なし)<br>
+	 * クレジットカード情報を操作する為のコンストラクタを生成します。
+	 * </p>
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 */
+	public CreditCard() {
+		dbConnector = new DBConnector(this.bundle.getString("database"));
+	}
+
+	/**
+	 * <p>クレジットカード情報存在チェック<br>
+	 * 引数にてクレジットカード番号を指定する事で該当するものが存在するか確認できます。<br>
+	 * 結果はtrueもしくはfalseにて返され、存在すればtrue、存在しなければfalseとなります。</p>
+	 * @author MASAKI TANAKA
+	 * @param creditCardNumber
+	 *            クレジットカード番号
+	 * @return result クレジットカード番号の存在があればtrue なければfalse
+	 */
+	public boolean isExists(String creditCardNumber) {
+		connection = dbConnector.getConnection();
+		boolean result = this.exists(creditCardNumber);
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.setCreditCardNumber(creditCardNumber);
+
+		return result;
+	}
+
+	/**
+	 * <p>クレジットカードの有効期限取得(クレジットカード番号にて取得する場合)<br>
+	 * 引数にてクレジットカード番号を指定する事でクレジットカードの有効期限を取得できます。<br>
+	 * 結果はDATE型で取得することができます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public Date getExpirationDate(String creditCardNumber) throws SQLException {
+		Date expirationDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "select expiration_date from t_card where card_number = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, creditCardNumber);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			expirationDate = rs.getDate(1);
+			connection.close();
+			return expirationDate;
+		}
+	}
+
+	/**
+	 * <p>クレジットカードの有効期限取得(トークン情報にて取得する場合)<br>
+	 * 引数にてトークン情報を指定する事でクレジットカードの有効期限を取得できます。<br>
+	 * 結果はDATE型で取得することができます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public Date getExpirationDateByToken(String token) throws SQLException {
+		Date expirationDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "select expiration_date from t_card where token = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, token);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			expirationDate = rs.getDate(1);
+			connection.close();
+			return expirationDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの有効期限取得(クレジットカード番号にて取得する場合)<br>
+	 * 引数にてクレジットカード番号を指定することでクレジットカードの有効期限を取得できます。<br>
+	 * 結果はString型で取得することができます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public String getExpirationDateAsStringFormat(String creditCardNumber) throws SQLException {
+		String expirationDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "select expiration_date from t_card where card_number = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, creditCardNumber);
+		ResultSet rs = ps.executeQuery();
+		Utility utility = new Utility();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			expirationDate = utility.parseDateToString(rs.getDate(1));
+			connection.close();
+			return expirationDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの名義人取得(クレジットカード番号にて取得する場合)<br>
+	 * 引数にてクレジットカード番号を渡すことでクレジットカード名義人を取得できます。<br>
+	 * </p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public String getCreditCardHolder(String creditCardNumber) throws SQLException {
+		String creditCardHolder = null;
+		connection = dbConnector.getConnection();
+		String sql = "select card_holder from t_card where card_number = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, creditCardNumber);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return creditCardHolder;
+		} else {
+			creditCardHolder = rs.getString(1);
+			connection.close();
+			return creditCardHolder;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの名義人取得(トークン情報にて取得する場合)<br>
+	 * 引数にてトークン情報を渡すことでクレジットカード名義人を取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public String getCreditCardHolderByToken(String token) throws SQLException {
+		String creditCardHolder = null;
+		connection = dbConnector.getConnection();
+		String sql = "select card_holder from t_card where token = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, token);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return creditCardHolder;
+		} else {
+			creditCardHolder = rs.getString(1);
+			connection.close();
+			return creditCardHolder;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの有効期限日取得(トークン情報にて取得する場合)<br>
+	 * 引数にてトークン情報を渡すことでクレジットカードの有効期限日を取得できます。<br>
+	 * またString型で値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public String getExpirationDateAsStringFormatByToken(String token) throws SQLException {
+		String expirationDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "select expiration_date from t_card where token = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, token);
+		ResultSet rs = ps.executeQuery();
+//		Utility utility = new Utility();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			expirationDate = rs.getString(1);
+			connection.close();
+			return expirationDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの有効期限日取得(クレジットカード番号にて取得する場合)<br>
+	 * 引数にてクレジットカード番号を渡すことでクレジットカードの有効期限日を取得できます。<br>
+	 * String型かつMM/YY形式で値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public String getExpirationDateAsStringFormatMMYY(String creditCardNumber) throws SQLException {
+		String expirationDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "select expiration_date from t_card where card_number = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, creditCardNumber);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/YY");
+			expirationDate = sdf.format(sdf);
+			connection.close();
+			return expirationDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの有効期限日取得(トークン情報にて取得する場合)<br>
+	 * 引数にてクレジットカード番号を渡すことでクレジットカードの有効期限日を取得できます。<br>
+	 * String型かつMM/YY形式で値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public String getExpirationDateAsStringFormatMMYYByToken(String token) throws SQLException {
+		String expirationDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "select expiration_date from t_card where token = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, token);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/YY");
+			expirationDate = sdf.format(rs.getString(1));
+			connection.close();
+			return expirationDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードのセキュリティーコード取得(クレジットカード番号にて取得する場合)<br>
+	 * 引数にてクレジットカード番号を渡すことでクレジットカードのセキュリティコードを取得できます。<br>
+	 * String型で値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public String getSecurityCode(String creditCardNumber) throws SQLException {
+		String securityCode = null;
+		connection = dbConnector.getConnection();
+		String sql = "select security_code from t_card where card_number = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, creditCardNumber);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			securityCode = rs.getString(1);
+			connection.close();
+			return securityCode;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードのセキュリティーコード取得(トークン情報にて取得する場合)<br>
+	 * 引数にてトークン情報を渡すことでクレジットカードのセキュリティコードを取得できます。<br>
+	 * String型で値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public String getSecurityCodeByToken(String token) throws SQLException {
+		String securityCode = null;
+		connection = dbConnector.getConnection();
+		String sql = "select security_code from t_card where token = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, token);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			securityCode = rs.getString(1);
+			connection.close();
+			return securityCode;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの登録日付取得(クレジットカード番号にて取得する場合)<br>
+	 * 引数にてクレジットカード番号を渡すことでクレジットカードの登録日を取得できます。<br>
+	 * DATE型で値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public Date getRegisteredDate(String creditCardNumber) throws SQLException {
+		Date registeredDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "select registered_date from t_card where card_number = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, creditCardNumber);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			registeredDate = rs.getDate(1);
+			connection.close();
+			return registeredDate;
+		}
+	}
+	
+	/**
+	 * クレジットカードの登録日付取得(トークン情報にて取得する場合)<br>
+	 * 引数にてトークン情報を渡すことでクレジットカードの登録日を取得できます。<br>
+	 * DATE型で値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public Date getRegisteredDateByToken(String token) throws SQLException {
+		Date registeredDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "select registered_date from t_card where token = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, token);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			registeredDate = rs.getDate(1);
+			connection.close();
+			return registeredDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの更新日付取得(クレジットカード番号にて取得する場合)<br>
+	 * 引数にてクレジットカード番号を渡すことでクレジットカードの更新日付を取得できます。<br>
+	 * DATE型で値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public Date getRenewalDateDate(String creditCardNumber) throws SQLException {
+		Date renewalDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "SELECT renewal_date FROM t_card WHERE card_number = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, creditCardNumber);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			renewalDate = rs.getDate(1);
+			connection.close();
+			return renewalDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの更新日付取得(トークン情報にて取得する場合)<br>
+	 * 引数にてトークン情報を渡すことでクレジットカードの更新日付を取得できます。<br>
+	 * DATE型で値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public Date getRenewalDateDateByToken(String token) throws SQLException {
+		Date renewalDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "SELECT renewal_date FROM t_card WHERE token = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, token);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			renewalDate = rs.getDate(1);
+			connection.close();
+			return renewalDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの削除日付取得(クレジットカード番号にて取得する場合)<br>
+	 * 引数にてクレジットカード番号を渡すことでクレジットカード削除日付を取得できます。<br>
+	 * DATE型にて値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public Date getDeletionDate(String creditCardNumber) throws SQLException {
+		Date registeredDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "SELECT deletion_date FROM t_card WHERE card_number = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, creditCardNumber);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			registeredDate = rs.getDate(1);
+			connection.close();
+			return registeredDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカードの削除日付取得(トークン情報にて取得する場合)<br>
+	 * 引数にてトークン情報を渡すことでクレジットカード削除日付を取得できます。<br>
+	 * DATE型にて値は取得できます。</p>
+	 * @author TAKUMA INOUE
+	 * @throws SQLException SQL例外処理
+	 */
+	public Date getDeletionDateByToken(String token) throws SQLException {
+		Date registeredDate = null;
+		connection = dbConnector.getConnection();
+		String sql = "SELECT deletion_date FROM t_card WHERE token = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, token);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()) {
+			connection.close();
+			return null;
+		} else {
+			registeredDate = rs.getDate(1);
+			connection.close();
+			return registeredDate;
+		}
+	}
+	
+	/**
+	 * <p>クレジットカード情報登録<br>
+	 * 引数にて以下の情報を渡すことでクレジットカード情報として登録することができます。<br>
+	 * 結果として登録された件数が返されます。</p>
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 * @param creditCardNumber
+	 *            クレジットカード番号
+	 * @param creditCardHolder
+	 *            クレジットカード
+	 * @param expiredDate
+	 *            クレジットカードの有効期限
+	 * @param securityCode
+	 *            クレジットカードのセキュリティコード
+	 * @param userId
+	 *            ユーザ固有ID
+	 * @return Integer 件数
+	 */
+	public int add(String creditCardNumber, String creditCardHolder, String expirationDate, String securityCode, int userId) {
+		int ret = 0;
+		boolean f = false;
+		connection = dbConnector.getConnection();
+		// クレカチェック
+		f = this.exists(creditCardNumber);
+		if (f==false) {
+			setErrorMessage(bundle.getString("message.error.notcreditcard"));
+			return ret;
+		}
+
+		// セキュリティコードチェック
+		if (securityCode.length() > 5) {
+			setErrorMessage(bundle.getString("message.error.securitycode"));
+			return ret;
+		}
+
+		// token生成
+		Utility util = new Utility();
+		util.createToken(creditCardNumber, String.valueOf(userId));
+		setToken(util.getToken());
+
+		// 同一tokenの存在チェック
+		if (hasTokens()) {
+			setErrorMessage(bundle.getString("message.error.existstoken"));
+			return ret;
+		}
+
+		// insert処理
+		ret = insertCard(creditCardNumber, creditCardHolder, expirationDate, securityCode);
+
+		if (f==false) {
+			setErrorMessage(bundle.getString("message.error.insert"));
+			return ret;
+		}
+		setToken(token);
+		setCreditCardNumber(creditCardNumber);
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return ret;
+	}
+
+	/**
+	 * <p>クレジットカード情報登録<br>
+	 * 引数にて以下の情報を渡すことでクレジットカード情報として登録することができます。<br>
+	 * 結果として登録された件数が返されます。</p>
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 * @param creditCardNumber
+	 *            クレジットカード番号
+	 * @param creditCardHolder
+	 *            クレジットカード名義人
+	 * @param expirationDate
+	 *            クレジットカードの有効期限日
+	 * @param securityCode
+	 *            クレジットカードのセキュリティコード
+	 * @param userName
+	 *            固有ユーザ名
+	 * @return 登録された件数を返します。
+	 */
+	public int add(String creditCardNumber, String creditCardHolder, String expirationDate, String securityCode, String userName) {
+		int ret = 0;
+		boolean f = false;
+		connection = dbConnector.getConnection();
+		// クレカチェック
+		f = this.exists(creditCardNumber);
+		if (!f) {
+			setErrorMessage(bundle.getString("message.error.notcreditcard"));
+			return ret;
+		}
+
+		// セキュリティコードチェック
+		if (securityCode.length() > 5) {
+			setErrorMessage(bundle.getString("message.error.securitycode"));
+			return ret;
+		}
+
+		// token生成
+		Utility util = new Utility();
+		util.createToken(creditCardNumber, userName);
+		setToken(util.getToken());
+
+		// 同一tokenの存在チェック
+		if (hasTokens()) {
+			setErrorMessage(bundle.getString("message.error.existstoken"));
+			return ret;
+		}
+
+		// insert処理
+		ret = insertCard(creditCardNumber, creditCardHolder, expirationDate, securityCode);
+
+		if (ret==0) {
+			setErrorMessage(bundle.getString("message.error.insert"));
+			return ret;
+		}
+		setToken(token);
+		setCreditCardNumber(creditCardNumber);
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return ret;
+	}
+
+	/**
+	 * クレジットカード存在チェック
+	 * 
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 * @param creditCardNumber
+	 *            クレジットカード番号
+	 * @return true/false クレジットカード番号が存在すればtrue 無ければfalseを返します。
+	 */
+	private boolean exists(String creditCardNumber) {
+		try {
+			String sql = "SELECT id " + "FROM m_creditcard_type " + "WHERE card_number = substring(?, 1, 6)";
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setString(1, creditCardNumber);
+			ResultSet result = stmt.executeQuery();
+			if (!result.next()) {
+				return false;
+			}
+			setTypeId(result.getInt(1));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+	/**
+	 * <p>token存在のチェック<br>
+	 * クレジットカードの紐づくトークン情報が存在するかをチェックします。<br>
+	 * 結果は存在する場合にはTRUE、存在しない場合にはFALSEが返されます。</p>
+	 * @author MASAKI TANAKA
+	 * @return boolean トークンが存在していればtrue 無ければfalse
+	 */
+	private boolean hasTokens() {
+		try {
+			String sql = "SELECT token " + "FROM t_card " + "WHERE token = ?";
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setString(1, token);
+			ResultSet resultSet = stmt.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	/**
+	 * <p>クレジットカード情報登録<br>
+	 * 引数にて以下の情報を渡すことでクレジットカード情報として登録することができます。<br>
+	 * 結果として登録された件数が返されます。</p>
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 * @param creditCardNumber
+	 *            クレジットカード番号
+	 * @param creditCardHolder
+	 *            クレジットカード名義人
+	 * @param expirationDate
+	 *            クレジットカード有効期限日
+	 * @param securityCode
+	 *            セキュリティコード
+	 * @return Integer 件数
+	 */
+	private int insertCard(String creditCardNumber, String creditCardHolder, String expirationDate, String securityCode) {
+		int ret = 0;
+		String sql = "INSERT INTO t_card "
+                + "(type_id, "
+                + "card_number, "
+                + "card_holder, "
+                + "expiration_date, "
+                + "security_code, "
+                + "token "
+                + ") values (?, ?, ?, ?, ?, ?)";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, this.getTypeId());
+			ps.setString(2, creditCardNumber);
+			ps.setString(3, creditCardHolder);
+			ps.setString(4, expirationDate);
+			ps.setString(5, securityCode);
+			ps.setString(6, token);
+			ret = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+
+	/**
+	 * <p>タイプID取得<br>
+	 * タイプIDを取得するためのアクセッサーです。<br>
+	 * CREDITCARDクラス内のみで使用ができます。</p>
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 * @return Integer タイプID
+	 */
+	private int getTypeId() {
+		return typeId;
+	}
+
+	/**
+	 * <p>タイプID登録<br>
+	 * タイプIDを登録するためのアクセッサーです。<br>
+	 * CREDITCARDクラス内のみで使用ができます。</p>
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 * @param typeId
+	 *            タイプID
+	 */
+	private void setTypeId(int typeId) {
+		this.typeId = typeId;
+	}
+
+	/**
+	 * <p>クレジットカード番号取得(下4桁のみ)<br>
+	 * クレジットカード番号を取得するためのアクセッサーです。<br>
+	 * クレジットカード番号は下４桁のみ取得することができます。
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 * @return String クレジットカード番号（下4桁のみ）
+	 */
+	public String getCreditCardNumber() {
+		return creditCardNumber.substring(creditCardNumber.length() - 4);
+	}
+
+	/**
+	 * <p>クレジットカード番号登録<br>
+	 * クレジットカード番号を登録するためのアクセッサー
+	 * 
+	 * @author MASAKI TANAKA
+	 * @author TAKUMA INOUE
+	 * @param creditCardNumber
+	 *            クレジットカード番号
+	 */
+	public void setCreditCardNumber(String creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
+	}
+
+	/**
+	 * トークン取得メソッド
+	 * @author MASAKI TANAKA
+	 * @return string トークン
+	 */
+	public String getToken() {
+		return token;
+	}
+
+	/**
+	 * トークン登録メソッド
+	 * 
+	 * @author MASAKI TANAKA
+	 * @param token
+	 *            トークン
+	 */
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	/**
+	 * エラーメッセージ取得メソッド
+	 * 
+	 * @author MASAKI TANAKA
+	 * @return String エラーメッセージ
+	 */
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	/**
+	 * エラーメッセージ登録メソッド
+	 * 
+	 * @author MASAKI TANAKA
+	 * @param errorMessage
+	 *            エラーメッセージ
+	 */
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+}

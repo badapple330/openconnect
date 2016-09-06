@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html　lang=“ja”>
+
+<head>
+<meta charset="UTF-8">
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="jquery.flexslider.js"></script>
+<script type="text/javascript">
+(function($){
+
+$(document).ready(function(){
+
+  var thumbs = $(".thumb img");
+  var top_images = $(".top img");
+
+  thumbs.hover(function(){
+    top_images.hide().eq(thumbs.index($(this))).show();
+  });
+
+});
+})(jQuery);
+
+(function($){
+
+$(document).ready(function(){
+
+  var thumbs2 = $(".thumb2 img");
+  var top_images2 = $(".top2 img");
+
+  thumbs2.hover(function(){
+    top_images2.hide().eq(thumbs2.index($(this))).show();
+  });
+
+});
+})(jQuery);
+
+ $(window).load(function() {
+            $('.flexslider').flexslider({
+            slideshowSpeed: 5000,
+            mousewheel: true,  
+    });    
+        });
+
+jQuery(function(){
+   jQuery('a[href^=#]').click(function() {
+	  var speed = 800;
+	  var href= jQuery(this).attr("href");
+	  var target = jQuery(href == "#" || href == "" ? 'html' : href);
+	  var position = target.offset().top;
+	  jQuery('body,html').animate({scrollTop:position}, speed, 'swing');
+	  return false;
+   });
+});
+
+</script>
+
+
+<style>
+
+		
+#content  {margin-left:75px;
+           margin-right:75px}
+		
+		
+
+
+
+#menu_countainer {margin-left:16%}
+
+
+
+#course{margin:0px auto}
+
+#coursemenu  {border:none}
+
+caption {padding-bottom:30px}
+
+th   {font-size:4;
+      padding:10px 100px}
+	  
+
+</style>
+
+<link href="css.css" rel="stylesheet" type="text/css">
+
+<title>Solare</title>
+
+</head>
+
+<body>
+<!--アイコン入れてトップへ戻る仕様にしますよ-->
+<img src="">
+
+<h1 id="top">Solare</h1>
+<br><br>
+
+<!--------------------------------------------menu-------------------------------------->
+
+<div id="menu_countainer">
+<a class="cube menu" href="#info">
+  <div>Go</div>
+  <div>Info</div>
+</a>
+
+<a class="cube menu" href="#menu">
+  <div>Go</div>
+  <div>Menu</div>
+</a>
+
+<a class="cube menu" href="#course">
+  <div>Go</div>
+  <div>Course</div>
+</a>
+
+<a class="cube menu" href="#">
+  <div>Go</div>
+  <div>Reservation</div>
+</a>
+
+<a class="cube menu" href="#aboutus">
+  <div>Go</div>
+  <div>AboutUs</div>
+</a>
+
+<a class="cube menu" href="#shopinfo">
+  <div>Go</div>
+  <div>ShopInfo</div>
+</a>
+
+<a class="cube menu" href="#">
+  <div>Go</div>
+  <div>MyPage</div>
+</a>
+</div>
+<br><br>
+
+
+<div id="content">
+	
+<!----------------------------------インフォ--------------------------------------------->
+	
+<div id="container">
+ <h2 id="info">1,Information</h2>
+<div class="flexslider">
+  <ul class="slides">
+    <li>
+     <img src="1.jpg" alt=""  width="640" height="430"/>
+     <p class="flex-caption">Captions1.</p>
+       </li>
+    <li>
+      <img src="2.jpg" alt=""  width="640" height="430"/>
+      <p class="flex-caption">Captions2.</p>
+    </li>
+    <li>
+      <img src="3.jpg" alt=""  width="640" height="430"/>
+	  <p class="flex-caption">Captions3.</p>
+    </li>
+    <li>
+      <img src="4.jpg" alt""  width="640" height="430"/>
+	  <p class="flex-caption">Captions4.</p>
+    </li>
+  </ul>
+</div>
+</div>
+<br><br>
+
+
+<h2 id="menu">2,menu</h2>
+<div class="images_area">
+<ul class="thumb">
+        <li><img src="1.jpg" alt="thumbnail A"></li>
+        <li><img src="2.jpg" alt="thumbnail B"></li>
+        <li><img src="3.jpg" alt="thumbnail C"></li>
+        <li><img src="4.jpg" alt="thumbnail D"></li>
+	　　　<li><img src="3.jpg" alt="thumbnail C"></li>
+        <li><img src="4.jpg" alt="thumbnail D"></li>
+      </ul>
+
+      <ul class="top">
+        <li><img src="1.jpg" alt="top image A"></li>
+        <li><img src="2.jpg" alt="top image B"></li>
+        <li><img src="3.jpg" alt="top image C"></li>
+        <li><img src="4.jpg" alt="top image D"></li>
+　　　　　<li><img src="3.jpg" alt="thumbnail C"></li>
+        <li><img src="4.jpg" alt="thumbnail D"></li>
+      </ul>
+      
+
+    </div>
+<br><br><br><br>
+
+<br><br><br><br><br>
+
+<!-------------------------------------コース------------------------------------------>
+
+<h2 id="course">3,cource</h2>
+　<p>旬の食材の味を一流シェフが最大限に引き出す当店自慢のコースメニュー。<br>
+　メニューは季節によって異なります。<br>
+　コースメニューは全て予約制となります。</p><br>
+
+
+<div id="coursemenu">
+<table>
+	<caption>COURSE</caption>
+<tr>
+	<th class="a">Course A</th>
+	<th class="b">Course B</th>
+	<th class="c">Course C</th>
+</tr>
+
+<tr>
+	<th class="a">2hour</th>
+	<th class="b">3hour</th>
+	<th class="c">3hour</th>
+</tr>
+
+<tr>
+	<th class="a">5,000yen</th>
+	<th class="b">7,500yen</th>
+	<th class="c">10,000yen</th>
+</tr>
+
+<tr>
+	<th class="a">1,フレッシュサーモンのマリネ</th>
+	<th class="b">1,タコとマグロのカルパッチョ</th>
+	<th class="c">1,季節野菜のオーロラ風</th>
+</tr>
+
+<tr>
+	<th class="a">2,オニオングラタンスープ</th>
+	<th class="b">2,トマトの冷製スープ</th>
+	<th class="c">2,野菜たっぷりミネストローネ</th>
+</tr>
+
+<tr>
+	<th class="a">3,仔牛フィレ肉のベーコン巻き、エルデール風</th>
+	<th class="b">3,シェフ厳選 じっくり煮込んだ牛タンのシチュー 赤ワイン風味</th>
+	<th class="c">3,国産牛のフィレ肉のステーキ、茸を添えて、マデラソース</th>
+</tr>
+
+<tr>
+	<th class="a">4,クラムチャウダーの、クリームスープパスタ</th>
+	<th class="b">4,海老と貝柱のクリームパスタ</th>
+	<th class="c">4,ホエー豚のボロネーゼ、バターとベジタブルチップ添え</th>
+</tr>
+
+<tr>
+	<th class="a">5,白桃のグラニテ</th>
+	<th class="b">5,苺のムース仕立て</th>
+	<th class="c">5,三種のチーズを使ったリゾット</th>
+</tr>
+
+<tr>
+	<th class="a"></th>
+	<th class="b"></th>
+	<th class="c">6,林檎のタルト</th>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<br>
+
+<p>ご予約、ご予約状況のご確認はこちらから<p>
+	<a href="#" data-icon="♛" class="button pink serif round glass">Reservation</a>
+
+
+
+<br><br>
+
+<!----------------------------------アバウトアス--------------------------------------------->
+<h2 id="aboutus">4,About Us</h2>
+<p>
+当ホームページをご覧戴き誠に有難うございます。今彩オーナーシェフの半田と申します。
+当店は水道橋の片隅で、2015年（平成27年）初春に、まったりとくつろげる場として、開業いたしました。
+四季折々の料理を私流で表現することをテーマとしています。
+日本には四季があり、旬を通じて沢山の食べ物があります。野菜果実をよりおいしく食べていただけるよう、
+あらゆる調理技法を駆使し、他に比類ない一品を皆様方にご提供したいと思っております。
+</p>
+
+
+
+<!----------------------------------ショップインフォ--------------------------------------------->
+<br><br>
+<h2 id="shopinfo">5,shopinfo</h2>
+　<table class="info">
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td>Access</td>
+		<td>東京都文京区水道橋99-99</td>
+	</tr>
+	
+	<tr>
+		<td>Phone</td>
+		<td>01-2345-6789</td>
+	</tr>
+	
+	<tr>
+		<td>open<br>close</td>
+		<td>12:00<br>23:00</td>
+	</tr>
+
+</table>
+
+<a href="#top" data-icon="♛" class="button pink serif round glass">Top</a>
+
+</div>
+<br><br>
+
+
+
+</body>
+</html>

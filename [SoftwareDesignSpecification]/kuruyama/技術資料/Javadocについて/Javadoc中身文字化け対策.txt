@@ -1,0 +1,7 @@
+■Javadoc生成時の文字化け対策2 
+画像    Javadoc中身文字化け対策を参考に以下の文を挿入して下さい。 
+ 
+ 
+ 
+ -encoding UTF-8  
+-charset UTF-8

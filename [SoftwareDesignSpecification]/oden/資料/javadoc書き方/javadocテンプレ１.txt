@@ -1,0 +1,57 @@
+package jp.co.internous.action;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import jp.co.internous.dto.GoodsincartDTO;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+/**
+ * ClearingcartAction
+ * クリアリングカートアクションクラス
+ * @author 尾崎弘幸
+ * @since 2015/02/12
+ * @version 1.0
+ */
+public class ClearingcartAction  extends ActionSupport implements SessionAware{
+
+	public String result = ERROR;
+	public Map<String, Object> sessionMap;
+	public List<GoodsincartDTO> cartlist=new ArrayList<GoodsincartDTO>();
+	/**
+	 * 実行メソッド
+	 * @author 尾崎弘幸
+	 * @since 2015/02/12
+	 * @return result 結果
+	 */
+	public String execute(){
+
+		sessionMap.remove("cartlist");
+    	sessionMap.remove("total_yen");
+		result= SUCCESS;
+
+		return result;
+	}
+	/**
+	 * セッション取得メソッド
+	 * @author 尾崎弘幸
+	 * @since 2015/02/12
+	 * @return sessionMap セッションに保存するMap
+	 */
+	public Map<String, Object> getSessionMap() {
+		return sessionMap;
+	}
+
+	/**
+	 * セッション格納メソッド
+	 * @author 尾崎弘幸
+	 * @since 2015/02/12
+	 * @param sessionMap セッションに保存するMap
+	 */
+	public void setSession(Map<String, Object> sessionMap) {
+		this.sessionMap = sessionMap;
+	}
+}

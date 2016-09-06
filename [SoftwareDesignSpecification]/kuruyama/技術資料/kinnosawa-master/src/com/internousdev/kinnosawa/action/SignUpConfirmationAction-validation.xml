@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+
+	<!-- お名前 -->
+	<field name="name">
+	<field-validator type="requiredstring">
+		<message key="sign_up.errorAddress"></message>
+	</field-validator>
+	<field-validator type="regex">
+		<param name="regex">^[ぁ-んァ-ヶ一-龠一-十]+$</param>
+		<message key="sign_up.errorNameNum"/>
+	</field-validator>
+	<field-validator type="stringlength">
+		<param name="minLength">1</param>
+		<param name="maxLength">50</param>
+		<message key="sign_up.errorNameFig"/>
+	</field-validator>
+	</field>
+
+	<!-- フリガナ -->
+	<field name="nameKana">
+		<field-validator type="requiredstring">
+			<message key="sign_up.errorAddress"/>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex">^[ァ-ン]{1,50}+$</param>
+			<message key="sign_up.errorNameKana"/>
+		</field-validator>
+	</field>
+
+	<!-- 電話番号 -->
+	<field name="tellNum">
+		<field-validator type="requiredstring">
+			<message key="sign_up.errorAddress"/>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex">^[0-9]{10,11}$</param>
+			<message key="sign_up.errorTellNum"></message>
+		</field-validator>
+	</field>
+
+	<!-- メールアドレス -->
+	<field name="email">
+		<field-validator type="requiredstring">
+			<message key="sign_up.errorAddress"/>
+		</field-validator>
+		<field-validator type="email">
+			<message key="sign_up.errorEmailFig"/>
+		</field-validator>
+	</field>
+
+	<!-- メールアドレス(確認用) -->
+	<field name="checkEmail">
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[checkEmail == email]]></param>
+			<message key="sign_up_again.errorEmail"/>
+		</field-validator>
+	</field>
+
+	<!-- パスワード -->
+	<field name="password">
+		<field-validator type="requiredstring">
+			<message key="sign_up.errorAddress"/>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex">^[0-9a-zA-Z]{8,16}+</param>
+			<message key="sign_up.errorPass"/>
+		</field-validator>
+	</field>
+
+	<!-- パスワード(確認用) -->
+	<field name="checkPassword">
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[checkPassword == password]]></param>
+			<message key="sign_up_again.errorPass"/>
+		</field-validator>
+	</field>
+
+	<!-- 郵便番号 -->
+	<field name="postalCode">
+		<field-validator type="requiredstring">
+			<message key="sign_up.errorAddress"/>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex">^[0-9]{7}+</param>
+			<message key="sign_up.errorPostal"/>
+		</field-validator>
+	</field>
+
+	<!--都道府県市区町村 -->
+	<field name="addressCity">
+		<field-validator type="requiredstring">
+			<message key="sign_up.errorAddress"/>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex">^[ぁ-ゞァ-ヶ一-龠]+[市区町村]+$</param>
+			<message key="sign_up.place.addressCity"/>
+		</field-validator>
+		<field-validator type="stringlength">
+		<param name="minLength">1</param>
+		<param name="maxLength">7</param>
+		<message key="sign_up.errorAddressCityOver"/>
+	</field-validator>
+	</field>
+
+	<!--都道府県市区町村以下 -->
+	<field name="addressOther">
+		<field-validator type="requiredstring">
+			<message key="sign_up.errorAddress"/>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex">^[ぁ-ゞァ-ヶ一-龠0-9０-９-－‐―ーa-zA-Z]+$</param>
+			<message key="sign_up.errorAddressOther"/>
+		</field-validator>
+		<field-validator type="stringlength">
+		<param name="minLength">1</param>
+		<param name="maxLength">110</param>
+		<message key="sign_up.errorAddressOver"/>
+	</field-validator>
+	</field>
+
+</validators>

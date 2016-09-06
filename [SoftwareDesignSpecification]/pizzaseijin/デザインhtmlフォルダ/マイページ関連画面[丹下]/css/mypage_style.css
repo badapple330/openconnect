@@ -1,0 +1,79 @@
+/* スクロールテーブル設定 */
+.sctable {
+  width: 800px;
+  overflow: hidden;
+  border-spacing: 0;
+  font-size:14px;
+}
+.sctable th {
+  color: #fff;
+  padding: 8px 15px;
+  background: #B22222;
+  font-weight: bold;
+  border-left:1px solid #ddd;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+  line-height: 120%;
+  text-align: center;
+  text-shadow:0 -1px 0 rgba(34,85,136,0.9);
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  white-space: nowrap;
+}
+.sctable th:first-child {
+  border-radius: 5px 0 0 0;
+}
+.sctable th:last-child {
+  border-radius:0 5px 0 0;
+  border-right:1px solid #ddd;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1),0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+.sctable tr td {
+  padding: 8px 15px;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  text-align: left;
+  color: #000000;
+  white-space: nowrap;
+}
+.sctable tr td:last-child {
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+.sctable tr {
+  background: #fff;
+}
+.sctable tr:nth-child(2n+1) {
+  background: #f2dede;
+}
+.sctable tr:last-child td {
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+.sctable tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+.sctable tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+.sctable tr:hover {
+  background: #FF4500;
+  cursor:pointer;
+}
+.x_scroll {
+	width:100%;
+	float: left;
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+/* テーブル線消す */
+.line_del {
+	border-style: none;
+}
+select {
+	color: #000000;
+}
+label {
+	white-space: nowrap;
+}
+input {
+	color: #000000;
+}

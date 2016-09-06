@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN "
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+
+<struts>
+
+	<package extends="struts-default" namespace="/" name="rakugo">
+
+		<action name="GoSignUpAction" class="com.internousdev.rakugo.action.GoSignUpAction">
+			<result name="SUCCESS">sign_up.jsp</result>
+		</action>
+		<action name="GoSignUpConfirmationAction" class="com.internousdev.rakugo.action.GoSignUpConfirmationAction">
+			<result name="SUCCESS">sign_up_confirmation.jsp</result>
+		</action>
+		<action name="GoSignUpSuccessAction" class="com.internousdev.rakugo.action.GoSignUpSuccessAction">
+			<result name="SUCCESS">sign_up_success.jsp</result>
+		</action>
+		<action name="GoLogInAction" class="com.internousdev.rakugo.action.GoLogInAction">
+			<result name="SUCCESS">log_in.jsp</result>
+		</action>
+		<action name="GoMyPageAction" class="com.internousdev.rakugo.action.GoMyPageAction">
+			<result name="SUCCESS">my_page.jsp</result>
+		</action>
+		<action name="GoRegistrationChangeAction" class="com.internousdev.rakugo.action.GoRegistrationChangeAction">
+			<result name="SUCCESS">registration_change.jsp</result>
+		</action>
+		<action name="GoChangesConfirmationAction" class="com.internousdev.rakugo.action.GoChangesConfirmationAction">
+			<result name="SUCCESS">changes_confirmation.jsp</result>
+		</action>
+		<action name="GoChangeCompletionAction" class="com.internousdev.rakugo.action.GoChangeCompletionAction">
+			<result name="SUCCESS">change_completion.jsp</result>
+		</action>
+		<action name="GoEventsAction" class="com.internousdev.rakugo.action.GoEventsAction">
+			<result name="SUCCESS">events.jsp</result>
+		</action>
+		<action name="GoEventDetailsAction" class="com.internousdev.rakugo.action.GoEventDetailsAction">
+			<result name="SUCCESS">event_details.jsp</result>
+		</action>
+		<action name="GoPurchaseConfirmationAction" class="com.internousdev.rakugo.action.GoPurchaseConfirmationAction">
+			<result name="SUCCESS">purchase_confirmation.jsp</result>
+		</action>
+		<action name="GoPurchaseCompletionAction" class="com.internousdev.rakugo.action.GoPurchaseCompletionAction">
+			<result name="SUCCESS">purchase_completion.jsp</result>
+		</action>
+		<action name="GoCompanyInfoAction" class="com.internousdev.rakugo.action.GoCompanyInfoAction">
+			<result name="SUCCESS">company_info.jsp</result>
+		</action>
+		<action name="GoAgreementAction" class="com.internousdev.rakugo.action.GoAgreementAction">
+			<result name="SUCCESS">agreement.jsp</result>
+		</action>
+		<action name="GoQAndAAction" class="com.internousdev.rakugo.action.GoQAndAAction">
+			<result name="SUCCESS">q_and_a.jsp</result>
+		</action>
+		<action name="GoWithdrawalConfirmationAction" class="com.internousdev.rakugo.action.GoQAndAAction">
+			<result name="SUCCESS">withdrawal_confirmation.jsp</result>
+		</action>
+		<action name="GoWithdrawalAction" class="com.internousdev.rakugo.action.GoQAndAAction">
+			<result name="SUCCESS">withdrawal.jsp</result>
+		</action>
+		<action name="GoAdminLogInAction" class="com.internousdev.rakugo.action.GoAdminLogInAction">
+			<result name="SUCCESS">admin_log_in.jsp</result>
+		</action>
+		<action name="GoUserManagementAction" class="com.internousdev.rakugo.action.GoUserManagementAction">
+			<result name="SUCCESS">user_management.jsp</result>
+		</action>
+		<action name="GoUserManagementAction" class="com.internousdev.rakugo.action.actionGoUserManagementAction">
+			<result name="SUCCESS">user_management.jsp</result>
+		</action>
+		<action name="GoEventsManagementAction" class="com.internousdev.rakugo.action.GoEventsManagementAction">
+			<result name="SUCCESS">events_management.jsp</result>
+		</action>
+		<action name="GoCapacityUtilizationAction" class="com.internousdev.rakugo.action.CapacityUtilizationAction">
+			<result name="SUCCESS">capacity utilization.jsp</result>
+		</action>
+		<action name="GoTopPageAction" class="com.internousdev.rakugo.action.GoTopPageAction">
+			<result name="SUCCESS">top_page.jsp</result>
+		</action>
+		<action name="GoHeaderLogOutAction" class="com.internousdev.rakugo.action.GoHeaderLogOutAction">
+			<result name="SUCCESS">header_log_out.jsp</result>
+		</action>
+		<action name="GoHeaderLogOutSignUpAction" class="com.internousdev.rakugo.action.GoHeaderLogOutSignUpAction">
+			<result name="SUCCESS">header_log_out_sign_up.jsp</result>
+		</action>
+		<action name="GoHeaderLogInAction" class="com.internousdev.rakugo.action.GoHeaderLogOutSignUpAction">
+			<result name="SUCCESS">header_log_in.jsp</result>
+		</action>
+		<action name="GoFooterAction" class="com.internousdev.rakugo.action.GoFooterAction">
+			<result name="SUCCESS">footer.jsp</result>
+		</action>
+		<action name="GoFooterMyPageAction" class="com.internousdev.rakugo.action.GoFooterMyPageAction">
+			<result name="SUCCESS">footer_my_page.jsp</result>
+		</action>
+
+	</package>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+</struts>

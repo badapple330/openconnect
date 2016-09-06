@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>条件　選択</title>
+
+<link rel="stylesheet" type="text/css" href=".//css/06.select.css">
+</head>
+<body>
+
+	<div id="main">
+		<div id="contents">
+			<div class="checkbox">
+			<form>
+					<table>
+					<tr>
+						<th>チケット</th> <th>チケット要約</th> <th>値段</th> <th>枚数</th>
+					</tr>
+					<tr>
+						<td>シニア</td>	     <td>65才以上向けです</td>             <td>1234円（税込み?）</td>
+						<td><INPUT type="text" size="1" value=0 maxlength="2" name="sinia"></td>
+					</tr>
+					<tr>
+						<td>学生</td>	     <td>学生向け</td>                     <td>1234円（税込み?）</td>
+						<td><INPUT type="text" size="1" value=0 maxlength="2" name="gakusei"></td>
+					</tr>
+					<tr>
+						<td>幼児</td>	     <td>幼児向け</td>                     <td>1234円（税込み?）</td>
+						<td><INPUT type="text" size="1" value=0 maxlength="2" name="youji"></td>
+					</tr>
+					<tr>
+						<td>団体</td>	     <td>15名様からのご予約になります</td> <td>1234円（税込み?）</td>
+						<td><INPUT type="text" size="1" value=0 maxlength="2" name="danntai"></td>
+					<tr>
+						<td>バースデー</td>	 <td>誕生日の方に</td>                 <td>1234円（税込み?）</td>
+						<td><INPUT type="text" size="1" value=0 maxlength="2" name="birthday"></td>
+					</tr>
+					<tr>
+						<td>一般</td>	     <td>一般</td>                         <td>1234円（税込み?）</td>
+						<td><INPUT type="text" size="1" value=0 maxlength="2" name="ippan"></td>
+					</tr>
+					<tr>
+						<td>ナイト</td>	     <td>8時からのご入場</td>              <td>1234円（税込み?）</td>
+						<td><INPUT type="text" size="1" value=0 maxlength="2" name="night"></td>
+					</tr>
+					<tr>
+						<td>アフター６</td>	 <td>6時からのご入場</td>              <td>1234円（税込み?）</td>
+						<td><INPUT type="text" size="1" value=0 maxlength="2" name="after"></td>
+					</tr>
+					</table>
+
+
+
+				</form>
+			</div>
+
+			<div class="pass" >
+				<FORM>
+				パス有効期間を選んでください<br>
+				<SELECT name="NyuuennKikann">
+				<OPTION value="1day">1day</OPTION>
+				<OPTION value="1week">week</OPTION>
+				<OPTION value="1month">month</OPTION>
+				<OPTION value="1year">年間</OPTION>
+				</SELECT>
+				</FORM>
+			</div>
+		<div class="calendar">
+			<div id="cal1" class="cal_wrapper">
+				Calendar Loading
+			</div>
+			<script type="text/javascript" charset="UTF-8" src=".//js/06.select.js"></script>
+			<br>
+		</div>
+
+		<div class="bottom">
+			<form >
+				現在選択中の来場日<INPUT type="text" name="date" >
+			</form>
+			<a href="#">次へ</a>
+		</div>
+	</div>
+	</div>
+
+</body>
+</html>

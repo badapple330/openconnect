@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+
+#piza-window {
+	padding: 10px;
+	background-color: #fff;
+	border: gray 1px solid;
+	display: none;
+}
+</style>
+<meta charset="utf-8"/>
+
+<title>jQuery treeview</title>
+	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+
+<link rel="stylesheet" href="jquery.treeview.css" />
+<link rel="stylesheet" href="screen.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="jquery.cookie.js"></script>
+<script src="jquery.treeview.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="js/jquery.plainmodal.min.js"></script>
+<script type="text/javascript">
+		$(function() {
+			$("#tree").treeview({
+				collapsed: true,
+				animated: "medium",
+				control:"#sidetreecontrol",
+				persist: "location"
+			});
+		})
+	</script>
+</head>
+<body>
+
+
+<div id="sidetree">
+<div class="treeheader">&nbsp;</div>
+<div id="sidetreecontrol"><a href="?#">全て閉じる</a> | <a href="?#">全て開く</a></div>
+
+<div id="sidetree">
+<div class="treeheader">&nbsp;</div>
+<div id="sidetreecontrol"><a href="?#">全カテゴリ</a></div>
+
+<ul id="tree">
+	<li><a href="#"><strong>肉のピザ</strong></a>
+	<ul>
+		<li><a href="#" id="meetpizza">ミートピザ</a></li>
+		<li><a href="#">チキン照り焼きピザ</a></li>
+		<li><a href="#">ウインナーピザ</a></li>
+	</ul>
+	</li>
+	<li><span><strong>魚のピザ</strong></span>
+  	<ul>
+			<li><a href="#">シーフードピザ</a></li>
+			<li><a href="#">ホタテピザ</a></li>
+		</ul>
+	</li>
+	<li><span><strong>サイドメニュー</strong></span>
+		<ul>
+			<li><a href="#">ナゲット</a></li>
+			<li><a href="#">ポテト</a></li>
+			<li><a href="#">骨付きチキン</a></li>
+			<li><a href="#">パスタ</a></li>
+		</ul>
+	</li>
+</ul>
+</div>
+</div>
+
+	<div id="piza-window">
+		<table>
+			<tr>
+				<th>ピザ詳細</th>
+			</tr>
+			<tr>
+				<td align="right">
+					<a href="#"><img src="./img/pizza03.jpg"/></a>
+				</td>
+			</tr>
+			<tr>
+							<td>SNS</td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		$('#meetpizza').click(function() {
+			$('#piza-window').plainModal('open', {
+				overlay : {
+					color : '#fff',
+					opacity : 0.5
+				}
+			});
+		});
+	</script>
+</body>
+</html>

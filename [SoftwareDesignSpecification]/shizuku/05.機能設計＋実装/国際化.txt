@@ -1,0 +1,19 @@
+ECサイト構築で使う国際化
+
+具体例：shizukuのstruts.xml、LoginAction、login.jsp
+参考：http://cmslabs.blogspot.jp/2011/02/struts-2_21.html
+
+1.プロパティファイルを作成してcom.internousdev.shizuku.propertyに置く
+ abcde_ja.properties、abcde_en.properties
+
+2.struts.xmlでプロパティファイルを指定
+ <constant name="struts.custom.i18n.resources" value="com.internousdev.shizuku.property.login,
+                                                      com.internousdev.shizuku.property.abcde"/>
+ 使用するプロパティファイルをカンマでつないでいく
+
+3.JSPファイル内での使用
+ <s:text name="lang.abcde.xyz"/>
+ <s:button label="%{getText('lang.abcde.xyz')}"/>
+
+4.アクションクラス内での使用
+ addFieldError("hoge", getText("lang.abcde.xyz"));

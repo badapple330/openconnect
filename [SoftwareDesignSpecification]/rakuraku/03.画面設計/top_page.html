@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap eCommerce Template</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+  
+  <hr>
+     <div class="container well">
+     
+		<form class="form-inline">
+        
+        <div class="form-group">
+            <label class="sr-only" for="pass">イベント名</label>
+            <input type="password" class="form-control" placeholder="イベント名" id="pass" size="16">
+        </div>
+
+        
+        <div class="form-group">
+            <label class="sr-only" for="uID">噺家名</label>
+            <input type="text" class="form-control" placeholder="噺家名" id="uID" size="16">
+        </div>
+            <select name="year">
+            <option value="">開催年</option>
+            <option value="1">2016年</option>
+            <option value="2">2017年</option>
+            <option value="3">2018年</option>
+            <option value="4">2019年</option>
+            <option value="5">2020年</option>
+            <option value="6">2021年</option>
+            <option value="7">2022年</option>
+            <option value="8">2023年</option>
+            <option value="9">2024年</option>
+            <option value="10">2025年</option>
+            <option value="11">2026年</option>
+            <option value="12">2027年</option>
+            </select>
+            
+        	<select name="month">
+            <option value="">開催月</option>
+            <option value="1">1月</option>
+            <option value="2">2月</option>
+            <option value="3">3月</option>
+            <option value="4">4月</option>
+            <option value="5">5月</option>
+            <option value="6">6月</option>
+            <option value="7">7月</option>
+            <option value="8">8月</option>
+            <option value="9">9月</option>
+            <option value="10">10月</option>
+            <option value="11">11月</option>
+            <option value="12">12月</option>
+            </select>
+        
+        	<select name="pref_id">
+            <option value="" selected>都道府県</option>
+            <option value="1">北海道</option>
+            <option value="2">青森県</option>
+            <option value="3">岩手県</option>
+            <option value="4">宮城県</option>
+            <option value="5">秋田県</option>
+            <option value="6">山形県</option>
+            <option value="7">福島県</option>
+            <option value="8">茨城県</option>
+            <option value="9">栃木県</option>
+            <option value="10">群馬県</option>
+            <option value="11">埼玉県</option>
+            <option value="12">千葉県</option>
+            <option value="13">東京都</option>
+            <option value="14">神奈川県</option>
+            <option value="15">新潟県</option>
+            <option value="16">富山県</option>
+            <option value="17">石川県</option>
+            <option value="18">福井県</option>
+            <option value="19">山梨県</option>
+            <option value="20">長野県</option>
+            <option value="21">岐阜県</option>
+            <option value="22">静岡県</option>
+            <option value="23">愛知県</option>
+            <option value="24">三重県</option>
+            <option value="25">滋賀県</option>
+            <option value="26">京都府</option>
+            <option value="27">大阪府</option>
+            <option value="28">兵庫県</option>
+            <option value="29">奈良県</option>
+            <option value="30">和歌山県</option>
+            <option value="31">鳥取県</option>
+            <option value="32">島根県</option>
+            <option value="33">岡山県</option>
+            <option value="34">広島県</option>
+            <option value="35">山口県</option>
+            <option value="36">徳島県</option>
+            <option value="37">香川県</option>
+            <option value="38">愛媛県</option>
+            <option value="39">高知県</option>
+            <option value="40">福岡県</option>
+            <option value="41">佐賀県</option>
+            <option value="42">長崎県</option>
+            <option value="43">熊本県</option>
+            <option value="44">大分県</option>
+            <option value="45">宮崎県</option>
+            <option value="46">鹿児島県</option>
+            <option value="47">沖縄県</option>
+            </select>
+        
+          
+          <button class="btn btn-primary ken"> 検索 </button>
+          
+        </form>
+     </div>
+  <hr>
+  
+<h2 class="text-center">近日開催日イベント</h2>
+<hr>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="thumbnail"> <img src="images/rakugo/rakugo1.jpg" alt="Thumbnail Image 1" width="200" height="300" class="img-responsive">
+        <div class="caption">
+          <h3>イベント1</h3>
+          <p>イベント詳細が入ります。</p>
+          <p><a href="#" class="btn btn-primary" role="button"> 詳細 </a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="thumbnail"> <img src="images/rakugo/rakugo2.jpg"  width="200" height="300" alt="Thumbnail Image 1" class="img-responsive">
+        <div class="caption">
+          <h3>イベント2</h3>
+          <p>イベント詳細が入ります。</p>
+          <p><a href="#" class="btn btn-primary" role="button"> 詳細 </a> </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="thumbnail"> <img src="images/rakugo/rakugo3.jpg" width="200" height="300" alt="Thumbnail Image 1" class="img-responsive">
+        <div class="caption">
+          <h3>イベント3</h3>
+          <p>イベント詳細が入ります。</p>
+          <p><a href="#" class="btn btn-primary" role="button"> 詳細 </a> </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="thumbnail"> <img src="images/rakugo/rakugo4.jpg" width="200" height="300" alt="Thumbnail Image 1" class="img-responsive">
+        <div class="caption">
+          <h3>イベント4</h3>
+          <p>イベント詳細が入ります。</p>
+          <p><a href="#" class="btn btn-primary" role="button"> 詳細 </a> </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="thumbnail"> <img src="images/rakugo/rakugo5.jpg" width="200" height="300" alt="Thumbnail Image 1" class="img-responsive">
+        <div class="caption">
+          <h3>イベント5</h3>
+          <p>イベント詳細が入ります。</p>
+          <p><a href="#" class="btn btn-primary" role="button"> 詳細 </a> </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="thumbnail"> <img src="images/rakugo/rakugo6.jpg" width="200" height="300" alt="Thumbnail Image 1" class="img-responsive">
+        <div class="caption">
+          <h3>イベント6</h3>
+          <p>イベント詳細が入ります。</p>
+          <p><a href="#" class="btn btn-primary" role="button"> 詳細 </a> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="text-center">
+    <!-- Add class .pagination-lg for larger blocks or .pagination-sm for smaller blocks-->
+    <ul class="pagination">
+      <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li class="disabled"><a href="#">5</a></li>
+      <li> <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>
+    </ul>
+  </nav>
+</div>
+ 
+<hr>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+サイトにアクセスした際の画面遷移順番
+
+①login.html
+
+
+　ログイン用のID・パスを持っていればログインさせる
+　SUCCESSならmain.htmlに移動
+　ERRORならloginError.htmlに移動
+
+　新規登録される場合はnewlogin.htmlに移動
+
+
+②menu.html
+
+　出勤・退勤を行うか退勤・パスワードの変更を選択。
+　出勤・退勤を行うを選択した場合、main.htmlに移動。
+　退勤・パスワードの変更を選択した場合、PWchange.htmlに移動。
+
+
+③loginError.html
+
+　login.htmlからusernameIDとpasswordが間違ってる場合、表示される画面。
+
+
+④main.html　
+
+ 出勤･退勤ﾎﾞﾀﾝを押した時間が画面に表示され、DBに登録される。
+
+
+
+⑤change.html
+
+　出退勤時間変更画面。時間を設定して、更新ボタンを押す。
+　画面を閉じたい場合、閉じるボタンを押す。
+
+
+⑥newlogin.html
+
+ 新規登録画面用。必ずUserIdNameとPasswordを入力して、登録を押すとDBに記録される。
+ 入力した文字を削除する場合はキャンセルボタンを押す。
+
+
+⑦PWchange.html
+
+　現在のpasswordと新しいパスワードを入力して、変更を押すとpassword変更完了。
+　退会する場合、passwordを入力して、退会ボタンを押すとDBから記録が削除される。
+

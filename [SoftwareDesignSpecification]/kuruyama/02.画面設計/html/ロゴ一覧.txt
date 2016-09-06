@@ -1,0 +1,11 @@
+
+画像をweb.contentにコピーして
+以下の文章を.htmlにコピーしてください。
+
+
+
+/*ロゴ画像表示/*
+
+<img src="Facebook.jpg"style="zoom: 40%;">
+<img src="twitter.jpg"style="zoom: 20%;">
+<img src="GooglePlusIcon.jpg"style="zoom: 32%;">

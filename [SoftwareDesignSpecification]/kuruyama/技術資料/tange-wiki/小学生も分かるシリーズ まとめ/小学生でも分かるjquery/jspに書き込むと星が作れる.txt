@@ -1,0 +1,20 @@
+<head>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+↑jqueryを先に宣言
+</head>
+<body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery.raty.js"></script>
+				<div id="raty"></div>
+				<script type="text/javascript">
+					$(function() {
+						$('#raty').raty({
+							readOnly : false, //閲覧者によるスコアの変更不可
+							score : function() {
+								return $(this).attr('data-score');
+							},
+							path : './img/' //サーバ上のRaty画像のパス
+						});
+					});
+				</script>
+</body>

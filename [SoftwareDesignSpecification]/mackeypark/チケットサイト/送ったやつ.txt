@@ -1,0 +1,7 @@
+	private String date;          チケット期限開始
+	private String period;　　　　チケット期限終了
+	private String[] TicketArray;チケット（”一般、一般”、シニア）式配列
+	private String[] DesignArray;デザイン配列
+	private String[] division;　　チケット（”一般”、”シニア”）
+	private int ticketSum;　　　　チケット総数
+	private int[] amount;　　　　　チケット（２、３）式配列

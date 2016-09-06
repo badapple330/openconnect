@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM HomePage Builder 2001 V5.0.2 for Windows">
+<TITLE></TITLE>
+</HEAD>
+<BODY bgcolor="ffedd9" >
+<img src="参照画像/s_おでん屋ロゴ120.png" />
+<HR>
+<CENTER>
+<TABLE >
+    <tr>
+      <th>パスワード変更</th>
+      <th>退会</th>
+    </tr>
+
+     <tr>
+     	 <td align="right">
+		<form>
+		今のパスワード<input type="password"/><br>
+		変更するパスワード<input type="password"/><br>
+		再度変更するパスワード<input type="password"/><br>
+		<input type="button" value="送信"　onClick="alert('パスワード変更が完了しました')"/>
+		</form>
+	</td>
+	<td align="right">
+		<form>
+		パスワード<input type="password"/><br>    
+		再度パスワード<input type="password"/><br>
+		<input type="button" value="送信"/>
+		</form>
+	</td>
+     </tr>
+     <tr>
+	<TD colspan="2" align="center"><input type="button" value="戻る" onclick="history.back()"/></TD>
+     </tr> 
+</TABLE>
+</CENTER></BODY>
+</HTML>

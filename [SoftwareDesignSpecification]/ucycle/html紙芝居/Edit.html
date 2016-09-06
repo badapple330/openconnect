@@ -1,0 +1,113 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/Style.css">
+<link rel="stylesheet" type="text/css" href="css/Edit.css">
+<meta charset="UTF-8">
+<head>
+<title>Ucycle - 顧客情報編集画面</title>
+</head>
+<body>
+<header>
+		<nav>
+			<ul>
+				<li class="project_title"><a href="Index.jsp">Ucycle</a></li>
+			</ul>
+		</nav>
+</header>
+<br><br><br><br>
+
+<div align="center">
+<b>【変更する情報を入力してください】</b><br><br>
+		<form action="EditAction">
+<table class="tabledesign">
+	<tbody>
+			<tr>
+		<th>お名前</th>
+		<td><input type="text" name="Name" size="35" placeholder="名前を入力"
+							 pattern="[ぁ-んァ-ヶ亜-黑一-十a-zA-Zａ-ｚＡ-Ｚー]{1,30}" required title="名前を入力してください"
+							 maxlength="30" /></td>
+			</tr>
+			<tr>
+		<th>パスワード</th>
+		<td><input type="password" name="password" size="35" placeholder="パスワードを入力"
+							pattern="[0-9a-z]{4,32}"  required title="半角英数字でパスワード入力してください"
+							maxlength="8" /></td>
+			</tr>
+			<tr>
+		<th>電話番号</th>
+		<td>
+		<input type="text" name="telnumber" size="35" placeholder="電話番号を入力"
+							pattern="[0-9]{4,32}"  required title="半角数字で電話番号入力してください"
+							maxlength="12" /></td>
+			</tr>
+			<tr>
+		<th>住所</th>
+		<td>
+		<input type="text" name="address" size="35" placeholder="住所を入力"
+							pattern="[ぁ-んァ-ヶ亜-黑一-十a-zA-Zａ-ｚＡ-Ｚー]{4,50}"  required title="住所を入力してください" /></td>
+			</tr>
+			<tr><th>お支払い方法</th>
+			<td>
+			<label>クレジットカード</label>
+			<select id="credit" name="creditCompany" onClick="changeDisabled()">
+									<option value="">選択してください</option>
+									<option value="1">VISA</option>
+									<option value="2">MASTER</option>
+									<option value="3">JCB</option>
+									<option value="4">AMERICANEXPRESS</option>
+							</select><br>
+					<p style="display: inline;">
+							カード番号<br>
+					<input type=text name="creditNumberstr"
+							pattern="[0-9]" placeholder="15～16桁のカード番号を入力" maxlength="16">
+								</p><br>
+				有効期限<br>
+			<select id="credit" name="creditCompany" onClick="changeDisabled()">
+									<option value="">--</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+							</select> 月 /
+			<select id="credit" name="creditCompany" onClick="changeDisabled()">
+									<option value="">--</option>
+									<option value="1">15</option>
+									<option value="2">16</option>
+									<option value="3">17</option>
+									<option value="4">18</option>
+									<option value="5">19</option>
+									<option value="6">20</option>
+									<option value="7">21</option>
+									<option value="8">22</option>
+							</select> 年<br>
+			セキュリティコード<br>
+			<input type=text name="creditNumberstr"
+							pattern="[0-9]" placeholder="3桁のセキュリティコードを入力" maxlength="3">
+								</td></tr>
+
+	</tbody>
+</table>
+
+					<a href="Mypage.html"><p><input type="submit" value="編集" onclick="return addressClear();" /></p></a>
+					<a href="Mypage.html"><p><input type="submit" value="キャンセル" onclick="location.href='Mypage.html'" /></p></a>
+
+		</form>
+</div>
+
+<footer>
+		<br> &copy; 2015 U-cycle All Rights Reserved.
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+containerIDはjspのidとリンク、previousは戻るボタン、nextは進むボタン、perPageは表示ページ数、delayは表示間隔時間animationは下記。
+以下をヘッダーに貼り付ける。
+<link rel="stylesheet" href="./css/animate.css">
+<script type="text/javascript" src="./js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="./js/jPages.js"></script>
+<script>
+$(function(){
+	$(".List").jPages({
+		containerID : "CList",
+		previous : "←", 
+		next : "→", 
+		perPage : 5, 
+		delay : 100, 
+		animation: "-webkit-keyframes rotateIn" 
+      });
+});
+</script>
+
+-----------------------------------------------------------------------------
+テーブルボディに下記のように紐付ける
+<tbody id="CList">
+
+-----------------------------------------------------------------------------
+ボタンを表示したい場所に下記を貼り付ける
+<div class="List"></div>
+
+----------------------------------------------------------------------------
+スクリプト文下部の中の表記で、
+下記○の場所にcssの中の@の後ろについている文言(@～)を入力すると様々なバリエーションで表示できる
+animation: "○"

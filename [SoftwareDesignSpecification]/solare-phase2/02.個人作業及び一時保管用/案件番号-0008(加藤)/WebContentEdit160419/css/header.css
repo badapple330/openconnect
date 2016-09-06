@@ -1,0 +1,44 @@
+﻿@CHARSET "UTF-8";
+
+.cds-navi ul {
+	list-style: none;
+	margin: 0;
+	height: 0px;
+	width: 100%;
+	float: left;
+	padding: 0px;
+}
+
+.cds-navi li {
+	display: inline;
+	float: left;
+	padding:0;
+	margin:0;
+}
+
+.cds-navi li a {
+	magin: 1px;
+	text-align: center;
+	vertical-align:middle;
+	font-size: 28px;
+	font-family:  "ＭＳ Ｐゴシック","ＭＳ ゴシック",sans-serif;
+	padding: 3px;
+	width: 100%;
+	display: block;
+	text-decoration: none;
+	border: 1px solid #c9c9c9;
+	background-color: #000000;
+	color: #ffffff;
+	padding: 3px;
+	height: 40px;}
+
+.cds-navi li a:hover {
+	text-decoration: underline;
+	background-color: #c9c9c9;
+	color: #ff0000;
+	height: 40px;
+	text-align: center;
+	vertical-align:middle;
+	
+}
+

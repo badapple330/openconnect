@@ -1,0 +1,101 @@
+set names SJIS;
+drop database ucycle;
+create database if not exists ucycle;
+use ucycle
+
+create table if not exists monthly_customer(
+monthly_id int(8) primary key auto_increment,
+monthly_name varchar(50) not null,
+monthly_password varchar(20) not null,
+mailaddress varchar(100),
+phone  varchar(12) not null,
+credit_company int(1) not null,
+credit_number  bigint(16) not null,
+expire int(6) not null,
+security_code int(4) not null
+);
+alter table monthly_customer auto_increment=10000000;
+
+create table if not exists temporary_customer(
+temporary_id int(8) primary key auto_increment,
+temporary_name varchar(50) not null,
+temporary_password varchar(20) not null,
+credit_company int(1),
+credit_number  bigint(16),
+expire int(6),
+security_code int(4) 
+);
+alter table temporary_customer auto_increment=50000000;
+
+create table if not exists port(
+port_id int(2) primary key auto_increment,
+port_name varchar(40) not null,
+port_address varchar(50) not null,
+electric_cycle int(3) not null,
+city_cycle int(3) not null,
+child_cycle int(3) not null,
+mountain_cycle int(3) not null,
+capacity int(3)
+);
+
+create table if not exists reservation_info(
+id int(8) not null,
+port_id int(2) not null,
+cycle int(1) not null,
+time_plan int(1) not null,
+time_plan1 int(2),
+time_plan2 int(2),
+time_plan3 int(2),
+foreign key(port_id) references port(port_id)
+);
+
+create table if not exists admin(
+admin_id varchar(40),
+admin_password varchar(20)
+);
+
+
+insert into monthly_customer(
+monthly_name,monthly_password,mailaddress,phone,credit_company,credit_number,expire,security_code
+)values(
+"test","test","_“ŞìŒ§‰¡•ls‚ç‚Ö‚ñ","09011112222",1,123456789012345,042020,3331
+);
+
+insert into monthly_customer(
+monthly_name,monthly_password,mailaddress,phone,credit_company,credit_number,expire,security_code
+)values(
+"‘å“c˜a³","sayonara","“Œ‹“sŠ‹ü‹æ‹T—LŒğ”Ô‘O”hoŠ","09011112222",2,1111222211112222,042016,333
+);
+
+insert into temporary_customer(
+temporary_name,temporary_password
+)values(
+"¼–{","matsumoto"
+);
+
+insert into port (port_id,port_name,port_address,electric_cycle,city_cycle,child_cycle,mountain_cycle,capacity
+)values(
+"1","’†‹‹æ’“—Öê","“Œ‹“sç‘ã“c‹æŠÛ‚Ì“à1’š–Ú8”Ô2†","100","100","100","100","750"
+);
+insert into port (port_id,port_name,port_address,electric_cycle,city_cycle,child_cycle,mountain_cycle,capacity
+)values(
+"2","–k’†‹‹æ’“—Öê","“Œ‹“sç‘ã“c‹æŠÛ‚Ì“à1’š–Ú8”Ô1†","110","100","200","100","750"
+);
+insert into port (port_id,port_name,port_address,electric_cycle,city_cycle,child_cycle,mountain_cycle,capacity
+)values(
+"3","“ì’†‹‹æ’“—Öê","“Œ‹“sç‘ã“c‹æŠÛ‚Ì“à1’š–Ú8”Ô3†","120","100","140","200","650"
+);
+insert into port (port_id,port_name,port_address,electric_cycle,city_cycle,child_cycle,mountain_cycle,capacity
+)values(
+"4","¼’†‹‹æ’“—Öê","“Œ‹“sç‘ã“c‹æŠÛ‚Ì“à1’š–Ú8”Ô4†","100","200","100","100","750"
+);
+
+insert into reservation_info(id,port_id,cycle,time_plan,time_plan1,time_plan2,time_plan3)values(12345678,1,2,3,1,0,0);
+insert into reservation_info(id,port_id,cycle,time_plan,time_plan1,time_plan2,time_plan3)values(12345678,2,3,3,1,0,0);
+insert into reservation_info(id,port_id,cycle,time_plan,time_plan1,time_plan2,time_plan3)values(12345678,2,3,3,0,0,1);
+
+select id,
+sum(time_plan1),sum(time_plan2),sum(time_plan3)
+from reservation_info group by id;
+
+insert into admin(admin_id,admin_password) values("internousdev","internous01");

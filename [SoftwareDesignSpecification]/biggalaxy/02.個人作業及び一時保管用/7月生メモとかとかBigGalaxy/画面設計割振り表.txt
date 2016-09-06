@@ -1,0 +1,108 @@
+◆プラネタリウムサイト	
+
+・画面図、構成：
+
+
+        ・01ヘッダーフッター
+	・02メイン（Main.jsp）多胡さん
+　　    ・03ログイン(Login.jsp)　瀬下
+	・04新規登録(Create.jsp)端本
+	・05マイページ(Mypage.jsp)森川
+	・06退会(Delete.jsp)水谷
+	・07情報編集(EditUser.jsp)店長
+	・08登録完了(UserComplete.jsp)山下
+	・09D3（D3.jsp)木澤・水口
+	・10上映作品一覧(TicketInfo.jsp) 多胡さん
+	・11購入方法（PaymentSelect.jsp）柳田
+        ・12購入確認（PaymentConfirmation.jsp）柳田
+	・13購入完了（PaymentComplete.jsp）柳田	
+ーーーーーーーーーーーーーーーーーーーーーーー
+	・14管理者ログイン（AdminLogin.jsp）ししょう
+	・15管理者画面(Admin.jsp)	ししょう
+
+<アクション名>
+
+　　    ・ログイン(LoginAction)　瀬下
+	・新規登録(CreateAction)端本
+	・退会(DeleteAction)水谷
+	・情報編集(EditUserAction)店長
+	・D3（D3Action)木澤・水口
+	・上映作品一覧(TicketInfoAction) 多胡さん
+	・購入方法（PaymentSelectAction）柳田
+        ・購入確認（PaymentConfirmationAction）柳田
+        ・OAuth Twitter（TwitterAction）瀬下
+        ・OAuth Facebook（FacebookAction）瀬下
+        ・OAuth Google+（Google+Action））山下・木澤
+        ・ログアウト(LogoutAction)
+ーーーーーーーーーーーーーーーーーーーーーーー
+	・管理者ログイン（AdminLoginAction）ししょう
+	・管理者画面(AdminAction)	ししょう
+
+<DAO>
+
+        ・ログイン(LoginDao)　瀬下
+	・新規登録(CreateDao)端本
+	・退会(DeleteDao)水谷
+	・情報編集(EditUserDao)店長
+	・D3（D3Dao)木澤・水口
+	・上映作品一覧(TicketInfoDao) 多胡さん
+	・購入方法（PaymentSelectDao）柳田
+        ・購入確認（PaymentConfirmationDao）柳田
+        ・DBconnector
+ーーーーーーーーーーーーーーーーーーーーーーー
+	・管理者ログイン（AdminLoginDao）ししょう
+	・管理者画面(AdminDao)	ししょう
+
+<DTO>
+
+        ・ログイン(LoginDTO)　瀬下
+        ・新規登録(CreateDTO)端本
+        ・情報編集(EditUserDTO)店長
+	・D3（D3DTO)木澤・水口
+	・上映作品一覧(TicketInfoDTO) 多胡さん
+
+画面構成
+
+・メイン
+　ログインjspへ、新規作成jspへ 、動画、サイトの概要、GoogleMap
+
+・ログイン
+　新規作成.jspへ、ログイン、OAuth認証（Twitter,Facebook,Google+,Instagram?,mixi?）
+
+・新規登録
+　新規登録内容
+
+・マイページ
+　登録内容の表示
+
+・退会
+　情報の削除
+
+・登録完了
+　登録内容の表示
+
+・情報編集
+　登録内容の編集
+
+・顧客情報
+　D3による顧客情報の表示
+
+・エラー
+　エラー表示（遷移元が多数あるため検討）
+
+・商品情報
+　DBからもってきたプラネタリウムチケット表示、枚数の指定
+
+・購入確認
+　購入情報の表示、確認
+
+・購入完了
+　購入情報の表示
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+・管理者ログイン
+　管理者のログイン
+
+・管理者画面
+　チケットの情報追加、編集、登録者表示
+

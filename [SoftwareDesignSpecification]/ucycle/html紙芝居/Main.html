@@ -1,0 +1,192 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ucycle</title>
+<link rel="stylesheet" type="text/css" href="css/Style.css">
+<script type="text/javascript"
+	src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+	var map;
+	function initialize() {
+		var latlng = new google.maps.LatLng(35.680865, 139.767036);
+		var opts = {
+			zoom : 13,
+			center : latlng,
+			mapTypeId : google.maps.MapTypeId.ROADMAP
+		};
+		map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+	}
+
+	function toTokyo() {
+		map.panTo(new google.maps.LatLng(35.680865, 139.767036));
+		var marker = new google.maps.Marker({
+			map : map,
+			position : new google.maps.LatLng(35.680865, 139.767036),
+		});
+
+	}
+
+	function toShinbashi() {
+		map.panTo(new google.maps.LatLng(35.666397, 139.758153));
+		var marker = new google.maps.Marker({
+			map : map,
+			position : new google.maps.LatLng(35.666397, 139.758153),
+		});
+	}
+
+	function toShinagawa() {
+		map.panTo(new google.maps.LatLng(35.629867, 139.74015));
+		var marker = new google.maps.Marker({
+			map : map,
+			position : new google.maps.LatLng(35.629867, 139.74015),
+		});
+	}
+</script>
+</head>
+<body onload="initialize()">
+	<header>
+		<nav>
+			<ul>
+				<li class="project_title"><a href="Main.html">Ucycle</a></li>
+				<li class="menu_link"><a href="Login.html">Login</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="top"></div>
+	<div class="about">
+		<div class="about_desc">
+			<h3>行き先は自由</h3>
+			<p>
+			あなたの毎日の移動手段は何ですか？
+			当サイトでは自転車のレンタルサービスを提供しております。
+			通勤路が歩くには遠いし電車を使うほどではないとういう方にはもちろん、
+			お昼休みに少し遠くのお店でランチをされたいという方や、
+			運動不足が気になっている方にもオススメです。
+			乗り換えも渋滞もない自転車で、
+			あなたが行きたいところへ自由に行きましょう。
+				</p>
+			<h3>プレミアム会員へのグレードアップ</h3>
+			<p>
+			当サービスには、一回毎のご利用となる一般会員と、月額制のプレミアム会員の二つをご用意しております。
+			もしあなたが私たちの提供するサービスを気に入って頂ければ、プレミアム会員へグレードアップすることをオススメ致します。
+				プレミアム会員へグレードアップして頂ければ、さらに快適な生活を送れることお約束致します。</p>
+			<h3>都内主要箇所に駐輪場をご用意</h3>
+			<p>あなたが都内のどこにいても、当ページを使って最寄りの駐輪場を見つけることができます。
+				なお、駐輪場によってご用意させて頂いている自転車の種類が変わることがありますので、ご注意ください。
+				また、ご希望の自転車の種類がありましたら、お気軽に私たちにお知らせください。</p>
+				<!-- 			
+				テスト用
+				<a href="Admin.html">1Admin</a>
+				<a href="Create.html">2Create</a>
+				<a href="Credit.html">3Credit</a>
+				<a href="Cycle.html">4Cycle</a>
+				<a href="Edit.html">5Edit</a>
+				<a href="History.html">6History</a>
+				<a href="Login.html">7Login</a>
+				<a href="LoginAdmin.html">8LoginAdmin</a>
+				<a href="Port.html">9Port</a>
+				<a href="ReservationComplete.html">10ReservationComplete</a>
+				<a href="UserPolicy.html">11UserPolicy</a>
+				<a href="Withdraw.html">12Withdraw</a>
+				<a href="WithdrawComplete.html">13WithdrawComplete</a>
+				 -->
+		</div>
+		<div class="about_contents">
+		</div>
+	</div>
+	<div class="map">
+		<div class="google_map" align="center">
+			<div id="map_canvas" style="width: 500px; height: 500px"></div>
+		</div>
+		<div class="map_desc">
+			<h4>駐輪場一覧</h4>
+			<div class="shop">
+				<p onclick="toTokyo();To();">
+					住所:東京都xxx-xxx <br> 電話:03-xxxx-xxxx <br> 交通:東京駅から徒歩2分
+				</p>
+				<p onclick="toShinbashi();Sh();">
+					住所:東京都xxx-xxx <br>電話:03-xxxx-xxxx <br> 交通:新橋駅から徒歩30秒
+				</p>
+				<p onclick="toShinagawa();Shina();">
+					住所:東京都xxx-xxx <br> 電話:03-xxxx-xxxx <br>交通:品川駅から徒歩1分
+				</p>
+				<p onclick="toTokyo()">
+					住所:東京都xxx-xxx <br> 電話:03-xxxx-xxxx <br>交通:品川駅から徒歩5分
+				</p>
+				<p onclick="toShinagawa()">
+					住所:東京都xxx-xxx <br> 電話:03-xxxx-xxxx <br>交通:品川駅から徒歩3分
+				</p>
+				<p onclick="toTokyo();To();">
+					住所:東京都xxx-xxx <br> 電話:03-xxxx-xxxx <br> 交通:東京駅から徒歩2分
+				</p>
+				<p onclick="toShinbashi();Sh();">
+					住所:東京都xxx-xxx <br>電話:03-xxxx-xxxx <br> 交通:新橋駅から徒歩30秒
+				</p>
+				<p onclick="toShinagawa();Shina();">
+					住所:東京都xxx-xxx <br> 電話:03-xxxx-xxxx <br>交通:品川駅から徒歩1分
+				</p>
+				<p onclick="toTokyo()">
+					住所:東京都xxx-xxx <br> 電話:03-xxxx-xxxx <br>交通:品川駅から徒歩5分
+				</p>
+				<p onclick="toShinagawa()">
+					住所:東京都xxx-xxx <br> 電話:03-xxxx-xxxx <br>交通:品川駅から徒歩3分
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="sns">
+		<div class="sns_twitter">
+
+			<!-- ソーシャルプラグインここから -->
+			<div align="center">
+				<a class="twitter-timeline" href="https://twitter.com/Ucycle04"
+					data-widget-id="604166972557795328">@Ucycle04さんのツイート</a>
+				<script>
+					!function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
+								.test(d.location) ? 'http' : 'https';
+						if (!d.getElementById(id)) {
+							js = d.createElement(s);
+							js.id = id;
+							js.src = p + "://platform.twitter.com/widgets.js";
+							fjs.parentNode.insertBefore(js, fjs);
+						}
+					}(document, "script", "twitter-wjs");
+				</script>
+			</div>
+		</div>
+		<div class="sns_fb">
+			<div align="center" class="col-md-6 col-xs-12">
+					<div class="fb-page"
+						data-href="https://www.facebook.com/Stardusts.cafe"
+						data-width="625" data-height="450" data-hide-cover="false"
+						data-show-facepile="true" data-show-posts="true">
+						<div class="fb-xfbml-parse-ignore">
+							<blockquote cite="https://www.facebook.com/Stardusts.cafe">
+								<a href="https://www.facebook.com/Stardusts.cafe">Stardusts</a>
+							</blockquote>
+						</div>
+					</div>
+					<div id="fb-root"></div>
+					<script>
+						(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (d.getElementById(id))
+								return;
+							js = d.createElement(s);
+							js.id = id;
+							js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3";
+							fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));
+					</script>
+				</div>
+		</div>
+	</div>
+	<hr>
+	<footer>
+    <br> &copy; 2015 Ucycle All Rights Reserved.
+	</footer>
+</body>
+</html>

@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>来場者数グラフ</title>
+<link rel="stylesheet" href="style.css">
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+</head>
+<body>
+
+<header>
+<h1><a href="index.html"><img src="logo.png" alt="">PlanetariumTicket</a></h1>
+<nav>
+<ul>
+<li><a href="index.html">トップ</a></li>
+<li><a href="ticket.html">上映作品一覧</a></li>
+<li><a href="login.html">ログイン</a></li>
+<li><a href="http://www.yahoo.co.jp/">18歳未満の方はこちら</a></li>
+</ul>
+</nav>
+</header>
+
+<section>
+<article>
+  <h1>現在の来場者数</h1>
+  <div id="myGraph"></div>
+  <!--<script src="js/sample.js"></script>-->
+
+
+
+
+
+  	<br>
+  	<script src="http://d3js.org/d3.v3.min.js"></script>
+    <center><text x="40" y="400"
+     font-size="30" fill="black"><font color="red">　　春の星座　　夏の星座　　秋の星座　　冬の星座　</font></text></center>
+
+
+      <script>
+
+  		var list = [10,20,30,40, ];
+  		//var list1 = [  element15,element16, element17, element18 ];
+      var svgWidth = 600; // SVG領域の横幅
+  		var svgHeight = 240;    // SVG領域の縦幅
+  		var barHeight = 200;    // 棒グラフの基準位置
+  		var barScale = 2;   // 2倍サイズで描画
+  		var xBarSize = 93;  // 棒グラフの横幅 棒の間隔
+  		var xOffset = 260;
+  		var yOffset = 35;
+  		var xOffset1= 254;
+  		var yOffset1=235;
+  		var yScale = d3.scale.linear()  // スケールを設定
+  	    .domain([0, 0])   // 元のサイズ
+
+        .range([0, 300*barScale]);  // 実際の出力サイズ
+  	    var xScale = d3.scale.linear()  // スケールを設定
+  	    .domain([300, 0])   // 元のサイズ
+  	    .range([0, 100*barScale]);  // 実際の出力サイズ
+  		var svg = d3.select("#myGraph").append("svg")
+  		    .attr("width", svgWidth).attr("height", svgHeight)
+  		var bar = svg.selectAll("rect") // SVGでの四角形を示す要素を指定
+  		    .data(list) // データを設定
+  		    .enter()
+  		    .append("rect") // SVGでの四角形を示す要素を生成
+  		    .attr("x", function(d,i){   // X座標を配列の順序に応じて計算
+  		        return i * xBarSize+xOffset;
+  		    })
+  		    .attr("y", function(d){ // 縦幅を配列の内容に応じて計算
+  		        return barHeight + yOffset + "px";
+  		    })
+  		    .attr("height", function(d){    // 縦幅を配列の内容に応じて計算
+  		        return "0px";
+  		    })
+  		    .attr("width", 60)  // 棒グラフの横幅を指定
+  		    .attr("style", "fill:rgb(200,0,0)") // 棒グラフの色を赤色に設定
+
+
+  		// 目盛りを設定し表示する
+  		svg.append("g")
+  		    .attr("class", "axis")
+  		    .attr("transform", "translate("+xOffset+", "+yOffset+")")
+  		    .call(d3.svg.axis()
+  		    .scale(xScale)  //スケールを適用する
+  		    .orient("left") //目盛りの表示位置を左側に指定
+  		);
+
+
+  	// 目盛りを設定し表示する
+    svg.append("g")
+  	    .attr("class", "axis")
+  	    .attr("transform", "translate("+xOffset1+", "+yOffset1+")")
+  	    .call(d3.svg.axis()
+  	    .scale(yScale)  //スケールを適用する
+  	    .orient("bottom") //目盛りの表示位置を左側に指定
+  	);
+
+  		// アニメーション処理
+  		d3.select("body").on("mouseover", function(){
+  		    bar
+  		    .transition()   // 以後に記述した内容がアニメーションの最終設定値になる
+  		    .attr("height", function(d){    // 横幅を配列の内容に応じて計算
+  		        return (d*barScale) +"px";
+  		    })
+  		    .attr("y", function(d){ // 縦幅を配列の内容に応じて計算
+  		        return barHeight-(d*barScale) + yOffset + "px";
+  		    })
+  		})
+  	</script>
+<p><p>
+</article>
+
+    </section>
+    <section>
+<article>
+  <h1>昨日の来場者数</h1>
+  <div id="myGraph1"></div>
+  <script src="js/sample.js"></script>
+
+
+
+
+
+
+
+  	<br>
+  	<script src="http://d3js.org/d3.v3.min.js"></script>
+
+    <center><text x="40" y="400"
+     font-size="30" fill="black">　　春の星座　　夏の星座　　秋の星座　　冬の星座　</text></center>
+
+      <script>
+
+  		var list1 = [10,20,30,40, ];
+  		//var list1 = [  element15,element16, element17, element18 ];
+  		var svgWidth = 600; // SVG領域の横幅
+  		var svgHeight = 240;    // SVG領域の縦幅
+  		var barHeight = 200;    // 棒グラフの基準位置
+  		var barScale = 2;   // 2倍サイズで描画
+  		var xBarSize = 93;  // 棒グラフの横幅 棒の間隔
+  		var xOffset = 260;
+  		var yOffset = 35;
+  		var xOffset1= 254;
+  		var yOffset1=235;
+  		var yScale = d3.scale.linear()  // スケールを設定
+  	    .domain([0, 0])   // 元のサイズ
+  	    .range([0, 300*barScale]);  // 実際の出力サイズ
+  	    var xScale = d3.scale.linear()  // スケールを設定
+  	    .domain([300, 0])   // 元のサイズ
+  	    .range([0, 100*barScale]);  // 実際の出力サイズ
+
+  		var svg = d3.select("#myGraph1").append("svg")
+  		    .attr("width", svgWidth).attr("height", svgHeight)
+  		var bar = svg.selectAll("rect") // SVGでの四角形を示す要素を指定
+  		    .data(list1) // データを設定
+  		    .enter()
+  		    .append("rect") // SVGでの四角形を示す要素を生成
+  		    .attr("x", function(d,i){   // X座標を配列の順序に応じて計算
+  		        return i * xBarSize+xOffset;
+  		    })
+          .attr("y", function(d){ // 縦幅を配列の内容に応じて計算
+  		        return barHeight + yOffset + "px";
+  		    })
+  		    .attr("height", function(d){    // 縦幅を配列の内容に応じて計算
+  		        return "0px";
+  		    })
+  		    .attr("width", 60)  // 棒グラフの横幅を指定
+  		    .attr("style", "fill:rgb(200,0,0)") // 棒グラフの色を赤色に設定
+
+
+  		// 目盛りを設定し表示する
+  		svg.append("g")
+  		    .attr("class", "axis")
+  		    .attr("transform", "translate("+xOffset+", "+yOffset+")")
+  		    .call(d3.svg.axis()
+  		    .scale(xScale)  //スケールを適用する
+  		    .orient("left") //目盛りの表示位置を左側に指定
+  		);
+
+
+  	// 目盛りを設定し表示する
+  	svg.append("g")
+  	    .attr("class", "axis")
+  	    .attr("transform", "translate("+xOffset1+", "+yOffset1+")")
+  	    .call(d3.svg.axis()
+  	    .scale(yScale)  //スケールを適用する
+  	    .orient("bottom") //目盛りの表示位置を左側に指定
+  	);
+
+  		// アニメーション処理
+      d3.select("body").on("mouseover", function(){
+  		    bar
+  		    .transition()   // 以後に記述した内容がアニメーションの最終設定値になる
+  		    .attr("height", function(d){    // 横幅を配列の内容に応じて計算
+  		        return (d*barScale) +"px";
+  		    })
+  		    .attr("y", function(d){ // 縦幅を配列の内容に応じて計算
+  		        return barHeight-(d*barScale) + yOffset + "px";
+  		    })
+  		})
+  	</script>
+
+
+</article>
+</section>
+<br>
+<center><a href="mypage.html" class="button">マイページへ</a></center>
+<br>
+
+<footer>
+<small>Copyright &copy; PlanetariumTicket, all rights
+reserved.</small>
+</footer>
+
+</body>
+</html>

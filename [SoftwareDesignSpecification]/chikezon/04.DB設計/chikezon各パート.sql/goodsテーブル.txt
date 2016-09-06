@@ -1,0 +1,6 @@
+create table goods(
+goods_id int(100) primary key auto_increment,
+goods_name varchar(255) not null,
+price int,
+index(goods_id)
+);

@@ -1,0 +1,77 @@
+body{
+    background-image:url(cloth-b1.png);
+}
+
+#center{
+      margin: 100px;
+}
+
+
+#main{
+       margin-left:auto;    /* 左側マージンを自動的に空ける */
+     margin-right:auto;   /* 右側マージンを自動的に空ける */
+     text-align:center;     /* 中身真ん中表示に戻す */
+     width:650px;         /* 幅を決定する */
+}
+
+td {
+    text-align: center;
+    vertical-align: top;
+    font-family:メイリオ;
+    font-size:150%;
+    font-weight:bold;
+    
+    color:#000000;
+}
+th{
+    font-size:150%;
+    font-family:メイリオ;
+    color:#160017;
+    
+}
+
+#logo{
+    font-size:150%;
+    font-family:メイリオ;
+    color:#d594d1;
+    text-shadow:
+0 0 25px #edf8ff,
+0 0 20px #edf8ff,
+0 0 0.40px #edf8ff;
+}
+
+h1{
+    font-family:Franklin Gothic Medium;
+    font-size:260%;
+    color:#00b2c7;
+    text-shadow: 2px 4px 4px rgba(116, 206, 111, 0.95);
+}
+
+input#submit_button {
+
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom,#3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 60%;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+	margin: 60px 20px;
+}
+
+input#submit_button:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}

@@ -1,0 +1,178 @@
+<html>
+<head>
+<title>書籍情報</title>
+</head>
+
+<body>
+
+<fieldset>
+
+	<legend>
+		<font size="5">書籍登録・変更</font>
+	</legend>
+
+	<br>
+
+	<form>
+		<input type="button" value="登録">
+		<input type="button" value="変更">
+		<input type="button" value="削除">
+	</form>
+
+	<form>
+		<p>
+			図書ID：
+			<input type="text" name="book_id">
+		</p>
+
+		<p>
+			タイトル：
+			<input type="text" name="title">
+		</p>
+
+		<p>
+			タイトル(カナ)：
+			<input type="text" name="title">
+		</p>
+
+		<p>
+			作者：
+			<input type="text" name="writer">
+		</p>
+
+		<p>
+			作者(カナ)：
+			<input type="text" name="writer_kana">
+		</p>
+
+		<p>
+			在庫数：
+			<input type="text" name="stock">
+		</p>
+
+		<p>
+			総在庫数：
+			<input type="text" name="total_stock">
+		</p>
+
+		<p>
+			出版社：
+			<input type="text" name="company">
+		</p>
+
+		<p>
+			出版年月：
+			<input type="text" name="year">
+		</p>
+
+		<p>
+			価格：
+			<input type="text" name="price">
+		</p>
+
+		<p>
+			ページ数：
+			<input type="text" name="page">
+		</p>
+
+		<p>
+			カテゴリ：
+			<input type="text" name="category">
+		</p>
+
+		<p>
+			画像イメージ：
+			<input type="text" name="title">
+		</p>
+
+		<textarea rows="10" cols="30">
+		</textarea>
+
+	</form>
+
+	</fieldset>
+
+		<br>
+
+	<fieldset>
+		<legend>
+		<font size="5">検索</font>
+		</legend>
+
+	<form>
+
+		<input type="button" value="検索">
+
+		<p>
+			タイトル：
+			<input type="text" name="title">
+		</p>
+
+		<p>
+			図書ID：
+			<input type="text" name="book_id">
+		</p>
+
+		<p>
+			作者：
+			<input type="text" name="writer">
+		</p>
+
+		<select name="cars">
+			<option value="audi" selected="selected">選択してください
+			<option value="sf">SF
+			<option value="fan">ファンタジー
+			<option value="pic_book">絵本
+		</select>
+	</form>
+
+<table border="1" stcellspacing="0" cellpadding="5">
+			<tr>
+				<th></th>
+				<th>NO.</th>
+				<th>タイトル</th>
+				<th>作者</th>
+				<th>出版社</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>1</th>
+				<th>アルゴリズムから学ぶJavaプログラミング入門</th>
+				<th>鶴沢偉伸</th>
+				<th>技報堂出版</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>2</th>
+				<th>インサイドJava OSオペレーティングシステム</th>
+				<th>トム・サルポー</th>
+				<th>ピアソン・エデュケーション</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>3</th>
+				<th>HTML5＆JavaScript本格ゲームプログラミング－ライブラリ自作からはじめるブラウザゲーム開発</th>
+				<th>柳井政和</th>
+				<th>秀和システム</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>4</th>
+				<th>HTML+JavaScriptによるプログラミング入門</th>
+				<th>古金谷博</th>
+				<th>日経BP社</th>
+			</tr>
+			<tr>
+				<th><input type="radio" name="book" value="bookdata"></th>
+				<th>5</th>
+				<th>開眼！JavaScript－言語仕様から学ぶJavaScriptの本質－</th>
+				<th>Cody Lindley</th>
+				<th>オライリー・ジャパン</th>
+			</tr>
+		</table></form><br>
+
+	</fieldset>
+
+</body>
+
+</html>

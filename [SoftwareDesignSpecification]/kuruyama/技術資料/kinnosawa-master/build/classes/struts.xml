@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN "
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.custom.i18n.resources" value="com.internousdev.kinnosawa.property.withdrawal_confirmation,
+															com.internousdev.kinnosawa.property.sign_up,
+															com.internousdev.kinnosawa.property.sign_up_confirmation,
+															com.internousdev.kinnosawa.property.sign_up_completion,
+															com.internousdev.kinnosawa.property.log_in_check,
+															com.internousdev.kinnosawa.property.admin_item,
+															com.internousdev.kinnosawa.property.my_page,
+															com.internousdev.kinnosawa.property.admin_login,
+															com.internousdev.kinnosawa.property.admin_user,
+															com.internousdev.kinnosawa.property.header,
+															com.internousdev.kinnosawa.property.footer,
+															com.internousdev.kinnosawa.property.top_page,
+															com.internousdev.kinnosawa.property.side_bar,
+															com.internousdev.kinnosawa.property.admin_header,
+															com.internousdev.kinnosawa.property.admin_contact,
+															com.internousdev.kinnosawa.property.question,
+															com.internousdev.kinnosawa.property.company_info,
+															com.internousdev.kinnosawa.property.admin_capacity,
+															com.internousdev.kinnosawa.property.admin_purchase_detail,
+															com.internousdev.kinnosawa.property.admin_purchase,
+															com.internousdev.kinnosawa.property.agreement,
+															com.internousdev.kinnosawa.property.purchase_completion,
+															com.internousdev.kinnosawa.property.item_details,
+															com.internousdev.kinnosawa.property.cart,
+															com.internousdev.kinnosawa.property.purchase,
+															com.internousdev.kinnosawa.property.purchase_confirmation,
+															com.internousdev.kinnosawa.property.registration_change_completion,
+															com.internousdev.kinnosawa.property.registration_change_confirmation,
+															com.internousdev.kinnosawa.property.registration_change"/>
+
+	<package extends="struts-default" namespace="/" name="kinnosawa">
+
+    <result-types>
+        <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+    </result-types>
+
+    <!--トップページ画面へ遷移 -->
+        <action name="GoTopPageAction" class="com.internousdev.kinnosawa.action.GoTopPageAction"
+            method="execute">
+            <result name="success">top_page.jsp</result>
+            <result name="error">top_page.jsp</result>
+        </action>
+
+    <!--新規登録画面へ遷移 -->
+        <action name="GoSignUpAction" class="com.internousdev.kinnosawa.action.GoSignUpAction"
+            method="execute">
+            <result name="success">sign_up.jsp</result>
+        </action>
+
+    <!--登録内容確認画面へ遷移 -->
+        <action name="SignUpConfirmationAction" class="com.internousdev.kinnosawa.action.SignUpConfirmationAction"
+            method="execute">
+            <result name="success">sign_up_confirmation.jsp</result>
+            <result name="error">sign_up.jsp</result>
+            <result name="input">sign_up.jsp</result>
+        </action>
+
+    <!--登録完了画面へ遷移 -->
+        <action name="SignUpCompletionAction" class="com.internousdev.kinnosawa.action.SignUpCompletionAction"
+            method="execute">
+            <result name="success">sign_up_completion.jsp</result>
+            <result name="error">sign_up_confirmation.jsp</result>
+        </action>
+
+    <!--ログイン→トップページ画面へ遷移 -->
+        <action name="GoLoginAction" class="com.internousdev.kinnosawa.action.GoLoginAction"
+            method="execute">
+            <result name="success">index.jsp</result>
+            <result type="chain" name="error">GoTopPageAction</result>
+            <result name="checkError">log_in_check.jsp</result>
+        </action>
+
+    <!--Facebook認証を行うアクション -->
+        <action name="login-facebook" class="com.internousdev.kinnosawa.action.GoFacebookAction"
+            method="execute">
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+
+    <!--Facebook認証のコールバックアクション -->
+        <action name="login-facebook-action" class="com.internousdev.kinnosawa.action.LoginFacebookAction"
+            method="execute">
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+
+    <!--twitter認証を行うアクション -->
+        <action name="login-twitter" class="com.internousdev.kinnosawa.action.GoTwitterAction"
+            method="execute">
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+
+    <!--twitter認証のコールバックアクション -->
+        <action name="login-twitter-action" class="com.internousdev.kinnosawa.action.LoginTwitterAction"
+            method="execute">
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+
+    <!--Google認証を行うアクション -->
+        <action name="login-google" class="com.internousdev.kinnosawa.action.GoGoogleAction"
+            method="execute">
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+
+    <!--Google認証のコールバックアクション -->
+        <action name="login-google-action" class="com.internousdev.kinnosawa.action.LoginGoogleAction"
+            method="execute">
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+
+    <!--ログアウトをし、トップページ画面へ遷移 -->
+        <action name="GoLogoutAction" class="com.internousdev.kinnosawa.action.GoLogoutAction"
+            method="execute">
+            <result name="success">index.jsp</result>
+        </action>
+
+    <!--商品一覧画面へ遷移 -->
+        <action name="GoItemAction" class="com.internousdev.kinnosawa.action.GoItemAction"
+            method="execute">
+            <result name="success">item.jsp</result>
+            <result name="error">item.jsp</result>
+        </action>
+
+    <!--商品詳細画面へ遷移 -->
+        <action name="GoItemDetailsAction" class="com.internousdev.kinnosawa.action.GoItemDetailsAction"
+            method="execute">
+            <result name="success">item_details.jsp</result>
+             <result name="error">item_details.jsp</result>
+        </action>
+
+    <!--商品をカートへ登録 -->
+        <action name="IntoCartReturnAction" class="com.internousdev.kinnosawa.action.GoItemDetailsAction"
+            method="intoCartReturn">
+            <result name="success">item_details.jsp</result>
+            <result name="error">item_details.jsp</result>
+            <result name="loginError">log_in_check.jsp</result>
+        </action>
+
+    <!--カート画面へ遷移 -->
+        <action name="GoCartAction" class="com.internousdev.kinnosawa.action.GoCartAction"
+            method="execute">
+            <result name="success">cart.jsp</result>
+            <result name="error">cart.jsp</result>
+            <result name="loginError">log_in_check.jsp</result>
+        </action>
+
+    <!--カート画面の商品を削除 -->
+        <action name="GoCartDeleteAction" class="com.internousdev.kinnosawa.action.GoCartAction"
+            method="delete">
+            <result name="success">cart.jsp</result>
+            <result name="error">cart.jsp</result>
+            <result name="loginError">log_in_check.jsp</result>
+        </action>
+
+    <!--カートデータの更新 -->
+        <action name="CartUpdateAction" class="com.internousdev.kinnosawa.action.CartUpdateAction"
+            method="execute">
+            <result name="success" type="chain">GoCartAction</result>
+            <result name="error" type="chain">GoCartAction</result>
+            <result name="loginError">log_in_check.jsp</result>
+        </action>
+
+    <!--カートデータへ追加 -->
+        <action name="GoCartInsertAction" class="com.internousdev.kinnosawa.action.GoCartAction"
+            method="insert">
+            <result name="success">GoCartAction</result>
+            <result name="error">GoCartAction</result>
+            <result name="loginError">log_in_check.jsp</result>
+        </action>
+
+    <!--カート画面から購入手続き画面へ遷移 -->
+        <action name="GoCartToPurchaseAction" class="com.internousdev.kinnosawa.action.CartUpdateAction"
+            method="execute">
+            <result name="success" type ="chain">PurchaseAction</result>
+            <result name="error" type ="chain">GoCartAction</result>
+        </action>
+
+    <!--購入手続き画面へ遷移 -->
+        <action name="PurchaseAction" class="com.internousdev.kinnosawa.action.PurchaseAction"
+            method="execute">
+            <result name="success">purchase.jsp</result>
+            <result name="error">top_page.jsp</result>
+        </action>
+
+    <!--購入確認画面へ遷移 -->
+        <action name="PurchaseConfirmationAction" class="com.internousdev.kinnosawa.action.PurchaseConfirmationAction"
+            method="execute">
+            <result name="success">purchase_confirmation.jsp</result>
+            <result name="error" type ="chain">PurchaseAction</result>
+            <result name ="logincheck">log_in_check.jsp</result>
+        </action>
+
+    <!--購入完了画面へ遷移 -->
+        <action name="PurchaseCompletionAction" class="com.internousdev.kinnosawa.action.PurchaseCompletionAction"
+            method="execute">
+            <result name="success">purchase_completion.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+
+    <!--マイページ画面へ遷移 -->
+        <action name="MyPageAction" class="com.internousdev.kinnosawa.action.MyPageAction"
+            method="execute">
+            <result name="success">my_page.jsp</result>
+            <result name="error">top_page.jsp</result>
+        </action>
+
+    <!--退会確認画面へ遷移 -->
+        <action name="WithdrawalConfirmationAction" class="com.internousdev.kinnosawa.action.WithdrawalConfirmationAction"
+            method="execute">
+            <result name="success">withdrawal_confirmation.jsp</result>
+        </action>
+
+    <!--退会完了画面へ遷移 -->
+        <action name="WithdrawalAction" class="com.internousdev.kinnosawa.action.WithdrawalAction"
+            method="execute">
+            <result name="success">withdrawal.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+
+    <!--登録内容変更画面へ遷移 -->
+        <action name="GoRegistrationChangeAction" class="com.internousdev.kinnosawa.action.GoRegistrationChangeAction"
+            method="execute">
+            <result name="success">registration_change.jsp</result>
+            <result name="error">top_page.jsp</result>
+        </action>
+
+    <!--変更内容確認画面へ遷移 -->
+        <action name="RegistrationChangeConfirmationAction" class="com.internousdev.kinnosawa.action.RegistrationChangeConfirmationAction"
+            method="execute">
+            <result name="success">registration_change_confirmation.jsp</result>
+            <result name="error">top_page.jsp</result>
+            <result name="input">registration_change.jsp</result>
+        </action>
+
+    <!--変更完了画面へ遷移 -->
+        <action name="RegistrationChangeCompletionAction" class="com.internousdev.kinnosawa.action.RegistrationChangeCompletionAction"
+            method="execute">
+            <result name="success">registration_change_completion.jsp</result>
+            <result name="error">top_page.jsp</result>
+        </action>
+
+    <!--会社概要画面へ遷移 -->
+        <action name="GoCompanyInfoAciton" class="com.internousdev.kinnosawa.action.GoCompanyInfoAciton"
+            method="execute">
+            <result name="success">company_info.jsp</result>
+        </action>
+
+    <!--利用規約画面へ遷移 -->
+        <action name="GoAgreementAciton" class="com.internousdev.kinnosawa.action.GoAgreementAciton"
+            method="execute">
+            <result name="success">agreement.jsp</result>
+        </action>
+
+    <!--お問い合わせ画面へ遷移 -->
+        <action name="GoQuestionAction" class="com.internousdev.kinnosawa.action.GoQuestionAction">
+            <result name="success">question.jsp</result>
+            <result name="error">top_page.jsp</result>
+        </action>
+        <action name="GoQuestionFromSendAction" class="com.internousdev.kinnosawa.action.GoQuestionFromSendAction"
+            method="execute">
+            <result name="success">question.jsp</result>
+            <result name="error">question.jsp</result>
+            <result name="input">question.jsp</result>
+        </action>
+
+    <!--管理者ログイン画面へ遷移 -->
+        <action name="GoAdminLogInAction"
+            class="com.internousdev.kinnosawa.action.GoAdminLogInAction" method="execute">
+            <result name="success">admin_login.jsp</result>
+        </action>
+
+    <!--管理者画面へログイン -->
+        <action name="AdminLogInAction"
+            class="com.internousdev.kinnosawa.action.AdminLogInAction" method="execute">
+            <result type="chain" name="success">GoAdminUserAction</result>
+            <result name="error">admin_login.jsp</result>
+            <result name="LogInError">admin_login.jsp</result>
+        </action>
+
+    <!--商品管理画面 -->
+        <action name="GoAdminItemAction"
+            class="com.internousdev.kinnosawa.action.GoAdminItemAction" method="execute">
+            <result name="success" type="chain">AdminItemSearchAction</result>
+            <result name="error">admin_item.jsp</result>
+            <result name="LogInError">admin_login.jsp</result>
+        </action>
+
+    <!--ユーザー管理画面へ遷移 -->
+        <action name="GoAdminUserAction"
+            class="com.internousdev.kinnosawa.action.GoAdminUserAction" method="execute">
+            <result type="chain" name="success">AdminUserSearchAction</result>
+            <result name="LogInError">admin_login.jsp</result>
+        </action>
+
+    <!--ユーザー管理画面ユーザー検索 -->
+        <action name="AdminUserSearchAction"
+            class="com.internousdev.kinnosawa.action.AdminUserSearchAction" method="execute">
+            <result name="success">admin_user.jsp</result>
+            <result name="error">admin_user.jsp</result>
+        </action>
+
+    <!--ユーザー管理者画面ユーザー削除 -->
+        <action name="AdminUserDeleteAction"
+            class="com.internousdev.kinnosawa.action.AdminUserDeleteAction" method="execute">
+            <result name="success" type="chain">GoAdminUserAction</result>
+            <result name="error" type="chain">GoAdminUserAction</result>
+        </action>
+
+    <!--商品の追加 -->
+        <action name="AdminItemInsertAction"
+            class="com.internousdev.kinnosawa.action.AdminItemInsertAction" method="execute">
+            <result name="success" type="chain">AdminItemSearchAction</result>
+            <result name="error">admin_item.jsp</result>
+            <result name="LogInError">admin_login.jsp</result>
+        </action>
+
+    <!--商品の検索 -->
+        <action name="AdminItemSearchAction"
+            class="com.internousdev.kinnosawa.action.AdminItemSearchAction" method="execute">
+            <result name="success">admin_item.jsp</result>
+            <result name="error">admin_item.jsp</result>
+            <result name="LogInError">admin_login.jsp</result>
+        </action>
+
+    <!--商品の削除 -->
+        <action name="AdminItemDeleteAction"
+            class="com.internousdev.kinnosawa.action.AdminItemDeleteAction" method="execute">
+            <result name="success" type="chain">AdminItemSearchAction</result>
+            <result name="error">admin_item.jsp</result>
+            <result name="LogInError">admin_login.jsp</result>
+        </action>
+
+    <!--購入履歴画面へ遷移-->
+        <action name="GoAdminPurchaseAction" class="com.internousdev.kinnosawa.action.GoAdminPurchaseAction" method="execute">
+            <result name="success">admin_purchase.jsp</result>
+            <result name="error">admin_purchase.jsp</result>
+             <result name="LogInError">admin_login.jsp</result>
+        </action>
+
+    <!--購入履歴詳細画面へ遷移-->
+        <action name="GoAdminPurchaseDetailAction" class="com.internousdev.kinnosawa.action.GoAdminPurchaseDetailAction" method="execute">
+            <result name="success">admin_purchase_detail.jsp</result>
+            <result name="error">admin_purchase_detail.jsp</result>
+             <result name="LogInError">admin_login.jsp</result>
+        </action>
+
+    <!--売上管理画面へ遷移 -->
+        <action name="GoAdminCapacityAction"
+            class="com.internousdev.kinnosawa.action.GoAdminCapacityAction" method="execute">
+            <result name="success">admin_capacity.jsp</result>
+            <result name="LogInError">admin_login.jsp</result>
+        </action>
+
+    <!--売上検索 -->
+        <action name="AdminCapacitySearchAction"
+            class="com.internousdev.kinnosawa.action.AdminCapacitySearchAction" method="execute">
+            <result name="success" type="json">
+                <param name="root">searchList</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">false</param>
+            </result>
+        </action>
+
+    <!--お問い合わせ管理画面へ遷移 -->
+        <action name="GoAdminContactAction" class="com.internousdev.kinnosawa.action.GoAdminContactAction">
+            <result name="success">admin_contact.jsp</result>
+            <result name="error">admin_login.jsp</result>
+        </action>
+        <action name="GoAdminContactSearchAction" class="com.internousdev.kinnosawa.action.GoAdminContactAction"
+            method="search">
+            <result name="success">admin_contact.jsp</result>
+            <result name="error">admin_contact.jsp</result>
+            <result name="input">admin_contact.jsp</result>
+        </action>
+
+        <!-- 商品画像の追加 -->
+        <action name="ImageFileTransmitfileUpload" class="com.internousdev.kinnosawa.action.ImageUploadAction" method="doFileUpload">
+            <result name="uploadSuccess" type="chain">AdminItemSearchAction</result>
+
+        </action>
+    <!-- 箱入商品画像の追加 -->
+        <action name="ImageFileTransmitfileUploadSet" class="com.internousdev.kinnosawa.action.ImageUploadAction" method="doFileUploadSet">
+            <result name="uploadSuccess" type="chain">AdminItemSearchAction</result>
+        </action>
+
+	</package>
+</struts>

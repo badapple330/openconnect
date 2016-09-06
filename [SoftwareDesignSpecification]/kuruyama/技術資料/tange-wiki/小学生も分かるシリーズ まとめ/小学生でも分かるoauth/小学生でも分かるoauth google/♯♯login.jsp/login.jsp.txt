@@ -1,0 +1,3 @@
+<s:url var="google" action="login-google" />
+<s:a href="%{google}">
+<img src="img/google-j.png">
