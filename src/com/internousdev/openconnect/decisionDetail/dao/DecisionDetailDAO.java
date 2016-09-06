@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.internousdev.openconnect.decisionDetail.dao;
 
 import java.sql.Connection;
@@ -12,47 +9,50 @@ import java.util.List;
 
 import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.internousdev.util.DBConnector;
-
 /**
- * @author internous
- *
+ * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
+ * @author TATUHUMI ITOU
+ * @since 2016/09/04
+ * @version 1.0
  */
 public class DecisionDetailDAO {
 
-	public List<DecisionDetailDTO> select( String searchString ){
+	private List<DecisionDetailDTO> decisionDetailList=new ArrayList<DecisionDetailDTO>();
+	 /**
+     * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+     * @author TATUHUMI ITOU
+     * @return  projectList 抽出に成功したらSUCCESS、失敗したらERROR
+     */
+	public List<DecisionDetailDTO> select() {
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+		Connection con = db.getConnection();
 
-		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
-
-		String sql = "select * from operate where project_name LIKE '%" + searchString + "%'";
-
-		List<DecisionDetailDTO> operateList  = new ArrayList<DecisionDetailDTO>();
-
-		try{
-
-			PreparedStatement ps = conn.prepareStatement(sql);
-
+		try {
+			String sql="select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id";
+			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
-			while( rs.next() ){
-
-				DecisionDetailDTO dto = new DecisionDetailDTO();
-				dto.setOperateId( rs.getInt( "operate_id" ) );
-				dto.setProjectName( rs.getString( "project_name" ) );
-				dto.setPassword( rs.getString( "password" ) );
-
-				operateList .add( dto );
+			while (rs.next()) {
+				 DecisionDetailDTO dto = new DecisionDetailDTO();
+				dto.setProjectName(rs.getString("project_name"));
+				dto.setDecisionId(rs.getInt("decision_id"));
+				dto.setDecisionType(rs.getString("decision_type"));
+				dto.setDecisionStatus(rs.getString("decision_status"));
+				 decisionDetailList.add(dto);
 			}
-		}catch (SQLException e) {
-       	 e.printStackTrace();
-        }finally{
-       	 try{
-       		 conn.close();
-	         }catch (SQLException e){
-	        	 e.printStackTrace();
-	         }
-	     }
-
-		return operateList ;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return  decisionDetailList;
 	}
+	/**
+	 * @return  searchList
+	 */
 
 }

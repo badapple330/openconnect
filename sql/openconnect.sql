@@ -195,12 +195,15 @@ start_day date ,
 end_day date,
 plan varchar(255),
 persons int,
+password varchar(100),
+decision_id int not null,
+foreign key(decision_id) references decision(decision_id),
 foreign key(user_id) references users(user_id),
 foreign key(project_id) references projects(project_id)
 );
 
-insert decision_detail( project_id, user_id )
-values(1,1),(2,2);
+insert decision_detail( project_id, user_id,decision_id )
+values(1,1,1),(2,2,2);
 
 /*サブプロジェクト / 書籍一覧*/
 create table books(
