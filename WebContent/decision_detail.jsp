@@ -4,10 +4,11 @@
 <!DOCTYPE>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset=UTF-8>
 <title>決裁手続き電子化</title>
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/decision_detail.js"></script>
+<link rel="stylesheet" href="css/decision_detail.css">
 </head>
 <body>
 
@@ -37,15 +38,15 @@
 
 		<s:iterator value="decisionDetailList">
 			<tr>
-				<td><s:property value="decisionId" /></td>
-				<td><s:property value="projectName" /></td>
-				<td><s:property value="decisionType" /></td>
-				<td><s:property value="decisionStatus" /></td>
+				<td class="decision_id"><s:property value="decisionId" /></td>
+				<td class="decision_name"><s:property value="projectName" /></td>
+				<td class="decision_type"><s:property value="decisionType" /></td>
+				<td class="decision_status"><s:property value="decisionStatus" /></td>
 				<td></td>
 				<td></td>
 				<td><input type="button" value="編集"></td>
 				<td><input type="button" value="申請"></td>
-				<td><input type="button" value="削除"></td>
+				<td><input type="button" value="削除" class="modal-open"></td>
 			</tr>
 		</s:iterator>
 
@@ -59,7 +60,7 @@
 				<td></td>
 				<td><input type="button" value="編集"></td>
 				<td><input type="button" value="申請"></td>
-				<td><input type="button" value="削除"></td>
+				<td><input type="button" value="削除" class="modal-open"></td>
 			</tr>
 		</s:iterator>
 	</table>
@@ -68,8 +69,7 @@
 
 	<div id="modal-main">
 		<!-- #contents START -->
-		ID <input type="text" id="delete-projectid" readonly> <br>
-		プロジェクト名<input type="text" id="delete-projectday" readonly> <br>
+		ID <input type="text" id="delete-projectid" readonly><br>
 		プロジェクト名<input type="text" id="delete-projectname" readonly> <br>決裁分類
 		<input type="text" id="delete-projectplan" readonly> <br>進捗結果<input
 			type="text" id="delete-projectresult" readonly> <br>申請・承認状況<input
