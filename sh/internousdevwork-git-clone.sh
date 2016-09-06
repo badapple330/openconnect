@@ -33,20 +33,20 @@ git clone https://github.com/internousdevwork/chikezon
 # 201501
 git clone https://github.com/internousdevwork/sakatike
 git clone https://github.com/internousdevwork/Oden
-git clone https://github.com/internousdevwork/UESTO
+git clone -b phase2 https://github.com/internousdevwork/UESTO
 # 201502
 git clone https://github.com/internousdevwork/tourticket
-git clone https://github.com/internousdevwork/solare
+git clone -b phase2 https://github.com/internousdevwork/solare
 # 201503
 git clone https://github.com/internousdevwork/WorldTravel
 git clone https://github.com/internousdevwork/gpscoffee
 # 201504
-git clone https://github.com/internousdevwork/Lapoupee
+git clone -b phase2 https://github.com/internousdevwork/Lapoupee
 git clone https://github.com/internousdevwork/Ucycle
 # 201505
-git clone https://github.com/internousdevwork/LiveTickets
-git clone https://github.com/internousdevwork/baseballTicket
-git clone https://github.com/internousdevwork/Ichigoichie
+git clone -b phase2 https://github.com/internousdevwork/LiveTickets
+git clone -b phase2 https://github.com/internousdevwork/baseballTicket
+git clone -b phase3 https://github.com/internousdevwork/Ichigoichie
 # 201506
 # 201507
 git clone https://github.com/internousdevwork/k-home
@@ -59,7 +59,7 @@ git clone https://github.com/internousdevwork/shizuku
 git clone https://github.com/internousdevwork/footprinter
 git clone https://github.com/internousdevwork/ukiukitopia
 # 201511
-git clone https://github.com/internousdevwork/cinemajapan
+git clone -b phase2 https://github.com/internousdevwork/cinemajapan
 git clone https://github.com/internousdevwork/chocotime
 # 201512
 git clone https://github.com/internousdevwork/rakuraku
@@ -69,3 +69,9 @@ git clone https://github.com/internousdevwork/mackeypark
 git clone https://github.com/internousdevwork/kuruyama
 # 201602
 git clone https://github.com/internousdevwork/gekidanroadshow
+
+git clone https://github.com/internousdevwork/visa
+
+git clone https://github.com/internousdevwork/internousdev
+git clone https://github.com/internousdevwork/mira-mode
+git clone https://github.com/internousdevwork/rewrite
