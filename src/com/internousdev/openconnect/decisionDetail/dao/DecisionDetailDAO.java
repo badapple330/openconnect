@@ -25,7 +25,7 @@ public class DecisionDetailDAO {
 
 		String sql = "select * from operate where project_name LIKE '%" + searchString + "%'";
 
-		List<DecisionDetailDTO> list = new ArrayList<DecisionDetailDTO>();
+		List<DecisionDetailDTO> operateList  = new ArrayList<DecisionDetailDTO>();
 
 		try{
 
@@ -40,7 +40,7 @@ public class DecisionDetailDAO {
 				dto.setProjectName( rs.getString( "project_name" ) );
 				dto.setPassword( rs.getString( "password" ) );
 
-				list.add( dto );
+				operateList .add( dto );
 			}
 		}catch (SQLException e) {
        	 e.printStackTrace();
@@ -52,7 +52,7 @@ public class DecisionDetailDAO {
 	         }
 	     }
 
-		return list;
+		return operateList ;
 	}
 
 }
