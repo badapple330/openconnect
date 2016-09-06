@@ -10,7 +10,7 @@ import com.mysql.jdbc.Connection;
 
 public class ScheduleInsertDAO {
 	public int insert (Date Start_day, String Title, String Content){
-		System.out.println(Start_day);
+
 		int count=0;
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn= (Connection) db.getConnection();

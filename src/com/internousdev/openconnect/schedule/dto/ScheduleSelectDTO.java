@@ -9,6 +9,7 @@ public class ScheduleSelectDTO {
 	private String title;
 	private String content;
 
+
 	public int getId() {
 		return id;
 	}
@@ -40,7 +41,5 @@ public class ScheduleSelectDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-
 
 }

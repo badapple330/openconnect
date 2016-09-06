@@ -21,6 +21,7 @@ public class ScheduleSelectDAO {
 		Connection conn = db.getConnection();
 		String sql = "select * from schedule where title LIKE '%" + search + "%'";
 
+
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();

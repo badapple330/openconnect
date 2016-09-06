@@ -4,7 +4,10 @@
 
 .delete-prepare {
 	display: none;
+
 }
+
+
 #modal-main {
 	display: none;
 	width: 500px;
@@ -26,4 +29,25 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
+}
+#modal-style{
+	margin-top:10px;
+	margin-left:10px;
+	margin-right:10px;
+
+}
+
+.modal_border{
+width: 100%;
+border-collapse: separate;
+border-spacing: 0px;
+border-top: 1px solid #ccc;
+border-left: 1px solid #ccc;
+}
+.modal_border td{
+width:75%;
+padding:4px;
+background-color: #fafafa;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
 }
