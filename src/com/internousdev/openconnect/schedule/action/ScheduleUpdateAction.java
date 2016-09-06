@@ -10,8 +10,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ScheduleUpdateAction extends ActionSupport {
 
 	private List<Integer> scheduleIdList = new ArrayList<Integer>();
-	private List<Date> scheduleStartdateList = new ArrayList<Date>();
-	private List<Date> scheduleEnddateList = new ArrayList<Date>();
+	private List<Date> scheduleStart_dayList = new ArrayList<Date>();
+	private List<Date> scheduleEnd_dayList = new ArrayList<Date>();
 	private List<String> scheduleTitleList = new ArrayList<String>();
 	private List<String> scheduleContentList = new ArrayList<String>();
 
@@ -40,7 +40,7 @@ public class ScheduleUpdateAction extends ActionSupport {
         int count = 0;
 
         for(int i = 0 ; i < scheduleIdList.size() ;++i){
-        	count = dao.update(scheduleIdList.get(i),scheduleStartdateList.get(i),scheduleEnddateList.get(i),scheduleTitleList.get(i),scheduleContentList.get(i));}
+        	count = dao.update(scheduleIdList.get(i),scheduleStart_dayList.get(i),scheduleEnd_dayList.get(i),scheduleTitleList.get(i),scheduleContentList.get(i));}
 
         		if ( count > 0) {
         			ret = SUCCESS;
@@ -61,25 +61,24 @@ public class ScheduleUpdateAction extends ActionSupport {
 	}
 
 
-	public List<Date> getScheduleStartdateList() {
-		return scheduleStartdateList;
+	public List<Date> getScheduleStart_dayList() {
+		return scheduleStart_dayList;
 	}
 
 
-	public void setScheduleStartdateList(List<Date> scheduleStartdateList) {
-		this.scheduleStartdateList = scheduleStartdateList;
+	public void setScheduleStart_dayList(List<Date> scheduleStart_dayList) {
+		this.scheduleStart_dayList = scheduleStart_dayList;
 	}
 
 
-	public List<Date> getScheduleEnddateList() {
-		return scheduleEnddateList;
+	public List<Date> getScheduleEnd_dayList() {
+		return scheduleEnd_dayList;
 	}
 
 
-	public void setScheduleEnddateList(List<Date> scheduleEnddateList) {
-		this.scheduleEnddateList = scheduleEnddateList;
+	public void setScheduleEnd_dayList(List<Date> scheduleEnd_dayList) {
+		this.scheduleEnd_dayList = scheduleEnd_dayList;
 	}
-
 
 
 	public List<String> getScheduleTitleList() {

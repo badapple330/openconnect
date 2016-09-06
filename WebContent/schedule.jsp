@@ -9,7 +9,6 @@
 <script src="js/schedule.js"></script>
 <link rel="stylesheet" href="css/schedule.css">
 <title>スケジュール一覧</title>
-
 </head>
 <body>
 <p>スケジュール検索</p>
@@ -30,8 +29,8 @@
 <s:iterator value="schedulelist">
 <tr>
 <td><input type="text" name="scheduleIdList" value="<s:property value="Id" />" class="scheduleIdList"></td>
-<td><input type="text" name="scheduleStartdateList" value="<s:property value="Start_day" />" class="scheduleStartdateList"></td>
-<td><input type="text" name="scheduleEnddateList" value="<s:property value="End_day" />" class="scheduleEnddateList"></td>
+<td><input type="text" name="scheduleStart_dayList" value="<s:property value="Start_day" />" class="scheduleStart_dayList"></td>
+<td><input type="text" name="scheduleEnd_dayList" value="<s:property value="End_day" />" class="scheduleEnd_dayList"></td>
 <td><input type="text" name="scheduleTitleList" value="<s:property value="Title" />" class="scheduleTitleList"></td>
 <td><input type="text" name="scheduleContentList" value="<s:property value="Content" />" class="scheduleContentList"></td>
 <td><input type="button" class="button modal-open" value="削除" /></td>
@@ -41,8 +40,8 @@
 <s:iterator value="dscheduleList">
 <tr>
 <td><input type="text" name="scheduleIdList" value="<s:property value="Id" />" class="delscheduleIdList"></td>
-<td><input type="text" name="scheduleStartdateList" value="<s:property value="Startdate" />" class="delscheduleStartdateList"></td>
-<td><input type="text" name="scheduleEnddateList" value="<s:property value="Enddate" />" class="delscheduleEnddateList"></td>
+<td><input type="text" name="scheduleStart_dayList" value="<s:property value="Start_day" />" class="delscheduleStart_dayList"></td>
+<td><input type="text" name="scheduleEnd_dayList" value="<s:property value="End_day" />" class="delscheduleEnd_dayList"></td>
 <td><input type="text" name="scheduleTitleList" value="<s:property value="Title" />" class="delscheduleTitleList"></td>
 <td><input type="text" name="scheduleContentList" value="<s:property value="Content" />" class="delscheduleContentList"></td>
 <td><input type="button" class="button modal-open2" value="削除" /></td>
@@ -62,7 +61,7 @@
 <td>開始日</td><td>件名</td><td>内容</td><td></td>
 </tr>
 <tr>
-<td><input type="text" name="Startdate"></td>
+<td><input type="text" name="Start_day"></td>
 <td><input type="text" name="Title"></td>
 <td><input type="text" name="Content"></td>
 <td><button type="submit" class="button">追加</button></td></tr>
@@ -74,8 +73,8 @@
 <div id="modal-main">
 	<!-- #contents START -->
 	ID <input type="text" name="scheduleId" id="delete-scheduleid" readonly> <br>
-	開始日<input type="text" name="scheduleId" id="delete-startdate" readonly> <br>
-	終了日<input type="text" name="scheduleId" id="delete-enddate" readonly> <br>
+	開始日<input type="text" name="scheduleId" id="delete-start_day" readonly> <br>
+	終了日<input type="text" name="scheduleId" id="delete-end_day" readonly> <br>
 	件名<input type="text" name="scheduleId" id="delete-title" readonly> <br>
 	内容<input type="text" name="scheduleId" id="delete-content" readonly><br>
 		<input type="button" class="delete-true button" value="削除">

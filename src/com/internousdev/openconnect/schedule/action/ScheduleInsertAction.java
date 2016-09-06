@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class ScheduleInsertAction extends ActionSupport{
 
-	private Date Startdate;
+	private Date Start_day;
 	private String Title;
 	private String Content;
 	//private String errorstart_day;
@@ -39,7 +39,7 @@ public class ScheduleInsertAction extends ActionSupport{
 //		}
         ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-        k = dao.insert(Startdate,Title,Content);
+        k = dao.insert(Start_day,Title,Content);
 
         if (k>0) {
             ret = SUCCESS;
@@ -50,12 +50,12 @@ public class ScheduleInsertAction extends ActionSupport{
 
 	}
 
-	public Date getStartdate() {
-		return Startdate;
+	public Date getStart_day() {
+		return Start_day;
 	}
 
-	public void setStartdate(Date startdate) {
-		Startdate = startdate;
+	public void setStart_day(Date start_day) {
+		Start_day = start_day;
 	}
 
 	public String getTitle() {
