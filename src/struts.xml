@@ -256,8 +256,7 @@
 		</action>
 
 		<!-- スケジュール画面への遷移 -->
-		<action name="GoSchedule"
-			class="com.internousdev.openconnect.schedule.action.ScheduleFirstrunAction"
+		<action name="GoSchedule" class="com.internousdev.openconnect.schedule.action.ScheduleFirstrunAction"
 			method="execute">
 			<result name="success">schedule.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -267,7 +266,7 @@
 		<action name="ScheduleSelect"
 			class="com.internousdev.openconnect.schedule.action.ScheduleSelectAction"
 			method="execute">
-			<result name="success" type="chain">GoSchedule</result>
+			<result name="success">schedule.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
