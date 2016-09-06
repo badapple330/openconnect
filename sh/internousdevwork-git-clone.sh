@@ -29,7 +29,7 @@ git clone https://github.com/internousdevwork/EC_11a
 git clone https://github.com/internousdevwork/EC_11
 # 201412
 git clone https://github.com/internousdevwork/attendance_12
-git clone https://github.com/internousdevwork/chikezon
+git clone -b phase2 https://github.com/internousdevwork/chikezon
 # 201501
 git clone https://github.com/internousdevwork/sakatike
 git clone https://github.com/internousdevwork/Oden
