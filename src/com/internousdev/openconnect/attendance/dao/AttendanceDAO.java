@@ -63,6 +63,13 @@ public class AttendanceDAO {
 		}
 		return result;
 	}
+	/**
+	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * @author MINORI SUNAGAWA
+	 */
+	public void select(){
+
+	}
 
 	/**
 	* 取得メソッド
