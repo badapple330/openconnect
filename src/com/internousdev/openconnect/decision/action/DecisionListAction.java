@@ -19,7 +19,7 @@ public class DecisionListAction extends ActionSupport{
 
 	private String errorSelect;
 
-	private String searchString;
+	private String searchString = "";
 
 
 	public String execute(){
