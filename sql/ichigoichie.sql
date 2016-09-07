@@ -45,74 +45,74 @@ insert into user(user_id,password,name,name_f,postal,address,tel_number,email,se
 
 drop table if exists customer_info;
 create table customer_info (
-customer_id int(10) not null primary key auto_increment,
-customer_name varchar(100) not null,
-customer_pass varchar(32) not null,
-email_address varchar(100) not null,
-tel_number varchar(11) not null,
-customer_address varchar(100) not null,
-address_number varchar(30) not null,
-customer_postcode int(7) not null,
-customer_age tinyint not null,
-unique_id varchar(30)
+customer_id int(10) not null primary key auto_increment comment '顧客ID',
+customer_name varchar(100) not null comment '顧客名',
+customer_pass varchar(32) not null comment 'パスワード',
+email_address varchar(100) not null comment 'メールアドレス',
+tel_number varchar(11) not null comment '電話番号',
+customer_address varchar(100) not null comment '住所',
+address_number varchar(30) not null comment '番地',
+customer_postcode int(7) not null comment '郵便番号',
+customer_age tinyint not null comment '年齢',
+unique_id varchar(30) comment '固有ID'
 );
 
 drop table if exists merchandise_info;
 create table merchandise_info (
-item_id tinyint not null primary key auto_increment,
-item_name varchar(50) not null,
-price int(10) not null,
+item_id tinyint not null primary key auto_increment comment '商品ID',
+item_name varchar(50) not null comment '商品名',
+price int(10) not null comment '値段',
 img varchar(200) not null
 );
 
 drop table if exists shop_info;
 create table shop_info(
-shop_id tinyint not null primary key,
-shop_name varchar(30) not null,
-shop_address varchar(100) not null,
-shop_postcode int(7) not null
+shop_id tinyint not null primary key comment '店舗ID',
+shop_name varchar(30) not null comment '店舗名',
+shop_address varchar(100) not null comment '住所',
+shop_postcode int(7) not null comment '郵便番号'
 );
 
 drop table if exists inventory_info;
 create table inventory_info(
-shop_id tinyint not null,
+shop_id tinyint not null comment '店舗ID',
 foreign key(shop_id) references shop_info(shop_id),
-item_id tinyint not null,
+item_id tinyint not null comment '商品ID',
 foreign key(item_id) references merchandise_info(item_id),
-item_count tinyint not null,
-rental_date date not null
+item_count tinyint not null comment '商品個数',
+rental_date date not null comment 'レンタル日'
 );
 
 
 drop table if exists calendar;
 create table calendar(
-day date not null,
-shop_id tinyint,
+day date not null comment '日付',
+shop_id tinyint comment '店舗ID',
 foreign key(shop_id) references shop_info(shop_id),
-item_id tinyint,
+item_id tinyint comment '商品ID',
 foreign key(item_id) references merchandise_info(item_id)
 );
 
 drop table if exists purchase_history;
 create table purchase_history(
-customer_id int(10) not null,
-rental_date date not null,
-sales_count int(3) not null,
-unit_price int(10) not null,
-shop_id tinyint not null,
-item_id tinyint not null
+customer_id int(10) not null comment '顧客ID',
+rental_date date not null comment 'レンタル日',
+sales_count int(3) not null comment '購入数',
+unit_price int(10) not null comment '価格',
+shop_id tinyint not null comment '店舗ID',
+item_id tinyint not null comment '商品ID'
 );
 
 drop table if exists mail_magazine;
 create table mail_magazine(
-title varchar(100),
-contents text
+title varchar(100) comment 'タイトル',
+contents text comment 'メール内容'
 );
 
 drop table if exists administrator;
 create table administrator(
-admin_id varchar(25) not null,
-admin_pass varchar(25) not null
+admin_id varchar(25) not null comment '管理者ID',
+admin_pass varchar(25) not null comment '管理者パスワード'
 );
 
 set foreign_key_checks=1;
@@ -138,17 +138,17 @@ insert into administrator values
 
 drop table if exists order_info;
 create table order_info (
-customer_id int(10) not null,
-shop_id tinyint not null,
+customer_id int(10) not null comment '顧客ID',
+shop_id tinyint not null comment '店舗ID',
 foreign key(shop_id) references shop_info(shop_id),
-item_id tinyint not null,
+item_id tinyint not null comment '商品ID',
 foreign key(item_id) references merchandise_info(item_id),
-unit_price int(10) not null,
-payment_method tinyint not null,
-credit_number bigint(16) not null,
-security_code int(4) not null,
-expiration_date varchar(6) not null,
-rental_date date not null
+unit_price int(10) not null comment '価格',
+payment_method tinyint not null comment '支払い方法',
+credit_number bigint(16) not null comment 'クレジット番号',
+security_code int(4) not null comment 'セキュリティコード',
+expiration_date varchar(6) not null comment '有効期限',
+rental_date date not null comment 'レンタル日'
 );
 
 
