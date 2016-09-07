@@ -26,7 +26,7 @@ public class DecisionDisplayDAO {
 			while (rs.next()) {
 				DecisionDisplayDTO dto = new DecisionDisplayDTO();
 
-				dto.setRegistration(rs.getInt("Registration"));
+				dto.setRegistration(rs.getInt("registration"));
 				dto.setUser(rs.getString("user"));
 				dto.setProjectLst(rs.getString("project_list"));
 				dto.setProjectId(rs.getString("project_id"));
@@ -53,5 +53,22 @@ public class DecisionDisplayDAO {
 		return DecisiontList;
 	}
 
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return DecisiontList
+	*/
+	public List<DecisionDisplayDTO> getDecisiontList() {
+		return DecisiontList;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param decisiontList
+	*/
+	public void setDecisiontList(List<DecisionDisplayDTO> decisiontList) {
+		DecisiontList = decisiontList;
+	}
 
 }

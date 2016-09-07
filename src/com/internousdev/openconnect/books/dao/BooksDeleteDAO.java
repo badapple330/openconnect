@@ -8,9 +8,16 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
-
+/**
+ * DBからそのIDの情報を削除する為のクラス
+ * @author Tatsuya hoshi
+ */
 
 public class BooksDeleteDAO {
+	 /**
+     * 削除メソッド DBからIDの情報を削除する為のメソッド
+     * @author
+     */
 
 	public int delete(int bookId){
 

@@ -12,12 +12,17 @@ import java.util.List;
 
 import com.internousdev.openconnect.books.dto.BooksSearchDTO;
 import com.internousdev.util.DBConnector;
-
 /**
- * @author internous
+ * キーワードをDBから検索する為のクラス
  *
+ * @author Tatsuya Hoshi
  */
 public class BooksSearchDAO {
+
+	/**
+	 * 検索結果情報をリスト化して抽出し、DTOに格納する
+	 * @return  searchList 抽出に成功したらSUCCESS、失敗したらERROR
+	 */
 
 
 	 public List<BooksSearchDTO> searchList = new ArrayList<BooksSearchDTO>();

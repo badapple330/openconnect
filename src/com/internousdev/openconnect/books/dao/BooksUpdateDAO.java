@@ -8,14 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
-
 /**
- * @author internous
- *
+ * 更新情報をDBへ転送する為のクラス
+ * @author Tatsuya Hoshi
  */
 public class BooksUpdateDAO {
 
-
+	 /**
+     * 更新情報を、DBへ転送し、更新する為のメソッド
+     */
 	public int select(String title,int book_id) {
 
 		int count = 0;
