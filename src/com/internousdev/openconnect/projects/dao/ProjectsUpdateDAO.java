@@ -19,7 +19,7 @@ public class ProjectsUpdateDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
-System.out.println(3);
+		System.out.println(3);
 		String sql = "UPDATE projects SET project_name=?, manager_name=?, sub_manager_name=?, start_date=? , end_date=? , note=?,manager_id=?,sub_manager_id=? where  project_id=?";
 
 		try{
