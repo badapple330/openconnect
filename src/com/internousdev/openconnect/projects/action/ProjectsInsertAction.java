@@ -3,12 +3,31 @@ package com.internousdev.openconnect.projects.action;
 import com.internousdev.openconnect.projectProgress.dao.ProjectProgressNewDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ProjectInsertAction  extends ActionSupport  {
+public class ProjectsInsertAction  extends ActionSupport  {
 
+	/**
+	 * プロジェクトＩＤ
+	 */
 	private int projectId;
+
+	/**
+	 * プロジェクト名
+	 */
 	private String projectName;
+
+	/**
+	 * 管理者名（リーダー）
+	 */
 	private String Manager;
+
+	/**
+	 * 管理者名（サブ）
+	 */
 	private String subManager;
+
+	/**
+	 * 開始日
+	 */
 	private String startDate;
 
 
@@ -19,7 +38,7 @@ public class ProjectInsertAction  extends ActionSupport  {
 		 * @author YUICHI KIRIU
 		 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 		 */
-		String result=ERROR;
+		String result = ERROR;
 		ProjectProgressNewDAO dao = new ProjectProgressNewDAO();
 		int count = 0;
 		count = dao.insert(projectId,projectName,Manager,subManager,startDate);
