@@ -9,17 +9,23 @@ import java.util.List;
 import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.opensymphony.xwork2.ActionSupport;
-
 /**
- * @author internous
- *
+ * DBの情報を画面に表示する為のクラス
+ * @author Tatsuya Hoshi
  */
 public class BooksAction extends ActionSupport{
-
+	/**
+	 * ブックリスト
+	 */
 	private List<BooksDTO> bookList = new ArrayList<BooksDTO>();
-
+	/**
+	 * シリアルバージョンID
+	 */
 	private static final long serialVersionUID = -7586577377473680450L;
-
+	/**
+	 * DAOに入力されたデータを渡して、結果を返す
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 	public String execute() {
 		String result = ERROR;
 		BooksDAO dao = new BooksDAO();
@@ -30,14 +36,31 @@ public class BooksAction extends ActionSupport{
 		}
 		return result;
 	}
-
+	/**
+	* 取得メソッド
+	* @author Tatsuya Hoshi
+	* @return
+	*/
 	public List<BooksDTO> getBookList() {
 		return bookList;
 	}
-
+	/**
+	* 設定メソッド
+	* @author Tatsuya Hoshi
+	* @param
+	*/
 	public void setBookList(List<BooksDTO> bookList) {
 		this.bookList = bookList;
-
 	}
+	/**
+	* 取得メソッド
+	* @author Tatsuya Hoshi
+	* @return
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 
 }

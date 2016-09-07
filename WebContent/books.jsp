@@ -38,6 +38,7 @@
 					<td><input type="text" name ="bookIdList" value ="<s:property  value="bookId" />"></td>
 					<td><input type="text" name ="titleList" value="<s:property value="title" />"></td>
 					<td></td>
+
 					<td><input type="submit" class="button" value="削除"></td>
 
 				</tr>

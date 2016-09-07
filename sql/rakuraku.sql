@@ -3,52 +3,52 @@
 		use rakugo;
 
 		create table user(
-		id int primary key not null auto_increment,
-		email varchar(100) unique,
-		password varchar(255),
-		name varchar(50) not null,
-		name_kana varchar(50),
-		card_num int,
-		token varchar(255),
-		oauth_id varchar(50),
-		oauth_name varchar(15),
-		created_at datetime not null,
-		updated_at datetime not null
+		id int primary key not null auto_increment comment'ユーザーID',
+		email varchar(100) unique comment'メールアドレス',
+		password varchar(255) comment'パスワード',
+		name varchar(50) not null comment'名前',
+		name_kana varchar(50) comment'フリガナ',
+		card_num int comment''クレジットカード番号',
+		token varchar(255) comment'クレジット用トークン',
+		oauth_id varchar(50) comment''OAuth用トークン',
+		oauth_name varchar(15) comment'OAuth名',
+		created_at datetime not null comment'作成日時',
+		updated_at datetime not null comment'更新日時'
 		);
 
 		create table event(
-		id int primary key not null auto_increment,
-		name varchar(100) not null,
-		price float not null,
-		detail varchar(255) not null,
-		img_path varchar(100) not null,
-		story_teller varchar(255) not null,
-		start_date date not null,
-		place varchar(100) not null,
-		place_address varchar(100) not null,
-		ticket int not null,
+		id int primary key not null auto_increment comment'イベントID',
+		name varchar(100) not null comment''イベント名',
+		price float not null comment'値段',
+		detail varchar(255) not null comment'商品詳細',
+		img_path varchar(100) not null comment'画像パス',
+		story_teller varchar(255) not null comment'出演者',
+		start_date date not null comment'開催日',
+		place varchar(100) not null comment'会場名',
+		place_address varchar(100) not null comment'開催住所',
+		ticket int not null comment'チケット発行数',
 		earnings int not null,
-		created_at datetime not null,
-		updated_at datetime not null
+		created_at datetime not null comment'作成日時',
+		updated_at datetime not null comment'更新日時'
 		);
 
 		create table order_history(
-		id int primary key not null auto_increment,
-		user_id int not null,
-		event_id int not null,
-		event_date date not null,
-		number int not null,
-		created_at datetime not null,
+		id int primary key not null auto_increment comment'購入履歴ID',
+		user_id int not null comment'ユーザーID',
+		event_id int not null comment'イベントID',
+		event_date date not null comment'イベント開催日',
+		number int not null comment'購入枚数',
+		created_at datetime not null comment'作成日時',
 		foreign key(user_id) references user(id),
 		foreign key(event_id) references event(id)
 		);
 
 		create table admin(
-		id int primary key not null auto_increment,
-		password varchar(255) not null,
-		name varchar(32) unique not null,
-		created_at datetime not null,
-		updated_at datetime not null
+		id int primary key not null auto_increment comment'管理者ID',
+		password varchar(255) not null comment'管理者パスワード',
+		name varchar(32) unique not null comment'管理者名',
+		created_at datetime not null comment'作成日時',
+		updated_at datetime not null comment'更新日時',
 		);
 
 		insert into user value

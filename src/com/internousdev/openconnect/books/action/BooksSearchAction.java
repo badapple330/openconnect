@@ -9,10 +9,9 @@ import java.util.List;
 import com.internousdev.openconnect.books.dao.BooksSearchDAO;
 import com.internousdev.openconnect.books.dto.BooksSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
-
 /**
- * @author internous
- *
+ * 書籍名を、DBのプロジェクト名から検索する為のクラス
+ * @author Tatsuya Hoshi
  */
 public class BooksSearchAction extends ActionSupport {
 
@@ -27,7 +26,7 @@ public class BooksSearchAction extends ActionSupport {
 	private List<BooksSearchDTO> searchList = new ArrayList<BooksSearchDTO>();
 	private String errorMsg;
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {
@@ -41,30 +40,64 @@ public class BooksSearchAction extends ActionSupport {
 		}
 		return result;
 	}
-
+	/**
+	* 取得メソッド
+	* @author Tatsuya Hoshi
+	* @return
+	*/
 	public String getSearch() {
 		return search;
 	}
-
+	/**
+	* 設定メソッド
+	* @author Tatsuya Hoshi
+	* @param
+	*/
 	public void setSearch(String search) {
 		this.search = search;
 	}
-
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
-	}
-
+	/**
+	* 取得メソッド
+	* @author Tatsuya Hoshi
+	* @return
+	*/
 	public List<BooksSearchDTO> getSearchList() {
 		return searchList;
 	}
-
+	/**
+	* 設定メソッド
+	* @author Tatsuya Hoshi
+	* @param
+	*/
 	public void setSearchList(List<BooksSearchDTO> searchList) {
 		this.searchList = searchList;
 	}
+	/**
+	* 取得メソッド
+	* @author Tatsuya Hoshi
+	* @return
+	*/
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+	/**
+	* 設定メソッド
+	* @author Tatsuya Hoshi
+	* @param
+	*/
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
+	/**
+	* 取得メソッド
+	* @author Tatsuya Hoshi
+	* @return
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 
 
 }

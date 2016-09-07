@@ -13,9 +13,19 @@ import java.util.List;
 import com.internousdev.openconnect.booksBorrow.dto.BooksBorrowDTO;
 import com.internousdev.util.DBConnector;
 
+/**
+ * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
+ * @author Tatsuya Hoshi
+ */
+
 public class BooksBorrowDAO {
 
 	private List<BooksBorrowDTO>bookList=new ArrayList<BooksBorrowDTO>();
+
+	 /**
+     * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+     */
+
 
 	public List<BooksBorrowDTO> select() {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
@@ -29,7 +39,7 @@ public class BooksBorrowDAO {
 			while (rs.next()) {
 				BooksBorrowDTO dto = new BooksBorrowDTO();
 				dto.setBookId(rs.getInt("book_id"));
-				dto.setTitle(rs.getString("title"));
+				dto.setBorrowStatus(rs.getString("status"));
 				dto.setBorrowHuman(rs.getString("borrow_human"));
 				dto.setBorrowDay(rs.getString("borrow_day"));
 

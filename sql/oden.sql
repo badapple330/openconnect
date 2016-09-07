@@ -5,17 +5,17 @@ use Oden;
 drop table if exists user_log;
 
 create table user_log(
-id int(99) PRIMARY KEY AUTO_INCREMENT,
-user_name varchar(255) UNIQUE NOT NULL,
-password varchar(255) NOT NULL
+id int(99) PRIMARY KEY AUTO_INCREMENT comment '顧客ID',
+user_name varchar(255) UNIQUE NOT NULL comment '顧客名',
+password varchar(255) NOT NULL comment '顧客パスワード'
 );
 insert into user_log(id,user_name,password)value(1,"test","pass");
 drop table if exists item;
 
 create table item(
 Gazou varchar(255) PRIMARY KEY ,
-Item_name varchar(255) UNIQUE not null,
-Price int(255) not null,
+Item_name varchar(255) UNIQUE not null comment '商品名',
+Price int(255) not null comment '単価',
 Setumei varchar(255) not null
 );
 
