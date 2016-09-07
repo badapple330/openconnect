@@ -22,76 +22,74 @@ public class DecisionListDAO {
 	 * @throws SQLException
 	 */
 	public boolean select(String searchString ) {
-		//「searchString」←これは自由に決めて良い(わかり易い名前にする)。
 		boolean result = false;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		//上記はお決まり文
-//		String sql = "select * from decision where project_list=? or project_name=? or Registration=?";
+
+		//		String sql = "select * from decision where project_list=? or project_name=? or Registration=?";
 		String sql = "select * from decision where decision_name=?";
-		//String sql = "select * from 何を？";//全て表示
+
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 			ps.setString(1,searchString);
-//			ps.setString(2,searchString);
-//			ps.setString(3,searchString);
+			//			ps.setString(2,searchString);
+			//			ps.setString(3,searchString);
 
-			//ここでいう1｢project_list｣にあたる。2は｢project_name｣にあたる。3は｢Registration｣にあたる。
+
 			ResultSet rs = ps.executeQuery();
-			//上記もお決まり文
 
-            while(rs.next()) {
-            	//括弧内はお決まり文。「終わるまで」という意味
-            	DecisionListDTO dto = new DecisionListDTO();
-            	//DTOに覚えてもらうためのセットする文
-            	dto.setRegistration(rs.getDate("Registration"));
-            	dto.setProject_list(rs.getString("project_list"));
-            	dto.setUser(rs.getString("user"));
-            	dto.setProject_id(rs.getInt("project_id"));
-            	dto.setProject_name(rs.getString("project_name"));
-            	dto.setDetail(rs.getString("detail"));
-            	dto.setI_drafthing_id(rs.getString("i_drafting_id"));
-            	dto.setI_approval_id(rs.getString("i_approval_id"));
-            	dto.setCd_id(rs.getString("cd_id"));
-            	dto.setI_a_d_id(rs.getString("i_a_d_id"));
-            	dto.setI_a_id(rs.getString("i_a_id"));
-            	list.add(dto);
-            	result = true;
-             }
-         }catch (SQLException e) {
-        	 e.printStackTrace();
-         }finally{
-        	 try{
-        		 conn.close();
- 	         }catch (SQLException e){
- 	        	 e.printStackTrace();
- 	         }
- 	     }
+
+			while(rs.next()) {
+				DecisionListDTO dto = new DecisionListDTO();
+
+				dto.setRegistration(rs.getDate("registration"));
+				dto.setUser_id(rs.getInt("user_id"));
+				dto.setProject_id(rs.getInt("project_id"));
+				dto.setDecision_id(rs.getInt("decision_id"));
+				dto.setDecision_name(rs.getString("decision_name"));
+				dto.setDetail(rs.getString("detail"));
+				dto.setI_drafthing_id(rs.getString("i_drafting_id"));
+				dto.setI_approval_id(rs.getString("i_approval_id"));
+				dto.setCd_id(rs.getString("cd_id"));
+				dto.setI_a_d_id(rs.getString("i_a_d_id"));
+				dto.setI_a_id(rs.getString("i_a_id"));
+				list.add(dto);
+				result = true;
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try{
+				conn.close();
+			}catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
 
 		System.out.println(list.size());
-         return result;
+		return result;
 
 	}
+
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return list
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return list
+	 */
 	public ArrayList<DecisionListDTO> getList() {
 		return list;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param list
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param list
+	 */
 	public void setList(ArrayList<DecisionListDTO> list) {
 		this.list = list;
 	}
-
 
 
 

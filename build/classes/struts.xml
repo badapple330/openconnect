@@ -191,6 +191,20 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<action name="DecisionDetailUpdate"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailIdAction"
+			method="execute">
+			<result name="success">decision_update.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+<action name="DecisionDetailPreview"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailIdAction"
+			method="execute">
+			<result name="success">decision_preview.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
 			class="com.internousdev.openconnect.books.action.BooksAction" method="execute">
