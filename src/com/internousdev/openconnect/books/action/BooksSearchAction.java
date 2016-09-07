@@ -11,7 +11,7 @@ import com.internousdev.openconnect.books.dto.BooksSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 書籍名を、DBのプロジェクト名から検索する為のクラス
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 public class BooksSearchAction extends ActionSupport {
 
@@ -41,63 +41,61 @@ public class BooksSearchAction extends ActionSupport {
 		return result;
 	}
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return search
+	 */
 	public String getSearch() {
 		return search;
 	}
 	/**
-	* 設定メソッド
-	* @author Tatsuya Hoshi
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param search
+	 */
 	public void setSearch(String search) {
 		this.search = search;
 	}
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return searchList
+	 */
 	public List<BooksSearchDTO> getSearchList() {
 		return searchList;
 	}
 	/**
-	* 設定メソッド
-	* @author Tatsuya Hoshi
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param searchList
+	 */
 	public void setSearchList(List<BooksSearchDTO> searchList) {
 		this.searchList = searchList;
 	}
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return errorMsg
+	 */
 	public String getErrorMsg() {
 		return errorMsg;
 	}
 	/**
-	* 設定メソッド
-	* @author Tatsuya Hoshi
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param errorMsg
+	 */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
 	}
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return serialversionuid
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-
 
 
 }
