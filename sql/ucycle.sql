@@ -5,62 +5,62 @@ use ucycle;
 
 
 /*顧客情報入力（新規登録・customer_typeは１．月額会員２．一般会員３．SNS会員）(SNSログインはfamilynameにアカウント名,givennameにSNS名)*/
-create table if not exists customer(
-customer_type int (1) not  null,
-customer_id int(6) primary key auto_increment,
-familyname varchar(20) not null,
-givenname varchar(20) not null,
-password varchar(8),
-phone  varchar(12),
-mailaddress varchar (40) unique,
-postcode int (7),
-address varchar(20),
-housenumber varchar (50),
-credit_name varchar (40),
-credit_number  bigint(16),
-expiredate int(6),
-security_code int(4)
+create table if not exists customer comment'会員テーブル'(
+customer_type int (1) not  null comment'会員タイプ',
+customer_id int(6) primary key auto_increment comment'会員ID',
+familyname varchar(20) not null comment'苗字',
+givenname varchar(20) not null comment'名前',
+password varchar(8) comment'パスワード',
+phone  varchar(12) comment'電話番号',
+mailaddress varchar (40) unique comment'メールアドレス',
+postcode int (7) comment'郵便番号',
+address varchar(20) comment'住所',
+housenumber varchar (50) comment'番地',
+credit_name varchar (40) comment'クレジット名義',
+credit_number  bigint(16) comment'クレジット番号',
+expiredate int(6) comment'有効期限',
+security_code int(4) comment'セキュリティコード'
 );
 
 
 /*駐輪場情報*/
-create table if not exists port(
-port_id int(2) primary key auto_increment,
-port_name varchar(20)unique not null,
-port_address varchar(50) not null
+create table if not exists port comment'駐輪場テーブル'(
+port_id int(2) primary key auto_increment comment'駐輪場ID',
+port_name varchar(20)unique not null comment'駐輪場名',
+port_address varchar(50) not null comment'駐輪場住所'
 );
 
 
 /*自転車情報（statusの値で予約の有無を確認  1,無2,有）*/
-create table if not exists cycle(
-cycle_id int(6) unique not null,
-port_id int(2)  not null,
-port_name varchar(20) not null,
-due_date int(8),
-status int(1),
-foreign key(port_id) references port(port_id),
-foreign key(port_name) references port(port_name)
+create table if not exists cycle comment'自転車テーブル'(
+cycle_id int(6) unique not null comment'自転車ID',
+port_id int(2)  not null comment'駐輪場ID',
+port_name varchar(20) not null comment'駐輪場名',
+due_date int(8) comment'返却予定日',
+status int(1) comment'予約状況',
+foreign key(port_id) references port(port_id) comment'',
+foreign key(port_name) references port(port_name) comment''
 );
 
 
 /*利用履歴情報*/
-create table if not exists reservation_info(
-customer_id int(6) not null,
-port_name varchar(20) not null,
-cycle_id int(6) not null,
-plan int(1) not null,
-reservation_date int(8),
-price int(3),
+create table if not exists reservation_info comment'予約情報テーブル'(
+customer_id int(6) not null comment'会員ID',
+port_name varchar(20) not null comment'駐輪場名',
+cycle_id int(6) not null comment'自転車ID',
+plan int(1) not null comment'利用時間プラン',
+reservation_date int(8) comment'予約日時',
+price int(3) comment'料金',
 foreign key(port_name) references port(port_name),
 foreign key(cycle_id) references cycle(cycle_id)
 );
 
 
 /*管理者情報*/
-create table if not exists admin(
-admin_id int(8) not null,
-admin_password varchar(30) not null,
-port_id int(2),
+create table if not exists admin comment'管理者テーブル'(
+admin_id int(8) not null comment'管理者ID',
+admin_password varchar(30) not null comment'管理者パスワード',
+port_id int(2) comment'駐輪場ID',
 foreign key(port_id) references port(port_id)
 );
 
