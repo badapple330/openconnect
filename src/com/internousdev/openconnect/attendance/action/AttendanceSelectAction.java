@@ -10,22 +10,39 @@ import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @author internous
- *
+ * DBの情報を画面に表示する為のクラス
+ * @author MINORI SUNAGAWA
+ * @since 2016/09/04
+ * @version 1.0
  */
 public class AttendanceSelectAction extends ActionSupport{
 
 	/**
-	 *
+	 * シリアル番号
 	 */
 	private static final long serialVersionUID = 671961516965709160L;
-
+	/**
+	 * 勤怠DTO
+	 */
 	private AttendanceDTO dto;
+	/**
+	 * 勤怠日付
+	 */
 	private String attendanceDate;
-	//private String errorSelect;
+	/**
+	 * エラー文字
+	 */
 	private String dateNotFound;
-	private ArrayList<AttendanceDTO>list=new ArrayList<AttendanceDTO>();
+	/**
+	 * 勤怠リスト
+	 */
+	private ArrayList<AttendanceDTO> list = new ArrayList<AttendanceDTO>();
 
+	/**
+	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * @author MINORI SUNAGAWA
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 	public String execute(){
 		String result=ERROR;
 		AttendanceDAO dao=new AttendanceDAO();
@@ -50,57 +67,86 @@ public class AttendanceSelectAction extends ActionSupport{
 		return result;
 }
 
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return dto
+	*/
+	public AttendanceDTO getDto() {
+		return dto;
+	}
 
-//全部を検索して表示
-//	private String errorSelect;
-//	private ArrayList<UpdateAttendanceDTO>list=new ArrayList<UpdateAttendanceDTO>();
-//
-//	public String execute(){
-//		UpdateAttendanceDAO dao=new UpdateAttendanceDAO();
-//
-//		if(dao.selectAll()){
-//			list=dao.getList();
-//
-//		}else{
-//			errorSelect="データがありません";
-//		}
-//		return SUCCESS;
-//	}
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param dto
+	*/
+	public void setDto(AttendanceDTO dto) {
+		this.dto = dto;
+	}
 
-	public ArrayList<AttendanceDTO> getList(){
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return attendanceDate
+	*/
+	public String getAttendanceDate() {
+		return attendanceDate;
+	}
+
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param attendanceDate
+	*/
+	public void setAttendanceDate(String attendanceDate) {
+		this.attendanceDate = attendanceDate;
+	}
+
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return dateNotFound
+	*/
+	public String getDateNotFound() {
+		return dateNotFound;
+	}
+
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param dateNotFound
+	*/
+	public void setDateNotFound(String dateNotFound) {
+		this.dateNotFound = dateNotFound;
+	}
+
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return list
+	*/
+	public ArrayList<AttendanceDTO> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<AttendanceDTO>list){
-		this.list=list;
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param list
+	*/
+	public void setList(ArrayList<AttendanceDTO> list) {
+		this.list = list;
 	}
 
-//	public String getErrorSelect(){
-//		return errorSelect;
-//	}
-//	public void setErrorSelect(String errorSelect){
-//		this.errorSelect=errorSelect;
-//	}
-
-	public String getDateNotFound(){
-		return dateNotFound;
-	}
-	public void setDateNotFound(String dateNotFound){
-		this.dateNotFound=dateNotFound;
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	public AttendanceDTO getDto(){
-		return dto;
-	}
-	public void setDto(AttendanceDTO dto){
-		this.dto=dto;
-	}
-
-	public String getAttendanceDate(){
-		return attendanceDate;
-	}
-	public void setAttendanceDate(String attendanceDate){
-		this.attendanceDate=attendanceDate;
-	}
 
 }

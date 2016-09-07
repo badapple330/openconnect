@@ -7,8 +7,19 @@ import java.sql.SQLException;
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.internousdev.util.DBConnector;
 
+/**
+ * DBの情報を画面に表示する為のクラス
+ * @author MINORI SUNAGAWA
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class AttendanceUpDAO {
 
+	/**
+	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * @author MINORI SUNAGAWA
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 	public int update(AttendanceDTO dto){
 		int count=0;
 

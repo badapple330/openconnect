@@ -4,45 +4,92 @@
 package com.internousdev.openconnect.attendance.dto;
 
 /**
- * @author internous
- *
+ * DBの情報を画面に表示する為のクラス
+ * @author MINORI SUNAGAWA
+ * @since 2016/09/04
+ * @version 1.0
  */
 public class AttendanceDTO {
 
 	/**
-	 * @param args
+	 * 日付
 	 */
 	private String date;
+	/**
+	 * ID
+	 */
 	private int id;
+	/**
+	 * 勤怠
+	 */
 	private int attendance;
+	/**
+	 * 面談
+	 */
 	private int interview;
 
-
-
-	public String getDate(){
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return date
+	*/
+	public String getDate() {
 		return date;
 	}
-	public void setDate(String date){
-		this.date=date;
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param date
+	*/
+	public void setDate(String date) {
+		this.date = date;
 	}
-
-	public int getId(){
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return id
+	*/
+	public int getId() {
 		return id;
 	}
-	public void setId(int id){
-		this.id=id;
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param id
+	*/
+	public void setId(int id) {
+		this.id = id;
 	}
-	public int getAttendance(){
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return attendance
+	*/
+	public int getAttendance() {
 		return attendance;
 	}
-	public void setAttendance(int attendance){
-		this.attendance=attendance;
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param attendance
+	*/
+	public void setAttendance(int attendance) {
+		this.attendance = attendance;
 	}
-	public int getInterview(){
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return interview
+	*/
+	public int getInterview() {
 		return interview;
 	}
-	public void setInterview(int interview){
-		this.interview=interview;
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param interview
+	*/
+	public void setInterview(int interview) {
+		this.interview = interview;
 	}
-
 }
