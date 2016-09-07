@@ -13,62 +13,62 @@ DROP TABLE IF EXISTS administrator;
 
 CREATE TABLE user
 (
-	user_id int NOT NULL AUTO_INCREMENT,
-	login_id varchar(100) NOT NULL UNIQUE,
-	password varchar(32) NOT NULL,
-	user_name varchar(32) NOT NULL,
-	user_name_kana varchar(100) NOT NULL,
-	tel_number varchar(13) NOT NULL,
-	postal_code varchar(8) NOT NULL,
-	address varchar(255) NOT NULL,
-	unique_id varchar(30),
-	registered_date date,
-	renew_date date,
+	user_id int NOT NULL AUTO_INCREMENT comment'ユーザーID',
+	login_id varchar(100) NOT NULL UNIQUE comment'ログインID(メールアドレス)',
+	password varchar(32) NOT NULL comment'パスワード',
+	user_name varchar(32) NOT NULL comment'名前',
+	user_name_kana varchar(100) NOT NULL comment'ふりがな',
+	tel_number varchar(13) NOT NULL comment'電話番号',
+	postal_code varchar(8) NOT NULL comment '郵便番号',
+	address varchar(255) NOT NULL comment'住所',
+	unique_id varchar(30) comment'固有ID',
+	registered_date date comment'登録日',
+	renew_date date comment'更新日',
 	PRIMARY KEY (user_id)
 );
 CREATE TABLE ticket
 (
-	item_id int NOT NULL AUTO_INCREMENT,
-	shop_id int NOT NULL,
-	item_name varchar(100) NOT NULL,
-	unit_price float NOT NULL,
+	item_id int NOT NULL AUTO_INCREMENT comment'商品ID',
+	shop_id int NOT NULL comment'店舗ID',
+	item_name varchar(100) NOT NULL comment'商品名',
+	unit_price float NOT NULL comment'単価',
 	PRIMARY KEY (item_id)
 );
 CREATE TABLE card
 (
-	card_id int NOT NULL AUTO_INCREMENT,
-	user_id int NOT NULL,
-	card_company varchar(255) NOT NULL,
-	card_number int NOT NULL,
-	expired_date date NOT NULL,
-	security_code varchar(4) NOT NULL,
+	card_id int NOT NULL AUTO_INCREMENT comment'クレジットID',
+	user_id int NOT NULL comment'ユーザーID',
+	card_company varchar(255) NOT NULL comment'クレジットカード会社名',
+	card_number int NOT NULL comment'カード番号',
+	expired_date date NOT NULL comment'有効期限',
+	security_code varchar(4) NOT NULL comment'セキュリティーコード',
 	PRIMARY KEY (card_id)
 );
 CREATE TABLE orderinformation
 (
-	order_id int NOT NULL AUTO_INCREMENT,
-	user_id int NOT NULL,
-	item_id int NOT NULL,
-	quantity int NOT NULL,
-	total_amount float NOT NULL,
-	payment_method varchar(30) NOT NULL,
+	order_id int NOT NULL AUTO_INCREMENT comment'注文ID',
+	user_id int NOT NULL comment'ユーザーID',
+	item_id int NOT NULL comment'商品ID',
+	quantity int NOT NULL comment'購入枚数',
+	total_amount float NOT NULL comment'合計額',
+	payment_method varchar(30) NOT NULL comment'支払い方法',
 	card_id int,
-	purchase_date timestamp default current_timestamp(),
+	purchase_date timestamp default current_timestamp() comment'購入日',
 	PRIMARY KEY (order_id)
 );
 CREATE TABLE shop
 (
-	shop_id int NOT NULL AUTO_INCREMENT,
-	shop_name varchar(100) NOT NULL,
-	shop_address varchar(255) NOT NULL,
-	shop_postal_code varchar(8) NOT NULL,
+	shop_id int NOT NULL AUTO_INCREMENT comment'店舗ID',
+	shop_name varchar(100) NOT NULL comment'店舗名',
+	shop_address varchar(255) NOT NULL comment'店舗住所',
+	shop_postal_code varchar(8) NOT NULL comment'店舗郵便番号',
 	PRIMARY KEY (shop_id)
 );
 CREATE TABLE administrator
 (
-	admin_id varchar(16) NOT NULL,
-	admin_password varchar(32) NOT NULL,
-	is_login boolean NOT NULL,
+	admin_id varchar(16) NOT NULL comment'管理者ID',
+	admin_password varchar(32) NOT NULL comment'管理者パスワード',
+	is_login boolean NOT NULL comment'ログイン確認',
 	PRIMARY KEY (admin_id)
 );
 /* Create Foreign Keys */
