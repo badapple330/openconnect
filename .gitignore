@@ -1,2 +1,5 @@
 /build/
 /[SoftwareDesignSpecification]/
+.classpath
+.DS_Store
+
