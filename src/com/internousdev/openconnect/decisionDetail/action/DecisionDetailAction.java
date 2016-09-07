@@ -15,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionDetailAction extends ActionSupport {
 	/**
-	 * プロジェクトリスト
+	 * 決裁手続きリスト
 	 */
 	private List<DecisionDetailDTO> decisionDetailList = new ArrayList<DecisionDetailDTO>();
 	/**
@@ -40,7 +40,7 @@ public class DecisionDetailAction extends ActionSupport {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return decisionDetailList
 	*/
 	public List<DecisionDetailDTO> getDecisionDetailList() {
 		return decisionDetailList;
@@ -48,17 +48,10 @@ public class DecisionDetailAction extends ActionSupport {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param decisionDetailList
 	*/
 	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
 		this.decisionDetailList = decisionDetailList;
 	}
-
-	/**
-	 *  取得メソッドプロジェクトリストを取得する
-	 * @author TATUHUMI ITOU
-	 * @return projectList
-	 */
-
 
 }

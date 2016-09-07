@@ -40,7 +40,7 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return progressId
 	*/
 	public int getProgressId() {
 		return progressId;
@@ -48,7 +48,7 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param progressId
 	*/
 	public void setProgressId(int progressId) {
 		this.progressId = progressId;

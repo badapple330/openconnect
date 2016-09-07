@@ -61,7 +61,21 @@ public class ProjectProgressDAO {
 		return projectList;
 	}
 	/**
-	 * @return  searchList
-	 */
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return projectList
+	*/
+	public List<ProjectProgressDTO> getProjectList() {
+		return projectList;
+	}
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param projectList
+	*/
+	public void setProjectList(List<ProjectProgressDTO> projectList) {
+		this.projectList = projectList;
+	}
+
 
 }

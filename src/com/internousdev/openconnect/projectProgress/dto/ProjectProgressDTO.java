@@ -27,7 +27,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return progressId
 	*/
 	public int getProgressId() {
 		return progressId;
@@ -35,21 +35,32 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param progressId
 	*/
 	public void setProgressId(int progressId) {
 		this.progressId = progressId;
 	}
+
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return projectName
+	*/
 	public String getProjectName() {
 		return projectName;
 	}
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param projectName
+	*/
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return managerId
 	*/
 	public int getManagerId() {
 		return managerId;
@@ -57,7 +68,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param managerId
 	*/
 	public void setManagerId(int managerId) {
 		this.managerId = managerId;
@@ -65,7 +76,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return subManagerId
 	*/
 	public int getSubManagerId() {
 		return subManagerId;
@@ -73,7 +84,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param subManagerId
 	*/
 	public void setSubManagerId(int subManagerId) {
 		this.subManagerId = subManagerId;
@@ -81,7 +92,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return startDate
 	*/
 	public String getStartDate() {
 		return startDate;
@@ -89,7 +100,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param startDate
 	*/
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
@@ -97,7 +108,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return endDate
 	*/
 	public String getEndDate() {
 		return endDate;
@@ -105,7 +116,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param endDate
 	*/
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
@@ -113,7 +124,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return note
 	*/
 	public String getNote() {
 		return note;
@@ -121,7 +132,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param note
 	*/
 	public void setNote(String note) {
 		this.note = note;
@@ -129,7 +140,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return projectId
 	*/
 	public int getProjectId() {
 		return projectId;
@@ -137,7 +148,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param projectId
 	*/
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
@@ -145,7 +156,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return projectDay
 	*/
 	public String getProjectDay() {
 		return projectDay;
@@ -153,7 +164,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param projectDay
 	*/
 	public void setProjectDay(String projectDay) {
 		this.projectDay = projectDay;
@@ -161,13 +172,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
-	*/
-
-	/**
-	* 取得メソッド
-	* @author KOHEI NITABARU
-	* @return
+	* @return projectPlan
 	*/
 	public String getProjectPlan() {
 		return projectPlan;
@@ -175,7 +180,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param projectPlan
 	*/
 	public void setProjectPlan(String projectPlan) {
 		this.projectPlan = projectPlan;
@@ -183,7 +188,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return projectResult
 	*/
 	public String getProjectResult() {
 		return projectResult;
@@ -191,7 +196,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param projectResult
 	*/
 	public void setProjectResult(String projectResult) {
 		this.projectResult = projectResult;
@@ -199,7 +204,7 @@ public class ProjectProgressDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return other
 	*/
 	public String getOther() {
 		return other;
@@ -207,7 +212,7 @@ public class ProjectProgressDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param other
 	*/
 	public void setOther(String other) {
 		this.other = other;

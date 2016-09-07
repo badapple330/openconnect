@@ -20,15 +20,16 @@ import com.internousdev.util.DBConnector;
 public class ProjectProgressSearchDAO {
 
 	/**
+	 * 検索リスト
+	 */
+	public List<ProjectProgressDTO> searchList = new ArrayList<ProjectProgressDTO>();
+
+	/**
 	 * 抽出メソッド 似たようなキーワードの検索結果情報をリスト化して抽出し、DTOに格納する
 	 *
 	 * @author TATUHUMI ITOU
 	 * @return  searchList 抽出に成功したらSUCCESS、失敗したらERROR
 	 */
-	public List<ProjectProgressDTO> searchList = new ArrayList<ProjectProgressDTO>();
-
-
-
 	public List<ProjectProgressDTO> select(String search) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -68,10 +69,21 @@ public class ProjectProgressSearchDAO {
 	}
 
 	/**
-	 * @return  searchList
-	 */
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return searchList
+	*/
+	public List<ProjectProgressDTO> getSearchList() {
+		return searchList;
+	}
 
-
-
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param searchList
+	*/
+	public void setSearchList(List<ProjectProgressDTO> searchList) {
+		this.searchList = searchList;
+	}
 
 }

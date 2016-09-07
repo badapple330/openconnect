@@ -16,10 +16,10 @@ import com.internousdev.util.DBConnector;
  * @version 1.0
  */
 public class DecisionDetailDeleteDAO {
-	 /**
-     * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
-     * @author TATUHUMI ITOU
-     */
+	/**
+	 * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
+	 * @author TATUHUMI ITOU
+	 */
 	public int delete(int decisionDetailId){
 
 		int count =0;

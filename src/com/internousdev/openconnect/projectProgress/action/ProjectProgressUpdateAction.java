@@ -50,21 +50,6 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
-	 *  取得メソッド IDリストを取得する
-	 * @author TATUHUMI ITOU
-	 * @return projectIdList
-
-
-	/**
-	 * *  取得メソッド 日付リストを取得する
-	 * @author TATUHUMI ITOU
-	 * @return projectDayList
-	 */
-	public List<String> getProjectDayList() {
-		return projectDayList;
-	}
-
-	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
 	* @return
@@ -83,6 +68,15 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
+	 * *  取得メソッド 日付リストを取得する
+	 * @author TATUHUMI ITOU
+	 * @return projectDayList
+	 */
+	public List<String> getProjectDayList() {
+		return projectDayList;
+	}
+
+	/**
 	 * *   格納メソッド 日付リストを格納する
 	 * @author TATUHUMI ITOU
 	 * @param projectDayList セットする projectDayList
@@ -90,8 +84,6 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	public void setProjectDayList(List<String> projectDayList) {
 		this.projectDayList = projectDayList;
 	}
-
-
 
 	/**
 	 *   取得メソッド 進捗予定リストを取得する
@@ -146,9 +138,5 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	public void setOtherList(List<String> otherList) {
 		this.otherList = otherList;
 	}
-
-	/**
-	 * @return projectIdList
-	 */
 
 }

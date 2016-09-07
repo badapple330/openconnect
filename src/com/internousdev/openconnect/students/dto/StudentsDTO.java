@@ -1,20 +1,15 @@
 /**
- * 
+ *
  */
 package com.internousdev.openconnect.students.dto;
 
 /**
- * @author internous
- *
+ * 値を保持する為のクラス
+ * @author TATUHUMI ITOU
+ * @since 2016/09/04
+ * @version 1.0
  */
 public class StudentsDTO {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
 
 }

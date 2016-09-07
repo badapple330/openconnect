@@ -29,7 +29,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return projectId
 	*/
 	public int getProjectId() {
 		return projectId;
@@ -37,7 +37,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param projectId
 	*/
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
@@ -45,7 +45,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return day
 	*/
 	public String getDay() {
 		return day;
@@ -53,7 +53,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param day
 	*/
 	public void setDay(String day) {
 		this.day = day;
@@ -61,7 +61,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return decisionType
 	*/
 	public String getDecisionType() {
 		return decisionType;
@@ -69,7 +69,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param decisionType
 	*/
 	public void setDecisionType(String decisionType) {
 		this.decisionType = decisionType;
@@ -77,7 +77,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return decisionStatus
 	*/
 	public String getDecisionStatus() {
 		return decisionStatus;
@@ -85,7 +85,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param decisionStatus
 	*/
 	public void setDecisionStatus(String decisionStatus) {
 		this.decisionStatus = decisionStatus;
@@ -93,7 +93,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return userId
 	*/
 	public int getUserId() {
 		return userId;
@@ -101,7 +101,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param userId
 	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
@@ -109,7 +109,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return itemName
 	*/
 	public String getItemName() {
 		return itemName;
@@ -117,7 +117,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param itemName
 	*/
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
@@ -125,7 +125,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return summary
 	*/
 	public String getSummary() {
 		return summary;
@@ -133,7 +133,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param summary
 	*/
 	public void setSummary(String summary) {
 		this.summary = summary;
@@ -141,7 +141,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return cause
 	*/
 	public String getCause() {
 		return cause;
@@ -149,7 +149,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param cause
 	*/
 	public void setCause(String cause) {
 		this.cause = cause;
@@ -157,7 +157,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return startDay
 	*/
 	public String getStartDay() {
 		return startDay;
@@ -165,7 +165,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param startDay
 	*/
 	public void setStartDay(String startDay) {
 		this.startDay = startDay;
@@ -173,7 +173,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return endDay
 	*/
 	public String getEndDay() {
 		return endDay;
@@ -181,7 +181,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param endDay
 	*/
 	public void setEndDay(String endDay) {
 		this.endDay = endDay;
@@ -189,7 +189,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return plan
 	*/
 	public String getPlan() {
 		return plan;
@@ -197,7 +197,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param plan
 	*/
 	public void setPlan(String plan) {
 		this.plan = plan;
@@ -205,7 +205,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return persons
 	*/
 	public String getPersons() {
 		return persons;
@@ -213,7 +213,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param persons
 	*/
 	public void setPersons(String persons) {
 		this.persons = persons;
@@ -221,7 +221,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return password
 	*/
 	public String getPassword() {
 		return password;
@@ -229,7 +229,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param password
 	*/
 	public void setPassword(String password) {
 		this.password = password;
@@ -237,7 +237,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return decisionId
 	*/
 	public int getDecisionId() {
 		return decisionId;
@@ -245,7 +245,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param decisionId
 	*/
 	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
@@ -253,7 +253,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return decisionDetailId
 	*/
 	public int getDecisionDetailId() {
 		return decisionDetailId;
@@ -261,7 +261,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param decisionDetailId
 	*/
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;
@@ -269,7 +269,7 @@ public class DecisionDetailDTO {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
+	* @return projectName
 	*/
 	public String getProjectName() {
 		return projectName;
@@ -277,7 +277,7 @@ public class DecisionDetailDTO {
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param projectName
 	*/
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;

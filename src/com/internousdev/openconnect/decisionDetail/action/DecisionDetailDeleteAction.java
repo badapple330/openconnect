@@ -19,7 +19,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = -758470450L;
 	/**
-	 * プロジェクトID
+	 * 決裁手続きID
 	 */
 	private int decisionDetailId;
 	/**
@@ -37,15 +37,11 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 		}
 		return result;
 	}
+
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return
-	*/
-	/**
-	* 取得メソッド
-	* @author KOHEI NITABARU
-	* @return
+	* @return decisionDetailId
 	*/
 	public int getDecisionDetailId() {
 		return decisionDetailId;
@@ -53,17 +49,10 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param
+	* @param decisionDetailId
 	*/
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;
 	}
-
-
-
-
-
-
-
 
 }

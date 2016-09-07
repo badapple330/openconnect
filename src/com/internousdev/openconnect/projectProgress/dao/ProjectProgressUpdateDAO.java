@@ -16,7 +16,6 @@ public class ProjectProgressUpdateDAO {
      * 更新メソッド  画面で受け取った更新情報を、DBへ転送し、更新する為のメソッド
      * @author TATUHUMI ITOU
      */
-
 	public int select(int progresstId,String projectDay,String projectPlan,String projectResult,String other) throws SQLException{
 		int count = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",

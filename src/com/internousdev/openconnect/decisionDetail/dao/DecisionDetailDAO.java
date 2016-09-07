@@ -17,6 +17,9 @@ import com.internousdev.util.DBConnector;
  */
 public class DecisionDetailDAO {
 
+	/**
+	 * 決裁手続きリスト
+	 */
 	private List<DecisionDetailDTO> decisionDetailList=new ArrayList<DecisionDetailDTO>();
 	 /**
      * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
@@ -53,7 +56,21 @@ public class DecisionDetailDAO {
 		return  decisionDetailList;
 	}
 	/**
-	 * @return  searchList
-	 */
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return decisionDetailList
+	*/
+	public List<DecisionDetailDTO> getDecisionDetailList() {
+		return decisionDetailList;
+	}
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param decisionDetailList
+	*/
+	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
+		this.decisionDetailList = decisionDetailList;
+	}
+
 
 }

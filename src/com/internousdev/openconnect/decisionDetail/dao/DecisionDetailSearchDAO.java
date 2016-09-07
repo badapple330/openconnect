@@ -14,11 +14,18 @@ import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.internousdev.util.DBConnector;
 
 /**
- * @author internous
- *
+ * 画面に検索結果を表示する為のクラス
+ * @author TATUHUMI ITOU
+ * @since 2016/09/04
+ * @version 1.0
  */
 public class DecisionDetailSearchDAO {
 
+	/**
+	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * @author TATUHUMI ITOU
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 	public List<DecisionDetailDTO> select( String searchString ){
 
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();

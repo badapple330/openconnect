@@ -49,7 +49,7 @@ public class ProjectProgressAction extends ActionSupport {
 	/**
 	 *   格納メソッド プロジェクトリストを格納する
 	 * @author TATUHUMI ITOU
-	 * @param projectList セットする　projectList
+	 * @param projectList
 	 */
 	public void setProjectList(List<ProjectProgressDTO> projectList) {
 		this.projectList = projectList;

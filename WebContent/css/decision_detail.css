@@ -65,10 +65,21 @@ p {
 	background-color: #1987E5;
 }
 
+.table{
+	border: solid 3px;
+	border-color: black;
+}
+
 .center {
 	margin: 0 auto;
 	text-align: center;
 	width: 100%;
+}
+
+.right{
+
+	width:100%;
+	margin-right: auto;
 }
 
 input {
