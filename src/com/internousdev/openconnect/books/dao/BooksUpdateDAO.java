@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 /**
  * 更新情報をDBへ転送する為のクラス
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 public class BooksUpdateDAO {
 
@@ -24,7 +24,7 @@ public class BooksUpdateDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE books SET title=? where book_id=?";
+		String sql = "UPDATE books SET title = ? where book_id = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

@@ -15,7 +15,7 @@ import com.internousdev.util.DBConnector;
 /**
  * キーワードをDBから検索する為のクラス
  *
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 public class BooksSearchDAO {
 
@@ -25,39 +25,39 @@ public class BooksSearchDAO {
 	 */
 
 
-	 public List<BooksSearchDTO> searchList = new ArrayList<BooksSearchDTO>();
+	public List<BooksSearchDTO> searchList = new ArrayList<BooksSearchDTO>();
 
 
 
-	    public List<BooksSearchDTO> select(String search) {
-	        DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
-	                "mysql");
-	        Connection con = db.getConnection();
+	public List<BooksSearchDTO> select(String search) {
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection con = db.getConnection();
 
-	        try {
-	            String sql = "SELECT*FROM books WHERE title LIKE '%" + search + "%'";
-	            PreparedStatement ps = con.prepareStatement(sql);
-	            ResultSet rs = ps.executeQuery();
+		try {
+			String sql = "SELECT * FROM books WHERE title LIKE '%" + search + "%'";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
 
-	            while (rs.next()) {
-	            	BooksSearchDTO dto = new BooksSearchDTO();
+			while (rs.next()) {
+				BooksSearchDTO dto = new BooksSearchDTO();
 
-	            	dto.setBookId(rs.getInt("book_id"));
-	            	dto.setTitle(rs.getString("title"));
+				dto.setBookId(rs.getInt("book_id"));
+				dto.setTitle(rs.getString("title"));
 
-	                searchList.add(dto);
-	            }
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	        } finally {
-	            try {
-	                con.close();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
-	            }
-	        }
-	        return searchList;
-	    }
+				searchList.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return searchList;
+	}
 
 
 

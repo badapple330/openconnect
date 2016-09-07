@@ -11,7 +11,7 @@ import com.internousdev.openconnect.books.dao.BooksUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 画面で受け取った更新情報を、DBへ転送する為のクラス
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 public class BooksUpdateAction extends ActionSupport {
 	/**
@@ -48,50 +48,49 @@ public class BooksUpdateAction extends ActionSupport {
 	}
 
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return bookIdList
+	 */
 	public List<Integer> getBookIdList() {
 		return bookIdList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author Tatsuya Hoshi
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param bookIdList
+	 */
 	public void setBookIdList(List<Integer> bookIdList) {
 		this.bookIdList = bookIdList;
 	}
 
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return titleList
+	 */
 	public List<String> getTitleList() {
 		return titleList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author Tatsuya Hoshi
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param titleList
+	 */
 	public void setTitleList(List<String> titleList) {
 		this.titleList = titleList;
 	}
 
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return serialversionuid
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
 
 
 

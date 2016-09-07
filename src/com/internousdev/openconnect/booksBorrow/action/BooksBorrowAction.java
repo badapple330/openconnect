@@ -9,11 +9,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * DBの情報を画面に表示する為のクラス
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 public class BooksBorrowAction extends ActionSupport {
 
-	private List<BooksBorrowDTO>bookList=new ArrayList<BooksBorrowDTO>();
+	private List<BooksBorrowDTO>bookList = new ArrayList<BooksBorrowDTO>();
 
 	/**
 	 * シリアルバージョンID
