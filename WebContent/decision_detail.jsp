@@ -107,10 +107,6 @@
 		</div>
 	</div>
 
-<div id="modal-edit-main">
-本当に承認しますか？
-<input type="hidden" name="decisionStatus" value="承認待">
-</div>
 
 
 

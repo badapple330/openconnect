@@ -186,7 +186,7 @@ create table decision_detail(
 project_id int not null,
 day date,
 decision_type varchar(100),
-decision_status varchar(100),
+decision_status varchar(100) default "未申請",
 user_id int,
 item_name varchar(100),
 summary varchar(255),
