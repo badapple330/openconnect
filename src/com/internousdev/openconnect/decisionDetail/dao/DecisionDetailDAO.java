@@ -42,6 +42,8 @@ public class DecisionDetailDAO {
 				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus(rs.getString("decision_status"));
+				dto.setDecisionStatus(rs.getString("decision_status"));
+				dto.setProjectId(rs.getInt("project_id"));
 				 decisionDetailList.add(dto);
 			}
 		} catch (SQLException e) {

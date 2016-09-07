@@ -28,6 +28,7 @@
 	<table border="1">
 		<tr>
 		<th>ID</th>
+		<th>プロジェクトID</th>
 			<th>案件番号</th>
 			<th>プロジェクト名</th>
 			<th>決裁分類</th>
@@ -40,7 +41,9 @@
 
 		<s:iterator value="decisionDetailList">
 			<tr>
+
 			<td class="decision_detail_id"><s:property value="decisionDetailId" /></td>
+			<td><s:property value="projectId" /></td>
 				<td class="decision_id"><s:property value="decisionId" /></td>
 				<td class="decision_name"><s:property value="projectName" /></td>
 				<td class="decision_type"><s:property value="decisionType" /></td>
@@ -69,6 +72,7 @@
 		<s:iterator value="operateList">
 			<tr>
 			<td class="decision_detail_id"><s:property value="decisionDetailId" /></td>
+			<td><s:property value="projectId" /></td>
 				<td class="decision_id"><s:property value="decisionId" /></td>
 				<td class="decision_name"><s:property value="projectName" /></td>
 				<td class="decision_type"><s:property value="decisionType" /></td>
@@ -84,7 +88,7 @@
 	<br>
 
 
-	プロジェクト名入力<input type="text" >
+	プロジェクトID入力<input type="text" >
 	<input type="submit" value="追加">
 
 	<div id="modal-main">
