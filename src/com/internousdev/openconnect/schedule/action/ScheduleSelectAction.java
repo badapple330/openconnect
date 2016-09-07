@@ -18,16 +18,26 @@ public class ScheduleSelectAction extends ActionSupport {
 
 	/**
 	 * @author MASAHIRO KEDSUKA
-	 * スケジュールリスト。検索文。エラー
+	 * スケジュールリスト
 	 */
 	private List<ScheduleSelectDTO> schedulelist = new ArrayList<ScheduleSelectDTO>();
+
+	/**
+	 * 検索文
+	 * @author MASAHIRO KEDSUKA
+	 */
 	private String search = "";
+
+	/**
+	 * エラー
+	 * @author MASAHIRO KEDSUKA
+	 */
 	private String errorSelect;
 
 
-
-	/* (非 Javadoc)
-	 * 検索の実行メソッド。
+	/**
+	 * 検索の実行メソッド
+	 * @author MASAHIRO KEDSUKA
 	 */
 	public String execute() {
 		String result = ERROR;
@@ -45,10 +55,10 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return schedulelist
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return schedulelist
+	 */
 	public List<ScheduleSelectDTO> getSchedulelist() {
 		return schedulelist;
 	}
@@ -56,10 +66,10 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param schedulelist
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param schedulelist
+	 */
 	public void setSchedulelist(List<ScheduleSelectDTO> schedulelist) {
 		this.schedulelist = schedulelist;
 	}
@@ -67,10 +77,10 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return search
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return search
+	 */
 	public String getSearch() {
 		return search;
 	}
@@ -78,10 +88,10 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param search
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param search
+	 */
 	public void setSearch(String search) {
 		this.search = search;
 	}
@@ -89,10 +99,10 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return errorSelect
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return errorSelect
+	 */
 	public String getErrorSelect() {
 		return errorSelect;
 	}
@@ -100,10 +110,10 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param errorSelect
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param errorSelect
+	 */
 	public void setErrorSelect(String errorSelect) {
 		this.errorSelect = errorSelect;
 	}

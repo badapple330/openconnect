@@ -17,44 +17,93 @@ public class ScheduleDeleteAction extends ActionSupport{
 	 * @author MASAHIRO KEDSUKA
 	 *スケジュールID
 	 */
-
 	private int scheduleId;
 
+	/**
+	 * エラー
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String errortitle;
 
-	/* (非 Javadoc)
+	/**
+	 * 成功
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String successtitle;
+
+
+	/**
 	 * 実行メソッド。DAOにデータを渡して削除する。
 	 */
 	public String execute() throws SQLException{
 
-	String result =ERROR;    //削除の判定
-	   ScheduleDeleteDAO dao = new ScheduleDeleteDAO();
-	   int count = 0;
-	   count = dao.delete(scheduleId);
+		String result =ERROR;    //削除の判定
+		ScheduleDeleteDAO dao = new ScheduleDeleteDAO();
+		int count = 0;
+		count = dao.delete(scheduleId);
 
 		if(count > 0){ //何かしらDBが数値を返したら
-			   result = SUCCESS;
+			successtitle=(getText("削除しました。"));
+			result = SUCCESS;
+		}else{
+			errortitle=(getText("削除に失敗しました。"));
 		}
-
-	   return result;
-}
+		return result;
+	}
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return scheduleId
-	*/
-public int getScheduleId() {
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return scheduleId
+	 */
+	public int getScheduleId() {
 		return scheduleId;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param scheduleId
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param scheduleId
+	 */
 	public void setScheduleId(int scheduleId) {
 		this.scheduleId = scheduleId;
+	}
+
+	/**
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return errortitle
+	 */
+	public String getErrortitle() {
+		return errortitle;
+	}
+
+	/**
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param errortitle
+	 */
+	public void setErrortitle(String errortitle) {
+		this.errortitle = errortitle;
+	}
+
+	/**
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return successtitle
+	 */
+	public String getSuccesstitle() {
+		return successtitle;
+	}
+
+	/**
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param successtitle
+	 */
+	public void setSuccesstitle(String successtitle) {
+		this.successtitle = successtitle;
 	}
 
 

@@ -41,25 +41,22 @@ public class ScheduleFirstrunAction extends ActionSupport {
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return schedulelist
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return schedulelist
+	 */
 	public List<ScheduleSelectDTO> getSchedulelist() {
 		return schedulelist;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param schedulelist
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param schedulelist
+	 */
 	public void setSchedulelist(List<ScheduleSelectDTO> schedulelist) {
 		this.schedulelist = schedulelist;
 	}
-
-
-
 
 }

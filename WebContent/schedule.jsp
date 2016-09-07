@@ -8,16 +8,38 @@
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/schedule.js"></script>
 <link rel="stylesheet" href="css/schedule.css">
+<!-- css読み込み  -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<!-- js読み込み -->
+<script src="js/bootstrap.js"></script>
 <title>スケジュール一覧</title>
 </head>
 <body>
+	<!-- 	ヘッダー読み込み -->
+	<jsp:include page="header.jsp" />
+
+	<!-- アプリ一覧表示 -->
+	<div class="container">
+		<h1 class="page-header">スケジュール一覧</h1>
+		<s:iterator value="siteInfoList">
+			<ul>
+				<s:a href="%{siteUrl}">
+					<s:property value="siteName" />
+					<br>
+				</s:a>
+			</ul>
+		</s:iterator>
+		<s:property value="notLoginMsg" />
+	</div>
+
+
 	<s:form action="ScheduleSelect">
 		<s:textfield name="search" label="スケジュール検索" placeholder="件名を入力" />
 		<s:submit value="検索"></s:submit>
 	</s:form>
 <br>
 
-
+<s:property value="successtitle"/><s:property value="errortitle"/>
 <s:form action="ScheduleUpdate">
 <table border=1 style="white">
 	<tbody>
@@ -30,13 +52,13 @@
 		<td><input type="text" name="scheduleIdList" size=5 value="<s:property value="Id" />"
 		class="scheduleIdList"></td>
 		<td><input type="text" name="scheduleStart_dayList" value="<s:property value="Start_day" />"
-		class="scheduleStart_dayList" type="date" pattern="\d{2}/\d{2}/\d{2}"></td>
+		class="scheduleStart_dayList" type="date" pattern="\d{2}/\d{2}/\d{2}" placeholder="開始日を入力"></td>
 		<td><input type="text" name="scheduleEnd_dayList" value="<s:property value="End_day" />"
-		class="scheduleEnd_dayList" pattern="\d{2}/\d{2}/\d{2}"></td>
+		class="scheduleEnd_dayList" pattern="\d{2}/\d{2}/\d{2}" placeholder="終了日を入力"></td>
 		<td><input type="text" name="scheduleTitleList" value="<s:property value="Title" />"
-		class="scheduleTitleList"></td>
+		class="scheduleTitleList" placeholder="件名を入力" maxlength=100></td>
 		<td><input type="text" name="scheduleContentList" value="<s:property value="Content" />"
-		class="scheduleContentList"></td>
+		class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
 		<td><input type="button" class="button modal-open" value="削除" /></td>
 	</tr>
 	</s:iterator>
@@ -50,9 +72,9 @@
 		<td><input type="text" name="scheduleEnd_dayList" value="<s:property value="End_day" />"
 		class="delscheduleEnd_dayList" pattern="\d{2}/\d{2}/\d{2}"></td>
 		<td><input type="text" name="scheduleTitleList" value="<s:property value="Title" />"
-		class="delscheduleTitleList"></td>
+		class="delscheduleTitleList" placeholder="件名を入力" maxlength=100></td>
 		<td><input type="text" name="scheduleContentList" value="<s:property value="Content" />"
-		class="delscheduleContentList"></td>
+		class="delscheduleContentList" placeholder="内容を入力" maxlength=100></td>
 		<td><input type="button" class="button modal-open2" value="削除" /></td>
 	</tr>
 	</s:iterator>
@@ -70,9 +92,9 @@
 		<td>開始日（YY/MM/DD）</td><td>件名</td><td>内容</td><td></td>
 	</tr>
 	<tr>
-		<td><input type="text" name="Start_day" pattern="\d{2}/\d{2}/\d{2}"></td>
-		<td><input type="text" name="Title"></td>
-		<td><input type="text" name="Content"></td>
+		<td><input type="text" name="Start_day" pattern="\d{2}/\d{2}/\d{2}" placeholder="開始日を入力"></td>
+		<td><input type="text" name="Title" placeholder="件名を入力" maxlength=100></td>
+		<td><input type="text" name="Content" placeholder="内容を入力" maxlength=100></td>
 		<td><button type="submit" class="button">追加</button></td></tr>
 	</tbody>
 </table>

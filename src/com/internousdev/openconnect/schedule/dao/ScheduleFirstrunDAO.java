@@ -40,25 +40,25 @@ public class ScheduleFirstrunDAO {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
-            while(rs.next()) {
-            	ScheduleSelectDTO dto = new ScheduleSelectDTO();
-            	dto.setId(rs.getInt("id"));
-            	dto.setStart_day(rs.getDate("start_day"));
-              	dto.setEnd_day(rs.getDate("end_day"));
-              	dto.setTitle(rs.getString("title"));
-              	dto.setContent(rs.getString("content"));
-            	schedulelist.add(dto);
-             }
-         }catch (SQLException e) {
-        	 e.printStackTrace();
-         }finally{
-        	 try{
-        		 conn.close();
- 	         }catch (SQLException e){
- 	        	 e.printStackTrace();
- 	         }
- 	     }
-         return schedulelist;
+			while(rs.next()) {
+				ScheduleSelectDTO dto = new ScheduleSelectDTO();
+				dto.setId(rs.getInt("id"));
+				dto.setStart_day(rs.getDate("start_day"));
+				dto.setEnd_day(rs.getDate("end_day"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				schedulelist.add(dto);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try{
+				conn.close();
+			}catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return schedulelist;
 
 	}
 

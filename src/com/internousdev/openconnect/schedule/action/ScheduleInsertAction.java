@@ -15,109 +15,158 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ScheduleInsertAction extends ActionSupport{
 
 	/**
-	 * 開始日、件名、内容
+	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
 	private Date Start_day;
+
+	/**
+	 * 件名
+	 * @author MASAHIRO KEDSUKA
+	 */
 	private String Title;
+
+	/**
+	 * 内容
+	 * @author MASAHIRO KEDSUKA
+	 */
 	private String Content;
+
+	/**
+	 *エラー
+	 * @author MASAHIRO KEDSUKA
+	 */
 	private String errortitle;
 
+	/**
+	 * 成功
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String successtitle;
 
-	/* (非 Javadoc)
+	/**
 	 * 実行メソッド。DAOに情報を渡して、DBに追加する。
 	 */
 	public String execute(){
-        String ret = ERROR;
-        int k;
+		String ret = ERROR;
+		int k;
+		if(Length(Title)==0){
+			ret = ERROR;
+			errortitle=(getText("追加できませんでした"));
+			return ret;
+		}
 
-        ScheduleInsertDAO dao = new ScheduleInsertDAO();
+		ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-        k = dao.insert(Start_day,Title,Content);
+		k = dao.insert(Start_day,Title,Content);
 
-        if (k>0) {
-            ret = SUCCESS;
-        } else {
-        	errortitle=(getText("登録できませんでした"));
-        }
+		if (k>0) {
+			successtitle=(getText("追加しました。"));
+			ret = SUCCESS;
+		} else {
+			errortitle=(getText("追加に失敗しました"));
+		}
 		return ret;
 	}
 
+	private int Length(String title2) {
+		// TODO 自動生成されたメソッド・スタブ
+		return 0;
+	}
+
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return Start_day
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return Start_day
+	 */
 	public Date getStart_day() {
 		return Start_day;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param start_day
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param start_day
+	 */
 	public void setStart_day(Date start_day) {
 		Start_day = start_day;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return Title
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return Title
+	 */
 	public String getTitle() {
 		return Title;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param title
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param title
+	 */
 	public void setTitle(String title) {
 		Title = title;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return Content
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return Content
+	 */
 	public String getContent() {
 		return Content;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param content
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param content
+	 */
 	public void setContent(String content) {
 		Content = content;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return errortitle
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return successtitle
+	 */
+	public String getSuccesstitle() {
+		return successtitle;
+	}
+
+	/**
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param successtitle
+	 */
+	public void setSuccesstitle(String successtitle) {
+		this.successtitle = successtitle;
+	}
+
+	/**
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return errortitle
+	 */
 	public String getErrortitle() {
 		return errortitle;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param errortitle
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param errortitle
+	 */
 	public void setErrortitle(String errortitle) {
 		this.errortitle = errortitle;
 	}
