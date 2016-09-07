@@ -3,85 +3,85 @@ create database gekidanroadshow;
 use gekidanroadshow;
 
 create table user(
-id int not null auto_increment,
-user_id varchar(25) unique,
-user_name varchar(255),
-password varchar(255),
-user_kana varchar(255),
-gender enum('male','female'),
-birthday date,
-email varchar(100),
-credit_number varchar(4),
-credit_token varchar(255),
-oauth_id varchar(50),
-oauth_name varchar(50),
-registration_date datetime,
-updated_date datetime,
-postal_code varchar(8),
-address varchar(100),
-cell_number varchar(15),
-primary key(id)
+id int not null auto_increment comment'',
+user_id varchar(25) unique comment'',
+user_name varchar(255) comment'',
+password varchar(255) comment'',
+user_kana varchar(255) comment'',
+gender enum('male','female') comment'',
+birthday date comment'',
+email varchar(100) comment'',
+credit_number varchar(4) comment'',
+credit_token varchar(255) comment'',
+oauth_id varchar(50) comment'',
+oauth_name varchar(50) comment'',
+registration_date datetime comment'',
+updated_date datetime comment'',
+postal_code varchar(8) comment'',
+address varchar(100) comment'',
+cell_number varchar(15) comment'',
+primary key(id) comment''
 );
 
 create table site(
-id int(10) NOT NULL AUTO_INCREMENT,
-name varchar(50),
-url varchar(255),
-PRIMARY KEY (id)
+id int(10) NOT NULL AUTO_INCREMENT comment'',
+name varchar(50) comment'',
+url varchar(255) comment'',
+PRIMARY KEY (id) comment''
 );
 
 create table admin(
-id int(11) not null auto_increment,
-admin_id varchar(25) unique,
-admin_pass varchar(255) not null,
-primary key(id)
+id int(11) not null auto_increment comment'',
+admin_id varchar(25) unique comment'',
+admin_pass varchar(255) not null comment'',
+primary key(id) comment''
 );
 
 -- tables
 create table ticket(
-ticket_id int not null primary key auto_increment,
-ticket_name varchar(100) not null,
-grade enum('S','A') not null,
-price int,
-bought_limit int,
-img varchar(100)
+ticket_id int not null primary key auto_increment comment'',
+ticket_name varchar(100) not null comment'',
+grade enum('S','A') not null comment'',
+price int comment'',
+bought_limit int comment'',
+img varchar(100) comment''
 );
 
 create table order_history(
-id int not null,
-order_id int not null primary key auto_increment,
-user_id varchar(25),
-ticket_id int not null,
-lot int,
-order_date datetime,
-go_date datetime,
+id int not null comment'',
+order_id int not null primary key auto_increment comment'',
+user_id varchar(25) comment'',
+ticket_id int not null comment'',
+lot int comment'',
+order_date datetime comment'',
+go_date datetime comment'',
 foreign key(user_id) references user(user_id),
 foreign key(ticket_id) references ticket(ticket_id)
 );
 
 create table temp(
-id int not null auto_increment,
-user_id varchar(25) unique,
-user_name varchar(255),
-password varchar(255),
-user_kana varchar(255),
-gender enum('male','female'),
-birthday date,
-email varchar(100),
-credit_number varchar(4),
-credit_fullnumber varchar(16),
-credit_token varchar(255),
-oauth_id varchar(50),
-oauth_name varchar(50),
-registration_date datetime,
-updated_date datetime,
-postal_code varchar(8),
-address varchar(100),
-cell_number varchar(15),
-security_code varchar(4),
-credit_name varchar(100),
-credit_limit varchar(100),
-primary key(id)
+id int not null auto_increment comment'',
+user_id varchar(25) unique comment'',
+user_name varchar(255) comment'',
+password varchar(255) comment'',
+user_kana varchar(255) comment'',
+gender enum('male','female') comment'',
+birthday date comment'',
+email varchar(100) comment'',
+credit_number varchar(4) comment'',
+credit_fullnumber varchar(16) comment'',
+credit_token varchar(255) comment'',
+oauth_id varchar(50) comment'',
+oauth_name varchar(50) comment'',
+registration_date datetime comment'',
+updated_date datetime comment'',
+postal_code varchar(8) comment'',
+address varchar(100) comment'',
+cell_number varchar(15) comment'',
+security_code varchar(4) comment'',
+credit_name varchar(100) comment'',
+credit_limit varchar(100) comment'',
+primary key(id) comment''
 );
 
 -- ticket table insert
