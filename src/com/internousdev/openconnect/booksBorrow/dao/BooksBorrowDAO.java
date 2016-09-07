@@ -15,16 +15,16 @@ import com.internousdev.util.DBConnector;
 
 /**
  * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 
 public class BooksBorrowDAO {
 
-	private List<BooksBorrowDTO>bookList=new ArrayList<BooksBorrowDTO>();
+	private List<BooksBorrowDTO>bookList = new ArrayList<BooksBorrowDTO>();
 
-	 /**
-     * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
-     */
+	/**
+	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+	 */
 
 
 	public List<BooksBorrowDTO> select() {
@@ -32,7 +32,7 @@ public class BooksBorrowDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql="SELECT*FROM book_list ";
+			String sql="SELECT * FROM book_list ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 

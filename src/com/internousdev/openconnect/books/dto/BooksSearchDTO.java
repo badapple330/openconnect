@@ -14,7 +14,7 @@ public class BooksSearchDTO {
 	/**
 	* 取得メソッド
 	* @author Tatsuya Hoshi
-	* @return
+	* @return bookId
 	*/
 	public int getBookId() {
 		return bookId;
@@ -22,7 +22,7 @@ public class BooksSearchDTO {
 	/**
 	* 設定メソッド
 	* @author Tatsuya Hoshi
-	* @param
+	* @param bookId
 	*/
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
@@ -30,7 +30,7 @@ public class BooksSearchDTO {
 	/**
 	* 取得メソッド
 	* @author Tatsuya Hoshi
-	* @return
+	* @return title
 	*/
 	public String getTitle() {
 		return title;
@@ -38,7 +38,7 @@ public class BooksSearchDTO {
 	/**
 	* 設定メソッド
 	* @author Tatsuya Hoshi
-	* @param
+	* @param title
 	*/
 	public void setTitle(String title) {
 		this.title = title;

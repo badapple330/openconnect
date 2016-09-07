@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 画面で新規に追加した情報を、DBに追加する為のクラス
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 
 
@@ -25,7 +25,7 @@ public class BooksNewAction extends ActionSupport{
 		 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 		 */
 
-		String result=ERROR;
+		String result = ERROR;
 		BooksNewDAO dao = new BooksNewDAO();
 		int count = 0;
 		count = dao.insert(title);
@@ -37,8 +37,8 @@ public class BooksNewAction extends ActionSupport{
 
 	/**
 	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
+	* @author TATSUYA HOSHI
+	* @return title
 	*/
 	public String getTitle() {
 		return title;
@@ -46,13 +46,12 @@ public class BooksNewAction extends ActionSupport{
 
 	/**
 	* 設定メソッド
-	* @author Tatsuya Hoshi
-	* @param
+	* @author TATSUYA HOSHI
+	* @param title
 	*/
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 
 
 }

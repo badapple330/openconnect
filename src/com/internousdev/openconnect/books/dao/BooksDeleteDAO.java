@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 /**
  * DBからそのIDの情報を削除する為のクラス
- * @author Tatsuya hoshi
+ * @author TATSUYA HOSHI
  */
 
 public class BooksDeleteDAO {

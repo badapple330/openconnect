@@ -5,7 +5,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 画面で受け取ったIDを元にして、DBの情報を削除する為のクラス
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 
 public class BooksDeleteAction extends ActionSupport{
@@ -31,24 +31,25 @@ public class BooksDeleteAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return bookId
+	 */
 	public int getBookId() {
 		return bookId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author Tatsuya Hoshi
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param bookId
+	 */
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
 
 
-	}
+
+}
 
 

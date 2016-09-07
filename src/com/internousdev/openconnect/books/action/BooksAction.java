@@ -11,7 +11,7 @@ import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * DBの情報を画面に表示する為のクラス
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 public class BooksAction extends ActionSupport{
 	/**
@@ -37,29 +37,30 @@ public class BooksAction extends ActionSupport{
 		return result;
 	}
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return bookList
+	 */
 	public List<BooksDTO> getBookList() {
 		return bookList;
 	}
 	/**
-	* 設定メソッド
-	* @author Tatsuya Hoshi
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param bookList
+	 */
 	public void setBookList(List<BooksDTO> bookList) {
 		this.bookList = bookList;
 	}
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return serialversionuid
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 
 
 
