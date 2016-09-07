@@ -12,6 +12,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 	 * プロジェクトID
 	 */
 	private String decisionStatus;
+	private int decisionDetailId;
 	/**
 	 * 実行メソッド DAOにデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -21,7 +22,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 		DecisionDetailApplicationDAO dao = new DecisionDetailApplicationDAO();
 		String result = ERROR;
 		int count = 0;
-		count = dao.update(decisionStatus);
+		count = dao.update(decisionStatus,decisionDetailId);
 		if(count > 0){
 			result = SUCCESS;
 		}
@@ -42,6 +43,22 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 	*/
 	public void setDecisionStatus(String decisionStatus) {
 		this.decisionStatus = decisionStatus;
+	}
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
+	public int getDecisionDetailId() {
+		return decisionDetailId;
+	}
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
+	public void setDecisionDetailId(int decisionDetailId) {
+		this.decisionDetailId = decisionDetailId;
 	}
 
 

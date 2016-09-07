@@ -50,7 +50,13 @@
 				<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />"><s:submit value="編集"/>
 </s:form>
 				</td>
-				<td><input type="button" value="申請" class="modal-edit-open"></td>
+				<td>
+				<s:form action="DecisionDetailApplication">
+				<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />">
+				<input type="hidden" name="decisionStatus" value="承認待">
+				<s:submit value="申請"/>
+
+				</s:form></td>
 				<td><input type="button" value="削除" class="modal-open"></td>
 
 				<td>
