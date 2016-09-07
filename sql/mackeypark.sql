@@ -5,23 +5,23 @@ use mackeypark;
 drop table if exists ticket;
 create table ticket (
 
-item_id int primary key not null auto_increment,
+item_id int primary key not null auto_increment comment'アイテムID',
 
-item_name varchar(100) not null,
+item_name varchar(100) not null comment'アイテムの名前',
 
-period varchar(100) not null,
+period varchar(100) not null comment'期間',
 
-division varchar(100) not null,
+division varchar(100) not null comment'部門',
 
-explanation varchar(255) not null,
+explanation varchar(255) not null comment'説明',
 
-design varchar(100) not null,
+design varchar(100) not null comment'デザイン',
 
-img_path varchar(100) not null,
+img_path varchar(100) not null comment'パスワード',
 
-price int not null,
+price int not null comment'価格',
 
-registration_date datetime not null
+registration_date datetime not null'登録日'
 
 );
 
@@ -143,21 +143,21 @@ insert into ticket(item_name,period,division,explanation,design,img_path,price,r
 
 drop table if exists temp;
 create table temp(
-temp_id int primary key auto_increment,
-user_name varchar(255),
-user_kana varchar(255),
-password varchar(255),
-email varchar(100),
-cell_number varchar(15),
-postal_code varchar(8),
-address varchar(100),
-card_number varchar(50),
-card_holder varchar(255),
-expiration_date varchar(20),
-security_code varchar(4),
-oauth_id varchar(50),
-oauth_name varchar(50),
-registration_date datetime
+temp_id int primary key auto_increment comment'',
+user_name varchar(255) comment'名前',
+user_kana varchar(255) comment'カナ',
+password varchar(255) comment'パスワード',
+email varchar(100) comment'メールアドレス',
+cell_number varchar(15) comment'携帯電話番号',
+postal_code varchar(8) comment'郵便番号',
+address varchar(100) comment'住所',
+card_number varchar(50) comment'カード番号',
+card_holder varchar(255) comment'カードの持ち主',
+expiration_date varchar(20) comment'説明日',
+security_code varchar(4) comment'セキュリティーコード',
+oauth_id varchar(50) comment'OAuth ID',
+oauth_name varchar(50) comment'OAuthの名前',
+registration_date datetime comment'登録日'
 );
 
 insert into temp value

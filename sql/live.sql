@@ -17,59 +17,59 @@ unit_price int(10) not null
 drop table if exists user;
 create table user (  /* ユーザーのテーブルを作る */
 user_id int not null auto_increment,  /* ユーザーに番号を割り振る、自動連番 */
-password varchar(255) not null,   /* ユーザーのログイン用パスワード */
-name varchar(255),  /* ユーザー名 */
-name_f varchar(255),  /* ユーザー名(ふりがな) */
-postal varchar(255) not null,/*郵便番号*/
-address varchar(255) not null,/*住所*/
-tel_number varchar(255) not null,/*電話番号*/
-email varchar(255) not null unique,/*メールアドレス*/
-sex varchar(10) not null,/*性別*/
-birthday date not null,/*生年月日*/
-handle_name varchar(16),
-register_day datetime not null,/*登録日*/
-update_day datetime not null,/*更新日*/
-userdel_flg boolean not null default FALSE,/*退会フラグ*/
-login_flg boolean not null default FALSE,/*ログインフラグ*/
-user_flg int not null,/*ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者*/
-PRIMARY KEY (user_id)  /* idの重複、null禁止 */
+password varchar(255) not null comment'パスワード' ,/* ユーザーのログイン用パスワード */
+name varchar(255) comment'名前', /* ユーザー名 */
+name_f varchar(255) comment'カナ',/* ユーザー名(ふりがな) */
+postal varchar(255) not null comment'郵便番号',/*郵便番号*/
+address varchar(255) not null comment'住所',/*住所*/
+tel_number varchar(255) not null comment'電話番号',/*電話番号*/
+email varchar(255) not null unique comment'メールアドレス',/*メールアドレス*/
+sex varchar(10) not null comment'性別',/*性別*/
+birthday date not null comment'生年月日',/*生年月日*/
+handle_name varchar(16) comment'ハンドルネーム',
+register_day datetime not null comment'登録日',/*登録日*/
+update_day datetime not null comment'更新日',/*更新日*/
+userdel_flg boolean not null default FALSE comment'退会フラグ',/*退会フラグ*/
+login_flg boolean not null default FALSE comment'',/*ログインフラグ*/
+user_flg int not null comment'ユーザーを判別するフラグ',/*ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者*/
+PRIMARY KEY (user_id)  comment'IDの重複禁止'/* idの重複、null禁止 */
 );
 
 drop table if exists order_info;
 create table order_info (
-customer_id int(10) not null,
-foreign key(customer_id) references customer_info(customer_id),
-ticket_id int(10) not null,
-order_quantity int(10) not null,
-total_amount bigint(19) not null,
-pay_method int(1) not null,
-credit_company int(1) not null,
-credit_number bigint(16) not null,
-name varchar(20) not null,
-security_code int(4) not null,
-shop_number int(1) not null,
-random_number varchar(13) not null,
-bank_number int(4) not null,
-cash_on_delivery int(1) not null,
-purchaseday timestamp not null
+customer_id int(10) not null　comment'',
+foreign key(customer_id) references customer_info(customer_id)
+ticket_id int(10) not null comment'チケットID',
+order_quantity int(10) not null comment'注文数',
+total_amount bigint(19) not null comment'総量',
+pay_method int(1) not null comment'支払い方法',
+credit_company int(1) not null comment'クレジットカード会社',
+credit_number bigint(16) not null comment'クレジットカード番号',
+name varchar(20) not null comment'名前',
+security_code int(4) not null comment'セキュリティーコード',
+shop_number int(1) not null comment'店番',
+random_number varchar(13) not null comment'ランダム番号',
+bank_number int(4) not null comment'銀行番号',
+cash_on_delivery int(1) not null comment'代引き',
+purchaseday timestamp not null comment'購入日'
 );
 
 
 drop table if exists history;
 create table history(
-temporary_id varchar(100) not null,
-ticket_name varchar(255) not null,
-artist_name varchar(255) not null,
-day date not null,
-sales_count int(3) not null,
-unit_price int(10) not null,
-total_amount int(100) not null
+temporary_id varchar(100) not null comment'仮ID',
+ticket_name varchar(255) not null comment'チケットネーム',
+artist_name varchar(255) not null comment'アーティスト名',
+day date not null comment'日',
+sales_count int(3) not null comment'売り上げ',
+unit_price int(10) not null comment'団体価格',
+total_amount int(100) not null　comment'総量'
 );
 
 drop table if exists administrator;
 create table administrator(
-admin_id varchar(25) not null,
-admin_pass varchar(25) not null
+admin_id varchar(25) not null comment'管理ID',
+admin_pass varchar(25) not null　comment'管理パスワード'
 );
 
 insert into ticket(ticket_name,artist_name,day,detail,stock,unit_price)
