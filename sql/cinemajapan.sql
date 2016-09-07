@@ -5,22 +5,22 @@ use cinemajapan;
 -- user table
 
 create table user(
-user_id int not null primary key auto_increment,
-password varchar(255),
-user_name varchar(50) not null,
-name_kana varchar(50),
-post_number varchar(7),
-street_address1 varchar(255),
-street_address2 varchar(255),
-street_address3 varchar(255),
-phone_number varchar(16),
-mail_address varchar(100) unique,
-credit_number varchar(4),
-token varchar(255),
-unique_id varchar(255),
-oauth_name varchar(255),
-registration_date datetime not null,
-updated_date datetime not null
+user_id int not null primary key auto_increment comment'ID',
+password varchar(255) comment'パスワード',
+user_name varchar(50) not null comment'氏名',
+name_kana varchar(50) comment'カナ',
+post_number varchar(7) comment'郵便番号',
+street_address1 varchar(255) comment'住所1',
+street_address2 varchar(255) comment'住所2',
+street_address3 varchar(255) comment'住所3',
+phone_number varchar(16) comment'電話番号',
+mail_address varchar(100) unique comment'メールアドレス',
+credit_number varchar(4) comment'クレジットカード',
+token varchar(255) comment'クレジットトークン',
+unique_id varchar(255) coment'固有ID',
+oauth_name varchar(255) comment'OAuth名',
+registration_date datetime not null comment'登録意',
+updated_date datetime not null comment'更新日'
 );
 
 -- insert data user table
@@ -192,15 +192,15 @@ insert into user values(10,"test",
 -- movie table
 
 create table movie(
-movie_id int not null primary key auto_increment,
-movie_name varchar(100) not null,
-price float not null,
-stock int not null,
-num_of_sales int,
-detail text not null,
-img_path varchar(100) not null,
-registration_date datetime not null,
-del_flag int not null default'0');
+movie_id int not null primary key auto_increment comment'作品ID',
+movie_name varchar(100) not null comment'作品名',
+price float not null comment'値段',
+stock int not null comment'在庫数',
+num_of_sales int comment'売り上げ数',
+detail text not null comment'作品詳細',
+img_path varchar(100) not null comment'イメージファイルパス',
+registration_date datetime not null comment'登録日',
+del_flag int not null default'0') comment'削除フラグ';
 
 -- insert data movie table
 
@@ -527,11 +527,11 @@ insert into movie values(30, "映画ドラえもん　のび太の宇宙英雄�
 -- admin table
 
 create table admin(
-id int not null primary key auto_increment,
-admin_id varchar(25) not null unique,
-password varchar(255) not null,
-registration_date datetime not null,
-updated_date datetime not null);
+id int not null primary key auto_increment comment'ID',
+admin_id varchar(25) not null unique comment'管理者ID',
+password varchar(255) not null comment'管理者パスワード',
+registration_date datetime not null comment'登録日',
+updated_date datetime not null comment'更新日');
 
 -- insert data admin table
 
@@ -543,9 +543,9 @@ insert into admin values(1,"test1234",
 -- sales table
 
  create table sales(
- purchase_date timestamp,
- total_sales_num int,
- total_sales int);
+ purchase_date timestamp comment'購入日',
+ total_sales_num int comment'総売上数',
+ total_sales int comment'総売上金額');
 
  -- insert data sales table
 

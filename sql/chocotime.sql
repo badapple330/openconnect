@@ -5,21 +5,21 @@ use chocotime;
 -- user table
 
 create table user(
-password varchar(255),
-name varchar(100) not null,
-kana varchar(50),
-post_number varchar(7),
-address  varchar(100),
-address_2 varchar(50),
-address_3 varchar(100),
-phone_number varchar(13),
-email_address varchar(100),
-creditcard varchar(4),
-credit_token varchar(255),
-unique_id varchar(50),
-oauth_name varchar(50),
-registration_date datetime not null,
-updated_date datetime not null,
+password varchar(255) comment'パスワード',
+name varchar(100) not null comment'会員名',
+kana varchar(50) comment'カナ',
+post_number varchar(7) comment'郵便番号',
+address  varchar(100) comment'住所',
+address_2 varchar(50) comment'住所2',
+address_3 varchar(100) comment'住所3',
+phone_number varchar(13) comment'電話番号',
+email_address varchar(100) comment'メールアドレス',
+creditcard varchar(4) comment'クレジットカード',
+credit_token varchar(255) comment'クレジットトークン',
+unique_id varchar(50) comment'固有ID',
+oauth_name varchar(50) comment'OAuth名',
+registration_date datetime not null comment'登録日',
+updated_date datetime not null comment'更新日',
 unique(name,email_address),
 index(name)
 );
@@ -62,15 +62,15 @@ insert into user values("test",
 -- item table
 
 create table item(
-id int not null primary key auto_increment,
-item_name varchar(100) not null,
-price float not null,
-stock_amount int not null default'0',
-sales_amount int default'0',
-item_detail text not null,
-img_path varchar(255) not null,
-registration_date datetime not null,
-flg int not null default'0',
+id int not null primary key auto_increment comment'商品ID',
+item_name varchar(100) not null comment'商品名',
+price float not null comment'単価',
+stock_amount int not null default'0' comment'在庫数',
+sales_amount int default'0' comment'売り上げ数',
+item_detail text not null comment'商品詳細',
+img_path varchar(255) not null comment'イメージファイルパス',
+registration_date datetime not null comment'登録日',
+flg int not null default'0' comment'削除フラグ',
 index(id)
 );
 
@@ -244,8 +244,8 @@ insert into item values(
 -- admim table
 
 create table admin(
-id varchar(25)  not null unique,
-password varchar(255) not null
+id varchar(25)  not null unique comment'管理者ID',
+password varchar(255) not null comment'管理者パスワード'
 );
 
 -- insert date admin table
@@ -257,14 +257,14 @@ insert into admin values("1",
 -- history table
 
 create table history(
-history_id int not null primary key  auto_increment,
-user_name varchar(100) not null,
-item_id int not null,
-item_name varchar(100),
-price float default'0',
-quantity int default'0',
-method_of_payment int not null default'0',
-purchase_date datetime,
+history_id int not null primary key  auto_increment comment'履歴ID',
+user_name varchar(100) not null comment'会員名',
+item_id int not null comment'商品ID',
+item_name varchar(100) comment'商品名',
+price float default'0' comment'単価',
+quantity int default'0' comment'数量',
+method_of_payment int not null default'0' comment'支払い方法',
+purchase_date datetime comment'購入日',
 FOREIGN KEY(user_name) REFERENCES user(name) on update cascade on delete cascade,
 FOREIGN KEY(item_id)   REFERENCES item(id) on update cascade on delete cascade
 );
@@ -272,11 +272,11 @@ FOREIGN KEY(item_id)   REFERENCES item(id) on update cascade on delete cascade
 -- cart table
 
 create table cart(
-name varchar(100) not null,
-item_id int not null,
-item_name varchar(100),
-price float default'0',
-quantity int default'0',
+name varchar(100) not null comment'会員名',
+item_id int not null comment'商品ID',
+item_name varchar(100) comment'商品名',
+price float default'0' comment'単価',
+quantity int default'0' comment'数量',
 FOREIGN KEY(name) REFERENCES user(name) on update cascade on delete cascade,
 FOREIGN KEY(item_id)   REFERENCES item(id) on update cascade on delete cascade
 );

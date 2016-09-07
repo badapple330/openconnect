@@ -45,8 +45,12 @@
 				<td class="decision_name"><s:property value="projectName" /></td>
 				<td class="decision_type"><s:property value="decisionType" /></td>
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
-				<td><input type="button" value="編集"></td>
-				<td><input type="button" value="申請"></td>
+				<td>
+<s:form action="DecisionDetailEdit">
+				<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />"><s:submit value="編集"/>
+</s:form>
+				</td>
+				<td><input type="button" value="申請" class="modal-edit-open"></td>
 				<td><input type="button" value="削除" class="modal-open"></td>
 				<td><input type="button" value="プレビュー"></td>
 			</tr>
@@ -60,7 +64,7 @@
 				<td class="decision_type"><s:property value="decisionType" /></td>
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
 				<td><input type="button" value="編集"></td>
-				<td><input type="button" value="申請"></td>
+				<td><input type="hidden" name="decisionStatus" value="承認待"><input type="submit" value="申請"></td>
 				<td><input type="button" value="削除" class="modal-open"></td>
 				<td><input type="button" value="プレビュー"></td>
 			</tr>
@@ -90,10 +94,14 @@
 				<input type="submit" class="delete-true button" value="はい">
 				<input type="button" class="modal-close button" value="いいえ">
 			</s:form>
-
-
 		</div>
 	</div>
+
+<div id="modal-edit-main">
+本当に承認しますか？
+<input type="hidden" name="decisionStatus" value="承認待">
+</div>
+
 
 
 	<!-- 	戻る -->

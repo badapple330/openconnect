@@ -10,13 +10,13 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 /**
  * 追加情報をDBへ転送する為のクラス
- * @author Tatsuya Hoshi
+ * @author TATSUYA HOSHI
  */
 public class BooksNewDAO {
 
-	 /**
-     *　追加情報を、DBへ転送し、追加する為のメソッド
-     */
+	/**
+	 *　追加情報を、DBへ転送し、追加する為のメソッド
+	 */
 
 	public int insert(String title) {
 

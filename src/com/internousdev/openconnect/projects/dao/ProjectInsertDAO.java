@@ -15,7 +15,7 @@ public class ProjectInsertDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "INSERT INTO projects(project_name,manager_name,sub_manager_name,start_date,end_date)VALUES(?, ?, ?, ? ,?)";
+		String sql = "INSERT INTO projects(project_Id,project_name,manager_name,sub_manager_name,start_date,)VALUES(?, ?, ?, ? ,?)";
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,projectId);
