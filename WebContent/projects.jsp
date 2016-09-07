@@ -42,28 +42,29 @@
 			</tr>
 		</s:iterator>
 
-		<s:iterator value="searchList">
-            <tr>
-				<td><input type="text" value="<s:property  value="userId" />"></td>
-				<td><input type="text"value="<s:property value="projectName"/>"></td>
-				<td><input type="text" value="<s:property value="manager"/>"></td>
-				<td><input type="text" value="<s:property value="subManager"/>"></td>
-				<td><input type="text" value="<s:property value="startDate"/>"></td>
-				<td><input type="text" value="<s:property value="endDate"/>"></td>
-				<td><input type="text" value="<s:property value="note"/>"></td>
-			</tr>
-		</s:iterator>
+<%-- 		<s:iterator value="searchList"> --%>
+<!--             <tr> -->
+<%-- 				<td><input type="text" name="projectUserIdList"value="<s:property  value="userId" />"></td> --%>
+<%-- 				<td><input type="text" name="projectNameList"value="<s:property value="projectName"/>"></td> --%>
+<%-- 				<td><input type="text" name="projectManagerList"value="<s:property value="manager"/>"></td> --%>
+<%-- 				<td><input type="text" name="projectSubManagerList"value="<s:property value="subManager"/>"></td> --%>
+<%-- 				<td><input type="text" name="projectStartDateList" value="<s:property value="startDate"/>"></td> --%>
+<%-- 				<td><input type="text" name="projectEndDateList"value="<s:property value="endDate"/>"></td> --%>
+<%-- 				<td><input type="text"name="projectNoteList" value="<s:property value="note"/>"></td> --%>
+<!-- 			</tr> -->
+<%-- 		</s:iterator> --%>
 			</table>
 		<input class="button" type="submit" value="編集">
 </s:form>
 
-	<input type="text" value="プロジェクト名">
-	<input type="text" value="管理者(リーダー)">
-	<input type="text" value="管理者(サブ)">
+<s:form action="ProjectInsert">
+	<input type="text" value="プロジェクトID">
+	<input type="text" value="管理者ID(リーダー)">
+	<input type="text" value="管理者ID(サブ)">
 	<input type="text" value="開始日">
 	<input class="button" type="submit" value="追加">
 	<br>
-
+</s:form>
 	<s:form action="BackGoAction">
 		<input type="submit" class="button" value="戻る">
 	</s:form>

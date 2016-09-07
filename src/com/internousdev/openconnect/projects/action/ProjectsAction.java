@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
 DB情報を画面に表示させるクラス
-* @author YUICHI KIRIU
+ * @author YUICHI KIRIU
  * @since 2016/09/7
  * @version 1.0
  */
@@ -22,31 +22,31 @@ public class ProjectsAction extends ActionSupport{
 	 * @author YUICHI KIRIU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-				public String execute() {
-					String result = ERROR;
-					ProjectsListDAO dao = new ProjectsListDAO();
-					projectList = dao.select();
-					if (!(projectList == null)) {
-						result = SUCCESS;
-					}
-					return result;
-				}
+	public String execute() {
+		String result = ERROR;
+		ProjectsListDAO dao = new ProjectsListDAO();
+		projectList = dao.select();
+		if (!(projectList == null)) {
+			result = SUCCESS;
+		}
+		return result;
+	}
 
-				/**
-				* 取得メソッド
-				* @author  YUICHI KIRIU
-				* @return projectList
-				*/
-				public List<ProjectsListDTO> getProjectList() {
-					return projectList;
-				}
-				/**
-				* 設定メソッド
-				* @author  YUICHI KIRIU
-				* @param projectList
-				*/
-				public void setProjectList(List<ProjectsListDTO> projectList) {
-					this.projectList = projectList;
-				}
+	/**
+	 * 取得メソッド
+	 * @author  YUICHI KIRIU
+	 * @return projectList
+	 */
+	public List<ProjectsListDTO> getProjectList() {
+		return projectList;
+	}
+	/**
+	 * 設定メソッド
+	 * @author  YUICHI KIRIU
+	 * @param projectList
+	 */
+	public void setProjectList(List<ProjectsListDTO> projectList) {
+		this.projectList = projectList;
+	}
 
-			}
+}

@@ -13,7 +13,7 @@ public class ProjectsSearchAction extends ActionSupport{
     */
 		private String search;
 
-		private List<ProjectsSearchDTO > searchList = new ArrayList<ProjectsSearchDTO>();
+		private List<ProjectsSearchDTO > projectList = new ArrayList<ProjectsSearchDTO>();
 		private String errorMsg;
 		/**
 		 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -24,8 +24,8 @@ public class ProjectsSearchAction extends ActionSupport{
 		public String execute() {
 			String result = ERROR;
 			ProjectsSerachDAO dao = new ProjectsSerachDAO();
-			searchList = dao.select(search);
-			if (searchList.size() != 0) {
+			projectList = dao.select(search);
+			if (projectList.size() != 0) {
 				result = SUCCESS;
 			} else {
 				errorMsg = "該当する情報は存在しません";
@@ -48,21 +48,22 @@ public class ProjectsSearchAction extends ActionSupport{
 		public void setSearch(String search) {
 			this.search = search;
 		}
+
 		/**
 		* 取得メソッド
 		* @author YUICHI KIRIU
-		* @return searchList
+		* @return projectList
 		*/
-		public List<ProjectsSearchDTO> getSearchList() {
-			return searchList;
+		public List<ProjectsSearchDTO> getProjectList() {
+			return projectList;
 		}
 		/**
 		* 設定メソッド
 		* @author YUICHI KIRIU
-		* @param searchList
+		* @param projectList
 		*/
-		public void setSearchList(List<ProjectsSearchDTO> searchList) {
-			this.searchList = searchList;
+		public void setProjectList(List<ProjectsSearchDTO> projectList) {
+			this.projectList = projectList;
 		}
 		/**
 		* 取得メソッド
