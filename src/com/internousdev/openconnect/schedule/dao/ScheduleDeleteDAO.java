@@ -7,8 +7,20 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 
+/**
+ * 情報を受け取ってDBにある情報を削除するクラス。
+ * @author MASAHIRO KEDSUKA
+ * @since 2016/09/07
+ */
 public class ScheduleDeleteDAO {
 
+
+	/**
+	 * DBから情報を削除するメソッド。
+	 * @param scheduleId
+	 * @return count
+	 * @throws SQLException
+	 */
 	public int delete(int scheduleId)  throws SQLException{
 
 		int count = 0;

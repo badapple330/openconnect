@@ -11,10 +11,25 @@ import com.internousdev.openconnect.schedule.dto.ScheduleSelectDTO;
 import com.internousdev.util.DBConnector;
 
 
+/**
+ * はじめに画面を開いたときにDBを検索するクラス。
+ * @author MASAHIRO KEDSUKA
+ * @since 2016/09/07
+ */
 public class ScheduleFirstrunDAO {
 
+	/**
+	 * @author MASAHIRO KEDSUKA
+	 * スケジュールリスト
+	 */
 	public List<ScheduleSelectDTO> schedulelist = new ArrayList<ScheduleSelectDTO>();
 
+	/**
+	 * DB検索するメソッド。
+	 * @author MASAHIRO KEDSUKA
+	 * @param search
+	 * @return schedulelist
+	 */
 	public List<ScheduleSelectDTO> select(String search){
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");

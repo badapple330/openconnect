@@ -43,7 +43,7 @@
 
 	<s:iterator value="dscheduleList">
 	<tr>
-		<td><input type="text" name="scheduleIdList" value="<s:property value="Id" />"
+		<td><input type="text" name="scheduleIdList" size=5 value="<s:property value="Id" />"
 		class="delscheduleIdList"></td>
 		<td><input type="text" name="scheduleStart_dayList" value="<s:property value="Start_day" />"
 		class="delscheduleStart_dayList" type="date" pattern="\d{2}/\d{2}/\d{2}"></td>
@@ -83,7 +83,7 @@
 	<!-- #contents START -->
 	<div id="modal-style">
 	<table class="modal_border">
-		<tr><td>ID <input type="text" name="scheduleId" id="delete-scheduleid" readonly></td></tr>
+		<tr><td>ID<input type="text" name="scheduleId" id="delete-scheduleid" readonly></td></tr>
 		<tr><td>開始日<input type="text" name="scheduleId" id="delete-start_day" readonly></td></tr>
 		<tr><td>終了日<input type="text" name="scheduleId" id="delete-end_day" readonly></td></tr>
 		<tr><td>件名<input type="text" name="scheduleId" id="delete-title" readonly></td></tr>

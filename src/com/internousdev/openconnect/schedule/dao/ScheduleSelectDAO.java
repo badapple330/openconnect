@@ -11,10 +11,26 @@ import com.internousdev.openconnect.schedule.dto.ScheduleSelectDTO;
 import com.internousdev.util.DBConnector;
 
 
+/**
+ * 画面から検索するクラス。
+ * @author MASAHIRO KEDSUKA
+ * @since 2016/09/07
+ */
 public class ScheduleSelectDAO {
 
+	/**
+	 * スケジュールリスト
+	 * @author MASAHIRO KEDSUKA
+	 */
 	public List<ScheduleSelectDTO> schedulelist = new ArrayList<ScheduleSelectDTO>();
 
+
+	/**
+	 * 画面から検索するメソッド。
+	 * @author MASAHIRO KEDSUKA
+	 * @param search
+	 * @return schedulelist
+	 */
 	public List<ScheduleSelectDTO> select(String search){
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
@@ -51,4 +67,3 @@ public class ScheduleSelectDAO {
 	}
 
 }
-

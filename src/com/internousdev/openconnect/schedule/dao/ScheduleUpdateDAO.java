@@ -7,7 +7,23 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 import com.mysql.jdbc.Connection;
 
+/**
+ * DBの情報を更新するクラス。
+ * @author MASAHIRO KEDSUKA
+ * @since 2016/09/07
+ */
 public class ScheduleUpdateDAO {
+
+	/**
+	 * 更新するメソッド。
+	 * @author MASAHIRO KEDSUKA
+	 * @param Id
+	 * @param Start_day
+	 * @param End_day
+	 * @param Title
+	 * @param Content
+	 * @return count
+	 */
 	public int update(int Id, Date Start_day, Date End_day, String Title, String Content){
 		int count=0;
 
