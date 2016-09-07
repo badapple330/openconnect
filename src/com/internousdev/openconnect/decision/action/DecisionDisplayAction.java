@@ -24,12 +24,31 @@ public class DecisionDisplayAction extends ActionSupport{
 		return result;
 	}
 
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return DecisiontList
+	*/
 	public List<DecisionDisplayDTO> getDecisiontList() {
 		return DecisiontList;
 	}
 
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param decisiontList
+	*/
 	public void setDecisiontList(List<DecisionDisplayDTO> decisiontList) {
 		DecisiontList = decisiontList;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 
