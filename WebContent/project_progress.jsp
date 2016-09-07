@@ -25,7 +25,7 @@
 			<tbody id="list_body">
 				<tr>
 				<th></th>
-					<th>ID</th>
+					<th>プロジェクトID</th>
 					<th>日付</th>
 					<th>プロジェクト名</th>
 					<th>進捗予定</th>
@@ -104,7 +104,7 @@
 	</s:form>
 
 	<s:form action="ProjectCreate">
-		<input type="text" name="projectId" placeholder="プロジェクトID">
+		<input type="text" name="projectId" placeholder="プロジェクトIDを打って下さい">
 		<input type="text" name="projectPlan" placeholder="進捗予定">
 		<input type="text" name="projectResult" placeholder="進捗結果">
 		<input type="text" name="other" placeholder="その他報告">
