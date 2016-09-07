@@ -86,7 +86,7 @@ public class AttendanceAction extends ActionSupport {
 	 */
 	private void select(){
 		AttendanceDAO dao=new AttendanceDAO();
-		dao.selectAll();
+		dao.select();
 		list=dao.getList();
 		if(list.size()==0){
 			errorSelect="データがありません";
