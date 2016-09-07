@@ -1,7 +1,5 @@
 package com.internousdev.openconnect.schedule.dto;
 
-import java.sql.Date;
-
 /**
  * DBを検索するクラス。
  * @author MASAHIRO KEDSUKA
@@ -17,13 +15,13 @@ public class ScheduleSelectDTO {
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private Date start_day;
+	private String start_day;
 
 	/**
 	 *終了日
 	 *@author MASAHIRO KEDSUKA
 	 */
-	private Date end_day;
+	private String end_day;
 
 	/**
 	 * 件名
@@ -58,7 +56,7 @@ public class ScheduleSelectDTO {
 	 * @author MASAHIRO KEDSUKA
 	 * @return start_day
 	 */
-	public Date getStart_day() {
+	public String getStart_day() {
 		return start_day;
 	}
 	/**
@@ -66,7 +64,7 @@ public class ScheduleSelectDTO {
 	 * @author MASAHIRO KEDSUKA
 	 * @param start_day
 	 */
-	public void setStart_day(Date start_day) {
+	public void setStart_day(String start_day) {
 		this.start_day = start_day;
 	}
 	/**
@@ -74,7 +72,7 @@ public class ScheduleSelectDTO {
 	 * @author MASAHIRO KEDSUKA
 	 * @return end_day
 	 */
-	public Date getEnd_day() {
+	public String getEnd_day() {
 		return end_day;
 	}
 	/**
@@ -82,7 +80,7 @@ public class ScheduleSelectDTO {
 	 * @author MASAHIRO KEDSUKA
 	 * @param end_day
 	 */
-	public void setEnd_day(Date end_day) {
+	public void setEnd_day(String end_day) {
 		this.end_day = end_day;
 	}
 	/**

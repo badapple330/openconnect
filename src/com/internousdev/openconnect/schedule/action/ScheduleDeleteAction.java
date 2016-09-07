@@ -19,17 +19,18 @@ public class ScheduleDeleteAction extends ActionSupport{
 	 */
 	private int scheduleId;
 
-	/**
-	 * エラー
-	 * @author MASAHIRO KEDSUKA
-	 */
-	private String errortitle;
 
 	/**
 	 * 成功
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String successtitle;
+	private String success_msg;
+
+	/**
+	 * エラー
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String error_msg;
 
 
 	/**
@@ -43,10 +44,10 @@ public class ScheduleDeleteAction extends ActionSupport{
 		count = dao.delete(scheduleId);
 
 		if(count > 0){ //何かしらDBが数値を返したら
-			successtitle=(getText("削除しました。"));
+			success_msg=(getText("削除しました。"));
 			result = SUCCESS;
 		}else{
-			errortitle=(getText("削除に失敗しました。"));
+			error_msg=(getText("削除に失敗しました。"));
 		}
 		return result;
 	}
@@ -71,40 +72,42 @@ public class ScheduleDeleteAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return errortitle
-	 */
-	public String getErrortitle() {
-		return errortitle;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return success_msg
+	*/
+	public String getSuccess_msg() {
+		return success_msg;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param errortitle
-	 */
-	public void setErrortitle(String errortitle) {
-		this.errortitle = errortitle;
+	* 設定メソッド
+	* @author MASAHIRO KEZUKA
+	* @param success_msg
+	*/
+	public void setSuccess_msg(String success_msg) {
+		this.success_msg = success_msg;
 	}
 
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return successtitle
-	 */
-	public String getSuccesstitle() {
-		return successtitle;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return error_msg
+	*/
+	public String getError_msg() {
+		return error_msg;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param successtitle
-	 */
-	public void setSuccesstitle(String successtitle) {
-		this.successtitle = successtitle;
+	* 設定メソッド
+	* @author MASAHIRO KEZUKA
+	* @param error_msg
+	*/
+	public void setError_msg(String error_msg) {
+		this.error_msg = error_msg;
 	}
+
+
 
 
 }

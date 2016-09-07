@@ -1,7 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -39,7 +39,7 @@
 	</s:form>
 <br>
 
-<s:property value="successtitle"/><s:property value="errortitle"/>
+<s:property value="success_msg"/><s:property value="error_msg"/>
 <s:form action="ScheduleUpdate">
 <table border=1 style="white">
 	<tbody>
@@ -52,7 +52,7 @@
 		<td><input type="text" name="scheduleIdList" size=5 value="<s:property value="Id" />"
 		class="scheduleIdList"></td>
 		<td><input type="text" name="scheduleStart_dayList" value="<s:property value="Start_day" />"
-		class="scheduleStart_dayList" type="date" pattern="\d{2}/\d{2}/\d{2}" placeholder="開始日を入力"></td>
+		class="scheduleStart_dayList" type="date" pattern="\d{2}/\d{2}/\d{2}" placeholder="開始日を入力" required></td>
 		<td><input type="text" name="scheduleEnd_dayList" value="<s:property value="End_day" />"
 		class="scheduleEnd_dayList" pattern="\d{2}/\d{2}/\d{2}" placeholder="終了日を入力"></td>
 		<td><input type="text" name="scheduleTitleList" value="<s:property value="Title" />"
@@ -92,7 +92,7 @@
 		<td>開始日（YY/MM/DD）</td><td>件名</td><td>内容</td><td></td>
 	</tr>
 	<tr>
-		<td><input type="text" name="Start_day" pattern="\d{2}/\d{2}/\d{2}" placeholder="開始日を入力"></td>
+		<td><input type="text" name="Start_day" pattern="([0-2][0-9]{3})\([0-1][0-9])\([0-3][0-9])" placeholder="開始日を入力"  required></td>
 		<td><input type="text" name="Title" placeholder="件名を入力" maxlength=100 required></td>
 		<td><input type="text" name="Content" placeholder="内容を入力" maxlength=100></td>
 		<td><button type="submit" class="button">追加</button></td></tr>

@@ -47,14 +47,14 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 * エラー
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String errortitle;
+	private String error_msg;
 
 
 	/**
 	 * 成功
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String successtitle;
+	private String success_msg;
 
 
 	/**
@@ -70,10 +70,10 @@ public class ScheduleUpdateAction extends ActionSupport {
 			count = dao.update(scheduleIdList.get(i),scheduleStart_dayList.get(i),scheduleEnd_dayList.get(i),scheduleTitleList.get(i),scheduleContentList.get(i));}
 
 		if ( count > 0) {
-			successtitle=(getText("更新しました。"));
+			success_msg=(getText("更新しました。"));
 			ret = SUCCESS;
 		} else {
-			errortitle=(getText("更新できませんでした"));
+			error_msg=(getText("更新できませんでした"));
 		}
 		return ret;
 	}
@@ -180,42 +180,44 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return successtitle
-	 */
-	public String getSuccesstitle() {
-		return successtitle;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return error_msg
+	*/
+	public String getError_msg() {
+		return error_msg;
 	}
 
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param successtitle
-	 */
-	public void setSuccesstitle(String successtitle) {
-		this.successtitle = successtitle;
+	* 設定メソッド
+	* @author MASAHIRO KEZUKA
+	* @param error_msg
+	*/
+	public void setError_msg(String error_msg) {
+		this.error_msg = error_msg;
 	}
 
 
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return errortitle
-	 */
-	public String getErrortitle() {
-		return errortitle;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return success_msg
+	*/
+	public String getSuccess_msg() {
+		return success_msg;
 	}
 
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param errortitle
-	 */
-	public void setErrortitle(String errortitle) {
-		this.errortitle = errortitle;
+	* 設定メソッド
+	* @author MASAHIRO KEZUKA
+	* @param success_msg
+	*/
+	public void setSuccess_msg(String success_msg) {
+		this.success_msg = success_msg;
 	}
+
+
 
 }

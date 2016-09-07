@@ -104,7 +104,7 @@
 		<!-- </action> -->
 
 		<!-- 決済状況一覧画面への遷移 -->
-		<action name="GoDecision" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="GoDecision" class="com.internousdev.openconnect.decision.action.DecisionDisplayAction"
 			method="execute">
 			<result name="success">decision.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -296,7 +296,7 @@
 			class="com.internousdev.openconnect.schedule.action.ScheduleFirstrunAction"
 			method="execute">
 			<result name="success">schedule.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/schedule.jsp</result>
 		</action>
 
 		<!-- スケジュール画面で検索 -->
@@ -304,7 +304,7 @@
 			class="com.internousdev.openconnect.schedule.action.ScheduleSelectAction"
 			method="execute">
 			<result name="success">schedule.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/schedule.jsp</result>
 		</action>
 
 		<!-- スケジュール画面で追加 -->
@@ -312,7 +312,7 @@
 			class="com.internousdev.openconnect.schedule.action.ScheduleInsertAction"
 			method="execute">
 			<result name="success" type="chain">GoSchedule</result>
-			<result name="error">/register.jsp</result>
+			<result name="error" type="chain">GoSchedule</result>
 		</action>
 
 		<!-- スケジュール画面で更新 -->
@@ -320,7 +320,7 @@
 			class="com.internousdev.openconnect.schedule.action.ScheduleUpdateAction"
 			method="execute">
 			<result name="success" type="chain">GoSchedule</result>
-			<result name="error">/register.jsp</result>
+			<result name="error" type="chain">GoSchedule</result>
 		</action>
 
 		<!-- スケジュール画面で削除 -->
@@ -328,7 +328,7 @@
 			class="com.internousdev.openconnect.schedule.action.ScheduleDeleteAction"
 			method="execute">
 			<result name="success" type="chain">GoSchedule</result>
-			<result name="error">/register.jsp</result>
+			<result name="error" type="chain">GoSchedule</result>
 		</action>
 
 		<!-- <action name="JustGoAction_booklist" -->

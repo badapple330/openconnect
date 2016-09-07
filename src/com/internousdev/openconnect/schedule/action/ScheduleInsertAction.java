@@ -2,8 +2,6 @@
  *
  */
 package com.internousdev.openconnect.schedule.action;
-import java.sql.Date;
-
 import com.internousdev.openconnect.schedule.dao.ScheduleInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,7 +16,7 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private Date Start_day;
+	private String Start_day;
 
 	/**
 	 * 件名
@@ -36,13 +34,13 @@ public class ScheduleInsertAction extends ActionSupport{
 	 *エラー
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String errortitle;
+	private String error_msg;
 
 	/**
 	 * 成功
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String successtitle;
+	private String success_msg;
 
 	/**
 	 * 実行メソッド。DAOに情報を渡して、DBに追加する。
@@ -51,9 +49,9 @@ public class ScheduleInsertAction extends ActionSupport{
 		String ret = ERROR;
 		int k;
 
-		if(Title.isEmpty()){
+		if(Start_day.isEmpty()&&Title.isEmpty()){
 			ret = ERROR;
-			errortitle=(getText("追加できませんでした"));
+			error_msg=(getText("追加できませんでした"));
 			return ret;
 		}else{
 
@@ -62,10 +60,10 @@ public class ScheduleInsertAction extends ActionSupport{
 		k = dao.insert(Start_day,Title,Content);
 
 		if (k>0) {
-			successtitle=(getText("追加しました。"));
+			success_msg=(getText("追加しました。"));
 			ret = SUCCESS;
 		} else {
-			errortitle=(getText("追加に失敗しました"));
+			error_msg=(getText("追加に失敗しました"));
 		}
 		}
 		return ret;
@@ -77,7 +75,7 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * @author MASAHIRO KEDSUKA
 	 * @return Start_day
 	 */
-	public Date getStart_day() {
+	public String getStart_day() {
 		return Start_day;
 	}
 
@@ -87,7 +85,7 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * @author MASAHIRO KEDSUKA
 	 * @param start_day
 	 */
-	public void setStart_day(Date start_day) {
+	public void setStart_day(String start_day) {
 		Start_day = start_day;
 	}
 
@@ -133,41 +131,42 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return successtitle
-	 */
-	public String getSuccesstitle() {
-		return successtitle;
-	}
-
-	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param successtitle
-	 */
-	public void setSuccesstitle(String successtitle) {
-		this.successtitle = successtitle;
-	}
-
-	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return errortitle
-	 */
-	public String getErrortitle() {
-		return errortitle;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return error_msg
+	*/
+	public String getError_msg() {
+		return error_msg;
 	}
 
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param errortitle
-	 */
-	public void setErrortitle(String errortitle) {
-		this.errortitle = errortitle;
+	* 設定メソッド
+	* @author MASAHIRO KEZUKA
+	* @param error_msg
+	*/
+	public void setError_msg(String error_msg) {
+		this.error_msg = error_msg;
 	}
 
+
+	/**
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return success_msg
+	*/
+	public String getSuccess_msg() {
+		return success_msg;
+	}
+
+
+	/**
+	* 設定メソッド
+	* @author MASAHIRO KEZUKA
+	* @param success_msg
+	*/
+	public void setSuccess_msg(String success_msg) {
+		this.success_msg = success_msg;
+	}
 
 }

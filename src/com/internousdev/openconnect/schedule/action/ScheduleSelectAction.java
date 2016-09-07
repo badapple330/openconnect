@@ -32,7 +32,7 @@ public class ScheduleSelectAction extends ActionSupport {
 	 * エラー
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String errorSelect;
+	private String error_msg;
 
 
 	/**
@@ -47,7 +47,7 @@ public class ScheduleSelectAction extends ActionSupport {
 		if (schedulelist.size() != 0) {
 			result = SUCCESS;
 		} else {
-			errorSelect = (getText("データがありません"));
+			error_msg = (getText("データがありません"));
 		}
 		return result;
 	}
@@ -99,24 +99,23 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return errorSelect
-	 */
-	public String getErrorSelect() {
-		return errorSelect;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return error_msg
+	*/
+	public String getError_msg() {
+		return error_msg;
 	}
 
 
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param errorSelect
-	 */
-	public void setErrorSelect(String errorSelect) {
-		this.errorSelect = errorSelect;
+	* 設定メソッド
+	* @author MASAHIRO KEZUKA
+	* @param error_msg
+	*/
+	public void setError_msg(String error_msg) {
+		this.error_msg = error_msg;
 	}
-
 
 }

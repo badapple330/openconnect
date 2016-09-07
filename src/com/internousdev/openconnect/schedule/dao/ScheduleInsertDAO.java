@@ -1,8 +1,8 @@
 package com.internousdev.openconnect.schedule.dao;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 import com.mysql.jdbc.Connection;
@@ -23,16 +23,19 @@ public class ScheduleInsertDAO {
 	 * @param Content
 	 * @return count
 	 */
-	public int insert (Date Start_day, String Title, String Content){
+	public int insert (String Start_day, String Title, String Content){
 
 		int count=0;
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn= (Connection) db.getConnection();
 		String sql="INSERT INTO schedule(start_day, title, content) VALUES (?,?,?)";
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
+		Start_day = sdf.format(System.currentTimeMillis());
+
 		try{
 			PreparedStatement ps=conn.prepareStatement(sql);
-			ps.setDate(1,Start_day);
+			ps.setString(1,Start_day);
 			ps.setString(2,Title);
 			ps.setString(3,Content);
 			count=ps.executeUpdate();
