@@ -3,7 +3,7 @@ package com.internousdev.openconnect.decisionDetail.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailEditDAO;
+import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailIdDAO;
 import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 
-public class DecisionDetailEditAction extends ActionSupport {
+public class DecisionDetailIdAction extends ActionSupport {
 	/**
 	 * 決裁手続きリスト
 	 */
@@ -31,7 +31,7 @@ public class DecisionDetailEditAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
-		DecisionDetailEditDAO dao = new DecisionDetailEditDAO();
+		DecisionDetailIdDAO dao = new DecisionDetailIdDAO();
 
 		 decisionDetailList = dao.select(decisionDetailId);
 		if (!( decisionDetailList == null)) {

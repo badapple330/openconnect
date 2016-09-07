@@ -15,7 +15,7 @@ import com.internousdev.util.DBConnector;
  * @since 2016/09/04
  * @version 1.0
  */
-public class DecisionDetailEditDAO {
+public class DecisionDetailIdDAO {
 
 	/**
 	 * 決裁手続きリスト

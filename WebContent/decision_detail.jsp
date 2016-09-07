@@ -46,13 +46,17 @@
 				<td class="decision_type"><s:property value="decisionType" /></td>
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
 				<td>
-<s:form action="DecisionDetailEdit">
+<s:form action="DecisionDetailUpdate">
 				<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />"><s:submit value="編集"/>
 </s:form>
 				</td>
 				<td><input type="button" value="申請" class="modal-edit-open"></td>
 				<td><input type="button" value="削除" class="modal-open"></td>
-				<td><input type="button" value="プレビュー"></td>
+
+				<td>
+				<s:form action="DecisionDetailPreview">
+				<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />"><s:submit value="プレビュー"/>
+				</s:form></td>
 			</tr>
 		</s:iterator>
 

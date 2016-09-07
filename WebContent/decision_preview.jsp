@@ -1,20 +1,20 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE>
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset=UTF-8>
 <title>Insert title here</title>
 </head>
 <body>
-		//%{decisionList.get(0).getDecisionStatus()}
 
-		<table border="1">
-
-
-
-		</table>
-
+<s:iterator value="decisionDetailList">
+<s:property value="decisionDetailId" />
+<s:property value="projectName" />
+<s:property value="decisionId" />
+<s:property value="decisionType" />
+<s:property value="decisionStatus" />
+</s:iterator>
 </body>
 </html>
