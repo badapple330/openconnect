@@ -1,5 +1,0 @@
-‘‚«Š·‚¦‚½‚ç•¶Žš‚É‚ào—ˆ‚Ü‚·
-
-<img src="./img/pizza01.jpg" id="modal-open" value="ƒ‚[ƒ_ƒ‹" />
-«
-<a id="modal-open">¶ÃºÞØ</a>

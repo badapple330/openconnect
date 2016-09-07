@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-http://www.nulab.co.jp/designPatterns/designPatterns3/designPatterns3-4.html
-
-=======
-http://www.nulab.co.jp/designPatterns/designPatterns3/designPatterns3-4.html
-
->>>>>>> 46694511a04b7cbc9649ab8935538f50658b9e37
-http://mixi.jp/view_bbs.pl?comm_id=368966&id=40025401

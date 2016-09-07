@@ -1,6 +1,0 @@
-書き換えたらボタンにも出来ます
-
-<img src="./img/pizza01.jpg" id="modal-open" value="モーダル" />
-↓
-
-<input type="button" id="modal-open" value="ｶﾃｺﾞﾘ"/>
