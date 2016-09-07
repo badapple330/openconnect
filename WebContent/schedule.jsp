@@ -93,7 +93,7 @@
 	</tr>
 	<tr>
 		<td><input type="text" name="Start_day" pattern="\d{2}/\d{2}/\d{2}" placeholder="開始日を入力"></td>
-		<td><input type="text" name="Title" placeholder="件名を入力" maxlength=100></td>
+		<td><input type="text" name="Title" placeholder="件名を入力" maxlength=100 required></td>
 		<td><input type="text" name="Content" placeholder="内容を入力" maxlength=100></td>
 		<td><button type="submit" class="button">追加</button></td></tr>
 	</tbody>

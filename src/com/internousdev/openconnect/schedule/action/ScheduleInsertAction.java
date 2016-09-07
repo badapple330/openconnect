@@ -50,11 +50,12 @@ public class ScheduleInsertAction extends ActionSupport{
 	public String execute(){
 		String ret = ERROR;
 		int k;
-		if(Length(Title)==0){
+
+		if(Title.isEmpty()){
 			ret = ERROR;
 			errortitle=(getText("追加できませんでした"));
 			return ret;
-		}
+		}else{
 
 		ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
@@ -66,13 +67,10 @@ public class ScheduleInsertAction extends ActionSupport{
 		} else {
 			errortitle=(getText("追加に失敗しました"));
 		}
+		}
 		return ret;
 	}
 
-	private int Length(String title2) {
-		// TODO 自動生成されたメソッド・スタブ
-		return 0;
-	}
 
 	/**
 	 * 取得メソッド
