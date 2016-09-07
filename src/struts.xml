@@ -104,7 +104,7 @@
 		<!-- </action> -->
 
 		<!-- 決済状況一覧画面への遷移 -->
-		<action name="GoDecision" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="GoDecision" class="com.internousdev.openconnect.decision.action.DecisionDisplayAction"
 			method="execute">
 			<result name="success">decision.jsp</result>
 			<result name="error">/register.jsp</result>

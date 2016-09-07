@@ -28,12 +28,12 @@ public class DecisionListDAO {
 		Connection conn = db.getConnection();
 
 		//		String sql = "select * from decision where project_list=? or project_name=? or Registration=?";
-		String sql = "select * from decision where decision_name=?";
+		String sql = "select * from decision where decision_name like'%" + searchString + "%'";
 
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 
-			ps.setString(1,searchString);
+//			ps.setString(1,searchString);
 			//			ps.setString(2,searchString);
 			//			ps.setString(3,searchString);
 

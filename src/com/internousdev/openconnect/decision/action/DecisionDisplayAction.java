@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionDisplayAction extends ActionSupport{
 
-	private List<DecisionDisplayDTO> DecisiontList = new ArrayList<DecisionDisplayDTO>();
+	private List<DecisionDisplayDTO> decisiontList = new ArrayList<DecisionDisplayDTO>();
 
 	private static final long serialVersionUID = -7586577377473680450L;
 
@@ -17,8 +17,8 @@ public class DecisionDisplayAction extends ActionSupport{
 		String result = ERROR;
 		DecisionDisplayDAO dao = new DecisionDisplayDAO();
 
-		DecisiontList = dao.select();
-		if (!(DecisiontList == null)) {
+		decisiontList = dao.select();
+		if (!(decisiontList == null)) {
 			result = SUCCESS;
 		}
 		return result;
@@ -30,7 +30,7 @@ public class DecisionDisplayAction extends ActionSupport{
 	* @return DecisiontList
 	*/
 	public List<DecisionDisplayDTO> getDecisiontList() {
-		return DecisiontList;
+		return decisiontList;
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class DecisionDisplayAction extends ActionSupport{
 	* @param decisiontList
 	*/
 	public void setDecisiontList(List<DecisionDisplayDTO> decisiontList) {
-		DecisiontList = decisiontList;
+		decisiontList = decisiontList;
 	}
 
 	/**

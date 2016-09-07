@@ -15,7 +15,7 @@ public class DecisionListAction extends ActionSupport{
 	/**
 	 *
 	 */
-	private ArrayList<DecisionListDTO> list = new ArrayList<DecisionListDTO>();
+	private ArrayList<DecisionListDTO> decisiontList = new ArrayList<DecisionListDTO>();
 
 	private String errorSelect;
 
@@ -26,7 +26,7 @@ public class DecisionListAction extends ActionSupport{
 		System.out.println(searchString);
 		DecisionListDAO dao = new DecisionListDAO();
 		if (dao.select(searchString)) {
-			list = dao.getList();
+			decisiontList = dao.getList();
 		} else {
 			errorSelect = (getText("データがありません"));
 		}
@@ -39,8 +39,8 @@ public class DecisionListAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @return list
 	*/
-	public ArrayList<DecisionListDTO> getList() {
-		return list;
+	public ArrayList<DecisionListDTO> getDecisiontList() {
+		return decisiontList;
 	}
 
 
@@ -49,8 +49,8 @@ public class DecisionListAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @param list
 	*/
-	public void setList(ArrayList<DecisionListDTO> list) {
-		this.list = list;
+	public void setDecisiontList(ArrayList<DecisionListDTO> decisiontList) {
+		this.decisiontList = decisiontList;
 	}
 
 
