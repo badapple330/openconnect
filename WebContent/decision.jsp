@@ -18,7 +18,7 @@
 <p>
 <!-- <form action="form.php" method="post"> -->
 <p>
-<s:form action="Decisionselect">
+<s:form action="DecisionSelect">
 <input type="text" name="searchString">
 <input type="submit" value="検索" class="button">
 </s:form>

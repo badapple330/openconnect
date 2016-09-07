@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.decision.dto.DecisionDTO;
+import com.internousdev.openconnect.decision.dto.DecisionListDTO;
 import com.internousdev.util.DBConnector;
 
-public class DecisionDAO {
+public class DecisionListDAO {
 	/**
 	 * ユーザー一覧情報を格納するリスト
 	 */
-	private ArrayList<DecisionDTO> list = new ArrayList<DecisionDTO>();
+	private ArrayList<DecisionListDTO> list = new ArrayList<DecisionListDTO>();
 
 	/**
 	 * 画面にユーザー情報一覧を表示させる為のメソッド
@@ -21,7 +21,7 @@ public class DecisionDAO {
 	 * @return result データベースからのユーザー一覧情報を格納できたか否か
 	 * @throws SQLException
 	 */
-	public boolean select(String searchString ) throws SQLException {
+	public boolean select(String searchString ) {
 		//「searchString」←これは自由に決めて良い(わかり易い名前にする)。
 		boolean result = false;
 
@@ -29,7 +29,7 @@ public class DecisionDAO {
 		Connection conn = db.getConnection();
 		//上記はお決まり文
 //		String sql = "select * from decision where project_list=? or project_name=? or Registration=?";
-		String sql = "select * from decision where project_list=?";
+		String sql = "select * from decision where decision_name=?";
 		//String sql = "select * from 何を？";//全て表示
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -44,7 +44,7 @@ public class DecisionDAO {
 
             while(rs.next()) {
             	//括弧内はお決まり文。「終わるまで」という意味
-            	DecisionDTO dto = new DecisionDTO();
+            	DecisionListDTO dto = new DecisionListDTO();
             	//DTOに覚えてもらうためのセットする文
             	dto.setRegistration(rs.getDate("Registration"));
             	dto.setProject_list(rs.getString("project_list"));
@@ -74,20 +74,23 @@ public class DecisionDAO {
          return result;
 
 	}
-
-	public ArrayList<DecisionDTO> getList() {
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return list
+	*/
+	public ArrayList<DecisionListDTO> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<DecisionDTO> list) {
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param list
+	*/
+	public void setList(ArrayList<DecisionListDTO> list) {
 		this.list = list;
 	}
-
-	public ArrayList<DecisionDTO> getProjectlistSelect() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
 
 
 
