@@ -174,7 +174,7 @@
 
 		<!-- 決済手続き電子化画面への遷移 -->
 		<action name="GoDecisionDetail"
-			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailAction"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailSearchAction"
 			method="execute">
 			<result name="success">decision_detail.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -211,14 +211,14 @@
 		<action name="DecisionDetailApplication"
 			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailApplicationAction"
 			method="execute">
-			<result name="success" type="chain">GoDecisionDetail</result>
+			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<action name="DecisionDetailInsert"
-			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailNewAction"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailInsertAction"
 			method="execute">
-			<result name="success" type="chain">GoDecisionDetail</result>
+			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
 

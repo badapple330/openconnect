@@ -4,7 +4,7 @@
 package com.internousdev.openconnect.decisionDetail.action;
 
 
-import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailNewDAO;
+import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 画面で新規に追加した情報を、DBに追加する為のクラス
@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2016/09/04
  * @version 1.0
  */
-public class DecisionDetailNewAction extends ActionSupport{
+public class DecisionDetailInsertAction extends ActionSupport{
 	/**
 	 * シリアルバージョンID
 	 */
@@ -30,7 +30,7 @@ public class DecisionDetailNewAction extends ActionSupport{
 	public String execute(){
 
 		String result=ERROR;
-		DecisionDetailNewDAO dao = new DecisionDetailNewDAO();
+		DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();
 		int count = 0;
 		count = dao.insert(projectId);
 		if (count > 0) {

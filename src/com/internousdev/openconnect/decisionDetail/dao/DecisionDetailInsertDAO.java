@@ -14,7 +14,7 @@ import com.internousdev.util.DBConnector;
  * @since 2016/09/04
  * @version 1.0
  */
-public class DecisionDetailNewDAO {
+public class DecisionDetailInsertDAO {
 	 /**
      * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
      * @author TATUHUMI ITOU
