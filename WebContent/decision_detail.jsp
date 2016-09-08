@@ -75,7 +75,6 @@
 	<br>
 <s:form action="DecisionDetailNew">
 	<input type="text" placeholder="プロジェクトID入力">
-	<input type="text" placeholder="案件ID入力">
 	<input type="submit" value="追加">
 	</s:form>
 

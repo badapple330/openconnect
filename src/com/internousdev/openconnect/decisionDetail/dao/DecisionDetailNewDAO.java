@@ -19,17 +19,16 @@ public class DecisionDetailNewDAO {
      * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
      * @author TATUHUMI ITOU
      */
-	public int insert(int projectId,int decisionId){
+	public int insert(int projectId){
 
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "INSERT INTO decision_detail(project_id,decision_id)VALUES(? ,?)";
+		String sql = "INSERT INTO decision_detail(project_id)VALUES(?)";
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1,projectId);
-			ps.setInt(2,decisionId);
 
 			count = ps.executeUpdate();
 

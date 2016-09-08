@@ -31,7 +31,7 @@ public class DecisionDetailDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql="select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id";
+			String sql="select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id inner join decision on decision_detail.decision_id = decision.decision_id";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 

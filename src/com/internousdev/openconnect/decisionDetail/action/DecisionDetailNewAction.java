@@ -21,7 +21,6 @@ public class DecisionDetailNewAction extends ActionSupport{
 	 * 日付、プロジェクト名、進捗予定、進捗結果、その他報告
 	 */
 	private int projectId;
-private int decisionId;
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -33,7 +32,7 @@ private int decisionId;
 		String result=ERROR;
 		DecisionDetailNewDAO dao = new DecisionDetailNewDAO();
 		int count = 0;
-		count = dao.insert(projectId,decisionId);
+		count = dao.insert(projectId);
 		if (count > 0) {
 			result = SUCCESS;
 		}
@@ -57,13 +56,6 @@ private int decisionId;
 		this.projectId = projectId;
 	}
 
-	public int getDecisionId() {
-		return decisionId;
-	}
-
-	public void setDecisionId(int decisionId) {
-		this.decisionId = decisionId;
-	}
 
 
 }
