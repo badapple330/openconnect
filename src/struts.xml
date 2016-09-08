@@ -155,6 +155,14 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<action name="ProjectsDelete"
+			class="com.internousdev.openconnect.projects.action.ProjectsDeleteAction"
+			method="execute">
+			<result name="success">projects.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
 
 
 		<!-- 受講生一覧画面への遷移 -->
