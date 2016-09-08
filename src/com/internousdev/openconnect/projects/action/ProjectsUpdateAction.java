@@ -18,8 +18,8 @@ public class ProjectsUpdateAction extends ActionSupport{
 
 	private List<Integer> projectIdList= new ArrayList<Integer>();
 	private List<String> projectNameList = new ArrayList<String>();
-	private List<String> projectManagerIdList = new ArrayList<String>();
-	private List<String> projectSubManagerIdList = new ArrayList<String>();
+	private List<Integer> projectManagerIdList = new ArrayList<Integer>();
+	private List<Integer> projectSubManagerIdList = new ArrayList<Integer>();
 	private List<String> projectStartDateList = new ArrayList<String>();
 	private List<String> projectEndDateList = new ArrayList<String>();
 	private List<String> projectNoteList = new ArrayList<String>();
@@ -96,7 +96,7 @@ public class ProjectsUpdateAction extends ActionSupport{
 	* @author YUICHI KIRIU
 	* @return projectManagerIdList
 	*/
-	public List<String> getProjectManagerIdList() {
+	public List<Integer> getProjectManagerIdList() {
 		return projectManagerIdList;
 	}
 
@@ -105,7 +105,7 @@ public class ProjectsUpdateAction extends ActionSupport{
 	* @author YUICHI KIRIU
 	* @param projectManagerIdList
 	*/
-	public void setProjectManagerIdList(List<String> projectManagerIdList) {
+	public void setProjectManagerIdList(List<Integer> projectManagerIdList) {
 		this.projectManagerIdList = projectManagerIdList;
 	}
 
@@ -114,7 +114,7 @@ public class ProjectsUpdateAction extends ActionSupport{
 	* @author YUICHI KIRIU
 	* @return projectSubManagerIdList
 	*/
-	public List<String> getProjectSubManagerIdList() {
+	public List<Integer> getProjectSubManagerIdList() {
 		return projectSubManagerIdList;
 	}
 
@@ -123,7 +123,7 @@ public class ProjectsUpdateAction extends ActionSupport{
 	* @author YUICHI KIRIU
 	* @param projectSubManagerIdList
 	*/
-	public void setProjectSubManagerIdList(List<String> projectSubManagerIdList) {
+	public void setProjectSubManagerIdList(List<Integer> projectSubManagerIdList) {
 		this.projectSubManagerIdList = projectSubManagerIdList;
 	}
 

@@ -26,11 +26,12 @@ public class ProjectsListDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
+
 		try {
-			String sql = "SELECT*FROM projects";
+			String sql = "SELECT projects.project_id, projects.project_name,projects.manager_id,projects.sub_manager_id,projects.start_date,projects.end_date,projects.note FROM projects  INNER JOIN  users ON projects.manager_id  = users.user_id";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-
+			System.out.println("ミリオンゴッド");
 			while (rs.next()) {
 				ProjectsListDTO dto = new ProjectsListDTO();
 
