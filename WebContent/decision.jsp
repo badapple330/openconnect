@@ -64,15 +64,13 @@
 <td><input type="text"name="i_a_id" value="<s:property value="i_a_id" />" /></td>
 </tr>
 </s:iterator>
-
-
-
-
 </table>
-
-
-
 </div>
+
+<s:form action="DecisionUpdate">
+<input type="submit" value="編集" class="button">
+</s:form>
+
 <s:form action="BackGoAction">
 <center><input type=submit value="戻る" class="button"></center>
 </s:form>
