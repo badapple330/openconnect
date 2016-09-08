@@ -38,8 +38,7 @@ public class ProjectsSerachDAO {
 
             	dto.setProjectId(rs.getString("project_id"));
             	dto.setProjectName(rs.getString("project_name"));
-            	dto.setManagerName(rs.getString("manager_name"));
-            	dto.setSubManagerName(rs.getString("sub_manager_name"));
+            	
             	dto.setStartDate(rs.getString("start_date"));
             	dto.setEndDate(rs.getString("end_date"));
             	dto.setNote(rs.getString("note"));

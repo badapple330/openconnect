@@ -23,8 +23,6 @@ public class ProjectsUpdateAction extends ActionSupport{
 	private List<String> projectStartDateList = new ArrayList<String>();
 	private List<String> projectEndDateList = new ArrayList<String>();
 	private List<String> projectNoteList = new ArrayList<String>();
-	private List<String> projectManagerNameList = new ArrayList<String>();
-	private List<String> projectSubManagerNameList = new ArrayList<String>();
 
 
 	/**
@@ -44,13 +42,11 @@ public class ProjectsUpdateAction extends ActionSupport{
 
 			count = dao.select(
 					projectNameList.get(i),
-					projectManagerNameList .get(i),
-					projectSubManagerNameList.get(i),
+					projectManagerIdList.get(i),
+					projectSubManagerIdList.get(i),
 					projectStartDateList.get(i),
 					projectEndDateList.get(i),
 					projectNoteList.get(i),
-					projectManagerIdList.get(i),
-					projectSubManagerIdList.get(i),
 					projectIdList.get(i));
 		}
 		if(count > 0){
@@ -185,41 +181,6 @@ public class ProjectsUpdateAction extends ActionSupport{
 		this.projectNoteList = projectNoteList;
 	}
 
-	/**
-	* 取得メソッド
-	* @author YUICHI KIRIU
-	* @return projectManagerNameList
-	*/
-	public List<String> getProjectManagerNameList() {
-		return projectManagerNameList;
-	}
-
-	/**
-	* 設定メソッド
-	* @author YUICHI KIRIU
-	* @param projectManagerNameList
-	*/
-	public void setProjectManagerNameList(List<String> projectManagerNameList) {
-		this.projectManagerNameList = projectManagerNameList;
-	}
-
-	/**
-	* 取得メソッド
-	* @author YUICHI KIRIU
-	* @return projectSubManagerNameList
-	*/
-	public List<String> getProjectSubManagerNameList() {
-		return projectSubManagerNameList;
-	}
-
-	/**
-	* 設定メソッド
-	* @author YUICHI KIRIU
-	* @param projectSubManagerNameList
-	*/
-	public void setProjectSubManagerNameList(List<String> projectSubManagerNameList) {
-		this.projectSubManagerNameList = projectSubManagerNameList;
-	}
 
 }
 

@@ -39,18 +39,6 @@ public class ProjectsSearchDTO {
 	private String Note;
 
 
-	//内部結合するまで
-
-	/**
-	 * 管理者名（リーダー）
-	 */
-	private String managerName;
-
-	/**
-	 * 管理者名（サブ）
-	 */
-	private String subManagerName;
-
 
 
 	/**
@@ -165,39 +153,5 @@ public class ProjectsSearchDTO {
 	public void setNote(String note) {
 		this.Note = note;
 	}
-	/**
-	 * 取得メソッド
-	 * @author YUICHI KIRIU
-	 * @return managerName
-	 */
-	public String getManagerName() {
-		return managerName;
-	}
-	/**
-	 * 設定メソッド
-	 * @author YUICHI KIRIU
-	 * @param managerName
-	 */
-	public void setManagerName(String managerName) {
-		this.managerName = managerName;
-	}
-	/**
-	 * 取得メソッド
-	 * @author YUICHI KIRIU
-	 * @return subManagerName
-	 */
-	public String getSubManagerName() {
-		return subManagerName;
-	}
-	/**
-	 * 設定メソッド
-	 * @author YUICHI KIRIU
-	 * @param subManagerName
-	 */
-	public void setSubManagerName(String subManagerName) {
-		this.subManagerName = subManagerName;
-	}
-
-
 
 }

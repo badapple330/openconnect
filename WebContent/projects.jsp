@@ -34,18 +34,24 @@
 				<!-- 繰り返し -->
 				<!-- 表示 -->
 				<tr>
-					<td><input type="text" name="projectUserIdList"
-						value="<s:property  value="userId" />"></td>
+					<td><input type="text" name="projectIdList"
+						value="<s:property  value="projectId" />"></td>
+
 					<td><input type="text" name="projectNameList"
 						value="<s:property value="projectName"/>"></td>
-					<td><input type="text" name="projectManagerList"
-						value="<s:property value="manager"/>"></td>
-					<td><input type="text" name="projectSubManagerList"
-						value="<s:property value="subManager"/>"></td>
+
+					<td><input type="text" name="projectManagerIdList"
+						value="<s:property value="managerId"/>"></td>
+
+					<td><input type="text" name="projectSubManagerIdList"
+						value="<s:property value="subManagerId"/>"></td>
+
 					<td><input type="text" name="projectStartDateList"
 						value="<s:property value="startDate"/>"></td>
+
 					<td><input type="text" name="projectEndDateList"
 						value="<s:property value="endDate"/>"></td>
+
 					<td><input type="text" name="projectNoteList"
 						value="<s:property value="note"/>"></td>
 				</tr>
@@ -55,12 +61,14 @@
 		<input class="button" type="submit" value="編集">
 	</s:form>
 
-	<s:form action="ProjectInsert">
-		<input type="text" value="プロジェクトID">
-		<input type="text" value="管理者ID(リーダー)">
-		<input type="text" value="管理者ID(サブ)">
-		<input type="text" value="開始日">
+	<s:form action="ProjectsInsert">
+		<input type="text" name="projectId" placeholder="プロジェクトID">
+		<input type="text" name="projectName" placeholder="プロジェクト名">
+		<input type="text" name="managerId" placeholder="管理者ID(リーダー)">
+		<input type="text" name="subManagerId" placeholder="管理者ID(サブ)">
+		<input type="text" name="startDate" placeholder="開始日">
 		<input class="button" type="submit" value="追加">
+
 		<br>
 	</s:form>
 	<s:form action="BackGoAction">
