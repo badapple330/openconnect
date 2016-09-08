@@ -28,7 +28,7 @@ public class ScheduleInsertDAO {
 		int count=0;
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn= (Connection) db.getConnection();
-		String sql="INSERT INTO schedule(start_day, title, content) VALUES (?,?,?)";
+		String sql="INSERT INTO schedule(start_day, title, content) VALUES (?,trim(?),trim(?))";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
 		Start_day = sdf.format(System.currentTimeMillis());

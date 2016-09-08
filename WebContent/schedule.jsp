@@ -57,8 +57,8 @@ document.onkeydown = keydown;
 			<tbody>
 				<tr>
 					<td>ID</td>
-					<td>開始日（YY/MM/DD）</td>
-					<td>終了日（YY/MM/DD）</td>
+					<td>開始日（YYYY-MM-DD）</td>
+					<td>終了日（YYYY-MM-DD）</td>
 					<td>件名</td>
 					<td>内容</td>
 				</tr>
@@ -93,7 +93,7 @@ document.onkeydown = keydown;
 						<td><input type="text" name="scheduleStart_dayList"
 							value="<s:property value="Start_day" />"
 							class="delscheduleStart_dayList" type="date"
-							pattern="\d{2}-\d{2}-\d{2}"></td>
+							pattern="\d{4}-\d{2}-\d{2}"></td>
 						<td><input type="text" name="scheduleEnd_dayList"
 							value="<s:property value="End_day" />"
 							class="delscheduleEnd_dayList" pattern="\d{4}-\d{2}-\d{2}"></td>
