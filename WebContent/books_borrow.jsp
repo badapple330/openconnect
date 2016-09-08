@@ -17,15 +17,37 @@
 	<br>
 	<br>
 
+
 	<table border="1" cellspacing="0">
+		<th>id</th>
 		<th width="150">貸し出し状況</th>
 		<th width="250">日付</th>
 		<th width="50">ユーザーID</th>
+
+		<s:iterator value="bookList">
+			<tr>
+				<td><input type="text" name="bookIdList"
+					value="<s:property  value="bookId" />" class="bookId"></td>
+				<td><input type="text" name="statusList"
+					value="<s:property value="borrowStatus" />" class="status"></td>
+				<td><input type="text" name="dayList"
+					value="<s:property value="borrowDay" />" class="day"></td>
+				<td><input type="text" name="borrowIdList"
+					value="<s:property value="borrowId" />" class="userId"></td>
+			</tr>
+		</s:iterator>
 	</table>
+
 	<br>
 
 	<s:form action="">
-		<input class="button" type="submit" value="書籍貸し出し">
+	ID
+	<p>
+			<input type="text" name="id">
+		<p>ユーザーID
+		<p>
+			<input type="text" name="userId"> <input class="button"
+				type="submit" value="書籍貸し出し確認">
 	</s:form>
 </body>
 </html>

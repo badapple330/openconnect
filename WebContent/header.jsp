@@ -75,6 +75,11 @@
 			<!-- 	<!--書籍一覧 -->
 			<s:form action="GoBooks">
 				<s:submit value="書籍一覧" />
+
+			</s:form>
+<!-- 			書籍貸し出し -->
+			<s:form action="GoBooksBorrow">
+				<s:submit value="書籍貸し出し" />
 			</s:form>
 			<!--      プロジェクト進捗報告 -->
 			<s:form action="GoProjectProgress">

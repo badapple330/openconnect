@@ -256,6 +256,16 @@
 		</action>
 
 
+		<action name="GoBooksBorrow"
+			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowAction"
+			method="execute">
+			<result name="success">books_borrow.jsp</result>
+			<result name="error ">/register.jsp</result>
+
+		</action>
+
+
+
 		<!-- プロジェクト進捗画面への遷移 -->
 		<action name="GoProjectProgress"
 			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressAction"
