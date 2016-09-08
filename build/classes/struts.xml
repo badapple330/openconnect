@@ -158,7 +158,8 @@
 		</action>
 
 		<!-- 勤怠更新画面への遷移 -->
-		<action name="GoAttendance" class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
+		<action name="GoAttendance"
+			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
 			method="execute">
 			<result name="success">attendance.jsp</result>
 			<result name="error">/attendance.jsp</result>
@@ -282,6 +283,13 @@
 
 		<action name="BooksBorrowCreate"
 			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowNewAction"
+			method="execute">
+			<result name="success" type="chain">GoBooksBorrow</result>
+			<result name="error ">/register.jsp</result>
+		</action>
+
+		<action name="BooksBorrowDelete"
+			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowReturnAction"
 			method="execute">
 			<result name="success" type="chain">GoBooksBorrow</result>
 			<result name="error ">/register.jsp</result>

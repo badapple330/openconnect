@@ -9,9 +9,9 @@ import com.internousdev.util.DBConnector;
 public class ProjectsDeleteDAO {
 
 	/**
-     * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
-     * @author TATUHUMI ITOU
-     */
+	 * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
+	 * @author TATUHUMI ITOU
+	 */
 	public int delete(int projectId){
 
 		int count =0;
@@ -26,7 +26,7 @@ public class ProjectsDeleteDAO {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, projectId);
 			count = ps.executeUpdate();
-			System.out.println(count);
+
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally {
@@ -36,7 +36,7 @@ public class ProjectsDeleteDAO {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("last:" + count);
+
 		return count;
 	}
 
