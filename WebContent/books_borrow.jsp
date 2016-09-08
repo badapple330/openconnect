@@ -20,34 +20,46 @@
 
 	<table border="1" cellspacing="0">
 		<th>id</th>
+		<th width="300">タイトル</th>
 		<th width="150">貸し出し状況</th>
-		<th width="250">日付</th>
+		<th width="200">日付</th>
 		<th width="50">ユーザーID</th>
 
 		<s:iterator value="bookList">
 			<tr>
 				<td><input type="text" name="bookIdList"
 					value="<s:property  value="bookId" />" class="bookId"></td>
+				<td><input type="text" name="title"
+					value="<s:property value="title" />" class="title"></td>
 				<td><input type="text" name="statusList"
 					value="<s:property value="borrowStatus" />" class="status"></td>
 				<td><input type="text" name="dayList"
 					value="<s:property value="borrowDay" />" class="day"></td>
 				<td><input type="text" name="borrowIdList"
 					value="<s:property value="borrowId" />" class="userId"></td>
+
 			</tr>
 		</s:iterator>
 	</table>
 
 	<br>
 
+	<s:form action ="BooksBorrowCreate">
+	<input type="text" name="id">
+	<input class="button" type="submit" value="追加">
+
+	</s:form>
+
 	<s:form action="">
 	ID
-	<p>
-			<input type="text" name="id">
-		<p>ユーザーID
+	<br>
+		<input type="text" name="id">
+		<br>ユーザーID
+		<br>
+		<input type="text" name="userId">
 		<p>
-			<input type="text" name="userId"> <input class="button"
-				type="submit" value="書籍貸し出し確認">
+			<input class="button" type="submit" value="返却">
+			<input class="button" type="submit" value="貸し出し">
 	</s:form>
 </body>
 </html>

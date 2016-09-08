@@ -33,7 +33,7 @@ public class BooksBorrowDAO {
 
 
 		try {
-			String sql="SELECT * FROM books_borrow ";
+			String sql="SELECT * FROM books_borrow inner join books on books_borrow.book_id = books.book_id ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
@@ -43,6 +43,7 @@ public class BooksBorrowDAO {
 				dto.setBorrowStatus(rs.getString("borrow_status"));
 				dto.setBorrowDay(rs.getString("borrow_day"));
 				dto.setBorrowId(rs.getInt("borrow_id"));
+				dto.setTitle(rs.getString("title"));
 
 				bookList.add(dto);
 			}

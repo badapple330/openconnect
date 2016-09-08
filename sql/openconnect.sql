@@ -217,7 +217,7 @@ insert into books(title)values("やさしいJAVA");
 /*サブプロジェクト / 書籍貸出状況一覧*/
 create table books_borrow(
 book_id int not null,
-borrow_status varchar(10) not null,
+borrow_status varchar(10) not null default "貸し出し可能",
 borrow_day date,
 borrow_id int,
 foreign key(book_id) references books(book_id),
