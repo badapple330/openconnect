@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.internousdev.util.DBConnector;
 
 /**
@@ -13,25 +12,26 @@ import com.internousdev.util.DBConnector;
  * @since 2016/09/04
  * @version 1.0
  */
-public class AttendanceUpDAO {
+public class AttendanceUpdateDAO {
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author MINORI SUNAGAWA
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-	public int update(AttendanceDTO dto){
+	public int update( String date, int userId, int attendance, int interview ){
 		int count=0;
 
 		Connection conn=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
-		String sql="update attendance set date=?,attendance=?,interview=?";
+		String sql="update attendance set date=?, attendance=?, interview=? where user_id=?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 
-			ps.setString(1, dto.getDate());
-			ps.setInt(2, dto.getAttendance());
-			ps.setInt(3, dto.getInterview());
+			ps.setString(1, date);
+			ps.setInt(2, attendance);
+			ps.setInt(3, interview);
+			ps.setInt(4,  userId);
 
 			count = ps.executeUpdate();
 
