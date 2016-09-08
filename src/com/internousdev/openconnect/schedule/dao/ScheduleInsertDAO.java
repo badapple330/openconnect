@@ -30,7 +30,7 @@ public class ScheduleInsertDAO {
 		Connection conn= (Connection) db.getConnection();
 		String sql="INSERT INTO schedule(start_day, title, content) VALUES (?,?,?)";
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
 		Start_day = sdf.format(System.currentTimeMillis());
 
 		try{

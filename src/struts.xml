@@ -340,12 +340,16 @@
 			<result name="error" type="chain">GoSchedule</result>
 		</action>
 
-		<!-- スケジュール画面で更新 -->
-		<action name="ScheduleUpdate"
-			class="com.internousdev.openconnect.schedule.action.ScheduleUpdateAction"
+		<!-- スケジュール画面で追加 -->
+		<action name="ScheduleInsert"
+			class="com.internousdev.openconnect.schedule.action.ScheduleInsertAction"
 			method="execute">
-			<result name="success" type="chain">GoSchedule</result>
-			<result name="error" type="chain">GoSchedule</result>
+			<!-- デフォルトinterceptor -->
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">GoSchedule</result>
+			<result type="chain">GoSchedule</result>
 		</action>
 
 		<!-- スケジュール画面で削除 -->
