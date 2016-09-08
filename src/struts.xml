@@ -110,7 +110,7 @@
 		<action name="DecisionUpdate"
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
-			<result name="success">decision.jsp</result>
+			<result name="success" type="chain">GoDecision</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
