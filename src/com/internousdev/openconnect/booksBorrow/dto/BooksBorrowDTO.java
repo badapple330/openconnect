@@ -11,8 +11,8 @@ public class BooksBorrowDTO {
 
 	private int bookId;
 	private String borrowStatus;
-	private String borrowHuman;
 	private String borrowDay;
+	private int borrowId;
 	/**
 	* 取得メソッド
 	* @author TATSUYA HOSHI
@@ -48,22 +48,6 @@ public class BooksBorrowDTO {
 	/**
 	* 取得メソッド
 	* @author TATSUYA HOSHI
-	* @return borrowHuman
-	*/
-	public String getBorrowHuman() {
-		return borrowHuman;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param borrowHuman
-	*/
-	public void setBorrowHuman(String borrowHuman) {
-		this.borrowHuman = borrowHuman;
-	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
 	* @return borrowDay
 	*/
 	public String getBorrowDay() {
@@ -77,7 +61,22 @@ public class BooksBorrowDTO {
 	public void setBorrowDay(String borrowDay) {
 		this.borrowDay = borrowDay;
 	}
-
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return borrowId
+	*/
+	public int getBorrowId() {
+		return borrowId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param borrowId
+	*/
+	public void setBorrowId(int borrowId) {
+		this.borrowId = borrowId;
+	}
 
 
 

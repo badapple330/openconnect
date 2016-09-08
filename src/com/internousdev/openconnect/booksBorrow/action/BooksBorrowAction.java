@@ -16,11 +16,6 @@ public class BooksBorrowAction extends ActionSupport {
 	private List<BooksBorrowDTO>bookList = new ArrayList<BooksBorrowDTO>();
 
 	/**
-	 * シリアルバージョンID
-	 */
-	private static final long serialVersionUID = -7586577377473680450L;
-
-	/**
 	 * DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
@@ -35,13 +30,24 @@ public class BooksBorrowAction extends ActionSupport {
 		return result;
 	}
 
-	public List<BooksBorrowDTO> getBooklist() {
+	/**
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return bookList
+	 */
+	public List<BooksBorrowDTO> getBookList() {
 		return bookList;
 	}
 
-	public void setBooklist(List<BooksBorrowDTO> booklist) {
-		bookList = booklist;
+	/**
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param bookList
+	 */
+	public void setBookList(List<BooksBorrowDTO> bookList) {
+		this.bookList = bookList;
 	}
+
 
 
 

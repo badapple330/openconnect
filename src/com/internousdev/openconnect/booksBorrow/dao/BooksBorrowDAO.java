@@ -31,17 +31,18 @@ public class BooksBorrowDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
 
+
 		try {
-			String sql="SELECT * FROM book_list ";
+			String sql="SELECT * FROM books_borrow ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
 				BooksBorrowDTO dto = new BooksBorrowDTO();
 				dto.setBookId(rs.getInt("book_id"));
-				dto.setBorrowStatus(rs.getString("status"));
-				dto.setBorrowHuman(rs.getString("borrow_human"));
+				dto.setBorrowStatus(rs.getString("borrow_status"));
 				dto.setBorrowDay(rs.getString("borrow_day"));
+				dto.setBorrowId(rs.getInt("borrow_id"));
 
 				bookList.add(dto);
 			}
