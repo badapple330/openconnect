@@ -1,6 +1,5 @@
 package com.internousdev.openconnect.schedule.action;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,13 +22,13 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private List<Date> scheduleStart_dayList = new ArrayList<Date>();
+	private List<String> scheduleStart_dayList = new ArrayList<String>();
 
 	/**
 	 *終了日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private List<Date> scheduleEnd_dayList = new ArrayList<Date>();
+	private List<String> scheduleEnd_dayList = new ArrayList<String>();
 
 	/**
 	 * 件名
@@ -104,7 +103,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleStart_dayList
 	 */
-	public List<Date> getScheduleStart_dayList() {
+	public List<String> getScheduleStart_dayList() {
 		return scheduleStart_dayList;
 	}
 
@@ -114,7 +113,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleStart_dayList
 	 */
-	public void setScheduleStart_dayList(List<Date> scheduleStart_dayList) {
+	public void setScheduleStart_dayList(List<String> scheduleStart_dayList) {
 		this.scheduleStart_dayList = scheduleStart_dayList;
 	}
 
@@ -124,7 +123,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleEnd_dayList
 	 */
-	public List<Date> getScheduleEnd_dayList() {
+	public List<String> getScheduleEnd_dayList() {
 		return scheduleEnd_dayList;
 	}
 
@@ -134,7 +133,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleEnd_dayList
 	 */
-	public void setScheduleEnd_dayList(List<Date> scheduleEnd_dayList) {
+	public void setScheduleEnd_dayList(List<String> scheduleEnd_dayList) {
 		this.scheduleEnd_dayList = scheduleEnd_dayList;
 	}
 
@@ -180,40 +179,40 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return error_msg
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return error_msg
+	 */
 	public String getError_msg() {
 		return error_msg;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEZUKA
-	* @param error_msg
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEZUKA
+	 * @param error_msg
+	 */
 	public void setError_msg(String error_msg) {
 		this.error_msg = error_msg;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return success_msg
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return success_msg
+	 */
 	public String getSuccess_msg() {
 		return success_msg;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEZUKA
-	* @param success_msg
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEZUKA
+	 * @param success_msg
+	 */
 	public void setSuccess_msg(String success_msg) {
 		this.success_msg = success_msg;
 	}

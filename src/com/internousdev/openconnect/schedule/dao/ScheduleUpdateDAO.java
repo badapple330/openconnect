@@ -1,8 +1,8 @@
 package com.internousdev.openconnect.schedule.dao;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 import com.mysql.jdbc.Connection;
@@ -24,18 +24,19 @@ public class ScheduleUpdateDAO {
 	 * @param Content
 	 * @return count
 	 */
-	public int update(int Id, Date Start_day, Date End_day, String Title, String Content){
+	public int update(int Id, String Start_day, String End_day, String Title, String Content){
 		int count=0;
 
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn= (Connection) db.getConnection();
 
 		String sql = "UPDATE schedule SET start_day=?, end_day=?, title=?, content=? WHERE id=?";
-
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		Start_day = sdf.format(System.currentTimeMillis());
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setDate(1,Start_day);
-			ps.setDate(2,End_day);
+			ps.setString(1,Start_day);
+			ps.setString(2,End_day);
 			ps.setString(3,Title);
 			ps.setString(4,Content);
 			ps.setInt(5,Id);

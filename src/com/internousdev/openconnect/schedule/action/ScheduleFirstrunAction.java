@@ -27,6 +27,7 @@ public class ScheduleFirstrunAction extends ActionSupport {
 	 * @author MASAHIRO KEDSUKA
 	 */
 	public String execute() {
+
 		String result = ERROR;
 		ScheduleFirstrunDAO dao = new ScheduleFirstrunDAO();
 

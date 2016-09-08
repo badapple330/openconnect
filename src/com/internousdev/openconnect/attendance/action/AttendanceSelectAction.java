@@ -5,7 +5,7 @@ package com.internousdev.openconnect.attendance.action;
 
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.attendance.dao.AttendanceDAO;
+import com.internousdev.openconnect.attendance.dao.AttendanceSelectDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -22,21 +22,17 @@ public class AttendanceSelectAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 671961516965709160L;
 	/**
-	 * 勤怠DTO
+	 * 受講年&月
 	 */
-	private AttendanceDTO dto;
+	private String studentDate = "";
 	/**
 	 * 勤怠日付
 	 */
-	private String attendanceDate;
-	/**
-	 * エラー文字
-	 */
-	private String dateNotFound;
+	private String attendanceDate = "";
 	/**
 	 * 勤怠リスト
 	 */
-	private ArrayList<AttendanceDTO> list = new ArrayList<AttendanceDTO>();
+	private ArrayList<AttendanceDTO> attendanceList = new ArrayList<AttendanceDTO>();
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -44,46 +40,18 @@ public class AttendanceSelectAction extends ActionSupport{
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute(){
-		String result=ERROR;
-		AttendanceDAO dao=new AttendanceDAO();
+		String result = ERROR;
+		AttendanceSelectDAO dao = new AttendanceSelectDAO();
 
-		if(attendanceDate.equals("")){
-			dateNotFound="表示する日付を入力してください。";
-			return result;
+		attendanceList = dao.select(studentDate, attendanceDate);
 
+		if( attendanceList.size() != 0 ){
+
+			result = SUCCESS;
 		}
-		try{
-			if(dao.select(attendanceDate)){
-
-				dto=dao.getList().get(0);
-				result=SUCCESS;
-			}else{
-				dateNotFound="DATE:"+attendanceDate+"のデータはありません";
-			}
-		}catch(Exception e ){
-				return result;
-			}
 
 		return result;
 }
-
-	/**
-	* 取得メソッド
-	* @author MINORI SUNAGAWA
-	* @return dto
-	*/
-	public AttendanceDTO getDto() {
-		return dto;
-	}
-
-	/**
-	* 設定メソッド
-	* @author MINORI SUNAGAWA
-	* @param dto
-	*/
-	public void setDto(AttendanceDTO dto) {
-		this.dto = dto;
-	}
 
 	/**
 	* 取得メソッド
@@ -106,37 +74,37 @@ public class AttendanceSelectAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return dateNotFound
+	* @return studentDate
 	*/
-	public String getDateNotFound() {
-		return dateNotFound;
+	public String getStudentDate() {
+		return studentDate;
 	}
 
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param dateNotFound
+	* @param studentDate
 	*/
-	public void setDateNotFound(String dateNotFound) {
-		this.dateNotFound = dateNotFound;
+	public void setStudentDate(String studentDate) {
+		this.studentDate = studentDate;
 	}
 
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return list
+	* @return attendanceList
 	*/
-	public ArrayList<AttendanceDTO> getList() {
-		return list;
+	public ArrayList<AttendanceDTO> getAttendanceList() {
+		return attendanceList;
 	}
 
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param list
+	* @param attendanceList
 	*/
-	public void setList(ArrayList<AttendanceDTO> list) {
-		this.list = list;
+	public void setAttendanceList(ArrayList<AttendanceDTO> attendanceList) {
+		this.attendanceList = attendanceList;
 	}
 
 	/**

@@ -25,11 +25,11 @@ public class DecisionDetailSearchAction extends ActionSupport{
 	/**
 	 * 検索文字
 	 */
-	private String searchString;
+	private String searchString = "";
 	/**
 	 * エラー文字
 	 */
-	private String errorString;
+	private String errorString = "";
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU

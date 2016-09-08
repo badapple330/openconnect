@@ -16,17 +16,25 @@ public class AttendanceDTO {
 	 */
 	private String date;
 	/**
-	 * ID
+	 * ユーザーID
 	 */
-	private int id;
+	private int userId;
 	/**
 	 * 勤怠
 	 */
 	private int attendance;
 	/**
+	 * 勤怠文字
+	 */
+	private String attendanceString;
+	/**
 	 * 面談
 	 */
 	private int interview;
+	/**
+	 * 面談文字
+	 */
+	private String interviewString;
 
 	/**
 	* 取得メソッド
@@ -44,21 +52,22 @@ public class AttendanceDTO {
 	public void setDate(String date) {
 		this.date = date;
 	}
+
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return id
+	* @return userId
 	*/
-	public int getId() {
-		return id;
+	public int getUserId() {
+		return userId;
 	}
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param id
+	* @param userId
 	*/
-	public void setId(int id) {
-		this.id = id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	/**
 	* 取得メソッド
@@ -92,4 +101,37 @@ public class AttendanceDTO {
 	public void setInterview(int interview) {
 		this.interview = interview;
 	}
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return attendanceString
+	*/
+	public String getAttendanceString() {
+		return attendanceString;
+	}
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param attendanceString
+	*/
+	public void setAttendanceString(String attendanceString) {
+		this.attendanceString = attendanceString;
+	}
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return interviewString
+	*/
+	public String getInterviewString() {
+		return interviewString;
+	}
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param interviewString
+	*/
+	public void setInterviewString(String interviewString) {
+		this.interviewString = interviewString;
+	}
+
 }
