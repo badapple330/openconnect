@@ -32,7 +32,7 @@ public class DecisionDetailSearchDAO {
 
 		String sql = "select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id where project_name LIKE '%" + searchString + "%'";
 
-		List<DecisionDetailDTO> operateList  = new ArrayList<DecisionDetailDTO>();
+		List<DecisionDetailDTO> decisionDetailList  = new ArrayList<DecisionDetailDTO>();
 
 		try{
 
@@ -49,7 +49,7 @@ public class DecisionDetailSearchDAO {
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus(rs.getString("decision_status"));
 
-				operateList .add( dto );
+				decisionDetailList .add( dto );
 			}
 		}catch (SQLException e) {
        	 e.printStackTrace();
@@ -61,7 +61,7 @@ public class DecisionDetailSearchDAO {
 	         }
 	     }
 
-		return operateList ;
+		return decisionDetailList ;
 	}
 
 }

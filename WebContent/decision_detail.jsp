@@ -27,8 +27,8 @@
 	<!-- 	リスト表示 -->
 	<table border="1">
 		<tr>
-		<th>ID</th>
-		<th>プロジェクトID</th>
+			<th>ID</th>
+			<th>プロジェクトID</th>
 			<th>案件番号</th>
 			<th>プロジェクト名</th>
 			<th>決裁分類</th>
@@ -42,69 +42,57 @@
 		<s:iterator value="decisionDetailList">
 			<tr>
 
-			<td class="decision_detail_id"><s:property value="decisionDetailId" /></td>
-			<td><s:property value="projectId" /></td>
+				<td class="decision_detail_id"><s:property
+						value="decisionDetailId" /></td>
+				<td><s:property value="projectId" /></td>
 				<td class="decision_id"><s:property value="decisionId" /></td>
 				<td class="decision_name"><s:property value="projectName" /></td>
 				<td class="decision_type"><s:property value="decisionType" /></td>
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
-				<td>
-<s:form action="DecisionDetailUpdate">
-				<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />"><s:submit value="編集"/>
-</s:form>
-				</td>
-				<td>
-				<s:form action="DecisionDetailApplication">
-				<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />">
-				<input type="hidden" name="decisionStatus" value="承認待">
-				<s:submit value="申請"/>
+				<td><s:form action="DecisionDetailUpdate">
+						<input type="hidden" name="decisionDetailId"
+							value="<s:property value="decisionDetailId" />">
+						<s:submit value="編集" />
+					</s:form></td>
+				<td><s:form action="DecisionDetailApplication">
+						<input type="hidden" name="decisionDetailId"
+							value="<s:property value="decisionDetailId" />">
+						<input type="hidden" name="decisionStatus" value="承認待">
+						<s:submit value="申請" />
 
-				</s:form></td>
+					</s:form></td>
 				<td><input type="button" value="削除" class="modal-open"></td>
 
-				<td>
-				<s:form action="DecisionDetailPreview">
-				<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />"><s:submit value="プレビュー"/>
-				</s:form></td>
+				<td><s:form action="DecisionDetailPreview">
+						<input type="hidden" name="decisionDetailId"
+							value="<s:property value="decisionDetailId" />">
+						<s:submit value="プレビュー" />
+					</s:form></td>
 			</tr>
 		</s:iterator>
 
-		<s:iterator value="operateList">
-			<tr>
-			<td class="decision_detail_id"><s:property value="decisionDetailId" /></td>
-			<td><s:property value="projectId" /></td>
-				<td class="decision_id"><s:property value="decisionId" /></td>
-				<td class="decision_name"><s:property value="projectName" /></td>
-				<td class="decision_type"><s:property value="decisionType" /></td>
-				<td class="decision_status"><s:property value="decisionStatus" /></td>
-				<td><input type="button" value="編集"></td>
-				<td><input type="hidden" name="decisionStatus" value="承認待"><input type="submit" value="申請"></td>
-				<td><input type="button" value="削除" class="modal-open"></td>
-				<td><input type="button" value="プレビュー"></td>
-			</tr>
-		</s:iterator>
 	</table>
 	<br>
-	<br>
-
-
-	プロジェクトID入力<input type="text" >
+<s:form action="DecisionDetailNew">
+	<input type="text" placeholder="プロジェクトID入力">
+	<input type="text" placeholder="案件ID入力">
 	<input type="submit" value="追加">
+	</s:form>
 
 	<div id="modal-main">
 		<!-- #contents START -->
 		ID <input type="text" id="delete-projectid" readonly><br>
-		プロジェクト名<input type="text" id="delete-projectname" readonly>
-		<br>決裁分類<input type="text" id="decision-classify" readonly>
-		<br>申請・承認状況<input type="text" id="decision-status" readonly>
-
-		 <br><input type="button" class="delete-true button" value="削除">
-		  <input type="button" class="modal-close button" value="閉じる">
+		プロジェクト名<input type="text" id="delete-projectname" readonly> <br>決裁分類<input
+			type="text" id="decision-classify" readonly> <br>申請・承認状況<input
+			type="text" id="decision-status" readonly> <br>
+		<input type="button" class="delete-true button" value="削除"> <input
+			type="button" class="modal-close button" value="閉じる">
 
 		<div class="delete-prepare">
 			本当に削除しますか？
 			<s:form action="DecisionDetailDelete">
-				<input type="hidden" name="decisionDetailId" value="" id="true-delete">
+				<input type="hidden" name="decisionDetailId" value=""
+					id="true-delete">
 				<input type="submit" class="delete-true button" value="はい">
 				<input type="button" class="modal-close button" value="いいえ">
 			</s:form>

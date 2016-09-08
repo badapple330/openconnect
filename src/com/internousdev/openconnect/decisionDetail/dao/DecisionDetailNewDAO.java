@@ -6,7 +6,6 @@ package com.internousdev.openconnect.decisionDetail.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 /**
@@ -20,23 +19,17 @@ public class DecisionDetailNewDAO {
      * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
      * @author TATUHUMI ITOU
      */
-	public int insert(int projectId,String projectDay,String projectPlan,String projectResult,String other){
+	public int insert(int projectId,int decisionId){
 
 		int count = 0;
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
-		projectDay = sdf.format(System.currentTimeMillis());
-
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "INSERT INTO project_progress(project_id,project_day,project_plan,project_result,other)VALUES(?, ?, ?, ? ,?)";
+		String sql = "INSERT INTO decision_detail(project_id,decision_id)VALUES(? ,?)";
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1,projectId);
-			ps.setString(2,projectDay);
-			ps.setString(3,projectPlan);
-			ps.setString(4,projectResult);
-			ps.setString(5,other);
+			ps.setInt(2,decisionId);
 
 			count = ps.executeUpdate();
 

@@ -104,7 +104,8 @@
 		<!-- </action> -->
 
 		<!-- 決済状況一覧画面への遷移 -->
-		<action name="GoDecision" class="com.internousdev.openconnect.decision.action.DecisionDisplayAction"
+		<action name="GoDecision"
+			class="com.internousdev.openconnect.decision.action.DecisionDisplayAction"
 			method="execute">
 			<result name="success">decision.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -213,6 +214,12 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<action name="DecisionDetailNew"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailNewAction"
+			method="execute">
+			<result name="success" type="chain">GoDecisionDetail</result>
+			<result name="error">/register.jsp</result>
+		</action>
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
 			class="com.internousdev.openconnect.books.action.BooksAction" method="execute">

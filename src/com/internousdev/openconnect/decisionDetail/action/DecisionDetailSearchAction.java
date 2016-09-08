@@ -21,7 +21,7 @@ public class DecisionDetailSearchAction extends ActionSupport{
 	/**
 	 * 決裁手続きリスト
 	 */
-	private List<DecisionDetailDTO> operateList = new ArrayList<DecisionDetailDTO>();
+	private List<DecisionDetailDTO> decisionDetailList = new ArrayList<DecisionDetailDTO>();
 	/**
 	 * 検索文字
 	 */
@@ -39,9 +39,9 @@ public class DecisionDetailSearchAction extends ActionSupport{
 
 		DecisionDetailSearchDAO dao = new DecisionDetailSearchDAO();
 
-		operateList = dao.select( searchString );
+		decisionDetailList = dao.select( searchString );
 
-		if( operateList == null ){
+		if( decisionDetailList == null ){
 
 			errorString = "データがありません";
 		}
@@ -49,23 +49,29 @@ public class DecisionDetailSearchAction extends ActionSupport{
 		return SUCCESS;
 	}
 
+
+
 	/**
 	* 取得メソッド
-	* @author KOHEI NITABARU
-	* @return operateList
+	* @author MASAHIRO KEDSUKA
+	* @return
 	*/
-	public List<DecisionDetailDTO> getOperateList() {
-		return operateList;
+	public List<DecisionDetailDTO> getDecisionDetailList() {
+		return decisionDetailList;
 	}
+
+
 
 	/**
 	* 設定メソッド
-	* @author KOHEI NITABARU
-	* @param operateList
+	* @author MASAHIRO KEZUKA
+	* @param
 	*/
-	public void setOperateList(List<DecisionDetailDTO> operateList) {
-		this.operateList = operateList;
+	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
+		this.decisionDetailList = decisionDetailList;
 	}
+
+
 
 	/**
 	* 取得メソッド

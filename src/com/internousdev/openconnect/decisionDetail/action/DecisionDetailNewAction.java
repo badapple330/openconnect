@@ -4,7 +4,7 @@
 package com.internousdev.openconnect.decisionDetail.action;
 
 
-import com.internousdev.openconnect.projectProgress.dao.ProjectProgressNewDAO;
+import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailNewDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 画面で新規に追加した情報を、DBに追加する為のクラス
@@ -21,10 +21,7 @@ public class DecisionDetailNewAction extends ActionSupport{
 	 * 日付、プロジェクト名、進捗予定、進捗結果、その他報告
 	 */
 	private int projectId;
-	private String projectDay;
-	private String projectPlan;
-	private String projectResult;
-	private String other;
+private int decisionId;
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -34,9 +31,9 @@ public class DecisionDetailNewAction extends ActionSupport{
 	public String execute(){
 
 		String result=ERROR;
-		ProjectProgressNewDAO dao = new ProjectProgressNewDAO();
+		DecisionDetailNewDAO dao = new DecisionDetailNewDAO();
 		int count = 0;
-		count = dao.insert(projectId,projectDay,projectPlan,projectResult,other);
+		count = dao.insert(projectId,decisionId);
 		if (count > 0) {
 			result = SUCCESS;
 		}
@@ -59,77 +56,14 @@ public class DecisionDetailNewAction extends ActionSupport{
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
 	}
-	/**
-	* 取得メソッド
-	* @author TATUHUMI ITOU
-	* @return
-	*/
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+
+	public int getDecisionId() {
+		return decisionId;
 	}
-	/**
-	 *  取得メソッド キーワード日付を取得する
-	 * @author TATUHUMI ITOU
-	 * @return projectDay
-	 */
-	public String getProjectDay() {
-		return projectDay;
+
+	public void setDecisionId(int decisionId) {
+		this.decisionId = decisionId;
 	}
-	/**
-	 *   格納メソッド キーワード日付を格納する
-	 * @author TATUHUMI ITOU
-	 * @param  projectDay セットする　 projectDay
-	 */
-	public void setProjectDay(String projectDay) {
-		this.projectDay = projectDay;
-	}
-	/**
-	 *  取得メソッド 進捗予定を取得する
-	 * @author TATUHUMI ITOU
-	 * @return projectPlan
-	 */
-	public String getProjectPlan() {
-		return projectPlan;
-	}
-	/**
-	 *   格納メソッド 進捗予定を格納する
-	 * @author TATUHUMI ITOU
-	 * @param search セットする　search
-	 */
-	public void setProjectPlan(String projectPlan) {
-		this.projectPlan = projectPlan;
-	}
-	/**
-	 *  取得メソッド 進捗結果を取得する
-	 * @author TATUHUMI ITOU
-	 * @return projectResult
-	 */
-	public String getProjectResult() {
-		return projectResult;
-	}
-	/**
-	 *   格納メソッド 進捗結果を格納する
-	 * @author TATUHUMI ITOU
-	 * @param projectResult セットする　projectResult
-	 */
-	public void setProjectResult(String projectResult) {
-		this.projectResult = projectResult;
-	}
-	/**
-	 *  取得メソッド  その他報告を取得する
-	 * @author TATUHUMI ITOU
-	 * @return other
-	 */
-	public String getOther() {
-		return other;
-	}
-	/**
-	 *   格納メソッド その他報告を格納する
-	 * @author TATUHUMI ITOU
-	 * @param other セットする　other
-	 */
-	public void setOther(String other) {
-		this.other = other;
-	}
+
 
 }
