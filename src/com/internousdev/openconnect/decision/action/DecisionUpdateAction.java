@@ -44,8 +44,6 @@ public class DecisionUpdateAction extends ActionSupport{
 
 		int count = 0;
 
-		System.out.println(registration.size());
-
 		for(int i=0;i<registration.size();i++){
 
 			count += dao.update(
@@ -62,7 +60,6 @@ public class DecisionUpdateAction extends ActionSupport{
 					iADId.get(i),
 					iAId.get(i)
 			        );
-//			System.out.println(count);
 		}
 		if(count > 0){
 			result = SUCCESS;
@@ -185,7 +182,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @return iDraftingId
 	*/
-	public List<String> getiDraftingId() {
+	public List<String> getIDraftingId() {
 		return iDraftingId;
 	}
 
@@ -194,7 +191,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @param iDraftingId
 	*/
-	public void setiDraftingId(List<String> iDraftingId) {
+	public void setIDraftingId(List<String> iDraftingId) {
 		this.iDraftingId = iDraftingId;
 	}
 
@@ -203,7 +200,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @return iApprovalId
 	*/
-	public List<String> getiApprovalId() {
+	public List<String> getIApprovalId() {
 		return iApprovalId;
 	}
 
@@ -212,7 +209,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @param iApprovalId
 	*/
-	public void setiApprovalId(List<String> iApprovalId) {
+	public void setIApprovalId(List<String> iApprovalId) {
 		this.iApprovalId = iApprovalId;
 	}
 
@@ -221,7 +218,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @return aDraftingId
 	*/
-	public List<String> getaDraftingId() {
+	public List<String> getADraftingId() {
 		return aDraftingId;
 	}
 
@@ -230,7 +227,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @param aDraftingId
 	*/
-	public void setaDraftingId(List<String> aDraftingId) {
+	public void setADraftingId(List<String> aDraftingId) {
 		this.aDraftingId = aDraftingId;
 	}
 
@@ -257,7 +254,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @return iADId
 	*/
-	public List<String> getiADId() {
+	public List<String> getIADId() {
 		return iADId;
 	}
 
@@ -266,7 +263,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @param iADId
 	*/
-	public void setiADId(List<String> iADId) {
+	public void setIADId(List<String> iADId) {
 		this.iADId = iADId;
 	}
 
@@ -275,7 +272,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @return iAId
 	*/
-	public List<String> getiAId() {
+	public List<String> getIAId() {
 		return iAId;
 	}
 
@@ -284,7 +281,7 @@ public class DecisionUpdateAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @param iAId
 	*/
-	public void setiAId(List<String> iAId) {
+	public void setIAId(List<String> iAId) {
 		this.iAId = iAId;
 	}
 

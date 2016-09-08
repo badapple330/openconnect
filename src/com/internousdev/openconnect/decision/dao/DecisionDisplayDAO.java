@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.decision.dto.DecisionDisplayDTO;
+import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
 
 public class DecisionDisplayDAO {
 
-	private List<DecisionDisplayDTO> DecisiontList = new ArrayList<DecisionDisplayDTO>();
+	private List<DecisionDTO> DecisiontList = new ArrayList<DecisionDTO>();
 
-	public List<DecisionDisplayDTO> select() {
+	public List<DecisionDTO> select() {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
 
@@ -24,7 +24,7 @@ public class DecisionDisplayDAO {
 			ResultSet rs = ps.executeQuery();
 			System.err.println(rs);
 			while (rs.next()) {
-				DecisionDisplayDTO dto = new DecisionDisplayDTO();
+				DecisionDTO dto = new DecisionDTO();
 
 				dto.setRegistration(rs.getDate("registration"));
 				dto.setUserId(rs.getInt("user_id"));

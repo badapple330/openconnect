@@ -3,7 +3,7 @@ package com.internousdev.openconnect.decision.action;
 import java.util.ArrayList;
 
 import com.internousdev.openconnect.decision.dao.DecisionListDAO;
-import com.internousdev.openconnect.decision.dto.DecisionListDTO;
+import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionListAction extends ActionSupport{
@@ -15,7 +15,7 @@ public class DecisionListAction extends ActionSupport{
 	/**
 	 *
 	 */
-	private ArrayList<DecisionListDTO> decisiontList = new ArrayList<DecisionListDTO>();
+	private ArrayList<DecisionDTO> decisiontList = new ArrayList<DecisionDTO>();
 
 	private String errorSelect;
 
@@ -39,7 +39,7 @@ public class DecisionListAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @return decisiontList
 	*/
-	public ArrayList<DecisionListDTO> getDecisiontList() {
+	public ArrayList<DecisionDTO> getDecisiontList() {
 		return decisiontList;
 	}
 
@@ -49,7 +49,7 @@ public class DecisionListAction extends ActionSupport{
 	* @author KENICHI HORIGUCHI
 	* @param decisiontList
 	*/
-	public void setDecisiontList(ArrayList<DecisionListDTO> decisiontList) {
+	public void setDecisiontList(ArrayList<DecisionDTO> decisiontList) {
 		this.decisiontList = decisiontList;
 	}
 

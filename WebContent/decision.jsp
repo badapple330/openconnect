@@ -58,7 +58,7 @@
 <td><input type="text" name="decisionName" value="<s:property value="decisionName" />" /></td>
 <td><input type="text" name="detail" value="<s:property value="detail" />" /></td>
 <td><input type="text" name="iDraftingId" value="<s:property value="iDraftingId" />" /></td>
-<td><input type="text" name="iApprovalId" value="<s:property value="iApproval_id" />" /></td>
+<td><input type="text" name="iApprovalId" value="<s:property value="iApprovalId" />" /></td>
 <td><input type="text" name="aDraftingId" value="<s:property value="aDraftingId" />" /></td>
 <td><input type="text" name="cdId" value="<s:property value="cdId" />" /></td>
 <td><input type="text" name="iADId" value="<s:property value="iADId" />" /></td>

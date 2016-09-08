@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.decision.dto.DecisionListDTO;
+import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
 
 public class DecisionListDAO {
 	/**
 	 * ユーザー一覧情報を格納するリスト
 	 */
-	private ArrayList<DecisionListDTO> list = new ArrayList<DecisionListDTO>();
+	private ArrayList<DecisionDTO> list = new ArrayList<DecisionDTO>();
 
 	/**
 	 * 画面にユーザー情報一覧を表示させる為のメソッド
@@ -42,7 +42,7 @@ public class DecisionListDAO {
 
 
 			while(rs.next()) {
-				DecisionListDTO dto = new DecisionListDTO();
+				DecisionDTO dto = new DecisionDTO();
 
 				dto.setRegistration(rs.getDate("registration"));
 				dto.setUserId(rs.getInt("user_id"));
@@ -50,12 +50,12 @@ public class DecisionListDAO {
 				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setDecisionName(rs.getString("decision_name"));
 				dto.setDetail(rs.getString("detail"));
-				dto.setiDraftingId(rs.getString("i_drafting_id"));
-				dto.setiApprovalId(rs.getString("i_approval_id"));
+				dto.setIDraftingId(rs.getString("i_drafting_id"));
+				dto.setIApprovalId(rs.getString("i_approval_id"));
 				dto.setaDraftingId(rs.getString("a_drafting_id"));
 				dto.setCdId(rs.getString("cd_id"));
-				dto.setiADId(rs.getString("i_a_d_id"));
-				dto.setiAId(rs.getString("i_a_id "));
+				dto.setIADId(rs.getString("i_a_d_id"));
+				dto.setIAId(rs.getString("i_a_id"));
 				list.add(dto);
 				result = true;
 			}
@@ -79,7 +79,7 @@ public class DecisionListDAO {
 	 * @author KENICHI HORIGUCHI
 	 * @return list
 	 */
-	public ArrayList<DecisionListDTO> getList() {
+	public ArrayList<DecisionDTO> getList() {
 		return list;
 	}
 
@@ -88,7 +88,7 @@ public class DecisionListDAO {
 	 * @author KENICHI HORIGUCHI
 	 * @param list
 	 */
-	public void setList(ArrayList<DecisionListDTO> list) {
+	public void setList(ArrayList<DecisionDTO> list) {
 		this.list = list;
 	}
 

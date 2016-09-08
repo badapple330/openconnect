@@ -6,7 +6,7 @@ package com.internousdev.openconnect.decision.dto;
 import java.sql.Date;
 
 
-public class DecisionListDTO {
+public class DecisionDTO {
 	/**
 	 * 登録日
 	 *
@@ -66,7 +66,7 @@ public class DecisionListDTO {
 	 * 実施兼契約番号
 	 *
 	 */
-	private String iAId ;
+	private String iAId;
 
 
 
@@ -173,7 +173,7 @@ public class DecisionListDTO {
 	* @author KENICHI HORIGUCHI
 	* @return iDraftingId
 	*/
-	public String getiDraftingId() {
+	public String getIDraftingId() {
 		return iDraftingId;
 	}
 	/**
@@ -181,7 +181,7 @@ public class DecisionListDTO {
 	* @author KENICHI HORIGUCHI
 	* @param iDraftingId
 	*/
-	public void setiDraftingId(String iDraftingId) {
+	public void setIDraftingId(String iDraftingId) {
 		this.iDraftingId = iDraftingId;
 	}
 	/**
@@ -189,7 +189,7 @@ public class DecisionListDTO {
 	* @author KENICHI HORIGUCHI
 	* @return iApprovalId
 	*/
-	public String getiApprovalId() {
+	public String getIApprovalId() {
 		return iApprovalId;
 	}
 	/**
@@ -197,7 +197,7 @@ public class DecisionListDTO {
 	* @author KENICHI HORIGUCHI
 	* @param iApprovalId
 	*/
-	public void setiApprovalId(String iApprovalId) {
+	public void setIApprovalId(String iApprovalId) {
 		this.iApprovalId = iApprovalId;
 	}
 	/**
@@ -237,7 +237,7 @@ public class DecisionListDTO {
 	* @author KENICHI HORIGUCHI
 	* @return iADId
 	*/
-	public String getiADId() {
+	public String getIADId() {
 		return iADId;
 	}
 	/**
@@ -245,7 +245,7 @@ public class DecisionListDTO {
 	* @author KENICHI HORIGUCHI
 	* @param iADId
 	*/
-	public void setiADId(String iADId) {
+	public void setIADId(String iADId) {
 		this.iADId = iADId;
 	}
 	/**
@@ -253,7 +253,7 @@ public class DecisionListDTO {
 	* @author KENICHI HORIGUCHI
 	* @return iAId
 	*/
-	public String getiAId() {
+	public String getIAId() {
 		return iAId;
 	}
 	/**
@@ -261,7 +261,7 @@ public class DecisionListDTO {
 	* @author KENICHI HORIGUCHI
 	* @param iAId
 	*/
-	public void setiAId(String iAId) {
+	public void setIAId(String iAId) {
 		this.iAId = iAId;
 	}
 
