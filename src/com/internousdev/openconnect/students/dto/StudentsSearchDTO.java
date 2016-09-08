@@ -1,6 +1,6 @@
 package com.internousdev.openconnect.students.dto;
 
-public class StudentsDTO {
+public class StudentsSearchDTO {
  private String family_name;
  private String given_name;
  private String month;
