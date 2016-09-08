@@ -230,12 +230,13 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="DecisionDetailNew"
+		<action name="DecisionDetailInsert"
 			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailNewAction"
 			method="execute">
 			<result name="success" type="chain">GoDecisionDetail</result>
 			<result name="error">/register.jsp</result>
 		</action>
+
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
 			class="com.internousdev.openconnect.books.action.BooksAction" method="execute">

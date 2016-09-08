@@ -73,8 +73,8 @@
 
 	</table>
 	<br>
-<s:form action="DecisionDetailNew">
-	<input type="text" placeholder="プロジェクトID入力">
+<s:form action="DecisionDetailInsert">
+	<input type="text" name="projectId" placeholder="プロジェクトID入力">
 	<input type="submit" value="追加">
 	</s:form>
 
