@@ -6,11 +6,14 @@
 <head>
 <meta charset=UTF-8>
 <title>書籍一覧</title>
+<link rel="stylesheet" href="css/books.css">
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/books.js"></script>
 </head>
 <body>
 
 	<div class="header">
-		<h1>ヘッダー</h1>
+	<jsp:include page="header.jsp" />
 	</div>
 	<br>
 	<h1>書籍一覧</h1>
@@ -30,53 +33,47 @@
 				<th></th>
 				<th>削除</th>
 			</tr>
-
 			<s:iterator value="bookList">
-
 				<tr>
-
-					<td><input type="text" name ="bookIdList" value ="<s:property  value="bookId" />"></td>
-					<td><input type="text" name ="titleList" value="<s:property value="title" />"></td>
+					<td><input type="text" name="bookIdList"
+						value="<s:property  value="bookId" />" class="bookId"></td>
+					<td><input type="text" name="titleList"
+						value="<s:property value="title" />" class="bookTitle"></td>
 					<td></td>
-
-					<td><input type="submit" class="button" value="削除"></td>
-
+					<td><input type="button" class="button modal-open" value="削除"></td>
 				</tr>
-
-				</s:iterator>
-
+			</s:iterator>
 			<s:iterator value="searchList">
 				<tr>
 					<td><s:property value="bookId" /></td>
 					<td><input type="text" value="<s:property value="title" />"></td>
 				</tr>
 			</s:iterator>
-
 		</table>
-
 		<td><input type="submit" class="button" value="編集" /></td>
-
-<%-- 		<s:iterator value="bookListEdit"> --%>
-<!-- 			<tr> -->
-<%-- 				<td><s:property value="bookIdList" /></td> --%>
-<!-- 			</tr> -->
-<%-- 		</s:iterator> --%>
-
 	</s:form>
 
-	<!-- 	<div id="delete-prepare"> -->
-	<!-- 		本当に削除しますか？ <input type="button" class="delete-true button" value="はい"> -->
-	<!-- 		<input type="button" class="modal-close button" value="いいえ"> -->
-	<!-- 	</div> -->
 
-	<div class="delete">
-		<s:form action="BooksDelete">
-			<input type="text" id="delete-booklistid" name="bookId"
-				placeholder="プロジェクトID">
-			<input type="submit" class="button" value="削除">
-			<!-- 			<input type="button" class="modal-close button" value="閉じる"> -->
-		</s:form>
+<div id="modal-main">
+		<!-- #contents START -->
+		ID <input type="text" id="delete-bookid" readonly><br>
+		タイトル <input type="text" id="delete-booktitle" readonly><br>
+		<input type="button" class="delete-true button" value="削除"> <input
+			type="button" class="modal-close button" value="閉じる">
+
+		<div class="delete-prepare">
+			本当に削除しますか？
+					<s:form action="BooksDelete">
+				<input type="hidden" name="bookId" value=""
+					id="true-delete">
+				<input type="submit" class="delete-true button" value="はい">
+				<input type="button" class="modal-close button" value="いいえ">
+			</s:form>
+		</div>
 	</div>
+
+
+
 
 
 	書籍の追加
