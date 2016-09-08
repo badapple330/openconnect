@@ -2,7 +2,6 @@ package com.internousdev.openconnect.schedule.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 import com.mysql.jdbc.Connection;
@@ -31,8 +30,7 @@ public class ScheduleUpdateDAO {
 		Connection conn= (Connection) db.getConnection();
 
 		String sql = "UPDATE schedule SET start_day=?, end_day=?, title=?, content=? WHERE id=?";
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
-		Start_day = sdf.format(System.currentTimeMillis());
+
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,Start_day);
@@ -41,7 +39,7 @@ public class ScheduleUpdateDAO {
 			ps.setString(4,Content);
 			ps.setInt(5,Id);
 			count =ps.executeUpdate();
-
+			System.out.println(ps);
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally{

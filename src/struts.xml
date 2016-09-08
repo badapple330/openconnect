@@ -358,7 +358,6 @@
 			<result type="chain">GoSchedule</result>
 		</action>
 
-
 		<!-- スケジュール画面で更新 -->
 		<action name="ScheduleUpdate"
 			class="com.internousdev.openconnect.schedule.action.ScheduleUpdateAction"
