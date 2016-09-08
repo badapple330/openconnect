@@ -39,7 +39,7 @@ public class DecisionDisplayAction extends ActionSupport{
 	* @param decisiontList
 	*/
 	public void setDecisiontList(List<DecisionDisplayDTO> decisiontList) {
-		decisiontList = decisiontList;
+		this.decisiontList = decisiontList;
 	}
 
 	/**

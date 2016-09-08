@@ -37,7 +37,7 @@ public class DecisionListAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return list
+	* @return decisiontList
 	*/
 	public ArrayList<DecisionListDTO> getDecisiontList() {
 		return decisiontList;
@@ -47,7 +47,7 @@ public class DecisionListAction extends ActionSupport{
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param list
+	* @param decisiontList
 	*/
 	public void setDecisiontList(ArrayList<DecisionListDTO> decisiontList) {
 		this.decisiontList = decisiontList;
