@@ -32,28 +32,32 @@
 <br>
 
 <h1>【決裁書】</h1>
-<table border="1"><tr><td>
-日付　<input type="text" value="<s:property value="day"/>">
+<s:form action="DecisionEdit">
+<table border="1">
+
+<tr><td>
+
+日付　<input type="text" name="day" value="<s:property value="day"/>">
 <br>
-プロジェクト名<input type="text" value="<s:property value="projectName"/>">
 <br>
 決裁分類
 <br>
-<input type="radio" name="type" value="<s:property value="decisionType"/>" checked>実施決裁　<input type="radio" name="type">契約決裁
+<input type="radio" name="decisionType" value="実施決裁" checked>実施決裁
+<input type="radio" name="decisionType" value="契約決裁">契約決裁
 <br>
-起案者　<input type="text" value="<s:property value="userId"/>">
+起案者<input type="text" name="userId" value="<s:property value="userId"/>">
 <br>
-案件名　<input type="text" value="<s:property value="itemName"/>">
+案件名<input type="text" name="itemName" value="<s:property value="itemName"/>">
 <br>
-概要　<input type="text" value="<s:property value="summary"/>">
+概要<input type="text" name="summary" value="<s:property value="summary"/>">
 <br>
-理由　<input type="text" value="<s:property value="cause"/>">
+理由<input type="text" name="cause" value="<s:property value="cause"/>">
 <br>
 実施時期・実施機関
 <br>
-開始日　<input type="text" value="<s:property value="startDay"/>">
+開始日<input type="text" name="startDay" value="<s:property value="startDay"/>">
 <br>
-終了日　<input type="text" value="<s:property value="endDay"/>">
+終了日<input type="text" name="endDay" value="<s:property value="endDay"/>">
 <br>
 </td></tr></table>
 <br>
@@ -63,7 +67,7 @@
 <table border="1"><tr><td>
 資料
 <br>
-<input type="text" class="bigText" value="<s:property value="plan"/>">
+<input type="text" class="bigText" name="plan" value="<s:property value="plan"/>">
 <br>
 </td></tr></table>
 <br>
@@ -71,13 +75,18 @@
 <br>
 <h1>【見積書】</h1>
 <table border="1"><tr><td>
-人数　<input type="text"value="<s:property value="persons"/>">人
+人数<input type="text"name="persons" value="<s:property value="persons"/>">人
 <br>
-</td></tr></table>
+<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId"/>">
+</td></tr>
+
+</table>
+<input type="submit" value="登録" class="button">
+	</s:form>
+
 
 </s:iterator>
 
-<input type="button" value="登録" class="button">
 <br>
 <br>
 <input type="button" value="戻る" class="button">
