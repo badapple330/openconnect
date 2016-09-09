@@ -25,7 +25,7 @@ public class BooksBorrow‎InsertDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "INSERT INTO books_borrow(borrow_day,borrow_id)VALUES(?,?)";
+		String sql = "INSERT INTO books_borrow(borrow_day,borrow_id)VALUES(?)";
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,borrow‎Insert);

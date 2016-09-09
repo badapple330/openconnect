@@ -17,8 +17,9 @@ public class BooksBorrowReturnAction extends ActionSupport {
 	public String execute(){
 		BooksBorrowReturnDAO dao = new BooksBorrowReturnDAO();
 		String result = ERROR;
-
+		System.out.println(bookId);
 		int count = 0;
+		System.out.println(count);
 		count = dao.delete(bookId);
 		if(count > 0){
 			result = SUCCESS;
@@ -29,7 +30,7 @@ public class BooksBorrowReturnAction extends ActionSupport {
 	/**
 	 * 取得メソッド
 	 * @author TATSUYA HOSHI
-	 * @return
+	 * @return bookId
 	 */
 	public int getBookId() {
 		return bookId;
@@ -38,7 +39,7 @@ public class BooksBorrowReturnAction extends ActionSupport {
 	/**
 	 * 設定メソッド
 	 * @author TATSUYA HOSHI
-	 * @param
+	 * @param bookId
 	 */
 	public void setBookId(int bookId) {
 		this.bookId = bookId;

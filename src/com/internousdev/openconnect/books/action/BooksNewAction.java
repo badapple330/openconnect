@@ -5,6 +5,7 @@ package com.internousdev.openconnect.books.action;
 
 
 import com.internousdev.openconnect.books.dao.BooksNewDAO;
+import com.internousdev.openconnect.booksBorrow.dao.BooksBorrowNewDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -18,6 +19,8 @@ public class BooksNewAction extends ActionSupport{
 
 	private String title;
 
+
+
 	public String execute(){
 
 		/**
@@ -29,8 +32,16 @@ public class BooksNewAction extends ActionSupport{
 		BooksNewDAO dao = new BooksNewDAO();
 		int count = 0;
 		count = dao.insert(title);
+
 		if (count > 0) {
+
+			int bookId = dao.select(title);
+
+			if( bookId == 0 ) return result;
+
 			result = SUCCESS;
+			BooksBorrowNewDAO dao1 = new BooksBorrowNewDAO();
+			dao1.insert(bookId);
 		}
 		return result;
 	}

@@ -22,12 +22,13 @@ public class BooksBorrowReturnDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 
-		String sql = "delete borrow_day,borrow_id from books_borrow where book_id = ?";
+		String sql = "delete books_borrow from books_borrow.borrow_day,books_borrow.borrow_id as books_borrow where book_id = ?";
 
 		System.out.println(bookId);
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
+
 			ps.setInt(1, bookId);
 			count = ps.executeUpdate();
 

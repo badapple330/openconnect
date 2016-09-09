@@ -30,7 +30,23 @@ user_id int primary key not null auto_increment comment 'ユーザーID',
 password varchar(255) not null comment 'パスワード',
 family_name varchar(50) not null comment '姓(英語)',
 given_name varchar(50) not null comment '名(英語)',
-
+family_name_kanji varchar(50) not null comment '姓(漢字)',
+family_name_kana varchar(50) not null comment '姓(ふりがな)',
+given_name_kanji varchar(50) not null comment '名(漢字)',
+given_name_kana varchar(50) not null comment '名(ふりがな)',
+postal varchar(255) default "　" comment '郵便番号',
+address varchar(255) default "　" comment '住所',
+phone_number varchar(255) default "　" comment '電話番号',
+phone_email varchar(255) not null unique comment 'メールアドレス',
+mobile_number varchar(255) default "　" comment '携帯電話番号',
+mobile_email varchar(255) unique comment '携帯メールアドレス',
+sex varchar(10) not null default "　" comment '性別',
+birthday date not null default 00000000 comment '誕生日',
+register_day datetime not null default 00000000000000 comment '登録日',
+update_day datetime not null default 00000000000000 comment '更新日',
+userdel_flg boolean not null default FALSE comment '退会フラグ',
+login_flg boolean not null default TRUE comment 'ログインフラグ',
+user_flg int not null default 1 comment 'ユーザーフラグ',
 year varchar(4) not null comment '受講年',
 month varchar(2) not null comment '受講開始月'
 )comment = 'ユーザー情報格納テーブル';
@@ -193,7 +209,7 @@ values(1,1,1,1),(2,2,2,2);
 /*サブプロジェクト / 書籍一覧*/
 create table books(
 book_id int primary key not null auto_increment,
-title varchar(100) not null
+title varchar(100) not null unique
 );
 
 insert into books(title)values("やさしいJAVA");
@@ -201,15 +217,15 @@ insert into books(title)values("やさしいJAVA");
 /*サブプロジェクト / 書籍貸出状況一覧*/
 create table books_borrow(
 book_id int not null,
-borrow_status varchar(10) not null default "貸し出し可能",
+borrow_status varchar(10) not null default "貸出可",
 borrow_day date,
 borrow_id int,
 foreign key(book_id) references books(book_id),
 foreign key(borrow_id) references users(user_id)
 );
 
-insert books_borrow(book_id, borrow_status)values
-(1,"貸出可");
+insert books_borrow()values
+(1,"貸出可", NULL, 1 );
 
 /*サブプロジェクト / プロジェクト進捗状況*/
 create table project_progress(

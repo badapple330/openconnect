@@ -82,6 +82,10 @@
 		<input class="button" type="submit" value="追加">
 	</s:form>
 
+	<s:form action="GoBooksBorrow">
+		<input type="submit" class="button" value="貸し出し">
+	</s:form>
+
 	<s:form action="BackGoAction">
 		<input type="submit" class="button" value="戻る">
 	</s:form>

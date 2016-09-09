@@ -33,7 +33,7 @@ public class BooksBorrowDAO {
 
 
 		try {
-			String sql="SELECT * FROM books_borrow inner join books on books_borrow.book_id = books.book_id ";
+			String sql="SELECT * FROM books_borrow inner join books on books_borrow.book_id = books.book_id";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
@@ -45,6 +45,11 @@ public class BooksBorrowDAO {
 				dto.setBorrowId(rs.getInt("borrow_id"));
 				dto.setTitle(rs.getString("title"));
 
+				if( dto.getBorrowStatus().equals("貸出可") ){
+					dto.setBorrowId( 0 );
+				}
+
+				System.out.println(dto.getBorrowId());
 				bookList.add(dto);
 			}
 		} catch (SQLException e) {

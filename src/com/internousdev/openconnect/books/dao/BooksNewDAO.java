@@ -5,6 +5,7 @@ package com.internousdev.openconnect.books.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
@@ -21,10 +22,6 @@ public class BooksNewDAO {
 	public int insert(String title) {
 
 		int count = 0;
-
-
-
-
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
@@ -50,6 +47,33 @@ public class BooksNewDAO {
 
 
 
+	}
+
+	public int select( String title ) {
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+		Connection con = db.getConnection();
+
+		try {
+			String sql="SELECT * FROM books where title=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, title);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				return rs.getInt("book_id");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
 	}
 
 }

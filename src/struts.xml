@@ -293,14 +293,14 @@
 			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowNewAction"
 			method="execute">
 			<result name="success" type="chain">GoBooksBorrow</result>
-			<result name="error ">/register.jsp</result>
+			<result name="error">/register.jsp</result>
 		</action>
 
 		<action name="BooksBorrowDelete"
 			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowReturnAction"
 			method="execute">
 			<result name="success" type="chain">GoBooksBorrow</result>
-			<result name="error ">/register.jsp</result>
+			<result name="error">/register.jsp</result>
 		</action>
 
 
