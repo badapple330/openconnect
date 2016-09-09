@@ -16,7 +16,7 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String Start_day;
+	private String Startday;
 
 	/**
 	 * 件名
@@ -49,7 +49,7 @@ public class ScheduleInsertAction extends ActionSupport{
 		String ret = ERROR;
 		int k;
 
-		if(Start_day.isEmpty()&&Title.isEmpty()){
+		if(Startday.isEmpty()&&Title.isEmpty()){
 			ret = ERROR;
 			error_msg=(getText("追加できませんでした"));
 			return ret;
@@ -57,7 +57,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 			ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-			k = dao.insert(Start_day,Title,Content);
+			k = dao.insert(Startday,Title,Content);
 
 			if (k>0) {
 				success_msg=(getText("追加しました。"));
@@ -75,8 +75,8 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * @author MASAHIRO KEDSUKA
 	 * @return Start_day
 	 */
-	public String getStart_day() {
-		return Start_day;
+	public String getStartday() {
+		return Startday;
 	}
 
 
@@ -85,8 +85,8 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * @author MASAHIRO KEDSUKA
 	 * @param start_day
 	 */
-	public void setStart_day(String start_day) {
-		Start_day = start_day;
+	public void setStart_day(String startday) {
+		Startday = startday;
 	}
 
 

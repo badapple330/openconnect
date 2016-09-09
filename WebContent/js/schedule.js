@@ -44,11 +44,11 @@ $(function(){
 		var id = $('.scheduleIdList').eq(index).val();
 		$('#delete-scheduleid').val( id );
 
-		var startdate = $('.scheduleStart_dayList').eq(index).val();
-		$('#delete-start_day').val( startdate );
+		var startdate = $('.scheduleStartdayList').eq(index).val();
+		$('#delete-startday').val( startdate );
 
-		var enddate = $('.scheduleEnd_dayList').eq(index).val();
-		$('#delete-end_day').val( enddate );
+		var enddate = $('.scheduleEnddayList').eq(index).val();
+		$('#delete-endday').val( enddate );
 
 		var title = $('.scheduleTitleList').eq(index).val();
 		$('#delete-title').val( title );
@@ -115,11 +115,11 @@ $(function(){
         		var id = $('.delscheduleIdList').eq(index).val();
         		$('#delete-scheduleid').val( id );
 
-        		var startdate = $('.delscheduleStart_dayList').eq(index).val();
-        		$('#delete-start_day').val( startdate );
+        		var startdate = $('.delscheduleStartdayList').eq(index).val();
+        		$('#delete-startday').val( startdate );
 
-        		var enddate = $('.delscheduleEnd_dayList').eq(index).val();
-        		$('#delete-end_day').val( enddate );
+        		var enddate = $('.delscheduleEnddayList').eq(index).val();
+        		$('#delete-endday').val( enddate );
 
         		var title = $('.delscheduleTitleList').eq(index).val();
         		$('#delete-title').val( title );

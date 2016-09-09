@@ -44,8 +44,8 @@ public class ScheduleSelectDAO {
 			while(rs.next()) {
 				ScheduleSelectDTO dto = new ScheduleSelectDTO();
 				dto.setId(rs.getInt("id"));
-				try { dto.setStart_day(rs.getString("start_day")); }catch(Exception e){}
-				try { dto.setEnd_day(rs.getString("end_day")); }catch(Exception e){}
+				try { dto.setStartday(rs.getString("start_day")); }catch(Exception e){}
+				try { dto.setEndday(rs.getString("end_day")); }catch(Exception e){}
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				schedulelist.add(dto);

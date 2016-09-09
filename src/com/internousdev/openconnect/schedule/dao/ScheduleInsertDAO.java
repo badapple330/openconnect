@@ -23,7 +23,7 @@ public class ScheduleInsertDAO {
 	 * @param Content
 	 * @return count
 	 */
-	public int insert (String Start_day, String Title, String Content){
+	public int insert (String Startday, String Title, String Content){
 
 		int count=0;
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
@@ -31,11 +31,11 @@ public class ScheduleInsertDAO {
 		String sql="INSERT INTO schedule(start_day, title, content) VALUES (?,trim(?),trim(?))";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
-		Start_day = sdf.format(System.currentTimeMillis());
+		Startday = sdf.format(System.currentTimeMillis());
 
 		try{
 			PreparedStatement ps=conn.prepareStatement(sql);
-			ps.setString(1,Start_day);
+			ps.setString(1,Startday);
 			ps.setString(2,Title);
 			ps.setString(3,Content);
 			count=ps.executeUpdate();
