@@ -1,0 +1,107 @@
+package com.internousdev.openconnect.students.action;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.internousdev.openconnect.students.dao.StudentsUpdateDAO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class StudentsUpdateAction extends ActionSupport{
+	private List<Integer> userIdList = new ArrayList<Integer>();
+	private List<String> familyNameList = new ArrayList<String>();
+	private List<String> givenNameList = new ArrayList<String>();
+	private List<String> yearList = new ArrayList<String>();
+	private List<String> monthList = new ArrayList<String>();
+	private List<Integer> passwordList = new ArrayList<Integer>();
+
+
+
+	public String execute() throws SQLException{
+
+		String result =ERROR;
+		StudentsUpdateDAO dao = new StudentsUpdateDAO();
+		int count = 0;
+System.out.println(userIdList);
+		for(int i=0;i< userIdList.size();++i){
+			count = dao.select(yearList.get(i),monthList.get(i),familyNameList.get(i),givenNameList.get(i),passwordList.get(i),userIdList.get(i));
+			}
+		if ( count > 0){
+			result = SUCCESS;
+		}
+		return result;
+	}
+
+
+
+	public List<Integer> getUserIdList() {
+		return userIdList;
+	}
+
+
+
+	public void setUserIdList(List<Integer> userIdList) {
+		this.userIdList = userIdList;
+	}
+
+
+
+	public List<String> getFamilyNameList() {
+		return familyNameList;
+	}
+
+
+
+	public void setFamilyNameList(List<String> familyNameList) {
+		this.familyNameList = familyNameList;
+	}
+
+
+
+	public List<String> getGivenNameList() {
+		return givenNameList;
+	}
+
+
+
+	public void setGivenNameList(List<String> givenNameList) {
+		this.givenNameList = givenNameList;
+	}
+
+
+
+	public List<String> getYearList() {
+		return yearList;
+	}
+
+
+
+	public void setYearList(List<String> yearList) {
+		this.yearList = yearList;
+	}
+
+
+
+	public List<String> getMonthList() {
+		return monthList;
+	}
+
+
+
+	public void setMonthList(List<String> monthList) {
+		this.monthList = monthList;
+	}
+
+
+
+	public List<Integer> getPasswordList() {
+		return passwordList;
+	}
+
+
+
+	public void setPasswordList(List<Integer> passwordList) {
+		this.passwordList = passwordList;
+	}
+
+}

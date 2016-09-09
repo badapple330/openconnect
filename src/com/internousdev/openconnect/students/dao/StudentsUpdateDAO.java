@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 public class StudentsUpdateDAO {
-	public int select(String year, String month , String family_name, String given_name,int password,int user_id) {
+	public int select(String year, String month , String familyName, String givenName,int password,int userId) {
 
 		int result= 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
@@ -21,10 +21,10 @@ public class StudentsUpdateDAO {
 
 			ps.setString(1,year);
 			ps.setString(2,month);
-			ps.setString(3,family_name);
-			ps.setString(4,given_name);
+			ps.setString(3,familyName);
+			ps.setString(4,givenName);
 			ps.setInt(5,password);
-			ps.setInt(6,user_id);
+			ps.setInt(6,userId);
 			result =ps.executeUpdate();
 
 		}catch (SQLException e) {
