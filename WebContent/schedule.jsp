@@ -157,7 +157,7 @@ document.onkeydown = keydown;
 		</div>
 	</div>
 	<br>
-	<s:form action="GetAddressAction">
+	<s:form action="BackGoAction">
 		<button type="submit" class="button">戻る</button>
 	</s:form>
 </body>
