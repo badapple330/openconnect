@@ -14,21 +14,21 @@ import com.internousdev.util.DBConnector;
  * @author TATSUYA HOSHI
  *
  */
-public class BooksBorrow‎ConfirmationDAO {
+public class BooksBorrow‎InsertDAO {
 
-	public int insert(String borrow‎Confirmation){
+	public int insert(String borrow‎Insert){
 
 		int count = 0;
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
-		borrow‎Confirmation = sdf.format(System.currentTimeMillis());
+		borrow‎Insert = sdf.format(System.currentTimeMillis());
 
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "INSERT INTO books_borrow(borrow_day)VALUES(?)";
+		String sql = "INSERT INTO books_borrow(borrow_day,borrow_id)VALUES(?,?)";
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1,borrow‎Confirmation);
+			ps.setString(1,borrow‎Insert);
 
 
 			count = ps.executeUpdate();

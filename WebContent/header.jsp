@@ -53,7 +53,7 @@
 
 		<div class="goButton">
 			<!-- 決済一覧状況 -->
-			<s:form action="GoDecision">
+			<s:form action="DecisionSelect">
 				<s:submit type="submit" value="決済状況一覧" />
 			</s:form>
 			<!-- 	<!-- プロジェクト一覧 -->
@@ -65,7 +65,7 @@
 				<s:submit type="submit" value="受講生一覧" />
 			</s:form>
 			<!-- 	<!--勤怠更新 -->
-			<s:form action="GoAttendance">
+			<s:form action="AttendanceSelectAction">
 				<s:submit type="submit" value="勤怠更新" />
 			</s:form>
 			<!-- 	<!--決済手続き電子化 -->

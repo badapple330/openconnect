@@ -3,14 +3,14 @@
  */
 package com.internousdev.openconnect.booksBorrow.action;
 
-import com.internousdev.openconnect.booksBorrow.dao.BooksBorrow‎ConfirmationDAO;
+import com.internousdev.openconnect.booksBorrow.dao.BooksBorrow‎InsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 情報を、DBに追加する為のクラス
  * @author TATSUYA HOSHI
  */
-public class BooksBorrow‎ConfirmationAction extends ActionSupport{
+public class BooksBorrow‎InsertAction extends ActionSupport{
 	/**
 	 * シリアルバージョンID
 	 */
@@ -19,7 +19,7 @@ public class BooksBorrow‎ConfirmationAction extends ActionSupport{
 	 * 借りた日
 	 */
 
-	private  String borrow‎Confirmation;
+	private  String borrow‎Insert;
 
 	public String execute(){
 
@@ -29,9 +29,9 @@ public class BooksBorrow‎ConfirmationAction extends ActionSupport{
 		 */
 
 		String result = ERROR;
-		BooksBorrow‎ConfirmationDAO dao = new BooksBorrow‎ConfirmationDAO();
+		BooksBorrow‎InsertDAO dao = new BooksBorrow‎InsertDAO();
 		int count = 0;
-		count = dao.insert(borrow‎Confirmation);
+		count = dao.insert(borrow‎Insert);
 		if (count > 0) {
 			result = SUCCESS;
 		}
@@ -39,34 +39,34 @@ public class BooksBorrow‎ConfirmationAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return borrowConfirmation
-	*/
-	public String getBorrow‎Confirmation() {
-		return borrow‎Confirmation;
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return borrowInsert
+	 */
+	public String getBorrow‎Insert() {
+		return borrow‎Insert;
 	}
 
 	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param borrowConfirmation
-	*/
-	public void setBorrow‎Confirmation(String borrow‎Confirmation) {
-		this.borrow‎Confirmation = borrow‎Confirmation;
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param borrowInsert
+	 */
+	public void setBorrow‎Insert(String borrow‎Insert) {
+		this.borrow‎Insert = borrow‎Insert;
 	}
 
 	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return serialversionuid
-	*/
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return serialversinuid
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 
 
-	}
+}
 
 

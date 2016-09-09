@@ -22,9 +22,13 @@ public class AttendanceSelectAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 671961516965709160L;
 	/**
-	 * 受講年&月
+	 * 受講年
 	 */
-	private String studentDate = "";
+	private String year = "";
+	/**
+	 * 受講開始月
+	 */
+	private String month = "";
 	/**
 	 * 勤怠日付
 	 */
@@ -43,7 +47,9 @@ public class AttendanceSelectAction extends ActionSupport{
 		String result = ERROR;
 		AttendanceSelectDAO dao = new AttendanceSelectDAO();
 
-		attendanceList = dao.select(studentDate, attendanceDate);
+		attendanceDate = attendanceDate.replaceAll("/", "-");
+
+		attendanceList = dao.select(year, month, attendanceDate);
 
 		if( attendanceList.size() != 0 ){
 
@@ -74,19 +80,37 @@ public class AttendanceSelectAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return studentDate
+	* @return year
 	*/
-	public String getStudentDate() {
-		return studentDate;
+	public String getYear() {
+		return year;
 	}
 
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param studentDate
+	* @param year
 	*/
-	public void setStudentDate(String studentDate) {
-		this.studentDate = studentDate;
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return month
+	*/
+	public String getMonth() {
+		return month;
+	}
+
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param month
+	*/
+	public void setMonth(String month) {
+		this.month = month;
 	}
 
 	/**

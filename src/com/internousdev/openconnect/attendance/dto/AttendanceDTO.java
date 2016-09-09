@@ -20,6 +20,22 @@ public class AttendanceDTO {
 	 */
 	private int userId;
 	/**
+	 * 受講年
+	 */
+	private String year;
+	/**
+	 * 受講開始月
+	 */
+	private String month;
+	/**
+	 * 姓
+	 */
+	private String familyNameKanji;
+	/**
+	 * 名
+	 */
+	private String givenNameKanji;
+	/**
 	 * 勤怠
 	 */
 	private int attendance;
@@ -68,6 +84,71 @@ public class AttendanceDTO {
 	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return year
+	*/
+	public String getYear() {
+		return year;
+	}
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param year
+	*/
+	public void setYear(String year) {
+		this.year = year;
+	}
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return month
+	*/
+	public String getMonth() {
+		return month;
+	}
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param month
+	*/
+	public void setMonth(String month) {
+		this.month = month;
+	}
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return familyNameKanji
+	*/
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param familyNameKanji
+	*/
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
+	}
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return givenNameKanji
+	*/
+	public String getGivenNameKanji() {
+		return givenNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param givenNameKanji
+	*/
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
 	}
 	/**
 	* 取得メソッド

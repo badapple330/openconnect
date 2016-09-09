@@ -45,7 +45,7 @@
 	<br>
 
 	<s:form action="BooksBorrowCreate">
-		<input type="text" name="id">
+		<input type="text" name="id"placeholder="タイトル入力してください">
 		<input class="button" type="submit" value="追加">
 
 	</s:form>
@@ -53,12 +53,12 @@
 	<s:form action="BooksBorrowDelete">
 	ID
 	<br>
-		<input type="text" name="bookId">
+		<input type="text" name="bookId"placeholder="ID入力してください">
 		<input class="button" type="submit" value="返却">
 	</s:form>
 	<form>
 		ユーザーID
-		 <br> <input type="text" name="userId">
+		 <br> <input type="text" name="userId"placeholder="ユーザーID入力してください">
 		  <input class="button" type="submit" value="貸し出し">
 	</form>
 </body>

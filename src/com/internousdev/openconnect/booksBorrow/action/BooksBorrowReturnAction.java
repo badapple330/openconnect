@@ -17,12 +17,12 @@ public class BooksBorrowReturnAction extends ActionSupport {
 	public String execute(){
 		BooksBorrowReturnDAO dao = new BooksBorrowReturnDAO();
 		String result = ERROR;
-		System.out.println(1);
+
 		int count = 0;
 		count = dao.delete(bookId);
 		if(count > 0){
 			result = SUCCESS;
-		}System.out.println(5);
+		}
 		return result;
 	}
 

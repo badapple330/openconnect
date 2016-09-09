@@ -93,25 +93,18 @@
 		</action>
 
 		<!-- 決済状況一覧画面への遷移 -->
-		<action name="GoDecision"
-			class="com.internousdev.openconnect.decision.action.DecisionDisplayAction"
-			method="execute">
-			<result name="success">decision.jsp</result>
-			<result name="error">/register.jsp</result>
-		</action>
-
 		<action name="DecisionSelect"
-			class="com.internousdev.openconnect.decision.action.DecisionListAction"
+			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
 			method="execute">
 			<result name="success">decision.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision.jsp</result>
 		</action>
 
 		<action name="DecisionUpdate"
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
-			<result name="success" type="chain">GoDecision</result>
-			<result name="error">/register.jsp</result>
+			<result name="success" type="chain">DecisionSelect</result>
+			<result name="error" type="chain">DecisionSelect</result>
 		</action>
 
 		<!-- プロジェクト一覧画面への遷移 -->
@@ -157,22 +150,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<!-- 勤怠更新画面への遷移 -->
-		<action name="GoAttendance"
-			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
-			method="execute">
-			<result name="success">attendance.jsp</result>
-			<result name="error">/attendance.jsp</result>
-		</action>
-
 		<!-- 勤怠一覧を表示するためのアクション -->
-		<action name="GoAttendance"
-			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
-			method="execute">
-			<result name="success">attendance.jsp</result>
-			<result name="error">/attendance.jsp</result>
-		</action>
-
 		<action name="AttendanceSelectAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
 			method="execute">
@@ -182,6 +160,13 @@
 
 		<action name="AttendanceUpdateAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceUpdateAction"
+			method="execute">
+			<result name="success" type="chain">AttendanceSelectAction</result>
+			<result name="error">/attendance.jsp</result>
+		</action>
+
+		<action name="AttendanceInsertAction"
+			class="com.internousdev.openconnect.attendance.action.AttendanceInsertAction"
 			method="execute">
 			<result name="success" type="chain">AttendanceSelectAction</result>
 			<result name="error">/attendance.jsp</result>

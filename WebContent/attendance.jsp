@@ -9,6 +9,7 @@
 
 <script src="js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="js/attendance.js"></script>
+<link rel="stylesheet" href="css/attendance.css">
 </head>
 <body>
 	<!-- ヘッダー-->
@@ -18,10 +19,13 @@
 	<br>
 	<s:form action="AttendanceSelectAction">
 
-○月生を入力<input type="text" placeholder="例：201607">
+受講年を入力<input type="text" name="year" placeholder="例：2016" class="textString" value="2016" maxlength="4" pattern="[1-9][0-9]*" title="半角数字4桁以内">
 		<br>
 		<br>
-日付検索　<input type="text" name="attendanceDate" placeholder="例：20160819">
+受講開始月を入力<input type="text" name="month" placeholder="例：07" class="textString" maxlength="2" pattern="[1-9][0-9]*" title="半角数字2桁以内">
+		<br>
+		<br>
+日付を入力<input type="text" name="attendanceDate" placeholder="例：2016/08/19" class="textString" maxlength="10" value="2016/" required>
 		<br>
 		<s:submit value="検索" class="button" />
 	</s:form>
@@ -34,6 +38,10 @@
 				<tr>
 					<th>日付</th>
 					<th>ID</th>
+					<th>受講年</th>
+					<th>受講開始月</th>
+					<th>姓</th>
+					<th>名</th>
 					<th>出席状況</th>
 					<th>出席状況入力</th>
 					<th>面談</th>
@@ -45,12 +53,16 @@
 			</s:else>
 			<s:iterator value="attendanceList">
 				<tr>
-					<td><input type="text" name="date" value="<s:property value="date"/>" readonly></td>
-					<td><input type="text" name="userId" value="<s:property value="userId"/>" readonly></td>
+					<td><input type="text" name="date" value="<s:property value="date"/>" readonly class="textDate"></td>
+					<td><input type="text" name="userId" value="<s:property value="userId"/>" readonly class="textInt"></td>
+					<td><s:property value="year" /></td>
+					<td><s:property value="month" /></td>
+					<td><s:property value="familyNameKanji" /></td>
+					<td><s:property value="givenNameKanji" /></td>
 					<td><s:property value="attendanceString" /></td>
-					<td><input type="text" name="attendance" value="<s:property value="attendance"/>"></td>
+					<td><input type="text" name="attendance" value="<s:property value="attendance"/>" class="textInt"></td>
 					<td><s:property value="interviewString" /></td>
-					<td><input type="text" name="interview" value="<s:property value="interview"/>"></td>
+					<td><input type="text" name="interview" value="<s:property value="interview"/>" class="textInt"></td>
 				</tr>
 			</s:iterator>
 		</table>
@@ -59,8 +71,31 @@
 		<s:submit value="更新" class="button" align="left"/>
 	</s:form>
 	<br>
+		追加する年月を入力<input type="text" name="date" placeholder="例：2016/08" pattern=".{7,7}" maxlength="7" required>
+		<input type="button" value="追加" class="modal-open"/>
+	<br>
 	<s:form action="GetAddressAction">
 		<s:submit value="戻る" class="button" />
 	</s:form>
+
+	<!-- 		追加モーダル -->
+	<div id="modal-main">
+		プロジェクトID <input type="text" name="projectId" id="delete-projectid" readonly>
+		<br>
+		日付<input type="text" name="projectId" id="delete-projectday" readonly>
+		<br>
+		プロジェクト名<input type="text" name="projectId" id="delete-projectname" readonly>
+		<br>
+		進捗予定<input type="text" name="projectId" id="delete-projectplan" readonly>
+		<br>
+		進捗結果<input type="text" name="projectId" id="delete-projectresult" readonly>
+		<br>
+		その他報告<input type="text" name="projectId" id="delete-other" readonly>
+		<br>
+		<s:form action="AttendanceInsertAction">
+			<s:submit class="delete-true button" value="追加" />
+		</s:form>
+		<input type="button" class="modal-close button" value="閉じる">
+	</div>
 </body>
 </html>
