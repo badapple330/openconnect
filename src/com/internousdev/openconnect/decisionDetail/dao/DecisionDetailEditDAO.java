@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailCheckDTO;
 import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.internousdev.util.DBConnector;
 /**
@@ -46,6 +45,19 @@ public class DecisionDetailEditDAO {
 				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus(rs.getString("decision_status"));
+				dto.setProjectId(rs.getInt("project_id"));
+				dto.setDay(rs.getString("day"));
+				dto.setUserId(rs.getInt("user_id"));
+				dto.setItemName(rs.getString("item_name"));
+				dto.setSummary(rs.getString("summary"));
+				dto.setCause(rs.getString("cause"));
+				dto.setStartDay(rs.getString("start_day"));
+				dto.setEndDay(rs.getString("end_day"));
+				dto.setPlan(rs.getString("plan"));
+				dto.setPersons(rs.getInt("persons"));
+				dto.setPassword(rs.getString("password"));
+
+
 				 decisionDetailList.add(dto);
 			}
 		} catch (SQLException e) {
@@ -67,7 +79,6 @@ public class DecisionDetailEditDAO {
 
 		DBConnector db =new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con =db.getConnection();
-		DecisionDetailCheckDTO dto =new DecisionDetailCheckDTO();
 
 		String sql="select*from decision_detail where decision_detail_id=? and password=?";
 		try{

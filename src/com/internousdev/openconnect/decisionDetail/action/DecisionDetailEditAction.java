@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailEditDAO;
-import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailCheckDTO;
 import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
@@ -35,7 +34,6 @@ public class DecisionDetailEditAction extends ActionSupport {
 
 		String result = ERROR;
 		DecisionDetailEditDAO dao = new DecisionDetailEditDAO();
-		DecisionDetailCheckDTO dto=new DecisionDetailCheckDTO();
 
 		boolean check = dao.check(decisionDetailId,password);
 

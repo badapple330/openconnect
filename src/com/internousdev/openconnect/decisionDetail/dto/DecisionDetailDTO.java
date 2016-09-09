@@ -20,7 +20,7 @@ public class DecisionDetailDTO {
 	private String startDay;
 	private String endDay;
 	private String plan;
-	private String persons;
+	private int persons;
 	private String password;
 	private int decisionId;
 	private int decisionDetailId;
@@ -207,17 +207,7 @@ public class DecisionDetailDTO {
 	* @author KOHEI NITABARU
 	* @return persons
 	*/
-	public String getPersons() {
-		return persons;
-	}
-	/**
-	* 設定メソッド
-	* @author KOHEI NITABARU
-	* @param persons
-	*/
-	public void setPersons(String persons) {
-		this.persons = persons;
-	}
+
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
@@ -225,6 +215,22 @@ public class DecisionDetailDTO {
 	*/
 	public String getPassword() {
 		return password;
+	}
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return
+	*/
+	public int getPersons() {
+		return persons;
+	}
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param
+	*/
+	public void setPersons(int persons) {
+		this.persons = persons;
 	}
 	/**
 	* 設定メソッド
