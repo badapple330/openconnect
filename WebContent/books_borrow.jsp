@@ -44,11 +44,11 @@
 
 	<br>
 
-	<s:form action="BooksBorrowCreate">
-		<input type="text" name="id" placeholder="本のID入力してください">
-		<input class="button" type="submit" value="追加">
+<%-- 	<s:form action="BooksBorrowCreate"> --%>
+<!-- 		<input type="text" name="id" placeholder="本のID入力してください"> -->
+<!-- 		<input class="button" type="submit" value="追加"> -->
 
-	</s:form>
+<%-- 	</s:form> --%>
 
 	<s:form action="BooksBorrowUpdate">
 	ID
