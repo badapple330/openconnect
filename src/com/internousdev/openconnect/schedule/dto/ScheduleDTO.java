@@ -5,7 +5,7 @@ package com.internousdev.openconnect.schedule.dto;
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
-public class ScheduleSelectDTO {
+public class ScheduleDTO {
 
 	/**
 	 * Id

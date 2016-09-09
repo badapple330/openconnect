@@ -16,31 +16,31 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String Startday;
+	private String startday;
 
 	/**
 	 * 件名
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String Title;
+	private String title;
 
 	/**
 	 * 内容
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String Content;
+	private String content;
 
 	/**
 	 *エラー
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String error_msg;
+	private String errorMsg;
 
 	/**
 	 * 成功
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String success_msg;
+	private String successMsg;
 
 	/**
 	 * 実行メソッド。DAOに情報を渡して、DBに追加する。
@@ -49,45 +49,50 @@ public class ScheduleInsertAction extends ActionSupport{
 		String ret = ERROR;
 		int k;
 
-		if(Startday.isEmpty()&&Title.isEmpty()){
+		if(startday.isEmpty()&&title.isEmpty()){
 			ret = ERROR;
-			error_msg=(getText("追加できませんでした"));
+			errorMsg=(getText("追加できませんでした"));
 			return ret;
 		}else{
 
 			ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-			k = dao.insert(Startday,Title,Content);
+			k = dao.insert(startday,title,content);
 
 			if (k>0) {
-				success_msg=(getText("追加しました。"));
+				successMsg=(getText("追加しました。"));
 				ret = SUCCESS;
 			} else {
-				error_msg=(getText("追加に失敗しました"));
+				errorMsg=(getText("追加に失敗しました"));
 			}
 		}
 		return ret;
 	}
 
 
+
+
+
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return Start_day
-	 */
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public String getStartday() {
-		return Startday;
+		return startday;
 	}
-
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param start_day
-	 */
-	public void setStart_day(String startday) {
-		Startday = startday;
+	* 設定メソッド
+	* @author
+	* @param
+	*/
+	public void setStartday(String startday) {
+		this.startday = startday;
 	}
+
+
+
 
 
 	/**
@@ -96,7 +101,7 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * @return Title
 	 */
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 
 
@@ -106,7 +111,7 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * @param title
 	 */
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 
 
@@ -116,7 +121,7 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * @return Content
 	 */
 	public String getContent() {
-		return Content;
+		return content;
 	}
 
 
@@ -126,47 +131,49 @@ public class ScheduleInsertAction extends ActionSupport{
 	 * @param content
 	 */
 	public void setContent(String content) {
-		Content = content;
+		this.content = content;
+	}
+
+
+
+	/**
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return errorMsg
+	*/
+	public String getErrorMsg() {
+		return errorMsg;
 	}
 
 
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return error_msg
-	 */
-	public String getError_msg() {
-		return error_msg;
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param errorMsg
+	*/
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
 	}
 
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEZUKA
-	 * @param error_msg
-	 */
-	public void setError_msg(String error_msg) {
-		this.error_msg = error_msg;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return successMsg
+	*/
+	public String getSuccessMsg() {
+		return successMsg;
 	}
 
 
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return success_msg
-	 */
-	public String getSuccess_msg() {
-		return success_msg;
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param successMsg
+	*/
+	public void setSuccessMsg(String successMsg) {
+		this.successMsg = successMsg;
 	}
 
-
-	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEZUKA
-	 * @param success_msg
-	 */
-	public void setSuccess_msg(String success_msg) {
-		this.success_msg = success_msg;
-	}
 
 }

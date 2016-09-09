@@ -50,20 +50,20 @@ document.onkeydown = keydown;
 	</s:form>
 	<br>
 
-	<s:property value="success_msg" />
-	<s:property value="error_msg" />
+	<s:property value="successMsg" />
+	<s:property value="errorMsg" />
 	<s:form action="ScheduleUpdate">
 		<table border=1 style="">
 			<tbody>
 				<tr>
-					<td>ID</td>
-					<td>開始日（YYYY-MM-DD）</td>
-					<td>終了日（YYYY-MM-DD）</td>
-					<td>件名</td>
-					<td>内容</td>
+					<th>ID</th>
+					<th>開始日（yyyy/MM/dd）</th>
+					<th>終了日（yyyy/MM/dd）</th>
+					<th>件名</th>
+					<th>内容</th>
 				</tr>
 
-				<s:iterator value="schedulelist">
+				<s:iterator value="scheduleList">
 					<tr>
 						<td><input type="text" name="scheduleIdList" size=5
 							value="<s:property value="Id" />" class="scheduleIdList" readonly></td>
@@ -101,16 +101,13 @@ document.onkeydown = keydown;
 					<td></td>
 				</tr>
 				<tr>
-					<!-- <td><input type="text" name="Start_day" -->
-					<!-- pattern="([0-2][0-9]{3})\([0-1][0-9])\([0-3][0-9])" -->
-					<!-- placeholder="開始日を入力" required></td> -->
-					<td><input type="text" name="Title" placeholder="件名を入力"
+					<td><input type="text" name="title" placeholder="件名を入力"
 						maxlength=100 required></td>
-					<td><input type="text" name="Content" placeholder="内容を入力"
+					<td><input type="text" name="content" placeholder="内容を入力"
 						maxlength=100></td>
 					<!-- tokenタグ -->
 					<s:token />
-					<td><button type="submit" class="button" name="Start_day">追加</button></td>
+					<td><button type="submit" class="button" name="startday">追加</button></td>
 				</tr>
 			</tbody>
 		</table>

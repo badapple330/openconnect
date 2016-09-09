@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.schedule.dao.ScheduleSelectDAO;
-import com.internousdev.openconnect.schedule.dto.ScheduleSelectDTO;
+import com.internousdev.openconnect.schedule.dto.ScheduleDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -20,7 +20,7 @@ public class ScheduleSelectAction extends ActionSupport {
 	 * @author MASAHIRO KEDSUKA
 	 * スケジュールリスト
 	 */
-	private List<ScheduleSelectDTO> schedulelist = new ArrayList<ScheduleSelectDTO>();
+	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
 
 	/**
 	 * 検索文
@@ -32,7 +32,7 @@ public class ScheduleSelectAction extends ActionSupport {
 	 *エラー
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String error_msg;
+	private String errorMsg;
 
 //	/**
 //	 * 成功
@@ -49,12 +49,12 @@ public class ScheduleSelectAction extends ActionSupport {
 		String result = ERROR;
 		ScheduleSelectDAO dao = new ScheduleSelectDAO();
 
-		schedulelist = dao.select(search);
-		if (schedulelist.size() != 0) {
+		scheduleList = dao.select(search);
+		if (scheduleList.size() != 0) {
 //			success_msg = (getText("「"+search+"」を検索しました。"));
 			result = SUCCESS;
 		} else {
-			error_msg = (getText("データがありません"));
+			errorMsg = (getText("データがありません"));
 		}
 		return result;
 	}
@@ -64,10 +64,10 @@ public class ScheduleSelectAction extends ActionSupport {
 	/**
 	 * 取得メソッド
 	 * @author MASAHIRO KEDSUKA
-	 * @return schedulelist
+	 * @return scheduleList
 	 */
-	public List<ScheduleSelectDTO> getSchedulelist() {
-		return schedulelist;
+	public List<ScheduleDTO> getScheduleList() {
+		return scheduleList;
 	}
 
 
@@ -75,10 +75,10 @@ public class ScheduleSelectAction extends ActionSupport {
 	/**
 	 * 設定メソッド
 	 * @author MASAHIRO KEDSUKA
-	 * @param schedulelist
+	 * @param scheduleList
 	 */
-	public void setSchedulelist(List<ScheduleSelectDTO> schedulelist) {
-		this.schedulelist = schedulelist;
+	public void setScheduleList(List<ScheduleDTO> scheduleList) {
+		this.scheduleList = scheduleList;
 	}
 
 
@@ -105,46 +105,25 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 
-//	/**
-//	 * 取得メソッド
-//	 * @author MASAHIRO KEDSUKA
-//	 * @return success_msg
-//	 */
-//	public String getSuccess_msg() {
-//		return success_msg;
-//	}
-//
-//
-//
-//	/**
-//	 * 設定メソッド
-//	 * @author MASAHIRO KEZUKA
-//	 * @param success_msg
-//	 */
-//	public void setSuccess_msg(String success_msg) {
-//		this.success_msg = success_msg;
-//	}
-//
-
-
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return error_msg
-	 */
-	public String getError_msg() {
-		return error_msg;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return errorMsg
+	*/
+	public String getErrorMsg() {
+		return errorMsg;
 	}
 
 
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEZUKA
-	 * @param error_msg
-	 */
-	public void setError_msg(String error_msg) {
-		this.error_msg = error_msg;
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param errorMsg
+	*/
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
 	}
+
 
 }

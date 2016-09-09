@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.schedule.dao.ScheduleFirstrunDAO;
-import com.internousdev.openconnect.schedule.dto.ScheduleSelectDTO;
+import com.internousdev.openconnect.schedule.dto.ScheduleDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -16,7 +16,7 @@ public class ScheduleFirstrunAction extends ActionSupport {
 	/**
 	 * スケジュールリスト
 	 */
-	private List<ScheduleSelectDTO> schedulelist = new ArrayList<ScheduleSelectDTO>();
+	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
 	/**
 	 * シリアルver
 	 */
@@ -31,9 +31,9 @@ public class ScheduleFirstrunAction extends ActionSupport {
 		String result = ERROR;
 		ScheduleFirstrunDAO dao = new ScheduleFirstrunDAO();
 
-		schedulelist = dao.select(result);
+		scheduleList = dao.select(result);
 		//daoのresultをいれる
-		if (schedulelist != null) {
+		if (scheduleList != null) {
 			//nullじゃなかったら
 			result = SUCCESS;
 		}
@@ -44,20 +44,20 @@ public class ScheduleFirstrunAction extends ActionSupport {
 	/**
 	 * 取得メソッド
 	 * @author MASAHIRO KEDSUKA
-	 * @return schedulelist
+	 * @return scheduleList
 	 */
-	public List<ScheduleSelectDTO> getSchedulelist() {
-		return schedulelist;
+	public List<ScheduleDTO> getScheduleList() {
+		return scheduleList;
 	}
 
 
 	/**
 	 * 設定メソッド
 	 * @author MASAHIRO KEDSUKA
-	 * @param schedulelist
+	 * @param scheduleList
 	 */
-	public void setSchedulelist(List<ScheduleSelectDTO> schedulelist) {
-		this.schedulelist = schedulelist;
+	public void setSchedulelist(List<ScheduleDTO> scheduleList) {
+		this.scheduleList = scheduleList;
 	}
 
 }
