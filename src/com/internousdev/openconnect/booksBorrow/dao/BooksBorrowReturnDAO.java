@@ -1,4 +1,7 @@
-package com.internousdev.openconnect.projects.dao;
+/**
+ *
+ */
+package com.internousdev.openconnect.booksBorrow.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,25 +9,26 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 
-public class ProjectsDeleteDAO {
+/**
+ * @author TATSUYA HOSHI
+ *
+ */
+public class BooksBorrowReturnDAO {
 
-	/**
-	 * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
-	 * @author TATUHUMI ITOU
-	 */
-	public int delete(int projectId){
+	public int delete(int bookId) {
 
-		int count =0;
+		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 
-		String sql = "delete from projects where project_id= ?";
+		String sql = "delete borrow_day,borrow_id from books_borrow where book_id = ?";
 
+		System.out.println(bookId);
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, projectId);
+			ps.setInt(1, bookId);
 			count = ps.executeUpdate();
 
 		}catch(SQLException e){
@@ -39,6 +43,5 @@ public class ProjectsDeleteDAO {
 
 		return count;
 	}
-
 
 }

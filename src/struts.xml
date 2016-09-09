@@ -93,25 +93,18 @@
 		</action>
 
 		<!-- 決済状況一覧画面への遷移 -->
-		<action name="GoDecision"
-			class="com.internousdev.openconnect.decision.action.DecisionDisplayAction"
-			method="execute">
-			<result name="success">decision.jsp</result>
-			<result name="error">/register.jsp</result>
-		</action>
-
 		<action name="DecisionSelect"
-			class="com.internousdev.openconnect.decision.action.DecisionListAction"
+			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
 			method="execute">
 			<result name="success">decision.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision.jsp</result>
 		</action>
 
 		<action name="DecisionUpdate"
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
-			<result name="success">decision.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="success" type="chain">DecisionSelect</result>
+			<result name="error" type="chain">DecisionSelect</result>
 		</action>
 
 		<!-- プロジェクト一覧画面への遷移 -->
@@ -157,21 +150,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<!-- 勤怠更新画面への遷移 -->
-		<action name="GoAttendance" class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
-			method="execute">
-			<result name="success">attendance.jsp</result>
-			<result name="error">/attendance.jsp</result>
-		</action>
-
 		<!-- 勤怠一覧を表示するためのアクション -->
-		<action name="GoAttendance"
-			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
-			method="execute">
-			<result name="success">attendance.jsp</result>
-			<result name="error">/attendance.jsp</result>
-		</action>
-
 		<action name="AttendanceSelectAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
 			method="execute">
@@ -181,6 +160,13 @@
 
 		<action name="AttendanceUpdateAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceUpdateAction"
+			method="execute">
+			<result name="success" type="chain">AttendanceSelectAction</result>
+			<result name="error">/attendance.jsp</result>
+		</action>
+
+		<action name="AttendanceInsertAction"
+			class="com.internousdev.openconnect.attendance.action.AttendanceInsertAction"
 			method="execute">
 			<result name="success" type="chain">AttendanceSelectAction</result>
 			<result name="error">/attendance.jsp</result>
@@ -209,7 +195,7 @@
 		</action>
 
 		<action name="DecisionDetailUpdate"
-			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailIdAction"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailEditAction"
 			method="execute">
 			<result name="success">decision_update.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -287,6 +273,13 @@
 			<result name="error ">/register.jsp</result>
 		</action>
 
+		<action name="BooksBorrowDelete"
+			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowReturnAction"
+			method="execute">
+			<result name="success" type="chain">GoBooksBorrow</result>
+			<result name="error ">/register.jsp</result>
+		</action>
+
 
 		<!-- プロジェクト進捗画面への遷移 -->
 		<action name="GoProjectProgress"
@@ -330,14 +323,6 @@
 			<result name="error">/project_progress.jsp</result>
 		</action>
 
-		<!-- スケジュール画面への遷移 -->
-		<action name="GoSchedule"
-			class="com.internousdev.openconnect.schedule.action.ScheduleFirstrunAction"
-			method="execute">
-			<result name="success">schedule.jsp</result>
-			<result name="error">/schedule.jsp</result>
-		</action>
-
 		<!-- スケジュール画面で検索 -->
 		<action name="ScheduleSelect"
 			class="com.internousdev.openconnect.schedule.action.ScheduleSelectAction"
@@ -350,28 +335,28 @@
 		<action name="ScheduleInsert"
 			class="com.internousdev.openconnect.schedule.action.ScheduleInsertAction"
 			method="execute">
-			<result name="success" type="chain">GoSchedule</result>
-			<result name="error" type="chain">GoSchedule</result>
-		</action>
-
-		<!-- スケジュール画面で追加 -->
-		<action name="ScheduleInsert"
-			class="com.internousdev.openconnect.schedule.action.ScheduleInsertAction"
-			method="execute">
 			<!-- デフォルトinterceptor -->
 			<interceptor-ref name="defaultStack" />
 			<!-- tokenのinterceptor -->
 			<interceptor-ref name="token" />
-			<result name="invalid.token" type="chain">GoSchedule</result>
-			<result type="chain">GoSchedule</result>
+			<result name="invalid.token" type="chain">ScheduleSelect</result>
+			<result type="chain">ScheduleSelect</result>
+		</action>
+
+		<!-- スケジュール画面で更新 -->
+		<action name="ScheduleUpdate"
+			class="com.internousdev.openconnect.schedule.action.ScheduleUpdateAction"
+			method="execute">
+			<result name="success" type="chain">ScheduleSelect</result>
+			<result name="error" type="chain">ScheduleSelect</result>
 		</action>
 
 		<!-- スケジュール画面で削除 -->
 		<action name="ScheduleDelete"
 			class="com.internousdev.openconnect.schedule.action.ScheduleDeleteAction"
 			method="execute">
-			<result name="success" type="chain">GoSchedule</result>
-			<result name="error" type="chain">GoSchedule</result>
+			<result name="success" type="chain">ScheduleSelect</result>
+			<result name="error" type="chain">ScheduleSelect</result>
 		</action>
 
 		<!-- <action name="JustGoAction_booklist" -->

@@ -57,8 +57,8 @@ document.onkeydown = keydown;
 			<tbody>
 				<tr>
 					<td>ID</td>
-					<td>開始日（YY/MM/DD）</td>
-					<td>終了日（YY/MM/DD）</td>
+					<td>開始日（YYYY-MM-DD）</td>
+					<td>終了日（YYYY-MM-DD）</td>
 					<td>件名</td>
 					<td>内容</td>
 				</tr>
@@ -67,13 +67,13 @@ document.onkeydown = keydown;
 					<tr>
 						<td><input type="text" name="scheduleIdList" size=5
 							value="<s:property value="Id" />" class="scheduleIdList" readonly></td>
-						<td><input type="text" name="scheduleStart_dayList"
-							value="<s:property value="Start_day" />"
-							class="scheduleStart_dayList" type="date"
-							pattern="\d{4}-\d{2}-\d{2}" placeholder="開始日を入力" required></td>
-						<td><input type="text" name="scheduleEnd_dayList"
-							value="<s:property value="End_day" />"
-							class="scheduleEnd_dayList" pattern="\d{4}-\d{2}-\d{2}"
+						<td><input type="text" name="scheduleStartdayList"
+							value="<s:property value="Startday" />"
+							class="scheduleStartdayList" type="date"
+							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" placeholder="開始日を入力" required></td>
+						<td><input type="text" name="scheduleEnddayList"
+							value="<s:property value="Endday" />"
+							class="scheduleEnddayList" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 							placeholder="終了日を入力"></td>
 						<td><input type="text" name="scheduleTitleList"
 							value="<s:property value="Title" />" class="scheduleTitleList"
@@ -82,29 +82,6 @@ document.onkeydown = keydown;
 							value="<s:property value="Content" />"
 							class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
 						<td><input type="button" class="button modal-open" value="削除" /></td>
-					</tr>
-				</s:iterator>
-
-				<s:iterator value="dscheduleList">
-					<tr>
-						<td><input type="text" name="scheduleIdList" size=5
-							value="<s:property value="Id" />" class="delscheduleIdList"
-							readonly></td>
-						<td><input type="text" name="scheduleStart_dayList"
-							value="<s:property value="Start_day" />"
-							class="delscheduleStart_dayList" type="date"
-							pattern="\d{2}-\d{2}-\d{2}"></td>
-						<td><input type="text" name="scheduleEnd_dayList"
-							value="<s:property value="End_day" />"
-							class="delscheduleEnd_dayList" pattern="\d{4}-\d{2}-\d{2}"></td>
-						<td><input type="text" name="scheduleTitleList"
-							value="<s:property value="Title" />" class="delscheduleTitleList"
-							placeholder="件名を入力" maxlength=100></td>
-						<td><input type="text" name="scheduleContentList"
-							value="<s:property value="Content" />"
-							class="delscheduleContentList" placeholder="内容を入力" maxlength=100></td>
-						<td><input type="button" class="button modal-open2"
-							value="削除" /></td>
 					</tr>
 				</s:iterator>
 			</tbody>
@@ -150,11 +127,11 @@ document.onkeydown = keydown;
 				</tr>
 				<tr>
 					<td>開始日<input type="text" name="scheduleId"
-						id="delete-start_day" readonly></td>
+						id="delete-startday" readonly></td>
 				</tr>
 				<tr>
 					<td>終了日<input type="text" name="scheduleId"
-						id="delete-end_day" readonly></td>
+						id="delete-endday" readonly></td>
 				</tr>
 				<tr>
 					<td>件名<input type="text" name="scheduleId" id="delete-title"
@@ -180,7 +157,7 @@ document.onkeydown = keydown;
 		</div>
 	</div>
 	<br>
-	<s:form action="GetAddressAction">
+	<s:form action="BackGoAction">
 		<button type="submit" class="button">戻る</button>
 	</s:form>
 </body>

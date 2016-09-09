@@ -21,7 +21,7 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	 * 日付、プロジェクト名、進捗予定、進捗結果、その他報告
 	 */
 	private int projectId;
-
+private String password;
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -32,7 +32,7 @@ public class DecisionDetailInsertAction extends ActionSupport{
 		String result=ERROR;
 		DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();
 		int count = 0;
-		count = dao.insert(projectId);
+		count = dao.insert(projectId,password);
 		if (count > 0) {
 			result = SUCCESS;
 		}
@@ -54,6 +54,24 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	*/
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return
+	*/
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param
+	*/
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 

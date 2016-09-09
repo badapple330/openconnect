@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,9 @@ public class ScheduleSelectDAO {
 		Connection conn = db.getConnection();
 		String sql = "select * from schedule where title LIKE '%" + search + "%'";
 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+
+
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -44,11 +48,12 @@ public class ScheduleSelectDAO {
 			while(rs.next()) {
 				ScheduleSelectDTO dto = new ScheduleSelectDTO();
 				dto.setId(rs.getInt("id"));
-				try { dto.setStart_day(rs.getString("start_day")); }catch(Exception e){}
-				try { dto.setEnd_day(rs.getString("end_day")); }catch(Exception e){}
+				try { dto.setStartday(sdf.format(rs.getDate("start_day")).toString()); }catch(Exception e){}
+				try { dto.setEndday(sdf.format(rs.getDate("end_day")).toString()); }catch(Exception e){}
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				schedulelist.add(dto);
+
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();

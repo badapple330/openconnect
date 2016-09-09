@@ -26,6 +26,7 @@
 </s:form>
 </p>
 <br>
+<s:form action="DecisionUpdate">
 <div class="center">
 <table border="1">
 <tr>
@@ -50,25 +51,25 @@
 <s:iterator value="decisiontList">
 <tr>
 <td><input type="text" name="registration" value="<s:property value="registration" />" /></td>
-<td><input type="text" name="user_id" value="<s:property value="user_id" />" /></td>
-<td><input type="text" name="user_id" value="<s:property value="user_id" />" /></td>
-<td><input type="text" name="project_id" value="<s:property value="project_id" />" /></td>
-<td><input type="text" name="decision_id" value="<s:property value="decision_id" />" /></td>
-<td><input type="text" name="decision_name" value="<s:property value="decision_name" />" /></td>
+<td><input type="text" name="userId" value="<s:property value="userId" />" /></td>
+<td><input type="text" name="userId" value="<s:property value="userId" />" /></td>
+<td><input type="text" name="projectId" value="<s:property value="projectId" />" /></td>
+<td><input type="text" name="decisionId" value="<s:property value="decisionId" />" /></td>
+<td><input type="text" name="decisionName" value="<s:property value="decisionName" />" /></td>
 <td><input type="text" name="detail" value="<s:property value="detail" />" /></td>
-<td><input type="text" name="i_drafting_id" value="<s:property value="i_drafting_id" />" /></td>
-<td><input type="text" name="i_approval_id" value="<s:property value="i_approval_id" />" /></td>
-<td><input type="text" name="a_drafting_id" value="<s:property value="a_drafting_id" />" /></td>
-<td><input type="text" name="cd_id" value="<s:property value="cd_id" />" /></td>
-<td><input type="text"name="i_a_d_id" value="<s:property value="i_a_d_id" />" /></td>
-<td><input type="text"name="i_a_id" value="<s:property value="i_a_id" />" /></td>
+<td><input type="text" name="iDraftingId" value="<s:property value="iDraftingId" />" /></td>
+<td><input type="text" name="iApprovalId" value="<s:property value="iApprovalId" />" /></td>
+<td><input type="text" name="aDraftingId" value="<s:property value="aDraftingId" />" /></td>
+<td><input type="text" name="cdId" value="<s:property value="cdId" />" /></td>
+<td><input type="text" name="iADId" value="<s:property value="iADId" />" /></td>
+<td><input type="text" name="iAId" value="<s:property value="iAId" />" /></td>
 </tr>
 </s:iterator>
 </table>
 </div>
 
-<s:form action="DecisionUpdate">
-<input type="submit" value="編集" class="button">
+
+<center><input type="submit" value="編集" class="button"></center>
 </s:form>
 
 <s:form action="BackGoAction">

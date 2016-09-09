@@ -49,11 +49,11 @@
 				<td class="decision_name"><s:property value="projectName" /></td>
 				<td class="decision_type"><s:property value="decisionType" /></td>
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
-				<td><s:form action="DecisionDetailUpdate">
-						<input type="hidden" name="decisionDetailId"
-							value="<s:property value="decisionDetailId" />">
-						<s:submit value="編集" />
-					</s:form></td>
+				<td><input type="button" value="編集" class="modal-edit-open">
+
+
+
+				</td>
 				<td><s:form action="DecisionDetailApplication">
 						<input type="hidden" name="decisionDetailId"
 							value="<s:property value="decisionDetailId" />">
@@ -73,18 +73,47 @@
 
 	</table>
 	<br>
-<s:form action="DecisionDetailInsert">
-	<input type="text" name="projectId" placeholder="プロジェクトID入力">
-	<input type="submit" value="追加">
+
+
+	<s:form action="DecisionDetailInsert">
+		<input type="text" name="projectId" placeholder="プロジェクトID入力">
+		<input type="text" name="password" placeholder="パスワード入力">
+		<input type="submit" value="追加">
 	</s:form>
+
+
+
+
+	<div id="modal-edit-main">
+		以下の内容を編集しますか？ ID <input type="text" id="edit-projectid" readonly><br>
+		プロジェクト名<input type="text" id="edit-projectname" readonly> <br>
+		決裁分類<input type="text" id="edit-classify" readonly> <br>
+		申請・承認状況<input type="text" id="edit-status" readonly> <br>
+		<input type="button" class="delete-true button" value="はい"> <input
+			type="button" class="modal-close button" value="いいえ">
+
+		<div class="delete-prepare">
+			パスワードを入力してください
+			<s:form action="DecisionDetailUpdate">
+				<input type="text" name="password">
+				<input type="hidden" name="decisionDetailId" value=""
+					id="edit-delete">
+				<input type="submit" class="delete-true button" value="編集">
+			</s:form>
+			<input type="button" class="modal-close button" value="閉じる">
+
+		</div>
+	</div>
+
+
 
 	<div id="modal-main">
 		<!-- #contents START -->
 		ID <input type="text" id="delete-projectid" readonly><br>
 		プロジェクト名<input type="text" id="delete-projectname" readonly> <br>決裁分類<input
 			type="text" id="decision-classify" readonly> <br>申請・承認状況<input
-			type="text" id="decision-status" readonly> <br>
-		<input type="button" class="delete-true button" value="削除"> <input
+			type="text" id="decision-status" readonly> <br> <input
+			type="button" class="delete-true button" value="削除"> <input
 			type="button" class="modal-close button" value="閉じる">
 
 		<div class="delete-prepare">

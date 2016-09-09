@@ -22,13 +22,13 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private List<String> scheduleStart_dayList = new ArrayList<String>();
+	private List<String> scheduleStartdayList = new ArrayList<String>();
 
 	/**
 	 *終了日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private List<String> scheduleEnd_dayList = new ArrayList<String>();
+	private List<String> scheduleEnddayList = new ArrayList<String>();
 
 	/**
 	 * 件名
@@ -66,8 +66,14 @@ public class ScheduleUpdateAction extends ActionSupport {
 		int count = 0;
 
 		for(int i = 0 ; i < scheduleIdList.size() ;++i){
-			count = dao.update(scheduleIdList.get(i),scheduleStart_dayList.get(i),scheduleEnd_dayList.get(i),scheduleTitleList.get(i),scheduleContentList.get(i));}
-
+			count = dao.update(
+					scheduleIdList.get(i),
+					scheduleStartdayList.get(i),
+					scheduleEnddayList.get(i),
+					scheduleTitleList.get(i),
+					scheduleContentList.get(i)
+					);
+		}
 		if ( count > 0) {
 			success_msg=(getText("更新しました。"));
 			ret = SUCCESS;
@@ -101,40 +107,40 @@ public class ScheduleUpdateAction extends ActionSupport {
 	/**
 	 * 取得メソッド
 	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleStart_dayList
+	 * @return scheduleStartdayList
 	 */
-	public List<String> getScheduleStart_dayList() {
-		return scheduleStart_dayList;
+	public List<String> getScheduleStartdayList() {
+		return scheduleStartdayList;
 	}
 
 
 	/**
 	 * 設定メソッド
 	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleStart_dayList
+	 * @param scheduleStartdayList
 	 */
-	public void setScheduleStart_dayList(List<String> scheduleStart_dayList) {
-		this.scheduleStart_dayList = scheduleStart_dayList;
+	public void setScheduleStartdayList(List<String> scheduleStartdayList) {
+		this.scheduleStartdayList = scheduleStartdayList;
 	}
 
 
 	/**
 	 * 取得メソッド
 	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleEnd_dayList
+	 * @return scheduleEnddayList
 	 */
-	public List<String> getScheduleEnd_dayList() {
-		return scheduleEnd_dayList;
+	public List<String> getScheduleEnddayList() {
+		return scheduleEnddayList;
 	}
 
 
 	/**
 	 * 設定メソッド
 	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleEnd_dayList
+	 * @param scheduleEnddayList
 	 */
-	public void setScheduleEnd_dayList(List<String> scheduleEnd_dayList) {
-		this.scheduleEnd_dayList = scheduleEnd_dayList;
+	public void setScheduleEnddayList(List<String> scheduleEnddayList) {
+		this.scheduleEnddayList = scheduleEnddayList;
 	}
 
 
@@ -190,7 +196,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 	/**
 	 * 設定メソッド
-	 * @author MASAHIRO KEZUKA
+	 * @author MASAHIRO KEDSUKA
 	 * @param error_msg
 	 */
 	public void setError_msg(String error_msg) {
@@ -210,13 +216,11 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 	/**
 	 * 設定メソッド
-	 * @author MASAHIRO KEZUKA
+	 * @author MASAHIRO KEDSUKA
 	 * @param success_msg
 	 */
 	public void setSuccess_msg(String success_msg) {
 		this.success_msg = success_msg;
 	}
-
-
 
 }
