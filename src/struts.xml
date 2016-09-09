@@ -150,22 +150,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<!-- 勤怠更新画面への遷移 -->
-		<action name="GoAttendance"
-			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
-			method="execute">
-			<result name="success">attendance.jsp</result>
-			<result name="error">/attendance.jsp</result>
-		</action>
-
 		<!-- 勤怠一覧を表示するためのアクション -->
-		<action name="GoAttendance"
-			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
-			method="execute">
-			<result name="success">attendance.jsp</result>
-			<result name="error">/attendance.jsp</result>
-		</action>
-
 		<action name="AttendanceSelectAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
 			method="execute">
@@ -175,6 +160,13 @@
 
 		<action name="AttendanceUpdateAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceUpdateAction"
+			method="execute">
+			<result name="success" type="chain">AttendanceSelectAction</result>
+			<result name="error">/attendance.jsp</result>
+		</action>
+
+		<action name="AttendanceInsertAction"
+			class="com.internousdev.openconnect.attendance.action.AttendanceInsertAction"
 			method="execute">
 			<result name="success" type="chain">AttendanceSelectAction</result>
 			<result name="error">/attendance.jsp</result>
