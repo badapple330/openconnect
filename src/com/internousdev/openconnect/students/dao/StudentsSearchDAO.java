@@ -31,14 +31,14 @@ public class StudentsSearchDAO {
 			while (rs.next()) {
 				StudentsSearchDTO dto = new StudentsSearchDTO();
 
-				dto.setFamily_name(rs.getString("family_name"));
-				dto.setGiven_name(rs.getString("given_name"));
+				dto.setFamilyname(rs.getString("family_name"));
+				dto.setGivenname(rs.getString("given_name"));
 				dto.setYear(rs.getString("year"));
 				dto.setMonth(rs.getString("month"));
-
+				dto.setUserid(rs.getInt("user_id"));
 				searchList.add(dto);
 			}
-			//
+
 		}  catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

@@ -34,74 +34,136 @@ System.out.println(userIdList);
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public List<Integer> getUserIdList() {
 		return userIdList;
 	}
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setUserIdList(List<Integer> userIdList) {
 		this.userIdList = userIdList;
 	}
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public List<String> getFamilyNameList() {
 		return familyNameList;
 	}
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setFamilyNameList(List<String> familyNameList) {
 		this.familyNameList = familyNameList;
 	}
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public List<String> getGivenNameList() {
 		return givenNameList;
 	}
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setGivenNameList(List<String> givenNameList) {
 		this.givenNameList = givenNameList;
 	}
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public List<String> getYearList() {
 		return yearList;
 	}
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setYearList(List<String> yearList) {
 		this.yearList = yearList;
 	}
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public List<String> getMonthList() {
 		return monthList;
 	}
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setMonthList(List<String> monthList) {
 		this.monthList = monthList;
 	}
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return passwordList
+	*/
 	public List<Integer> getPasswordList() {
 		return passwordList;
 	}
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setPasswordList(List<Integer> passwordList) {
 		this.passwordList = passwordList;
 	}
+
+
 
 }

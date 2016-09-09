@@ -2,56 +2,109 @@ package com.internousdev.openconnect.students.dto;
 
 public class StudentsSearchDTO {
 
- private String family_name;
- private String given_name;
+ private String familyname;
+ private String givenname;
  private String month;
  private String year;
  private int password;
- private int user_id;
-
-
-public String getFamily_name() {
-	return family_name;
+ private int userid;
+/**
+* 取得メソッド
+* @author
+* @return
+*/
+public String getFamilyname() {
+	return familyname;
 }
-public String getGiven_name() {
-	return given_name;
+/**
+* 設定メソッド
+* @author
+* @param
+*/
+public void setFamilyname(String familyname) {
+	this.familyname = familyname;
 }
-public String getYear() {
-	return year;
+/**
+* 取得メソッド
+* @author
+* @return
+*/
+public String getGivenname() {
+	return givenname;
 }
-public void setFamily_name(String family_name) {
-	this.family_name = family_name;
+/**
+* 設定メソッド
+* @author
+* @param
+*/
+public void setGivenname(String givenname) {
+	this.givenname = givenname;
 }
-public void setGiven_name(String given_name) {
-	this.given_name = given_name;
-}
-public void setYear(String year) {
-	this.year = year;
-}
-public void setFamilyName(String family_name) {
-	this.family_name = family_name;
-}
-public void setMonth(String month) {
-	this.month = month;
-}
-public String getFamilyName() {
-	return family_name;
-}
+/**
+* 取得メソッド
+* @author
+* @return
+*/
 public String getMonth() {
 	return month;
 }
-
+/**
+* 設定メソッド
+* @author
+* @param
+*/
+public void setMonth(String month) {
+	this.month = month;
+}
+/**
+* 取得メソッド
+* @author
+* @return
+*/
+public String getYear() {
+	return year;
+}
+/**
+* 設定メソッド
+* @author
+* @param
+*/
+public void setYear(String year) {
+	this.year = year;
+}
+/**
+* 取得メソッド
+* @author
+* @return
+*/
 public int getPassword() {
 	return password;
 }
-public int getUser_id() {
-	return user_id;
-}
+/**
+* 設定メソッド
+* @author
+* @param
+*/
 public void setPassword(int password) {
 	this.password = password;
 }
-public void setUser_id(int user_id) {
-	this.user_id = user_id;
+/**
+* 取得メソッド
+* @author
+* @return
+*/
+public int getUserid() {
+	return userid;
 }
+/**
+* 設定メソッド
+* @author
+* @param
+*/
+public void setUserid(int userid) {
+	this.userid = userid;
+}
+
+
 
 }

@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.students.dao.StudentsDAO;
-import com.internousdev.openconnect.students.dto.StudentsDTO;
+import com.internousdev.openconnect.students.dto.StudentsSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
 public class StudentsAction extends ActionSupport{
 
-	private List<StudentsDTO> studentsList = new ArrayList<StudentsDTO>();
+	private List<StudentsSearchDTO> studentsList = new ArrayList<StudentsSearchDTO>();
 
 	public String execute() {
 		String result = ERROR;
@@ -24,10 +24,10 @@ public class StudentsAction extends ActionSupport{
 		return result;
 	}
 
-		public List<StudentsDTO> getStudentsList() {
+		public List<StudentsSearchDTO> getStudentsList() {
 			return studentsList;
 		}
-		public void setStudentsList(List<StudentsDTO> studentsList) {
+		public void setStudentsList(List<StudentsSearchDTO> studentsList) {
 			this.studentsList = studentsList;
 		}
 

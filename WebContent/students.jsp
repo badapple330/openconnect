@@ -55,16 +55,16 @@
       <td><input type="text" name="monthList" value="<s:property value="month" />"class="month"></td>
       <td><input type="text" name="familyNameList" value="<s:property value="familyName" />"class="FamilyName"></td>
       <td><input type="text" name="givenNameList" value="<s:property value="givenName" />"class="GivenName"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+<!--       <td></td> -->
+<!--       <td></td> -->
+<!--       <td></td> -->
+<!--       <td></td> -->
+<!--       <td></td> -->
+<!--       <td></td> -->
+<!--       <td></td> -->
       <td><input type="text" name="passwordList" value="<s:property value="password" />"class="password"></td>
       <td><input type="text" name="userIdList" value="<s:property value="userId" />"class="userId"></td>
-      <td><input type="button" class="button modal-open" value="削除" class="modal-open"></td>
+<!--       <td><input type="button" class="button modal-open" value="削除" class="modal-open"></td> -->
   </tr>
 </s:iterator>
 </tbody>
