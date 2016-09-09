@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
 
-public class DecisionListDAO {
+public class DecisionSelectDAO {
 	/**
 	 * ユーザー一覧情報を格納するリスト
 	 */
@@ -52,7 +52,7 @@ public class DecisionListDAO {
 				dto.setDetail(rs.getString("detail"));
 				dto.setIDraftingId(rs.getString("i_drafting_id"));
 				dto.setIApprovalId(rs.getString("i_approval_id"));
-				dto.setaDraftingId(rs.getString("a_drafting_id"));
+				dto.setADraftingId(rs.getString("a_drafting_id"));
 				dto.setCdId(rs.getString("cd_id"));
 				dto.setIADId(rs.getString("i_a_d_id"));
 				dto.setIAId(rs.getString("i_a_id"));

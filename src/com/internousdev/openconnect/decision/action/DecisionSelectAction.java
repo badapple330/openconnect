@@ -2,11 +2,11 @@ package com.internousdev.openconnect.decision.action;
 
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.decision.dao.DecisionListDAO;
+import com.internousdev.openconnect.decision.dao.DecisionSelectDAO;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DecisionListAction extends ActionSupport{
+public class DecisionSelectAction extends ActionSupport{
 /**
  * シリアル番号
  */
@@ -24,7 +24,7 @@ public class DecisionListAction extends ActionSupport{
 
 	public String execute(){
 		System.out.println(searchString);
-		DecisionListDAO dao = new DecisionListDAO();
+		DecisionSelectDAO dao = new DecisionSelectDAO();
 		if (dao.select(searchString)) {
 			decisiontList = dao.getList();
 		} else {

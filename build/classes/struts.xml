@@ -93,25 +93,18 @@
 		</action>
 
 		<!-- 決済状況一覧画面への遷移 -->
-		<action name="GoDecision"
-			class="com.internousdev.openconnect.decision.action.DecisionDisplayAction"
-			method="execute">
-			<result name="success">decision.jsp</result>
-			<result name="error">/register.jsp</result>
-		</action>
-
 		<action name="DecisionSelect"
-			class="com.internousdev.openconnect.decision.action.DecisionListAction"
+			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
 			method="execute">
 			<result name="success">decision.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision.jsp</result>
 		</action>
 
 		<action name="DecisionUpdate"
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
-			<result name="success" type="chain">GoDecision</result>
-			<result name="error">/register.jsp</result>
+			<result name="success" type="chain">DecisionSelect</result>
+			<result name="error" type="chain">DecisionSelect</result>
 		</action>
 
 		<!-- プロジェクト一覧画面への遷移 -->

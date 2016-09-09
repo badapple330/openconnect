@@ -53,7 +53,7 @@
 
 		<div class="goButton">
 			<!-- 決済一覧状況 -->
-			<s:form action="GoDecision">
+			<s:form action="DecisionSelect">
 				<s:submit type="submit" value="決済状況一覧" />
 			</s:form>
 			<!-- 	<!-- プロジェクト一覧 -->

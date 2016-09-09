@@ -205,7 +205,7 @@ public class DecisionDTO {
 	* @author KENICHI HORIGUCHI
 	* @return aDraftingId
 	*/
-	public String getaDraftingId() {
+	public String getADraftingId() {
 		return aDraftingId;
 	}
 	/**
@@ -213,7 +213,7 @@ public class DecisionDTO {
 	* @author KENICHI HORIGUCHI
 	* @param aDraftingId
 	*/
-	public void setaDraftingId(String aDraftingId) {
+	public void setADraftingId(String aDraftingId) {
 		this.aDraftingId = aDraftingId;
 	}
 	/**
