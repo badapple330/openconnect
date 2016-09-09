@@ -147,17 +147,10 @@ insert project_status(project_id, a_envstart)values
 create table attendance(
 date DATE not null comment '日付',
 user_id int not null comment '生徒ID',
-attendance enum('1','2','3','4','5') default '1'  comment '出欠状況',
+attendance enum('0','1','2','3','4','5') default '1'  comment '出欠状況',
 interview enum('1','2') default '2' comment '面談状況',
 foreign key(user_id) references users(user_id)
 );
-
-insert into attendance(
-date,user_id,attendance,interview
-)values
-(160802,1,1,1),
-(160821,2,2,1),
-(160822,3,1,2);
 
 /*サブプロジェクト / 決裁状況一覧*/
 create table decision(
