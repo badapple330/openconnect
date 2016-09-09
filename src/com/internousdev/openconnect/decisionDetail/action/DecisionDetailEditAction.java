@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailEditDAO;
+import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailCheckDTO;
 import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
@@ -31,25 +32,32 @@ public class DecisionDetailEditAction extends ActionSupport {
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {
+
 		String result = ERROR;
 		DecisionDetailEditDAO dao = new DecisionDetailEditDAO();
-		DecisionDetailDTO dto=new DecisionDetailDTO();
-		dto=dao.check(decisionDetailId,password);
-		String dtoPassword=dto.getPassword();
+		DecisionDetailCheckDTO dto=new DecisionDetailCheckDTO();
 
+		boolean check = dao.check(decisionDetailId,password);
 
-		decisionDetailList = dao.select(decisionDetailId);
+		if( check ){
 
-		System.out.println(1);
-
-		if (!( decisionDetailList == null)) {
-			System.out.println(2);
-			if(password.equals(dtoPassword)){
-				System.out.println(3);
-				result = SUCCESS;
-				System.out.println(7);
-			}
+			decisionDetailList = dao.select(decisionDetailId);
+			result = SUCCESS;
 		}
+//		String dtoPassword=dto.getPassword();
+//		int dtoDecisionDetailId=dto.getDecisionDetailId();
+//
+//		decisionDetailList = dao.select(decisionDetailId);
+//
+//		System.out.println(1);
+//
+//		if (!( decisionDetailList == null)) {
+//			if(password.equals(dtoPassword)){
+//				if(decisionDetailId==(dtoDecisionDetailId)){
+//					result = SUCCESS;
+//				}
+//			}
+//		}
 		return result;
 	}
 

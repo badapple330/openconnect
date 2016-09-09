@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailCheckDTO;
 import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.internousdev.util.DBConnector;
 /**
@@ -59,11 +60,14 @@ public class DecisionDetailEditDAO {
 		return  decisionDetailList;
 	}
 
-	public DecisionDetailDTO check(int decisionDetailId,String password){
+
+	public boolean check(int decisionDetailId,String password){
+
+		boolean result = false;
 
 		DBConnector db =new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con =db.getConnection();
-		DecisionDetailDTO dto =new DecisionDetailDTO();
+		DecisionDetailCheckDTO dto =new DecisionDetailCheckDTO();
 
 		String sql="select*from decision_detail where decision_detail_id=? and password=?";
 		try{
@@ -72,7 +76,8 @@ public class DecisionDetailEditDAO {
 			ps.setString(2,password);
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()){
-				dto.setPassword(rs.getString("password"));
+
+				result = true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -82,7 +87,7 @@ public class DecisionDetailEditDAO {
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return dto;
+		return result;
 	}
 
 	/**
