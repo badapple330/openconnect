@@ -150,7 +150,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-        <action name="StudentsSearch"
+		<action name="StudentsSearch"
 			class="com.internousdev.openconnect.students.action.StudentsSearchAction"
 			method="execute">
 			<result name="success">students.jsp</result>
@@ -244,6 +244,14 @@
 			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
+	<!-- 決済手続き電子化画面編集への遷移 -->
+	<action name="PasswordEdit"
+			class="com.internousdev.openconnect.decisionUpdate.action.DecisionEditPasswordAction"
+			method="execute">
+			<result name="success" type="chain" >DecisionDetailUpdate</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
@@ -282,22 +290,17 @@
 
 
 		<!-- 書籍貸し出し画面への遷移 -->
+
 		<action name="GoBooksBorrow"
 			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowAction"
 			method="execute">
 			<result name="success">books_borrow.jsp</result>
-			<result name="error ">/register.jsp</result>
+			<result name="error">/books_borrow.jsp</result>
 		</action>
 
-		<action name="BooksBorrowCreate"
-			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowNewAction"
-			method="execute">
-			<result name="success" type="chain">GoBooksBorrow</result>
-			<result name="error">/register.jsp</result>
-		</action>
 
-		<action name="BooksBorrowDelete"
-			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowReturnAction"
+		<action name="BooksBorrowUpdate"
+			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowUpdateAction"
 			method="execute">
 			<result name="success" type="chain">GoBooksBorrow</result>
 			<result name="error">/register.jsp</result>

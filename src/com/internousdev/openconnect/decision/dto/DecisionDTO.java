@@ -3,15 +3,12 @@
  */
 package com.internousdev.openconnect.decision.dto;
 
-import java.sql.Date;
-
-
 public class DecisionDTO {
 	/**
 	 * 登録日
 	 *
 	 */
-	private Date registration;
+	private String registration;
 	/**
 	 * ユーザーID
 	 *
@@ -77,7 +74,7 @@ public class DecisionDTO {
 	* @author KENICHI HORIGUCHI
 	* @return registration
 	*/
-	public Date getRegistration() {
+	public String getRegistration() {
 		return registration;
 	}
 	/**
@@ -85,7 +82,7 @@ public class DecisionDTO {
 	* @author KENICHI HORIGUCHI
 	* @param registration
 	*/
-	public void setRegistration(Date registration) {
+	public void setRegistration(String registration) {
 		this.registration = registration;
 	}
 	/**

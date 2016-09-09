@@ -44,7 +44,7 @@ public class DecisionSelectDAO {
 			while(rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
 
-				dto.setRegistration(rs.getDate("registration"));
+				dto.setRegistration(rs.getString("registration"));
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setProjectId(rs.getInt("project_id"));
 				dto.setDecisionId(rs.getInt("decision_id"));
