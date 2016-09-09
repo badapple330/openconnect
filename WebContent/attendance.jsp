@@ -71,8 +71,10 @@
 		<s:submit value="更新" class="button" align="left"/>
 	</s:form>
 	<br>
-		追加する年月を入力<input type="text" name="date" placeholder="例：2016/08" pattern=".{7,7}" maxlength="7" required>
-		<input type="button" value="追加" class="modal-open"/>
+			追加する年月を入力<br>
+			年<input type="text" class="inputYear" placeholder="例：2016" maxlength="4" required><br>
+			月<input type="text" class="inputMonth" placeholder="例：08" maxlength="2" required>
+			<input type="button" value="追加" class="modal-open"/>
 	<br>
 	<s:form action="GetAddressAction">
 		<s:submit value="戻る" class="button" />
@@ -80,19 +82,16 @@
 
 	<!-- 		追加モーダル -->
 	<div id="modal-main">
-		プロジェクトID <input type="text" name="projectId" id="delete-projectid" readonly>
+		入力した年月：<div id="year"></div>年<div id="month"></div>月
 		<br>
-		日付<input type="text" name="projectId" id="delete-projectday" readonly>
 		<br>
-		プロジェクト名<input type="text" name="projectId" id="delete-projectname" readonly>
-		<br>
-		進捗予定<input type="text" name="projectId" id="delete-projectplan" readonly>
-		<br>
-		進捗結果<input type="text" name="projectId" id="delete-projectresult" readonly>
-		<br>
-		その他報告<input type="text" name="projectId" id="delete-other" readonly>
+		追加を押すと上記の年月に、<br>
+		過去3ヶ月分のユーザーのデータが追加されます。<br>
+		(少し時間がかかります)
 		<br>
 		<s:form action="AttendanceInsertAction">
+			<input type="hidden" name="year" value="" id="attendanceYear">
+			<input type="hidden" name="month" value="" id="attendanceMonth">
 			<s:submit class="delete-true button" value="追加" />
 		</s:form>
 		<input type="button" class="modal-close button" value="閉じる">

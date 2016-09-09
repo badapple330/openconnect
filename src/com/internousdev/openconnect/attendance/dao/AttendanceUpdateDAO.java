@@ -23,15 +23,15 @@ public class AttendanceUpdateDAO {
 		int count=0;
 
 		Connection conn=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
-		String sql="update attendance set date=?, attendance=?, interview=? where user_id=?";
+		String sql="update attendance set attendance=?, interview=? where user_id=? and date=?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 
-			ps.setString(1, date);
-			ps.setInt(2, attendance);
-			ps.setInt(3, interview);
-			ps.setInt(4,  userId);
+			ps.setInt(1, attendance);
+			ps.setInt(2, interview);
+			ps.setInt(3,  userId);
+			ps.setString(4, date);
 
 			count = ps.executeUpdate();
 
@@ -42,6 +42,7 @@ public class AttendanceUpdateDAO {
 				conn.close();
 			}catch(SQLException e){
 				e.printStackTrace();
+				System.out.println(attendance);
 			}
 		}
 		return count;

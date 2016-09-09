@@ -61,6 +61,11 @@ public class AttendanceSelectDAO {
 				dto.setInterview(rs.getInt("interview"));
 				dto.setAttendanceString( ATTENDANCE_STR[ dto.getAttendance() ] );
 				dto.setInterviewString( INTERVIEW_STR[ dto.getInterview() ] );
+
+				if( dto.getAttendance() == 0 ){
+					dto.setAttendance( 1 );
+				}
+
 				attendanceList.add(dto);
 			}
 		}catch(SQLException e){
@@ -73,13 +78,6 @@ public class AttendanceSelectDAO {
 			}
 		}
 		return attendanceList;
-	}
-	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 * @author MINORI SUNAGAWA
-	 */
-	public void select(){
-
 	}
 
 }
