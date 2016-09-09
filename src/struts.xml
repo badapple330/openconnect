@@ -195,7 +195,7 @@
 		</action>
 
 		<action name="DecisionDetailUpdate"
-			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailIdAction"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailEditAction"
 			method="execute">
 			<result name="success">decision_update.jsp</result>
 			<result name="error">/register.jsp</result>
