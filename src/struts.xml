@@ -150,6 +150,29 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+        <action name="StudentsSearch"
+			class="com.internousdev.openconnect.students.action.StudentsSearchAction"
+			method="execute">
+			<result name="success">students.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
+		<action name="StudentsInsert"
+			class="com.internousdev.openconnect.students.action.StudentsInsertAction"
+			method="execute">
+			<result name="success" type="chain">StudentsSearch</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="StudentsUpdate"
+			class="com.internousdev.openconnect.students.action.StudentsUpdateAction"
+			method="execute">
+			<result name="success" type="chain">StudentsSearch</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
 		<!-- 勤怠一覧を表示するためのアクション -->
 		<action name="AttendanceSelectAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"

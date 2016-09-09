@@ -1,11 +1,12 @@
 /**
  *
  */
-package com.internousdev.openconnect.books.action;
+package com.internousdev.openconnect.students.action;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.internousdev.openconnect.students.dao.StudentsDAO;
 import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.opensymphony.xwork2.ActionSupport;
 public class StudentsAction extends ActionSupport{
@@ -25,6 +26,9 @@ public class StudentsAction extends ActionSupport{
 
 		public List<StudentsDTO> getStudentsList() {
 			return studentsList;
+		}
+		public void setStudentsList(List<StudentsDTO> studentsList) {
+			this.studentsList = studentsList;
 		}
 
 

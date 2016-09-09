@@ -51,10 +51,10 @@
 <s:iterator value="studentsList">
 
      <tr>
-      <td><input type="text" name="studentsYear" value="<s:property value="year" />" class="studentsYear"></td>
-      <td><input type="text" name="studentsMonth" value="<s:property value="month" />"class="studentsMonth"></td>
-      <td><input type="text" name="studentsFamily_nameList" value="<s:property value="family_name" />"class="studentsFamily_name"></td>
-      <td><input type="text" name="studentsGIven_nameList" value="<s:property value="given_name" />"class="studentsGiven_name"></td>
+      <td><input type="text" name="yearList" value="<s:property value="year" />" class="year"></td>
+      <td><input type="text" name="monthList" value="<s:property value="month" />"class="month"></td>
+      <td><input type="text" name="familyNameList" value="<s:property value="familyName" />"class="FamilyName"></td>
+      <td><input type="text" name="givenNameList" value="<s:property value="givenName" />"class="GivenName"></td>
       <td></td>
       <td></td>
       <td></td>
@@ -62,8 +62,8 @@
       <td></td>
       <td></td>
       <td></td>
-      <td><input type="text" name="studentsPassword" value="<s:property value="password" />"class="studentsPassword"></td>
-      <td><input type="text" name="studentsId" value="<s:property value="user_id" />"class="studentsId"></td>
+      <td><input type="text" name="passwordList" value="<s:property value="password" />"class="password"></td>
+      <td><input type="text" name="userIdList" value="<s:property value="userId" />"class="userId"></td>
       <td><input type="button" class="button modal-open" value="削除" class="modal-open"></td>
   </tr>
 </s:iterator>
@@ -104,10 +104,10 @@
  <s:form action="StudentsInsert" >
       <input type="text" name="year" placeholder="年">
       <input type="text" name="month" placeholder="月">
-      <input type="text" name="family_name"placeholder="姓">
-      <input type="text" name="given_name" placeholder="名">
+      <input type="text" name="familyName"placeholder="姓">
+      <input type="text" name="givenName" placeholder="名">
       <input type="text" name="password" placeholder="パスワード">
-      <input type="text" name="user_id" placeholder="ユーザーID">
+      <input type="text" name="userId" placeholder="ユーザーID">
       <input class="button" type="submit" value="追加">
 </s:form>
 
