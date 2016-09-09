@@ -21,7 +21,7 @@
 	<br> 書籍の検索
 
 	<s:form action="BooksSearch">
-		<input type="text" name="search">
+		<input type="text" name="search"placeholder="タイトル入力してください">
 		<input class="button" type="submit" value="検索">
 	</s:form>
 
@@ -78,7 +78,7 @@
 
 	書籍の追加
 	<s:form action="BooksCreate">
-		<input type="text" name="title">
+		<input type="text" name="title"placeholder="タイトル入力してください">
 		<input class="button" type="submit" value="追加">
 	</s:form>
 
