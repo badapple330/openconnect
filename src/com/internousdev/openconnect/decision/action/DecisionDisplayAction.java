@@ -6,7 +6,12 @@ import java.util.List;
 import com.internousdev.openconnect.decision.dao.DecisionDisplayDAO;
 import com.internousdev.openconnect.decision.dto.DecisionDisplayDTO;
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * DBの情報を画面に表示する為のクラス
+ * @author KENICHI HORIGUCHI
+ * @since 2016/09/08
+ * @version 1.0
+ */
 public class DecisionDisplayAction extends ActionSupport{
 
 	private List<DecisionDisplayDTO> decisiontList = new ArrayList<DecisionDisplayDTO>();
@@ -23,6 +28,7 @@ public class DecisionDisplayAction extends ActionSupport{
 		}
 		return result;
 	}
+
 
 	/**
 	* 取得メソッド
@@ -41,6 +47,8 @@ public class DecisionDisplayAction extends ActionSupport{
 	public void setDecisiontList(List<DecisionDisplayDTO> decisiontList) {
 		this.decisiontList = decisiontList;
 	}
+
+
 
 	/**
 	* 取得メソッド

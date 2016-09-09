@@ -34,8 +34,8 @@ public class DecisionListDAO {
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 //			ps.setString(1,searchString);
-			//			ps.setString(2,searchString);
-			//			ps.setString(3,searchString);
+//			ps.setString(2,searchString);
+//			ps.setString(3,searchString);
 
 
 			ResultSet rs = ps.executeQuery();
@@ -45,16 +45,17 @@ public class DecisionListDAO {
 				DecisionListDTO dto = new DecisionListDTO();
 
 				dto.setRegistration(rs.getDate("registration"));
-				dto.setUser_id(rs.getInt("user_id"));
-				dto.setProject_id(rs.getInt("project_id"));
-				dto.setDecision_id(rs.getInt("decision_id"));
-				dto.setDecision_name(rs.getString("decision_name"));
+				dto.setUserId(rs.getInt("user_id"));
+				dto.setProjectId(rs.getInt("project_id"));
+				dto.setDecisionId(rs.getInt("decision_id"));
+				dto.setDecisionName(rs.getString("decision_name"));
 				dto.setDetail(rs.getString("detail"));
-				dto.setI_drafthing_id(rs.getString("i_drafting_id"));
-				dto.setI_approval_id(rs.getString("i_approval_id"));
-				dto.setCd_id(rs.getString("cd_id"));
-				dto.setI_a_d_id(rs.getString("i_a_d_id"));
-				dto.setI_a_id(rs.getString("i_a_id"));
+				dto.setiDraftingId(rs.getString("i_drafting_id"));
+				dto.setiApprovalId(rs.getString("i_approval_id"));
+				dto.setaDraftingId(rs.getString("a_drafting_id"));
+				dto.setCdId(rs.getString("cd_id"));
+				dto.setiADId(rs.getString("i_a_d_id"));
+				dto.setiAId(rs.getString("i_a_id "));
 				list.add(dto);
 				result = true;
 			}

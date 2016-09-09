@@ -110,7 +110,7 @@
 		<action name="DecisionUpdate"
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
-			<result name="success">decision.jsp</result>
+			<result name="success" type="chain">GoDecision</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
@@ -158,13 +158,21 @@
 		</action>
 
 		<!-- 勤怠更新画面への遷移 -->
-		<action name="GoAttendance" class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
+		<action name="GoAttendance"
+			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
 			method="execute">
 			<result name="success">attendance.jsp</result>
 			<result name="error">/attendance.jsp</result>
 		</action>
 
 		<!-- 勤怠一覧を表示するためのアクション -->
+		<action name="GoAttendance"
+			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
+			method="execute">
+			<result name="success">attendance.jsp</result>
+			<result name="error">/attendance.jsp</result>
+		</action>
+
 		<action name="AttendanceSelectAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
 			method="execute">
@@ -172,9 +180,16 @@
 			<result name="error">/attendance.jsp</result>
 		</action>
 
+		<action name="AttendanceUpdateAction"
+			class="com.internousdev.openconnect.attendance.action.AttendanceUpdateAction"
+			method="execute">
+			<result name="success" type="chain">AttendanceSelectAction</result>
+			<result name="error">/attendance.jsp</result>
+		</action>
+
 		<!-- 決済手続き電子化画面への遷移 -->
 		<action name="GoDecisionDetail"
-			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailAction"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailSearchAction"
 			method="execute">
 			<result name="success">decision_detail.jsp</result>
 			<result name="error">/register.jsp</result>
@@ -211,14 +226,14 @@
 		<action name="DecisionDetailApplication"
 			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailApplicationAction"
 			method="execute">
-			<result name="success" type="chain">GoDecisionDetail</result>
+			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<action name="DecisionDetailInsert"
-			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailNewAction"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailInsertAction"
 			method="execute">
-			<result name="success" type="chain">GoDecisionDetail</result>
+			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
@@ -268,6 +283,13 @@
 
 		<action name="BooksBorrowCreate"
 			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowNewAction"
+			method="execute">
+			<result name="success" type="chain">GoBooksBorrow</result>
+			<result name="error ">/register.jsp</result>
+		</action>
+
+		<action name="BooksBorrowDelete"
+			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowReturnAction"
 			method="execute">
 			<result name="success" type="chain">GoBooksBorrow</result>
 			<result name="error ">/register.jsp</result>
@@ -336,9 +358,14 @@
 		<action name="ScheduleInsert"
 			class="com.internousdev.openconnect.schedule.action.ScheduleInsertAction"
 			method="execute">
-			<result name="success" type="chain">GoSchedule</result>
-			<result name="error" type="chain">GoSchedule</result>
+			<!-- デフォルトinterceptor -->
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">GoSchedule</result>
+			<result type="chain">GoSchedule</result>
 		</action>
+
 
 		<!-- スケジュール画面で更新 -->
 		<action name="ScheduleUpdate"

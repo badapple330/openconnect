@@ -1,6 +1,7 @@
 package com.internousdev.openconnect.decision.action;
 
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,18 +17,18 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionUpdateAction extends ActionSupport{
 
-	private List<String> registrasion= new ArrayList<String>();
-	private List<Integer> user_id = new ArrayList<Integer>();
-	private List<Integer> project_id = new ArrayList<Integer>();
-	private List<Integer> decision_id = new ArrayList<Integer>();
-	private List<String> decision_name = new ArrayList<String>();
+	private List<String> registration = new ArrayList<String>();
+	private List<Integer> userId = new ArrayList<Integer>();
+	private List<Integer> projectId = new ArrayList<Integer>();
+	private List<Integer> decisionId = new ArrayList<Integer>();
+	private List<String> decisionName = new ArrayList<String>();
 	private List<String> detail = new ArrayList<String>();
-	private List<String> i_drafting_id = new ArrayList<String>();
-	private List<String> i_approval_id = new ArrayList<String>();
-	private List<String> a_drafting_id = new ArrayList<String>();
-	private List<String> cd_id = new ArrayList<String>();
-	private List<String> i_a_d_id = new ArrayList<String>();
-	private List<String> i_a_id = new ArrayList<String>();
+	private List<String> iDraftingId = new ArrayList<String>();
+	private List<String> iApprovalId = new ArrayList<String>();
+	private List<String> aDraftingId = new ArrayList<String>();
+	private List<String> cdId = new ArrayList<String>();
+	private List<String> iADId = new ArrayList<String>();
+	private List<String> iAId = new ArrayList<String>();
 
 	/**
 	 * 決裁状況一覧情報を更新できたか否か判定するメソッド
@@ -37,124 +38,128 @@ public class DecisionUpdateAction extends ActionSupport{
 	 */
 	public String execute(){
 
+		String result = ERROR;
 
-		String result =ERROR;
 		DecisionUpdateDAO dao = new DecisionUpdateDAO();
+
 		int count = 0;
-		for(int i=0;i<registrasion.size();++i){
 
+		System.out.println(registration.size());
 
-			count = dao.select(
-					registrasion.get(i),
-					user_id .get(i),
-					project_id.get(i),
-					decision_id.get(i),
-					decision_name.get(i),
+		for(int i=0;i<registration.size();i++){
+
+			count += dao.update(
+					registration.get(i),
+					userId.get(i),
+					projectId.get(i),
+					decisionId.get(i),
+					decisionName.get(i),
 					detail.get(i),
-					i_drafting_id.get(i),
-					i_approval_id.get(i),
-					a_drafting_id.get(i),
-			        cd_id.get(i),
-			        i_a_d_id.get(i),
-			        i_a_id.get(i)
+					iDraftingId.get(i),
+					iApprovalId.get(i),
+					aDraftingId.get(i),
+					cdId.get(i),
+					iADId.get(i),
+					iAId.get(i)
 			        );
-
-
+//			System.out.println(count);
 		}
 		if(count > 0){
 			result = SUCCESS;
 		}
+
+
 		return result;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return registrasion
+	* @return registration
 	*/
-	public List<String> getRegistrasion() {
-		return registrasion;
+	public List<String> getRegistration() {
+		return registration;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param registrasion
+	* @param registration
 	*/
-	public void setRegistrasion(List<String> registrasion) {
-		this.registrasion = registrasion;
+	public void setRegistration(List<String> registration) {
+		this.registration = registration;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return user_id
+	* @return userId
 	*/
-	public List<Integer> getUser_id() {
-		return user_id;
+	public List<Integer> getUserId() {
+		return userId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param user_id
+	* @param userId
 	*/
-	public void setUser_id(List<Integer> user_id) {
-		this.user_id = user_id;
+	public void setUserId(List<Integer> userId) {
+		this.userId = userId;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return project_id
+	* @return projectId
 	*/
-	public List<Integer> getProject_id() {
-		return project_id;
+	public List<Integer> getProjectId() {
+		return projectId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param project_id
+	* @param projectId
 	*/
-	public void setProject_id(List<Integer> project_id) {
-		this.project_id = project_id;
+	public void setProjectId(List<Integer> projectId) {
+		this.projectId = projectId;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return decision_id
+	* @return decisionId
 	*/
-	public List<Integer> getDecision_id() {
-		return decision_id;
+	public List<Integer> getDecisionId() {
+		return decisionId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param decision_id
+	* @param decisionId
 	*/
-	public void setDecision_id(List<Integer> decision_id) {
-		this.decision_id = decision_id;
+	public void setDecisionId(List<Integer> decisionId) {
+		this.decisionId = decisionId;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return decision_name
+	* @return decisionName
 	*/
-	public List<String> getDecision_name() {
-		return decision_name;
+	public List<String> getDecisionName() {
+		return decisionName;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param decision_name
+	* @param decisionName
 	*/
-	public void setDecision_name(List<String> decision_name) {
-		this.decision_name = decision_name;
+	public void setDecisionName(List<String> decisionName) {
+		this.decisionName = decisionName;
 	}
 
 	/**
@@ -178,109 +183,109 @@ public class DecisionUpdateAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return i_drafting_id
+	* @return iDraftingId
 	*/
-	public List<String> getI_drafting_id() {
-		return i_drafting_id;
+	public List<String> getiDraftingId() {
+		return iDraftingId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param i_drafting_id
+	* @param iDraftingId
 	*/
-	public void setI_drafting_id(List<String> i_drafting_id) {
-		this.i_drafting_id = i_drafting_id;
+	public void setiDraftingId(List<String> iDraftingId) {
+		this.iDraftingId = iDraftingId;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return  i_approval_id
+	* @return iApprovalId
 	*/
-	public List<String> getI_approval_id() {
-		return i_approval_id;
+	public List<String> getiApprovalId() {
+		return iApprovalId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param  i_approval_id
+	* @param iApprovalId
 	*/
-	public void setI_approval_id(List<String> i_approval_id) {
-		this.i_approval_id = i_approval_id;
+	public void setiApprovalId(List<String> iApprovalId) {
+		this.iApprovalId = iApprovalId;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return a_drafting_id
+	* @return aDraftingId
 	*/
-	public List<String> getA_drafting_id() {
-		return a_drafting_id;
+	public List<String> getaDraftingId() {
+		return aDraftingId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param a_drafting_id
+	* @param aDraftingId
 	*/
-	public void setA_drafting_id(List<String> a_drafting_id) {
-		this.a_drafting_id = a_drafting_id;
+	public void setaDraftingId(List<String> aDraftingId) {
+		this.aDraftingId = aDraftingId;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return cd_id
+	* @return cdId
 	*/
-	public List<String> getCd_id() {
-		return cd_id;
+	public List<String> getCdId() {
+		return cdId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param cd_id
+	* @param cdId
 	*/
-	public void setCd_id(List<String> cd_id) {
-		this.cd_id = cd_id;
+	public void setCdId(List<String> cdId) {
+		this.cdId = cdId;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return  i_a_d_id
+	* @return iADId
 	*/
-	public List<String> getI_a_d_id() {
-		return i_a_d_id;
+	public List<String> getiADId() {
+		return iADId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param  i_a_d_id
+	* @param iADId
 	*/
-	public void setI_a_d_id(List<String> i_a_d_id) {
-		this.i_a_d_id = i_a_d_id;
+	public void setiADId(List<String> iADId) {
+		this.iADId = iADId;
 	}
 
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
-	* @return i_a_id
+	* @return iAId
 	*/
-	public List<String> getI_a_id() {
-		return i_a_id;
+	public List<String> getiAId() {
+		return iAId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KENICHI HORIGUCHI
-	* @param i_a_id
+	* @param iAId
 	*/
-	public void setI_a_id(List<String> i_a_id) {
-		this.i_a_id = i_a_id;
+	public void setiAId(List<String> iAId) {
+		this.iAId = iAId;
 	}
 
 }

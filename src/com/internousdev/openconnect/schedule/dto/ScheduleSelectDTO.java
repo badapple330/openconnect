@@ -15,13 +15,13 @@ public class ScheduleSelectDTO {
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String start_day;
+	private String startday;
 
 	/**
 	 *終了日
 	 *@author MASAHIRO KEDSUKA
 	 */
-	private String end_day;
+	private String endday;
 
 	/**
 	 * 件名
@@ -56,32 +56,32 @@ public class ScheduleSelectDTO {
 	 * @author MASAHIRO KEDSUKA
 	 * @return start_day
 	 */
-	public String getStart_day() {
-		return start_day;
+	public String getStartday() {
+		return startday;
 	}
 	/**
 	 * 設定メソッド
 	 * @author MASAHIRO KEDSUKA
 	 * @param start_day
 	 */
-	public void setStart_day(String start_day) {
-		this.start_day = start_day;
+	public void setStartday(String startday) {
+		this.startday = startday;
 	}
 	/**
 	 * 取得メソッド
 	 * @author MASAHIRO KEDSUKA
 	 * @return end_day
 	 */
-	public String getEnd_day() {
-		return end_day;
+	public String getEndday() {
+		return endday;
 	}
 	/**
 	 * 設定メソッド
 	 * @author MASAHIRO KEDSUKA
 	 * @param end_day
 	 */
-	public void setEnd_day(String end_day) {
-		this.end_day = end_day;
+	public void setEndday(String endday) {
+		this.endday = endday;
 	}
 	/**
 	 * 取得メソッド
