@@ -86,7 +86,7 @@
 				<s:submit value="プロジェクト進捗報告" />
 			</s:form>
 			<!-- 	 <!--スケジュール一覧 -->
-			<s:form action="GoSchedule">
+			<s:form action="ScheduleSelect">
 				<s:submit value="スケジュール一覧" />
 			</s:form>
 		</div>
