@@ -14,6 +14,9 @@ public class StudentsUpdateActon extends ActionSupport{
 	private List<String> given_nameList = new ArrayList<String>();
 	private List<String> yearList = new ArrayList<String>();
 	private List<String> monthList = new ArrayList<String>();
+	private List<Integer> passwordList = new ArrayList<Integer>();
+
+
 
 	public String execute() throws SQLException{
 
@@ -22,7 +25,7 @@ public class StudentsUpdateActon extends ActionSupport{
 		int count = 0;
 
 		for(int i=0;i< user_idList.size();++i){
-			count = dao.select(user_idList.get(i),yearList.get(i),monthList.get(i),family_nameList.get(i),given_nameList.get(i));}
+			count = dao.select(yearList.get(i),monthList.get(i),family_nameList.get(i),given_nameList.get(i),passwordList.get(i),user_idList.get(i));}
 		if(count > 0){
 			result = SUCCESS;
 		}
@@ -69,4 +72,13 @@ public class StudentsUpdateActon extends ActionSupport{
 	public List<String> getMonthList() {
 		return monthList;
 	}
+
+	public List<Integer> getPasswordList() {
+		return passwordList;
+	}
+
+	public void setPasswordList(List<Integer> passwordList) {
+		this.passwordList = passwordList;
+	}
+
 }

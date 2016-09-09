@@ -8,7 +8,7 @@ import com.internousdev.util.DBConnector;
 
 public class StudentsInsertDAO {
 
-	public int insert(String year, String month,String family_name, String given_name,int password,int user_id) {
+	public int insert(String year, String month,String family_name, String given_name,int password, int user_id) {
 	 int count = 0;
 	 DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 	 Connection con = db.getConnection();

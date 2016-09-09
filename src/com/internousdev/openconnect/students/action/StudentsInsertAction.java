@@ -10,8 +10,11 @@ public class StudentsInsertAction extends ActionSupport  {
 	 private String given_name;
 	 private String month;
 	 private String year;
-	 private int password;
 	 private int user_id;
+	 private int password;
+
+
+
 
 	public String execute() {
      String result = ERROR;
@@ -25,17 +28,12 @@ public class StudentsInsertAction extends ActionSupport  {
     	return result;
 }
 
-	public void setPassword(int password) {
-		this.password = password;
-	}
+
 
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 
-	public int getPassword() {
-		return password;
-	}
 
 	public int getUser_id() {
 		return user_id;
@@ -73,6 +71,15 @@ public class StudentsInsertAction extends ActionSupport  {
 		return year;
 	}
 
+	public void setPassword(int password) {
+		this.password = password;
+	}
+
+
+
+	public int getPassword() {
+		return password;
+	}
 
 
 
