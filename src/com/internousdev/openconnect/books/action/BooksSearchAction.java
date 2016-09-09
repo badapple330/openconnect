@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.books.dao.BooksSearchDAO;
-import com.internousdev.openconnect.books.dto.BooksSearchDTO;
+import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 書籍名を、DBのプロジェクト名から検索する為のクラス
@@ -23,7 +23,7 @@ public class BooksSearchAction extends ActionSupport {
 	/**
 	 * エラーメッセージ
 	 */
-	private List<BooksSearchDTO> searchList = new ArrayList<BooksSearchDTO>();
+	private List<BooksDTO> searchList = new ArrayList<BooksDTO>();
 	private String errorMsg;
 	/**
 	 * DAOに入力されたデータを渡して、結果を返す
@@ -61,7 +61,7 @@ public class BooksSearchAction extends ActionSupport {
 	 * @author TATSUYA HOSHI
 	 * @return searchList
 	 */
-	public List<BooksSearchDTO> getSearchList() {
+	public List<BooksDTO> getSearchList() {
 		return searchList;
 	}
 	/**
@@ -69,7 +69,7 @@ public class BooksSearchAction extends ActionSupport {
 	 * @author TATSUYA HOSHI
 	 * @param searchList
 	 */
-	public void setSearchList(List<BooksSearchDTO> searchList) {
+	public void setSearchList(List<BooksDTO> searchList) {
 		this.searchList = searchList;
 	}
 	/**

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.books.dto.BooksSearchDTO;
+import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.internousdev.util.DBConnector;
 /**
  * キーワードをDBから検索する為のクラス
@@ -25,11 +25,11 @@ public class BooksSearchDAO {
 	 */
 
 
-	public List<BooksSearchDTO> searchList = new ArrayList<BooksSearchDTO>();
+	public List<BooksDTO> searchList = new ArrayList<BooksDTO>();
 
 
 
-	public List<BooksSearchDTO> select(String search) {
+	public List<BooksDTO> select(String search) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
@@ -40,7 +40,7 @@ public class BooksSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				BooksSearchDTO dto = new BooksSearchDTO();
+				BooksDTO dto = new BooksDTO();
 
 				dto.setBookId(rs.getInt("book_id"));
 				dto.setTitle(rs.getString("title"));
