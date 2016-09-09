@@ -66,8 +66,6 @@ public class ScheduleUpdateAction extends ActionSupport {
 		int count = 0;
 
 		for(int i = 0 ; i < scheduleIdList.size() ;++i){
-			int diff = scheduleStartdayList.get(i).compareTo(scheduleEnddayList.get(i));
-			if(diff == 0||diff<0){
 			count = dao.update(
 					scheduleIdList.get(i),
 					scheduleStartdayList.get(i),
@@ -75,9 +73,6 @@ public class ScheduleUpdateAction extends ActionSupport {
 					scheduleTitleList.get(i),
 					scheduleContentList.get(i)
 					);
-		}else{
-			error_msg=(getText("一部更新できませんでした。"));
-		}
 		}
 		if ( count > 0) {
 			success_msg=(getText("更新しました。"));
