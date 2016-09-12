@@ -21,11 +21,11 @@ public class DecisionDetailIdDAO {
 	 * 決裁手続きリスト
 	 */
 	private List<DecisionDetailDTO> decisionDetailList=new ArrayList<DecisionDetailDTO>();
-	 /**
-     * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
-     * @author TATUHUMI ITOU
-     * @return  projectList 抽出に成功したらSUCCESS、失敗したらERROR
-     */
+	/**
+	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+	 * @author TATUHUMI ITOU
+	 * @return  projectList 抽出に成功したらSUCCESS、失敗したらERROR
+	 */
 	public List<DecisionDetailDTO> select(int decisionDetailId) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
@@ -39,13 +39,37 @@ public class DecisionDetailIdDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				 DecisionDetailDTO dto = new DecisionDetailDTO();
-				 dto.setDecisionDetailId(rs.getInt("decision_detail_id"));
+				DecisionDetailDTO dto = new DecisionDetailDTO();
+				dto.setDecisionDetailId(rs.getInt("decision_detail_id"));
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus(rs.getString("decision_status"));
-				 decisionDetailList.add(dto);
+				dto.setProjectId(rs.getInt("project_id"));
+				dto.setDay(rs.getString("day"));
+				dto.setUserId(rs.getInt("user_id"));
+				dto.setItemName(rs.getString("item_name"));
+				dto.setSummary(rs.getString("summary"));
+				dto.setCause(rs.getString("cause"));
+				dto.setStartDay(rs.getString("start_day"));
+				dto.setEndDay(rs.getString("end_day"));
+				dto.setPlan(rs.getString("plan"));
+				dto.setPersons(rs.getInt("persons"));
+				dto.setPassword(rs.getString("password"));
+				//開発端末
+				dto.setDevelopmentTerminal((rs.getInt("persons"))*8);
+				//開発要員
+				dto.setDevelopmentPersonnel((rs.getInt("persons"))*100);
+				//建設費用
+				dto.setDevelopmentPersonnelSum((rs.getInt("persons"))*100+58);
+				//損益費用
+				dto.setProfitAndLossCost((rs.getInt("persons"))*100+1);
+				//合計
+				dto.setSum((rs.getInt("persons"))*100+58+(rs.getInt("persons"))*100+1);
+
+
+
+				decisionDetailList.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -59,18 +83,18 @@ public class DecisionDetailIdDAO {
 		return  decisionDetailList;
 	}
 	/**
-	* 取得メソッド
-	* @author KOHEI NITABARU
-	* @return decisionDetailList
-	*/
+	 * 取得メソッド
+	 * @author KOHEI NITABARU
+	 * @return decisionDetailList
+	 */
 	public List<DecisionDetailDTO> getDecisionDetailList() {
 		return decisionDetailList;
 	}
 	/**
-	* 設定メソッド
-	* @author KOHEI NITABARU
-	* @param decisionDetailList
-	*/
+	 * 設定メソッド
+	 * @author KOHEI NITABARU
+	 * @param decisionDetailList
+	 */
 	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
 		this.decisionDetailList = decisionDetailList;
 	}

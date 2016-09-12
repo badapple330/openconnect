@@ -26,6 +26,95 @@ public class DecisionDetailDTO {
 	private int decisionDetailId;
 	private String projectName;
 
+private int developmentPersonnel;
+private int developmentTerminal;
+private int developmentPersonnelSum;
+private int profitAndLossCost;
+private int sum;
+
+
+
+
+	/**
+* 取得メソッド
+* @author KENICHI HORIGUCHI
+* @return
+*/
+public int getDevelopmentTerminal() {
+	return developmentTerminal;
+}
+/**
+* 設定メソッド
+* @author KENICHI HORIGUCHI
+* @param
+*/
+public void setDevelopmentTerminal(int developmentTerminal) {
+	this.developmentTerminal = developmentTerminal;
+}
+/**
+* 取得メソッド
+* @author KENICHI HORIGUCHI
+* @return
+*/
+public int getDevelopmentPersonnelSum() {
+	return developmentPersonnelSum;
+}
+/**
+* 設定メソッド
+* @author KENICHI HORIGUCHI
+* @param
+*/
+public void setDevelopmentPersonnelSum(int developmentPersonnelSum) {
+	this.developmentPersonnelSum = developmentPersonnelSum;
+}
+/**
+* 取得メソッド
+* @author KENICHI HORIGUCHI
+* @return
+*/
+public int getProfitAndLossCost() {
+	return profitAndLossCost;
+}
+/**
+* 設定メソッド
+* @author KENICHI HORIGUCHI
+* @param
+*/
+public void setProfitAndLossCost(int profitAndLossCost) {
+	this.profitAndLossCost = profitAndLossCost;
+}
+/**
+* 取得メソッド
+* @author KENICHI HORIGUCHI
+* @return
+*/
+public int getSum() {
+	return sum;
+}
+/**
+* 設定メソッド
+* @author KENICHI HORIGUCHI
+* @param
+*/
+public void setSum(int sum) {
+	this.sum = sum;
+}
+	/**
+* 取得メソッド
+* @author KENICHI HORIGUCHI
+* @return
+*/
+public int getDevelopmentPersonnel() {
+	return developmentPersonnel;
+}
+/**
+* 設定メソッド
+* @author KENICHI HORIGUCHI
+* @param
+*/
+public void setDevelopmentPersonnel(int developmentPersonnel) {
+	this.developmentPersonnel = developmentPersonnel;
+}
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU

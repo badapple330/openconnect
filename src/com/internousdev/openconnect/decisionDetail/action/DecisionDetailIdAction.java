@@ -36,6 +36,9 @@ public class DecisionDetailIdAction extends ActionSupport {
 		 decisionDetailList = dao.select(decisionDetailId);
 		if (!( decisionDetailList == null)) {
 			result = SUCCESS;
+
+//			int persons = decisionDetailList.get(0).getPersons();
+//			decisionDetailList.get(0).setDevelopmentPersonnel(persons*100);
 		}
 		return result;
 	}
