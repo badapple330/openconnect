@@ -13,14 +13,17 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2016/09/07
  */
 public class ScheduleFirstrunAction extends ActionSupport {
+
+	/**
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = -7243356698619733505L;
+
+
 	/**
 	 * スケジュールリスト
 	 */
 	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
-	/**
-	 * シリアルver
-	 */
-
 
 	/**
 	 * 実行メソッド。DAOに入力されたデータを渡して、結果を返す。

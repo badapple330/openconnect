@@ -14,6 +14,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ScheduleDeleteAction extends ActionSupport{
 	/**
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = 7068183435588051155L;
+
+
+	/**
 	 * @author MASAHIRO KEDSUKA
 	 *スケジュールID
 	 */
@@ -72,37 +78,37 @@ public class ScheduleDeleteAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return successMsg
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return successMsg
+	 */
 	public String getSuccessMsg() {
 		return successMsg;
 	}
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param successMsg
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param successMsg
+	 */
 	public void setSuccessMsg(String successMsg) {
 		this.successMsg = successMsg;
 	}
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return errorMsg
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return errorMsg
+	 */
 	public String getErrorMsg() {
 		return errorMsg;
 	}
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param errorMsg
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param errorMsg
+	 */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
 	}

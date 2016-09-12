@@ -17,6 +17,11 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = -6055065667656806167L;
+
+	/**
 	 * @author MASAHIRO KEDSUKA
 	 * スケジュールリスト
 	 */
@@ -34,13 +39,6 @@ public class ScheduleSelectAction extends ActionSupport {
 	 */
 	private String errorMsg;
 
-//	/**
-//	 * 成功
-//	 * @author MASAHIRO KEDSUKA
-//	 */
-//	private String success_msg;
-
-
 	/**
 	 * 検索の実行メソッド
 	 * @author MASAHIRO KEDSUKA
@@ -51,7 +49,7 @@ public class ScheduleSelectAction extends ActionSupport {
 
 		scheduleList = dao.select(search);
 		if (scheduleList.size() != 0) {
-//			success_msg = (getText("「"+search+"」を検索しました。"));
+			//			success_msg = (getText("「"+search+"」を検索しました。"));
 			result = SUCCESS;
 		} else {
 			errorMsg = (getText("データがありません"));
@@ -106,10 +104,10 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return errorMsg
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return errorMsg
+	 */
 	public String getErrorMsg() {
 		return errorMsg;
 	}
@@ -117,10 +115,10 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param errorMsg
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param errorMsg
+	 */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
 	}

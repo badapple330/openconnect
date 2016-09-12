@@ -8,7 +8,8 @@ package com.internousdev.openconnect.schedule.dto;
 public class ScheduleDTO {
 
 	/**
-	 * Id
+	 * id
+	 * @author MASAHIRO KEDSUKA
 	 */
 	private int id;
 
@@ -39,91 +40,91 @@ public class ScheduleDTO {
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return id
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return id
+	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param id
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return startDay
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return startDay
+	 */
 	public String getStartDay() {
 		return startDay;
 	}
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param startDay
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param startDay
+	 */
 	public void setStartDay(String startDay) {
 		this.startDay = startDay;
 	}
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return endDay
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return endDay
+	 */
 	public String getEndDay() {
 		return endDay;
 	}
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param endDay
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param endDay
+	 */
 	public void setEndDay(String endDay) {
 		this.endDay = endDay;
 	}
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return title
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return title
+	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param title
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param title
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return content
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return content
+	 */
 	public String getContent() {
 		return content;
 	}
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param content
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param content
+	 */
 	public void setContent(String content) {
 		this.content = content;
 	}

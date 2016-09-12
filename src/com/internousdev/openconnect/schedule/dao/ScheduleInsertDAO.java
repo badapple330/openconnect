@@ -18,12 +18,12 @@ public class ScheduleInsertDAO {
 	/**
 	 * 入力された情報をDBに追加するメソッド。
 	 * @author MASAHIRO KEDSUKA
-	 * @param Start_day
-	 * @param Title
-	 * @param Content
+	 * @param startday
+	 * @param title
+	 * @param content
 	 * @return count
 	 */
-	public int insert (String startday, String title, String content){
+	public int insert (String startDay, String title, String content){
 
 		int count=0;
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
@@ -31,11 +31,11 @@ public class ScheduleInsertDAO {
 		String sql="INSERT INTO schedule(start_day, title, content) VALUES (?,?,?)";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
-		startday = sdf.format(System.currentTimeMillis());
+		startDay = sdf.format(System.currentTimeMillis());
 
 		try{
 			PreparedStatement ps=conn.prepareStatement(sql);
-			ps.setString(1,startday);
+			ps.setString(1,startDay);
 			ps.setString(2,title);
 			ps.setString(3,content);
 			count=ps.executeUpdate();

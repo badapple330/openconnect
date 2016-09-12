@@ -13,10 +13,15 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ScheduleInsertAction extends ActionSupport{
 
 	/**
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = -1823142777543076903L;
+
+	/**
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String startday;
+	private String startDay;
 
 	/**
 	 * 件名
@@ -49,7 +54,7 @@ public class ScheduleInsertAction extends ActionSupport{
 		String ret = ERROR;
 		int k;
 
-		if(startday.isEmpty()&&title.isEmpty()){
+		if(startDay.isEmpty()&&title.isEmpty()){
 			ret = ERROR;
 			errorMsg=(getText("追加できませんでした"));
 			return ret;
@@ -57,7 +62,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 			ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-			k = dao.insert(startday,title,content);
+			k = dao.insert(startDay,title,content);
 
 			if (k>0) {
 				successMsg=(getText("追加しました。"));
@@ -71,27 +76,25 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 
-
-
 	/**
-	* 取得メソッド
-	* @author
-	* @return
-	*/
-	public String getStartday() {
-		return startday;
-	}
-
-	/**
-	* 設定メソッド
-	* @author
-	* @param
-	*/
-	public void setStartday(String startday) {
-		this.startday = startday;
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return startDay
+	 */
+	public String getStartDay() {
+		return startDay;
 	}
 
 
+
+	/**
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param startDay
+	 */
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
+	}
 
 
 
@@ -137,40 +140,40 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return errorMsg
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return errorMsg
+	 */
 	public String getErrorMsg() {
 		return errorMsg;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param errorMsg
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param errorMsg
+	 */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return successMsg
-	*/
+	 * 取得メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @return successMsg
+	 */
 	public String getSuccessMsg() {
 		return successMsg;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param successMsg
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param successMsg
+	 */
 	public void setSuccessMsg(String successMsg) {
 		this.successMsg = successMsg;
 	}
