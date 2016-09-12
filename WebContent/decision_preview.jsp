@@ -87,9 +87,7 @@
 <br>
 資料：
 <br>
-・見積書
-<br>
-・プロジェクト体制図
+<s:property value="plan" />
 <br>
 </td></tr></table>
 <br>

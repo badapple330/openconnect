@@ -72,6 +72,12 @@
 			<s:form action="GoDecisionDetail">
 				<s:submit value="決済手続き電子化" />
 			</s:form>
+
+			<!-- 	<!--決済手続き申請一覧 -->
+			<s:form action="DecisionApplicationList">
+				<s:submit value="決済手続き申請一覧" />
+			</s:form>
+
 			<!-- 	<!--書籍一覧 -->
 			<s:form action="GoBooks">
 				<s:submit value="書籍一覧" />

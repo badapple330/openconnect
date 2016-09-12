@@ -244,6 +244,16 @@
 			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
+		<!-- 決済手続き申請一覧画面への遷移 -->
+
+		<action name="DecisionApplicationList"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailSearchAction"
+			method="execute">
+			<result name="success">decision_application_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
 
 		<!-- 決済手続き電子化画面編集への遷移 -->
 		<action name="PasswordEdit"
@@ -271,8 +281,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BackGoDecisionAction"
-			class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="BackGoDecisionAction" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success" type="chain">DecisionDetailSearch
 			</result>

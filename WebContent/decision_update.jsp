@@ -31,7 +31,6 @@
 <br>
 <br>
 <br>
-<s:property value="decisionDetailId"/>
 <h1>【決裁書】</h1>
 <s:form action="DecisionEdit">
 <table border="1">
@@ -97,7 +96,8 @@
 </s:iterator>
 
 <br>
-<br>
-<input type="button" value="戻る" class="button">
+<s:form action="BackGoDecisionAction">
+<input type="submit" value="戻る" class="button">
+</s:form>
 </body>
 </html>
