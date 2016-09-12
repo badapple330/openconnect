@@ -8,30 +8,110 @@ import com.internousdev.openconnect.students.dao.StudentsUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class StudentsUpdateAction extends ActionSupport{
+
+	/**
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = 8587637642584563442L;
+	/**
+	 * ユーザーIDリスト
+	 */
 	private List<Integer> userIdList = new ArrayList<Integer>();
+	/**
+	 * 受講年リスト
+	 */
 	private List<Integer> yearList = new ArrayList<Integer>();
+	/**
+	 * 受講開始月リスト
+	 */
 	private List<String> monthList = new ArrayList<String>();
+	/**
+	 * 姓(英語)リスト
+	 */
 	private List<String> familyNameList = new ArrayList<String>();
+	/**
+	 * 名(英語)リスト
+	 */
 	private List<String> givenNameList = new ArrayList<String>();
+	/**
+	 * 姓(漢字)リスト
+	 */
 	private List<String> familyNameKanjiList = new ArrayList<String>();
+	/**
+	 * 姓(かな)リスト
+	 */
 	private List<String> familyNameKanaList = new ArrayList<String>();
+	/**
+	 * 名(漢字)リスト
+	 */
 	private List<String> givenNameKanjiList = new ArrayList<String>();
+	/**
+	 * 名(かな)リスト
+	 */
 	private List<String> givenNameKanaList = new ArrayList<String>();
+	/**
+	 * 郵便番号リスト
+	 */
 	private List<String> postalList = new ArrayList<String>();
+	/**
+	 * 住所リスト
+	 */
 	private List<String> addressList = new ArrayList<String>();
+	/**
+	 * 電話番号リスト
+	 */
 	private List<String> phoneNumberList = new ArrayList<String>();
+	/**
+	 * メールアドレスリスト
+	 */
 	private List<String> phoneEmailList = new ArrayList<String>();
+	/**
+	 * 携帯電話番号リスト
+	 */
 	private List<String> mobileNumberList = new ArrayList<String>();
+	/**
+	 * 携帯メールアドレスリスト
+	 */
 	private List<String> mobileEmailList = new ArrayList<String>();
+	/**
+	 * 性別リスト
+	 */
 	private List<String> sexList = new ArrayList<String>();
+	/**
+	 * 誕生日リスト
+	 */
 	private List<String> birthdayList = new ArrayList<String>();
+	/**
+	 * 作成日リスト
+	 */
 	private List<String> registerDayList = new ArrayList<String>();
+	/**
+	 * 更新日リスト
+	 */
 	private List<String> updateDayList = new ArrayList<String>();
+	/**
+	 * ユーザー削除フラグリスト
+	 */
 	private List<Boolean> userdelFlgList = new ArrayList<Boolean>();
+	/**
+	 * ログインフラグリスト
+	 */
 	private List<Boolean> loginFlgList = new ArrayList<Boolean>();
+	/**
+	 * ユーザーフラグリスト
+	 */
 	private List<Integer> userFlgList = new ArrayList<Integer>();
+	/**
+	 * パスワードリスト
+	 */
 	private List<String> passwordList = new ArrayList<String>();
 
+	/**
+	 * DBの情報を更新する為のクラス
+	 * @author KOHEI NITABARU
+	 * @since 2016/09/04
+	 * @version 1.0
+	 */
 	public String execute() throws SQLException{
 
 		String result =ERROR;

@@ -6,17 +6,57 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class StudentsInsertAction extends ActionSupport  {
 
+	/**
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = -2877294813706334535L;
+	/**
+	 * パス輪d－
+	 */
 	private String password;
+	/**
+	 * 姓(英語)
+	 */
 	private String familyName;
+	/**
+	 * 名(英語)
+	 */
 	private String givenName;
+	/**
+	 * 姓(漢字)
+	 */
 	private String familyNameKanji;
+	/**
+	 * 名(漢字)
+	 */
 	private String givenNameKanji;
+	/**
+	 * メールアドレス
+	 */
 	private String phoneEmail;
+	/**
+	 * 性別
+	 */
 	private String sex;
+	/**
+	 * ユーザーフラグ
+	 */
 	private int userFlg;
+	/**
+	 * 受講年
+	 */
 	private String year;
+	/**
+	 * 受講開始月
+	 */
 	private String month;
 
+	/**
+	 * DBの情報を追加する為のクラス
+	 * @author KOHEI NITABARU
+	 * @since 2016/09/04
+	 * @version 1.0
+	 */
 	public String execute() {
 		String result = ERROR;
 		StudentsInsertDAO dao = new StudentsInsertDAO();

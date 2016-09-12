@@ -2,29 +2,99 @@ package com.internousdev.openconnect.students.dto;
 
 public class StudentsDTO {
 
+	/**
+	 * ユーザーID
+	 */
 	private int userId;
+	/**
+	 * パスワード
+	 */
 	private String password;
+	/**
+	 * 姓（英語）
+	 */
 	private String familyName;
+	/**
+	 * 名（英語）
+	 */
 	private String givenName;
+	/**
+	 * 姓（漢字）
+	 */
 	private String familyNameKanji;
+	/**
+	 * 姓（ふりがな）
+	 */
 	private String familyNameKana;
+	/**
+	 * 名（漢字）
+	 */
 	private String givenNameKanji;
+	/**
+	 * 名（ふりがな）
+	 */
 	private String givenNameKana;
+	/**
+	 * 郵便番号
+	 */
 	private String postal;
+	/**
+	 * 住所
+	 */
 	private String address;
+	/**
+	 * 電話番号
+	 */
 	private String phoneNumber;
+	/**
+	 * メールアドレス
+	 */
 	private String phoneEmail;
+	/**
+	 * 携帯電話番号
+	 */
 	private String mobileNumber;
+	/**
+	 * 携帯メールアドレス
+	 */
 	private String mobileEmail;
+	/**
+	 * 性別
+	 */
 	private String sex;
+	/**
+	 * 生年月日
+	 */
 	private String birthday;
+	/**
+	 * 登録日
+	 */
 	private String registerDay;
+	/**
+	 * 更新日
+	 */
 	private String updateDay;
+	/**
+	 * 退会フラグ
+	 */
 	private boolean userdelFlg;
+	/**
+	 * ログインフラグ
+	 */
 	private boolean loginFlg;
+	/**
+	 * ユーザーフラグ
+	 */
 	private int userFlg;
+	/**
+	 * 受講年
+	 */
 	private String year;
+	/**
+	 * 受講開始月
+	 */
 	private String month;
+
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU

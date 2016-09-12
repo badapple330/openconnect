@@ -52,6 +52,12 @@ public class AttendanceInsertDAO {
 		return count;
 	}
 
+	/**
+	 * DBの情報を取得する為のクラス
+	 * @author MINORI SUNAGAWA
+	 * @since 2016/09/04
+	 * @version 1.0
+	 */
 	public ArrayList<StudentsDTO> select(String year, String month){
 
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
@@ -85,6 +91,12 @@ public class AttendanceInsertDAO {
 		return usersList;
 	}
 
+	/**
+	 * DBの情報があるかどうか確認する為のクラス
+	 * @author MINORI SUNAGAWA
+	 * @since 2016/09/04
+	 * @version 1.0
+	 */
 	public boolean check(String date, int userId){
 
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();

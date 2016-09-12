@@ -11,7 +11,12 @@ import java.util.List;
 import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.internousdev.util.DBConnector;
 
-
+/**
+ * DBの情報を表示する為のクラス
+ * @author KOHEI NITABARU
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class StudentsSelectDAO {
 
 	public List<StudentsDTO> searchList = new ArrayList<StudentsDTO>();

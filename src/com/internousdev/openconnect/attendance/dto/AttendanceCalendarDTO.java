@@ -16,7 +16,6 @@ public class AttendanceCalendarDTO {
 	 * 年
 	 */
 	private String yearString;
-
 	/**
 	 * 月
 	 */
@@ -25,7 +24,6 @@ public class AttendanceCalendarDTO {
 	 * 月
 	 */
 	private String monthString;
-
 	/**
 	 * 日
 	 */
@@ -34,11 +32,10 @@ public class AttendanceCalendarDTO {
 	 * 日
 	 */
 	private String dayString;
-
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return year
 	*/
 	public int getYear() {
 		return year;
@@ -46,7 +43,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param year
 	*/
 	public void setYear(int year) {
 		this.year = year;
@@ -54,7 +51,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return yearString
 	*/
 	public String getYearString() {
 		return yearString;
@@ -62,7 +59,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param yearString
 	*/
 	public void setYearString(String yearString) {
 		this.yearString = yearString;
@@ -70,7 +67,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return month
 	*/
 	public int getMonth() {
 		return month;
@@ -78,7 +75,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param month
 	*/
 	public void setMonth(int month) {
 		this.month = month;
@@ -86,7 +83,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return monthString
 	*/
 	public String getMonthString() {
 		return monthString;
@@ -94,7 +91,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param monthString
 	*/
 	public void setMonthString(String monthString) {
 		this.monthString = monthString;
@@ -102,7 +99,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return day
 	*/
 	public int getDay() {
 		return day;
@@ -110,7 +107,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param day
 	*/
 	public void setDay(int day) {
 		this.day = day;
@@ -118,7 +115,7 @@ public class AttendanceCalendarDTO {
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return dayString
 	*/
 	public String getDayString() {
 		return dayString;
@@ -126,9 +123,10 @@ public class AttendanceCalendarDTO {
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param dayString
 	*/
 	public void setDayString(String dayString) {
 		this.dayString = dayString;
 	}
+
 }

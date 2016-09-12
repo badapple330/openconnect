@@ -6,6 +6,12 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 
+/**
+ * DBの情報を更新する為のクラス
+ * @author KOHEI NITABARU
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class StudentsUpdateDAO {
 	public int update(
 			int userId, String password, String familyName, String givenName, String familyNameKanji, String familyNameKana,
@@ -13,7 +19,7 @@ public class StudentsUpdateDAO {
 			String mobileNumber, String mobileEmail, String sex, String birthday, String registerDay, String updateDay,
 			boolean userdelFlg, boolean loginFlg, int userFlg, int year, String month){
 
-		int result= 0;
+		int result = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
@@ -51,7 +57,7 @@ public class StudentsUpdateDAO {
 			ps.setString(22,month);
 			ps.setInt(23,userId);
 
-			result =ps.executeUpdate();
+			result = ps.executeUpdate();
 
 		}catch (SQLException e) {
 			e.printStackTrace();

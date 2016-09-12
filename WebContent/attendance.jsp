@@ -88,6 +88,7 @@
 			月<input type="text" class="inputMonth" placeholder="例：08" maxlength="2" required>
 			<input type="button" value="追加" class="modal-open"/>
 	<br>
+	<br>
 	<s:form action="GetAddressAction">
 		<s:submit value="戻る" class="button" />
 	</s:form>

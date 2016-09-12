@@ -6,6 +6,12 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 
+/**
+ * DBの情報を追加する為のクラス
+ * @author KOHEI NITABARU
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class StudentsInsertDAO {
 
 	public int insert( String password, String familyName, String givenName, String familyNameKanji, String givenNameKanji, String phoneEmail, String sex, int userFlg, String year, String month) {
