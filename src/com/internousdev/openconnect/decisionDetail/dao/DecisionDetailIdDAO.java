@@ -87,7 +87,7 @@ public class DecisionDetailIdDAO {
 	}
 	/**
 	 * 取得メソッド
-	 * @author KOHEI NITABARU
+	 * @author TATUHUMI ITOU
 	 * @return decisionDetailList
 	 */
 	public List<DecisionDetailDTO> getDecisionDetailList() {
@@ -95,7 +95,7 @@ public class DecisionDetailIdDAO {
 	}
 	/**
 	 * 設定メソッド
-	 * @author KOHEI NITABARU
+	 * @author TATUHUMI ITOU
 	 * @param decisionDetailList
 	 */
 	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {

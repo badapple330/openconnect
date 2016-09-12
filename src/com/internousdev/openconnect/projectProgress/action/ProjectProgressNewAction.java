@@ -18,12 +18,24 @@ public class ProjectProgressNewAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = -7584789844350L;
 	/**
-	 * 日付、プロジェクト名、進捗予定、進捗結果、その他報告
+	 * プロジェクトID
 	 */
 	private int projectId;
+	/**
+	 * 日付
+	 */
 	private String projectDay;
+	/**
+	 * 進捗予定
+	 */
 	private String projectPlan;
+	/**
+	 * 進捗結果
+	 */
 	private String projectResult;
+	/**
+	 * その他報告
+	 */
 	private String other;
 
 	/**

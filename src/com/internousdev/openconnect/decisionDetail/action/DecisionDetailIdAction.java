@@ -15,10 +15,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionDetailIdAction extends ActionSupport {
 	/**
+	 * ID
+	 */
+	private int decisionDetailId;
+	/**
 	 * 決裁手続きリスト
 	 */
-
-	private int decisionDetailId;
 	private List<DecisionDetailDTO> decisionDetailList = new ArrayList<DecisionDetailDTO>();
 	/**
 	 * シリアルバージョンID
@@ -37,14 +39,12 @@ public class DecisionDetailIdAction extends ActionSupport {
 		if (!( decisionDetailList == null)) {
 			result = SUCCESS;
 
-//			int persons = decisionDetailList.get(0).getPersons();
-//			decisionDetailList.get(0).setDevelopmentPersonnel(persons*100);
 		}
 		return result;
 	}
 	/**
 	* 取得メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @return decisionDetailList
 	*/
 	public List<DecisionDetailDTO> getDecisionDetailList() {
@@ -52,7 +52,7 @@ public class DecisionDetailIdAction extends ActionSupport {
 	}
 	/**
 	* 設定メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @param decisionDetailList
 	*/
 	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
@@ -60,16 +60,16 @@ public class DecisionDetailIdAction extends ActionSupport {
 	}
 	/**
 	* 取得メソッド
-	* @author
-	* @return
+	* @author TATUHUMI ITOU
+	* @return decisionDetailId
 	*/
 	public int getDecisionDetailId() {
 		return decisionDetailId;
 	}
 	/**
 	* 設定メソッド
-	* @author
-	* @param
+	* @author TATUHUMI ITOU
+	* @param decisionDetailId
 	*/
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;

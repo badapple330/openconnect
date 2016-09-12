@@ -2,16 +2,22 @@ package com.internousdev.openconnect.decisionDetail.action;
 
 import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailApplicationDAO;
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * DBに情報を格納する為のクラス
+ * @author TATSUHUMI ITOU
+ */
 public class DecisionDetailApplicationAction  extends ActionSupport{
 	/**
 	 * シリアルバージョンID
 	 */
 	private static final long serialVersionUID = -758470450L;
 	/**
-	 * プロジェクトID
+	 * 決裁状況
 	 */
 	private String decisionStatus;
+	/**
+	 * 決裁ID
+	 */
 	private int decisionDetailId;
 	/**
 	 * 実行メソッド DAOにデータを渡して、結果を返す
@@ -30,32 +36,32 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 	}
 	/**
 	* 取得メソッド
-	* @author
-	* @return
+	* @author TATSUHUMI ITOU
+	* @return decisionStatus
 	*/
 	public String getDecisionStatus() {
 		return decisionStatus;
 	}
 	/**
 	* 設定メソッド
-	* @author
-	* @param
+	* @author TATSUHUMI ITOU
+	* @param decisionStatus
 	*/
 	public void setDecisionStatus(String decisionStatus) {
 		this.decisionStatus = decisionStatus;
 	}
 	/**
 	* 取得メソッド
-	* @author
-	* @return
+	* @author TATSUHUMI ITOU
+	* @return decisionDetailId
 	*/
 	public int getDecisionDetailId() {
 		return decisionDetailId;
 	}
 	/**
 	* 設定メソッド
-	* @author
-	* @param
+	* @author TATSUHUMI ITOU
+	* @param decisionDetailId
 	*/
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;

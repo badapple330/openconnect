@@ -40,7 +40,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 
 	/**
 	* 取得メソッド
-	* @author KOHEI NITABARU
+	* @author TATSUHUMI ITOU
 	* @return decisionDetailId
 	*/
 	public int getDecisionDetailId() {
@@ -48,7 +48,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	}
 	/**
 	* 設定メソッド
-	* @author KOHEI NITABARU
+	* @author TATSUHUMI ITOU
 	* @param decisionDetailId
 	*/
 	public void setDecisionDetailId(int decisionDetailId) {

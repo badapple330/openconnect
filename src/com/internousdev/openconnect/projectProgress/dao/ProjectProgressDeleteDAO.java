@@ -34,7 +34,6 @@ public class ProjectProgressDeleteDAO {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, progressId);
 			count = ps.executeUpdate();
-			System.out.println(count);
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally {
@@ -44,7 +43,6 @@ public class ProjectProgressDeleteDAO {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("last:" + count);
 		return count;
 	}
 

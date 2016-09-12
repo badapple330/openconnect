@@ -21,12 +21,22 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class DecisionDetailUpdateAction extends ActionSupport implements SessionAware{
 
+
+	/**
+	 * シリアルID
+	 */
+	private static final long serialVersionUID = 3838876771681623480L;
+	/**
+	 * セッション
+	 */
 	private Map<String, Object> session;
 	/**
 	 * 決裁手続きリスト
 	 */
 	private List<DecisionDetailDTO> decisionDetailList = new ArrayList<DecisionDetailDTO>();
-
+	/**
+	 * エラーメッセージ
+	 */
 	private String errorString ;
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -43,8 +53,8 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 	}
 	/**
 	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return
+	* @author TATUHUMI ITOU
+	* @return decisionDetailList
 	*/
 	public List<DecisionDetailDTO> getDecisionDetailList() {
 		return decisionDetailList;
@@ -54,8 +64,8 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 
 	/**
 	* 設定メソッド
-	* @author MASAHIRO KEZUKA
-	* @param
+	* @author TATUHUMI ITOU
+	* @param decisionDetailList
 	*/
 	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
 		this.decisionDetailList = decisionDetailList;
@@ -63,7 +73,7 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @return errorString
 	*/
 	public String getErrorString() {
@@ -72,21 +82,25 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 
 	/**
 	* 設定メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @param errorString
 	*/
 	public void setErrorString(String errorString) {
 		this.errorString = errorString;
 	}
-
-
-
+	/**
+	* 取得メソッド
+	* @author TATUHUMI ITOU
+	* @return session
+	*/
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
-
-
+	/**
+	* 設定メソッド
+	* @author TATUHUMI ITOU
+	* @param session
+	*/
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

@@ -18,6 +18,12 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class DecisionDetailSearchAction extends ActionSupport{
 
+
+
+	/**
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = -7677481694269615816L;
 	/**
 	 * 決裁手続きリスト
 	 */
@@ -53,8 +59,8 @@ public class DecisionDetailSearchAction extends ActionSupport{
 
 	/**
 	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return
+	* @author TATUHUMI ITOU
+	* @return decisionDetailList
 	*/
 	public List<DecisionDetailDTO> getDecisionDetailList() {
 		return decisionDetailList;
@@ -64,8 +70,8 @@ public class DecisionDetailSearchAction extends ActionSupport{
 
 	/**
 	* 設定メソッド
-	* @author MASAHIRO KEZUKA
-	* @param
+	* @author TATUHUMI ITOU
+	* @param decisionDetailList
 	*/
 	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
 		this.decisionDetailList = decisionDetailList;
@@ -75,7 +81,7 @@ public class DecisionDetailSearchAction extends ActionSupport{
 
 	/**
 	* 取得メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @return searchString
 	*/
 	public String getSearchString() {
@@ -84,7 +90,7 @@ public class DecisionDetailSearchAction extends ActionSupport{
 
 	/**
 	* 設定メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @param searchString
 	*/
 	public void setSearchString(String searchString) {
@@ -93,7 +99,7 @@ public class DecisionDetailSearchAction extends ActionSupport{
 
 	/**
 	* 取得メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @return errorString
 	*/
 	public String getErrorString() {
@@ -102,7 +108,7 @@ public class DecisionDetailSearchAction extends ActionSupport{
 
 	/**
 	* 設定メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @param errorString
 	*/
 	public void setErrorString(String errorString) {

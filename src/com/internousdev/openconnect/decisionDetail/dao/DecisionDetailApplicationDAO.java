@@ -5,9 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
-
+/**
+ * 更新したい内容を、DBへ転送する為のクラス
+ * @author TATSUHUMI ITOU
+ */
 public class DecisionDetailApplicationDAO{
-
+	 /**
+     * 更新メソッド  更新したい内容を、DBへ転送する為のメソッド
+     */
 	public int update(String decisionStatus,int decisiondetailid){
 		int count = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",

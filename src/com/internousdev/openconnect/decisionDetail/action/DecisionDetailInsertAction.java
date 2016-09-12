@@ -18,9 +18,12 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = -7584789844350L;
 	/**
-	 * 日付、プロジェクト名、進捗予定、進捗結果、その他報告
+	 * プロジェクトID
 	 */
 	private int projectId;
+	/**
+	 * パスワード
+	 */
 private String password;
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -58,8 +61,8 @@ private String password;
 
 	/**
 	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return
+	* @author TATUHUMI ITOU
+	* @return password
 	*/
 	public String getPassword() {
 		return password;
@@ -67,8 +70,8 @@ private String password;
 
 	/**
 	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param
+	* @author TATUHUMI ITOU
+	* @param password
 	*/
 	public void setPassword(String password) {
 		this.password = password;

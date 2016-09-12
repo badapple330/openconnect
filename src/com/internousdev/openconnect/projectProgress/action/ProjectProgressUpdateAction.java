@@ -19,12 +19,24 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	private static final long serialVersionUID = -3541224046836562290L;
 
 	/**
-	 * ID,日付、プロジェクト名、進捗予定、進捗結果、その他報告リスト
+	 * IDリスト
 	 */
 	private List<Integer> progressIdList = new ArrayList<Integer>();
+	/**
+	 * 日付リスト
+	 */
 	private List<String> projectDayList = new ArrayList<String>();
+	/**
+	 * 進捗予定リスト
+	 */
 	private List<String> projectPlanList = new ArrayList<String>();
+	/**
+	 * 進捗結果リスト
+	 */
 	private List<String> projectResultList = new ArrayList<String>();
+	/**
+	 * その他リスト
+	 */
 	private List<String> otherList = new ArrayList<String>();
 
 	/**
@@ -51,8 +63,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 
 	/**
 	* 取得メソッド
-	* @author KOHEI NITABARU
-	* @return
+	* @author TATUHUMI ITOU
+	* @return progressIdList
 	*/
 	public List<Integer> getProgressIdList() {
 		return progressIdList;
@@ -60,8 +72,8 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 
 	/**
 	* 設定メソッド
-	* @author KOHEI NITABARU
-	* @param
+	* @author TATUHUMI ITOU
+	* @param progressIdList
 	*/
 	public void setProgressIdList(List<Integer> progressIdList) {
 		this.progressIdList = progressIdList;

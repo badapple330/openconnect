@@ -10,7 +10,7 @@ import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailEditDAO;
 import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * DBの情報を画面に表示する為のクラス
+ * パスワードを確認しDBに情報を格納する為のクラス
  * @author TATUHUMI ITOU
  * @since 2016/09/04
  * @version 1.0
@@ -21,8 +21,17 @@ public class DecisionDetailEditAction extends ActionSupport implements SessionAw
 	 * 決裁手続きリスト
 	 */
 	private Map<String, Object> session;
+	/**
+	 * ID
+	 */
 	private int decisionDetailId;
+	/**
+	 * パスワード
+	 */
 	private String password;
+	/**
+	 * 決裁手続きリスト
+	 */
 	private List<DecisionDetailDTO> decisionDetailList = new ArrayList<DecisionDetailDTO>();
 	/**
 	 * シリアルバージョンID
@@ -37,12 +46,11 @@ public class DecisionDetailEditAction extends ActionSupport implements SessionAw
 
 		String result = ERROR;
 		DecisionDetailEditDAO dao = new DecisionDetailEditDAO();
-System.out.println(1);
 		boolean check = dao.check(decisionDetailId,password);
 		if( check ){
 			decisionDetailList = dao.select(decisionDetailId);
 			result = SUCCESS;
-		}System.out.println(2);
+		}
 		session.put("decisionDetailId", decisionDetailId);
 
 		return result;
@@ -51,7 +59,7 @@ System.out.println(1);
 
 	/**
 	 * 取得メソッド
-	 * @author KOHEI NITABARU
+	 * @author TATSUHUMI ITOU
 	 * @return decisionDetailList
 	 */
 	public List<DecisionDetailDTO> getDecisionDetailList() {
@@ -59,7 +67,7 @@ System.out.println(1);
 	}
 	/**
 	 * 設定メソッド
-	 * @author KOHEI NITABARU
+	 * @author TATSUHUMI ITOU
 	 * @param decisionDetailList
 	 */
 	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
@@ -67,43 +75,49 @@ System.out.println(1);
 	}
 	/**
 	 * 取得メソッド
-	 * @author
-	 * @return
+	 * @author TATSUHUMI ITOU
+	 * @return decisionDetailId
 	 */
 	public int getDecisionDetailId() {
 		return decisionDetailId;
 	}
 	/**
 	 * 設定メソッド
-	 * @author
-	 * @param
+	 * @author TATSUHUMI ITOU
+	 * @param decisionDetailId
 	 */
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;
 	}
 	/**
 	 * 取得メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @return
+	 * @author TATSUHUMI ITOU
+	 * @return password
 	 */
 	public String getPassword() {
 		return password;
 	}
 	/**
 	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param
+	 * @author TATSUHUMI ITOU
+	 * @param password
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
+	/**
+	 * 取得メソッド
+	 * @author TATSUHUMI ITOU
+	 * @return session
+	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
-
+	/**
+	 * 設定メソッド
+	 * @author TATSUHUMI ITOU
+	 * @param session
+	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

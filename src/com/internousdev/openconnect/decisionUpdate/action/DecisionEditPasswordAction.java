@@ -11,10 +11,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionEditPasswordAction extends ActionSupport {
 	/**
-	 * 決裁手続きリスト
+	 * パスワード
 	 */
 
 	private String password;
+	/**
+	 * 決裁手続きID
+	 */
 private int decisionDetailId;;
 	/**
 	 * シリアルバージョンID
@@ -41,8 +44,8 @@ private int decisionDetailId;;
 
 	/**
 	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return
+	* @authorCHI TATUHUMI ITOU
+	* @return password
 	*/
 	public String getPassword() {
 		return password;
@@ -53,23 +56,25 @@ private int decisionDetailId;;
 
 	/**
 	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param
+	* @author TATUHUMI ITOU
+	* @param password
 	*/
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
-
+	/**
+	* 取得メソッド
+	* @authorCHI TATUHUMI ITOU
+	* @return decisionDetailId
+	*/
 
 	public int getDecisionDetailId() {
 		return decisionDetailId;
 	}
 	/**
 	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param
+	* @author TATUHUMI ITOU
+	* @paramdecisionDetailId
 	*/
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;
