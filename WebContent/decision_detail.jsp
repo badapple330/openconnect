@@ -79,7 +79,7 @@
 
 	<s:form action="DecisionDetailInsert">
 		<input type="text" name="projectId" placeholder="プロジェクトID入力">
-		<input type="text" name="password" placeholder="パスワード入力">
+		<input type="text" name="password" pattern="^[0-9A-Za-z]+$" placeholder="パスワード入力 半角英数字のみ">
 		<input type="submit" value="追加">
 	</s:form>
 
@@ -110,7 +110,7 @@
 		<div class="delete-prepare">
 			パスワードを入力してください
 			<s:form action="DecisionDetailUpdate">
-				<input type="text" name="password">
+				<input type="text" name="password" pattern="^[0-9A-Za-z]+$" placeholder="パスワード入力 半角英数字のみ">
 				<input type="hidden" name="decisionDetailId" value=""
 					id="edit-delete">
 				<input type="submit" class="delete-true button" value="編集">
