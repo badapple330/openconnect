@@ -92,8 +92,8 @@ $(function(){
 			var id = $('.search-projectIdlist').eq(index).val();
 			$('#delete-projectid').val( id );
 
-			var day = $('.search-projectDaylist').eq(index).val();
-			$('#delete-projectday').val( day );
+			var name = $('.search-projectDaylist').eq(index).val();
+			$('#delete-projectname').val( name );
 
 			var project = $('.search-projectlist').eq(index).val();
 			$('#delete-projectname').val( project );

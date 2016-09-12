@@ -213,7 +213,7 @@
 		<action name="DecisionDetailDelete"
 			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailDeleteAction"
 			method="execute">
-			<result name="success">decision_detail.jsp</result>
+			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
@@ -244,14 +244,32 @@
 			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
-	<!-- 決済手続き電子化画面編集への遷移 -->
-	<action name="PasswordEdit"
+
+		<!-- 決済手続き電子化画面編集への遷移 -->
+		<action name="PasswordEdit"
 			class="com.internousdev.openconnect.decisionUpdate.action.DecisionEditPasswordAction"
 			method="execute">
-			<result name="success" type="chain" >DecisionDetailUpdate</result>
+			<result name="success" type="chain">DecisionDetailUpdate
+			</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<action name="DecisionDetailUpdateEdit"
+			class="com.internousdev.openconnect.decisionUpdate.action.DecisionDetailUpdateAction"
+			method="execute">
+			<result name="success">decision_update.jsp
+			</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
+		<action name="DecisionEdit"
+			class="com.internousdev.openconnect.decisionUpdate.action.DecisionEditAction"
+			method="execute">
+			<result name="success" type="chain">DecisionDetailUpdateEdit
+			</result>
+			<result name="error">/register.jsp</result>
+		</action>
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"

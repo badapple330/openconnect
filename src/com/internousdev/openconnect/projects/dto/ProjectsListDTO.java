@@ -54,11 +54,13 @@ public class ProjectsListDTO {
 	/**
 	 * 設定メソッド
 	 * @author YUICHI KIRIU
-	 * @param projectId
+	 * @param expected
 	 */
 	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}
+
+
 	/**
 	 * 取得メソッド
 	 * @author YUICHI KIRIU
@@ -94,6 +96,7 @@ public class ProjectsListDTO {
 	/**
 	 * 取得メソッド
 	 * @author YUICHI KIRIU
+	 * +
 	 * @return subManagerId
 	 */
 	public String getSubManagerId() {
