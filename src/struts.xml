@@ -271,6 +271,15 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<action name="BackGoDecisionAction"
+			class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success" type="chain">DecisionDetailSearch
+			</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
 			class="com.internousdev.openconnect.books.action.BooksAction" method="execute">
