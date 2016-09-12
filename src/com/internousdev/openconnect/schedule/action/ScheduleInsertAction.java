@@ -179,4 +179,15 @@ public class ScheduleInsertAction extends ActionSupport{
 	}
 
 
+
+	/**
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 }

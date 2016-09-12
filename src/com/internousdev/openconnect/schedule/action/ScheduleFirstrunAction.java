@@ -43,24 +43,31 @@ public class ScheduleFirstrunAction extends ActionSupport {
 		return result;
 	}
 
-
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleList
-	 */
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return scheduleList
+	*/
 	public List<ScheduleDTO> getScheduleList() {
 		return scheduleList;
 	}
 
+	/**
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param scheduleList
+	*/
+	public void setScheduleList(List<ScheduleDTO> scheduleList) {
+		this.scheduleList = scheduleList;
+	}
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleList
-	 */
-	public void setSchedulelist(List<ScheduleDTO> scheduleList) {
-		this.scheduleList = scheduleList;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

@@ -229,4 +229,15 @@ public class ScheduleUpdateAction extends ActionSupport {
 		this.successMsg = successMsg;
 	}
 
+
+	/**
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 }

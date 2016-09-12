@@ -124,4 +124,15 @@ public class ScheduleSelectAction extends ActionSupport {
 	}
 
 
+
+	/**
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 }

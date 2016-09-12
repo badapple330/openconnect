@@ -1,6 +1,9 @@
 package com.internousdev.openconnect.schedule.action;
 
 import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.schedule.dao.ScheduleDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -12,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2016/09/07
  */
 
-public class ScheduleDeleteAction extends ActionSupport{
+public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	/**
 	 * シリアル番号
 	 */
@@ -38,7 +41,11 @@ public class ScheduleDeleteAction extends ActionSupport{
 	 */
 	private String errorMsg;
 
-
+	/**
+	 * セッション
+	 * @author MASAHIRO KEDSUKA
+	 */
+	public Map<String, Object> session;
 	/**
 	 * 実行メソッド。DAOにデータを渡して削除する。
 	 */
@@ -111,6 +118,33 @@ public class ScheduleDeleteAction extends ActionSupport{
 	 */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
+	}
+
+	/**
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	/**
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	/**
+	* 取得メソッド
+	* @author
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 
