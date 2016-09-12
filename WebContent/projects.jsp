@@ -34,10 +34,11 @@
 
 
 	<s:form action="ProjectsSearchAction">
-		<input type="text" name="search" placeholder="プロジェクト名">
+		<input type="text" pattern="^[0-9A-Za-z]+$" maxlength="100"
+			name="search" placeholder="プロジェクト名">
 		<input type="submit" value="検索する">
 	</s:form>
-<br>
+	<br>
 	<s:form action="ProjectsListEdit">
 
 		<table border="1">
@@ -64,7 +65,7 @@
 							value="<s:property value="projectId"/>" class="projectId"></td>
 
 
-						<td><s:property value="projectId"/></td>
+						<td><s:property value="projectId" /></td>
 
 						<td><input type="text" name="projectNameList" maxlength="100"
 							value="<s:property value="projectName"/>" class="projectNamelist"></td>
@@ -78,7 +79,8 @@
 							class="projectSubManagerIdlist"></td>
 
 						<td><input type="text" name="projectStartDateList"
-							value="<s:property value="startDate"/>" class="projectStartDatelist"></td>
+							value="<s:property value="startDate"/>"
+							class="projectStartDatelist"></td>
 
 						<td><input type="text" name="projectEndDateList"
 							value="<s:property value="endDate"/>" class="projectEnddatelist"></td>
@@ -92,15 +94,18 @@
 				</s:iterator>
 			</tbody>
 		</table>
-		<input class="button" type="submit" value="編集">
+		<s:if test="%{#session.userFlg == 3}">
+			<input class="button" type="submit" value="編集">
+		</s:if>
 	</s:form>
-<br>
+	<br>
 	<s:form action="ProjectsInsert">
 		<input type="text" name="projectName" placeholder="プロジェクト名"
 			maxlength=100 required>
 		<input type="text" name="managerId" placeholder="管理者ID(リーダー)">
 		<input type="text" name="subManagerId" placeholder="管理者ID(サブ)">
-		<input type="text" name="startDate" placeholder="開始日">
+		<input type="text" pattern="\d{4}-\d{2}-\d{2}" name="startDate"
+			placeholder="開始日">
 		<input class="button" type="submit" value="追加">
 	</s:form>
 
@@ -117,10 +122,7 @@
 			id="delete-projectstartdate" readonly> <br>終了日<input
 			type="text" name="projectId" id="delete-projectenddate" readonly>
 		<br>備考<input type="text" name="projectId" id="delete-projectnote"
-			readonly> <br>
-
-
-			 <input type="button"
+			readonly> <br> <input type="button"
 			class="delete-true button" value="削除"> <input type="button"
 			class="modal-close button" value="閉じる">
 

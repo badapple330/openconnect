@@ -16,12 +16,18 @@ DB情報を画面に表示させるクラス
 public class ProjectsAction extends ActionSupport{
 
 	/**
+	 *シリアルＩＤ
+	 */
+	private static final long serialVersionUID = -62325123075153619L;
+
+	/**
 	 *プロジェクトリスト
 	 */
 
 	private List<ProjectsListDTO> projectList = new ArrayList<ProjectsListDTO>();
 
 	/**
+	 *
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author YUICHI KIRIU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR

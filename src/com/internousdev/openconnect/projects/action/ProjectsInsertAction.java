@@ -11,6 +11,11 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ProjectsInsertAction  extends ActionSupport  {
 
 	/**
+	 * シリアルＩＤ
+	 */
+	private static final long serialVersionUID = -3262256805448882848L;
+
+	/**
 	 * プロジェクトＩＤ
 	 */
 	private int projectId;

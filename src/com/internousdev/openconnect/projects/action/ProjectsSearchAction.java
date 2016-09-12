@@ -16,6 +16,11 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class ProjectsSearchAction extends ActionSupport{
 	/**
+	 * シリアルＩＤ
+	 */
+	private static final long serialVersionUID = -4601966790767506826L;
+
+	/**
 	 * 検索ワード
 	 */
 	private String search;

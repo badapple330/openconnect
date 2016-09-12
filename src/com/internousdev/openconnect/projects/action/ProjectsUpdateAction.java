@@ -3,6 +3,9 @@ package com.internousdev.openconnect.projects.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.projects.dao.ProjectsUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,7 +17,12 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 
-public class ProjectsUpdateAction extends ActionSupport{
+public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
+
+	/**
+	 * シリアルＩＤ
+	 */
+	private static final long serialVersionUID = 1453496957429527686L;
 
 	private List<Integer> projectIdList= new ArrayList<Integer>();
 	private List<String> projectNameList = new ArrayList<String>();
@@ -23,6 +31,7 @@ public class ProjectsUpdateAction extends ActionSupport{
 	private List<String> projectStartDateList = new ArrayList<String>();
 	private List<String> projectEndDateList = new ArrayList<String>();
 	private List<String> projectNoteList = new ArrayList<String>();
+	public Map<String, Object> session;
 
 
 	/**
@@ -179,6 +188,25 @@ public class ProjectsUpdateAction extends ActionSupport{
 	 */
 	public void setProjectNoteList(List<String> projectNoteList) {
 		this.projectNoteList = projectNoteList;
+	}
+
+	/**
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param projectNoteList
+	 */
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+
+	}
+
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
 	}
 
 
