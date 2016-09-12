@@ -59,12 +59,12 @@
 					<!-- 表示 -->
 					<tr>
 
+
 						<td><input type="hidden" name="projectIdList"
-							value="<s:property value="projectId"/>" class="projectIdlist"></td>
+							value="<s:property value="projectId"/>" class="projectId"></td>
 
 
-						<td><input type="text" name="projectIdList"
-							value="<s:property value="projectId"/>" class="projectIdlist"></td>
+						<td><s:property value="projectId"/></td>
 
 						<td><input type="text" name="projectNameList" maxlength="100"
 							value="<s:property value="projectName"/>" class="projectNamelist"></td>
@@ -78,7 +78,7 @@
 							class="projectSubManagerIdlist"></td>
 
 						<td><input type="text" name="projectStartDateList"
-							value="<s:property value="startDate"/>" class="projectStartdate"></td>
+							value="<s:property value="startDate"/>" class="projectStartDatelist"></td>
 
 						<td><input type="text" name="projectEndDateList"
 							value="<s:property value="endDate"/>" class="projectEnddatelist"></td>
@@ -96,7 +96,6 @@
 	</s:form>
 
 	<s:form action="ProjectsInsert">
-		<input type="text" name="projectId" placeholder="プロジェクトID">
 		<input type="text" name="projectName" placeholder="プロジェクト名"
 			maxlength=100 required>
 		<input type="text" name="managerId" placeholder="管理者ID(リーダー)">
@@ -118,7 +117,10 @@
 			id="delete-projectstartdate" readonly> <br>終了日<input
 			type="text" name="projectId" id="delete-projectenddate" readonly>
 		<br>備考<input type="text" name="projectId" id="delete-projectnote"
-			readonly> <br> <input type="button"
+			readonly> <br>
+
+
+			 <input type="button"
 			class="delete-true button" value="削除"> <input type="button"
 			class="modal-close button" value="閉じる">
 

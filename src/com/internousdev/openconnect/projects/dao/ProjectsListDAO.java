@@ -34,10 +34,10 @@ public class ProjectsListDAO {
 			while (rs.next()) {
 				ProjectsListDTO dto = new ProjectsListDTO();
 
-				dto.setProjectId(rs.getString("project_id"));
+				dto.setProjectId(rs.getInt("project_id"));
 				dto.setProjectName(rs.getString("project_name"));
-				dto.setManagerId(rs.getString("manager_id"));
-				dto.setSubManagerId(rs.getString("sub_manager_id"));
+				dto.setManagerId(rs.getInt("manager_id"));
+				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setStartDate(rs.getString("start_date"));
 				dto.setEndDate(rs.getString("end_date"));
 				dto.setNote(rs.getString("note"));

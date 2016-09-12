@@ -6,7 +6,7 @@ public class ProjectsListDTO {
 	/**
 	 * プロジェクトＩＤ
 	 */
-	private String projectId;
+	private int projectId;
 
 	/**
 	 * プロジェクト名
@@ -16,12 +16,12 @@ public class ProjectsListDTO {
 	/**
 	 * 管理者ＩＤ（リーダー）
 	 */
-	private String managerId;
+	private int managerId;
 
 	/**
 	 * 管理者ＩＤ（サブ）
 	 */
-	private String subManagerId;
+	private int  subManagerId;
 
 	/**
 	 * 開始日
@@ -48,7 +48,7 @@ public class ProjectsListDTO {
 	 * @author YUICHI KIRIU
 	 * @return projectId
 	 */
-	public String getProjectId() {
+	public int getProjectId() {
 		return projectId;
 	}
 	/**
@@ -56,7 +56,7 @@ public class ProjectsListDTO {
 	 * @author YUICHI KIRIU
 	 * @param expected
 	 */
-	public void setProjectId(String projectId) {
+	public void setProjectId(int projectId) {
 		this.projectId = projectId;
 	}
 
@@ -82,7 +82,7 @@ public class ProjectsListDTO {
 	 * @author YUICHI KIRIU
 	 * @return managerId
 	 */
-	public String getManagerId() {
+	public int getManagerId() {
 		return managerId;
 	}
 	/**
@@ -90,7 +90,7 @@ public class ProjectsListDTO {
 	 * @author YUICHI KIRIU
 	 * @param managerId
 	 */
-	public void setManagerId(String managerId) {
+	public void setManagerId(int managerId) {
 		this.managerId = managerId;
 	}
 	/**
@@ -99,7 +99,7 @@ public class ProjectsListDTO {
 	 * +
 	 * @return subManagerId
 	 */
-	public String getSubManagerId() {
+	public int getSubManagerId() {
 		return subManagerId;
 	}
 	/**
@@ -107,7 +107,7 @@ public class ProjectsListDTO {
 	 * @author YUICHI KIRIU
 	 * @param subManagerId
 	 */
-	public void setSubManagerId(String subManagerId) {
+	public void setSubManagerId(int subManagerId) {
 		this.subManagerId = subManagerId;
 	}
 	/**

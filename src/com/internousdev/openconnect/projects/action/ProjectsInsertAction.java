@@ -41,7 +41,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		String result = ERROR;
 		ProjectsInsertDAO dao = new ProjectsInsertDAO();
 		int count = 0;
-		count = dao.insert(projectId,projectName,managerId,subManagerId,startDate);
+		count = dao.insert(projectName,managerId,subManagerId,startDate);
 		if (count > 0) {
 			result = SUCCESS;
 		}

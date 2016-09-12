@@ -29,7 +29,6 @@ public class ProjectsUpdateDAO {
 			ps.setString(1,projectName);
 			ps.setInt(2,managerId);
 			ps.setInt(3,subManagerId);
-			System.out.println(projectId);
 			ps.setString(4,startDate);
 			ps.setString(5,endDate);
 			ps.setString(6,note);

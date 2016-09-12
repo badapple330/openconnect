@@ -119,7 +119,7 @@
 			class="com.internousdev.openconnect.projects.action.ProjectsSearchAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/projects.jsp</result>
 		</action>
 
 		<action name="ProjectsListEdit"
@@ -244,6 +244,23 @@
 			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
+		<!-- 決済手続き申請一覧画面への遷移 -->
+
+		<action name="DecisionApplicationList"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailSearchAction"
+			method="execute">
+			<result name="success">decision_application_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="GoDecisionDetailApplication"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailApplicationAction"
+			method="execute">
+			<result name="success" type="chain">DecisionApplicationList</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
 
 		<!-- 決済手続き電子化画面編集への遷移 -->
 		<action name="PasswordEdit"
@@ -271,8 +288,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="BackGoDecisionAction"
-			class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="BackGoDecisionAction" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success" type="chain">DecisionDetailSearch
 			</result>

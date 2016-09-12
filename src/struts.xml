@@ -119,7 +119,7 @@
 			class="com.internousdev.openconnect.projects.action.ProjectsSearchAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/projects.jsp</result>
 		</action>
 
 		<action name="ProjectsListEdit"
