@@ -10,111 +10,124 @@ public class ScheduleDTO {
 	/**
 	 * Id
 	 */
-	private int Id;
+	private int id;
 
 	/**
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String Startday;
+	private String startDay;
 
 	/**
 	 *終了日
 	 *@author MASAHIRO KEDSUKA
 	 */
-	private String Endday;
+	private String endDay;
 
 	/**
 	 * 件名
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String Title;
+	private String title;
 
 	/**
 	 * 内容
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String Content;
+	private String content;
+
+
 
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return Id
-	 */
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return id
+	*/
 	public int getId() {
-		return Id;
+		return id;
 	}
+
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param id
-	 */
-	public void setId(int Id) {
-		this.Id = Id;
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param id
+	*/
+	public void setId(int id) {
+		this.id = id;
 	}
+
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return Start_day
-	 */
-	public String getStartday() {
-		return Startday;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return startDay
+	*/
+	public String getStartDay() {
+		return startDay;
 	}
+
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param Startday
-	 */
-	public void setStartday(String Startday) {
-		this.Startday = Startday;
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param startDay
+	*/
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
 	}
+
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return Endday
-	 */
-	public String getEndday() {
-		return Endday;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return endDay
+	*/
+	public String getEndDay() {
+		return endDay;
 	}
+
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param Endday
-	 */
-	public void setEndday(String Endday) {
-		this.Endday = Endday;
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param endDay
+	*/
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
 	}
+
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return Title
-	 */
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return title
+	*/
 	public String getTitle() {
-		return Title;
+		return title;
 	}
+
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param Title
-	 */
-	public void setTitle(String Title) {
-		this.Title = Title;
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param title
+	*/
+	public void setTitle(String title) {
+		this.title = title;
 	}
+
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return Content
-	 */
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return content
+	*/
 	public String getContent() {
-		return Content;
+		return content;
 	}
+
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param Content
-	 */
-	public void setContent(String Content) {
-		this.Content = Content;
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param content
+	*/
+	public void setContent(String content) {
+		this.content = content;
 	}
+
+
 
 }

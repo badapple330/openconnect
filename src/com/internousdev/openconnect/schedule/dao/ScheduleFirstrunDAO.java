@@ -43,8 +43,8 @@ public class ScheduleFirstrunDAO {
 			while(rs.next()) {
 				ScheduleDTO dto = new ScheduleDTO();
 				dto.setId(rs.getInt("id"));
-				dto.setStartday(rs.getString("start_day"));
-				dto.setEndday(rs.getString("end_day"));
+				dto.setStartDay(rs.getString("start_day"));
+				dto.setEndDay(rs.getString("end_day"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				scheduleList.add(dto);

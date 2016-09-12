@@ -66,20 +66,20 @@ document.onkeydown = keydown;
 				<s:iterator value="scheduleList">
 					<tr>
 						<td><input type="text" name="scheduleIdList" size=5
-							value="<s:property value="Id" />" class="scheduleIdList" readonly></td>
+							value="<s:property value="id" />" class="scheduleIdList" readonly></td>
 						<td><input type="text" name="scheduleStartdayList"
-							value="<s:property value="Startday" />"
+							value="<s:property value="startDay" />"
 							class="scheduleStartdayList" type="date"
 							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" placeholder="開始日を入力" required></td>
 						<td><input type="text" name="scheduleEnddayList"
-							value="<s:property value="Endday" />"
+							value="<s:property value="endDay" />"
 							class="scheduleEnddayList" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 							placeholder="終了日を入力"></td>
 						<td><input type="text" name="scheduleTitleList"
-							value="<s:property value="Title" />" class="scheduleTitleList"
+							value="<s:property value="title" />" class="scheduleTitleList"
 							placeholder="件名を入力" maxlength=100></td>
 						<td><input type="text" name="scheduleContentList"
-							value="<s:property value="Content" />"
+							value="<s:property value="content" />"
 							class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
 						<td><input type="button" class="button modal-open" value="削除" /></td>
 					</tr>
