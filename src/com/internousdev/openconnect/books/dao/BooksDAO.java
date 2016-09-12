@@ -17,9 +17,11 @@ import com.internousdev.util.DBConnector;
  * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
  * @author TATSUYA HOSHI
  */
+
 public class BooksDAO {
 
 	private List<BooksDTO>bookList = new ArrayList<BooksDTO>();
+
 	 /**
      * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
      */

@@ -4,8 +4,8 @@
 package com.internousdev.openconnect.booksBorrow.dto;
 
 /**
- * @author internous
- *
+ * 書籍貸し出し情報を格納するためのクラス
+ * @author TATSUYA HOSHI
  */
 public class BooksBorrowDTO {
 

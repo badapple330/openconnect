@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * DBの情報を画面に表示する為のクラス
  * @author TATSUYA HOSHI
  */
+
 public class BooksBorrowAction extends ActionSupport {
 
 	private List<BooksBorrowDTO>bookList = new ArrayList<BooksBorrowDTO>();
@@ -19,6 +20,7 @@ public class BooksBorrowAction extends ActionSupport {
 	 * DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
+
 	public String execute() {
 		String result = ERROR;
 		BooksBorrowDAO dao = new BooksBorrowDAO();

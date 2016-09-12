@@ -3,6 +3,11 @@
  */
 package com.internousdev.openconnect.books.dto;
 
+/**
+ * 書籍情報を格納するためのクラス
+ * @author TATSUYA HOSHI
+ */
+
 public class BooksDTO {
 
 	private int bookId;

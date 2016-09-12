@@ -10,10 +10,14 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 /**
+ * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
  * @author TATSUYA HOSHI
- *
  */
 public class BooksBorrowReturnDAO {
+
+	/**
+	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+	 */
 
 	public int delete(int bookId) {
 

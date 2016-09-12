@@ -10,11 +10,15 @@ import com.opensymphony.xwork2.ActionSupport;
  * DBの情報を画面に表示する為のクラス
  * @author TATSUYA HOSHI
  */
+
 public class BooksBorrow‎InsertAction extends ActionSupport{
+
 	/**
 	 * シリアルバージョンID
 	 */
+
 	private static final long serialVersionUID = -7584789844350L;
+
 	/**
 	 * 借りた日
 	 */
