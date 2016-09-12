@@ -100,10 +100,9 @@
 	</s:form>
 	<br>
 	<s:form action="ProjectsInsert">
-		<input type="text" name="projectName" placeholder="プロジェクト名"
-			maxlength=100 required>
-		<input type="text" name="managerId" placeholder="管理者ID(リーダー)">
-		<input type="text" name="subManagerId" placeholder="管理者ID(サブ)">
+		<input type="text" name="projectName" placeholder="プロジェクト名"maxlength=100 required>
+		<input type="text" pattern="[1-9][0-9]*" name="managerId" placeholder="管理者ID(リーダー)" required>
+		<input type="text" pattern="[1-9][0-9]*" name="subManagerId" placeholder="管理者ID(サブ)" required>
 		<input type="text" pattern="\d{4}-\d{2}-\d{2}" name="startDate"
 			placeholder="開始日">
 		<input class="button" type="submit" value="追加">
