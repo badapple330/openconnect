@@ -8,7 +8,7 @@ import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 
 public class AttendanceDTOTest {
 	/**
-     * {@link com.internousdev.internousdev.dto.AttendanceDTO#getDate()} のためのテスト・メソッド。
+     * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getDate()} のためのテスト・メソッド。
      */
     @Test
     public void testGetDate1() {
@@ -183,7 +183,7 @@ public class AttendanceDTOTest {
     }
 
     /**
-     * {@link com.internousdev.internousdev.dto.AttendanceDTO#getUserId()} のためのテスト・メソッド。
+     * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getUserId()} のためのテスト・メソッド。
      */
     @Test
         public void testGetUserId1() {
@@ -244,7 +244,7 @@ public class AttendanceDTOTest {
 
 
         /**
-         * {@link com.internousdev.internousdev.dto.AttendanceDTO#getUserId()}
+         * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getUserId()}
          * のためのテスト・メソッド。
          */
         @Test
@@ -307,7 +307,7 @@ public class AttendanceDTOTest {
         }
 
         /**
-         * {@link com.internousdev.internousdev.dto.AttendanceDTO#getYear()} のためのテスト・メソッド。
+         * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getYear()} のためのテスト・メソッド。
          */
         @Test
         public void testGetYear1() {
@@ -390,7 +390,7 @@ public class AttendanceDTOTest {
         }
 
     /**
-     *  {@link com.internousdev.internousdev.dto.AttendanceDTO#getYear()} のためのテスト・メソッド。
+     *  {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getYear()} のためのテスト・メソッド。
      */
 
     @Test
@@ -481,7 +481,7 @@ public class AttendanceDTOTest {
             assertEquals(expected, actual);
         }
         /**
-         * {@link com.internousdev.internousdev.dto.AttendanceDTO#getMonth()} のためのテスト・メソッド。
+         * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getMonth()} のためのテスト・メソッド。
          */
         @Test
         public void testGetMonth1() {
@@ -564,7 +564,7 @@ public class AttendanceDTOTest {
         }
 
     /**
-     *  {@link com.internousdev.internousdev.dto.AttendanceDTO#getMonth()} のためのテスト・メソッド。
+     *  {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getMonth()} のためのテスト・メソッド。
      */
 
     @Test
@@ -656,7 +656,7 @@ public class AttendanceDTOTest {
         }
 
         /**
-         * {@link com.internousdev.internousdev.dto.AttendanceDTO#getFamilyNameKanji()} のためのテスト・メソッド。
+         * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getFamilyNameKanji()} のためのテスト・メソッド。
          */
         @Test
         public void testGetFamilyNameKanji1() {
@@ -739,7 +739,7 @@ public class AttendanceDTOTest {
         }
 
     /**
-     *  {@link com.internousdev.internousdev.dto.AttendanceDTO#getFamilyNameKanji()} のためのテスト・メソッド。
+     *  {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getFamilyNameKanji()} のためのテスト・メソッド。
      */
 
     @Test
@@ -831,7 +831,7 @@ public class AttendanceDTOTest {
         }
 
         /**
-         * {@link com.internousdev.internousdev.dto.AttendanceDTO#getGivenNameKanji()} のためのテスト・メソッド。
+         * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getGivenNameKanji()} のためのテスト・メソッド。
          */
         @Test
         public void testGetGivenNameKanji1() {
@@ -914,7 +914,7 @@ public class AttendanceDTOTest {
         }
 
     /**
-     * {@link com.internousdev.internousdev.dto.AttendanceDTO#getGivenNameKanji()} のためのテスト・メソッド。
+     * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getGivenNameKanji()} のためのテスト・メソッド。
      */
 
     @Test
@@ -1007,7 +1007,7 @@ public class AttendanceDTOTest {
 
 
         /**
-         * {@link com.internousdev.internousdev.dto.AttendanceDTO#getAttendance()} のためのテスト・メソッド。
+         * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getAttendance()} のためのテスト・メソッド。
          */
         @Test
             public void testGetAttendance1() {
@@ -1068,7 +1068,7 @@ public class AttendanceDTOTest {
 
 
             /**
-             * {@link com.internousdev.internousdev.dto.AttendanceDTO#getAttendance()}のためのテスト・メソッド。
+             * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getAttendance()}のためのテスト・メソッド。
              *
              */
             @Test
@@ -1131,7 +1131,7 @@ public class AttendanceDTOTest {
             }
 
             /**
-             * {@link com.internousdev.internousdev.dto.AttendanceDTO#getAttendanceString()} のためのテスト・メソッド。
+             * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getAttendanceString()} のためのテスト・メソッド。
              */
             @Test
             public void testGetAttendanceString1() {
@@ -1214,7 +1214,7 @@ public class AttendanceDTOTest {
             }
 
         /**
-         * {@link com.internousdev.internousdev.dto.AttendanceDTO#getAttendanceString()} のためのテスト・メソッド。
+         * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getAttendanceString()} のためのテスト・メソッド。
          */
 
         @Test
@@ -1306,7 +1306,7 @@ public class AttendanceDTOTest {
             }
 
             /**
-             * {@link com.internousdev.internousdev.dto.AttendanceDTO#getInterview()} のためのテスト・メソッド。
+             * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getInterview()} のためのテスト・メソッド。
              */
             @Test
                 public void testGetInterview1() {
@@ -1367,7 +1367,7 @@ public class AttendanceDTOTest {
 
 
                 /**
-                 * {@link com.internousdev.internousdev.dto.AttendanceDTO#getInterview()} のためのテスト・メソッド。
+                 * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getInterview()} のためのテスト・メソッド。
                  *
                  */
                 @Test
@@ -1430,7 +1430,7 @@ public class AttendanceDTOTest {
                 }
 
                 /**
-                 * {@link com.internousdev.internousdev.dto.AttendanceDTO#getInterviewString()} のためのテスト・メソッド。
+                 * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getInterviewString()} のためのテスト・メソッド。
                  */
                 @Test
                 public void testGetInterviewString1() {
@@ -1513,7 +1513,7 @@ public class AttendanceDTOTest {
                 }
 
             /**
-             * {@link com.internousdev.internousdev.dto.AttendanceDTO#getInterviewString()} のためのテスト・メソッド。
+             * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getInterviewString()} のためのテスト・メソッド。
              */
 
             @Test
