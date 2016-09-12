@@ -13,10 +13,10 @@ import com.internousdev.util.DBConnector;
  * @version 1.0
  */
 public class DecisionUpdateDAO {
-	  /**
-     * 更新メソッド  画面で受け取った更新情報を、DBへ転送し、更新する為のメソッド
-     * @author KENICHI HORIGUCHI
-     */
+	/**
+	 * 更新メソッド  画面で受け取った更新情報を、DBへ転送し、更新する為のメソッド
+	 * @author KENICHI HORIGUCHI
+	 */
 	public int update(
 			String registration, int userId, int projectId, int decisionId,
 			String decisionName, String  detail, String iDraftingId,

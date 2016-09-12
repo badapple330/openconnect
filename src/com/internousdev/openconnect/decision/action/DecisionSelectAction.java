@@ -5,22 +5,25 @@ import java.util.ArrayList;
 import com.internousdev.openconnect.decision.dao.DecisionSelectDAO;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * DBの情報を画面に表示する為のクラス
+ * @author KENICHI HORIGUCHI
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class DecisionSelectAction extends ActionSupport{
 /**
  * シリアル番号
  */
 	private static final long serialVersionUID = 6053714239083263231L;
-
 	/**
-	 *
+	 *プロジェクトリスト
 	 */
 	private ArrayList<DecisionDTO> decisiontList = new ArrayList<DecisionDTO>();
 
 	private String errorSelect;
 
 	private String searchString = "";
-
 
 	public String execute(){
 		System.out.println(searchString);
@@ -30,10 +33,8 @@ public class DecisionSelectAction extends ActionSupport{
 		} else {
 			errorSelect = (getText("データがありません"));
 		}
-
 		return SUCCESS;
 	}
-
 	/**
 	* 取得メソッド
 	* @author KENICHI HORIGUCHI
@@ -102,10 +103,5 @@ public class DecisionSelectAction extends ActionSupport{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-
-
-
-
 
 }

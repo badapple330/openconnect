@@ -59,228 +59,226 @@ public class DecisionUpdateAction extends ActionSupport{
 					cdId.get(i),
 					iADId.get(i),
 					iAId.get(i)
-			        );
+					);
 		}
 		if(count > 0){
 			result = SUCCESS;
 		}
-
-
 		return result;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return registration
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return registration
+	 */
 	public List<String> getRegistration() {
 		return registration;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param registration
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param registration
+	 */
 	public void setRegistration(List<String> registration) {
 		this.registration = registration;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return userId
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return userId
+	 */
 	public List<Integer> getUserId() {
 		return userId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param userId
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param userId
+	 */
 	public void setUserId(List<Integer> userId) {
 		this.userId = userId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return projectId
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return projectId
+	 */
 	public List<Integer> getProjectId() {
 		return projectId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param projectId
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param projectId
+	 */
 	public void setProjectId(List<Integer> projectId) {
 		this.projectId = projectId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return decisionId
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return decisionId
+	 */
 	public List<Integer> getDecisionId() {
 		return decisionId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param decisionId
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param decisionId
+	 */
 	public void setDecisionId(List<Integer> decisionId) {
 		this.decisionId = decisionId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return decisionName
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return decisionName
+	 */
 	public List<String> getDecisionName() {
 		return decisionName;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param decisionName
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param decisionName
+	 */
 	public void setDecisionName(List<String> decisionName) {
 		this.decisionName = decisionName;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return detail
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return detail
+	 */
 	public List<String> getDetail() {
 		return detail;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param detail
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param detail
+	 */
 	public void setDetail(List<String> detail) {
 		this.detail = detail;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return iDraftingId
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return iDraftingId
+	 */
 	public List<String> getIDraftingId() {
 		return iDraftingId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param iDraftingId
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param iDraftingId
+	 */
 	public void setIDraftingId(List<String> iDraftingId) {
 		this.iDraftingId = iDraftingId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return iApprovalId
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return iApprovalId
+	 */
 	public List<String> getIApprovalId() {
 		return iApprovalId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param iApprovalId
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param iApprovalId
+	 */
 	public void setIApprovalId(List<String> iApprovalId) {
 		this.iApprovalId = iApprovalId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return aDraftingId
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return aDraftingId
+	 */
 	public List<String> getADraftingId() {
 		return aDraftingId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param aDraftingId
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param aDraftingId
+	 */
 	public void setADraftingId(List<String> aDraftingId) {
 		this.aDraftingId = aDraftingId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return cdId
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return cdId
+	 */
 	public List<String> getCdId() {
 		return cdId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param cdId
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param cdId
+	 */
 	public void setCdId(List<String> cdId) {
 		this.cdId = cdId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return iADId
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return iADId
+	 */
 	public List<String> getIADId() {
 		return iADId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param iADId
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param iADId
+	 */
 	public void setIADId(List<String> iADId) {
 		this.iADId = iADId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return iAId
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return iAId
+	 */
 	public List<String> getIAId() {
 		return iAId;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param iAId
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param iAId
+	 */
 	public void setIAId(List<String> iAId) {
 		this.iAId = iAId;
 	}

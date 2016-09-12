@@ -13,14 +13,15 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <!-- js読み込み -->
 <script src="js/bootstrap.js"></script>
-<script type="text/javascript"><!--
-function keydown() {
-if(event.keyCode == 116){
-event.keyCode = 0;
-return false;
-}
-}
-document.onkeydown = keydown;
+<script type="text/javascript">
+<!--
+	function keydown() {
+		if (event.keyCode == 116) {
+			event.keyCode = 0;
+			return false;
+		}
+	}
+	document.onkeydown = keydown;
 //-->
 </script>
 <title>スケジュール一覧</title>
@@ -70,10 +71,11 @@ document.onkeydown = keydown;
 						<td><input type="text" name="scheduleStartdayList"
 							value="<s:property value="startDay" />"
 							class="scheduleStartdayList" type="date"
-							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" placeholder="開始日を入力" required></td>
+							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+							placeholder="開始日を入力" required></td>
 						<td><input type="text" name="scheduleEnddayList"
-							value="<s:property value="endDay" />"
-							class="scheduleEnddayList" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+							value="<s:property value="endDay" />" class="scheduleEnddayList"
+							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 							placeholder="終了日を入力"></td>
 						<td><input type="text" name="scheduleTitleList"
 							value="<s:property value="title" />" class="scheduleTitleList"
@@ -127,8 +129,8 @@ document.onkeydown = keydown;
 						id="delete-startday" readonly></td>
 				</tr>
 				<tr>
-					<td>終了日<input type="text" name="scheduleId"
-						id="delete-endday" readonly></td>
+					<td>終了日<input type="text" name="scheduleId" id="delete-endday"
+						readonly></td>
 				</tr>
 				<tr>
 					<td>件名<input type="text" name="scheduleId" id="delete-title"

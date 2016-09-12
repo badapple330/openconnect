@@ -17,7 +17,6 @@ public class DecisionSelectDAO {
 
 	/**
 	 * 画面にユーザー情報一覧を表示させる為のメソッド
-	 *
 	 * @return result データベースからのユーザー一覧情報を格納できたか否か
 	 * @throws SQLException
 	 */
@@ -27,19 +26,11 @@ public class DecisionSelectDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 
-		//		String sql = "select * from decision where project_list=? or project_name=? or Registration=?";
 		String sql = "select * from decision where decision_name like'%" + searchString + "%'";
 
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
-
-//			ps.setString(1,searchString);
-//			ps.setString(2,searchString);
-//			ps.setString(3,searchString);
-
-
 			ResultSet rs = ps.executeQuery();
-
 
 			while(rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
@@ -68,10 +59,7 @@ public class DecisionSelectDAO {
 				e.printStackTrace();
 			}
 		}
-
-		System.out.println(list.size());
 		return result;
-
 	}
 
 	/**
@@ -91,8 +79,5 @@ public class DecisionSelectDAO {
 	public void setList(ArrayList<DecisionDTO> list) {
 		this.list = list;
 	}
-
-
-
 
 }
