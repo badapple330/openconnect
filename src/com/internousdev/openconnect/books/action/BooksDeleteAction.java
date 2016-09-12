@@ -1,5 +1,9 @@
 package com.internousdev.openconnect.books.action;
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.internousdev.openconnect.books.dao.BooksDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -8,7 +12,14 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author TATSUYA HOSHI
  */
 
-public class BooksDeleteAction extends ActionSupport{
+public class BooksDeleteAction extends ActionSupport implements SessionAware{
+
+	/**
+	 * 管理者権限メソッド
+	 */
+
+	public Map<String, Object> session;
+
 	/**
 	 * ブックID
 	 */
@@ -46,6 +57,26 @@ public class BooksDeleteAction extends ActionSupport{
 	 */
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
+	}
+
+
+	/**
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return session
+	 */
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+	/**
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param session
+	 */
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 

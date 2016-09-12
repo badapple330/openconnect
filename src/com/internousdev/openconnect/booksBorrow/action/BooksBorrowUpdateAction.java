@@ -12,21 +12,26 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class BooksBorrowUpdateAction extends ActionSupport{
 
+	/**
+	 * シリアルバージョンID
+	 */
+
 	private static final long serialVersionUID = -7584789844350L;
 
+	/**
+	 * ブックID
+	 * ユーザーID
+	 */
 
 	private int bookId;
 	private int borrowId;
 
+	/**
+	 * DAOに入力されたデータを渡して、結果を返す
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 
 	public String execute(){
-
-		System.out.println(borrowId);
-
-		/**
-		 * DAOに入力されたデータを渡して、結果を返す
-		 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
-		 */
 
 		String result = ERROR;
 		BooksBorrow‎UpdateDAO dao = new BooksBorrow‎UpdateDAO();

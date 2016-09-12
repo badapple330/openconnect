@@ -20,7 +20,7 @@ public class ProjectProgressSearchAction extends ActionSupport {
 	/**
 	 * 検索キーワード
 	 */
-	private String search;
+	private String search="";
 	/**
 	 * 検索キーワードリスト
 	 */

@@ -14,14 +14,17 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author TATSUYA HOSHI
  */
 public class BooksUpdateAction extends ActionSupport {
+
 	/**
 	 * 	シリアルID
 	 */
+
 	private static final long serialVersionUID = -3541224046836562290L;
 
 	/**
 	 * ID 書籍一覧
 	 */
+
 	private List<Integer> bookIdList = new ArrayList<Integer>();
 	private List<String> titleList = new ArrayList<String>();
 

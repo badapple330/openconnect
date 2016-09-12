@@ -9,10 +9,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
+
 /**
  * 追加情報をDBへ転送する為のクラス
  * @author TATSUYA HOSHI
  */
+
 public class BooksNewDAO {
 
 	/**

@@ -358,7 +358,7 @@
 
 		<!-- プロジェクト進捗画面への遷移 -->
 		<action name="GoProjectProgress"
-			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressAction"
+			class="com.internousdev.openconnect.projectProgress.action.ProjectProgressSearchAction"
 			method="execute">
 			<result name="success">project_progress.jsp</result>
 			<result name="error">/project_progress.jsp</result>

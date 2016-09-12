@@ -1,35 +1,79 @@
 package com.internousdev.openconnect.decision.action;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.decision.dao.DecisionUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- *編集されたDB情報を画面に表示させるクラス
+ *画面から入力された値を更新するクラス。
  * @author KENICHI HORIGUCHI
  * @since 2016/09/8
  * @version 1.0
  */
-
-public class DecisionUpdateAction extends ActionSupport{
-
+public class DecisionUpdateAction extends ActionSupport implements SessionAware{
+	/**
+	 *シリアルID
+	 */
+	private static final long serialVersionUID = -8549544350881549151L;
+	/**
+	 *登録日
+	 */
 	private List<String> registration = new ArrayList<String>();
+	/**
+	 *ユーザーID
+	 */
 	private List<Integer> userId = new ArrayList<Integer>();
+	/**
+	 *プロジェクトID
+	 */
 	private List<Integer> projectId = new ArrayList<Integer>();
+	/**
+	 *案件番号
+	 */
 	private List<Integer> decisionId = new ArrayList<Integer>();
+	/**
+	 *案件名
+	 */
 	private List<String> decisionName = new ArrayList<String>();
+	/**
+	 *詳細
+	 */
 	private List<String> detail = new ArrayList<String>();
+	/**
+	 *実施起案番号
+	 */
 	private List<String> iDraftingId = new ArrayList<String>();
+	/**
+	 *実施決裁番号
+	 */
 	private List<String> iApprovalId = new ArrayList<String>();
+	/**
+	 *契約起案番号
+	 */
 	private List<String> aDraftingId = new ArrayList<String>();
+	/**
+	 *契約決番号
+	 */
 	private List<String> cdId = new ArrayList<String>();
+	/**
+	 *実施兼契約起案番号
+	 */
 	private List<String> iADId = new ArrayList<String>();
+	/**
+	 *実施兼契約番号
+	 */
 	private List<String> iAId = new ArrayList<String>();
 
+
+	/**
+	 *管理権限
+	 */
+	public Map<String, Object> session;
 	/**
 	 * 決裁状況一覧情報を更新できたか否か判定するメソッド
 	 * @author  KENICHI HORIGUCHI
@@ -281,6 +325,24 @@ public class DecisionUpdateAction extends ActionSupport{
 	 */
 	public void setIAId(List<String> iAId) {
 		this.iAId = iAId;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 }

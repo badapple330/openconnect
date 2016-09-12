@@ -42,7 +42,6 @@ public class AttendanceUpdateDAO {
 				conn.close();
 			}catch(SQLException e){
 				e.printStackTrace();
-				System.out.println(attendance);
 			}
 		}
 		return count;

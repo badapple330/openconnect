@@ -22,7 +22,7 @@
 パスワード変更
 <s:form action="PasswordEdit">
 <input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId"/>">
-<input type="text" name="password" value="<s:property value="password"/>">
+<input type="text" name="password" value="<s:property value="password"/>" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ">
 <input type="submit" value="変更" class="button">
 </s:form>
 

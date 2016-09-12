@@ -13,14 +13,17 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2016/09/07
  */
 public class ScheduleFirstrunAction extends ActionSupport {
+
+	/**
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = -7243356698619733505L;
+
+
 	/**
 	 * スケジュールリスト
 	 */
 	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
-	/**
-	 * シリアルver
-	 */
-
 
 	/**
 	 * 実行メソッド。DAOに入力されたデータを渡して、結果を返す。
@@ -40,24 +43,31 @@ public class ScheduleFirstrunAction extends ActionSupport {
 		return result;
 	}
 
-
 	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleList
-	 */
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return scheduleList
+	*/
 	public List<ScheduleDTO> getScheduleList() {
 		return scheduleList;
 	}
 
+	/**
+	* 設定メソッド
+	* @author MASAHIRO KEDSUKA
+	* @param scheduleList
+	*/
+	public void setScheduleList(List<ScheduleDTO> scheduleList) {
+		this.scheduleList = scheduleList;
+	}
 
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleList
-	 */
-	public void setSchedulelist(List<ScheduleDTO> scheduleList) {
-		this.scheduleList = scheduleList;
+	* 取得メソッド
+	* @author MASAHIRO KEDSUKA
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

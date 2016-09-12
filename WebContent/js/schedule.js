@@ -44,17 +44,17 @@ $(function(){
 		var id = $('.scheduleIdList').eq(index).val();
 		$('#delete-scheduleid').val( id );
 
-		var startdate = $('.scheduleStartdayList').eq(index).val();
-		$('#delete-startday').val( startdate );
+		//var startdate = $('.scheduleStartdayList').eq(index).val();
+		$('.delete-startday').html($('.scheduleStartdayList').eq(index).val());
 
-		var enddate = $('.scheduleEnddayList').eq(index).val();
-		$('#delete-endday').val( enddate );
+		//var enddate = $('.scheduleEnddayList').eq(index).val();
+		$('.delete-endday').html($('.scheduleEnddayList').eq(index).val());
 
-		var title = $('.scheduleTitleList').eq(index).val();
-		$('#delete-title').val( title );
+		//var title = $('.scheduleTitleList').eq(index).val();
+		$('.delete-title').html($('.scheduleTitleList').eq(index).val());
 
-		var content = $('.scheduleContentList').eq(index).val();
-		$('#delete-content').val( content );
+		//var content = $('.scheduleContentList').eq(index).val();
+		$('.delete-content').html($('.scheduleContentList').eq(index).val());
 
 		var index = $('.modal-open').index($(this));
 		var abc = $('.scheduleIdList').eq(index).val();

@@ -19,7 +19,7 @@
 	<h1>決裁手続き一覧</h1>
 	<br>
 	<s:form action="DecisionDetailSearch">
-	プロジェクト検索<input type="text" placeholder="例：rewrite" name="searchString">
+	プロジェクト検索<input type="text" placeholder="例：rewrite" name="searchString" maxlength=30>
 		<s:submit value="検索" />
 	</s:form>
 	<br>
@@ -51,8 +51,6 @@
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
 				<td><input type="button" value="編集" class="modal-edit-open">
 
-
-
 				</td>
 				<td>	<s:if test="%{decisionStatus=='承認'}">
 				<input type="button" value="申請" /></s:if>
@@ -80,12 +78,10 @@
 
 
 	<s:form action="DecisionDetailInsert">
-		<input type="text" name="projectId" placeholder="プロジェクトID入力">
-		<input type="text" name="password" placeholder="パスワード入力">
+		プロジェクトID入力<input type="text" name="projectId" pattern="^[0-9]+$" placeholder="半角数字のみ" maxlength=20><br>
+		パスワード入力 <input type="text" name="password" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ" maxlength=20>
 		<input type="submit" value="追加">
 	</s:form>
-
-
 
 
 	<div id="modal-edit-main">
@@ -114,7 +110,7 @@
 		<div class="delete-prepare">
 			パスワードを入力してください
 			<s:form action="DecisionDetailUpdate">
-				<input type="text" name="password">
+				<input type="text" name="password" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ">
 				<input type="hidden" name="decisionDetailId" value=""
 					id="edit-delete">
 				<input type="submit" class="delete-true button" value="編集">
@@ -156,9 +152,6 @@
 			</s:form>
 		</div>
 	</div>
-
-
-
 
 	<!-- 	戻る -->
 	<s:form action="GetAddressAction">
