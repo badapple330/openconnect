@@ -22,31 +22,22 @@ $(function(){
 	    //画面中央を計算する関数を実行
 	    modalResize();
 	    //モーダルウィンドウを表示
+	    $(".delete-prepare").hide();
 	        $("#modal-bg,#modal-main").fadeIn("slow");
 
-
 	        var index = $('.modal-open').index($(this));
-			var id = $('.projectIdlist').eq(index).val();
-			$('#delete-projectid').val( id );
 
-			var day = $('.projectDaylist').eq(index).val();
-			$('#delete-projectday').val( day );
+			$('.deleteUserId').html( $('.userId').eq(index).val() );
 
-			var project = $('.projectlist').eq(index).val();
-			$('#delete-projectname').val( project );
+			$('.deleteYear').html( $('.year').eq(index).val() );
 
-			var plan = $('.projectPlanlist').eq(index).val();
-			$('#delete-projectplan').val( plan );
+			$('.deleteMonth').html( $('.month').eq(index).val() );
 
-			var result = $('.projectResultlist').eq(index).val();
-			$('#delete-projectresult').val( result );
+			$('.deleteFamilyName').html( $('.familyNameKanji').eq(index).val() );
 
-			var other = $('.otherlist').eq(index).val();
-			$('#delete-other').val( other );
+			$('.deleteGivenName').html( $('.givenNameKanji').eq(index).val() );
 
-			var index = $('.modal-open').index($(this));
-			var abc = $('.progressId').eq(index).val();
-			$('#true-delete').val( abc );
+			$('.deleteUserId').val( $('.userId').eq(index).val() );
 
 	        $(".modal-close").click(function(){
 	            $("#modal-main,#modal-bg").fadeOut("slow",function(){

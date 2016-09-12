@@ -1,5 +1,15 @@
 @CHARSET "UTF-8";
 
+.smallText{
+	width:50px;
+}
+
+.bigText{
+	width:100px;
+}
+.modalDelete{
+	display:inline;
+}
 
 #modal-main {
 	display: none;

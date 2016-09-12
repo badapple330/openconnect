@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +21,13 @@ public class StudentsSelectDAO {
 		Connection con = db.getConnection();
 
 		try {
-//			String sql = "SELECT*FROM users WHERE family_name = ?";
 			String sql = "SELECT * FROM users WHERE family_name LIKE '%" + search + "%'";
 
 			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setString(1, search);
 			ResultSet rs = ps.executeQuery();
 
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
 			while (rs.next()) {
 				StudentsDTO dto = new StudentsDTO();
@@ -45,14 +46,16 @@ public class StudentsSelectDAO {
 				dto.setMobileNumber(rs.getString("mobile_number"));
 				dto.setMobileEmail(rs.getString("mobile_email"));
 				dto.setSex(rs.getString("sex"));
-				dto.setBirthday(rs.getString("birthday"));
-				dto.setRegisterDay(rs.getString("register_day"));
-				dto.setUpdateDay(rs.getString("update_day"));
+				try{ dto.setBirthday(sdf.format( rs.getDate("birthday") ).toString()); }catch(Exception e){}
+				try{ dto.setRegisterDay(sdf2.format( rs.getDate("register_day") ).toString()); }catch(Exception e){ e.printStackTrace(); }
+				try{ dto.setUpdateDay(sdf2.format( rs.getDate("update_day") ).toString()); }catch(Exception e){ e.printStackTrace(); }
 				dto.setUserdelFlg(rs.getBoolean("userdel_flg"));
 				dto.setLoginFlg(rs.getBoolean("login_flg"));
 				dto.setUserFlg(rs.getInt("user_flg"));
 				dto.setYear(rs.getString("year"));
 				dto.setMonth(rs.getString("month"));
+
+				System.out.println( dto.getUpdateDay() );
 
 				searchList.add(dto);
 			}
