@@ -15,6 +15,10 @@ DB情報を画面に表示させるクラス
  */
 public class ProjectsAction extends ActionSupport{
 
+	/**
+	 *プロジェクトリスト
+	 */
+
 	private List<ProjectsListDTO> projectList = new ArrayList<ProjectsListDTO>();
 
 	/**

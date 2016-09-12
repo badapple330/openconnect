@@ -15,7 +15,8 @@ public class ProjectsListDAO {
 	 * 表示メソッド ログインした際にDBからサイト情報をリスト化して抽出し、DTOに格納する
 	 *
 	 * @author YUICHI KIRIU
-	 * @return  ProjectsList抽出に成功したらSUCCESS、失敗したらERROR
+	 * @return  projectList
+	 * ProjectsList抽出に成功したらSUCCESS、失敗したらERROR
 	 */
 	public List<ProjectsListDTO> projectList = new ArrayList<ProjectsListDTO>();
 

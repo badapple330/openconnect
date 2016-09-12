@@ -37,7 +37,7 @@
 		<input type="text" name="search" placeholder="プロジェクト名">
 		<input type="submit" value="検索する">
 	</s:form>
-
+<br>
 	<s:form action="ProjectsListEdit">
 
 		<table border="1">
@@ -94,7 +94,7 @@
 		</table>
 		<input class="button" type="submit" value="編集">
 	</s:form>
-
+<br>
 	<s:form action="ProjectsInsert">
 		<input type="text" name="projectName" placeholder="プロジェクト名"
 			maxlength=100 required>

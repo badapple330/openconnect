@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  *編集されたDB情報を画面に表示させるクラス
  * @author YUICHI KIRIU
- * @since 2016/09/7
+ * @since 2016/09/8
  * @version 1.0
  */
 
@@ -56,127 +56,127 @@ public class ProjectsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
-	* @author YUICHI KIRIU
-	* @return projectIdList
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return projectIdList
+	 */
 	public List<Integer> getProjectIdList() {
 		return projectIdList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author YUICHI KIRIU
-	* @param projectIdList
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param projectIdList
+	 */
 	public void setProjectIdList(List<Integer> projectIdList) {
 		this.projectIdList = projectIdList;
 	}
 
 	/**
-	* 取得メソッド
-	* @author YUICHI KIRIU
-	* @return projectNameList
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return projectNameList
+	 */
 	public List<String> getProjectNameList() {
 		return projectNameList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author YUICHI KIRIU
-	* @param projectNameList
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param projectNameList
+	 */
 	public void setProjectNameList(List<String> projectNameList) {
 		this.projectNameList = projectNameList;
 	}
 
 	/**
-	* 取得メソッド
-	* @author YUICHI KIRIU
-	* @return projectManagerIdList
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return projectManagerIdList
+	 */
 	public List<Integer> getProjectManagerIdList() {
 		return projectManagerIdList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author YUICHI KIRIU
-	* @param projectManagerIdList
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param projectManagerIdList
+	 */
 	public void setProjectManagerIdList(List<Integer> projectManagerIdList) {
 		this.projectManagerIdList = projectManagerIdList;
 	}
 
 	/**
-	* 取得メソッド
-	* @author YUICHI KIRIU
-	* @return projectSubManagerIdList
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return projectSubManagerIdList
+	 */
 	public List<Integer> getProjectSubManagerIdList() {
 		return projectSubManagerIdList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author YUICHI KIRIU
-	* @param projectSubManagerIdList
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param projectSubManagerIdList
+	 */
 	public void setProjectSubManagerIdList(List<Integer> projectSubManagerIdList) {
 		this.projectSubManagerIdList = projectSubManagerIdList;
 	}
 
 	/**
-	* 取得メソッド
-	* @author YUICHI KIRIU
-	* @return projectStartDateList
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return projectStartDateList
+	 */
 	public List<String> getProjectStartDateList() {
 		return projectStartDateList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author  YUICHI KIRIU
-	* @param projectStartDateList
-	*/
+	 * 設定メソッド
+	 * @author  YUICHI KIRIU
+	 * @param projectStartDateList
+	 */
 	public void setProjectStartDateList(List<String> projectStartDateList) {
 		this.projectStartDateList = projectStartDateList;
 	}
 
 	/**
-	* 取得メソッド
-	* @author  YUICHI KIRIU
-	* @return projectEndDateList
-	*/
+	 * 取得メソッド
+	 * @author  YUICHI KIRIU
+	 * @return projectEndDateList
+	 */
 	public List<String> getProjectEndDateList() {
 		return projectEndDateList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author YUICHI KIRIU
-	* @param projectEndDateList
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param projectEndDateList
+	 */
 	public void setProjectEndDateList(List<String> projectEndDateList) {
 		this.projectEndDateList = projectEndDateList;
 	}
 
 	/**
-	* 取得メソッド
-	* @author  YUICHI KIRIU
-	* @return projectNoteList
-	*/
+	 * 取得メソッド
+	 * @author  YUICHI KIRIU
+	 * @return projectNoteList
+	 */
 	public List<String> getProjectNoteList() {
 		return projectNoteList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author YUICHI KIRIU
-	* @param projectNoteList
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param projectNoteList
+	 */
 	public void setProjectNoteList(List<String> projectNoteList) {
 		this.projectNoteList = projectNoteList;
 	}

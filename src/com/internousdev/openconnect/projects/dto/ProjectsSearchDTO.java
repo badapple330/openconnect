@@ -1,40 +1,52 @@
 package com.internousdev.openconnect.projects.dto;
 
+/**
+ * DBを検索するクラス。
+ * @author YUICHI KIRIU
+ * @since 2016/09/08
+ */
 public class ProjectsSearchDTO {
 
 
 	/**
 	 * プロジェクトＩＤ
+	 * @author YUICHI KIRIU
 	 */
 	private int projectId;
 
 	/**
 	 * プロジェクト名
+	 * @author YUICHI KIRIU
 	 */
 	private String projectName;
 
 	/**
 	 * 管理者ＩＤ（リーダー）
+	 * @author YUICHI KIRIU
 	 */
 	private int managerId;
 
 	/**
 	 * 管理者ＩＤ（サブ）
+	 * @author YUICHI KIRIU
 	 */
 	private int subManagerId;
 
 	/**
 	 * 開始日
+	 * @author YUICHI KIRIU
 	 */
 	private String startDate;
 
 	/**
 	 * 終了日
+	 * @author YUICHI KIRIU
 	 */
 	private String endDate;
 
 	/**
 	 * 備考
+	 * @author YUICHI KIRIU
 	 */
 	private String Note;
 

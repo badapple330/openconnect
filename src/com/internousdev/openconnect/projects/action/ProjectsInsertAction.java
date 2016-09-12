@@ -3,6 +3,11 @@ package com.internousdev.openconnect.projects.action;
 import com.internousdev.openconnect.projects.dao.ProjectsInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 画面から追加された情報をＤＢに追加するクラス
+ * @author YUICHI KIRIU
+ * @since 2016/09/07
+ */
 public class ProjectsInsertAction  extends ActionSupport  {
 
 	/**
@@ -31,13 +36,13 @@ public class ProjectsInsertAction  extends ActionSupport  {
 	private String startDate;
 
 
-
+	/**
+	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * @author YUICHI KIRIU
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 	public String execute(){
-		/**
-		 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-		 * @author YUICHI KIRIU
-		 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
-		 */
+
 		String result = ERROR;
 		ProjectsInsertDAO dao = new ProjectsInsertDAO();
 		int count = 0;
@@ -51,10 +56,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return projectId
+	 */
 	public int getProjectId() {
 		return projectId;
 	}
@@ -62,10 +67,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param projectId
+	 */
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
 	}
@@ -73,10 +78,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return projectName
+	 */
 	public String getProjectName() {
 		return projectName;
 	}
@@ -84,10 +89,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param projectName
+	 */
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
@@ -95,10 +100,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return managerId
+	 */
 	public int getManagerId() {
 		return managerId;
 	}
@@ -106,10 +111,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param managerId
+	 */
 	public void setManagerId(int managerId) {
 		this.managerId = managerId;
 	}
@@ -117,10 +122,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return subManagerId
+	 */
 	public int getSubManagerId() {
 		return subManagerId;
 	}
@@ -128,10 +133,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param subManagerId
+	 */
 	public void setSubManagerId(int subManagerId) {
 		this.subManagerId = subManagerId;
 	}
@@ -139,10 +144,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author YUICHI KIRIU
+	 * @return startDate
+	 */
 	public String getStartDate() {
 		return startDate;
 	}
@@ -150,10 +155,10 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param
-	*/
+	 * 設定メソッド
+	 * @author YUICHI KIRIU
+	 * @param startDate
+	 */
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}

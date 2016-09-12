@@ -10,6 +10,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 検索したＤＢ情報を画面に表示する為のクラス
+ * @author YUICHI KIRIU
+ * @since 2016/09/7
+ *
  */
 public class ProjectsSearchAction extends ActionSupport{
 	/**

@@ -10,18 +10,25 @@ import java.util.List;
 import com.internousdev.openconnect.projects.dto.ProjectsSearchDTO;
 import com.internousdev.util.DBConnector;
 
+
+/**
+ * 検索したＤＢ情報をリスト化して抽出し、ＤＴＯに格納するクラス
+ *
+ * @author YUICHI KIRIU
+ * @since 2016/09/07
+ */
+
 public class ProjectsSerachDAO {
 
 	 /**
      * 検索したＤＢ情報をリスト化して抽出し、ＤＴＯに格納する
      *
      * @author YUICHI KIRIU
+     * @param search
      * @return  searchList
      */
 
 	public List<ProjectsSearchDTO> searchList = new ArrayList<ProjectsSearchDTO>();
-
-
 
     public List<ProjectsSearchDTO> select(String search) {
         DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",

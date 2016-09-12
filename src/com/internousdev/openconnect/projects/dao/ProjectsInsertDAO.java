@@ -6,7 +6,22 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 
+/**
+ * 画面から追加された情報をＤＢに追加するクラス
+ * @author YUICHI KIRIU
+ * @since 2016/09/07
+ */
 public class ProjectsInsertDAO {
+
+	/**
+	 * 追加された情報をＤＢに追加するメソッド
+	 * @author YUICHI KIRIU
+	 *  @param projectName
+	 *  @param managerId
+	 *  @param subManagerId
+	 *  @param  startDate
+	 *  @return   count
+	 */
 
 	public int insert(String projectName,int managerId,int subManagerId,String startDate){
 

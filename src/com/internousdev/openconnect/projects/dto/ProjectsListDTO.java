@@ -153,7 +153,7 @@ public class ProjectsListDTO {
 	/**
 	 * 設定メソッド
 	 * @author YUICHI KIRIU
-	 * @param
+	 * @param note
 	 */
 	public void setNote(String note) {
 		this.Note = note;

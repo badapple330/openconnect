@@ -6,11 +6,19 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 
+/**
+ * 情報を受け取りDBにある情報を削除するクラス。
+ * @author YUICHI KIRIU
+ * @since 2016/09/9
+ */
+
 public class ProjectsDeleteDAO {
 
 	/**
-	 * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
-	 * @author TATUHUMI ITOU
+	 *  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
+	 * @author YUICHI KIRIU
+	 * @param projectsId
+	 * @return count
 	 */
 	public int delete(int projectId){
 

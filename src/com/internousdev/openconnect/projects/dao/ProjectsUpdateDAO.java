@@ -8,12 +8,24 @@ import java.text.SimpleDateFormat;
 import com.internousdev.util.DBConnector;
 
 /**
- * 画面で受け取った情報をＤBに格納する
- *
+ * 情報を更新するクラス
  * @author YUICHI KIRIU
- *
+ * @since 2016/09/08
  */
 public class ProjectsUpdateDAO {
+
+	/**
+	 * 情報を更新するメソッド
+	 *  @author YUICHI KIRIU
+	 *  @param projectName
+	 *  @param managerId
+	 *  @param subManagerId
+	 *  @param  startDate
+	 *  @param endDate
+	 *  @param note
+	 *  @param projectId
+	 *  @return   count
+	 */
 
 	public int select(String  projectName,int managerId,int subManagerId,String startDate, String endDate,String note, int projectId){
 		int count = 0;
