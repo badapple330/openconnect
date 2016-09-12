@@ -143,6 +143,21 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<!-- 		プロジェクトリリース状況 -->
+		<action name="ProjectStatusSelectAction"
+			class="com.internousdev.openconnect.projectStatus.action.ProjectStatusSelectAction"
+			method="execute">
+			<result name="success">project_status.jsp</result>
+			<result name="error">/project_status.jsp</result>
+		</action>
+
+		<action name="ProjectStatusUpdateAction"
+			class="com.internousdev.openconnect.projectStatus.action.ProjectStatusUpdateAction"
+			method="execute">
+			<result name="success" type="chain">ProjectStatusSelectAction</result>
+			<result name="error">/project_status.jsp</result>
+		</action>
+
 		<!-- 受講生一覧画面への遷移 -->
 		<action name="StudentsSelectAction"
 			class="com.internousdev.openconnect.students.action.StudentsSelectAction"
@@ -171,7 +186,6 @@
 			<result name="success" type="chain">StudentsSelectAction</result>
 			<result name="error">/register.jsp</result>
 		</action>
-
 
 		<!-- 勤怠一覧を表示するためのアクション -->
 		<action name="AttendanceSelectAction"
@@ -244,8 +258,8 @@
 			<result name="success" type="chain">DecisionDetailSearch</result>
 			<result name="error">/register.jsp</result>
 		</action>
-		<!-- 決済手続き申請一覧画面への遷移 -->
 
+		<!-- 決済手続き申請一覧画面への遷移 -->
 		<action name="DecisionApplicationList"
 			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailSearchAction"
 			method="execute">
@@ -259,8 +273,6 @@
 			<result name="success" type="chain">DecisionApplicationList</result>
 			<result name="error">/register.jsp</result>
 		</action>
-
-
 
 		<!-- 決済手続き電子化画面編集への遷移 -->
 		<action name="PasswordEdit"
@@ -279,7 +291,6 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-
 		<action name="DecisionEdit"
 			class="com.internousdev.openconnect.decisionUpdate.action.DecisionEditAction"
 			method="execute">
@@ -294,7 +305,6 @@
 			</result>
 			<result name="error">/register.jsp</result>
 		</action>
-
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="GoBooks"
@@ -331,9 +341,7 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-
 		<!-- 書籍貸し出し画面への遷移 -->
-
 		<action name="GoBooksBorrow"
 			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowAction"
 			method="execute">
@@ -341,14 +349,12 @@
 			<result name="error">/books_borrow.jsp</result>
 		</action>
 
-
 		<action name="BooksBorrowUpdate"
 			class="com.internousdev.openconnect.booksBorrow.action.BooksBorrowUpdateAction"
 			method="execute">
 			<result name="success" type="chain">GoBooksBorrow</result>
 			<result name="error">/register.jsp</result>
 		</action>
-
 
 		<!-- プロジェクト進捗画面への遷移 -->
 		<action name="GoProjectProgress"
@@ -400,7 +406,6 @@
 			<result name="error">/schedule.jsp</result>
 		</action>
 
-		<!-- スケジュール画面で追加 -->
 		<action name="ScheduleInsert"
 			class="com.internousdev.openconnect.schedule.action.ScheduleInsertAction"
 			method="execute">
@@ -412,7 +417,6 @@
 			<result type="chain">ScheduleSelect</result>
 		</action>
 
-		<!-- スケジュール画面で更新 -->
 		<action name="ScheduleUpdate"
 			class="com.internousdev.openconnect.schedule.action.ScheduleUpdateAction"
 			method="execute">
@@ -420,7 +424,6 @@
 			<result name="error" type="chain">ScheduleSelect</result>
 		</action>
 
-		<!-- スケジュール画面で削除 -->
 		<action name="ScheduleDelete"
 			class="com.internousdev.openconnect.schedule.action.ScheduleDeleteAction"
 			method="execute">

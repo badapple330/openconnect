@@ -52,13 +52,18 @@
 		</nav>
 
 		<div class="goButton">
-			<!-- 決済一覧状況 -->
-			<s:form action="DecisionSelect">
-				<s:submit type="submit" value="決済状況一覧" />
-			</s:form>
+
 			<!-- 	<!-- プロジェクト一覧 -->
 			<s:form action="GoProjects">
 				<s:submit type="submit" value="プロジェクト一覧" />
+			</s:form>
+			<!-- 	<!-- プロジェクトリリース状況 -->
+			<s:form action="ProjectStatusSelectAction">
+				<s:submit type="submit" value="リリース状況" />
+			</s:form>
+			<!--プロジェクト進捗報告 -->
+			<s:form action="GoProjectProgress">
+				<s:submit value="プロジェクト進捗報告" />
 			</s:form>
 			<!--     受講生一覧 -->
 			<s:form action="StudentsSelectAction">
@@ -68,35 +73,31 @@
 			<s:form action="AttendanceSelectAction">
 				<s:submit type="submit" value="勤怠更新" />
 			</s:form>
-			<!-- 	<!--決済手続き電子化 -->
+			<!-- 決済一覧状況 -->
+			<s:form action="DecisionSelect">
+				<s:submit type="submit" value="決済状況一覧" />
+			</s:form>
+			<!--決済手続き電子化 -->
 			<s:form action="GoDecisionDetail">
-				<s:submit value="決済手続き電子化" />
+				<s:submit value="決済手続き" />
 			</s:form>
-
-			<!-- 	<!--決済手続き申請一覧 -->
+			<!--決済手続き申請一覧 -->
 			<s:form action="DecisionApplicationList">
-				<s:submit value="決済手続き申請一覧" />
+				<s:submit value="決済申請一覧" />
 			</s:form>
-
-			<!-- 	<!--書籍一覧 -->
+			<!--書籍一覧 -->
 			<s:form action="GoBooks">
 				<s:submit value="書籍一覧" />
-
 			</s:form>
-<!-- 			書籍貸し出し -->
+			<!--書籍貸し出し -->
 			<s:form action="GoBooksBorrow">
 				<s:submit value="書籍貸し出し" />
 			</s:form>
-			<!--      プロジェクト進捗報告 -->
-			<s:form action="GoProjectProgress">
-				<s:submit value="プロジェクト進捗報告" />
-			</s:form>
-			<!-- 	 <!--スケジュール一覧 -->
+			<!--スケジュール一覧 -->
 			<s:form action="ScheduleSelect">
 				<s:submit value="スケジュール一覧" />
 			</s:form>
 		</div>
-
 	</header>
 	<!-- ヘッダーはここまで -->
 
