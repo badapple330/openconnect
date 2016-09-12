@@ -10,15 +10,12 @@
 <link rel="stylesheet" href="css/decision.css">
 </head>
 <body>
-
-<div class="header"><h1>ヘッダー</h1></div>
-
+	<!-- ヘッダー -->
+	<header><jsp:include page="header.jsp" /></header>
 <h1>決裁状況一覧</h1>
 <br>
-
 <div align="center">登録日・プロジェクト名・案件名のどれかを入力してください</div>
 <p>
-<!-- <form action="form.php" method="post"> -->
 <p>
 <s:form action="DecisionSelect">
 <input type="text" name="searchString">

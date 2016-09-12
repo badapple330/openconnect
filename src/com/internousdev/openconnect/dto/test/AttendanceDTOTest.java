@@ -1426,7 +1426,7 @@ public class AttendanceDTOTest {
                         assertThat4(e.getMessage(), "For input string: \"2147483648\"");
                     }
                 }
-                private void assertThat411(String message, String string) {
+                private void assertThat6(String message, String string) {
                 }
 
                 /**
