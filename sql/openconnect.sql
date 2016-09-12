@@ -125,22 +125,23 @@ insert into projects()values
 (1,"cosmos",1,2,"20160801","20160831","undecided"),
 (2,"credit",3,4,"20160801","20160831","undecided");
 
-/*サブプロジェクト / プロジェクト一覧*/
+/*サブプロジェクト / プロジェクトリリース状況一覧*/
 create table project_status(
 project_id int not null,
-a_envstart date not null,
-a_envend date,
-b_envstart date,
-b_envend date,
-r_envstart date,
-r_envend date,
-aws_status varchar(50),
-note varchar(255),
+a_envstart date default 00000000,
+a_envend date default 00000000,
+b_envstart date default 00000000,
+b_envend date default 00000000,
+r_envstart date default 00000000,
+r_envend date default 00000000,
+aws_status varchar(50) default "",
+note varchar(255) default "",
+status_id int primary key auto_increment,
 foreign key(project_id) references projects(project_id)
 );
 
-insert project_status(project_id, a_envstart)values
-(1,"20160801"),(2,"20160801");
+insert project_status(project_id)values
+(1),(2);
 
 
 /*サブプロジェクト / 勤怠更新*/
