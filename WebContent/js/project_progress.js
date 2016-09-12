@@ -25,23 +25,18 @@ $(function(){
 
 
 	        var index = $('.modal-open').index($(this));
-			var id = $('.projectIdlist').eq(index).val();
-			$('#delete-projectid').val( id );
 
-			var day = $('.projectDaylist').eq(index).val();
-			$('#delete-projectday').val( day );
+			$('#delete-projectid').text($('.projectIdlist').eq(index).val());
 
-			var project = $('.projectlist').eq(index).val();
-			$('#delete-projectname').val( project );
+			$('#delete-projectday').text($('.projectDaylist').eq(index).val());
 
-			var plan = $('.projectPlanlist').eq(index).val();
-			$('#delete-projectplan').val( plan );
+			$('#delete-projectname').text($('.projectlist').eq(index).val());
 
-			var result = $('.projectResultlist').eq(index).val();
-			$('#delete-projectresult').val( result );
+			$('#delete-projectplan').text($('.projectPlanlist').eq(index).val());
 
-			var other = $('.otherlist').eq(index).val();
-			$('#delete-other').val( other );
+			$('#delete-projectresult').text($('.projectResultlist').eq(index).val());
+
+			$('#delete-other').text($('.otherlist').eq(index).val());
 
 			var index = $('.modal-open').index($(this));
 			var abc = $('.progressId').eq(index).val();

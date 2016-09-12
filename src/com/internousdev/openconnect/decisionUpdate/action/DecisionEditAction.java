@@ -38,8 +38,10 @@ public class DecisionEditAction extends ActionSupport {
 		String result =ERROR;
 		DecisionEditDAO dao = new DecisionEditDAO();
 		int count = 0;
+		System.out.println(1);
 		count = dao.select(day,decisionType,userId,itemName,
 				summary,cause,startDay,endDay,plan,persons,decisionDetailId);
+		System.out.println(3);
 		if(count > 0){
 			result = SUCCESS;
 		}

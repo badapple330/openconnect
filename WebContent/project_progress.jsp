@@ -67,37 +67,37 @@
 					</tr>
 				</s:iterator>
 
-				<s:iterator value="searchList">
-					<tr>
-					<td><input type="hidden" name="progressIdList"
-							value="<s:property value="progressId" />" class="search-progressId"></td>
-						<td><input type="text" name="projectIdList"
-							value="<s:property value="projectId"/>" size="7"
-							class="search-projectIdlist"></td>
-						<td><input type="text" name="projectDayList"
-							value="<s:property value="projectDay" />" size="8"
-							class="search-projectDaylist"></td>
-						<td><input type="text" name="projectnameList"
-							value="<s:property value="projectName" />"
-							class="search-projectlist"></td>
-						<td><input type="text" name="projectPlanList"
-							value="<s:property value="projectPlan" />"
-							class="search-projectPlanlist"></td>
-						<td><input type="text" name="projectResultList"
-							value="<s:property value="projectResult" />"
-							class="search-projectResultlist"></td>
-						<td><input type="text" name="otherList"
-							value="<s:property value="other" />" class="searchotherlist"></td>
+<%-- 				<s:iterator value="searchList"> --%>
+<!-- 					<tr> -->
+<!-- 					<td><input type="hidden" name="progressIdList" -->
+<%-- 							value="<s:property value="progressId" />" class="search-progressId"></td> --%>
+<!-- 						<td><input type="text" name="projectIdList" -->
+<%-- 							value="<s:property value="projectId"/>" size="7" --%>
+<!-- 							class="search-projectIdlist"></td> -->
+<!-- 						<td><input type="text" name="projectDayList" -->
+<%-- 							value="<s:property value="projectDay" />" size="8" --%>
+<!-- 							class="search-projectDaylist"></td> -->
+<!-- 						<td><input type="text" name="projectnameList" -->
+<%-- 							value="<s:property value="projectName" />" --%>
+<!-- 							class="search-projectlist"></td> -->
+<!-- 						<td><input type="text" name="projectPlanList" -->
+<%-- 							value="<s:property value="projectPlan" />" --%>
+<!-- 							class="search-projectPlanlist"></td> -->
+<!-- 						<td><input type="text" name="projectResultList" -->
+<%-- 							value="<s:property value="projectResult" />" --%>
+<!-- 							class="search-projectResultlist"></td> -->
+<!-- 						<td><input type="text" name="otherList" -->
+<%-- 							value="<s:property value="other" />" class="searchotherlist"></td> --%>
 
-						<td><s:property value="managerId" /></td>
-						<td><s:property value="subManagerId" /></td>
-						<td><s:property value="startDate" /></td>
-						<td><s:property value="endDate" /></td>
-						<td><s:property value="note" /></td>
-						<td><input type="button" class="button modal-open2"
-							value="削除" /></td>
-					</tr>
-				</s:iterator>
+<%-- 						<td><s:property value="managerId" /></td> --%>
+<%-- 						<td><s:property value="subManagerId" /></td> --%>
+<%-- 						<td><s:property value="startDate" /></td> --%>
+<%-- 						<td><s:property value="endDate" /></td> --%>
+<%-- 						<td><s:property value="note" /></td> --%>
+<!-- 						<td><input type="button" class="button modal-open2" -->
+<!-- 							value="削除" /></td> -->
+<!-- 					</tr> -->
+<%-- 				</s:iterator> --%>
 			</tbody>
 		</table>
 		<input type="submit" class="button" value="編集" />
@@ -117,17 +117,34 @@
 
 
 	<div id="modal-main">
-		<!-- #contents START -->
-		プロジェクトID <input type="text" name="projectId" id="delete-projectid"
-			readonly> <br> 日付<input type="text" name="projectId"
-			id="delete-projectday" readonly> <br> プロジェクト名<input
-			type="text" name="projectId" id="delete-projectname" readonly>
-		<br>進捗予定 <input type="text" name="projectId"
-			id="delete-projectplan" readonly> <br>進捗結果<input
-			type="text" name="projectId" id="delete-projectresult" readonly>
-		<br>その他報告<input type="text" name="projectId" id="delete-other"
-			readonly> <br> <input type="button"
-			class="delete-true button" value="削除"> <input type="button"
+<table border="1">
+		<tr>
+				<td>プロジェクトID</td>
+				<td><span id="delete-projectid"></span></td>
+			</tr>
+		<tr>
+				<td>日付</td>
+				<td><span id="delete-projectday"></span></td>
+			</tr>
+			<tr>
+				<td>プロジェクト名</td>
+				<td><span id="delete-projectname"></span></td>
+			</tr>
+			<tr>
+				<td>進捗予定</td>
+				<td><span id="delete-projectplan"></span></td>
+			</tr>
+			<tr>
+				<td>進捗結果</td>
+				<td><span id="delete-projectresult"></span></td>
+			</tr>
+			<tr>
+				<td>その他報告</td>
+				<td><span id="delete-other"> </span></td>
+			</tr>
+		</table>
+
+		 <input type="button" class="delete-true button" value="削除"> <input type="button"
 			class="modal-close button" value="閉じる">
 
 		<div class="delete-prepare">

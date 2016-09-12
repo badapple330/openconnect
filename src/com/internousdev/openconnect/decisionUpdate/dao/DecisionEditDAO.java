@@ -43,7 +43,7 @@ public class DecisionEditDAO {
 				ps.setString(10,persons);
 				ps.setInt(11,decisionDetailId);
 				count =ps.executeUpdate();
-
+System.out.println(2);
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}finally{

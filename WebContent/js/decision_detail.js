@@ -27,13 +27,13 @@ $(function(){
 	        var index = $('.modal-edit-open').index($(this));
 
 
-			$('#edit-projectid').val($('.decision_id').eq(index).text());
+			$('#edit-projectid').text($('.decision_id').eq(index).text());
 
-			$('#edit-projectname').val($('.decision_name').eq(index).text());
+			$('#edit-projectname').text($('.decision_name').eq(index).text());
 
-			$('#edit-classify').val($('.decision_type').eq(index).text());
+			$('#edit-classify').text($('.decision_type').eq(index).text());
 
-			$('#edit-status').val($('.decision_status').eq(index).text());
+			$('#edit-status').text($('.decision_status').eq(index).text());
 
 			$('#edit-delete').val($('.decision_detail_id').eq(index).text());
 
@@ -78,13 +78,13 @@ $(function(){
 	        var index = $('.modal-open').index($(this));
 
 
-			$('#delete-projectid').val($('.decision_id').eq(index).text());
+			$('#delete-projectid').text($('.decision_id').eq(index).text());
 
-			$('#delete-projectname').val($('.decision_name').eq(index).text());
+			$('#delete-projectname').text($('.decision_name').eq(index).text());
 
-			$('#decision-classify').val($('.decision_type').eq(index).text());
+			$('#delete-classify').text($('.decision_type').eq(index).text());
 
-			$('#decision-status').val($('.decision_status').eq(index).text());
+			$('#delete-status').text($('.decision_status').eq(index).text());
 
 			$('#true-delete').val($('.decision_detail_id').eq(index).text());
 

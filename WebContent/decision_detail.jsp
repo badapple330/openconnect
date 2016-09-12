@@ -85,10 +85,25 @@
 
 
 	<div id="modal-edit-main">
-		以下の内容を編集しますか？ ID <input type="text" id="edit-projectid" readonly><br>
-		プロジェクト名<input type="text" id="edit-projectname" readonly> <br>
-		決裁分類<input type="text" id="edit-classify" readonly> <br>
-		申請・承認状況<input type="text" id="edit-status" readonly> <br>
+		以下の内容を編集しますか？
+		<table border="1">
+			<tr>
+				<td>案件ID</td>
+				<td><span id="edit-projectid"></span></td>
+			</tr>
+			<tr>
+				<td>プロジェクト名</td>
+				<td><span id="edit-projectname"></span></td>
+			</tr>
+			<tr>
+				<td>決裁分類</td>
+				<td><span id="edit-classify"></span></td>
+			</tr>
+			<tr>
+				<td>申請・承認状況</td>
+				<td><span id="edit-status"> </span></td>
+			</tr>
+		</table>
 		<input type="button" class="delete-true button" value="はい"> <input
 			type="button" class="modal-close button" value="いいえ">
 
@@ -101,19 +116,30 @@
 				<input type="submit" class="delete-true button" value="編集">
 			</s:form>
 			<input type="button" class="modal-close button" value="閉じる">
-
 		</div>
 	</div>
 
-
-
 	<div id="modal-main">
-		<!-- #contents START -->
-		ID <input type="text" id="delete-projectid" readonly><br>
-		プロジェクト名<input type="text" id="delete-projectname" readonly> <br>決裁分類<input
-			type="text" id="decision-classify" readonly> <br>申請・承認状況<input
-			type="text" id="decision-status" readonly> <br> <input
-			type="button" class="delete-true button" value="削除"> <input
+		以下の内容を削除しますか？
+		<table border="1">
+			<tr>
+				<td>案件ID</td>
+				<td><span id="delete-projectid"></span></td>
+			</tr>
+			<tr>
+				<td>プロジェクト名</td>
+				<td><span id="delete-projectname"></span></td>
+			</tr>
+			<tr>
+				<td>決裁分類</td>
+				<td><span id="delete-classify"></span></td>
+			</tr>
+			<tr>
+				<td>申請・承認状況</td>
+				<td><span id="delete-status"> </span></td>
+			</tr>
+		</table>
+		<input type="button" class="delete-true button" value="削除"> <input
 			type="button" class="modal-close button" value="閉じる">
 
 		<div class="delete-prepare">

@@ -2,6 +2,9 @@ package com.internousdev.openconnect.decisionDetail.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.decisionDetail.dao.DecisionDetailEditDAO;
 import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailDTO;
@@ -13,11 +16,11 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 
-public class DecisionDetailEditAction extends ActionSupport {
+public class DecisionDetailEditAction extends ActionSupport implements SessionAware{
 	/**
 	 * 決裁手続きリスト
 	 */
-
+	private Map<String, Object> session;
 	private int decisionDetailId;
 	private String password;
 	private List<DecisionDetailDTO> decisionDetailList = new ArrayList<DecisionDetailDTO>();
@@ -34,28 +37,14 @@ public class DecisionDetailEditAction extends ActionSupport {
 
 		String result = ERROR;
 		DecisionDetailEditDAO dao = new DecisionDetailEditDAO();
-
+System.out.println(1);
 		boolean check = dao.check(decisionDetailId,password);
-
 		if( check ){
-
 			decisionDetailList = dao.select(decisionDetailId);
 			result = SUCCESS;
-		}
-//		String dtoPassword=dto.getPassword();
-//		int dtoDecisionDetailId=dto.getDecisionDetailId();
-//
-//		decisionDetailList = dao.select(decisionDetailId);
-//
-//		System.out.println(1);
-//
-//		if (!( decisionDetailList == null)) {
-//			if(password.equals(dtoPassword)){
-//				if(decisionDetailId==(dtoDecisionDetailId)){
-//					result = SUCCESS;
-//				}
-//			}
-//		}
+		}System.out.println(2);
+		session.put("decisionDetailId", decisionDetailId);
+
 		return result;
 	}
 
@@ -107,6 +96,16 @@ public class DecisionDetailEditAction extends ActionSupport {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 }
