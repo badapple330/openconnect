@@ -173,7 +173,7 @@ public class ProjectProgressDTOTest {
 			test.setManagerId(postalMin);
 
 		} catch (RuntimeException e) {
-			assertThat3(e.getMessage(), "For input string: \"-2147483649\"");
+			assertThat5(e.getMessage(), "For input string: \"-2147483649\"");
 		}
 	}
 
@@ -185,11 +185,12 @@ public class ProjectProgressDTOTest {
 			test.setManagerId(postalMax);
 
 		} catch (RuntimeException e) {
-			assertThat3(e.getMessage(), "For input string: \"2147483648\"");
+			assertThat5(e.getMessage(), "For input string: \"2147483648\"");
 		}
 	}
 
-
+	private void assertThat5(String message, String string) {
+	}
 	/**
 	 * {@link com.internousdev.openconnect.projetProgress.dto.ProjectProgressDTO#setManagerId()}
 	 * のためのテスト・メソッド。
@@ -235,7 +236,7 @@ public class ProjectProgressDTOTest {
 			test.setManagerId(postalMin);
 
 		} catch (RuntimeException e) {
-			assertThat4(e.getMessage(), "For input string: \"-2147483649\"");
+			assertThat6(e.getMessage(), "For input string: \"-2147483649\"");
 		}
 	}
 
@@ -247,10 +248,13 @@ public class ProjectProgressDTOTest {
 			test.setManagerId(postalMax);
 
 		} catch (RuntimeException e) {
-			assertThat4(e.getMessage(), "For input string: \"2147483648\"");
+			assertThat6(e.getMessage(), "For input string: \"2147483648\"");
 		}
 	}
 
+
+	private void assertThat6(String message, String string) {
+	}
 	/**
 	 * {@link com.internousdev.openconnect.projetProgress.dto.ProjectProgressDTO#getSubManagerId()} のためのテスト・メソッド。
 	 */
@@ -292,7 +296,7 @@ public class ProjectProgressDTOTest {
 			test.setSubManagerId(postalMin);
 
 		} catch (RuntimeException e) {
-			assertThat3(e.getMessage(), "For input string: \"-2147483649\"");
+			assertThat7(e.getMessage(), "For input string: \"-2147483649\"");
 		}
 	}
 
@@ -304,10 +308,11 @@ public class ProjectProgressDTOTest {
 			test.setSubManagerId(postalMax);
 
 		} catch (RuntimeException e) {
-			assertThat3(e.getMessage(), "For input string: \"2147483648\"");
+			assertThat7(e.getMessage(), "For input string: \"2147483648\"");
 		}
 	}
-
+	private void assertThat7(String message, String string) {
+	}
 
 	/**
 	 * {@link com.internousdev.openconnect.projetProgress.dto.ProjectProgressDTO#setSubManagerId()}
@@ -354,7 +359,7 @@ public class ProjectProgressDTOTest {
 			test.setSubManagerId(postalMin);
 
 		} catch (RuntimeException e) {
-			assertThat4(e.getMessage(), "For input string: \"-2147483649\"");
+			assertThat8(e.getMessage(), "For input string: \"-2147483649\"");
 		}
 	}
 
@@ -366,11 +371,12 @@ public class ProjectProgressDTOTest {
 			test.setSubManagerId(postalMax);
 
 		} catch (RuntimeException e) {
-			assertThat4(e.getMessage(), "For input string: \"2147483648\"");
+			assertThat8(e.getMessage(), "For input string: \"2147483648\"");
 		}
 	}
 
-
+	private void assertThat8(String message, String string) {
+	}
 
 
 	/**
@@ -415,7 +421,7 @@ public class ProjectProgressDTOTest {
 			test.setProgressId(postalMin);
 
 		} catch (RuntimeException e) {
-			assertThat3(e.getMessage(), "For input string: \"-2147483649\"");
+			assertThat9(e.getMessage(), "For input string: \"-2147483649\"");
 		}
 	}
 
@@ -427,8 +433,10 @@ public class ProjectProgressDTOTest {
 			test.setProgressId(postalMax);
 
 		} catch (RuntimeException e) {
-			assertThat3(e.getMessage(), "For input string: \"2147483648\"");
+			assertThat9(e.getMessage(), "For input string: \"2147483648\"");
 		}
+	}
+	private void assertThat9(String message, String string) {
 	}
 
 	/**
@@ -476,7 +484,7 @@ public class ProjectProgressDTOTest {
 			test.setProgressId(postalMin);
 
 		} catch (RuntimeException e) {
-			assertThat4(e.getMessage(), "For input string: \"-2147483649\"");
+			assertThat10(e.getMessage(), "For input string: \"-2147483649\"");
 		}
 	}
 
@@ -488,10 +496,11 @@ public class ProjectProgressDTOTest {
 			test.setProgressId(postalMax);
 
 		} catch (RuntimeException e) {
-			assertThat4(e.getMessage(), "For input string: \"2147483648\"");
+			assertThat10(e.getMessage(), "For input string: \"2147483648\"");
 		}
 	}
-
+	private void assertThat10(String message, String string) {
+	}
 
 
 
