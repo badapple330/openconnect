@@ -8,7 +8,7 @@ import com.internousdev.util.DBConnector;
 
 public class ProjectsInsertDAO {
 
-	public int insert(int projectId,String projectName,int managerId,int subManagerId,String startDate){
+	public int insert(String projectId,String projectName,String managerId,String subManagerId,String startDate){
 
 		int count = 0;
 
@@ -18,10 +18,10 @@ public class ProjectsInsertDAO {
 		String sql = "INSERT INTO projects(project_id,project_name,manager_id,sub_manager_id,start_date)VALUES(?, ?, ?, ? ,?)";
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1,projectId);
+			ps.setString(1,projectId);
 			ps.setString(2,projectName);
-			ps.setInt(3,managerId);
-			ps.setInt(4,subManagerId);
+			ps.setString(3,managerId);
+			ps.setString(4,subManagerId);
 			ps.setString(5,startDate);
 
 

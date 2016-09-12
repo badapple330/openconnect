@@ -1040,7 +1040,7 @@ public class ProjectsDTOTest {
 			ProjectsListDTO test = new ProjectsListDTO();
 			String expected = "　";
 
-			test.setEndDate(expected);
+			test.setNote(expected);
 			String actual = test.getNote();
 
 			assertEquals(expected, actual);
