@@ -253,6 +253,13 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
+		<action name="GoDecisionDetailApplication"
+			class="com.internousdev.openconnect.decisionDetail.action.DecisionDetailApplicationAction"
+			method="execute">
+			<result name="success" type="chain">DecisionApplicationList</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
 
 
 		<!-- 決済手続き電子化画面編集への遷移 -->

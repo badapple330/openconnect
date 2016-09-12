@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE htm>
+<!DOCTYPE html>
 <html>
 <head>
 <LINK rel="stylesheet" type="text/css" href="css/style.css">
@@ -14,48 +14,58 @@
 
 	<jsp:include page="header.jsp" />
 
+	<h1>決裁手続き申請一覧画面</h1>
+	<br>
+	<br>
 
-			<h1>決裁手続き申請一覧画面</h1>
-			<br> <br>
-			<table border="1">
-				<tr>
-					<td>ID</td>
-					<td>プロジェクト名</td>
-					<td>決裁分類</td>
-					<td>申請・承認状況</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>rewrite</td>
-					<td>実施決裁</td>
-					<td>未申請</td>
-					<td><input type="button" value="プレビュー"></td>
-					<td><input type="button" value="承認"></td>
-					<td><input type="button" value="差し戻し"></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>mira-mode</td>
-					<td>実施決裁</td>
-					<td>承認待ち</td>
-					<td><input type="button" value="プレビュー"></td>
-					<td><input type="button" value="承認"></td>
-					<td><input type="button" value="差し戻し"></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>internousdev</td>
-					<td>契約決裁</td>
-					<td>承認済み</td>
-					<td><input type="button" value="プレビュー"></td>
-					<td><input type="button" value="承認"></td>
-					<td><input type="button" value="差し戻し"></td>
-				</tr>
-			</table>
-			<br> <br> <input type="button" value="戻る" class="button">
+	<table border="1">
 
+		<tr>
+			<th>ID</th>
+			<th>プロジェクトID</th>
+			<th>案件番号</th>
+			<th>プロジェクト名</th>
+			<th>決裁分類</th>
+			<th>申請・承認状況</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<s:iterator value="decisionDetailList">
+			<s:if test="%{decisionStatus=='承認待'}">
+				<tr>
+					<td class="decision_detail_id"><s:property
+							value="decisionDetailId" /></td>
+					<td><s:property value="projectId" /></td>
+					<td class="decision_id"><s:property value="decisionId" /></td>
+					<td class="decision_name"><s:property value="projectName" /></td>
+					<td class="decision_type"><s:property value="decisionType" /></td>
+					<td class="decision_status"><s:property value="decisionStatus" /></td>
+
+					<td><s:form action="DecisionDetailPreview">
+							<input type="hidden" name="decisionDetailId"
+								value="<s:property value="decisionDetailId" />">
+							<s:submit value="プレビュー" />
+						</s:form></td>
+
+					<td><s:form action="GoDecisionDetailApplication">
+					<input type="hidden" name="decisionDetailId"
+						value="<s:property value="decisionDetailId" />"> <input
+						type="hidden" name="decisionStatus" value="承認"> <s:submit
+							value="承認" /> </s:form></td>
+
+					<td><s:form action="GoDecisionDetailApplication">
+					<input type="hidden" name="decisionDetailId"
+						value="<s:property value="decisionDetailId" />"> <input
+						type="hidden" name="decisionStatus" value="差し戻し"> <s:submit
+							value="差し戻し" /> </s:form></td>
+				</tr>
+			</s:if>
+		</s:iterator>
+
+	</table>
+	<br>
+	<br>
+	<input type="button" value="戻る" class="button">
 </body>
 </html>
