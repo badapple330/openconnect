@@ -54,13 +54,17 @@
 
 
 				</td>
-				<td><s:form action="DecisionDetailApplication">
+				<td>	<s:if test="%{decisionStatus=='承認'}">
+				<input type="button" value="申請" /></s:if>
+				<s:else>
+				<s:form action="DecisionDetailApplication">
 						<input type="hidden" name="decisionDetailId"
 							value="<s:property value="decisionDetailId" />">
 						<input type="hidden" name="decisionStatus" value="承認待">
 						<s:submit value="申請" />
-
-					</s:form></td>
+					</s:form>
+					</s:else>
+					</td>
 				<td><input type="button" value="削除" class="modal-open"></td>
 
 				<td><s:form action="DecisionDetailPreview">
