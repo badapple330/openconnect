@@ -6,7 +6,7 @@ public class StudentsSearchDTO {
  private String givenname;
  private String month;
  private String year;
- private int password;
+ private String password;
  private int userid;
 /**
 * 取得メソッド
@@ -77,7 +77,7 @@ public void setYear(String year) {
 * @author
 * @return
 */
-public int getPassword() {
+public String getPassword() {
 	return password;
 }
 /**
@@ -85,7 +85,7 @@ public int getPassword() {
 * @author
 * @param
 */
-public void setPassword(int password) {
+public void setPassword(String password) {
 	this.password = password;
 }
 /**

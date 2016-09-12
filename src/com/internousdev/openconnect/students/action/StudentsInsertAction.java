@@ -8,10 +8,12 @@ public class StudentsInsertAction extends ActionSupport  {
 
 	private String familyName;
 	 private String givenName;
+	private String familyNameKanji;
+	private String givenNameKanji;
+
 	 private String month;
 	 private String year;
-	 private int userId;
-	 private int password;
+	 private String password;
 
 
 
@@ -19,8 +21,9 @@ public class StudentsInsertAction extends ActionSupport  {
 	public String execute() {
      String result = ERROR;
      StudentsInsertDAO dao = new StudentsInsertDAO();
+     System.out.println(familyNameKanji);
  	 int count = 0;
-	count = dao.insert(year,month,familyName,givenName,password,userId);
+	count = dao.insert(year,month,familyName,givenName,familyNameKanji,givenNameKanji,password);
 	if (count > 0) {
 		result = SUCCESS;
 	}
@@ -31,6 +34,11 @@ public class StudentsInsertAction extends ActionSupport  {
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public String getFamilyName() {
 		return familyName;
 	}
@@ -38,6 +46,11 @@ public class StudentsInsertAction extends ActionSupport  {
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
@@ -45,6 +58,11 @@ public class StudentsInsertAction extends ActionSupport  {
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public String getGivenName() {
 		return givenName;
 	}
@@ -52,6 +70,11 @@ public class StudentsInsertAction extends ActionSupport  {
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setGivenName(String givenName) {
 		this.givenName = givenName;
 	}
@@ -59,6 +82,59 @@ public class StudentsInsertAction extends ActionSupport  {
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
+	}
+
+
+
+
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
+	}
+
+
+
+
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
+	public String getGivenNameKanji() {
+		return givenNameKanji;
+	}
+
+
+
+
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
+	}
+
+
+
+
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public String getMonth() {
 		return month;
 	}
@@ -66,6 +142,11 @@ public class StudentsInsertAction extends ActionSupport  {
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setMonth(String month) {
 		this.month = month;
 	}
@@ -73,6 +154,11 @@ public class StudentsInsertAction extends ActionSupport  {
 
 
 
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
 	public String getYear() {
 		return year;
 	}
@@ -80,6 +166,11 @@ public class StudentsInsertAction extends ActionSupport  {
 
 
 
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
 	public void setYear(String year) {
 		this.year = year;
 	}
@@ -87,30 +178,30 @@ public class StudentsInsertAction extends ActionSupport  {
 
 
 
-	public int getUserId() {
-		return userId;
-	}
-
-
-
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-
-
-
-	public int getPassword() {
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
+	public String getPassword() {
 		return password;
 	}
 
 
 
 
-	public void setPassword(int password) {
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
+	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
+
+
 
 
 

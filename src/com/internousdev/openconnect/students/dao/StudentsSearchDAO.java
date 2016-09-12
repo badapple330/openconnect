@@ -35,6 +35,7 @@ public class StudentsSearchDAO {
 				dto.setGivenname(rs.getString("given_name"));
 				dto.setYear(rs.getString("year"));
 				dto.setMonth(rs.getString("month"));
+				dto.setPassword(rs.getString("password"));
 				dto.setUserid(rs.getInt("user_id"));
 				searchList.add(dto);
 			}

@@ -25,11 +25,11 @@ public class StudentsDAO {
 
 			while (rs.next()) {
 				StudentsSearchDTO dto = new StudentsSearchDTO();
-				dto.setFamilyname(rs.getString("family_name"));
-				dto.setGivenname(rs.getString("given_name"));
+				dto.setFamilyname(rs.getString("family_name_kanji"));
+				dto.setGivenname(rs.getString("given_name_kanji"));
 				dto.setYear(rs.getString("year"));
 				dto.setMonth(rs.getString("month"));
-				dto.setUserid(rs.getInt("userid"));
+				dto.setUserid(rs.getInt("user_id"));
 
 				studentsList.add(dto);
 			}

@@ -8,7 +8,7 @@ import com.internousdev.openconnect.students.dao.StudentsUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class StudentsUpdateAction extends ActionSupport{
-	private List<Integer> userIdList = new ArrayList<Integer>();
+	private List<Integer> useridList = new ArrayList<Integer>();
 	private List<String> familyNameList = new ArrayList<String>();
 	private List<String> givenNameList = new ArrayList<String>();
 	private List<String> yearList = new ArrayList<String>();
@@ -22,9 +22,9 @@ public class StudentsUpdateAction extends ActionSupport{
 		String result =ERROR;
 		StudentsUpdateDAO dao = new StudentsUpdateDAO();
 		int count = 0;
-System.out.println(userIdList);
-		for(int i=0;i< userIdList.size();++i){
-			count = dao.select(yearList.get(i),monthList.get(i),familyNameList.get(i),givenNameList.get(i),passwordList.get(i),userIdList.get(i));
+System.out.println(useridList);
+		for(int i=0;i< useridList.size();++i){
+			count = dao.select(yearList.get(i),monthList.get(i),familyNameList.get(i),givenNameList.get(i),passwordList.get(i),useridList.get(i));
 			}
 		if ( count > 0){
 			result = SUCCESS;
@@ -39,8 +39,8 @@ System.out.println(userIdList);
 	* @author
 	* @return
 	*/
-	public List<Integer> getUserIdList() {
-		return userIdList;
+	public List<Integer> getUseridList() {
+		return useridList;
 	}
 
 
@@ -50,8 +50,8 @@ System.out.println(userIdList);
 	* @author
 	* @param
 	*/
-	public void setUserIdList(List<Integer> userIdList) {
-		this.userIdList = userIdList;
+	public void setUseridList(List<Integer> useridList) {
+		this.useridList = useridList;
 	}
 
 
@@ -147,7 +147,7 @@ System.out.println(userIdList);
 	/**
 	* 取得メソッド
 	* @author
-	* @return passwordList
+	* @return
 	*/
 	public List<Integer> getPasswordList() {
 		return passwordList;
