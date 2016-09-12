@@ -128,7 +128,7 @@ insert into projects()values
 /*サブプロジェクト / プロジェクトリリース状況一覧*/
 create table project_status(
 project_id int not null,
-a_envstart date not null,
+a_envstart date default 00000000,
 a_envend date default 00000000,
 b_envstart date default 00000000,
 b_envend date default 00000000,
@@ -140,8 +140,8 @@ status_id int primary key auto_increment,
 foreign key(project_id) references projects(project_id)
 );
 
-insert project_status(project_id, a_envstart)values
-(1,"20160801"),(2,"20160801");
+insert project_status(project_id)values
+(1),(2);
 
 
 /*サブプロジェクト / 勤怠更新*/

@@ -1,6 +1,11 @@
 package com.internousdev.openconnect.projects.action;
 
+import java.util.List;
+
+import com.internousdev.openconnect.projectStatus.dao.ProjectStatusInsertDAO;
 import com.internousdev.openconnect.projects.dao.ProjectsInsertDAO;
+import com.internousdev.openconnect.projects.dao.ProjectsSerachDAO;
+import com.internousdev.openconnect.projects.dto.ProjectsSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -52,8 +57,24 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		ProjectsInsertDAO dao = new ProjectsInsertDAO();
 		int count = 0;
 		count = dao.insert(projectName,managerId,subManagerId,startDate);
+
 		if (count > 0) {
 			result = SUCCESS;
+
+			int maxId = 0;
+
+			ProjectsSerachDAO selectDao = new ProjectsSerachDAO();
+
+			List<ProjectsSearchDTO> list = selectDao.select("");
+
+			for( int i=0; i<list.size(); i++ ){
+
+				if( list.get(i).getProjectId() > maxId ) maxId = list.get(i).getProjectId();
+			}
+
+			ProjectStatusInsertDAO insertDao = new ProjectStatusInsertDAO();
+
+			insertDao.insert(maxId);
 		}
 		return result;
 	}
