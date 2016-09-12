@@ -36,7 +36,8 @@ public class ProjectProgressSearchDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql = "select*from project_progress inner join projects on project_progress.project_id = projects.project_id WHERE project_name LIKE '%" + search + "%'";
+			String sql = "select*from project_progress inner join projects on project_progress.project_id = projects.project_id "
+					+ "inner join users on projects.manager_id = users.user_id WHERE project_name LIKE '%" + search + "%'";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 

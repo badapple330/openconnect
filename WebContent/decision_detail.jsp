@@ -51,8 +51,6 @@
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
 				<td><input type="button" value="編集" class="modal-edit-open">
 
-
-
 				</td>
 				<td>	<s:if test="%{decisionStatus=='承認'}">
 				<input type="button" value="申請" /></s:if>
@@ -84,8 +82,6 @@
 		<input type="text" name="password" placeholder="パスワード入力">
 		<input type="submit" value="追加">
 	</s:form>
-
-
 
 
 	<div id="modal-edit-main">
@@ -156,9 +152,6 @@
 			</s:form>
 		</div>
 	</div>
-
-
-
 
 	<!-- 	戻る -->
 	<s:form action="GetAddressAction">

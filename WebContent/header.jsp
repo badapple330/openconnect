@@ -81,10 +81,12 @@
 			<s:form action="GoDecisionDetail">
 				<s:submit value="決済手続き" />
 			</s:form>
-			<!--決済手続き申請一覧 -->
-			<s:form action="DecisionApplicationList">
-				<s:submit value="決済申請一覧" />
-			</s:form>
+			<!-- 	<!--決済手続き申請一覧 -->
+			<s:if test="%{#session.userFlg == 3}">
+				<s:form action="DecisionApplicationList">
+					<s:submit value="決済手続き申請一覧" />
+				</s:form>
+			</s:if>
 			<!--書籍一覧 -->
 			<s:form action="GoBooks">
 				<s:submit value="書籍一覧" />

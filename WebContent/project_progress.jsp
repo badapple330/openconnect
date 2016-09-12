@@ -37,7 +37,7 @@
 					<th>終了日</th>
 					<th>メモ</th>
 				</tr>
-				<s:iterator value="projectList">
+				<s:iterator value="searchList">
 					<tr>
 						<td><input type="hidden" name="progressIdList"
 							value="<s:property value="progressId" />" class="progressId"></td>
@@ -67,37 +67,6 @@
 					</tr>
 				</s:iterator>
 
-<%-- 				<s:iterator value="searchList"> --%>
-<!-- 					<tr> -->
-<!-- 					<td><input type="hidden" name="progressIdList" -->
-<%-- 							value="<s:property value="progressId" />" class="search-progressId"></td> --%>
-<!-- 						<td><input type="text" name="projectIdList" -->
-<%-- 							value="<s:property value="projectId"/>" size="7" --%>
-<!-- 							class="search-projectIdlist"></td> -->
-<!-- 						<td><input type="text" name="projectDayList" -->
-<%-- 							value="<s:property value="projectDay" />" size="8" --%>
-<!-- 							class="search-projectDaylist"></td> -->
-<!-- 						<td><input type="text" name="projectnameList" -->
-<%-- 							value="<s:property value="projectName" />" --%>
-<!-- 							class="search-projectlist"></td> -->
-<!-- 						<td><input type="text" name="projectPlanList" -->
-<%-- 							value="<s:property value="projectPlan" />" --%>
-<!-- 							class="search-projectPlanlist"></td> -->
-<!-- 						<td><input type="text" name="projectResultList" -->
-<%-- 							value="<s:property value="projectResult" />" --%>
-<!-- 							class="search-projectResultlist"></td> -->
-<!-- 						<td><input type="text" name="otherList" -->
-<%-- 							value="<s:property value="other" />" class="searchotherlist"></td> --%>
-
-<%-- 						<td><s:property value="managerId" /></td> --%>
-<%-- 						<td><s:property value="subManagerId" /></td> --%>
-<%-- 						<td><s:property value="startDate" /></td> --%>
-<%-- 						<td><s:property value="endDate" /></td> --%>
-<%-- 						<td><s:property value="note" /></td> --%>
-<!-- 						<td><input type="button" class="button modal-open2" -->
-<!-- 							value="削除" /></td> -->
-<!-- 					</tr> -->
-<%-- 				</s:iterator> --%>
 			</tbody>
 		</table>
 		<input type="submit" class="button" value="編集" />
@@ -110,10 +79,6 @@
 		<input type="text" name="other" placeholder="その他報告">
 		<input type="submit" class="button" value="追加">
 	</s:form>
-
-
-
-
 
 
 	<div id="modal-main">
