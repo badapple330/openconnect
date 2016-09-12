@@ -14,6 +14,14 @@ import com.internousdev.openconnect.books.dto.BooksDTO;
  */
 public class BooksDTOTest {
 
+	private void assertThat3(String message, String string) {
+	}
+	private void assertThat4(String message, String string) {
+	}
+
+	/**
+	 * {@link com.internousdev.internousdev.dto.BooksDTO#getId()} のためのテスト・メソッド。
+	 */
 	@Test
 	public void testGetBookId1() {
 		BooksDTO test = new BooksDTO();
@@ -68,11 +76,8 @@ public class BooksDTOTest {
 		}
 	}
 
-	private void assertThat3(String message, String string) {
-	}
-
 	/**
-	 * {@link com.internousdev.internousdev.dto.BooksDTO#setBookId()}
+	 * {@link com.internousdev.internousdev.dto.BooksDTO#setId()}
 	 * のためのテスト・メソッド。
 	 */
 	@Test
@@ -116,7 +121,7 @@ public class BooksDTOTest {
 			test.setBookId(postalMin);
 
 		} catch (RuntimeException e) {
-			assertThat3(e.getMessage(), "For input string: \"-2147483649\"");
+			assertThat4(e.getMessage(), "For input string: \"-2147483649\"");
 		}
 	}
 
@@ -128,13 +133,15 @@ public class BooksDTOTest {
 			test.setBookId(postalMax);
 
 		} catch (RuntimeException e) {
-			assertThat3(e.getMessage(), "For input string: \"2147483648\"");
+			assertThat4(e.getMessage(), "For input string: \"2147483648\"");
 		}
 	}
-	/**
-	 * テスト・メソッド。
-	 */
 
+
+
+	/**
+	 * {@link com.internousdev.internousdev.dto.BooksDTO#getHandleName()} のためのテスト・メソッド。
+	 */
 	@Test
 	public void testGetTitle1() {
 		BooksDTO test = new BooksDTO();
@@ -216,7 +223,7 @@ public class BooksDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.BooksDTO#setTitle()}
+	 * {@link com.internousdev.internousdev.dto.ChatDTO#setHandleName()}
 	 */
 
 	@Test
@@ -306,7 +313,4 @@ public class BooksDTOTest {
 
 		assertEquals(expected, actual);
 	}
-
-
 }
-

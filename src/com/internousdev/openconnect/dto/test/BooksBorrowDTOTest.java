@@ -9,13 +9,20 @@ import org.junit.Test;
 
 import com.internousdev.openconnect.booksBorrow.dto.BooksBorrowDTO;
 
-/**
- * テスト・メソッド。
- */
-public class BooksBorrowDTOTest {
+public class BooksBorrowDTOTest{
 
+
+	private void assertThat3(String message, String string) {
+
+	}
+	private void assertThat4(String message, String string) {
+
+	}
+	/**
+	 * {@link com.internousdev.internousdev.dto.BooksBorrowDTO#getId()} のためのテスト・メソッド。
+	 */
 	@Test
-	public void testGetBookId1() {
+	public void testGetbookId1() {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		int expected = 0;
 
@@ -25,7 +32,7 @@ public class BooksBorrowDTOTest {
 	}
 
 	@Test
-	public void testGetBookId2() {
+	public void testGetbookId2() {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		int expected = 2147483647;
 
@@ -35,7 +42,7 @@ public class BooksBorrowDTOTest {
 	}
 
 	@Test
-	public void testGetBookId3() {
+	public void testGetbookId3() {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		int expected = -2147483648;
 
@@ -45,7 +52,7 @@ public class BooksBorrowDTOTest {
 	}
 
 	@Test
-	public void testGetBookId4() throws Exception {
+	public void testGetbookId4() throws Exception {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		try {
 			int postalMin = Integer.parseInt("-2147483649");
@@ -57,7 +64,7 @@ public class BooksBorrowDTOTest {
 	}
 
 	@Test
-	public void testGetBookId5() throws Exception {
+	public void testGetbookId5() throws Exception {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		try {
 			int postalMax = Integer.parseInt("2147483648");
@@ -68,15 +75,14 @@ public class BooksBorrowDTOTest {
 		}
 	}
 
-	private void assertThat3(String message, String string) {
-	}
+
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.BooksBorrowDTO#setBookId()}
+	 * {@link com.internousdev.internousdev.dto.BooksBorrowDTO#setId()}
 	 * のためのテスト・メソッド。
 	 */
 	@Test
-	public void testSetBookId1() {
+	public void testSetbookId1() {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		int expected = 0;
 
@@ -87,7 +93,7 @@ public class BooksBorrowDTOTest {
 	}
 
 	@Test
-	public void testSetBookId2() {
+	public void testSetbookId2() {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		int expected = 2147483647;
 
@@ -98,7 +104,7 @@ public class BooksBorrowDTOTest {
 	}
 
 	@Test
-	public void testSetBookId3() {
+	public void testSetbookId3() {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		int expected = -2147483648;
 
@@ -109,11 +115,70 @@ public class BooksBorrowDTOTest {
 	}
 
 	@Test
-	public void testSetBookId4() throws Exception {
+	public void testSetbookId4() throws Exception {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		try {
 			int postalMin = Integer.parseInt("-2147483649");
 			test.setBookId(postalMin);
+
+		} catch (RuntimeException e) {
+			assertThat4(e.getMessage(), "For input string: \"-2147483649\"");
+		}
+	}
+
+	@Test
+	public void testSetbookId5() throws Exception {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		try {
+			int postalMax = Integer.parseInt("2147483648");
+			test.setBookId(postalMax);
+
+		} catch (RuntimeException e) {
+			assertThat4(e.getMessage(), "For input string: \"2147483648\"");
+		}
+	}
+
+
+
+	/**
+	 * {@link com.internousdev.internousdev.dto.BooksBorrowDTO#getId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetBorrowId1() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		int expected = 0;
+
+		test.setBorrowId(expected);
+
+		assertEquals(expected, test.getBorrowId());
+	}
+
+	@Test
+	public void testGetBorrowId2() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		int expected = 2147483647;
+
+		test.setBorrowId(expected);
+
+		assertEquals(expected, test.getBorrowId());
+	}
+
+	@Test
+	public void testGetBorrowId3() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		int expected = -2147483648;
+
+		test.setBorrowId(expected);
+
+		assertEquals(expected, test.getBorrowId());
+	}
+
+	@Test
+	public void testGetBorrowId4() throws Exception {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		try {
+			int postalMin = Integer.parseInt("-2147483649");
+			test.setBorrowId(postalMin);
 
 		} catch (RuntimeException e) {
 			assertThat3(e.getMessage(), "For input string: \"-2147483649\"");
@@ -121,20 +186,83 @@ public class BooksBorrowDTOTest {
 	}
 
 	@Test
-	public void testSetBookId5() throws Exception {
+	public void testGetBorrowId5() throws Exception {
 		BooksBorrowDTO test = new BooksBorrowDTO();
 		try {
 			int postalMax = Integer.parseInt("2147483648");
-			test.setBookId(postalMax);
+			test.setBorrowId(postalMax);
 
 		} catch (RuntimeException e) {
 			assertThat3(e.getMessage(), "For input string: \"2147483648\"");
 		}
 	}
-	/**
-	 * テスト・メソッド。
-	 */
 
+	/**
+	 * {@link com.internousdev.internousdev.dto.BooksBorrowDTO#setId()}
+	 * のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetBorrowId1() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		int expected = 0;
+
+		test.setBorrowId(expected);
+		int actual = test.getBorrowId();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowId2() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		int expected = 2147483647;
+
+		test.setBorrowId(expected);
+		int actual = test.getBorrowId();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowId3() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		int expected = -2147483648;
+
+		test.setBorrowId(expected);
+		int actual = test.getBorrowId();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowId4() throws Exception {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		try {
+			int postalMin = Integer.parseInt("-2147483649");
+			test.setBorrowId(postalMin);
+
+		} catch (RuntimeException e) {
+			assertThat4(e.getMessage(), "For input string: \"-2147483649\"");
+		}
+	}
+
+	@Test
+	public void testSetBorrowId5() throws Exception {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		try {
+			int postalMax = Integer.parseInt("2147483648");
+			test.setBorrowId(postalMax);
+
+		} catch (RuntimeException e) {
+			assertThat4(e.getMessage(), "For input string: \"2147483648\"");
+		}
+	}
+
+
+
+	/**
+	 * {@link com.internousdev.internousdev.dto.BooksBorrowDTO#getHandleName()} のためのテスト・メソッド。
+	 */
 	@Test
 	public void testGetTitle1() {
 		BooksBorrowDTO test = new BooksBorrowDTO();
@@ -216,7 +344,7 @@ public class BooksBorrowDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.BooksBorrowDTO#setTitle()}
+	 * {@link com.internousdev.internousdev.dto.ChatDTO#setHandleName()}
 	 */
 
 	@Test
@@ -308,5 +436,357 @@ public class BooksBorrowDTOTest {
 	}
 
 
+
+	/**
+	 * {@link com.internousdev.internousdev.dto.BooksBorrowDTO#getHandleName()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetBorrowStatus1() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = null;
+
+		test.setBorrowStatus(expected);
+
+		assertEquals(expected, test.getBorrowStatus());
+	}
+
+	@Test
+	public void testGetBorrowStatus2() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "";
+
+		test.setBorrowStatus(expected);
+
+		assertEquals(expected, test.getBorrowStatus());
+	}
+
+	@Test
+	public void testGetBorrowStatus3() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = " ";
+
+		test.setBorrowStatus(expected);
+
+		assertEquals(expected, test.getBorrowStatus());
+	}
+
+	@Test
+	public void testGetBorrowStatus4() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "　";
+
+		test.setBorrowStatus(expected);
+
+		assertEquals(expected, test.getBorrowStatus());
+	}
+
+	@Test
+	public void testGetBorrowStatus5() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123";
+
+		test.setBorrowStatus(expected);
+
+		assertEquals(expected, test.getBorrowStatus());
+	}
+
+	@Test
+	public void testGetBorrowStatus6() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "あいう１２３";
+
+		test.setBorrowStatus(expected);
+
+		assertEquals(expected, test.getBorrowStatus());
+	}
+
+	@Test
+	public void testGetBorrowStatus7() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123あいう１２３";
+
+		test.setBorrowStatus(expected);
+
+		assertEquals(expected, test.getBorrowStatus());
+	}
+
+	@Test
+	public void testGetBorrowStatus8() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123あいう漢字";
+
+		test.setBorrowStatus(expected);
+
+		assertEquals(expected, test.getBorrowStatus());
+	}
+
+	/**
+	 * {@link com.internousdev.internousdev.dto.ChatDTO#setHandleName()}
+	 */
+
+	@Test
+	public void testSetBorrowStatus1() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = null;
+
+		test.setBorrowStatus(expected);
+		String actual = test.getBorrowStatus();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowStatus2() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "";
+
+		test.setBorrowStatus(expected);
+		String actual = test.getBorrowStatus();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowStatus3() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = " ";
+
+		test.setBorrowStatus(expected);
+		String actual = test.getBorrowStatus();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowStatus4() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "　";
+
+		test.setBorrowStatus(expected);
+		String actual = test.getBorrowStatus();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowStatus5() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123";
+
+		test.setBorrowStatus(expected);
+		String actual = test.getBorrowStatus();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowStatus6() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "あいう１２３";
+
+		test.setBorrowStatus(expected);
+		String actual = test.getBorrowStatus();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowStatus7() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123あいう１２３";
+
+		test.setBorrowStatus(expected);
+		String actual = test.getBorrowStatus();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowStatus8() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123あいう漢字";
+
+		test.setBorrowStatus(expected);
+		String actual = test.getBorrowStatus();
+
+		assertEquals(expected, actual);
+	}
+
+
+
+	/**
+	 * {@link com.internousdev.internousdev.dto.BooksBorrowDTO#getHandleName()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetBorrowDay1() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = null;
+
+		test.setBorrowDay(expected);
+
+		assertEquals(expected, test.getBorrowDay());
+	}
+
+	@Test
+	public void testGetBorrowDay2() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "";
+
+		test.setBorrowDay(expected);
+
+		assertEquals(expected, test.getBorrowDay());
+	}
+
+	@Test
+	public void testGetBorrowDay3() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = " ";
+
+		test.setBorrowDay(expected);
+
+		assertEquals(expected, test.getBorrowDay());
+	}
+
+	@Test
+	public void testGetBorrowDay4() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "　";
+
+		test.setBorrowDay(expected);
+
+		assertEquals(expected, test.getBorrowDay());
+	}
+
+	@Test
+	public void testGetBorrowDay5() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123";
+
+		test.setBorrowDay(expected);
+
+		assertEquals(expected, test.getBorrowDay());
+	}
+
+	@Test
+	public void testGetBorrowDay6() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "あいう１２３";
+
+		test.setBorrowDay(expected);
+
+		assertEquals(expected, test.getBorrowDay());
+	}
+
+	@Test
+	public void testGetBorrowDay7() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123あいう１２３";
+
+		test.setBorrowDay(expected);
+
+		assertEquals(expected, test.getBorrowDay());
+	}
+
+	@Test
+	public void testGetBorrowDay8() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123あいう漢字";
+
+		test.setBorrowDay(expected);
+
+		assertEquals(expected, test.getBorrowDay());
+	}
+
+	/**
+	 * {@link com.internousdev.internousdev.dto.ChatDTO#setHandleName()}
+	 */
+
+	@Test
+	public void testSetBorrowDay1() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = null;
+
+		test.setBorrowDay(expected);
+		String actual = test.getBorrowDay();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowDay2() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "";
+
+		test.setBorrowDay(expected);
+		String actual = test.getBorrowDay();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowDay3() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = " ";
+
+		test.setBorrowDay(expected);
+		String actual = test.getBorrowDay();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowDay4() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "　";
+
+		test.setBorrowDay(expected);
+		String actual = test.getBorrowDay();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowDay5() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123";
+
+		test.setBorrowDay(expected);
+		String actual = test.getBorrowDay();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowDay6() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "あいう１２３";
+
+		test.setBorrowDay(expected);
+		String actual = test.getBorrowDay();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowDay7() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123あいう１２３";
+
+		test.setBorrowDay(expected);
+		String actual = test.getBorrowDay();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSetBorrowDay8() {
+		BooksBorrowDTO test = new BooksBorrowDTO();
+		String expected = "abc123あいう漢字";
+
+		test.setBorrowDay(expected);
+		String actual = test.getBorrowDay();
+
+		assertEquals(expected, actual);
+	}
 }
 
