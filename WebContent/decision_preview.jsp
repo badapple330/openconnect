@@ -24,7 +24,9 @@
 <br>
 決裁分類：<s:property value="decisionType" />
 <br>
-起案者：<s:property value="userId" />
+起案者：<br>
+ユーザーID：<s:property value="userId" /><br>
+氏名　<s:property value="familyNameKanji" /><s:property value="givenNameKanji" />
 <br>
 <br>
 案件名：<s:property value="itemName" />
@@ -96,11 +98,7 @@
 <h2 align="center">見積書</h2>
 <br>
 <br>
-・以下は、建設費用と損益費用の表である。
-<br>
-・建設費用と損益費用それぞれの小計を出し合計費用を求める。
-<br>
-・小数点以下が発生する金額に関しては小計にて切り上げて表示する。
+<s:property value="plan"/>
 <br>
 <br>
 <br>
@@ -196,6 +194,8 @@
 
 </td></tr></table>
 </s:iterator>
-<input type="button" value="戻る" class="button">
+<s:form action="BackGoDecisionAction">
+<input type="submit" value="戻る" class="button">
+</s:form>
 </body>
 </html>

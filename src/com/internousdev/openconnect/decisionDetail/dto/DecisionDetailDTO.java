@@ -25,6 +25,8 @@ public class DecisionDetailDTO {
 	private int decisionId;
 	private int decisionDetailId;
 	private String projectName;
+	private String familyNameKanji;
+	private String GivenNameKanji;
 
 private int developmentPersonnel;
 private int developmentTerminal;
@@ -35,6 +37,38 @@ private int sum;
 
 
 
+	/**
+* 取得メソッド
+* @author KENICHI HORIGUCHI
+* @return
+*/
+public String getFamilyNameKanji() {
+	return familyNameKanji;
+}
+/**
+* 設定メソッド
+* @author KENICHI HORIGUCHI
+* @param
+*/
+public void setFamilyNameKanji(String familyNameKanji) {
+	this.familyNameKanji = familyNameKanji;
+}
+/**
+* 取得メソッド
+* @author KENICHI HORIGUCHI
+* @return
+*/
+public String getGivenNameKanji() {
+	return GivenNameKanji;
+}
+/**
+* 設定メソッド
+* @author KENICHI HORIGUCHI
+* @param
+*/
+public void setGivenNameKanji(String givenNameKanji) {
+	GivenNameKanji = givenNameKanji;
+}
 	/**
 * 取得メソッド
 * @author KENICHI HORIGUCHI

@@ -31,7 +31,8 @@ public class DecisionDetailIdDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql="select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id where decision_detail_id =?";
+			String sql="select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id "
+					+ "inner join users on decision_detail.user_id = users.user_id where decision_detail_id =?";
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setInt(1, decisionDetailId);
@@ -55,6 +56,8 @@ public class DecisionDetailIdDAO {
 				dto.setEndDay(rs.getString("end_day"));
 				dto.setPlan(rs.getString("plan"));
 				dto.setPersons(rs.getInt("persons"));
+				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
+				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
 				dto.setPassword(rs.getString("password"));
 				//開発端末
 				dto.setDevelopmentTerminal((rs.getInt("persons"))*8);
