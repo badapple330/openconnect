@@ -19,11 +19,24 @@ public class ProjectStatusUpdateDAO {
 	 * @author KOHEI NITABARU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-	public int update( String aEnvStart, String aEnvEnd, String bEnvStart, String bEnvEnd, String rEnvStart, String rEnvEnd, String awsStatus, String note, int statusId ){
+	public int update( String aEnvStart, String aEnvEnd, String bEnvStart, String bEnvEnd, String rEnvStart, String rEnvEnd, String note, int statusId ){
 		int count=0;
 
 		Connection conn=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
-		String sql="update project_status set aEnvStart=?, aEnvEnd=?, bEnvStart=?, bEnvEnd=?, rEnvStart=?, rEnvEnd=?, aws_status=?, note=? where status_id=?";
+		String sql="update project_status set a_envstart=?, a_envend=?, b_envstart=?, b_envend=?, r_envstart=?, r_envend=?, aws_status=?, note=? where status_id=?";
+
+		if( aEnvStart.equals("") ) aEnvStart = "0000-00-00";
+		if( aEnvEnd.equals("") ) aEnvEnd = "0000-00-00";
+		if( bEnvStart.equals("") ) bEnvStart = "0000-00-00";
+		if( bEnvEnd.equals("") ) bEnvEnd = "0000-00-00";
+		if( rEnvStart.equals("") ) rEnvStart = "0000-00-00";
+		if( rEnvEnd.equals("") ) rEnvEnd = "0000-00-00";
+
+		String awsStatus = "";
+
+		if( !aEnvEnd.equals("0000-00-00") ) awsStatus = "A環境リリース済";
+		if( !bEnvEnd.equals("0000-00-00") ) awsStatus = "B環境リリース済";
+		if( !rEnvEnd.equals("0000-00-00") ) awsStatus = "リリース済";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);

@@ -17,9 +17,11 @@
 	</div>
 	<br>
 	<s:form action="ProjectStatusSelectAction">
-		<input type="text" name="search" placeholder="プロジェクト名">
+		<input type="text" name="searchString" placeholder="プロジェクト名">
 		<input type="submit" value="検索" class="button">
 	</s:form>
+	<br>
+	<s:property value="%{resultStrng}" />
 	<br>
 	<s:form action="ProjectStatusUpdateAction">
 		<table border=1>
@@ -49,7 +51,7 @@
 					<td><input type="text" name="noteList" value="<s:property value="note" />"></td>
 				</tr>
 					<input type="hidden" name="projectIdList" value="<s:property value="projectId"/>">
-					<input type="hidden" name="projectStatusIdList" value="<s:property value="projectStatusId"/>">
+					<input type="hidden" name="statusIdList" value="<s:property value="statusId"/>">
 			</s:iterator>
 
 		</table>
@@ -61,6 +63,7 @@
 	<s:form action="BackGoAction">
 		<input type="submit" class="button" value="戻る">
 	</s:form>
+	<br>
 </div>
 </body>
 </html>

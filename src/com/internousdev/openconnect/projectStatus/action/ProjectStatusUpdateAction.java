@@ -74,8 +74,19 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 
 		for( int i=0; i<statusIdList.size(); i++ ){
 
-			count += dao.update( aEnvStartList.get(i), aEnvEndList.get(i), bEnvStartList.get(i),
-					bEnvEndList.get(i), rEnvStartList.get(i), rEnvEndList.get(i), awsStatusList.get(i), noteList.get(i), statusIdList.get(i) );
+			try{
+			count += dao.update( aEnvStartList.get(i),
+					aEnvEndList.get(i),
+					bEnvStartList.get(i),
+					bEnvEndList.get(i),
+					rEnvStartList.get(i),
+					rEnvEndList.get(i),
+					noteList.get(i),
+					statusIdList.get(i) );
+
+			}catch(Exception e ){
+				e.printStackTrace();
+			}
 		}
 
 		if( count != 0 ){
@@ -92,7 +103,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @return aEnvStartList
 	 */
-	public ArrayList<String> getaEnvStartList() {
+	public ArrayList<String> getAEnvStartList() {
 		return aEnvStartList;
 	}
 
@@ -101,7 +112,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @param aEnvStartList
 	 */
-	public void setaEnvStartList(ArrayList<String> aEnvStartList) {
+	public void setAEnvStartList(ArrayList<String> aEnvStartList) {
 		this.aEnvStartList = aEnvStartList;
 	}
 
@@ -110,7 +121,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @return aEnvEndList
 	 */
-	public ArrayList<String> getaEnvEndList() {
+	public ArrayList<String> getAEnvEndList() {
 		return aEnvEndList;
 	}
 
@@ -119,7 +130,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @param aEnvEndList
 	 */
-	public void setaEnvEndList(ArrayList<String> aEnvEndList) {
+	public void setAEnvEndList(ArrayList<String> aEnvEndList) {
 		this.aEnvEndList = aEnvEndList;
 	}
 
@@ -128,7 +139,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @return bEnvStartList
 	 */
-	public ArrayList<String> getbEnvStartList() {
+	public ArrayList<String> getBEnvStartList() {
 		return bEnvStartList;
 	}
 
@@ -137,7 +148,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @param bEnvStartList
 	 */
-	public void setbEnvStartList(ArrayList<String> bEnvStartList) {
+	public void setBEnvStartList(ArrayList<String> bEnvStartList) {
 		this.bEnvStartList = bEnvStartList;
 	}
 
@@ -146,7 +157,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @return bEnvEndList
 	 */
-	public ArrayList<String> getbEnvEndList() {
+	public ArrayList<String> getBEnvEndList() {
 		return bEnvEndList;
 	}
 
@@ -155,7 +166,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @param bEnvEndList
 	 */
-	public void setbEnvEndList(ArrayList<String> bEnvEndList) {
+	public void setBEnvEndList(ArrayList<String> bEnvEndList) {
 		this.bEnvEndList = bEnvEndList;
 	}
 
@@ -164,7 +175,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @return rEnvStartList
 	 */
-	public ArrayList<String> getrEnvStartList() {
+	public ArrayList<String> getREnvStartList() {
 		return rEnvStartList;
 	}
 
@@ -173,7 +184,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @param rEnvStartList
 	 */
-	public void setrEnvStartList(ArrayList<String> rEnvStartList) {
+	public void setREnvStartList(ArrayList<String> rEnvStartList) {
 		this.rEnvStartList = rEnvStartList;
 	}
 
@@ -182,7 +193,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @return rEnvEndList
 	 */
-	public ArrayList<String> getrEnvEndList() {
+	public ArrayList<String> getREnvEndList() {
 		return rEnvEndList;
 	}
 
@@ -191,7 +202,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	 * @author KOHEI NITABARU
 	 * @param rEnvEndList
 	 */
-	public void setrEnvEndList(ArrayList<String> rEnvEndList) {
+	public void setREnvEndList(ArrayList<String> rEnvEndList) {
 		this.rEnvEndList = rEnvEndList;
 	}
 

@@ -35,7 +35,7 @@ public class ProjectStatusSelectDAO {
 		ArrayList<ProjectStatusDTO> projectStatusList = new ArrayList<ProjectStatusDTO>();
 
 		try{
-			String sql = "select * from projects join project_status on projects.project_id = project_status.project_id where projects.project_name like %'" + searchString + "%'";
+			String sql = "select * from projects join project_status on projects.project_id = project_status.project_id where projects.project_name like '%" + searchString + "%'";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -44,12 +44,12 @@ public class ProjectStatusSelectDAO {
 				ProjectStatusDTO dto = new ProjectStatusDTO();
 				dto.setProjectId( rs.getInt( "project_id") );
 				dto.setProjectName( rs.getString( "project_name") );
-				dto.setaEnvStart( sdf.format( rs.getDate("a_envstart") ).toString() );
-				dto.setaEnvEnd( sdf.format( rs.getDate("a_envend") ).toString() );
-				dto.setbEnvStart( sdf.format( rs.getDate("b_envstart") ).toString() );
-				dto.setbEnvEnd( sdf.format( rs.getDate("b_envend") ).toString() );
-				dto.setrEnvStart( sdf.format( rs.getDate("r_envstart") ).toString() );
-				dto.setrEnvEnd( sdf.format( rs.getDate("r_envend") ).toString() );
+				try{ dto.setAEnvStart( sdf.format( rs.getDate("a_envstart") ).toString() ); }catch( Exception e ){}
+				try{ dto.setAEnvEnd( sdf.format( rs.getDate("a_envend") ).toString() ); }catch( Exception e ){}
+				try{ dto.setBEnvStart( sdf.format( rs.getDate("b_envstart") ).toString() ); }catch( Exception e ){}
+				try{ dto.setBEnvEnd( sdf.format( rs.getDate("b_envend") ).toString() ); }catch( Exception e ){}
+				try{ dto.setREnvStart( sdf.format( rs.getDate("r_envstart") ).toString() ); }catch( Exception e ){}
+				try{ dto.setREnvEnd( sdf.format( rs.getDate("r_envend") ).toString() ); }catch( Exception e ){}
 				dto.setAwsStatus( rs.getString( "aws_status" ) );
 				dto.setNote( rs.getString( "note" ) );
 				dto.setStatusId( rs.getInt( "status_id" ) );

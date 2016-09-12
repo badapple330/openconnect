@@ -91,7 +91,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @return aEnvStart
 	*/
-	public String getaEnvStart() {
+	public String getAEnvStart() {
 		return aEnvStart;
 	}
 	/**
@@ -99,7 +99,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @param aEnvStart
 	*/
-	public void setaEnvStart(String aEnvStart) {
+	public void setAEnvStart(String aEnvStart) {
 		this.aEnvStart = aEnvStart;
 	}
 	/**
@@ -107,7 +107,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @return aEnvEnd
 	*/
-	public String getaEnvEnd() {
+	public String getAEnvEnd() {
 		return aEnvEnd;
 	}
 	/**
@@ -115,7 +115,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @param aEnvEnd
 	*/
-	public void setaEnvEnd(String aEnvEnd) {
+	public void setAEnvEnd(String aEnvEnd) {
 		this.aEnvEnd = aEnvEnd;
 	}
 	/**
@@ -123,7 +123,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @return bEnvStart
 	*/
-	public String getbEnvStart() {
+	public String getBEnvStart() {
 		return bEnvStart;
 	}
 	/**
@@ -131,7 +131,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @param bEnvStart
 	*/
-	public void setbEnvStart(String bEnvStart) {
+	public void setBEnvStart(String bEnvStart) {
 		this.bEnvStart = bEnvStart;
 	}
 	/**
@@ -139,7 +139,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @return bEnvEnd
 	*/
-	public String getbEnvEnd() {
+	public String getBEnvEnd() {
 		return bEnvEnd;
 	}
 	/**
@@ -147,7 +147,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @param bEnvEnd
 	*/
-	public void setbEnvEnd(String bEnvEnd) {
+	public void setBEnvEnd(String bEnvEnd) {
 		this.bEnvEnd = bEnvEnd;
 	}
 	/**
@@ -155,7 +155,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @return rEnvStart
 	*/
-	public String getrEnvStart() {
+	public String getREnvStart() {
 		return rEnvStart;
 	}
 	/**
@@ -163,7 +163,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @param rEnvStart
 	*/
-	public void setrEnvStart(String rEnvStart) {
+	public void setREnvStart(String rEnvStart) {
 		this.rEnvStart = rEnvStart;
 	}
 	/**
@@ -171,7 +171,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @return rEnvEnd
 	*/
-	public String getrEnvEnd() {
+	public String getREnvEnd() {
 		return rEnvEnd;
 	}
 	/**
@@ -179,7 +179,7 @@ public class ProjectStatusDTO {
 	* @author KOHEI NITABARU
 	* @param rEnvEnd
 	*/
-	public void setrEnvEnd(String rEnvEnd) {
+	public void setREnvEnd(String rEnvEnd) {
 		this.rEnvEnd = rEnvEnd;
 	}
 	/**
