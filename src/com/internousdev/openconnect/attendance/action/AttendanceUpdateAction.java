@@ -21,21 +21,25 @@ public class AttendanceUpdateAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 671961516965709160L;
 	/**
-	 *
+	 * 日付
 	 */
 	private ArrayList<String> date = new ArrayList<String>();
 	/**
-	 *
+	 * ユーザーID
 	 */
 	private ArrayList<Integer> userId = new ArrayList<Integer>();
 	/**
-	 *
+	 * 勤怠
 	 */
 	private ArrayList<Integer> attendance = new ArrayList<Integer>();
 	/**
-	 *
+	 * 面談
 	 */
 	private ArrayList<Integer> interview = new ArrayList<Integer>();
+	/**
+	 * 結果文字
+	 */
+	private String resultString = "";
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -56,6 +60,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 		if( count != 0 ){
 
 			result = SUCCESS;
+			resultString = "更新に成功しました";
 		}
 
 		return result;
@@ -140,6 +145,24 @@ public class AttendanceUpdateAction extends ActionSupport{
 	*/
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 }

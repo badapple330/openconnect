@@ -11,7 +11,7 @@ import java.util.Date;
 
 import com.internousdev.openconnect.attendance.dao.AttendanceInsertDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceCalendarDTO;
-import com.internousdev.openconnect.students.dto.StudentsSearchDTO;
+import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -43,6 +43,10 @@ public class AttendanceInsertAction extends ActionSupport{
 	 * 今月のカレンダー
 	 */
 	private Calendar thisCal;
+	/**
+	 * 結果文字
+	 */
+	private String resultString = "";
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -51,16 +55,22 @@ public class AttendanceInsertAction extends ActionSupport{
 	 */
 	public String execute(){
 
+		String result = ERROR;
+
 		setThisCalendar();
 
 		for( int i=0; i<3; i++){
 
-			insertUsers( cal );
+			if( insertUsers( cal ) ){
+
+				result = SUCCESS;
+				resultString = "追加に成功しました";
+			}
 
 			cal.add( Calendar.MONTH, -1 );
 		}
 
-		return SUCCESS;
+		return result;
 	}
 
 	/**
@@ -143,13 +153,15 @@ public class AttendanceInsertAction extends ActionSupport{
 	 * 実行メソッド 渡したカレンダーの月の受講生を追加
 	 * @author MINORI SUNAGAWA
 	 */
-	private void insertUsers( Calendar cal ){
+	private boolean insertUsers( Calendar cal ){
+
+		boolean result = false;
 
 		AttendanceInsertDAO dao = new AttendanceInsertDAO();
 
 		AttendanceCalendarDTO dto = getCalendarString( cal );
 
-		ArrayList<StudentsSearchDTO> usersList = new ArrayList<StudentsSearchDTO>();
+		ArrayList<StudentsDTO> usersList = new ArrayList<StudentsDTO>();
 
 		usersList = dao.select( dto.getYearString(), dto.getMonthString() );
 
@@ -163,22 +175,19 @@ public class AttendanceInsertAction extends ActionSupport{
 
 			for( int i=0; i<usersList.size(); i++ ){
 
-				if( dao.check( dto.getYearString() + dto.getMonthString() + dto.getDayString(), usersList.get(i).getUserid() ) ) continue;
+				if( dao.check( dto.getYearString() + dto.getMonthString() + dto.getDayString(), usersList.get(i).getUserId() ) ) continue;
 
-				dao.insert( dto.getYearString() + dto.getMonthString() + dto.getDayString() , usersList.get(i).getUserid() );
+				dao.insert( dto.getYearString() + dto.getMonthString() + dto.getDayString() , usersList.get(i).getUserId() );
 			}
 
 			thisCal.add(Calendar.DATE, 1);
 			dto = getCalendarString( thisCal );
+
+			result = true;
 		}
+
+		return result;
 	}
-	/**
-	 * 実行メソッド 渡したカレンダーの月の受講生を追加
-	 * @author MINORI SUNAGAWA
-	 */
-	//	private void insertUsers( Calendar cal ){
-	//
-	//	}
 
 	/**
 	 * 取得メソッド
@@ -192,7 +201,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return year
 	*/
 	public String getYear() {
 		return year;
@@ -201,7 +210,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param year
 	*/
 	public void setYear(String year) {
 		this.year = year;
@@ -210,7 +219,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return month
 	*/
 	public String getMonth() {
 		return month;
@@ -219,7 +228,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param month
 	*/
 	public void setMonth(String month) {
 		this.month = month;
@@ -228,7 +237,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return cal
 	*/
 	public Calendar getCal() {
 		return cal;
@@ -237,7 +246,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param cal
 	*/
 	public void setCal(Calendar cal) {
 		this.cal = cal;
@@ -246,7 +255,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author MINORI SUNAGAWA
-	* @return
+	* @return thisCal
 	*/
 	public Calendar getThisCal() {
 		return thisCal;
@@ -255,10 +264,28 @@ public class AttendanceInsertAction extends ActionSupport{
 	/**
 	* 設定メソッド
 	* @author MINORI SUNAGAWA
-	* @param
+	* @param thisCal
 	*/
 	public void setThisCal(Calendar thisCal) {
 		this.thisCal = thisCal;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 

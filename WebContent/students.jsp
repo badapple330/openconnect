@@ -21,19 +21,19 @@
 </div>
 
 <h1>受講生一覧</h1>
-<s:form action="StudentsSearch">
+<s:form action="StudentsSelectAction">
    <input type="text" name="search" >
    <input class="button" type="submit" value="検索">
 </s:form>
 
 
-<s:form action="StudentsUpdate">
+<s:form action="StudentsUpdateAction">
   <table border="1" cellspacing="0">
     <tbody id="list_body">
      <tr>
 
-      <th>入社年</th>
-      <th>○月生</th>
+      <th>受講年</th>
+      <th>受講開始月</th>
       <th>姓(英語)</th>
       <th>名(英語)</th>
       <th>姓(漢字)</th>
@@ -108,7 +108,7 @@
 
 		<div class="delete-prepare">
 			本当に削除しますか？
-			<s:form action="StudentsDelete">
+			<s:form action="StudentsDeleteAction">
 				<input type="hidden" name="progressId" value="" id="true-delete">
 				<input type="submit" class="delete-true button" value="はい">
 				<input type="button" class="modal-close button" value="いいえ">
@@ -122,7 +122,7 @@
 
 
 <h2>新規受講生追加</h2>
- <s:form action="StudentsInsert" >
+ <s:form action="StudentsInsertAction" >
       <input type="text" name="year" placeholder="年">
       <input type="text" name="month" placeholder="月">
       <input type="text" name="familyName"placeholder="姓">

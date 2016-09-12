@@ -3,15 +3,15 @@ package com.internousdev.openconnect.students.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.students.dao.StudentsSearchDAO;
-import com.internousdev.openconnect.students.dto.StudentsSearchDTO;
+import com.internousdev.openconnect.students.dao.StudentsSelectDAO;
+import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 
-public class StudentsSearchAction extends ActionSupport {
+public class StudentsSelectAction extends ActionSupport {
 
-	private List<StudentsSearchDTO> studentsList = new ArrayList<StudentsSearchDTO>();
+	private List<StudentsDTO> studentsList = new ArrayList<StudentsDTO>();
     private String search = "";
     private String errorMsg;
 
@@ -20,7 +20,7 @@ public class StudentsSearchAction extends ActionSupport {
 	public String execute(){
 
     String result = ERROR;
-    StudentsSearchDAO dao = new StudentsSearchDAO();
+    StudentsSelectDAO dao = new StudentsSelectDAO();
     studentsList = dao.select(search);
 
 	if (studentsList.size() != 0) {
@@ -46,13 +46,13 @@ public class StudentsSearchAction extends ActionSupport {
 
 
 
-	public List<StudentsSearchDTO> getStudentsList() {
+	public List<StudentsDTO> getStudentsList() {
 		return studentsList;
 	}
 
 
 
-	public void setStudentsList(List<StudentsSearchDTO> studentsList) {
+	public void setStudentsList(List<StudentsDTO> studentsList) {
 		this.studentsList = studentsList;
 	}
 

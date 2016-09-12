@@ -37,6 +37,10 @@ public class AttendanceSelectAction extends ActionSupport{
 	 * 勤怠リスト
 	 */
 	private ArrayList<AttendanceDTO> attendanceList = new ArrayList<AttendanceDTO>();
+	/**
+	 * 結果文字
+	 */
+	private String resultString = "";
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -138,6 +142,24 @@ public class AttendanceSelectAction extends ActionSupport{
 	*/
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	/**
+	* 取得メソッド
+	* @author MINORI SUNAGAWA
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author MINORI SUNAGAWA
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 

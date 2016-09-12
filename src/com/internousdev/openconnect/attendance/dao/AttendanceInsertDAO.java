@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.students.dto.StudentsSearchDTO;
+import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.internousdev.util.DBConnector;
 
 /**
@@ -52,11 +52,11 @@ public class AttendanceInsertDAO {
 		return count;
 	}
 
-	public ArrayList<StudentsSearchDTO> select(String year, String month){
+	public ArrayList<StudentsDTO> select(String year, String month){
 
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
-		ArrayList<StudentsSearchDTO> usersList = new ArrayList<StudentsSearchDTO>();
+		ArrayList<StudentsDTO> usersList = new ArrayList<StudentsDTO>();
 
 		try{
 			String sql = "select * from users where year=? and month=?";
@@ -68,8 +68,8 @@ public class AttendanceInsertDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				StudentsSearchDTO dto = new StudentsSearchDTO();
-				dto.setUserid( rs.getInt("user_id") );
+				StudentsDTO dto = new StudentsDTO();
+				dto.setUserId( rs.getInt("user_id") );
 
 				usersList.add( dto );
 			}

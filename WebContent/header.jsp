@@ -61,7 +61,7 @@
 				<s:submit type="submit" value="プロジェクト一覧" />
 			</s:form>
 			<!--     受講生一覧 -->
-			<s:form action="GoStudents">
+			<s:form action="StudentsSelectAction">
 				<s:submit type="submit" value="受講生一覧" />
 			</s:form>
 			<!-- 	<!--勤怠更新 -->

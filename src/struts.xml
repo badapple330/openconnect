@@ -144,31 +144,31 @@
 		</action>
 
 		<!-- 受講生一覧画面への遷移 -->
-		<action name="GoStudents" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="StudentsSelectAction"
+			class="com.internousdev.openconnect.students.action.StudentsSelectAction"
 			method="execute">
 			<result name="success">students.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/students.jsp</result>
 		</action>
 
-		<action name="StudentsSearch"
-			class="com.internousdev.openconnect.students.action.StudentsSearchAction"
-			method="execute">
-			<result name="success">students.jsp</result>
-			<result name="error">/register.jsp</result>
-		</action>
-
-
-		<action name="StudentsInsert"
+		<action name="StudentsInsertAction"
 			class="com.internousdev.openconnect.students.action.StudentsInsertAction"
 			method="execute">
-			<result name="success" type="chain">StudentsSearch</result>
+			<result name="success" type="chain">StudentsSelectAction</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="StudentsUpdate"
+		<action name="StudentsUpdateAction"
 			class="com.internousdev.openconnect.students.action.StudentsUpdateAction"
 			method="execute">
-			<result name="success" type="chain">StudentsSearch</result>
+			<result name="success" type="chain">StudentsSelectAction</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="StudentsDeleteAction"
+			class="com.internousdev.openconnect.students.action.StudentsDeleteAction"
+			method="execute">
+			<result name="success" type="chain">StudentsSelectAction</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
