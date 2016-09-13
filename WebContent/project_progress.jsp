@@ -63,13 +63,13 @@
 						<td><s:property value="startDate" /></td>
 						<td><s:property value="endDate" /></td>
 						<td><s:property value="note" /></td>
-						<td><input type="button" class="button modal-open" value="削除" /></td>
+						<td><s:if test="%{!(#session.userFlg == 1)}"><input type="button" class="button modal-open" value="削除" /></s:if></td>
 					</tr>
 				</s:iterator>
 
 			</tbody>
 		</table>
-		<input type="submit" class="button" value="編集" />
+		<s:if test="%{!(#session.userFlg == 1)}"><input type="submit" class="button" value="編集" /></s:if>
 	</s:form>
 
 	<s:form action="ProjectCreate">

@@ -49,7 +49,7 @@
 				<td class="decision_name"><s:property value="projectName" /></td>
 				<td class="decision_type"><s:property value="decisionType" /></td>
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
-				<td><input type="button" value="編集" class="modal-edit-open">
+				<td><s:if test="%{!(#session.userFlg == 1)}"><input type="button" value="編集" class="modal-edit-open"></s:if>
 
 				</td>
 				<td>	<s:if test="%{decisionStatus=='承認'}">
@@ -63,7 +63,7 @@
 					</s:form>
 					</s:else>
 					</td>
-				<td><input type="button" value="削除" class="modal-open"></td>
+				<td><s:if test="%{!(#session.userFlg == 1)}"><input type="button" value="削除" class="modal-open"></s:if></td>
 
 				<td><s:form action="DecisionDetailPreview">
 						<input type="hidden" name="decisionDetailId"
