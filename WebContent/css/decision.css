@@ -49,10 +49,12 @@ input[type="text"] {
 }
 
 #id{
-	width:20;
+	width:20px;
 }
 
-
+#display{
+	width:400;
+}
 
 #page_ctrl ul, #page_ctrl li {
 	display: inline;

@@ -155,7 +155,7 @@ foreign key(user_id) references users(user_id)
 
 /*サブプロジェクト / 決裁状況一覧*/
 create table decision(
-registration datetime,
+registration date,
 user_id int,
 project_id int,
 decision_id int primary key auto_increment,
@@ -170,10 +170,9 @@ i_a_id varchar(100),
 foreign key(user_id) references users(user_id),
 foreign key(project_id) references projects(project_id)
 );
-
 insert into decision()value
-("2016-08-21 13:00:00",1,1,1,"cinemajapanサイトにおけるチーム開発の実施について","-","KN-2016-05-30-005","J-2016-05-30-005","K-KN-2016-05-30-005","K-2016-05-30-005","-","-"),
-("2016-08-22 12:00:00",2,2,2,"Lapoupeeサイトにおける改修（遡及）の実施について","0007-データベースの接続不備改修","-","-","-","-","KN-2016-05-30-007","JK-2016-05-30-001");
+("2016-08-21",1,1,1,"cinemajapanサイトにおけるチーム開発の実施について","-","KN-2016-05-30-005","J-2016-05-30-005","K-KN-2016-05-30-005","K-2016-05-30-005","-","-"),
+("2016-08-22",2,2,2,"Lapoupeeサイトにおける改修（遡及）の実施について","0007-データベースの接続不備改修","-","-","-","-","KN-2016-05-30-007","JK-2016-05-30-001");
 
 /*サブプロジェクト / 決裁手続き内容*/
 create table decision_detail(
