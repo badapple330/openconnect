@@ -160,7 +160,7 @@
 			</div>
 		</div>
 		<br>
-		<s:form action="BackGoAction">
+		<s:form action="GetAddressAction">
 			<button type="submit" class="button">戻る</button>
 		</s:form>
 	</div>
