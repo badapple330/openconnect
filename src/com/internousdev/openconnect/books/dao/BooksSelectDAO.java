@@ -20,19 +20,14 @@ import com.internousdev.util.DBConnector;
  */
 
 public class BooksSelectDAO {
-
 	/**
 	 * 検索結果情報をリスト化して抽出し、DTOに格納する
+	 */
+	public List<BooksDTO> searchList = new ArrayList<BooksDTO>();
+	/**
+	 * 追加情報を、DBへ転送し、追加する為のメソッド
 	 * @return  searchList 抽出に成功したらSUCCESS、失敗したらERROR
 	 */
-
-	public List<BooksDTO> searchList = new ArrayList<BooksDTO>();
-
-	/**
-	 *　追加情報を、DBへ転送し、追加する為のメソッド
-	 */
-
-
 	public List<BooksDTO> select(String search) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -62,7 +57,5 @@ public class BooksSelectDAO {
 		}
 		return searchList;
 	}
-
-
 
 }

@@ -13,7 +13,6 @@ import com.internousdev.util.DBConnector;
  * @author TATSUYA HOSHI
  */
 public class BooksUpdateDAO {
-
 	 /**
      * 更新情報を、DBへ転送し、更新する為のメソッド
      */

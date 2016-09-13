@@ -10,21 +10,17 @@ import com.opensymphony.xwork2.ActionSupport;
  * DBの情報を画面に表示する為のクラス
  * @author TATSUYA HOSHI
  */
-
 public class BooksBorrowInsertAction extends ActionSupport{
 
 	private int bookId;
-
-	/**
-	 * DAOに入力されたデータを渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
-	 */
-
 	/**
 	 * シリアルバージョンID
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
-
+	/**
+	 * DAOに入力されたデータを渡して、結果を返す
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 	public String execute(){
 
 		String result = ERROR;
@@ -38,7 +34,7 @@ public class BooksBorrowInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* ブックID取得メソッド
 	* @author KENICHI HORIGUCHI
 	* @return bookId
 	*/
@@ -47,7 +43,7 @@ public class BooksBorrowInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* ブックID設定メソッド
 	* @author KENICHI HORIGUCHI
 	* @param bookId
 	*/

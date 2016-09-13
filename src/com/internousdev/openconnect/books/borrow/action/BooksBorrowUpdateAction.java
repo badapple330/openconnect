@@ -5,33 +5,26 @@ package com.internousdev.openconnect.books.borrow.action;
 
 import com.internousdev.openconnect.books.borrow.dao.BooksBorrow‎UpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
-
 /**
  * DBの情報を画面に表示する為のクラス
  * @author TATSUYA HOSHI
  */
 public class BooksBorrowUpdateAction extends ActionSupport{
-
 	/**
 	 * シリアルバージョンID
 	 */
-
 	private static final long serialVersionUID = -7584789844350L;
-
 	/**
 	 * ブックID
 	 * ユーザーID
 	 */
-
 	private int bookId;
 	private int borrowId;
 	private String errorMsg;
-
 	/**
 	 * DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-
 	public String execute(){
 
 		String result = ERROR;
@@ -47,7 +40,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * シリアルバージョン取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return serialversionuid
 	 */
@@ -56,7 +49,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * ブックID取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return
 	 */
@@ -65,7 +58,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * ブックID設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param
 	 */
@@ -74,7 +67,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 貸し出しID取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return
 	 */
@@ -83,7 +76,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 貸し出しID設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param
 	 */
@@ -92,7 +85,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* エラーメッセージ取得メソッド
 	* @author TATSUYA HOSHI
 	* @return
 	*/
@@ -101,7 +94,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* エラーメッセージ設定メソッド
 	* @author TATSUYA HOSHI
 	* @param
 	*/

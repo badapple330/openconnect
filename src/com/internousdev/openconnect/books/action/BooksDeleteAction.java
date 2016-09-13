@@ -25,7 +25,7 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
 	/**
-	 * DAOにデータを渡して、結果を返す
+	 * DAOに命令し、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute(){
@@ -77,8 +77,4 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
-
-
 }
-
-

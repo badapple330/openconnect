@@ -12,20 +12,16 @@ import java.util.List;
 
 import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.internousdev.util.DBConnector;
-
 /**
  * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
  * @author TATSUYA HOSHI
  */
-
 public class BooksDAO {
 
 	private List<BooksDTO>bookList = new ArrayList<BooksDTO>();
-
-	 /**
-     * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
-     */
-
+	/**
+	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+	 */
 	public List<BooksDTO> select() {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
@@ -40,7 +36,6 @@ public class BooksDAO {
 				dto.setBookId(rs.getInt("book_id"));
 				dto.setTitle(rs.getString("title"));
 
-
 				bookList.add(dto);
 			}
 		} catch (SQLException e) {
@@ -54,6 +49,5 @@ public class BooksDAO {
 		}
 		return bookList;
 	}
-
 
 }

@@ -55,11 +55,6 @@ public class BooksBorrowSelectAction extends ActionSupport {
 		this.bookList = bookList;
 	}
 
-
-
-
 }
-
-
 
 

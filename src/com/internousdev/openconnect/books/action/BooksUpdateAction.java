@@ -11,23 +11,18 @@ import com.internousdev.openconnect.books.dao.BooksUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 画面で受け取った更新情報を、DBへ転送する為のクラス
- * @author TATSUYA HOSHI
+ * @author TATSUYA HOSHI , KOUHEI NITABARU
  */
 public class BooksUpdateAction extends ActionSupport {
-
 	/**
 	 * 	シリアルID
 	 */
-
 	private static final long serialVersionUID = -3541224046836562290L;
-
 	/**
 	 * ID 書籍一覧
 	 */
-
 	private List<Integer> bookIdList = new ArrayList<Integer>();
 	private List<String> titleList = new ArrayList<String>();
-
 	/**
 	 * ユーザー情報を更新できたか否か判定するメソッド
 	 * @result ERROR ヴァリデーションによるエラーメッセージ
@@ -36,22 +31,20 @@ public class BooksUpdateAction extends ActionSupport {
 	 */
 	public String execute() throws SQLException{
 
-
 		String result =ERROR;
 		BooksUpdateDAO dao = new BooksUpdateDAO();
-		int count = 0;
+		int count = 0 ;
 
-		for(int i=0;i<bookIdList.size();++i){
+		for(int i=0; i<bookIdList.size(); ++i){
 			count = dao.select(titleList.get(i),bookIdList.get(i));}
 		if(count > 0){
-			result = SUCCESS;
+			result = SUCCESS ;
 		}
-
 		return result;
 	}
 
 	/**
-	 * 取得メソッド
+	 * ブックIDリスト取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return bookIdList
 	 */
@@ -60,7 +53,7 @@ public class BooksUpdateAction extends ActionSupport {
 	}
 
 	/**
-	 * 設定メソッド
+	 * ブックIDリスト設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param bookIdList
 	 */
@@ -69,7 +62,7 @@ public class BooksUpdateAction extends ActionSupport {
 	}
 
 	/**
-	 * 取得メソッド
+	 * タイトルリスト取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return titleList
 	 */
@@ -78,7 +71,7 @@ public class BooksUpdateAction extends ActionSupport {
 	}
 
 	/**
-	 * 設定メソッド
+	 * タイトルリスト設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param titleList
 	 */
@@ -87,14 +80,12 @@ public class BooksUpdateAction extends ActionSupport {
 	}
 
 	/**
-	 * 取得メソッド
+	 * シリアルバージョン取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return serialversionuid
 	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-
 
 }

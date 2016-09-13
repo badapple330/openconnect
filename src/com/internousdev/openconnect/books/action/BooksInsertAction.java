@@ -16,39 +16,28 @@ import com.opensymphony.xwork2.ActionSupport;
  * 画面で新規に追加した情報を、DBに追加する為のクラス
  * @author TATSUYA HOSHI
  */
-
-
 public class BooksInsertAction extends ActionSupport implements SessionAware{
-
-
 	/**
 	 * 管理者権限メソッド
 	 */
-
 	public Map<String, Object> session;
-
-
 	/**
 	 * タイトル
 	 */
-
 	private String title;
-
-	/**
-	 * DAOに入力されたデータを渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
-	 */
-
 	/**
 	 * シリアルバージョンID
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
-
+	/**
+	 * DAOに入力されたデータを渡して、結果を返す
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 	public String execute(){
 
 		String result = ERROR;
 		BooksInsertDAO dao = new BooksInsertDAO();
-		int count = 0;
+		int count = 0 ;
 		count = dao.insert(title);
 
 		if (count > 0) {
@@ -65,7 +54,7 @@ public class BooksInsertAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * タイトル取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return title
 	 */
@@ -74,7 +63,7 @@ public class BooksInsertAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * タイトル設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param title
 	 */
@@ -83,7 +72,7 @@ public class BooksInsertAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * セッション取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return session
 	 */
@@ -92,7 +81,7 @@ public class BooksInsertAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * セッション設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param session
 	 */

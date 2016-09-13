@@ -23,7 +23,6 @@ public class BooksAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
 	/**
-	 * 書籍の情報をDBから呼び出し格納する
 	 * DAOに入力されたデータを受け取り、結果を渡す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */

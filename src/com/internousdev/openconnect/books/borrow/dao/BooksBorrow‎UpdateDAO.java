@@ -9,17 +9,14 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
-
 /**
  * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
  * @author internous
  */
 public class BooksBorrow‎UpdateDAO {
-
 	/**
 	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
 	 */
-
 	public int update(int bookId , int borrowId){
 
 		int count = 0;
@@ -32,20 +29,19 @@ public class BooksBorrow‎UpdateDAO {
 			borrowDay = null;
 			borrowId = 1;
 		}
+
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 		String sql = "UPDATE books_borrow SET borrow_status = ? , borrow_day = ? , borrow_id = ? where book_id = ?";
+
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,borrowStatus);
 			ps.setString(2,borrowDay);
-			System.out.println("日付");
 			ps.setInt(3,borrowId);
 			ps.setInt(4,bookId);
 
-
 			count = ps.executeUpdate();
-
 
 		}catch(SQLException e){
 			e.printStackTrace();

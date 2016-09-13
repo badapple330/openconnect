@@ -14,31 +14,23 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author TATSUYA HOSHI
  */
 public class BooksSelectAction extends ActionSupport {
-
 	/**
 	 * シリアルバージョンID
 	 */
-
 	private static final long serialVersionUID = -75847044350L;
-
 	/**
 	 * サーチ
 	 */
-
 	private String search = "";
-
 	/**
 	 * エラーメッセージ
 	 */
-
 	private List<BooksDTO> searchList = new ArrayList<BooksDTO>();
 	private String errorMsg;
-
 	/**
 	 * DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-
 	public String execute() {
 		String result = ERROR;
 		BooksSelectDAO dao = new BooksSelectDAO();

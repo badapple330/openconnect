@@ -9,21 +9,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
-
 /**
  * 追加情報をDBへ転送する為のクラス
  * @author TATSUYA HOSHI
  */
-
 public class BooksInsertDAO {
-
 	/**
 	 *　追加情報を、DBへ転送し、追加する為のメソッド
 	 */
-
 	public int insert(String title) {
 
-		int count = 0;
+		int count = 0 ;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
@@ -32,9 +28,7 @@ public class BooksInsertDAO {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,title);
 
-
 			count = ps.executeUpdate();
-
 
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -47,8 +41,6 @@ public class BooksInsertDAO {
 		}
 		return count;
 
-
-
 	}
 
 	public int select( String title ) {
@@ -56,7 +48,7 @@ public class BooksInsertDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql="SELECT * FROM books where title=?";
+			String sql="SELECT * FROM books where title = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, title);
