@@ -22,7 +22,7 @@
 		<br> <br> 書籍の検索
 
 		<s:form action="BooksSelectAction">
-			<input type="text" name="search" maxlength ="20" required placeholder="タイトル入力してください">
+			<input type="text" name="search" maxlength ="20" placeholder="タイトル入力してください">
 			<input class="button" type="submit" value="検索">
 		</s:form>
 
