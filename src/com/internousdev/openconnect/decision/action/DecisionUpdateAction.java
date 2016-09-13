@@ -71,12 +71,26 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 	/**
+	 * エラー
+	 * @author KENICHI HORIGUCHI
+	 */
+	private String errorMsg;
+
+
+	/**
+	 * 成功
+	 * @author KENICHI HORIGUCHI
+	 */
+	private String successMsg;
+
+
+	/**
 	 *管理権限
 	 */
 	public Map<String, Object> session;
 	/**
 	 * 決裁状況一覧情報を更新できたか否か判定するメソッド
-	 * @author  KENICHI HORIGUCHI
+	 * @author  KENICHI HORIGUCHI,NITABARU KOUHEI
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 *
 	 */
@@ -106,7 +120,10 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 					);
 		}
 		if(count > 0){
+			successMsg = (getText("更新しました。"));
 			result = SUCCESS;
+		} else {
+			errorMsg = (getText("更新できませんでした。"));
 		}
 		return result;
 	}
@@ -125,7 +142,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param registration
 	 */
-	public void setRegistration(List<String> registration) {
+	public void setRegistration(List <String> registration) {
 		this.registration = registration;
 	}
 
@@ -134,7 +151,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return userId
 	 */
-	public List<Integer> getUserId() {
+	public List <Integer> getUserId() {
 		return userId;
 	}
 
@@ -143,7 +160,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param userId
 	 */
-	public void setUserId(List<Integer> userId) {
+	public void setUserId(List <Integer> userId) {
 		this.userId = userId;
 	}
 
@@ -152,7 +169,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return projectId
 	 */
-	public List<Integer> getProjectId() {
+	public List <Integer> getProjectId() {
 		return projectId;
 	}
 
@@ -161,7 +178,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param projectId
 	 */
-	public void setProjectId(List<Integer> projectId) {
+	public void setProjectId(List <Integer> projectId) {
 		this.projectId = projectId;
 	}
 
@@ -170,7 +187,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return decisionId
 	 */
-	public List<Integer> getDecisionId() {
+	public List <Integer> getDecisionId() {
 		return decisionId;
 	}
 
@@ -179,7 +196,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param decisionId
 	 */
-	public void setDecisionId(List<Integer> decisionId) {
+	public void setDecisionId(List <Integer> decisionId) {
 		this.decisionId = decisionId;
 	}
 
@@ -188,7 +205,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return decisionName
 	 */
-	public List<String> getDecisionName() {
+	public List <String> getDecisionName() {
 		return decisionName;
 	}
 
@@ -197,7 +214,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param decisionName
 	 */
-	public void setDecisionName(List<String> decisionName) {
+	public void setDecisionName(List <String> decisionName) {
 		this.decisionName = decisionName;
 	}
 
@@ -206,7 +223,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return detail
 	 */
-	public List<String> getDetail() {
+	public List <String> getDetail() {
 		return detail;
 	}
 
@@ -215,7 +232,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param detail
 	 */
-	public void setDetail(List<String> detail) {
+	public void setDetail(List <String> detail) {
 		this.detail = detail;
 	}
 
@@ -224,7 +241,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return iDraftingId
 	 */
-	public List<String> getIDraftingId() {
+	public List <String> getIDraftingId() {
 		return iDraftingId;
 	}
 
@@ -233,7 +250,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param iDraftingId
 	 */
-	public void setIDraftingId(List<String> iDraftingId) {
+	public void setIDraftingId(List <String> iDraftingId) {
 		this.iDraftingId = iDraftingId;
 	}
 
@@ -242,7 +259,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return iApprovalId
 	 */
-	public List<String> getIApprovalId() {
+	public List <String> getIApprovalId() {
 		return iApprovalId;
 	}
 
@@ -251,7 +268,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param iApprovalId
 	 */
-	public void setIApprovalId(List<String> iApprovalId) {
+	public void setIApprovalId(List <String> iApprovalId) {
 		this.iApprovalId = iApprovalId;
 	}
 
@@ -260,7 +277,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return aDraftingId
 	 */
-	public List<String> getADraftingId() {
+	public List <String> getADraftingId() {
 		return aDraftingId;
 	}
 
@@ -269,7 +286,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param aDraftingId
 	 */
-	public void setADraftingId(List<String> aDraftingId) {
+	public void setADraftingId(List <String> aDraftingId) {
 		this.aDraftingId = aDraftingId;
 	}
 
@@ -278,7 +295,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return cdId
 	 */
-	public List<String> getCdId() {
+	public List <String> getCdId() {
 		return cdId;
 	}
 
@@ -287,7 +304,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param cdId
 	 */
-	public void setCdId(List<String> cdId) {
+	public void setCdId(List <String> cdId) {
 		this.cdId = cdId;
 	}
 
@@ -296,7 +313,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return iADId
 	 */
-	public List<String> getIADId() {
+	public List <String> getIADId() {
 		return iADId;
 	}
 
@@ -305,7 +322,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param iADId
 	 */
-	public void setIADId(List<String> iADId) {
+	public void setIADId(List <String> iADId) {
 		this.iADId = iADId;
 	}
 
@@ -314,7 +331,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @return iAId
 	 */
-	public List<String> getIAId() {
+	public List <String> getIAId() {
 		return iAId;
 	}
 
@@ -323,7 +340,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * @author KENICHI HORIGUCHI
 	 * @param iAId
 	 */
-	public void setIAId(List<String> iAId) {
+	public void setIAId(List <String> iAId) {
 		this.iAId = iAId;
 	}
 
@@ -332,7 +349,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	* @author KENICHI HORIGUCHI
 	* @return
 	*/
-	public Map<String, Object> getSession() {
+	public Map <String, Object> getSession() {
 		return session;
 	}
 
@@ -341,9 +358,48 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	* @author KENICHI HORIGUCHI
 	* @param session
 	*/
-	public void setSession(Map<String, Object> session) {
+	public void setSession(Map <String, Object> session) {
 		this.session = session;
 	}
 
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return errorMsg
+	*/
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param errorMsg
+	*/
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return successMsg
+	*/
+	public String getSuccessMsg() {
+		return successMsg;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param successMsg
+	*/
+	public void setSuccessMsg(String successMsg) {
+		this.successMsg = successMsg;
+	}
+
+
 }
+
+
 

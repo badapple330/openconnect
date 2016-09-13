@@ -12,14 +12,14 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class DecisionSelectAction extends ActionSupport{
-/**
- * シリアル番号
- */
+	/**
+	 * シリアル番号
+	 */
 	private static final long serialVersionUID = 6053714239083263231L;
 	/**
 	 *プロジェクトリスト
 	 */
-	private ArrayList<DecisionDTO> decisiontList = new ArrayList<DecisionDTO>();
+	private ArrayList <DecisionDTO> decisiontList = new ArrayList <DecisionDTO>();
 
 	private String errorSelect;
 
@@ -36,70 +36,70 @@ public class DecisionSelectAction extends ActionSupport{
 		return SUCCESS;
 	}
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return decisiontList
-	*/
-	public ArrayList<DecisionDTO> getDecisiontList() {
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return decisiontList
+	 */
+	public ArrayList <DecisionDTO> getDecisiontList() {
 		return decisiontList;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param decisiontList
-	*/
-	public void setDecisiontList(ArrayList<DecisionDTO> decisiontList) {
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param decisiontList
+	 */
+	public void setDecisiontList(ArrayList <DecisionDTO> decisiontList) {
 		this.decisiontList = decisiontList;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return errorSelect
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return errorSelect
+	 */
 	public String getErrorSelect() {
 		return errorSelect;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param errorSelect
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param errorSelect
+	 */
 	public void setErrorSelect(String errorSelect) {
 		this.errorSelect = errorSelect;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return searchString
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return searchString
+	 */
 	public String getSearchString() {
 		return searchString;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param searchString
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param searchString
+	 */
 	public void setSearchString(String searchString) {
 		this.searchString = searchString;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return serialVersionUID
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

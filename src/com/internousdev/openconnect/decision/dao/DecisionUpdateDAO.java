@@ -89,7 +89,7 @@ public class DecisionUpdateDAO {
 			 */
 			ps.setInt(13, decisionId);
 
-			count =ps.executeUpdate();
+			count = ps.executeUpdate();
 
 		}catch (SQLException e) {
 			e.printStackTrace();

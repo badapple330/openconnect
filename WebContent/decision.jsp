@@ -10,10 +10,11 @@
 </head>
 <body>
 
-	<div class="container">
-
 		<!-- ヘッダー読み込み -->
 		<header><jsp:include page="header.jsp" /></header>
+
+	<div class="container">
+
 		<br>
 		<h1>決裁状況一覧</h1>
 		<br>
@@ -25,6 +26,9 @@
 				<input type="submit" value="検索" class="button">
 			</s:form>
 		</p>
+		<br>
+		<s:property value="successMsg" />
+		<s:property value="errorMsg" />
 		<br>
 		<s:form action="DecisionUpdateAction">
 			<div class="center">
@@ -77,7 +81,7 @@
 						<tr>
 							<td><input type="hidden"
 								value=<s:property value="decisionId" /> name="decisionId"></td>
-							<td><input type="text" pattern=\d{4}-\d{2}-\d{2} required
+							<td><input type="text" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" required
 								name="registration" value="<s:property value="registration" />"
 								id="registration" /></td>
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="11"
@@ -111,7 +115,7 @@
 				</table>
 			</div>
 			<center>
-				<s:if test="%{#session.userFlg == 3 || #session.userFlg == 2}">
+				<s:if test="%{#session.userFlg >= 2}">
 					<input type="submit" value="編集" class="button">
 				</s:if>
 			</center>
