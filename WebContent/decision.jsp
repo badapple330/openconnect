@@ -37,43 +37,43 @@
 						<!-- 一覧 -->
 						<td></td>
 						<td>
-							<h5>登録日</h5>
+						<h5><STRONG>登録日</STRONG></h5>
 						</td>
 						<td>
-							<h5>姓</h5>
+							<h5><Strong>姓</Strong></h5>
 						</td>
 						<td>
-							<h5>名</h5>
+							<h5><Strong>名</Strong></h5>
 						</td>
 						<td>
-							<h5>プロジェクトID</h5>
+							<h5><Strong>プロジェクトID</Strong></h5>
 						</td>
 						<td>
-							<h5>案件番号</h5>
+							<h5><Strong>案件番号</Strong></h5>
 						</td>
 						<td>
-							<h5>案件名</h5>
+							<h5><Strong>案件名</Strong></h5>
 						</td>
 						<td>
-							<h5>詳細</h5>
+							<h5><Strong>詳細</Strong></h5>
 						</td>
 						<td>
-							<h5>実施起案番号</h5>
+							<h5><Strong>実施起案番号</Strong></h5>
 						</td>
 						<td>
-							<h5>実施決裁番号</h5>
+							<h5><Strong>実施決裁番号</Strong></h5>
 						</td>
 						<td>
-							<h5>契約起案番号</h5>
+							<h5><Strong>契約起案番号</Strong></h5>
 						</td>
 						<td>
-							<h5>契約決番号</h5>
+							<h5><Strong>契約決番号</Strong></h5>
 						</td>
 						<td>
-							<h5>実施兼契約起案番号</h5>
+							<h5><Strong>実施兼契約起案番号</Strong></h5>
 						</td>
 						<td>
-							<h5>実施兼契約番号</h5>
+							<h5><Strong>実施兼契約番号</Strong></h5>
 						</td>
 					</tr>
 					<!-- 繰り返し -->

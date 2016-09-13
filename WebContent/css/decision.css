@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+td{
+	text-align:center;
+}
+
 input[type="text"] {
 /* 	text-align: center; */
 	width:100%;
@@ -20,3 +24,4 @@ input[type="text"] {
 #display{
 	width:400;
 }
+
