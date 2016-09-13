@@ -44,16 +44,15 @@ $(function(){
 		var id = $('.scheduleIdList').eq(index).val();
 		$('#delete-scheduleid').val( id );
 
-		//var startdate = $('.scheduleStartdayList').eq(index).val();
+
 		$('.delete-startday').html($('.scheduleStartdayList').eq(index).val());
 
-		//var enddate = $('.scheduleEnddayList').eq(index).val();
+
 		$('.delete-endday').html($('.scheduleEnddayList').eq(index).val());
 
-		//var title = $('.scheduleTitleList').eq(index).val();
+
 		$('.delete-title').html($('.scheduleTitleList').eq(index).val());
 
-		//var content = $('.scheduleContentList').eq(index).val();
 		$('.delete-content').html($('.scheduleContentList').eq(index).val());
 
 		var index = $('.modal-open').index($(this));
