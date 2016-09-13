@@ -50,12 +50,12 @@
 		<s:form action="BooksBorrowUpdate">
 	ID
 	<br>
-			<input type="text" name="bookId" placeholder="ID入力してください">
+			<input type="text" name="bookId" pattern="[1-9][0-9]*" maxlength="3" required placeholder="ID入力してください">
 			<br>
 
 		ユーザーID
 		 <br>
-			<input type="text" name="borrowId" placeholder="ユーザーID入力してください">
+			<input type="text" name="borrowId" pattern="[1-9][0-9]*" maxlength="3" placeholder="ユーザーID入力してください">
 			<input class="button" type="submit" value="貸し出し">
 			<br>
 		</s:form>

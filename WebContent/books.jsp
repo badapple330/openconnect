@@ -4,7 +4,7 @@
 <!DOCTYPE>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset=UTF-8>
 <title>書籍一覧</title>
 <link rel="stylesheet" href="css/books.css">
 <script src="js/jquery-3.1.0.min.js"></script>
@@ -22,7 +22,7 @@
 		<br> <br> 書籍の検索
 
 		<s:form action="BooksSearch">
-			<input type="text" name="search" placeholder="タイトル入力してください">
+			<input type="text" name="search" pattern = "^[ぁ-ん]+$ ,[\u3041-\u3n09F]*" maxlength="20" required placeholder="タイトル入力してください">
 			<input class="button" type="submit" value="検索">
 		</s:form>
 

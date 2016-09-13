@@ -19,7 +19,7 @@ import com.internousdev.util.DBConnector;
  * @author TATSUYA HOSHI
  */
 
-public class BooksSearchDAO {
+public class BooksSelectDAO {
 
 	/**
 	 * 検索結果情報をリスト化して抽出し、DTOに格納する

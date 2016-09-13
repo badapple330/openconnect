@@ -15,7 +15,7 @@ import com.internousdev.util.DBConnector;
  * @author TATSUYA HOSHI
  */
 
-public class BooksNewDAO {
+public class BooksInsertDAO {
 
 	/**
 	 *　追加情報を、DBへ転送し、追加する為のメソッド

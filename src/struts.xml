@@ -314,14 +314,14 @@
 		</action>
 
 		<action name="BooksSearch"
-			class="com.internousdev.openconnect.books.action.BooksSearchAction"
+			class="com.internousdev.openconnect.books.action.BooksSelectAction"
 			method="execute">
 			<result name="success">books.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
 		<action name="BooksCreate"
-			class="com.internousdev.openconnect.books.action.BooksNewAction"
+			class="com.internousdev.openconnect.books.action.BooksInsertAction"
 			method="execute">
 			<result name="success" type="chain">GoBooks</result>
 			<result name="error">/register.jsp</result>

@@ -8,8 +8,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.openconnect.books.dao.BooksNewDAO;
-import com.internousdev.openconnect.booksBorrow.dao.BooksBorrowNewDAO;
+import com.internousdev.openconnect.books.dao.BooksInsertDAO;
+import com.internousdev.openconnect.booksBorrow.dao.BooksBorrowInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 
-public class BooksNewAction extends ActionSupport implements SessionAware{
+public class BooksInsertAction extends ActionSupport implements SessionAware{
 
 
 	/**
@@ -47,7 +47,7 @@ public class BooksNewAction extends ActionSupport implements SessionAware{
 	public String execute(){
 
 		String result = ERROR;
-		BooksNewDAO dao = new BooksNewDAO();
+		BooksInsertDAO dao = new BooksInsertDAO();
 		int count = 0;
 		count = dao.insert(title);
 
@@ -58,7 +58,7 @@ public class BooksNewAction extends ActionSupport implements SessionAware{
 			if( bookId == 0 ) return result;
 
 			result = SUCCESS;
-			BooksBorrowNewDAO dao1 = new BooksBorrowNewDAO();
+			BooksBorrowInsertDAO dao1 = new BooksBorrowInsertDAO();
 			dao1.insert(bookId);
 		}
 		return result;

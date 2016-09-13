@@ -6,14 +6,14 @@ package com.internousdev.openconnect.books.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.books.dao.BooksSearchDAO;
+import com.internousdev.openconnect.books.dao.BooksSelectDAO;
 import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 書籍名を、DBのプロジェクト名から検索する為のクラス
  * @author TATSUYA HOSHI
  */
-public class BooksSearchAction extends ActionSupport {
+public class BooksSelectAction extends ActionSupport {
 
 	/**
 	 * シリアルバージョンID
@@ -41,7 +41,7 @@ public class BooksSearchAction extends ActionSupport {
 
 	public String execute() {
 		String result = ERROR;
-		BooksSearchDAO dao = new BooksSearchDAO();
+		BooksSelectDAO dao = new BooksSelectDAO();
 		searchList = dao.select(search);
 		if (searchList.size() != 0) {
 			result = SUCCESS;

@@ -3,18 +3,15 @@
  */
 package com.internousdev.openconnect.booksBorrow.action;
 
-import com.internousdev.openconnect.booksBorrow.dao.BooksBorrowReturnDAO;
+import com.internousdev.openconnect.booksBorrow.dao.BooksBorrowInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * DBの情報を画面に表示する為のクラス
  * @author TATSUYA HOSHI
  */
-public class BooksBorrowReturnAction extends ActionSupport {
 
-	/**
-	 * ブックID
-	 */
+public class BooksBorrowInsertAction extends ActionSupport{
 
 	private int bookId;
 
@@ -29,32 +26,31 @@ public class BooksBorrowReturnAction extends ActionSupport {
 	private static final long serialVersionUID = -7586577377473680450L;
 
 	public String execute(){
-		BooksBorrowReturnDAO dao = new BooksBorrowReturnDAO();
+
 		String result = ERROR;
-		System.out.println(bookId);
+		BooksBorrowInsertDAO dao = new BooksBorrowInsertDAO();
 		int count = 0;
-		System.out.println(count);
-		count = dao.delete(bookId);
-		if(count > 0){
+		count = dao.insert(bookId);
+		if (count > 0) {
 			result = SUCCESS;
 		}
 		return result;
 	}
 
 	/**
-	 * 取得メソッド
-	 * @author TATSUYA HOSHI
-	 * @return bookId
-	 */
+	* 取得メソッド
+	* @author KENICHI HORIGUCHI
+	* @return bookId
+	*/
 	public int getBookId() {
 		return bookId;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author TATSUYA HOSHI
-	 * @param bookId
-	 */
+	* 設定メソッド
+	* @author KENICHI HORIGUCHI
+	* @param bookId
+	*/
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
