@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.internousdev.openconnect.decisionDetail.dto.DecisionDetailCheckDTO;
+import com.internousdev.openconnect.decision.detail.dto.DecisionDetailCheckDTO;
 
 public class DecisionDetailCheckDTOTest {
 

@@ -11,30 +11,23 @@ import com.opensymphony.xwork2.ActionSupport;
  * 画面で受け取ったIDを元にして、DBの情報を削除する為のクラス
  * @author TATSUYA HOSHI
  */
-
 public class BooksDeleteAction extends ActionSupport implements SessionAware{
-
 	/**
 	 * 管理者権限メソッド
 	 */
-
 	public Map<String, Object> session;
-
 	/**
 	 * ブックID
 	 */
 	private int bookId;
-
-	/**
-	 * DAOにデータを渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
-	 */
-
 	/**
 	 * シリアルバージョンID
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
-
+	/**
+	 * DAOにデータを渡して、結果を返す
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 	public String execute(){
 		BooksDeleteDAO dao = new BooksDeleteDAO();
 		String result = ERROR;
@@ -47,7 +40,7 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * ブックID取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return bookId
 	 */
@@ -56,7 +49,7 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * ブックID設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param bookId
 	 */
@@ -66,7 +59,7 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 取得メソッド
+	 * セッション取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return session
 	 */
@@ -76,7 +69,7 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 設定メソッド
+	 * セッション設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param session
 	 */

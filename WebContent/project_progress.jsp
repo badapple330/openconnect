@@ -16,7 +16,7 @@
 		<h1>プロジェクト進捗報告</h1>
 	</div>
 	<s:form action="ProjectSearch">
-		<input type="text" name="search" placeholder="プロジェクト名">
+		<input type="text" name="search" placeholder="プロジェクト名" maxlength="20">
 		<input type="submit" value="検索" class="button">
 	</s:form>
 
@@ -41,22 +41,24 @@
 					<tr>
 						<td><input type="hidden" name="progressIdList"
 							value="<s:property value="progressId" />" class="progressId"></td>
-						<td><input type="text" name="projectIdList"
+
+						<td><s:property value="projectId"/>
+						<input type="hidden" name="projectIdList"
 							value="<s:property value="projectId"/>" size="7"
-							class="projectIdlist"></td>
+							class="projectIdlist" maxlength="4"></td>
 						<td><input type="text" name="projectDayList"
 							value="<s:property value="projectDay" />" size="8"
-							class="projectDaylist"></td>
+							class="projectDaylist" maxlength="12"></td>
 						<td><input type="text" name="projectnameList"
-							value="<s:property value="projectName" />" class="projectlist"></td>
+							value="<s:property value="projectName" />" class="projectlist" maxlength="20"></td>
 						<td><input type="text" name="projectPlanList"
 							value="<s:property value="projectPlan" />"
-							class="projectPlanlist"></td>
+							class="projectPlanlist" maxlength="100"></td>
 						<td><input type="text" name="projectResultList"
 							value="<s:property value="projectResult" />"
-							class="projectResultlist"></td>
+							class="projectResultlist" maxlength="100"></td>
 						<td><input type="text" name="otherList"
-							value="<s:property value="other" />" class="otherlist"></td>
+							value="<s:property value="other" />" class="otherlist" maxlength="100"></td>
 
 						<td><s:property value="managerId" /></td>
 						<td><s:property value="subManagerId" /></td>
@@ -73,10 +75,10 @@
 	</s:form>
 
 	<s:form action="ProjectCreate">
-		<input type="text" name="projectId" placeholder="プロジェクトIDを打って下さい">
-		<input type="text" name="projectPlan" placeholder="進捗予定">
-		<input type="text" name="projectResult" placeholder="進捗結果">
-		<input type="text" name="other" placeholder="その他報告">
+		<input type="text" name="projectId" placeholder="プロジェクトIDを打って下さい" pattern="^[0-9]+$" maxlength="4">
+		<input type="text" name="projectPlan" placeholder="進捗予定" maxlength="100">
+		<input type="text" name="projectResult" placeholder="進捗結果" maxlength="100">
+		<input type="text" name="other" placeholder="その他報告" maxlength="100">
 		<input type="submit" class="button" value="追加">
 	</s:form>
 
