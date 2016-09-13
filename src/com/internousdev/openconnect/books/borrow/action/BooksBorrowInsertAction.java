@@ -1,9 +1,9 @@
 /**
  *
  */
-package com.internousdev.openconnect.booksBorrow.action;
+package com.internousdev.openconnect.books.borrow.action;
 
-import com.internousdev.openconnect.booksBorrow.dao.BooksBorrowInsertDAO;
+import com.internousdev.openconnect.books.borrow.dao.BooksBorrowInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**

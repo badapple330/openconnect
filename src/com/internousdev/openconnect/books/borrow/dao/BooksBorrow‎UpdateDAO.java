@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.internousdev.openconnect.booksBorrow.dao;
+package com.internousdev.openconnect.books.borrow.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

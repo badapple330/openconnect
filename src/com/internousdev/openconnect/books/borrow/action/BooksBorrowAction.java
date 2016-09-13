@@ -1,10 +1,10 @@
-package com.internousdev.openconnect.booksBorrow.action;
+package com.internousdev.openconnect.books.borrow.action;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.booksBorrow.dao.BooksBorrowDAO;
-import com.internousdev.openconnect.booksBorrow.dto.BooksBorrowDTO;
+import com.internousdev.openconnect.books.borrow.dao.BooksBorrowDAO;
+import com.internousdev.openconnect.books.borrow.dto.BooksBorrowDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**

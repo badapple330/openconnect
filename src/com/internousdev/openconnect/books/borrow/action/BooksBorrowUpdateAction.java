@@ -1,9 +1,9 @@
 /**
  *
  */
-package com.internousdev.openconnect.booksBorrow.action;
+package com.internousdev.openconnect.books.borrow.action;
 
-import com.internousdev.openconnect.booksBorrow.dao.BooksBorrow‎UpdateDAO;
+import com.internousdev.openconnect.books.borrow.dao.BooksBorrow‎UpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -25,6 +25,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 
 	private int bookId;
 	private int borrowId;
+	private String errorMsg;
 
 	/**
 	 * DAOに入力されたデータを渡して、結果を返す
@@ -39,6 +40,8 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 		count = dao.update(bookId,borrowId);
 		if (count > 0) {
 			result = SUCCESS;
+		}else {
+			errorMsg = "該当する情報は存在しません";
 		}
 		return result;
 	}
@@ -86,6 +89,24 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	 */
 	public void setBorrowId(int borrowId) {
 		this.borrowId = borrowId;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
 	}
 
 }

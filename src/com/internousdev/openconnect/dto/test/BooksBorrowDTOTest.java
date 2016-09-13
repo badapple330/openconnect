@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.internousdev.openconnect.booksBorrow.dto.BooksBorrowDTO;
+import com.internousdev.openconnect.books.borrow.dto.BooksBorrowDTO;
 
 public class BooksBorrowDTOTest{
 

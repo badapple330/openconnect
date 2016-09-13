@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.internousdev.openconnect.booksBorrow.dto;
+package com.internousdev.openconnect.books.borrow.dto;
 
 /**
  * 書籍貸し出し情報を格納するためのクラス

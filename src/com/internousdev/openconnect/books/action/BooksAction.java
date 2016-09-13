@@ -10,7 +10,7 @@ import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * DBの情報を画面に表示する為のクラス
+ * DBの書籍情報を画面に表示する為のクラス
  * @author TATSUYA HOSHI
  */
 public class BooksAction extends ActionSupport{
@@ -23,7 +23,8 @@ public class BooksAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
 	/**
-	 * DAOに入力されたデータを渡して、結果を返す
+	 * 書籍の情報をDBから呼び出し格納する
+	 * DAOに入力されたデータを受け取り、結果を渡す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {
@@ -37,7 +38,7 @@ public class BooksAction extends ActionSupport{
 		return result;
 	}
 	/**
-	 * 取得メソッド
+	 * ブックリストの取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return bookList
 	 */
@@ -45,7 +46,7 @@ public class BooksAction extends ActionSupport{
 		return bookList;
 	}
 	/**
-	 * 設定メソッド
+	 * ブックリスト設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param bookList
 	 */
@@ -53,7 +54,7 @@ public class BooksAction extends ActionSupport{
 		this.bookList = bookList;
 	}
 	/**
-	 * 取得メソッド
+	 * シリアルバージョンの取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return serialversionuid
 	 */

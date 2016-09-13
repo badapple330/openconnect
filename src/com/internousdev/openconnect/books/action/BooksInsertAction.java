@@ -8,8 +8,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.openconnect.books.borrow.dao.BooksBorrowInsertDAO;
 import com.internousdev.openconnect.books.dao.BooksInsertDAO;
-import com.internousdev.openconnect.booksBorrow.dao.BooksBorrowInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
