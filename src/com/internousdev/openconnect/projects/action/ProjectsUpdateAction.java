@@ -24,13 +24,44 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	 */
 	private static final long serialVersionUID = 1453496957429527686L;
 
+	/**
+	 * プロジェクトＩＤリスト
+	 */
 	private List<Integer> projectIdList= new ArrayList<Integer>();
+
+	/**
+	 * プロジェクト名リスト
+	 */
 	private List<String> projectNameList = new ArrayList<String>();
+
+	/**
+	 * 管理者ＩＤ（リーダー）
+	 */
 	private List<Integer> projectManagerIdList = new ArrayList<Integer>();
+
+	/**
+	 * 管理者ＩＤ（サブ）
+	 */
 	private List<Integer> projectSubManagerIdList = new ArrayList<Integer>();
+
+	/**
+	 * 開始日
+	 */
 	private List<String> projectStartDateList = new ArrayList<String>();
+
+	/**
+	 * 終了日
+	 */
 	private List<String> projectEndDateList = new ArrayList<String>();
+
+	/**
+	 * 備考
+	 */
 	private List<String> projectNoteList = new ArrayList<String>();
+
+	/**
+	 * セッション
+	 */
 	public Map<String, Object> session;
 
 
@@ -66,7 +97,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 取得メソッド
-	 * @author YUICHI KIRIU
+	 * @author YUICHI KIRIU プロジェクトＩＤリスト
 	 * @return projectIdList
 	 */
 	public List<Integer> getProjectIdList() {
@@ -75,7 +106,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 設定メソッド
-	 * @author YUICHI KIRIU
+	 * @author YUICHI KIRIU プロジェクトＩＤリスト
 	 * @param projectIdList
 	 */
 	public void setProjectIdList(List<Integer> projectIdList) {
@@ -84,7 +115,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 取得メソッド
-	 * @author YUICHI KIRIU
+	 * @author YUICHI KIRIU プロジェクト名リスト
 	 * @return projectNameList
 	 */
 	public List<String> getProjectNameList() {
@@ -93,7 +124,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 設定メソッド
-	 * @author YUICHI KIRIU
+	 * @author YUICHI KIRIU プロジェクト名リスト
 	 * @param projectNameList
 	 */
 	public void setProjectNameList(List<String> projectNameList) {
@@ -101,7 +132,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 管理者ＩＤ（リーダー）リスト
 	 * @author YUICHI KIRIU
 	 * @return projectManagerIdList
 	 */
@@ -110,7 +141,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド  管理者ＩＤ（リーダー）リスト
 	 * @author YUICHI KIRIU
 	 * @param projectManagerIdList
 	 */
@@ -119,7 +150,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 管理者（サブ）リスト
 	 * @author YUICHI KIRIU
 	 * @return projectSubManagerIdList
 	 */
@@ -128,7 +159,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 管理者（サブ）リスト
 	 * @author YUICHI KIRIU
 	 * @param projectSubManagerIdList
 	 */
@@ -137,7 +168,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 開始日リスト
 	 * @author YUICHI KIRIU
 	 * @return projectStartDateList
 	 */
@@ -146,7 +177,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 開始日リスト
 	 * @author  YUICHI KIRIU
 	 * @param projectStartDateList
 	 */
@@ -155,7 +186,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 終了日リスト
 	 * @author  YUICHI KIRIU
 	 * @return projectEndDateList
 	 */
@@ -164,7 +195,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 終了日リスト
 	 * @author YUICHI KIRIU
 	 * @param projectEndDateList
 	 */
@@ -173,7 +204,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド備考リスト
 	 * @author  YUICHI KIRIU
 	 * @return projectNoteList
 	 */
@@ -182,7 +213,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 備考リスト
 	 * @author YUICHI KIRIU
 	 * @param projectNoteList
 	 */
@@ -191,9 +222,9 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド セッション
 	 * @author YUICHI KIRIU
-	 * @param projectNoteList
+	 * @param Session
 	 */
 	@Override
 	public void setSession(Map<String, Object> arg0) {
@@ -201,8 +232,8 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
+	* 取得メソッド セッション
+	* @author YUICHI KIRIU
 	* @return session
 	*/
 	public Map<String, Object> getSession() {

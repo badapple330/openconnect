@@ -60,7 +60,7 @@ public class ProjectsListDAO {
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクト名リスト
 	 * @author YUICHI KIRIU
 	 * @return projectList
 	 */
@@ -69,7 +69,7 @@ public class ProjectsListDAO {
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクト名リスト
 	 * @author YUICHI KIRIU
 	 * @param projectList
 	 */

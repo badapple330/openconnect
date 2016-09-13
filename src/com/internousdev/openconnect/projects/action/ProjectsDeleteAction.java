@@ -11,11 +11,11 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ProjectsDeleteAction extends ActionSupport {
 
 	/**
-	 * シリアルバージョンID
+	 * シリアル番号
 	 */
 	private static final long serialVersionUID = -758470450L;
 	/**
-	 * プロジェクトID
+	 * プロジェクト
 	 */
 	private int projectId;
 	/**
@@ -35,7 +35,7 @@ public class ProjectsDeleteAction extends ActionSupport {
 		return result;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド  プロジェクトＩＤ
 	 * @author YUICHI KIRIU
 	 * @return projectId
 	 */
@@ -43,7 +43,7 @@ public class ProjectsDeleteAction extends ActionSupport {
 		return projectId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクトＩＤ
 	 * @author YUICHI KIRIU
 	 * @param projectId
 	 */

@@ -16,14 +16,13 @@ DB情報を画面に表示させるクラス
 public class ProjectsAction extends ActionSupport{
 
 	/**
-	 *シリアルＩＤ
+	 *シリアル番号
 	 */
 	private static final long serialVersionUID = -62325123075153619L;
 
 	/**
 	 *プロジェクトリスト
 	 */
-
 	private List<ProjectsListDTO> projectList = new ArrayList<ProjectsListDTO>();
 
 	/**
@@ -43,7 +42,7 @@ public class ProjectsAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクトリスト
 	 * @author  YUICHI KIRIU
 	 * @return projectList
 	 */
@@ -51,7 +50,7 @@ public class ProjectsAction extends ActionSupport{
 		return projectList;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクトリスト
 	 * @author  YUICHI KIRIU
 	 * @param projectList
 	 */

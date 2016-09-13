@@ -124,7 +124,9 @@
 				</tr>
 		</table>
 		</tbody>
+		<s:if test="%{#session.userFlg >= 2}">
 		<input class="button" type="submit" value="追加">
+		</s:if>
 	</s:form>
 
 
