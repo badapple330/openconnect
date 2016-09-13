@@ -14,7 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2016/09/7
  *
  */
-public class ProjectsSearchAction extends ActionSupport{
+public class ProjectsSelectAction extends ActionSupport{
 	/**
 	 * シリアルＩＤ
 	 */

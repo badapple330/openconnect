@@ -33,7 +33,7 @@
 	</div>
 
 
-	<s:form action="ProjectsSearchAction">
+	<s:form action="ProjectsSelectAction">
 		<input type="text" pattern="^[0-9A-Za-z]+$" maxlength="100"
 			name="search" placeholder="プロジェクト名">
 		<input type="submit" value="検索する">
@@ -110,19 +110,22 @@
 
 	<div id="modal-main">
 		<!-- #contents START -->
-		プロジェクトID <input type="text" name="projectId" id="delete-projectid"
-			readonly> <br> プロジェクト名 <input type="text"
-			name="projectId" id="delete-projectname" readonly> <br>
-		管理者（リーダー）<input type="text" name="projectId"
-			id="delete-projectmanagerid" readonly> <br>管理者（サブ） <input
-			type="text" name="projectId" id="delete-projectsubmanagerid" readonly>
-		<br>開始日<input type="text" name="projectId"
-			id="delete-projectstartdate" readonly> <br>終了日<input
-			type="text" name="projectId" id="delete-projectenddate" readonly>
-		<br>備考<input type="text" name="projectId" id="delete-projectnote"
-			readonly> <br> <input type="button"
-			class="delete-true button" value="削除"> <input type="button"
-			class="modal-close button" value="閉じる">
+		プロジェクトID <input type="text" name="projectId" id="delete-projectid"readonly>
+		<br>
+		プロジェクト名 <input type="text"name="projectId" id="delete-projectname" readonly>
+		<br>
+		管理者（リーダー）<input type="text" name="projectId"id="delete-projectmanagerid" readonly>
+		<br>
+		管理者（サブ） <input type="text" name="projectId" id="delete-projectsubmanagerid" readonly>
+		<br>
+		開始日<input type="text" name="projectId"id="delete-projectstartdate" readonly>
+		<br>
+		終了日<input type="text" name="projectId" id="delete-projectenddate" readonly>
+		<br>
+		備考<input type="text" name="projectId" id="delete-projectnote"readonly>
+		<br>
+		<input type="button"class="delete-true button" value="削除"> <input type="button"
+		class="modal-close button" value="閉じる">
 
 		<div class="delete-prepare">
 			本当に削除しますか？

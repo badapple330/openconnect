@@ -115,8 +115,8 @@
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="ProjectsSearchAction"
-			class="com.internousdev.openconnect.projects.action.ProjectsSearchAction"
+		<action name="ProjectsSelectAction"
+			class="com.internousdev.openconnect.projects.action.ProjectsSelectAction"
 			method="execute">
 			<result name="success">projects.jsp</result>
 			<result name="error">/projects.jsp</result>
