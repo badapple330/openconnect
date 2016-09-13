@@ -1,17 +1,16 @@
-drop database if exists Oden;
-create database if not exists Oden;
-use Oden;
+drop database if exists oden;
+create database if not exists oden;
+use oden;
 
 drop table if exists user_log;
-
 create table user_log(
 id int(99) PRIMARY KEY AUTO_INCREMENT comment '顧客ID',
 user_name varchar(255) UNIQUE NOT NULL comment '顧客名',
 password varchar(255) NOT NULL comment '顧客パスワード'
 );
 insert into user_log(id,user_name,password)value(1,"test","pass");
-drop table if exists item;
 
+drop table if exists item;
 create table item(
 Gazou varchar(255) PRIMARY KEY ,
 Item_name varchar(255) UNIQUE not null comment '商品名',
