@@ -22,7 +22,8 @@
 		<br> <br> 書籍の検索
 
 		<s:form action="BooksSelectAction">
-			<input type="text" name="search" maxlength ="20" placeholder="タイトル入力してください">
+			<input type="text" name="search" maxlength="20"
+				placeholder="タイトル入力してください">
 			<input class="button" type="submit" value="検索">
 		</s:form>
 
@@ -31,30 +32,18 @@
 				<tr>
 					<th><center>ID</center></th>
 					<th width="500"><center>タイトル一覧</center></th>
-					<th></th>
 					<s:if test="%{#session.userFlg == 3}">
-					<th><center>削除</center></th>
+						<th><center>削除</center></th>
 					</s:if>
 				</tr>
-				<s:iterator value="bookList">
-					<tr>
-						<td><input type="text" name="bookIdList"
-							value="<s:property  value="bookId" />" class="bookId"></td>
-						<td><input type="text" name="titleList"
-							value="<s:property value="title" />" class="bookTitle"></td>
-						<td></td>
-						<td>
-						<s:if test="%{#session.userFlg == 3}">
-						<input type="button" class="button modal-open" value="削除">
-						</s:if>
-						</td>
-					</tr>
-					<br>
-				</s:iterator>
+
 				<s:iterator value="searchList">
 					<tr>
 						<td><s:property value="bookId" /></td>
 						<td><input type="text" value="<s:property value="title" />"></td>
+						<td><s:if test="%{#session.userFlg == 3}">
+								<input type="button" class="button modal-open" value="削除">
+							</s:if></td>
 					</tr>
 				</s:iterator>
 			</table>
@@ -80,10 +69,6 @@
 				</s:form>
 			</div>
 		</div>
-
-
-
-
 
 
 		<s:form action="BooksCreate">
