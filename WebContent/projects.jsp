@@ -64,26 +64,26 @@
 						<td><input type="hidden" name="projectIdList"
 							value="<s:property value="projectId"/>" class="projectId"></td>
 
-
 						<td><s:property value="projectId" /></td>
 
 						<td><input type="text" name="projectNameList" maxlength="100"
 							value="<s:property value="projectName"/>" class="projectNamelist"></td>
 
-						<td><input type="text" name="projectManagerIdList"maxlength="1000"
-							value="<s:property value="managerId"/>"
+						<td><input type="text" name="projectManagerIdList"
+							maxlength="1000" value="<s:property value="managerId"/>"
 							class="projectManagerIdlist"></td>
 
-						<td><input type="text" name="projectSubManagerIdList"maxlength="1000"
-							value="<s:property value="subManagerId"/>"
+						<td><input type="text" name="projectSubManagerIdList"
+							maxlength="1000" value="<s:property value="subManagerId"/>"
 							class="projectSubManagerIdlist"></td>
 
-						<td><input type="text" name="projectStartDateList"maxlength="15"
-							value="<s:property value="startDate"/>"
+						<td><input type="text" name="projectStartDateList"
+							maxlength="15" value="<s:property value="startDate"/>"
 							class="projectStartDatelist"></td>
 
-						<td><input type="text" name="projectEndDateList"maxlength="15"
-							value="<s:property value="endDate"/>" class="projectEnddatelist"></td>
+						<td><input type="text" name="projectEndDateList"
+							maxlength="15" value="<s:property value="endDate"/>"
+							class="projectEnddatelist"></td>
 
 						<td><input type="text" name="projectNoteList" maxlength="255"
 							value="<s:property value="note"/>" class="projectNotelist"></td>
@@ -100,46 +100,85 @@
 	</s:form>
 	<br>
 	<s:form action="ProjectsInsert">
-		<input type="text" name="projectName" placeholder="プロジェクト名"maxlength=100 required>
-		<input type="text" pattern="[1-9][0-9]*" name="managerId" placeholder="管理者ID(リーダー)" maxlength="1000"required>
-		<input type="text" pattern="[1-9][0-9]*" name="subManagerId" placeholder="管理者ID(サブ)" maxlength="1000"required>
-		<input type="text" pattern="\d{4}-\d{2}-\d{2}" name="startDate"placeholder="開始日"maxlength="15"required>
+		<table border="1">
+			<tbody id="list_body">
+				<tr>
+
+					<th>プロジェクト名</th>
+					<th>管理者（リーダー）</th>
+					<th>管理者（サブリーダー）</th>
+					<th>開始日</th>
+					<th></th>
+				</tr>
+
+				<tr>
+					<td><input type="text" name="projectName"
+						placeholder="プロジェクト名" maxlength=100 required></td>
+					<td><input type="text" pattern="[1-9][0-9]*" name="managerId"
+						placeholder="管理者ID(リーダー)" maxlength="1000" required></td>
+					<td><input type="text" pattern="[1-9][0-9]*"
+						name="subManagerId" placeholder="管理者ID(サブ)" maxlength="1000"
+						required></td>
+					<td><input type="text" pattern="\d{4}-\d{2}-\d{2}"
+						name="startDate" placeholder="開始日" maxlength="15" required></td>
+				</tr>
+		</table>
+		</tbody>
 		<input class="button" type="submit" value="追加">
 	</s:form>
 
 
 	<div id="modal-main">
 		<!-- #contents START -->
-		プロジェクトID <input type="text" name="projectId" id="delete-projectid"readonly>
-		<br>
-		プロジェクト名 <input type="text"name="projectId" id="delete-projectname" readonly>
-		<br>
-		管理者（リーダー）<input type="text" name="projectId"id="delete-projectmanagerid" readonly>
-		<br>
-		管理者（サブ） <input type="text" name="projectId" id="delete-projectsubmanagerid" readonly>
-		<br>
-		開始日<input type="text" name="projectId"id="delete-projectstartdate" readonly>
-		<br>
-		終了日<input type="text" name="projectId" id="delete-projectenddate" readonly>
-		<br>
-		備考<input type="text" name="projectId" id="delete-projectnote"readonly>
-		<br>
-		<input type="button"class="delete-true button" value="削除"> <input type="button"
-		class="modal-close button" value="閉じる">
+		<div id="modal-style">
+			<table class="modal_border">
 
-		<div class="delete-prepare">
-			本当に削除しますか？
-			<s:form action="ProjectsDelete">
-				<input type="hidden" name="projectId" id="true-delete">
-				<input type="submit" class="delete-true button" value="はい">
-				<input type="button" class="modal-close button" value="いいえ">
-			</s:form>
+				<tr>
+					<td>プロジェクト名
+						<div class="delete-projectname modalDelete"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>管理者（リーダー）
+						<div class="delete-projectmanagerid modalDelete"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>管理者（サブリーダー）
+						<div class="delete-projectsubmanagerid modalDelete"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>開始日
+						<div class="delete-projectstartdate modalDelete"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>終了日
+						<div class="delete-projectenddate modalDelete"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>備考
+						<div class="delete-projectnote modalDelete"></div>
+					</td>
+			</table>
+			<input type="button" class="delete-true button" value="削除"> <input
+				type="button" class="modal-close button" value="閉じる">
+
+			<div class="delete-prepare">
+				<p>本当に削除しますか。</p>
+				<s:form action="ScheduleDelete">
+					<input type="hidden" name="scheduleId" value="" class="true-delete">
+					<input type="submit" class="delete-true button" value="はい">
+					<input type="button" class="modal-close button" value="いいえ">
+				</s:form>
+
+			</div>
 		</div>
 	</div>
 
-
 	<div id="contents">
-
 		<br>
 	</div>
 

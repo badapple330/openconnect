@@ -23,32 +23,26 @@ $(function(){
 		//モーダルウィンドウを表示
 		$("#modal-bg,#modal-main").fadeIn("slow");
 
-
 		var index = $('.modal-open').index($(this));
-		var id = $('.projectIdlist').eq(index).val();
+		var id = $('.projectIdList').eq(index).val();
 		$('#delete-projectid').val( id );
 
-		var name = $('.projectNamelist').eq(index).val();
-		$('#delete-projectname').val( name );
+		$('.delete-projectname').html($('.projectNameList').eq(index).val());
 
-		var managerid = $('.projectManagerIdlist').eq(index).val();
-		$('#delete-projectmanagerid').val( managerid);
+		$('.delete-projectmanagerid').html($('.projectManagerIdList').eq(index).val());
 
-		var submanagerid = $('.projectSubManageridlist').eq(index).val();
-		$('#delete-projectsubmanagerid').val( submanagerid );
+		$('.delete-projectsubmanagerid').html($('.projectSubManagerIdList').eq(index).val());
 
-		var startdate = $('."projectStartDatelist"').eq(index).val();
-		$('#delete-projectstartdate').val( startdate );
+		$('.delete-projectstartdate').html($('.projectStartDateList').eq(index).val());
 
-		var enddate = $('.projectEnddatelist').eq(index).val();
-		$('#delete-projectenddate').val( enddate );
+		$('.delete-projectenddate').html($('.projectEndDateList').eq(index).val());
 
-		var note = $('.projectNotelist').eq(index).val();
-		$('#delete-projectnote').val( enddate );
+		$('.delete-projectnote').html($('.projectNoteList').eq(index).val());
+
 
 		var index = $('.modal-open').index($(this));
-		var abc = $('.projectId').eq(index).val();
-		$('#true-delete').val( abc );
+		var abc = $('.projectNameList').eq(index).val();
+		$('.true-delete').val( abc );
 
 		$(".modal-close").click(function(){
 			$("#modal-main,#modal-bg").fadeOut("slow",function(){
@@ -77,66 +71,66 @@ $(function(){
 
 
 
-$(function(){
-	//テキストリンクをクリックしたら
-	$(".modal-open2").click(function(){
-		//body内の最後に<div id="modal-bg"></div>を挿入
-		$("body").append('<div id="modal-bg"></div>');
-		//画面中央を計算する関数を実行
-		modalResize();
-		//モーダルウィンドウを表示
-		$("#modal-bg,#modal-main").fadeIn("slow");
-
-
-		var index = $('.modal-open2').index($(this));
-		var id = $('.search-projectIdlist').eq(index).val();
-		$('#delete-projectid').val( id );
-
-		var name = $('.search-projectNamelist').eq(index).val();
-		$('#delete-projectname').val( name );
-
-		var project = $('.search-projectManagerIdlist').eq(index).val();
-		$('#delete--projectmanagerid').val( project );
-
-		var plan = $('.search-projectSubManageridlist').eq(index).val();
-		$('#delete-projectsubmanagerid').val( plan );
-
-		var result = $('.search-StartDatelist').eq(index).val();
-		$('#delete-projectstartdate').val( result );
-
-		var other = $('.search-projectEnddatelist').eq(index).val();
-		$('#delete-projectenddate').val( other );
-
-		var other = $('.search-projectNotelist').eq(index).val();
-		$('#delete-projectnote').val( other );
-
-		var index = $('.modal-open2').index($(this));
-		var abc = $('.search-progressId').eq(index).val();
-		$('#true-delete').val( abc );
-
-		$(".modal-close").click(function(){
-			$("#modal-main,#modal-bg").fadeOut("slow",function(){
-				//挿入した<div id="modal-bg"></div>を削除
-				$('<div id="modal-bg"></div>').remove() ;
-			});
-		});
-
-		//画面の左上からmodal-mainの横幅・高さを引き、その値を2で割ると画面中央の位置が計算できます
-		$(window).resize(modalResize);
-		function modalResize(){
-			var w = $(window).width();
-			var h = $(window).height();
-			var cw = $("#modal-main").outerWidth();
-			var ch = $("#modal-main").outerHeight();
-
-			//取得した値をcssに追加する
-			$("#modal-main").css({
-				"left": ((w - cw)/2) + "px",
-				"top": ((h - ch)/2) + "px"
-			});
-		}
-	});
-});
+//$(function(){
+//	//テキストリンクをクリックしたら
+//	$(".modal-open2").click(function(){
+//		//body内の最後に<div id="modal-bg"></div>を挿入
+//		$("body").append('<div id="modal-bg"></div>');
+//		//画面中央を計算する関数を実行
+//		modalResize();
+//		//モーダルウィンドウを表示
+//		$("#modal-bg,#modal-main").fadeIn("slow");
+//
+//
+//		var index = $('.modal-open2').index($(this));
+//		var id = $('.search-projectIdlist').eq(index).val();
+//		$('#delete-projectid').val( id );
+//
+//		var name = $('.search-projectNamelist').eq(index).val();
+//		$('#delete-projectname').val( name );
+//
+//		var managerid = $('.search-projectManagerIdlist').eq(index).val();
+//		$('#delete--projectmanagerid').val( managerid );
+//
+//		var submanagerid = $('.search-projectSubManageridlist').eq(index).val();
+//		$('#delete-projectsubmanagerid').val( submanagerid );
+//
+//		var startdate = $('.search-StartDatelist').eq(index).val();
+//		$('#delete-projectstartdate').val( startdate );
+//
+//		var enddate = $('.search-projectEnddatelist').eq(index).val();
+//		$('#delete-projectenddate').val( enddate );
+//
+//		var note= $('.search-projectNotelist').eq(index).val();
+//		$('#delete-projectnote').val( note );
+//
+//		var index = $('.modal-open2').index($(this));
+//		var abc = $('.search-progressId').eq(index).val();
+//		$('#true-delete').val( abc );
+//
+//		$(".modal-close").click(function(){
+//			$("#modal-main,#modal-bg").fadeOut("slow",function(){
+//				//挿入した<div id="modal-bg"></div>を削除
+//				$('<div id="modal-bg"></div>').remove() ;
+//			});
+//		});
+//
+//		//画面の左上からmodal-mainの横幅・高さを引き、その値を2で割ると画面中央の位置が計算できます
+//		$(window).resize(modalResize);
+//		function modalResize(){
+//			var w = $(window).width();
+//			var h = $(window).height();
+//			var cw = $("#modal-main").outerWidth();
+//			var ch = $("#modal-main").outerHeight();
+//
+//			//取得した値をcssに追加する
+//			$("#modal-main").css({
+//				"left": ((w - cw)/2) + "px",
+//				"top": ((h - ch)/2) + "px"
+//			});
+//		}
+//	});
+//});
 
 
 

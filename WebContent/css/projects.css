@@ -12,6 +12,9 @@ td{
 	display: none;
 }
 
+modalDelete{
+	display:inline;
+}
 body {
 	background-color: #808080;
 }
