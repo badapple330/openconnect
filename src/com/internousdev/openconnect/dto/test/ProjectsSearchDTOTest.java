@@ -12,180 +12,129 @@ public class ProjectsSearchDTOTest {
 	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getProjectId()} のためのテスト・メソッド。
 	 */
 	@Test
-	public void testGetProjectId1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = null;
+	    public void testGetProjectId1() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = 0;
 
-		test.setProjectId(expected);
+	        test.setProjectId(expected);
 
-		assertEquals(expected, test.getProjectId());
-	}
+	        assertEquals(expected, test.getProjectId());
+	    }
 
-	@Test
-	public void testGetProjectId2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "";
+	    @Test
+	    public void testGetProjectId2() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = 2147483647;
 
-		test.setProjectId(expected);
+	        test.setProjectId(expected);
 
-		assertEquals(expected, test.getProjectId());
-	}
+	        assertEquals(expected, test.getProjectId());
+	    }
 
-	@Test
-	public void testGetProjectId3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = " ";
+	    @Test
+	    public void testGetProjectId3() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = -2147483648;
 
-		test.setProjectId(expected);
+	        test.setProjectId(expected);
 
-		assertEquals(expected, test.getProjectId());
-	}
+	        assertEquals(expected, test.getProjectId());
+	    }
 
-	@Test
-	public void testGetProjectId4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "　";
+	    @Test
+	    public void testGetProjectId4() throws Exception {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        try {
+	            int postalMin = Integer.parseInt("-2147483649");
+	            test.setProjectId(postalMin);
 
-		test.setProjectId(expected);
+	        } catch (RuntimeException e) {
+	            assertThat3(e.getMessage(), "For input string: \"-2147483649\"");
+	        }
+	    }
 
-		assertEquals(expected, test.getProjectId());
-	}
+	    @Test
+	    public void testGetProjectId5() throws Exception {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        try {
+	            int postalMax = Integer.parseInt("2147483648");
+	            test.setProjectId(postalMax);
 
-	@Test
-	public void testGetProjectId5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123";
+	        } catch (RuntimeException e) {
+	            assertThat3(e.getMessage(), "For input string: \"2147483648\"");
+	        }
+	    }
+	    private void assertThat3(String message, String string) {
+	    }
 
-		test.setProjectId(expected);
 
-		assertEquals(expected, test.getProjectId());
-	}
 
-	@Test
-	public void testGetProjectId6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "あいう１２３";
+	    /**
+	     * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setProjectId()}
+	     * のためのテスト・メソッド。
+	     */
+	    @Test
+	    public void testSetProjectId1() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = 0;
 
-		test.setProjectId(expected);
+	        test.setProjectId(expected);
+	        int actual = test.getProjectId();
 
-		assertEquals(expected, test.getProjectId());
-	}
+	        assertEquals(expected, actual);
+	    }
 
-	@Test
-	public void testGetProjectId7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう１２３";
+	    @Test
+	    public void testSetProjectId2() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = 2147483647;
 
-		test.setProjectId(expected);
+	        test.setProjectId(expected);
+	        int actual = test.getProjectId();
 
-		assertEquals(expected, test.getProjectId());
-	}
+	        assertEquals(expected, actual);
+	    }
 
-	@Test
-	public void testGetProjectId8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう漢字";
+	    @Test
+	    public void testSetProjectId3() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = -2147483648;
 
-		test.setProjectId(expected);
+	        test.setProjectId(expected);
+	        int actual = test.getProjectId();
 
-		assertEquals(expected, test.getProjectId());
-	}
+	        assertEquals(expected, actual);
+	    }
 
-	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setProjectId()}
-	 */
+	    @Test
+	    public void testSetProjectId4() throws Exception {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        try {
+	            int postalMin = Integer.parseInt("-2147483649");
+	            test.setProjectId(postalMin);
 
-	@Test
-	public void testSetProjectId1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = null;
+	        } catch (RuntimeException e) {
+	            assertThat4(e.getMessage(), "For input string: \"-2147483649\"");
+	        }
+	    }
 
-		test.setProjectId(expected);
-		String actual = test.getProjectId();
+	    @Test
+	    public void testSetProjectId5() throws Exception {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        try {
+	            int postalMax = Integer.parseInt("2147483648");
+	            test.setProjectId(postalMax);
 
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetProjectId2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "";
-
-		test.setProjectId(expected);
-		String actual = test.getProjectId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetProjectId3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = " ";
-
-		test.setProjectId(expected);
-		String actual = test.getProjectId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetProjectId4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "　";
-
-		test.setProjectId(expected);
-		String actual = test.getProjectId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetProjectId5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123";
-
-		test.setProjectId(expected);
-		String actual = test.getProjectId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetProjectId6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "あいう１２３";
-
-		test.setProjectId(expected);
-		String actual = test.getProjectId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetProjectId7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう１２３";
-
-		test.setProjectId(expected);
-		String actual = test.getProjectId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetProjectId8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう漢字";
-
-		test.setProjectId(expected);
-		String actual = test.getProjectId();
-
-		assertEquals(expected, actual);
-	}
+	        } catch (RuntimeException e) {
+	            assertThat4(e.getMessage(), "For input string: \"2147483648\"");
+	        }
+	    }
+	    private void assertThat4(String message, String string) {
+	    }
 
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getHandleName()} のためのテスト・メソッド。
+	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getProjectName()} のためのテスト・メソッド。
 	 */
 	@Test
 	public void testGetProjectName1() {
@@ -268,7 +217,7 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setHandleName()}
+	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setProjectName()}
 	 */
 
 	@Test
@@ -360,357 +309,252 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getHandleName()} のためのテスト・メソッド。
+	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getManagerId()} のためのテスト・メソッド。
 	 */
 	@Test
-	public void testGetManagerId1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = null;
+	    public void testGetManagerId1() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = 0;
 
-		test.setManagerId(expected);
+	        test.setManagerId(expected);
 
-		assertEquals(expected, test.getManagerId());
-	}
+	        assertEquals(expected, test.getManagerId());
+	    }
 
-	@Test
-	public void testGetManagerId2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "";
+	    @Test
+	    public void testGetManagerId2() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = 2147483647;
 
-		test.setManagerId(expected);
+	        test.setManagerId(expected);
 
-		assertEquals(expected, test.getManagerId());
-	}
+	        assertEquals(expected, test.getManagerId());
+	    }
 
-	@Test
-	public void testGetManagerId3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = " ";
+	    @Test
+	    public void testGetManagerId3() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = -2147483648;
 
-		test.setManagerId(expected);
+	        test.setManagerId(expected);
 
-		assertEquals(expected, test.getManagerId());
-	}
+	        assertEquals(expected, test.getManagerId());
+	    }
 
-	@Test
-	public void testGetManagerId4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "　";
+	    @Test
+	    public void testGetManagerId4() throws Exception {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        try {
+	            int postalMin = Integer.parseInt("-2147483649");
+	            test.setManagerId(postalMin);
 
-		test.setManagerId(expected);
+	        } catch (RuntimeException e) {
+	            assertThat3(e.getMessage(), "For input string: \"-2147483649\"");
+	        }
+	    }
 
-		assertEquals(expected, test.getManagerId());
-	}
+	    @Test
+	    public void testGetManagerId5() throws Exception {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        try {
+	            int postalMax = Integer.parseInt("2147483648");
+	            test.setManagerId(postalMax);
 
-	@Test
-	public void testGetManagerId5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123";
+	        } catch (RuntimeException e) {
+	            assertThat3(e.getMessage(), "For input string: \"2147483648\"");
+	        }
+	    }
 
-		test.setManagerId(expected);
 
-		assertEquals(expected, test.getManagerId());
-	}
 
-	@Test
-	public void testGetManagerId6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "あいう１２３";
 
-		test.setManagerId(expected);
+	    /**
+	     * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setManagerId()}
+	     * のためのテスト・メソッド。
+	     */
+	    @Test
+	    public void testSetManagerId1() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = 0;
 
-		assertEquals(expected, test.getManagerId());
-	}
+	        test.setManagerId(expected);
+	        int actual = test.getManagerId();
 
-	@Test
-	public void testGetManagerId7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう１２３";
+	        assertEquals(expected, actual);
+	    }
 
-		test.setManagerId(expected);
+	    @Test
+	    public void testSetManagerId2() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = 2147483647;
 
-		assertEquals(expected, test.getManagerId());
-	}
+	        test.setManagerId(expected);
+	        int actual = test.getManagerId();
 
-	@Test
-	public void testGetManagerId8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう漢字";
+	        assertEquals(expected, actual);
+	    }
 
-		test.setManagerId(expected);
+	    @Test
+	    public void testSetManagerId3() {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        int expected = -2147483648;
 
-		assertEquals(expected, test.getManagerId());
-	}
+	        test.setManagerId(expected);
+	        int actual = test.getManagerId();
+
+	        assertEquals(expected, actual);
+	    }
+
+	    @Test
+	    public void testSetManagerId4() throws Exception {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        try {
+	            int postalMin = Integer.parseInt("-2147483649");
+	            test.setManagerId(postalMin);
+
+	        } catch (RuntimeException e) {
+	            assertThat4(e.getMessage(), "For input string: \"-2147483649\"");
+	        }
+	    }
+
+	    @Test
+	    public void testSetManagerId5() throws Exception {
+	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        try {
+	            int postalMax = Integer.parseInt("2147483648");
+	            test.setManagerId(postalMax);
+
+	        } catch (RuntimeException e) {
+	            assertThat4(e.getMessage(), "For input string: \"2147483648\"");
+	        }
+	    }
+
+
+	    /**
+	     * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getSubManagerId()} のためのテスト・メソッド。
+	     */
+	    @Test
+	        public void testGetSubManagerId1() {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            int expected = 0;
+
+	            test.setSubManagerId(expected);
+
+	            assertEquals(expected, test.getSubManagerId());
+	        }
+
+	        @Test
+	        public void testGetSubManagerId2() {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            int expected = 2147483647;
+
+	            test.setSubManagerId(expected);
+
+	            assertEquals(expected, test.getSubManagerId());
+	        }
+
+	        @Test
+	        public void testGetSubManagerId3() {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            int expected = -2147483648;
+
+	            test.setSubManagerId(expected);
+
+	            assertEquals(expected, test.getSubManagerId());
+	        }
+
+	        @Test
+	        public void testGetSubManagerId4() throws Exception {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            try {
+	                int postalMin = Integer.parseInt("-2147483649");
+	                test.setSubManagerId(postalMin);
+
+	            } catch (RuntimeException e) {
+	                assertThat3(e.getMessage(), "For input string: \"-2147483649\"");
+	            }
+	        }
+
+	        @Test
+	        public void testGetSubManagerId5() throws Exception {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            try {
+	                int postalMax = Integer.parseInt("2147483648");
+	                test.setSubManagerId(postalMax);
+
+	            } catch (RuntimeException e) {
+	                assertThat3(e.getMessage(), "For input string: \"2147483648\"");
+	            }
+	        }
+
+
+
+
+	        /**
+	         * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setSubManagerId()}
+	         * のためのテスト・メソッド。
+	         */
+	        @Test
+	        public void testSetSubManagerId1() {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            int expected = 0;
+
+	            test.setSubManagerId(expected);
+	            int actual = test.getSubManagerId();
+
+	            assertEquals(expected, actual);
+	        }
+
+	        @Test
+	        public void testSetSubManagerId2() {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            int expected = 2147483647;
+
+	            test.setSubManagerId(expected);
+	            int actual = test.getSubManagerId();
+
+	            assertEquals(expected, actual);
+	        }
+
+	        @Test
+	        public void testSetSubManagerId3() {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            int expected = -2147483648;
+
+	            test.setSubManagerId(expected);
+	            int actual = test.getSubManagerId();
+
+	            assertEquals(expected, actual);
+	        }
+
+	        @Test
+	        public void testSetSubManagerId4() throws Exception {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            try {
+	                int postalMin = Integer.parseInt("-2147483649");
+	                test.setSubManagerId(postalMin);
+
+	            } catch (RuntimeException e) {
+	                assertThat4(e.getMessage(), "For input string: \"-2147483649\"");
+	            }
+	        }
+
+	        @Test
+	        public void testSetSubManagerId5() throws Exception {
+	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            try {
+	                int postalMax = Integer.parseInt("2147483648");
+	                test.setSubManagerId(postalMax);
+
+	            } catch (RuntimeException e) {
+	                assertThat4(e.getMessage(), "For input string: \"2147483648\"");
+	            }
+	        }
+
+
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setHandleName()}
-	 */
-
-	@Test
-	public void testSetManagerId1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = null;
-
-		test.setManagerId(expected);
-		String actual = test.getManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetManagerId2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "";
-
-		test.setManagerId(expected);
-		String actual = test.getManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetManagerId3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = " ";
-
-		test.setManagerId(expected);
-		String actual = test.getManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetManagerId4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "　";
-
-		test.setManagerId(expected);
-		String actual = test.getManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetManagerId5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123";
-
-		test.setManagerId(expected);
-		String actual = test.getManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetManagerId6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "あいう１２３";
-
-		test.setManagerId(expected);
-		String actual = test.getManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetManagerId7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう１２３";
-
-		test.setManagerId(expected);
-		String actual = test.getManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetManagerId8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう漢字";
-
-		test.setManagerId(expected);
-		String actual = test.getManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getHandleName()} のためのテスト・メソッド。
-	 */
-	@Test
-	public void testGetSubManagerId1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = null;
-
-		test.setSubManagerId(expected);
-
-		assertEquals(expected, test.getSubManagerId());
-	}
-
-	@Test
-	public void testGetSubManagerId2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "";
-
-		test.setSubManagerId(expected);
-
-		assertEquals(expected, test.getSubManagerId());
-	}
-
-	@Test
-	public void testGetSubManagerId3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = " ";
-
-		test.setSubManagerId(expected);
-
-		assertEquals(expected, test.getSubManagerId());
-	}
-
-	@Test
-	public void testGetSubManagerId4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "　";
-
-		test.setSubManagerId(expected);
-
-		assertEquals(expected, test.getSubManagerId());
-	}
-
-	@Test
-	public void testGetSubManagerId5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123";
-
-		test.setSubManagerId(expected);
-
-		assertEquals(expected, test.getSubManagerId());
-	}
-
-	@Test
-	public void testGetSubManagerId6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "あいう１２３";
-
-		test.setSubManagerId(expected);
-
-		assertEquals(expected, test.getSubManagerId());
-	}
-
-	@Test
-	public void testGetSubManagerId7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう１２３";
-
-		test.setSubManagerId(expected);
-
-		assertEquals(expected, test.getSubManagerId());
-	}
-
-	@Test
-	public void testGetSubManagerId8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう漢字";
-
-		test.setSubManagerId(expected);
-
-		assertEquals(expected, test.getSubManagerId());
-	}
-
-	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setHandleName()}
-	 */
-
-	@Test
-	public void testSetSubManagerId1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = null;
-
-		test.setSubManagerId(expected);
-		String actual = test.getSubManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetSubManagerId2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "";
-
-		test.setSubManagerId(expected);
-		String actual = test.getSubManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetSubManagerId3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = " ";
-
-		test.setSubManagerId(expected);
-		String actual = test.getSubManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetSubManagerId4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "　";
-
-		test.setSubManagerId(expected);
-		String actual = test.getSubManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetSubManagerId5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123";
-
-		test.setSubManagerId(expected);
-		String actual = test.getSubManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetSubManagerId6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "あいう１２３";
-
-		test.setSubManagerId(expected);
-		String actual = test.getSubManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetSubManagerId7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう１２３";
-
-		test.setSubManagerId(expected);
-		String actual = test.getSubManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testSetSubManagerId8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
-		String expected = "abc123あいう漢字";
-
-		test.setSubManagerId(expected);
-		String actual = test.getSubManagerId();
-
-		assertEquals(expected, actual);
-	}
-
-	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getHandleName()} のためのテスト・メソッド。
+	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getStartDate()} のためのテスト・メソッド。
 	 */
 	@Test
 	public void testGetStartDate1() {
@@ -793,7 +637,7 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setHandleName()}
+	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setStartDate()}
 	 */
 
 	@Test
@@ -885,7 +729,7 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getHandleName()} のためのテスト・メソッド。
+	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getEndDate()}
 	 */
 	@Test
 	public void testGetEndDate1() {
@@ -968,7 +812,7 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setHandleName()}
+	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setEndDate()}
 	 */
 
 	@Test
@@ -1060,8 +904,8 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getHandleName()} のためのテスト・メソッド。
-	 */
+	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getNote()}
+	  */
 	@Test
 	public void testGetNote1() {
 		ProjectsSearchDTO test = new ProjectsSearchDTO();
@@ -1143,7 +987,7 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setHandleName()}
+	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setNote()}
 	 */
 
 	@Test

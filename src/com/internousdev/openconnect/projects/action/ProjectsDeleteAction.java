@@ -37,7 +37,7 @@ public class ProjectsDeleteAction extends ActionSupport {
 	/**
 	 * 取得メソッド
 	 * @author YUICHI KIRIU
-	 * @return
+	 * @return projectId
 	 */
 	public int getProjectId() {
 		return projectId;
@@ -45,7 +45,7 @@ public class ProjectsDeleteAction extends ActionSupport {
 	/**
 	 * 設定メソッド
 	 * @author YUICHI KIRIU
-	 * @param
+	 * @param projectId
 	 */
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;

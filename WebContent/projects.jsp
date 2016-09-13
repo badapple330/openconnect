@@ -70,19 +70,19 @@
 						<td><input type="text" name="projectNameList" maxlength="100"
 							value="<s:property value="projectName"/>" class="projectNamelist"></td>
 
-						<td><input type="text" name="projectManagerIdList"
+						<td><input type="text" name="projectManagerIdList"maxlength="1000"
 							value="<s:property value="managerId"/>"
 							class="projectManagerIdlist"></td>
 
-						<td><input type="text" name="projectSubManagerIdList"
+						<td><input type="text" name="projectSubManagerIdList"maxlength="1000"
 							value="<s:property value="subManagerId"/>"
 							class="projectSubManagerIdlist"></td>
 
-						<td><input type="text" name="projectStartDateList"
+						<td><input type="text" name="projectStartDateList"maxlength="15"
 							value="<s:property value="startDate"/>"
 							class="projectStartDatelist"></td>
 
-						<td><input type="text" name="projectEndDateList"
+						<td><input type="text" name="projectEndDateList"maxlength="15"
 							value="<s:property value="endDate"/>" class="projectEnddatelist"></td>
 
 						<td><input type="text" name="projectNoteList" maxlength="255"
@@ -101,10 +101,9 @@
 	<br>
 	<s:form action="ProjectsInsert">
 		<input type="text" name="projectName" placeholder="プロジェクト名"maxlength=100 required>
-		<input type="text" pattern="[1-9][0-9]*" name="managerId" placeholder="管理者ID(リーダー)" required>
-		<input type="text" pattern="[1-9][0-9]*" name="subManagerId" placeholder="管理者ID(サブ)" required>
-		<input type="text" pattern="\d{4}-\d{2}-\d{2}" name="startDate"
-			placeholder="開始日">
+		<input type="text" pattern="[1-9][0-9]*" name="managerId" placeholder="管理者ID(リーダー)" maxlength="1000"required>
+		<input type="text" pattern="[1-9][0-9]*" name="subManagerId" placeholder="管理者ID(サブ)" maxlength="1000"required>
+		<input type="text" pattern="\d{4}-\d{2}-\d{2}" name="startDate"placeholder="開始日"maxlength="15"required>
 		<input class="button" type="submit" value="追加">
 	</s:form>
 
