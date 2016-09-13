@@ -6,6 +6,7 @@
 <head>
 <meta charset=UTF-8>
 <title>プロジェクトリリース状況</title>
+<link rel="stylesheet" href="css/project_status.css">
 </head>
 <body>
 <header><jsp:include page="header.jsp" /></header>
@@ -17,8 +18,8 @@
 	</div>
 	<br>
 	<s:form action="ProjectStatusSelectAction">
-		<input type="text" name="searchString" placeholder="プロジェクト名">
-		<input type="submit" value="検索" class="button">
+		<input type="text" name="searchString" placeholder="プロジェクト名" id="searchText" maxlength="100">
+		<input type="submit" value="検索" class="button" >
 	</s:form>
 	<br>
 	<s:property value="%{resultStrng}" />
@@ -41,14 +42,14 @@
 				<tr>
 					<td><s:property value="projectId"/></td>
 					<td><s:property value="projectName" /></td>
-					<td><input type="text" name="aEnvStartList" value="<s:property value="aEnvStart" />"></td>
-					<td><input type="text" name="aEnvEndList" value="<s:property value="aEnvEnd" />"></td>
-					<td><input type="text" name="bEnvStartList" value="<s:property value="bEnvStart" />"></td>
-					<td><input type="text" name="bEnvEndList" value="<s:property value="bEnvEnd" />"></td>
-					<td><input type="text" name="rEnvStartList" value="<s:property value="rEnvStart" />"></td>
-					<td><input type="text" name="rEnvEndList" value="<s:property value="rEnvEnd" />"></td>
+					<td><input type="text" name="aEnvStartList" value="<s:property value="aEnvStart" />" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"></td>
+					<td><input type="text" name="aEnvEndList" value="<s:property value="aEnvEnd" />" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"></td>
+					<td><input type="text" name="bEnvStartList" value="<s:property value="bEnvStart" />" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"></td>
+					<td><input type="text" name="bEnvEndList" value="<s:property value="bEnvEnd" />" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"></td>
+					<td><input type="text" name="rEnvStartList" value="<s:property value="rEnvStart" />" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"></td>
+					<td><input type="text" name="rEnvEndList" value="<s:property value="rEnvEnd" />" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"></td>
 					<td><s:property value="awsStatus" /></td>
-					<td><input type="text" name="noteList" value="<s:property value="note" />"></td>
+					<td><input type="text" name="noteList" value="<s:property value="note" />" maxlength="200"></td>
 				</tr>
 					<input type="hidden" name="projectIdList" value="<s:property value="projectId"/>">
 					<input type="hidden" name="statusIdList" value="<s:property value="statusId"/>">

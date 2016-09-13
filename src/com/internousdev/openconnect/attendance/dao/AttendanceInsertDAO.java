@@ -65,7 +65,7 @@ public class AttendanceInsertDAO {
 		ArrayList<StudentsDTO> usersList = new ArrayList<StudentsDTO>();
 
 		try{
-			String sql = "select * from users where year=? and month=?";
+			String sql = "select*from users where year=? and month=?";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString( 1, year );

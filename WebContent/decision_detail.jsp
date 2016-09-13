@@ -18,7 +18,7 @@
 	<!-- 一覧表示 -->
 	<h1>決裁手続き一覧</h1>
 	<br>
-	<s:form action="DecisionDetailSearch">
+	<s:form action="DecisionDetailSelectAction">
 	プロジェクト検索<input type="text" placeholder="例：rewrite" name="searchString" maxlength=30>
 		<s:submit value="検索" />
 	</s:form>
@@ -55,7 +55,7 @@
 				<td>	<s:if test="%{decisionStatus=='承認'}">
 				<input type="button" value="申請" /></s:if>
 				<s:else>
-				<s:form action="DecisionDetailApplication">
+				<s:form action="DecisionDetailApplicationAction">
 						<input type="hidden" name="decisionDetailId"
 							value="<s:property value="decisionDetailId" />">
 						<input type="hidden" name="decisionStatus" value="承認待">
@@ -65,7 +65,7 @@
 					</td>
 				<td><s:if test="%{!(#session.userFlg == 1)}"><input type="button" value="削除" class="modal-open"></s:if></td>
 
-				<td><s:form action="DecisionDetailPreview">
+				<td><s:form action="DecisionDetailPreviewAction">
 						<input type="hidden" name="decisionDetailId"
 							value="<s:property value="decisionDetailId" />">
 						<s:submit value="プレビュー" />
@@ -77,7 +77,7 @@
 	<br>
 
 
-	<s:form action="DecisionDetailInsert">
+	<s:form action="DecisionDetailInsertAction">
 		プロジェクトID入力<input type="text" name="projectId" pattern="^[0-9]+$" placeholder="半角数字のみ" maxlength=20><br>
 		パスワード入力 <input type="text" name="password" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ" maxlength=20>
 		<input type="submit" value="追加">
@@ -109,7 +109,7 @@
 
 		<div class="delete-prepare">
 			パスワードを入力してください
-			<s:form action="DecisionDetailUpdate">
+			<s:form action="DecisionDetailUpdateAction">
 				<input type="text" name="password" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ">
 				<input type="hidden" name="decisionDetailId" value=""
 					id="edit-delete">
@@ -144,7 +144,7 @@
 
 		<div class="delete-prepare">
 			本当に削除しますか？
-			<s:form action="DecisionDetailDelete">
+			<s:form action="DecisionDetailDeleteAction">
 				<input type="hidden" name="decisionDetailId" value=""
 					id="true-delete">
 				<input type="submit" class="delete-true button" value="はい">

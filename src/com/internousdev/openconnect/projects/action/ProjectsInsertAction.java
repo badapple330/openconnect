@@ -2,7 +2,7 @@ package com.internousdev.openconnect.projects.action;
 
 import java.util.List;
 
-import com.internousdev.openconnect.projectStatus.dao.ProjectStatusInsertDAO;
+import com.internousdev.openconnect.project.status.dao.ProjectStatusInsertDAO;
 import com.internousdev.openconnect.projects.dao.ProjectsInsertDAO;
 import com.internousdev.openconnect.projects.dao.ProjectsSerachDAO;
 import com.internousdev.openconnect.projects.dto.ProjectsSearchDTO;

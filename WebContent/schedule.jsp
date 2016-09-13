@@ -45,7 +45,7 @@
 
 
 
-		<s:form action="ScheduleSelect">
+		<s:form action="ScheduleSelectAction">
 			<input type="text" name="search" placeholder="件名を入力" />
 			<s:submit value="検索"></s:submit>
 		</s:form>
@@ -53,7 +53,7 @@
 
 		<s:property value="successMsg" />
 		<s:property value="errorMsg" />
-		<s:form action="ScheduleUpdate">
+		<s:form action="ScheduleUpdateAction">
 			<table border=1 style="">
 				<tbody>
 					<tr>
@@ -95,7 +95,7 @@
 		</s:form>
 
 		<br> 開始日は今日の日付が自動で入力されます。
-		<s:form action="ScheduleInsert">
+		<s:form action="ScheduleInsertAction">
 			<table border=1 style="">
 				<tbody>
 					<tr>
@@ -149,7 +149,7 @@
 
 				<div class="delete-prepare">
 					<p>本当に削除しますか。</p>
-					<s:form action="ScheduleDelete">
+					<s:form action="ScheduleDeleteAction">
 						<input type="hidden" name="scheduleId" value=""
 							class="true-delete">
 						<input type="submit" class="delete-true button" value="はい">

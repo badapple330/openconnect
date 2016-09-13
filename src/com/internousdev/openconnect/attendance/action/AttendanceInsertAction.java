@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * DBの情報を画面に表示する為のクラス
- * @author MINORI SUNAGAWA
+ * @author MINORI SUNAGAWA、KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
  */
@@ -49,7 +49,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	private String resultString = "";
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * 実行メソッド 勤怠管理のDB
 	 * @author MINORI SUNAGAWA
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
@@ -186,11 +186,21 @@ public class AttendanceInsertAction extends ActionSupport{
 			result = true;
 		}
 
+
+
+
+
+
+
+
+
+
+
 		return result;
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド　シリアル番号を取得
 	 * @author MINORI SUNAGAWA
 	 * @return serialVersionUID
 	 */
@@ -199,7 +209,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド　受講年を取得
 	* @author MINORI SUNAGAWA
 	* @return year
 	*/

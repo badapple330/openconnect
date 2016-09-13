@@ -21,12 +21,12 @@
 		<h1>書籍一覧</h1>
 		<br> <br> 書籍の検索
 
-		<s:form action="BooksSearch">
+		<s:form action="BooksSelectAction">
 			<input type="text" name="search" pattern = "^[ぁ-ん]+$ ,[\u3041-\u3n09F]*" maxlength="20" required placeholder="タイトル入力してください">
 			<input class="button" type="submit" value="検索">
 		</s:form>
 
-		<s:form action="BooksEdit">
+		<s:form action="BooksUpdateAction">
 			<table border="1" cellspacing="0">
 				<tr>
 					<th><center>ID</center></th>
@@ -93,7 +93,7 @@
 			<br>
 		</s:form>
 
-		<s:form action="GoBooksBorrow">
+		<s:form action="BooksBorrowSelectAction">
 			<input type="submit" class="button" value="貸し出し">
 			<br>
 		</s:form>

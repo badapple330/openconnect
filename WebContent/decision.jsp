@@ -20,13 +20,13 @@
 		<div align="left">案件名を入力してください</div>
 		<p>
 		<p>
-			<s:form action="DecisionSelect">
+			<s:form action="DecisionSelectAction">
 				<input type="text" name="searchString" id="searchText">
 				<input type="submit" value="検索" class="button">
 			</s:form>
 		</p>
 		<br>
-		<s:form action="DecisionUpdate">
+		<s:form action="DecisionUpdateAction">
 			<div class="center">
 				<table border="1">
 					<tr>

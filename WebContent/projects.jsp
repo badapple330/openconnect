@@ -99,7 +99,7 @@
 		</s:if>
 	</s:form>
 	<br>
-	<s:form action="ProjectsInsert">
+	<s:form action="ProjectsInsertAction">
 		<table border="1">
 			<tbody id="list_body">
 				<tr>
@@ -168,7 +168,7 @@
 
 			<div class="delete-prepare">
 				<p>本当に削除しますか。</p>
-				<s:form action="ScheduleDelete">
+				<s:form action="ScheduleDeleteAction">
 					<input type="hidden" name="scheduleId" value="" class="true-delete">
 					<input type="submit" class="delete-true button" value="はい">
 					<input type="button" class="modal-close button" value="いいえ">

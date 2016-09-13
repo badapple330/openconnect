@@ -23,7 +23,7 @@ public class ProjectsSelectAction extends ActionSupport{
 	/**
 	 * 検索ワード
 	 */
-	private String search;
+	private String search = "";
 
 	private List<ProjectsSearchDTO > projectList = new ArrayList<ProjectsSearchDTO>();
 	private String errorMsg;

@@ -25,7 +25,7 @@ public class BooksSelectAction extends ActionSupport {
 	 * サーチ
 	 */
 
-	private String search;
+	private String search = "";
 
 	/**
 	 * エラーメッセージ
