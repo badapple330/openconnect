@@ -21,6 +21,11 @@ public class BooksBorrowAction extends ActionSupport {
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 
+	/**
+	 * シリアルバージョンID
+	 */
+	private static final long serialVersionUID = -7586577377473680450L;
+
 	public String execute() {
 		String result = ERROR;
 		BooksBorrowDAO dao = new BooksBorrowDAO();
