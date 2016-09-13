@@ -108,10 +108,11 @@
 					<th>管理者（リーダー）</th>
 					<th>管理者（サブリーダー）</th>
 					<th>開始日</th>
-					<th></th>
+
 				</tr>
 
 				<tr>
+
 					<td><input type="text" name="projectName"
 						placeholder="プロジェクト名" maxlength=100 required></td>
 					<td><input type="text" pattern="[1-9][0-9]*" name="managerId"
@@ -125,7 +126,7 @@
 		</table>
 		</tbody>
 		<s:if test="%{#session.userFlg >= 2}">
-		<input class="button" type="submit" value="追加">
+			<input class="button" type="submit" value="追加">
 		</s:if>
 	</s:form>
 
@@ -170,8 +171,9 @@
 
 			<div class="delete-prepare">
 				<p>本当に削除しますか。</p>
-				<s:form action="ScheduleDeleteAction">
-					<input type="hidden" name="scheduleId" value="" class="true-delete">
+
+				<s:form action="ProjectsDeleteAction">
+					<input type="hidden" name="projectId" value="" class="true-delete">
 					<input type="submit" class="delete-true button" value="はい">
 					<input type="button" class="modal-close button" value="いいえ">
 				</s:form>
@@ -183,7 +185,6 @@
 	<div id="contents">
 		<br>
 	</div>
-
 
 	<br>
 	<br>
@@ -210,6 +211,5 @@
 
 
 
-</body>
 </body>
 </html>

@@ -24,24 +24,24 @@ $(function(){
 		$("#modal-bg,#modal-main").fadeIn("slow");
 
 		var index = $('.modal-open').index($(this));
-		var id = $('.projectIdList').eq(index).val();
+		var id = $('.projectId').eq(index).val();
 		$('#delete-projectid').val( id );
 
-		$('.delete-projectname').html($('.projectNameList').eq(index).val());
+		$('.delete-projectname').html($('.projectNamelist').eq(index).val());
 
-		$('.delete-projectmanagerid').html($('.projectManagerIdList').eq(index).val());
+		$('.delete-projectmanagerid').html($('.projectManagerIdlist').eq(index).val());
 
-		$('.delete-projectsubmanagerid').html($('.projectSubManagerIdList').eq(index).val());
+		$('.delete-projectsubmanagerid').html($('.projectSubManagerIdlist').eq(index).val());
 
-		$('.delete-projectstartdate').html($('.projectStartDateList').eq(index).val());
+		$('.delete-projectstartdate').html($('.projectStartDatelist').eq(index).val());
 
-		$('.delete-projectenddate').html($('.projectEndDateList').eq(index).val());
+		$('.delete-projectenddate').html($('.projectEnddatelist').eq(index).val());
 
-		$('.delete-projectnote').html($('.projectNoteList').eq(index).val());
+		$('.delete-projectnote').html($('.projectNotelist').eq(index).val());
 
 
 		var index = $('.modal-open').index($(this));
-		var abc = $('.projectNameList').eq(index).val();
+		var abc = $('.projectId').eq(index).val();
 		$('.true-delete').val( abc );
 
 		$(".modal-close").click(function(){
