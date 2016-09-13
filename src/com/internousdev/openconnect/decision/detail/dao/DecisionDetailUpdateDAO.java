@@ -24,7 +24,6 @@ public class DecisionDetailUpdateDAO {
 	 /**
      * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
      * @author TATUHUMI ITOU
-     * @return  projectList 抽出に成功したらSUCCESS、失敗したらERROR
      */
 	public List<DecisionDetailDTO> select(int decisionDetailId) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");

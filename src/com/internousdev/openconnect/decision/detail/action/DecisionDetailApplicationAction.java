@@ -5,6 +5,8 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  * DBに情報を格納する為のクラス
  * @author TATSUHUMI ITOU
+ * * @since 2016/09/04
+ * @version 1.0
  */
 public class DecisionDetailApplicationAction  extends ActionSupport{
 	/**
@@ -20,7 +22,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 	 */
 	private int decisionDetailId;
 	/**
-	 * 実行メソッド DAOにデータを渡して、結果を返す
+	 * 実行メソッド DAOのメソッドにデータを渡して、その結果が１つでもあればSUCCESSを返す
 	 * @author TATUHUMI ITOU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */

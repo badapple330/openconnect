@@ -22,9 +22,8 @@ import com.internousdev.util.DBConnector;
 public class DecisionDetailSelectDAO {
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
 	 * @author TATUHUMI ITOU
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public List<DecisionDetailDTO> select( String searchString ){
 
