@@ -19,7 +19,8 @@
 	<h1>決裁手続き一覧</h1>
 	<br>
 	<s:form action="DecisionDetailSelectAction">
-	プロジェクト検索<input type="text" placeholder="例：rewrite" name="searchString" maxlength=30>
+	プロジェクト検索<input type="text" placeholder="例：rewrite" name="searchString"
+			maxlength=30>
 		<s:submit value="検索" />
 	</s:form>
 	<br>
@@ -49,21 +50,22 @@
 				<td class="decision_name"><s:property value="projectName" /></td>
 				<td class="decision_type"><s:property value="decisionType" /></td>
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
-				<td><s:if test="%{!(#session.userFlg == 1)}"><input type="button" value="編集" class="modal-edit-open"></s:if>
-
-				</td>
-				<td>	<s:if test="%{decisionStatus=='承認'}">
-				<input type="button" value="申請" /></s:if>
-				<s:else>
-				<s:form action="DecisionDetailApplicationAction">
-						<input type="hidden" name="decisionDetailId"
-							value="<s:property value="decisionDetailId" />">
-						<input type="hidden" name="decisionStatus" value="承認待">
-						<s:submit value="申請" />
-					</s:form>
-					</s:else>
-					</td>
-				<td><s:if test="%{!(#session.userFlg == 1)}"><input type="button" value="削除" class="modal-open"></s:if></td>
+				<td><s:if test="%{!(#session.userFlg == 1)}">
+						<input type="button" value="編集" class="modal-edit-open">
+					</s:if></td>
+				<td><s:if test="%{decisionStatus=='承認'}">
+						<input type="button" value="申請" />
+					</s:if> <s:else>
+						<s:form action="DecisionDetailApplicationAction">
+							<input type="hidden" name="decisionDetailId"
+								value="<s:property value="decisionDetailId" />">
+							<input type="hidden" name="decisionStatus" value="承認待">
+							<s:submit value="申請" />
+						</s:form>
+					</s:else></td>
+				<td><s:if test="%{!(#session.userFlg == 1)}">
+						<input type="button" value="削除" class="modal-open">
+					</s:if></td>
 
 				<td><s:form action="DecisionDetailPreviewAction">
 						<input type="hidden" name="decisionDetailId"
@@ -75,14 +77,22 @@
 
 	</table>
 	<br>
-
-
 	<s:form action="DecisionDetailInsertAction">
-		プロジェクトID入力<input type="text" name="projectId" pattern="^[0-9]+$" placeholder="半角数字のみ" maxlength=20><br>
-		パスワード入力 <input type="text" name="password" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ" maxlength=20>
+		<table border="1">
+
+			<tr>
+				<th>プロジェクトID</th>
+				<th>パスワード</th>
+			</tr>
+			<tr>
+				<td><input type="text" name="projectId" pattern="^[0-9]+$"
+					placeholder="半角数字のみ" maxlength=20></td>
+				<td><input type="text" name="password" pattern="^[0-9A-Za-z]+$"
+					placeholder="半角英数字のみ" maxlength=20></td>
+			</tr>
+		</table>
 		<input type="submit" value="追加">
 	</s:form>
-
 
 	<div id="modal-edit-main">
 		以下の内容を編集しますか？
@@ -110,7 +120,8 @@
 		<div class="delete-prepare">
 			パスワードを入力してください
 			<s:form action="DecisionDetailUpdateAction">
-				<input type="text" name="password" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ">
+				<input type="text" name="password" pattern="^[0-9A-Za-z]+$"
+					placeholder="半角英数字のみ">
 				<input type="hidden" name="decisionDetailId" value=""
 					id="edit-delete">
 				<input type="submit" class="delete-true button" value="編集">

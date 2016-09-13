@@ -24,7 +24,7 @@
 		<table border=1>
 			<tbody id="list_body">
 				<tr>
-				<th></th>
+					<th></th>
 					<th>プロジェクトID</th>
 					<th>日付</th>
 					<th>プロジェクト名</th>
@@ -42,15 +42,15 @@
 						<td><input type="hidden" name="progressIdList"
 							value="<s:property value="progressId" />" class="progressId"></td>
 
-						<td><s:property value="projectId"/>
-						<input type="hidden" name="projectIdList"
-							value="<s:property value="projectId"/>" size="7"
-							class="projectIdlist" maxlength="4"></td>
+						<td><s:property value="projectId" /> <input type="hidden"
+							name="projectIdList" value="<s:property value="projectId"/>"
+							size="7" class="projectIdlist" maxlength="4"></td>
 						<td><input type="text" name="projectDayList"
 							value="<s:property value="projectDay" />" size="8"
 							class="projectDaylist" maxlength="12"></td>
 						<td><input type="text" name="projectnameList"
-							value="<s:property value="projectName" />" class="projectlist" maxlength="20"></td>
+							value="<s:property value="projectName" />" class="projectlist"
+							maxlength="20"></td>
 						<td><input type="text" name="projectPlanList"
 							value="<s:property value="projectPlan" />"
 							class="projectPlanlist" maxlength="100"></td>
@@ -58,38 +58,57 @@
 							value="<s:property value="projectResult" />"
 							class="projectResultlist" maxlength="100"></td>
 						<td><input type="text" name="otherList"
-							value="<s:property value="other" />" class="otherlist" maxlength="100"></td>
+							value="<s:property value="other" />" class="otherlist"
+							maxlength="100"></td>
 
 						<td><s:property value="managerId" /></td>
 						<td><s:property value="subManagerId" /></td>
 						<td><s:property value="startDate" /></td>
 						<td><s:property value="endDate" /></td>
 						<td><s:property value="note" /></td>
-						<td><s:if test="%{!(#session.userFlg == 1)}"><input type="button" class="button modal-open" value="削除" /></s:if></td>
+						<td><s:if test="%{!(#session.userFlg == 1)}">
+								<input type="button" class="button modal-open" value="削除" />
+							</s:if></td>
 					</tr>
 				</s:iterator>
 
 			</tbody>
 		</table>
-		<s:if test="%{!(#session.userFlg == 1)}"><input type="submit" class="button" value="編集" /></s:if>
+		<s:if test="%{!(#session.userFlg == 1)}">
+			<input type="submit" class="button" value="編集" />
+		</s:if>
 	</s:form>
 
 	<s:form action="ProjectInsertAction">
-		<input type="text" name="projectId" placeholder="プロジェクトIDを打って下さい" pattern="^[0-9]+$" maxlength="4">
-		<input type="text" name="projectPlan" placeholder="進捗予定" maxlength="100">
-		<input type="text" name="projectResult" placeholder="進捗結果" maxlength="100">
-		<input type="text" name="other" placeholder="その他報告" maxlength="100">
+		<table border="1">
+			<tr>
+				<th>プロジェクトID</th>
+				<th>進捗予定</th>
+				<th>進捗結果</th>
+				<th>その他報告</th>
+			</tr>
+			<tr>
+				<td><input type="text" name="projectId" placeholder=""
+					pattern="^[0-9]+$" maxlength="4"></td>
+				<td><input type="text" name="projectPlan" placeholder=""
+					maxlength="100"></td>
+				<td><input type="text" name="projectResult" placeholder=""
+					maxlength="100"></td>
+				<td><input type="text" name="other" placeholder=""
+					maxlength="100"></td>
+			</tr>
+		</table>
 		<input type="submit" class="button" value="追加">
 	</s:form>
 
 
 	<div id="modal-main">
-<table border="1">
-		<tr>
+		<table border="1">
+			<tr>
 				<td>プロジェクトID</td>
 				<td><span id="delete-projectid"></span></td>
 			</tr>
-		<tr>
+			<tr>
 				<td>日付</td>
 				<td><span id="delete-projectday"></span></td>
 			</tr>
@@ -111,8 +130,8 @@
 			</tr>
 		</table>
 
-		 <input type="button" class="delete-true button" value="削除"> <input type="button"
-			class="modal-close button" value="閉じる">
+		<input type="button" class="delete-true button" value="削除"> <input
+			type="button" class="modal-close button" value="閉じる">
 
 		<div class="delete-prepare">
 			本当に削除しますか？
