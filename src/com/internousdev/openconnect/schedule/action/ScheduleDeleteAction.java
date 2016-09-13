@@ -10,12 +10,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
- * DB情報を削除するクラス。
+ * スケジュール一覧のDB情報を削除するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
 
 public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
+
 	/**
 	 * シリアル番号
 	 */
@@ -30,13 +31,13 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 成功
+	 * 成功メッセージ
 	 * @author MASAHIRO KEDSUKA
 	 */
 	private String successMsg;
 
 	/**
-	 * エラー
+	 * エラーメッセージ
 	 * @author MASAHIRO KEDSUKA
 	 */
 	private String errorMsg;
@@ -66,7 +67,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド スケジュールID
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleId
 	 */
@@ -84,14 +85,16 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 		this.scheduleId = scheduleId;
 	}
 
+
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 成功のメッセージ
 	 * @author MASAHIRO KEDSUKA
 	 * @return successMsg
 	 */
 	public String getSuccessMsg() {
 		return successMsg;
 	}
+
 
 	/**
 	 * 設定メソッド
@@ -102,14 +105,16 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 		this.successMsg = successMsg;
 	}
 
+
 	/**
-	 * 取得メソッド
+	 * 取得メソッド エラーメッセージ
 	 * @author MASAHIRO KEDSUKA
 	 * @return errorMsg
 	 */
 	public String getErrorMsg() {
 		return errorMsg;
 	}
+
 
 	/**
 	 * 設定メソッド
@@ -120,14 +125,16 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 		this.errorMsg = errorMsg;
 	}
 
+
 	/**
-	* 取得メソッド
+	* 取得メソッド 管理権限のセッション
 	* @author MASAHIRO KEDSUKA
 	* @return session
 	*/
 	public Map<String, Object> getSession() {
 		return session;
 	}
+
 
 	/**
 	* 設定メソッド
@@ -138,15 +145,14 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
+
 	/**
-	* 取得メソッド
+	* 取得メソッド シリアルID
 	* @author
 	* @return serialVersionUID
 	*/
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-
 
 }

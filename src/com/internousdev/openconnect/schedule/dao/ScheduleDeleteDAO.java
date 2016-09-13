@@ -8,7 +8,7 @@ import com.internousdev.util.DBConnector;
 
 
 /**
- * 情報を受け取ってDBにある情報を削除するクラス。
+ * スケジュール一覧の情報をActionから受け取ってDBにある情報を削除するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -16,7 +16,7 @@ public class ScheduleDeleteDAO {
 
 
 	/**
-	 * DBから情報を削除するメソッド。
+	 * DBからスケジュール一覧にある情報を削除するメソッド。
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleId
 	 * @return count

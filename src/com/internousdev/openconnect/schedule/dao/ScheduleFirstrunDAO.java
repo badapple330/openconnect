@@ -12,7 +12,7 @@ import com.internousdev.util.DBConnector;
 
 
 /**
- * はじめに画面を開いたときにDBを検索するクラス。
+ * スケジュール一覧をはじめに開いたときにDBを検索するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -25,7 +25,7 @@ public class ScheduleFirstrunDAO {
 	public List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
 
 	/**
-	 * DB検索するメソッド。
+	 * スケジュール一覧のDB検索するメソッド。
 	 * @author MASAHIRO KEDSUKA
 	 * @param search
 	 * @return schedulelist

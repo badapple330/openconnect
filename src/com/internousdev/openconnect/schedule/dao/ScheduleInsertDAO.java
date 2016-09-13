@@ -9,14 +9,14 @@ import com.mysql.jdbc.Connection;
 
 
 /**
- * 画面から入力された情報を追加するクラス。
+ * スケジュール一覧から追加入力された情報をDBに追加するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
 public class ScheduleInsertDAO {
 
 	/**
-	 * 入力された情報をDBに追加するメソッド。
+	 * スケジュール一覧より入力された情報をDBに追加するメソッド。
 	 * @author MASAHIRO KEDSUKA
 	 * @param startday
 	 * @param title

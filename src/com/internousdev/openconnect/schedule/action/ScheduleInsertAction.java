@@ -6,7 +6,7 @@ import com.internousdev.openconnect.schedule.dao.ScheduleInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * DBに情報を追加するクラス。
+ * スケジュール一覧のDBに情報を追加するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -75,16 +75,14 @@ public class ScheduleInsertAction extends ActionSupport{
 	}
 
 
-
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 開始日
 	 * @author MASAHIRO KEDSUKA
 	 * @return startDay
 	 */
 	public String getStartDay() {
 		return startDay;
 	}
-
 
 
 	/**
@@ -99,7 +97,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 件名
 	 * @author MASAHIRO KEDSUKA
 	 * @return Title
 	 */
@@ -119,7 +117,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 内容
 	 * @author MASAHIRO KEDSUKA
 	 * @return Content
 	 */
@@ -138,9 +136,8 @@ public class ScheduleInsertAction extends ActionSupport{
 	}
 
 
-
 	/**
-	 * 取得メソッド
+	 * 取得メソッド エラーメッセージ
 	 * @author MASAHIRO KEDSUKA
 	 * @return errorMsg
 	 */
@@ -160,7 +157,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 成功メッセージ
 	 * @author MASAHIRO KEDSUKA
 	 * @return successMsg
 	 */
@@ -179,15 +176,13 @@ public class ScheduleInsertAction extends ActionSupport{
 	}
 
 
-
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return serialVersionUID
-	*/
+	 * 取得メソッド シリアルID
+	 * @author MASAHIRO KEDSUKA
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
 
 }

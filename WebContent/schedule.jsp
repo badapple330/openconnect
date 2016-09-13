@@ -109,8 +109,9 @@
 						<td><input type="text" name="content" placeholder="内容を入力"
 							maxlength=100></td>
 						<!-- tokenタグ -->
+						<s:if test="%{#session.userFlg == 2 || #session.userFlg == 3}">
 						<s:token />
-						<td><button type="submit" class="button" name="startDay">追加</button></td>
+						<td><button type="submit" class="button" name="startDay">追加</button></td></s:if>
 					</tr>
 				</tbody>
 			</table>

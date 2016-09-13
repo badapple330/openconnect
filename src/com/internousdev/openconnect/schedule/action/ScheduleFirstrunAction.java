@@ -8,7 +8,7 @@ import com.internousdev.openconnect.schedule.dto.ScheduleDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * はじめに画面を開いたときDBの情報を表示するクラス。
+ * スケジュール一覧をはじめに開いたときDBの情報を表示するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -24,6 +24,7 @@ public class ScheduleFirstrunAction extends ActionSupport {
 	 * スケジュールリスト
 	 */
 	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
+
 
 	/**
 	 * 実行メソッド。DAOに入力されたデータを渡して、結果を返す。
@@ -43,29 +44,32 @@ public class ScheduleFirstrunAction extends ActionSupport {
 		return result;
 	}
 
+
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return scheduleList
-	*/
+	 * 取得メソッド スケジュールリスト
+	 * @author MASAHIRO KEDSUKA
+	 * @return scheduleList
+	 */
 	public List<ScheduleDTO> getScheduleList() {
 		return scheduleList;
 	}
 
+
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param scheduleList
-	*/
+	 * 設定メソッド
+	 * @author MASAHIRO KEDSUKA
+	 * @param scheduleList
+	 */
 	public void setScheduleList(List<ScheduleDTO> scheduleList) {
 		this.scheduleList = scheduleList;
 	}
 
+
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return serialVersionUID
-	*/
+	 * 取得メソッド シリアルID
+	 * @author MASAHIRO KEDSUKA
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

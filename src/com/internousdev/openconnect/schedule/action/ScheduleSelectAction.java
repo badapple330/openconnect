@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
- * DBを検索するクラス。
+ * スケジュール一覧のDBを検索するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -34,7 +34,7 @@ public class ScheduleSelectAction extends ActionSupport {
 	private String search = "";
 
 	/**
-	 *エラー
+	 *エラーメッセージ
 	 * @author MASAHIRO KEDSUKA
 	 */
 	private String errorMsg;
@@ -58,16 +58,14 @@ public class ScheduleSelectAction extends ActionSupport {
 	}
 
 
-
 	/**
-	 * 取得メソッド
+	 * 取得メソッド スケジュールリスト
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleList
 	 */
 	public List<ScheduleDTO> getScheduleList() {
 		return scheduleList;
 	}
-
 
 
 	/**
@@ -80,16 +78,14 @@ public class ScheduleSelectAction extends ActionSupport {
 	}
 
 
-
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 検索文
 	 * @author MASAHIRO KEDSUKA
 	 * @return search
 	 */
 	public String getSearch() {
 		return search;
 	}
-
 
 
 	/**
@@ -102,16 +98,14 @@ public class ScheduleSelectAction extends ActionSupport {
 	}
 
 
-
 	/**
-	 * 取得メソッド
+	 * 取得メソッド エラーメッセージ
 	 * @author MASAHIRO KEDSUKA
 	 * @return errorMsg
 	 */
 	public String getErrorMsg() {
 		return errorMsg;
 	}
-
 
 
 	/**
@@ -124,15 +118,13 @@ public class ScheduleSelectAction extends ActionSupport {
 	}
 
 
-
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return serialVersionUID
-	*/
+	 * 取得メソッド シリアルID
+	 * @author MASAHIRO KEDSUKA
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
 
 }

@@ -1,7 +1,7 @@
 package com.internousdev.openconnect.schedule.dto;
 
 /**
- * DBを検索するクラス。
+ * スケジュール一覧から検索したデータを溜め込むクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -40,7 +40,7 @@ public class ScheduleDTO {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド ID
 	 * @author MASAHIRO KEDSUKA
 	 * @return id
 	 */
@@ -58,7 +58,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 開始日
 	 * @author MASAHIRO KEDSUKA
 	 * @return startDay
 	 */
@@ -76,7 +76,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 終了日
 	 * @author MASAHIRO KEDSUKA
 	 * @return endDay
 	 */
@@ -94,7 +94,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 件名
 	 * @author MASAHIRO KEDSUKA
 	 * @return title
 	 */
@@ -112,7 +112,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 内容
 	 * @author MASAHIRO KEDSUKA
 	 * @return content
 	 */

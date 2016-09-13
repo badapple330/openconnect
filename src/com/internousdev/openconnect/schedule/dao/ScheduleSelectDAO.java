@@ -13,7 +13,7 @@ import com.internousdev.util.DBConnector;
 
 
 /**
- * 画面から検索するクラス。
+ * スケジュール一覧をActionから受け取った検索文を検索するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -27,7 +27,7 @@ public class ScheduleSelectDAO {
 
 
 	/**
-	 * 画面から検索するメソッド。
+	 * スケジュール一覧を検索するメソッド。
 	 * @author MASAHIRO KEDSUKA
 	 * @param search
 	 * @return schedulelist

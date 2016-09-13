@@ -7,14 +7,14 @@ import com.internousdev.util.DBConnector;
 import com.mysql.jdbc.Connection;
 
 /**
- * DBの情報を更新するクラス。
+ * スケジュール一覧のDB情報を更新するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
 public class ScheduleUpdateDAO {
 
 	/**
-	 * 更新するメソッド。
+	 * スケジュール一覧のDBを更新するメソッド。
 	 * @author MASAHIRO KEDSUKA
 	 * @param id
 	 * @param startDay
@@ -29,6 +29,7 @@ public class ScheduleUpdateDAO {
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn= (Connection) db.getConnection();
 
+		//終了日が空白対応
 		if( endDay.equals("") ){
 			endDay = "0000-00-00";
 		}

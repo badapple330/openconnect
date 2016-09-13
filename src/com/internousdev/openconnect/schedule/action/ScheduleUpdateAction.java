@@ -7,7 +7,7 @@ import com.internousdev.openconnect.schedule.dao.ScheduleUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 画面から入力された値を更新するクラス。
+ * スケジュール一覧で入力された値を更新するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -49,14 +49,14 @@ public class ScheduleUpdateAction extends ActionSupport {
 	private List<String> scheduleContentList = new ArrayList<String>();
 
 	/**
-	 * エラー
+	 * エラーメッセージ
 	 * @author MASAHIRO KEDSUKA
 	 */
 	private String errorMsg;
 
 
 	/**
-	 * 成功
+	 * 成功メッセージ
 	 * @author MASAHIRO KEDSUKA
 	 */
 	private String successMsg;
@@ -91,7 +91,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド リストのスケジュールID
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleIdList
 	 */
@@ -111,7 +111,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド リストの開始日
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleStartdayList
 	 */
@@ -131,7 +131,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド リストの終了日
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleEnddayList
 	 */
@@ -151,7 +151,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド リストの件名
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleTitleList
 	 */
@@ -171,7 +171,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド リストの内容
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleContentList
 	 */
@@ -191,7 +191,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド エラーメッセージ
 	 * @author MASAHIRO KEDSUKA
 	 * @return errorMsg
 	 */
@@ -211,7 +211,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 成功メッセージ
 	 * @author MASAHIRO KEDSUKA
 	 * @return successMsg
 	 */
@@ -231,10 +231,10 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return serialVersionUID
-	*/
+	 * 取得メソッド シリアルID
+	 * @author MASAHIRO KEDSUKA
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
