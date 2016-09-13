@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.internousdev.openconnect.projectProgress.dto.ProjectProgressDTO;
+import com.internousdev.openconnect.project.progress.dto.ProjectProgressDTO;
 
 public class ProjectProgressDTOTest {
 	/**
