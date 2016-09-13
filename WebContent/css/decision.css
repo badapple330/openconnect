@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+table{
+	table-layout: auto;
+}
+
 td{
 	text-align:center;
 }
@@ -31,9 +35,24 @@ p {
 	width: 100%;
 }
 
-input {
-	text-align: center;
+input[type="text"] {
+/* 	text-align: center; */
+	width:100%;
 }
+
+#searchText{
+	width:150px;
+}
+
+#registration{
+	width:170px;
+}
+
+#id{
+	width:20;
+}
+
+
 
 #page_ctrl ul, #page_ctrl li {
 	display: inline;

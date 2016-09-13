@@ -34,18 +34,53 @@ public class DecisionSelectDAO {
 
 			while(rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
-
+				/**
+				 *登録日
+				 */
 				dto.setRegistration(rs.getString("registration"));
+				/**
+				 *ユーザーID
+				 */
 				dto.setUserId(rs.getInt("user_id"));
+				/**
+				 *プロジェクトID
+				 */
 				dto.setProjectId(rs.getInt("project_id"));
+				/**
+				 *案件名
+				 */
 				dto.setDecisionId(rs.getInt("decision_id"));
+				/**
+				 *詳細
+				 */
 				dto.setDecisionName(rs.getString("decision_name"));
+				/**
+				 *実施起案番号
+				 */
 				dto.setDetail(rs.getString("detail"));
+				/**
+				 *実施決裁番号
+				 */
 				dto.setIDraftingId(rs.getString("i_drafting_id"));
+				/**
+				 *実施起案番号
+				 */
 				dto.setIApprovalId(rs.getString("i_approval_id"));
+				/**
+				 *契約起案番号
+				 */
 				dto.setADraftingId(rs.getString("a_drafting_id"));
+				/**
+				 *契約決番号
+				 */
 				dto.setCdId(rs.getString("cd_id"));
+				/**
+				 *実施兼契約起案番号
+				 */
 				dto.setIADId(rs.getString("i_a_d_id"));
+				/**
+				 *実施兼契約番号
+				 */
 				dto.setIAId(rs.getString("i_a_id"));
 				list.add(dto);
 				result = true;
