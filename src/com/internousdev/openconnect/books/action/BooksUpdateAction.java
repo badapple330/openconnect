@@ -31,7 +31,7 @@ public class BooksUpdateAction extends ActionSupport {
 	 */
 	public String execute() throws SQLException{
 
-		String result =ERROR;
+		String result = ERROR;
 		BooksUpdateDAO dao = new BooksUpdateDAO();
 		int count = 0 ;
 

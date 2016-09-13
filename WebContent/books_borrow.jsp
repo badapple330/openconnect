@@ -47,7 +47,7 @@
 
 		<br>
 
-		<s:form action="BooksBorrowUpdateActioin">
+		<s:form action="BooksBorrowUpdateAction">
 	書籍のID
 	<br>
 			<input type="text" name="bookId" pattern="[1-9][0-9]*" maxlength="3" required placeholder="ID入力してください">

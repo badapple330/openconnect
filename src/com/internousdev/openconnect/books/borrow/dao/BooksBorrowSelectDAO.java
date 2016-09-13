@@ -21,16 +21,12 @@ import com.internousdev.util.DBConnector;
 public class BooksBorrowSelectDAO {
 
 	private List<BooksBorrowDTO>bookList = new ArrayList<BooksBorrowDTO>();
-
 	/**
 	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
 	 */
-
-
 	public List<BooksBorrowDTO> select() {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
-
 
 		try {
 			String sql="SELECT * FROM books_borrow inner join books on books_borrow.book_id = books.book_id";

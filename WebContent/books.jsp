@@ -22,7 +22,7 @@
 		<br> <br> 書籍の検索
 
 		<s:form action="BooksSelectAction">
-			<input type="text" name="search" pattern = "^[ぁ-ん]+$ ,[\u3041-\u3n09F]*" maxlength="20" required placeholder="タイトル入力してください">
+			<input type="text" name="search" maxlength ="20" required placeholder="タイトル入力してください">
 			<input class="button" type="submit" value="検索">
 		</s:form>
 
@@ -32,7 +32,9 @@
 					<th><center>ID</center></th>
 					<th width="500"><center>タイトル一覧</center></th>
 					<th></th>
+					<s:if test="%{#session.userFlg == 3}">
 					<th><center>削除</center></th>
+					</s:if>
 				</tr>
 				<s:iterator value="bookList">
 					<tr>

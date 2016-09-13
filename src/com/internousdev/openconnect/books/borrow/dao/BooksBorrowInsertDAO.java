@@ -14,12 +14,9 @@ import com.internousdev.util.DBConnector;
  * @author internous
  */
 public class BooksBorrowInsertDAO {
-
-
 	/**
 	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
 	 */
-
 	public int insert(int bookId) {
 
 		int count = 0;
