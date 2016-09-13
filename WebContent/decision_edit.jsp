@@ -22,7 +22,7 @@
 パスワード変更
 <s:form action="PasswordUpdateAction">
 <input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId"/>">
-<input type="text" name="password" value="<s:property value="password"/>" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ">
+<input type="text" name="password" value="<s:property value="password"/>" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ" maxlength="20">
 <input type="submit" value="変更" class="button">
 </s:form>
 
@@ -53,13 +53,13 @@
 </s:else>
 
 <br>
-起案者ID<input type="text" name="userId" value="<s:property value="userId"/>" maxlength="4" pattern="[1-9][0-9]*" title="半角数字4桁以内"  required>
+起案者ID<input type="text" name="userId" value="<s:property value="userId"/>" maxlength="4" pattern="^[0-9]+$" title="半角数字4桁以内"  required>
 <br>
-案件名<input type="text" name="itemName" value="<s:property value="itemName"/>">
+案件名<input type="text" name="itemName" value="<s:property value="itemName"/>" placeholder="例：ECサイト（openconnect）の構築の実施について" maxlength="100">
 <br>
-概要<input type="text" name="summary" value="<s:property value="summary"/>">
+概要<input type="text" name="summary" value="<s:property value="summary"/>" placeholder="例：受講生および受講生が行うプロジェクト等を管理するサイトを構築する。" maxlength="100">
 <br>
-理由<input type="text" name="cause" value="<s:property value="cause"/>">
+理由<input type="text" name="cause" value="<s:property value="cause"/>" placeholder="例：受講生の出席状況やプロジェクトの進捗状況の管理を電子化" maxlength="100">
 <br>
 実施時期・実施機関
 <br>
@@ -75,7 +75,7 @@
 <table border="1"><tr><td>
 資料
 <br>
-<input type="text" class="bigText" name="plan" value="<s:property value="plan"/>">
+<input type="text" class="bigText" name="plan" value="<s:property value="plan"/>" placeholder="プロジェクト体制図・見積書" maxlength="200">
 <br>
 </td></tr></table>
 <br>
@@ -83,7 +83,7 @@
 <br>
 <h1>【見積書】</h1>
 <table border="1"><tr><td>
-人数<input type="text"name="persons" value="<s:property value="persons"/>" required>人
+人数<input type="text"name="persons" value="<s:property value="persons"/>" pattern="^[0-9]+$" maxlength="5" required>人
 <br>
 <input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId"/>">
 </td></tr>
