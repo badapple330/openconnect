@@ -104,24 +104,24 @@
 			<tbody id="list_body">
 				<tr>
 
-					<th>プロジェクト名</th>
-					<th>管理者（リーダー）</th>
-					<th>管理者（サブリーダー）</th>
-					<th>開始日</th>
+					<td>プロジェクト名</td>
+					<td>管理者（リーダー）</td>
+					<td>管理者（サブリーダー）</td>
+					<td>開始日</td>
 
 				</tr>
 
 				<tr>
 
 					<td><input type="text" name="projectName"
-						placeholder="プロジェクト名" maxlength=100 required></td>
+						placeholder="プロジェクト名を記入" maxlength=100 required></td>
 					<td><input type="text" pattern="[1-9][0-9]*" name="managerId"
-						placeholder="管理者ID(リーダー)" maxlength="1000" required></td>
+						placeholder="管理者ID(リーダー)を記入" maxlength="1000" required></td>
 					<td><input type="text" pattern="[1-9][0-9]*"
-						name="subManagerId" placeholder="管理者ID(サブ)" maxlength="1000"
+						name="subManagerId" placeholder="管理者ID(サブ)を記入" maxlength="1000"
 						required></td>
 					<td><input type="text" pattern="\d{4}-\d{2}-\d{2}"
-						name="startDate" placeholder="開始日" maxlength="15" required></td>
+						name="startDate" placeholder="開始日を記入" maxlength="15" required></td>
 				</tr>
 		</table>
 		</tbody>

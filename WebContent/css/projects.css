@@ -1,7 +1,10 @@
 @CHARSET "UTF-8";
+th{
+ text-align:center;
+}
 
 td{
-	text-align:center;
+ text-align:center;
 }
 
 .delete {
@@ -29,11 +32,7 @@ p {
 	text-align: center;
 }
 
-.button {
-	height: 30px;
-	width: 60px;
-	background-color: #1987E5;
-}
+
 
 .center {
 	margin: 0 auto;
