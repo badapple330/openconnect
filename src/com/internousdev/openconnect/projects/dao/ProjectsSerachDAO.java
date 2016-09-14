@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,14 +40,14 @@ public class ProjectsSerachDAO {
             String sql = "SELECT*FROM projects WHERE project_name LIKE '%" + search + "%'";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-
+    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
             while (rs.next()) {
             	ProjectsSearchDTO dto = new ProjectsSearchDTO();
 
             	dto.setProjectId(rs.getInt("project_id"));
             	dto.setProjectName(rs.getString("project_name"));
-            	dto.setStartDate(rs.getString("start_date"));
-            	dto.setEndDate(rs.getString("end_date"));
+            	dto.setStartDate(sdf.format(rs.getDate("start_date")).toString());
+            	dto.setEndDate(sdf.format(rs.getDate("end_date")).toString());
             	dto.setNote(rs.getString("note"));
             	dto.setManagerId(rs.getInt("manager_id"));
             	dto.setSubManagerId(rs.getInt("sub_manager_id"));

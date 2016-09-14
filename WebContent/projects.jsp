@@ -79,11 +79,11 @@
 							maxlength="1000" value="<s:property value="subManagerId"/>"
 							class="projectSubManagerIdlist"></td>
 
-						<td><input type="text" name="projectStartDateList" pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
+						<td><input type="text" name="projectStartDateList" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 							maxlength="15" value="<s:property value="startDate"/>"
 							class="projectStartDatelist"></td>
 
-						<td><input type="text" name="projectEndDateList" pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
+						<td><input type="text" name="projectEndDateList" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 							maxlength="15" value="<s:property value="endDate"/>"
 							class="projectEnddatelist"></td>
 

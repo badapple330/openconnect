@@ -3,7 +3,6 @@ package com.internousdev.openconnect.projects.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 
@@ -33,9 +32,7 @@ public class ProjectsUpdateDAO {
 		Connection con = db.getConnection();
 
 		String sql = "UPDATE projects SET project_name=?, manager_id=?,sub_manager_id=? , start_date=? , end_date=? , note=? where  project_id=?";
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
-        startDate= sdf.format(System.currentTimeMillis());
-        endDate= sdf.format(System.currentTimeMillis());
+
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,projectName);
@@ -46,6 +43,7 @@ public class ProjectsUpdateDAO {
 			ps.setString(6,note);
 			ps.setInt(7,projectId);
 			count =ps.executeUpdate();
+			System.out.println(endDate);
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
