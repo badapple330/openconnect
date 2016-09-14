@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  *画面から入力された値を更新するクラス。
- * @author KENICHI HORIGUCHI
+ * @author KENICHI HORIGUCHI,KOUHEI NITABARU
  * @since 2016/09/8
  * @version 1.0
  */
@@ -90,7 +90,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> session;
 	/**
 	 * 決裁状況一覧情報を更新できたか否か判定するメソッド
-	 * @author  KENICHI HORIGUCHI,NITABARU KOUHEI
+	 * @author  KENICHI HORIGUCHI,KOUHEI NITABARU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 *
 	 */
@@ -345,61 +345,56 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return
+	 */
 	public Map <String, Object> getSession() {
 		return session;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param session
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param session
+	 */
 	public void setSession(Map <String, Object> session) {
 		this.session = session;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return errorMsg
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return errorMsg
+	 */
 	public String getErrorMsg() {
 		return errorMsg;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param errorMsg
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param errorMsg
+	 */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
 	}
 
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return successMsg
-	*/
+	 * 取得メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @return successMsg
+	 */
 	public String getSuccessMsg() {
 		return successMsg;
 	}
 
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param successMsg
-	*/
+	 * 設定メソッド
+	 * @author KENICHI HORIGUCHI
+	 * @param successMsg
+	 */
 	public void setSuccessMsg(String successMsg) {
 		this.successMsg = successMsg;
 	}
-
-
 }
-
-
-

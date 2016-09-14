@@ -7,7 +7,7 @@ import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * DBの情報を画面に表示する為のクラス
- * @author KENICHI HORIGUCHI,NITABARU KOUHEI
+ * @author KENICHI HORIGUCHI,KOUHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
  */

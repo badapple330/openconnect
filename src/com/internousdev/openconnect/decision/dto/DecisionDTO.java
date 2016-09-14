@@ -2,7 +2,11 @@
  *
  */
 package com.internousdev.openconnect.decision.dto;
-
+/**
+ * 決裁状況一覧から検索したデータを溜め込むクラス。
+ * @author KENICHI HORIGUCHI
+ * @since 2016/09/14
+ */
 public class DecisionDTO {
 	/**
 	 * 登録日

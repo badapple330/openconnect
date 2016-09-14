@@ -10,8 +10,8 @@
 </head>
 <body>
 
-		<!-- ヘッダー読み込み -->
-		<header><jsp:include page="header.jsp" /></header>
+	<!-- ヘッダー読み込み -->
+	<header><jsp:include page="header.jsp" /></header>
 
 	<div class="container">
 
@@ -37,51 +37,78 @@
 						<!-- 一覧 -->
 						<td></td>
 						<td>
-						<h5><STRONG>登録日</STRONG></h5>
+							<h5>
+								<STRONG>登録日</STRONG>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>姓</Strong></h5>
+							<h5>
+								<Strong>姓</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>名</Strong></h5>
+							<h5>
+								<Strong>名</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>プロジェクトID</Strong></h5>
+							<h5>
+								<Strong>プロジェクトID</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>案件番号</Strong></h5>
+							<h5>
+								<Strong>案件番号</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>案件名</Strong></h5>
+							<h5>
+								<Strong>案件名</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>詳細</Strong></h5>
+							<h5>
+								<Strong>詳細</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>実施起案番号</Strong></h5>
+							<h5>
+								<Strong>実施起案番号</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>実施決裁番号</Strong></h5>
+							<h5>
+								<Strong>実施決裁番号</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>契約起案番号</Strong></h5>
+							<h5>
+								<Strong>契約起案番号</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>契約決番号</Strong></h5>
+							<h5>
+								<Strong>契約決番号</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>実施兼契約起案番号</Strong></h5>
+							<h5>
+								<Strong>実施兼契約起案番号</Strong>
+							</h5>
 						</td>
 						<td>
-							<h5><Strong>実施兼契約番号</Strong></h5>
+							<h5>
+								<Strong>実施兼契約番号</Strong>
+							</h5>
 						</td>
 					</tr>
 					<!-- 繰り返し -->
-					<s:iterator value ="decisiontList">
+					<s:iterator value="decisiontList">
 						<tr>
 							<td><input type="hidden"
 								value=<s:property value="decisionId" /> name="decisionId"></td>
-							<td><input type="text" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" required
+							<td><input type="text"
+								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" required
 								name="registration" value="<s:property value="registration" />"
 								id="registration" /></td>
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="11"
@@ -121,7 +148,7 @@
 			</center>
 		</s:form>
 		<br>
-		<s:form action="BackGoAction">
+		<s:form action="GetAddressAction">
 			<center>
 				<input type=submit value="戻る" class="button">
 			</center>

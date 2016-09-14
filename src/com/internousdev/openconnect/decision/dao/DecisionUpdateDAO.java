@@ -8,14 +8,14 @@ import com.internousdev.util.DBConnector;
 
 /**
  * 画面で受け取った更新情報を、DBへ転送する為のクラス
- * @author KENICHI HORIGUCHI
+ * @author KENICHI HORIGUCHI,KOUHEI NIRABARU
  * @since 2016/09/08
  * @version 1.0
  */
 public class DecisionUpdateDAO {
 	/**
 	 * 更新メソッド  画面で受け取った更新情報を、DBへ転送し、更新する為のメソッド
-	 * @author KENICHI HORIGUCHI
+	 * @author KENICHI HORIGUCHI,KOUHEI NITABARU
 	 */
 	public int update(
 			String registration, int userId, int projectId, int decisionId,
@@ -36,57 +36,18 @@ public class DecisionUpdateDAO {
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			/**
-			 *登録日
-			 */
 			ps.setString(1,registration);
-			/**
-			 *ユーザーID
-			 */
 			ps.setInt(2,userId);
-			/**
-			 *プロジェクトID
-			 */
 			ps.setInt(3,projectId);
-			/**
-			 *案件番号
-			 */
 			ps.setInt(4,decisionId);
-			/**
-			 *案件名
-			 */
 			ps.setString(5,decisionName);
-			/**
-			 *詳細
-			 */
 			ps.setString(6,detail);
-			/**
-			 *実施起案番号
-			 */
 			ps.setString(7,iDraftingId);
-			/**
-			 *実施決裁番号
-			 */
 			ps.setString(8,iApprovalId);
-			/**
-			 *契約起案番号
-			 */
 			ps.setString(9,aDraftingId);
-			/**
-			 *契約決番号
-			 */
 			ps.setString(10,cdId);
-			/**
-			 *実施兼契約起案番号
-			 */
 			ps.setString(11,iADId);
-			/**
-			 *実施兼契約番号
-			 */
 			ps.setString(12,iAId);
-			/**
-			 *案件番号
-			 */
 			ps.setInt(13, decisionId);
 
 			count = ps.executeUpdate();

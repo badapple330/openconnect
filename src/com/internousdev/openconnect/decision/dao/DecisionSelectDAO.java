@@ -9,16 +9,20 @@ import java.util.ArrayList;
 
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
-
+/**
+ * 決裁状況一覧をActionから受け取った検索文を検索するクラス
+ * @author KENICHI HORIGUCHI,KOUHEI NIRABARU
+ * @since 2016/09/14
+ * @version 1.0
+ */
 public class DecisionSelectDAO {
 	/**
-	 * ユーザー一覧情報を格納するリスト
+	 * 決裁状況一覧情報を格納するリスト
 	 */
 	private ArrayList<DecisionDTO> list = new ArrayList<DecisionDTO>();
-
 	/**
-	 * 画面にユーザー情報一覧を表示させる為のメソッド
-	 * @return result データベースからのユーザー一覧情報を格納できたか否か
+	 * 画面に情報一覧を表示させる為のメソッド
+	 * @return result データベースからの決裁状況一覧情報を格納できたか否か
 	 * @throws SQLException
 	 */
 	public boolean select(String searchString ) {
