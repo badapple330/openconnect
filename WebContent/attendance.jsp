@@ -14,6 +14,9 @@
 <body>
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
+
+	<div class="container">
+
 	<h1>勤怠更新</h1>
 	<br>
 	<br>
@@ -22,7 +25,7 @@
 受講年を入力<input type="text" name="year" placeholder="例：2016" class="textString" value="2016" maxlength="4" pattern="[1-9][0-9]*" title="半角数字4桁以内">
 		<br>
 		<br>
-受講開始月を入力<input type="text" name="month" placeholder="例：7" class="textString" maxlength="2" pattern="[1-9][0-9]*" title="半角数字2桁以内">
+受講開始月を入力<input type="text" name="month" placeholder="例：07" class="textString" maxlength="2" pattern="[0-1][0-9]" title="半角数字2桁以内">
 		<br>
 		<br>
 日付を入力(入力必須)<input type="text" name="attendanceDate" placeholder="例：2016/08/19" class="textString" maxlength="10" value="2016/" required>
@@ -32,14 +35,15 @@
 	<br>
 	<s:property value="%{resultString}" />
 	<br>
+	<br>
 	↓勤怠未入力(0が入っている)人には、あらかじめ1(出席)が入力されており<br>
 	このまま更新を押すと表示されている全ての人に1(出席)が保存されます。<br>
 	<table border="1">
 		<tr>
-			<td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+			<td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>　</td><td>1</td><td>2</td>
 		</tr>
 		<tr>
-			<td>未入力</td><td>出席</td><td>遅刻(連絡有)</td><td>遅刻(連絡無)</td><td>欠席(連絡有)</td><td>欠席(連絡無)</td><td>連絡無し</td>
+			<td>未入力</td><td>出席</td><td>遅刻(連絡有)</td><td>遅刻(連絡無)</td><td>欠席(連絡有)</td><td>欠席(連絡無)</td><td>連絡無し</td><td>　</td><td>面談有</td><td>面談無</td>
 		</tr>
 	</table>
 	<br>
@@ -108,6 +112,8 @@
 			<s:submit class="delete-true button" value="追加" />
 		</s:form>
 		<input type="button" class="modal-close button" value="閉じる">
+	</div>
+
 	</div>
 </body>
 </html>

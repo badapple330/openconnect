@@ -48,13 +48,13 @@
 							<s:submit value="プレビュー" />
 						</s:form></td>
 
-					<td><s:form action="GoDecisionApplication">
+					<td><s:form action="DecisionApplicationUpdateAction">
 					<input type="hidden" name="decisionDetailId"
 						value="<s:property value="decisionDetailId" />"> <input
 						type="hidden" name="decisionStatus" value="承認"> <s:submit
 							value="承認" /> </s:form></td>
 
-					<td><s:form action="GoDecisionApplication">
+					<td><s:form action="DecisionApplicationUpdateAction">
 					<input type="hidden" name="decisionDetailId"
 						value="<s:property value="decisionDetailId" />"> <input
 						type="hidden" name="decisionStatus" value="差し戻し"> <s:submit
@@ -66,6 +66,8 @@
 	</table>
 	<br>
 	<br>
-	<input type="button" value="戻る" class="button">
+	<s:form action="GetAddressAction">
+		<s:submit value="戻る" class="button" />
+	</s:form>
 </body>
 </html>

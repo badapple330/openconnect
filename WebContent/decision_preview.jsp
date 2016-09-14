@@ -17,6 +17,9 @@
 	<h1>決裁プレビュー画面</h1>
 	<br>
 	<br>
+	<s:if test="decisionDetailList.size() == 0">
+		まだ何も編集されていません。
+	</s:if>
 	<s:iterator value="decisionDetailList">
 			<table border="1">
 				<tr>

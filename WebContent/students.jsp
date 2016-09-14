@@ -14,18 +14,20 @@
 
 <jsp:include page="header.jsp" />
 
+<div class="container">
+
 <h1>受講生一覧</h1>
 <s:form action="StudentsSelectAction">
    <input type="text" name="search" placeholder="英語で姓か名を入力">
    <input class="button" type="submit" value="検索">
 </s:form>
-
+<br>
 
 <s:form action="StudentsUpdateAction">
   <table border="1">
      <tr>
 
-      <th>ユーザーＩＤ</th>
+      <th>ID</th>
       <th>受講年</th>
       <th>受講開始月</th>
       <th>姓(英語)</th>
@@ -106,7 +108,7 @@
 
 <h2>新規受講生追加</h2>
  <s:form action="StudentsInsertAction" >
- 	<table>
+ 	<table border=1>
  	<tr>
  	<td>受講年</td>
  	<td>受講開始月</td>
@@ -140,7 +142,7 @@
 <s:form action="BackGoAction">
 	<input type="submit" class="button" value="戻る">
 </s:form>
-
+</div>
 <br>
 </body>
 </html>
