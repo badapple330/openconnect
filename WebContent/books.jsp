@@ -25,6 +25,9 @@
 				placeholder="タイトル入力してください">
 			<input class="button" type="submit" value="検索">
 		</s:form>
+		<br>
+		<s:property value="%{resultString}" />
+		<br>
 
 		<s:form action="BooksUpdateAction">
 			<table border="1" cellspacing="0">
@@ -40,12 +43,13 @@
 				<s:iterator value="searchList">
 					<tr>
 						<td class="bookId"><s:property value="bookId" /></td>
-
-						<td><input type="text" name="titleList"value="<s:property value="title" />"  class="bookTitle"></td>
+						<td><input type="text" name="titleList"
+							value="<s:property value="title" />" class="bookTitle"></td>
 						<td><s:if test="%{#session.userFlg == 3}">
 								<input type="button" class="button modal-open" value="削除">
 							</s:if></td>
-								<td><input type="hidden" name="bookIdList" value="<s:property value="bookId" />"></td>
+						<td><input type="hidden" name="bookIdList"
+							value="<s:property value="bookId" />"></td>
 					</tr>
 				</s:iterator>
 			</table>
@@ -56,9 +60,7 @@
 
 		<div id="modal-main">
 			<!-- #contents START -->
-<!-- 			ID <input type="text" id="delete-bookid" readonly><br> -->
-			ID <span id="book_id"></span><br>
-			タイトル <span id="title"></span><br>
+			ID <span id="book_id"></span><br> タイトル <span id="title"></span><br>
 			<input type="button" class="delete-true button" value="削除"><br>
 			<input type="button" class="modal-close button" value="閉じる">
 
@@ -71,7 +73,6 @@
 				</s:form>
 			</div>
 		</div>
-
 
 		<s:form action="BooksInsertAction">
 			<s:if test="%{#session.userFlg == 3}">
@@ -86,7 +87,6 @@
 			<input type="submit" class="button" value="貸し出し">
 			<br>
 		</s:form>
-
 
 		<s:form action="BackGoAction">
 			<input type="submit" class="button" value="戻る">

@@ -5,4 +5,4 @@
  * @author TATSUYA HOSHI
  *
  */
-package com.internousdev.openconnect.books.borrow.action;
+package com.internousdev.openconnect.books.action;
