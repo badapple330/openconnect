@@ -22,13 +22,17 @@ public class BooksInsertAction extends ActionSupport implements SessionAware{
 	 */
 	public Map<String, Object> session;
 	/**
+	 * シリアルバージョンID
+	 */
+	private static final long serialVersionUID = -7586577377473680450L;
+	/**
 	 * タイトル
 	 */
 	private String title;
 	/**
-	 * シリアルバージョンID
+	 * エラーメッセージ
 	 */
-	private static final long serialVersionUID = -7586577377473680450L;
+	private String resultString;
 	/**
 	 * DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
@@ -39,16 +43,14 @@ public class BooksInsertAction extends ActionSupport implements SessionAware{
 		BooksInsertDAO dao = new BooksInsertDAO();
 		int count = 0 ;
 		count = dao.insert(title);
-
 		if (count > 0) {
-
 			int bookId = dao.select(title);
-
 			if( bookId == 0 ) return result;
-
 			result = SUCCESS;
 			BooksBorrowInsertDAO dao1 = new BooksBorrowInsertDAO();
 			dao1.insert(bookId);
+		}else {
+			resultString = "書籍追加できません";
 		}
 		return result;
 	}
@@ -87,6 +89,32 @@ public class BooksInsertAction extends ActionSupport implements SessionAware{
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+	/**
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return
+	 */
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	 * 設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param
+	 */
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+	/**
+	 * 取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
