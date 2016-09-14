@@ -41,6 +41,7 @@ public class ProjectsSerachDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
     		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+
             while (rs.next()) {
             	ProjectsSearchDTO dto = new ProjectsSearchDTO();
 

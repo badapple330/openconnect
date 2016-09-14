@@ -3,7 +3,6 @@ package com.internousdev.openconnect.projects.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 
@@ -33,8 +32,8 @@ public class ProjectsInsertDAO {
 		Connection conn = db.getConnection();
 		String sql = "INSERT INTO projects(project_name,manager_id,sub_manager_id,start_date)VALUES(?, ?, ? ,?)";
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
-        startDate= sdf.format(System.currentTimeMillis());
+
+
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,projectName);
