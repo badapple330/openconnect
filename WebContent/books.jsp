@@ -34,15 +34,18 @@
 					<s:if test="%{#session.userFlg == 3}">
 						<th><center>削除</center></th>
 					</s:if>
+					<th></th>
 				</tr>
 
 				<s:iterator value="searchList">
 					<tr>
 						<td class="bookId"><s:property value="bookId" /></td>
-						<td><input type="text" value="<s:property value="title" />"  class="bookTitle"></td>
+
+						<td><input type="text" name="titleList"value="<s:property value="title" />"  class="bookTitle"></td>
 						<td><s:if test="%{#session.userFlg == 3}">
 								<input type="button" class="button modal-open" value="削除">
 							</s:if></td>
+								<td><input type="hidden" name="bookIdList" value="<s:property value="bookId" />"></td>
 					</tr>
 				</s:iterator>
 			</table>
