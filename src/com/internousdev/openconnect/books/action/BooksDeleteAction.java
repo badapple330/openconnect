@@ -24,6 +24,7 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	 * シリアルバージョンID
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
+	private String resultString = "この書籍は削除できません。";
 	/**
 	 * DAOに命令し、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
@@ -35,8 +36,36 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 		count = dao.delete(bookId);
 		if(count > 0){
 			result = SUCCESS;
+			resultString = "削除できました。";
 		}
 		return result;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	/**
