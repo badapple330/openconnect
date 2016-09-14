@@ -173,9 +173,9 @@
 					</td>
 				</tr>
 			</table>
-		</s:iterator> 
-		<s:form action="BackGoDecisionAction">
-			<input type="submit" value="戻る" class="button">
-		</s:form>
+		</s:iterator>
+		<form>
+<input type="button" value="戻る" onclick="history.back()">
+</form>
 </body>
 </html>

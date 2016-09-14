@@ -166,6 +166,7 @@
 	</div>
 
 	<!-- 	戻る -->
+
 	<s:form action="GetAddressAction">
 		<s:submit value="戻る" />
 	</s:form>
