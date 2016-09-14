@@ -122,8 +122,8 @@ foreign key(sub_manager_id) references users(user_id)
 );
 
 insert into projects()values
-(1,"cosmos",1,2,"20160801","20160831","undecided"),
-(2,"credit",3,4,"20160801","20160831","undecided");
+(1,"cosmos",1,2,"2016/08/01","2016/08/31","undecided"),
+(2,"credit",3,4,"2016/08/01","2016/08/31","undecided");
 
 /*サブプロジェクト / プロジェクトリリース状況一覧*/
 create table project_status(

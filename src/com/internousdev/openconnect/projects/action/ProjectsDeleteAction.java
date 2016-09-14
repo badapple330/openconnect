@@ -19,6 +19,10 @@ public class ProjectsDeleteAction extends ActionSupport {
 	 */
 	private int projectId;
 	/**
+	 * 結果文字
+	 */
+	private String resultString ="このプロジェクトは削除できません。";
+	/**
 	 * 実行メソッド DAOにデータを渡して、結果を返す
 	 * @author YUICHI KIRIU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
@@ -27,10 +31,12 @@ public class ProjectsDeleteAction extends ActionSupport {
 		ProjectsDeleteDAO dao = new ProjectsDeleteDAO();
 		String result = ERROR;
 		int count = 0;
-		System.out.println(projectId);
+
 		count = dao.delete(projectId);
 		if(count > 0){
 			result = SUCCESS;
+
+			resultString = "削除に成功しました。";
 		}
 		return result;
 	}
@@ -49,6 +55,30 @@ public class ProjectsDeleteAction extends ActionSupport {
 	 */
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+	/**
+	* 設定メソッド
+	* @author
+	* @param
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+	/**
+	* 取得メソッド
+	* @author
+	* @return
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 

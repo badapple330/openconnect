@@ -35,9 +35,11 @@
 
 	<s:form action="ProjectsSelectAction">
 		<input type="text" pattern="^[0-9A-Za-z]+$" maxlength="100"
-			name="search" placeholder="プロジェクト名">
+			name="search" placeholder="プロジェクト名を記入">
 		<input type="submit" value="検索する">
 	</s:form>
+	<br>
+	<s:property value="%{resultString}" />
 	<br>
 	<s:form action="ProjectsListEdit">
 
@@ -77,11 +79,11 @@
 							maxlength="1000" value="<s:property value="subManagerId"/>"
 							class="projectSubManagerIdlist"></td>
 
-						<td><input type="text" name="projectStartDateList"
+						<td><input type="text" name="projectStartDateList" pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
 							maxlength="15" value="<s:property value="startDate"/>"
 							class="projectStartDatelist"></td>
 
-						<td><input type="text" name="projectEndDateList"
+						<td><input type="text" name="projectEndDateList" pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
 							maxlength="15" value="<s:property value="endDate"/>"
 							class="projectEnddatelist"></td>
 
@@ -120,7 +122,7 @@
 					<td><input type="text" pattern="[1-9][0-9]*"
 						name="subManagerId" placeholder="管理者ID(サブ)を記入" maxlength="1000"
 						required></td>
-					<td><input type="text" pattern="\d{4}-\d{2}-\d{2}"
+					<td><input type="text" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 						name="startDate" placeholder="開始日を記入" maxlength="15" required></td>
 				</tr>
 		</table>
