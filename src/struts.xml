@@ -286,11 +286,11 @@
 		<action name="DecisionApplicationSelectAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailSelectAction"
 			method="execute">
-			<result name="success">decision_application_list.jsp</result>
+			<result name="success">decision_application.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
 
-		<action name="GoDecisionApplication"
+		<action name="DecisionApplicationUpdateAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailApplicationAction"
 			method="execute">
 			<result name="success" type="chain">DecisionApplicationSelectAction
