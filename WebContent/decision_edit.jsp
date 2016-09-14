@@ -35,10 +35,11 @@
 <s:form action="DecisionEditUpdateAction">
 <table border="1">
 
-<tr><td>
+<tr><td width="450">
 プロジェクト名    <s:property value="projectName"/>
 <br>
-日付　<input type="text" name="day" value="<s:property value="day"/>" placeholder="例：2016/09/10"  maxlength="10"  required>
+日付(入力形式 yyyy/mm/dd)<input type="text" name="day" value="<s:property value="day"/>"
+								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" placeholder="例：2016/09/10"  maxlength="10" value="2016/" required>
 <br>
 決裁分類
 <br>
@@ -53,19 +54,21 @@
 </s:else>
 
 <br>
-起案者ID<input type="text" name="userId" value="<s:property value="userId"/>" maxlength="4" pattern="^[0-9]+$" title="半角数字4桁以内"  required>
+起案者ID<input type="text" name="userId" value="<s:property value="userId"/>"  maxlength="4" pattern="^[0-9]+$" title="半角数字4桁以内"  required>
 <br>
-案件名<input type="text" name="itemName" value="<s:property value="itemName"/>" placeholder="例：ECサイト（openconnect）の構築の実施について" maxlength="100">
+案件名<input type="text" name="itemName" value="<s:property value="itemName"/>" size="50" placeholder="例：ECサイト（openconnect）の構築の実施について" maxlength="100">
 <br>
-概要<input type="text" name="summary" value="<s:property value="summary"/>" placeholder="例：受講生および受講生が行うプロジェクト等を管理するサイトを構築する。" maxlength="100">
+概要<input type="text" name="summary" value="<s:property value="summary"/>" class="bigText" placeholder="例：受講生および受講生が行うプロジェクト等を管理するサイトを構築する。" maxlength="100">
 <br>
-理由<input type="text" name="cause" value="<s:property value="cause"/>" placeholder="例：受講生の出席状況やプロジェクトの進捗状況の管理を電子化" maxlength="100">
+理由<input type="text" name="cause" value="<s:property value="cause"/>" class="bigText" placeholder="例：受講生の出席状況やプロジェクトの進捗状況の管理を電子化" maxlength="100">
 <br>
 実施時期・実施機関
 <br>
-開始日<input type="text" name="startDay" value="<s:property value="startDay"/>" placeholder="例：2016/09/10"  maxlength="10" value="2016/" required>
+開始日(入力形式 yyyy/mm/dd)<input type="text" name="startDay" value="<s:property value="startDay"/>"
+								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" placeholder="例：2016/09/10"  maxlength="10" value="2016/" required>
 <br>
-終了日<input type="text" name="endDay" value="<s:property value="endDay"/>" placeholder="例：2016/09/10"  maxlength="10" value="2016/" required>
+終了日(入力形式 yyyy/mm/dd)<input type="text" name="endDay" value="<s:property value="endDay"/>"
+								 placeholder="例：2016/09/10"  maxlength="10" value="2016/" required>
 <br>
 </td></tr></table>
 <br>

@@ -15,12 +15,12 @@
 		<header><jsp:include page="header.jsp" /></header>
 		<h1>プロジェクト進捗報告</h1>
 	</div>
-	<s:form action="ProjectSelectAction">
+	<s:form action="ProjectProgressSelectAction">
 		<input type="text" name="search" placeholder="プロジェクト名" maxlength="20">
 		<input type="submit" value="検索" class="button">
 	</s:form>
 
-	<s:form action="ProjectUpdateAction">
+	<s:form action="ProjectProgressUpdateAction">
 		<table border=1>
 			<tbody id="list_body">
 				<tr>
@@ -79,7 +79,7 @@
 		</s:if>
 	</s:form>
 
-	<s:form action="ProjectInsertAction">
+	<s:form action="ProjectProgressInsertAction">
 		<table border="1">
 			<tr>
 				<th>プロジェクトID</th>
@@ -135,7 +135,7 @@
 
 		<div class="delete-prepare">
 			本当に削除しますか？
-			<s:form action="ProjectDeleteAction">
+			<s:form action="ProjectProgressDeleteAction">
 				<input type="hidden" name="progressId" value="" id="true-delete">
 				<input type="submit" class="delete-true button" value="はい">
 				<input type="button" class="modal-close button" value="いいえ">
