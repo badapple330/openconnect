@@ -30,15 +30,15 @@
 
 			<s:iterator value="bookList">
 				<tr>
-					<td><input type="text" name="bookIdList"
+					<td><s:property  value="bookId" /><input type="hidden" name="bookIdList"
 						value="<s:property  value="bookId" />" class="bookId"></td>
-					<td><input type="text" name="title"
+					<td><s:property value="title" /><input type="hidden" name="title"
 						value="<s:property value="title" />" class="title"></td>
-					<td><input type="text" name="statusList"
+					<td><s:property value="borrowStatus" /><input type="hidden" name="statusList"
 						value="<s:property value="borrowStatus" />" class="status"></td>
-					<td><input type="text" name="dayList"
+					<td><s:property value="borrowDay" /><input type="hidden" name="dayList"
 						value="<s:property value="borrowDay" />" class="day"></td>
-					<td><input type="text" name="borrowIdList"
+					<td><s:property value="borrowId" /><input type="hidden" name="borrowIdList"
 						value="<s:property value="borrowId" />" class="userId"></td>
 
 				</tr>

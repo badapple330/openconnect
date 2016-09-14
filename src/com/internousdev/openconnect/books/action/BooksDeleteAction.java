@@ -39,7 +39,7 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 		count = dao.delete(bookId);
 		if(count > 0){
 			result = SUCCESS;
-			resultString = "削除できました。";
+			resultString = "削除しました。";
 		}
 		return result;
 	}
