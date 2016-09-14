@@ -38,6 +38,11 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	 * その他リスト
 	 */
 	private List<String> otherList = new ArrayList<String>();
+	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "編集できませんでした。";
+
 
 	/**
 	 * ユーザー情報を更新できたか否か判定するメソッド
@@ -56,6 +61,7 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 			count = dao.select(progressIdList.get(i),projectDayList.get(i),projectPlanList.get(i),projectResultList.get(i),otherList.get(i));}
 		if(count > 0){
 			result = SUCCESS;
+			resultString = "編集しました。";
 		}
 
 		return result;

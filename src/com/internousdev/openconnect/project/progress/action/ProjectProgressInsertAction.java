@@ -37,6 +37,10 @@ public class ProjectProgressInsertAction extends ActionSupport{
 	 * その他報告
 	 */
 	private String other;
+	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "追加できませんでした。";
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -51,6 +55,7 @@ public class ProjectProgressInsertAction extends ActionSupport{
 		count = dao.insert(projectId,projectDay,projectPlan,projectResult,other);
 		if (count > 0) {
 			result = SUCCESS;
+			resultString = "追加しました。";
 		}
 		return result;
 	}
@@ -142,6 +147,24 @@ public class ProjectProgressInsertAction extends ActionSupport{
 	 */
 	public void setOther(String other) {
 		this.other = other;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATUHUMI ITOU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATUHUMI ITOU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 }

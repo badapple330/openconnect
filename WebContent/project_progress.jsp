@@ -23,6 +23,8 @@
 		<input type="submit" value="検索" class="button">
 	</s:form>
 
+	<s:property value="%{resultString}"/>
+
 	<s:form action="ProjectProgressUpdateAction">
 		<table border=1>
 			<tbody id="list_body">
