@@ -157,4 +157,23 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 		this.otherList = otherList;
 	}
 
+	/**
+	* 取得メソッド
+	* @author TATUHUMI ITOU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATUHUMI ITOU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+
 }

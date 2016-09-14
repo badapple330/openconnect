@@ -88,7 +88,7 @@
 
 
 						<center>建設費用表</center>
-						<table border="1">
+						<table border="1" class="cost_Table">
 							<tr>
 								<td><b>建設費用</b></td>
 								<td>1単位当たりの金額（万円）</td>
@@ -129,7 +129,7 @@
 
 
 						<center>損益費用表</center>
-						<table border="1">
+						<table border="1" class="cost_Table">
 							<tr>
 								<td><b>損益費用</b></td>
 								<td>1単位当たりの金額（万円）</td>
@@ -155,7 +155,7 @@
 								<td><s:property value="profitAndLossCost" /></td>
 							</tr>
 						</table> <br> <br> 合計費用
-						<table border="1">
+						<table border="1" class="cost_Table">
 							<tr>
 								<td>建設費用（万円）</td>
 								<td><s:property value="developmentPersonnelSum" /></td>
