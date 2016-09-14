@@ -77,7 +77,7 @@
 						</td>
 					</tr>
 					<!-- 繰り返し -->
-					<s:iterator value="decisiontList">
+					<s:iterator value ="decisiontList">
 						<tr>
 							<td><input type="hidden"
 								value=<s:property value="decisionId" /> name="decisionId"></td>
