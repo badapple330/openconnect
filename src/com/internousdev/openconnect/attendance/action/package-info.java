@@ -1,5 +1,5 @@
 /**
- *  画面遷移に必要なActionクラスを提供します
+ *  勤怠更新のActionクラスを提供します
  * @author MINORI SUNAGAWA
  * @since 2016/09/01
  */

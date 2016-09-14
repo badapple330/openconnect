@@ -16,7 +16,7 @@
 
 <h1>受講生一覧</h1>
 <s:form action="StudentsSelectAction">
-   <input type="text" name="search" >
+   <input type="text" name="search" placeholder="英語で姓か名を入力">
    <input class="button" type="submit" value="検索">
 </s:form>
 
@@ -82,7 +82,7 @@
 		<input type="hidden" name="userIdList" value="<s:property value="userId" />" class="userId" >
 </s:iterator>
 </table>
-<input type="submit" class="button" value="更新" />
+<input type="submit" class="button" value="編集" />
 </s:form>
 
 <div id="modal-main">
@@ -141,6 +141,6 @@
 	<input type="submit" class="button" value="戻る">
 </s:form>
 
-
+<br>
 </body>
 </html>

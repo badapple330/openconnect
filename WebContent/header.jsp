@@ -83,7 +83,7 @@
 			</s:form>
 			<!-- 	<!--決済手続き申請一覧 -->
 			<s:if test="%{#session.userFlg == 3}">
-				<s:form action="DecisionDetailSelectAction">
+				<s:form action="GoDecisionApplication">
 					<s:submit value="決済手続き申請一覧" />
 				</s:form>
 			</s:if>

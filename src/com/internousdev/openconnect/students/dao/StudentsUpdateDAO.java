@@ -30,6 +30,14 @@ public class StudentsUpdateDAO {
 				+ "sex=?, birthday=?, register_day=?, update_day=?, userdel_flg=?, login_flg=?, user_flg=?, year=?, month=? "
 				+ "where user_id=?";
 
+		String birthDayStr = birthday;
+		String registerDayStr = registerDay;
+		String updateDayStr = updateDay;
+
+		if( birthDayStr.equals("") ) birthDayStr = "0000-00-00";
+		if( registerDayStr.equals("") ) registerDayStr = "0000-00-00";
+		if( updateDayStr.equals("") ) updateDayStr = "0000-00-00";
+
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -47,9 +55,9 @@ public class StudentsUpdateDAO {
 			ps.setString(12,mobileNumber);
 			ps.setString(13,mobileEmail);
 			ps.setString(14,sex);
-			ps.setString(15,birthday);
-			ps.setString(16,registerDay);
-			ps.setString(17,updateDay);
+			ps.setString(15,birthDayStr);
+			ps.setString(16,registerDayStr);
+			ps.setString(17,updateDayStr);
 			ps.setBoolean(18,userdelFlg);
 			ps.setBoolean(19,loginFlg);
 			ps.setInt(20,userFlg);
