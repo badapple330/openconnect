@@ -30,15 +30,15 @@ $(function(){
 	        var index = $('.modal-open').index($(this));
 
 
-			var id = $('.bookId').eq(index).val();
-			$('#delete-bookid').val( id );
+			var id = $('.bookId').eq(index).text();
+			$('#book_id').text( id );
 
 
 			var title = $('.bookTitle').eq(index).val();
-			$('#delete-booktitle').val( title );
+			$('#title').text( title );
 
-			var index = $('.modal-open').index($(this));
-			var abc = $('.bookId').eq(index).val();
+
+			var abc = $('.bookId').eq(index).text();
 			$('#true-delete').val( abc );
 
 	        $(".modal-close").click(function(){

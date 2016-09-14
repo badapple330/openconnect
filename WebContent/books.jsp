@@ -38,8 +38,8 @@
 
 				<s:iterator value="searchList">
 					<tr>
-						<td><s:property value="bookId" /></td>
-						<td><input type="text" value="<s:property value="title" />"></td>
+						<td class="bookId"><s:property value="bookId" /></td>
+						<td><input type="text" value="<s:property value="title" />"  class="bookTitle"></td>
 						<td><s:if test="%{#session.userFlg == 3}">
 								<input type="button" class="button modal-open" value="削除">
 							</s:if></td>
