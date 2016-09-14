@@ -105,6 +105,10 @@ public class StudentsUpdateAction extends ActionSupport{
 	 * パスワードリスト
 	 */
 	private List<String> passwordList = new ArrayList<String>();
+	/**
+	 * 結果文字
+	 */
+	private String resultString = "更新に失敗しました。";
 
 	/**
 	 * DBの情報を更新する為のクラス
@@ -126,6 +130,7 @@ public class StudentsUpdateAction extends ActionSupport{
 		}
 		if ( count > 0){
 			result = SUCCESS;
+			resultString = "更新に成功しました。";
 		}
 		return result;
 	}
@@ -542,6 +547,33 @@ public class StudentsUpdateAction extends ActionSupport{
 	*/
 	public void setPasswordList(List<String> passwordList) {
 		this.passwordList = passwordList;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

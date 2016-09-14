@@ -50,6 +50,11 @@ public class StudentsInsertAction extends ActionSupport  {
 	 * 受講開始月
 	 */
 	private String month;
+	/**
+	 * 結果文字
+	 */
+	private String resultString = "追加に失敗しました。";
+
 
 	/**
 	 * DBの情報を追加する為のクラス
@@ -64,6 +69,7 @@ public class StudentsInsertAction extends ActionSupport  {
 		count = dao.insert(password,familyName,givenName,familyNameKanji,givenNameKanji,phoneEmail,sex,userFlg,year,month);
 		if (count > 0) {
 			result = SUCCESS;
+			resultString = "追加に成功しました。";
 		}
 
 		return result;
@@ -247,6 +253,33 @@ public class StudentsInsertAction extends ActionSupport  {
 	*/
 	public void setMonth(String month) {
 		this.month = month;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

@@ -22,7 +22,8 @@
    <input class="button" type="submit" value="検索">
 </s:form>
 <br>
-
+<s:property value="%{resultString}" />
+<br>
 <s:form action="StudentsUpdateAction">
   <table border="1">
      <tr>
@@ -57,19 +58,19 @@
 
      <tr>
       <td><s:property value="userId" /></td>
-      <td><input type="text" name="yearList" value="<s:property value="year" />" class="year smallText" maxlength="4" required></td>
-      <td><input type="text" name="monthList" value="<s:property value="month" />"class="month smallText" maxlength="2" required></td>
-      <td><input type="text" name="familyNameList" value="<s:property value="familyName" />"class="familyName smallText" maxlength="20" required></td>
-      <td><input type="text" name="givenNameList" value="<s:property value="givenName" />"class="givenName smallText" maxlength="20" required></td>
+      <td><input type="text" name="yearList" value="<s:property value="year" />" class="year smallText" pattern="[0-3][0-9]*" title="半角数字4文字"  maxlength="4" required></td>
+      <td><input type="text" name="monthList" value="<s:property value="month" />"class="month smallText" pattern="[0-1][0-9]" title="半角数字2文字" maxlength="2" required></td>
+      <td><input type="text" name="familyNameList" value="<s:property value="familyName" />"class="familyName smallText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内"  maxlength="20" required></td>
+      <td><input type="text" name="givenNameList" value="<s:property value="givenName" />"class="givenName smallText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td>
       <td><input type="text" name="familyNameKanjiList" value="<s:property value="familyNameKanji" />" class="familyNameKanji smallText" maxlength="20" required></td>
       <td><input type="text" name="familyNameKanaList" value="<s:property value="familyNameKana" />" class="familyNameKana smallText" maxlength="20"></td>
       <td><input type="text" name="givenNameKanjiList" value="<s:property value="givenNameKanji" />" class="givenNameKanji smallText" maxlength="20" required></td>
       <td><input type="text" name="givenNameKanaList" value="<s:property value="givenNameKana" />" class="givenNameKana smallText" maxlength="20"></td>
-      <td><input type="text" name="postalList" value="<s:property value="postal" />" class="postal bigText" maxlength="20"></td>
+      <td><input type="text" name="postalList" value="<s:property value="postal" />" class="postal bigText" pattern="[0-9]*" title="ハイフン無しで半角数字7文字" maxlength="7"></td>
       <td><input type="text" name="addressList" value="<s:property value="address" />" class="address bigText" maxlength="100"></td>
-      <td><input type="text" name="phoneNumberList" value="<s:property value="phoneNumber" />" class="phoneNumber bigText" maxlength="20"></td>
-      <td><input type="text" name="phoneEmailList" value="<s:property value="phoneEmail" />" class="phoneEmail bigText" maxlength="100" required></td>
-      <td><input type="text" name="mobileNumberList" value="<s:property value="mobileNumber" />" class="mobileNumber bigText" maxlength="20"></td>
+      <td><input type="text" name="phoneNumberList" value="<s:property value="phoneNumber" />" class="phoneNumber bigText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内" maxlength="20"></td>
+      <td><input type="text" name="phoneEmailList" value="<s:property value="phoneEmail" />" class="phoneEmail bigText" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100" required></td>
+      <td><input type="text" name="mobileNumberList" value="<s:property value="mobileNumber" />" class="mobileNumber bigText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内"  maxlength="20"></td>
       <td><input type="text" name="mobileEmailList" value="<s:property value="mobileEmail" />" class="mobileEmail bigText" maxlength="100"></td>
       <td><input type="text" name="sexList" value="<s:property value="sex" />" class="sex smallText" maxlength="3" required></td>
       <td><input type="text" name="birthdayList" value="<s:property value="birthday" />" class="birthday bigText" maxlength="20"></td>
@@ -122,16 +123,16 @@
  	<td>パスワード</td>
  	</tr>
  	<tr>
-      <td><input type="text" name="year" placeholder="例：2016" maxlength="4" required></td>
-      <td><input type="text" name="month" placeholder="例：08" maxlength="2" required></td>
-      <td><input type="text" name="familyName"placeholder="例：tanaka" maxlength="20" required></td>
-      <td><input type="text" name="givenName" placeholder="例：taro" maxlength="20" required></td>
+      <td><input type="text" name="year" placeholder="例：2016" pattern="[0-3][0-9]*" title="半角数字4文字" maxlength="4" required></td>
+      <td><input type="text" name="month" placeholder="例：08" pattern="[0-1][0-9]" title="半角数字2文字"  maxlength="2" required></td>
+      <td><input type="text" name="familyName"placeholder="例：tanaka" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td>
+      <td><input type="text" name="givenName" placeholder="例：taro" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td>
       <td><input type="text" name="familyNameKanji"placeholder="例：田中" maxlength="20" required></td>
       <td><input type="text" name="givenNameKanji" placeholder="例：太郎" maxlength="20" required></td>
-      <td><input type="text" name="phoneEmail" placeholder="例：example@gmail.com" maxlength="100" required></td>
-      <td><input type="text" name="sex" placeholder="男or女" maxlength="3" required></td>
-      <td><input type="text" name="userFlg" placeholder="1～3" pattern="[1-9][0-9]*" maxlength="1" required></td>
-      <td><input type="text" name="password" placeholder="8桁以上" pattern=".{8,}" maxlength="20" required></td>
+      <td><input type="text" name="phoneEmail" placeholder="例：example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100" required></td>
+      <td><input type="text" name="sex" placeholder="男or女" pattern="[ぁ-ん一-龠々]+$" title="漢字1文字" maxlength="3" required></td>
+      <td><input type="text" name="userFlg" placeholder="1～3" pattern="[1-3]" title="1～3" maxlength="1" required></td>
+      <td><input type="text" name="password" placeholder="8桁以上" pattern="^([0-9A-Za-z]{8,})" title="半角英数字8文字以上20文字以内" maxlength="20" required></td>
 		</tr>
       </table>
       <input class="button" type="submit" value="追加">

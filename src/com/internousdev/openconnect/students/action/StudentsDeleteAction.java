@@ -11,7 +11,11 @@ public class StudentsDeleteAction extends ActionSupport {
 	/**
 	 * ユーザーID
 	 */
-	private int usersId;
+	private int userId;
+	/**
+	 * 結果文字
+	 */
+	private String resultString = "この受講生は削除できません。";
 
 	/**
 	 * DBの情報を削除する為のクラス
@@ -23,9 +27,10 @@ public class StudentsDeleteAction extends ActionSupport {
 		StudentsDeleteDAO dao = new StudentsDeleteDAO();
 		String result = ERROR;
 		int count = 0;
-		count =dao.delete(usersId);
+		count =dao.delete(userId);
 		if(count > 0){
 			result = SUCCESS;
+			resultString = "削除に成功しました。";
 		}
 		return result;
 	}
@@ -33,19 +38,46 @@ public class StudentsDeleteAction extends ActionSupport {
 	/**
 	* 取得メソッド
 	* @author KOHEI NITABARU
-	* @return usersId
+	* @return userId
 	*/
-	public int getUsersId() {
-		return usersId;
+	public int getUserId() {
+		return userId;
 	}
 
 	/**
 	* 設定メソッド
 	* @author KOHEI NITABARU
-	* @param usersId
+	* @param userId
 	*/
-	public void setUsersId(int usersId) {
-		this.usersId = usersId;
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author KOHEI NITABARU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド
+	* @author KOHEI NITABARU
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
