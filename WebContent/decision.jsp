@@ -22,8 +22,8 @@
 		<p>
 		<p>
 			<s:form action="DecisionSelectAction">
-				<input type="text" name="searchString" id="searchText">
-				<input type="submit" value="検索" class="button">
+				<input type="text" name="searchString" id="searchText" placeholder="案件名を入力" />
+				<input type="submit" value="検索" class="button" >
 			</s:form>
 		</p>
 		<br>
@@ -108,34 +108,36 @@
 							<td><input type="hidden"
 								value=<s:property value="decisionId" /> name="decisionId"></td>
 							<td><input type="text"
-								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" required
+								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" placeholder="登録日を入力" required
 								name="registration" value="<s:property value="registration" />"
 								id="registration" /></td>
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="11"
 								required name="userId" value="<s:property value="userId" />"
-								id="id" /></td>
+								id="registration" placeholder="姓を入力" /></td>
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="11"
 								required name="userId" value="<s:property value="userId" />"
-								id="id" /></td>
+								id="registration" placeholder="名を入力" /></td>
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="11"
 								required name="projectId"
-								value="<s:property value="projectId" />" id="registration" /></td>
+								value="<s:property value="projectId" />" id="registration" placeholder="プロジェクトIDを入力"/></td>
+
 							<td><s:property value="decisionId" /></td>
-							<td><input type="text" maxlength="100" name="decisionName"
+
+							<td><input type="text" maxlength="100" placeholder="案件名を入力" name="decisionName"
 								id="display" value="<s:property value="decisionName" />" /></td>
-							<td><input type="text" maxlength="255" name="detail"
+							<td><input type="text" maxlength="255" placeholder="詳細を入力" name="detail"
 								id="display" value="<s:property value="detail" />" /></td>
-							<td><input type="text" maxlength="100" name="iDraftingId"
+							<td><input type="text" maxlength="100" placeholder="実施起案番号を入力" name="iDraftingId"
 								id="registration" value="<s:property value="iDraftingId" />" /></td>
-							<td><input type="text" maxlength="100" name="iApprovalId"
+							<td><input type="text" maxlength="100" placeholder="実施決裁番号を入力" name="iApprovalId"
 								id="registration" value="<s:property value="iApprovalId" />" /></td>
-							<td><input type="text" maxlength="100" name="aDraftingId"
+							<td><input type="text" maxlength="100" placeholder="契約起案番号を入力" name="aDraftingId"
 								id="registration" value="<s:property value="aDraftingId" />" /></td>
-							<td><input type="text" maxlength="100" name="cdId"
+							<td><input type="text" maxlength="100" placeholder="契約決番号を入力" name="cdId"
 								id="registration" value="<s:property value="cdId" />" /></td>
-							<td><input type="text" maxlength="100" name="iADId"
+							<td><input type="text" maxlength="100" placeholder="実施兼契約起案番号を入力" name="iADId"
 								id="registration" value="<s:property value="iADId" />" /></td>
-							<td><input type="text" maxlength="100" name="iAId"
+							<td><input type="text" maxlength="100" placeholder="実施兼契約番号を入力" name="iAId"
 								id="registration" value="<s:property value="iAId" />" /></td>
 						</tr>
 					</s:iterator>
