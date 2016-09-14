@@ -46,7 +46,7 @@
 
 
 		<s:form action="ScheduleSelectAction">
-			<input type="text" name="search" placeholder="件名を入力" />
+			<input type="text" name="search" placeholder="件名を入力" maxlength=100 />
 			<s:submit value="検索"></s:submit>
 		</s:form>
 		<br>
