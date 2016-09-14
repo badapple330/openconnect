@@ -370,7 +370,7 @@
 			class="com.internousdev.openconnect.books.borrow.action.BooksBorrowUpdateAction"
 			method="execute">
 			<result name="success" type="chain">BooksBorrowSelectAction</result>
-			<result name="error">/books_borrow.jsp</result>
+			<result name="error" type="chain">BooksBorrowSelectAction</result>
 		</action>
 
 

@@ -32,12 +32,12 @@
 		<s:form action="BooksUpdateAction">
 			<table border="1" cellspacing="0">
 				<tr>
-					<th><center>ID</center></th>
-					<th width="500"><center>タイトル一覧</center></th>
+					<td>ID</td>
+					<td width="500">タイトル一覧</td>
 					<s:if test="%{#session.userFlg == 3}">
-						<th><center>削除</center></th>
+						<td>削除</td>
 					</s:if>
-					<th></th>
+					<td></td>
 				</tr>
 
 				<s:iterator value="searchList">

@@ -16,16 +16,16 @@
 
 		<br>
 		<h1>書籍貸し出し</h1>
+		<br> <br> <br>
+		<s:property value="%{errorMsg}" />
 		<br>
-		<br>
-
 		<table border="1">
 
-			<th><center>id</center></th>
-			<th><center>タイトル</center></th>
-			<th><center>貸し出し状況</center></th>
-			<th><center>日付</center></th>
-			<th><center>ユーザーID</center></th>
+			<td>id</td>
+			<td>タイトル</td>
+			<td>貸し出し状況</td>
+			<td>日付
+			<td>ユ ーザーID</td>
 
 			<s:iterator value="bookList">
 				<tr>
