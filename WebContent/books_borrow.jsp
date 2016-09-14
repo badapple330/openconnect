@@ -17,7 +17,7 @@
 
 		<br>
 		<h1>書籍貸し出し</h1>
-		<br> <br>
+		<br><br>
 
 		<table border="1">
 

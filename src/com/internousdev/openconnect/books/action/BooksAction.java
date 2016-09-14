@@ -10,7 +10,7 @@ import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * DBの書籍情報を画面に表示する為のクラス
+ * DBの書籍情報、ID、タイトル一覧、削除を画面に表示する為のクラス
  * @author TATSUYA HOSHI
  */
 public class BooksAction extends ActionSupport{

@@ -8,7 +8,7 @@ import com.internousdev.openconnect.books.dao.BooksDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 画面で受け取ったIDを元にして、DBの情報を削除する為のクラス
+ * 画面で受け取ったIDを元にして、DBの情報のID,タイトル、削除を削除する為のクラス
  * @author TATSUYA HOSHI
  */
 public class BooksDeleteAction extends ActionSupport implements SessionAware{

@@ -12,7 +12,6 @@
 </head>
 <body>
 
-
 	<jsp:include page="header.jsp" />
 
 	<div class="container">
@@ -52,17 +51,17 @@
 				</s:if></td>
 		</s:form>
 
-
 		<div id="modal-main">
 			<!-- #contents START -->
-			ID <input type="text" id="delete-bookid" readonly><br>
-			タイトル <input type="text" id="delete-booktitle" readonly><br>
-			<input type="button" class="delete-true button" value="削除"> <input
-				type="button" class="modal-close button" value="閉じる">
+<!-- 			ID <input type="text" id="delete-bookid" readonly><br> -->
+			ID <span id="book_id"></span><br>
+			タイトル <span id="title"></span><br>
+			<input type="button" class="delete-true button" value="削除"><br>
+			<input type="button" class="modal-close button" value="閉じる">
 
 			<div class="delete-prepare">
 				本当に削除しますか？
-				<s:form action="BooksDelete">
+				<s:form action="BooksDeleteAction">
 					<input type="hidden" name="bookId" value="" id="true-delete">
 					<input type="submit" class="delete-true button" value="はい">
 					<input type="button" class="modal-close button" value="いいえ">
@@ -71,7 +70,7 @@
 		</div>
 
 
-		<s:form action="BooksCreate">
+		<s:form action="BooksInsertAction">
 			<s:if test="%{#session.userFlg == 3}">
 			書籍の追加
 				<input type="text" name="title" placeholder="タイトル入力してください">

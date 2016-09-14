@@ -23,11 +23,6 @@ p {
 	text-align: center;
 }
 
-.button {
-	height: 30px;
-	width: 60px;
-}
-
 .center {
 	margin: 0 auto;
 	text-align: center;
@@ -46,8 +41,8 @@ input {
 /* モーダル コンテンツエリア */
 #modal-main {
 	display: none;
-	width: 500px;
-	height: 300px;
+	width: 400px;
+	height: 150px;
 	margin: 0;
 	padding: 0;
 	background-color: #ffffff;
