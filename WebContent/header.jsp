@@ -82,7 +82,7 @@
 				<s:submit value="決済手続き" />
 			</s:form>
 			<!--決済手続き申請一覧 -->
-			<s:if test="%{#session.userFlg == 3}">
+				<s:if test="%{#session.userFlg  >= 2}">
 				<s:form action="DecisionApplicationSelectAction">
 					<s:submit value="決済手続き申請一覧" />
 				</s:form>

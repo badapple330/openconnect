@@ -173,7 +173,8 @@
 					</td>
 				</tr>
 			</table>
-		</s:iterator> <s:form action="BackGoDecisionAction">
+		</s:iterator> 
+		<s:form action="BackGoDecisionAction">
 			<input type="submit" value="戻る" class="button">
 		</s:form>
 </body>
