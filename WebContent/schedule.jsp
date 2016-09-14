@@ -83,7 +83,7 @@
 							<td><input type="text" name="scheduleContentList"
 								value="<s:property value="content" />"
 								class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
-							<td><s:if test="%{#session.userFlg == 2 || #session.userFlg == 3}"><input type="button" class="button modal-open"
+							<td><s:if test="%{#session.userFlg  >= 2}"><input type="button" class="button modal-open"
 								value="削除" /></s:if></td>
 						</tr>
 						<input type="hidden" name="scheduleIdList"
@@ -109,7 +109,7 @@
 						<td><input type="text" name="content" placeholder="内容を入力"
 							maxlength=100></td>
 						<!-- tokenタグ -->
-						<s:if test="%{#session.userFlg == 2 || #session.userFlg == 3}">
+						<s:if test="%{#session.userFlg >= 2">
 						<s:token />
 						<td><button type="submit" class="button" name="startDay">追加</button></td></s:if>
 					</tr>
