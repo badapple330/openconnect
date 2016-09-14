@@ -10,14 +10,14 @@
 </head>
 <body>
 
-
 	<jsp:include page="header.jsp" />
 
 	<div class="container">
 
 		<br>
 		<h1>書籍貸し出し</h1>
-		<br><br>
+		<br>
+		<br>
 
 		<table border="1">
 
@@ -27,35 +27,39 @@
 			<th><center>日付</center></th>
 			<th><center>ユーザーID</center></th>
 
-
 			<s:iterator value="bookList">
 				<tr>
-					<td><s:property  value="bookId" /><input type="hidden" name="bookIdList"
-						value="<s:property  value="bookId" />" class="bookId"></td>
-					<td><s:property value="title" /><input type="hidden" name="title"
-						value="<s:property value="title" />" class="title"></td>
-					<td><s:property value="borrowStatus" /><input type="hidden" name="statusList"
-						value="<s:property value="borrowStatus" />" class="status"></td>
-					<td><s:property value="borrowDay" /><input type="hidden" name="dayList"
-						value="<s:property value="borrowDay" />" class="day"></td>
-					<td><s:property value="borrowId" /><input type="hidden" name="borrowIdList"
-						value="<s:property value="borrowId" />" class="userId"></td>
+					<td><s:property value="bookId" /><input type="hidden"
+						name="bookIdList" value="<s:property  value="bookId" />"
+						class="bookId"></td>
+					<td><s:property value="title" /><input type="hidden"
+						name="title" value="<s:property value="title" />" class="title"></td>
+					<td><s:property value="borrowStatus" /><input type="hidden"
+						name="statusList" value="<s:property value="borrowStatus" />"
+						class="status"></td>
+					<td><s:property value="borrowDay" /><input type="hidden"
+						name="dayList" value="<s:property value="borrowDay" />"
+						class="day"></td>
+					<td><s:property value="borrowId" /><input type="hidden"
+						name="borrowIdList" value="<s:property value="borrowId" />"
+						class="userId"></td>
 
 				</tr>
 			</s:iterator>
 		</table>
-
 		<br>
 
 		<s:form action="BooksBorrowUpdateAction">
 	書籍のID
 	<br>
-			<input type="text" name="bookId" pattern="[1-9][0-9]*" maxlength="3" required placeholder="ID入力してください">
+			<input type="text" name="bookId" pattern="[1-9][0-9]*" maxlength="3"
+				required placeholder="ID入力してください">
 			<br>
 
 		ユーザーID
 		 <br>
-			<input type="text" name="borrowId" pattern="[1-9][0-9]*" maxlength="3" placeholder="ユーザーID入力してください">
+			<input type="text" name="borrowId" pattern="[1-9][0-9]*"
+				maxlength="3" placeholder="ユーザーID入力してください">
 			<input class="button" type="submit" value="貸し出し">
 			<br>
 		</s:form>

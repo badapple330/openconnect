@@ -15,7 +15,7 @@ import com.internousdev.util.DBConnector;
  */
 public class BooksInsertDAO {
 	/**
-	 *　追加情報を、DBへ転送し、追加する為のメソッド
+	 * 書籍画面から受け取った追加情報を、DBへ転送し、反映する為のメソッド
 	 */
 	public int insert(String title) {
 

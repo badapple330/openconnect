@@ -15,7 +15,8 @@ import com.internousdev.util.DBConnector;
  */
 public class BooksBorrowInsertDAO {
 	/**
-	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public int insert(int bookId) {
 

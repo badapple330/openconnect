@@ -23,7 +23,7 @@ public class BooksSelectAction extends ActionSupport {
 	 */
 	private String search = "";
 	/**
-	 * リスト
+	 * サーチリスト
 	 */
 	private List<BooksDTO> searchList = new ArrayList<BooksDTO>();
 	/**
@@ -41,7 +41,7 @@ public class BooksSelectAction extends ActionSupport {
 		if (searchList.size() != 0) {
 			result = SUCCESS;
 		}else {
-		resultString = "該当する書籍は存在しません";
+			resultString = "該当する書籍は存在しません";
 		}
 		return result;
 	}
@@ -86,18 +86,18 @@ public class BooksSelectAction extends ActionSupport {
 		return serialVersionUID;
 	}
 	/**
-	* エラーメッセージ取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
+	 * エラーメッセージ取得メソッド
+	 * @author TATSUYA HOSHI
+	 * @return
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 	/**
-	* エラーメッセージ設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
+	 * エラーメッセージ設定メソッド
+	 * @author TATSUYA HOSHI
+	 * @param
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}

@@ -7,7 +7,7 @@ import com.internousdev.openconnect.books.borrow.dao.BooksBorrowInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * DBの情報を画面に表示する為のクラス
+ * 画面で新規に追加した情報を、DBに追加する為のクラス
  * @author TATSUYA HOSHI
  */
 public class BooksBorrowInsertAction extends ActionSupport{

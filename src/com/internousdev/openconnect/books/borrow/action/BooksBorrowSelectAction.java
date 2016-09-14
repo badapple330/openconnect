@@ -8,24 +8,23 @@ import com.internousdev.openconnect.books.borrow.dto.BooksBorrowDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * DBの情報を画面に表示する為のクラス
+ * 書籍名を、DBのプロジェクト名から検索する為のクラス
  * @author TATSUYA HOSHI
  */
 
 public class BooksBorrowSelectAction extends ActionSupport {
-
-	private List<BooksBorrowDTO>bookList = new ArrayList<BooksBorrowDTO>();
-
 	/**
-	 * DAOに入力されたデータを渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * サーチリスト
 	 */
-
+	private List<BooksBorrowDTO>bookList = new ArrayList<BooksBorrowDTO>();
 	/**
 	 * シリアルバージョンID
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
-
+	/**
+	 * DAOに入力されたデータを渡して、結果を返す
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 	public String execute() {
 		String result = ERROR;
 		BooksBorrowSelectDAO dao = new BooksBorrowSelectDAO();
