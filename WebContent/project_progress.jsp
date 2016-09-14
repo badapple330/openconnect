@@ -11,8 +11,11 @@
 <script src="js/project_progress.js"></script>
 </head>
 <body>
-	<div class="center">
+
 		<header><jsp:include page="header.jsp" /></header>
+			<div class="center">
+			<br>
+
 		<h1>プロジェクト進捗報告</h1>
 	</div>
 	<s:form action="ProjectProgressSelectAction">
@@ -88,7 +91,7 @@
 				<th>その他報告</th>
 			</tr>
 			<tr>
-				<td><input type="text" name="projectId" placeholder=""
+				<td><input type="text" name="projectId" placeholder="半角数字のみ"
 					pattern="^[0-9]+$" maxlength="4"></td>
 				<td><input type="text" name="projectPlan" placeholder=""
 					maxlength="100"></td>
