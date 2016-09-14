@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,16 +33,18 @@ public class ProjectsListDAO {
 			String sql = "SELECT projects.project_id, projects.project_name,projects.manager_id,projects.sub_manager_id,projects.start_date,projects.end_date,projects.note FROM projects  INNER JOIN  users ON projects.manager_id  = users.user_id";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				ProjectsListDTO dto = new ProjectsListDTO();
+    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
-				dto.setProjectId(rs.getInt("project_id"));
-				dto.setProjectName(rs.getString("project_name"));
-				dto.setManagerId(rs.getInt("manager_id"));
-				dto.setSubManagerId(rs.getInt("sub_manager_id"));
-				dto.setStartDate(rs.getString("start_date"));
-				dto.setEndDate(rs.getString("end_date"));
-				dto.setNote(rs.getString("note"));
+            while (rs.next()) {
+            	ProjectsListDTO dto = new ProjectsListDTO();
+
+            	dto.setProjectId(rs.getInt("project_id"));
+            	dto.setProjectName(rs.getString("project_name"));
+            	dto.setStartDate(sdf.format(rs.getDate("start_date")).toString());
+            	dto.setEndDate(sdf.format(rs.getDate("end_date")).toString());
+            	dto.setNote(rs.getString("note"));
+            	dto.setManagerId(rs.getInt("manager_id"));
+            	dto.setSubManagerId(rs.getInt("sub_manager_id"));
 
 				projectList.add(dto);
 			}
