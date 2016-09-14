@@ -19,6 +19,10 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = -758470450L;
 	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "削除できませんでした。";
+	/**
 	 * 決裁手続きID
 	 */
 	private int decisionDetailId;
@@ -34,6 +38,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 		count = dao.delete(decisionDetailId);
 		if(count > 0){
 			result = SUCCESS;
+			 resultString="削除しました";
 		}
 		return result;
 	}
@@ -53,6 +58,24 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	*/
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATSUHUMI ITOU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATSUHUMI ITOU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 }

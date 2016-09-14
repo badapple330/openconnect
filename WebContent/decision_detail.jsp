@@ -25,6 +25,7 @@
 	</s:form>
 	<br>
 	<br>
+	<s:property value="%{resultString}"/>
 	<!-- 	リスト表示 -->
 	<table border="1">
 		<tr>

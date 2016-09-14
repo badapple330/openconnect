@@ -15,8 +15,9 @@
 	<jsp:include page="header.jsp" />
 
 <h1>決裁手続き編集画面</h1>
-
+	<s:property value="%{resultString}"/>
 <s:iterator value="decisionDetailList">
+
 
 <table border="1"><tr><td>
 パスワード変更

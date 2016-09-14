@@ -18,6 +18,10 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = -7584789844350L;
 	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "追加できませんでした。";
+	/**
 	 * プロジェクトID
 	 */
 	private int projectId;
@@ -38,6 +42,7 @@ private String password;
 		count = dao.insert(projectId,password);
 		if (count > 0) {
 			result = SUCCESS;
+			resultString = "追加できました。";
 		}
 		return result;
 	}
@@ -75,6 +80,24 @@ private String password;
 	*/
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATUHUMI ITOU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATUHUMI ITOU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 

@@ -59,6 +59,10 @@ public class DecisionEditUpdateAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
 	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "編集できませんでした。";
+	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
@@ -71,6 +75,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 				summary,cause,startDay,endDay,plan,persons,decisionDetailId);
 		if(count > 0){
 			result = SUCCESS;
+			resultString = "編集しました。";
 		}
 		return result;
 	}
@@ -257,6 +262,22 @@ public class DecisionEditUpdateAction extends ActionSupport {
 	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	/**
+	* 取得メソッド
+	* @author TATUHUMI ITOU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+	/**
+	* 設定メソッド
+	* @author TATUHUMI ITOU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 

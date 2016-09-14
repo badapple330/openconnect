@@ -32,7 +32,12 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 	/**
 	 * 決裁手続きリスト
 	 */
+
 	private List<DecisionDetailDTO> decisionDetailList = new ArrayList<DecisionDetailDTO>();
+	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "パスワードがまちがっています。";
 	/**
 	 * シリアルバージョンID
 	 */
@@ -52,7 +57,7 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 			result = SUCCESS;
 		}
 		session.put("decisionDetailId", decisionDetailId);
-
+		resultString="パスワードを確認しました";
 		return result;
 	}
 
@@ -120,6 +125,26 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+
+	/**
+	* 取得メソッド
+	* @author  TATSUHUMI ITOU
+	* @return 　resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+
+	/**
+	* 設定メソッド
+	* @author  TATSUHUMI ITOU
+	* @param  resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 }

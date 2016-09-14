@@ -11,9 +11,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionEditPasswordAction extends ActionSupport {
 	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "パスワードを変更できませんでした。";
+	/**
 	 * パスワード
 	 */
-
 	private String password;
 	/**
 	 * 決裁手続きID
@@ -35,6 +38,7 @@ private int decisionDetailId;;
 		count = dao.select(password,decisionDetailId);
 		if(count > 0){
 			result = SUCCESS;
+			resultString = "パスワードを変更しました。";
 		}
 		return result;
 	}
@@ -78,6 +82,24 @@ private int decisionDetailId;;
 	*/
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATUHUMI ITOU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATUHUMI ITOU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 
