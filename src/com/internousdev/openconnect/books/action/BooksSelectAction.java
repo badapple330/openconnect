@@ -23,10 +23,13 @@ public class BooksSelectAction extends ActionSupport {
 	 */
 	private String search = "";
 	/**
-	 * エラーメッセージ
+	 * リスト
 	 */
 	private List<BooksDTO> searchList = new ArrayList<BooksDTO>();
-	private String errorMsg;
+	/**
+	 * エラーメッセージ
+	 */
+	private String resultString;
 	/**
 	 * DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
@@ -37,13 +40,13 @@ public class BooksSelectAction extends ActionSupport {
 		searchList = dao.select(search);
 		if (searchList.size() != 0) {
 			result = SUCCESS;
-		} else {
-			errorMsg = "該当する情報は存在しません";
+		}else {
+		resultString = "該当する書籍は存在しません";
 		}
 		return result;
 	}
 	/**
-	 * 取得メソッド
+	 * 検索取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return search
 	 */
@@ -51,7 +54,7 @@ public class BooksSelectAction extends ActionSupport {
 		return search;
 	}
 	/**
-	 * 設定メソッド
+	 * 検索設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param search
 	 */
@@ -59,7 +62,7 @@ public class BooksSelectAction extends ActionSupport {
 		this.search = search;
 	}
 	/**
-	 * 取得メソッド
+	 * 検索リスト取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return searchList
 	 */
@@ -67,7 +70,7 @@ public class BooksSelectAction extends ActionSupport {
 		return searchList;
 	}
 	/**
-	 * 設定メソッド
+	 * 検索リスト設定メソッド
 	 * @author TATSUYA HOSHI
 	 * @param searchList
 	 */
@@ -75,28 +78,28 @@ public class BooksSelectAction extends ActionSupport {
 		this.searchList = searchList;
 	}
 	/**
-	 * 取得メソッド
-	 * @author TATSUYA HOSHI
-	 * @return errorMsg
-	 */
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-	/**
-	 * 設定メソッド
-	 * @author TATSUYA HOSHI
-	 * @param errorMsg
-	 */
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
-	}
-	/**
-	 * 取得メソッド
+	 * シリアルバージョン取得メソッド
 	 * @author TATSUYA HOSHI
 	 * @return serialversionuid
 	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	/**
+	* エラーメッセージ取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+	/**
+	* エラーメッセージ設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 

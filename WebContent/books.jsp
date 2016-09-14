@@ -26,7 +26,7 @@
 			<input class="button" type="submit" value="検索">
 		</s:form>
 		<br>
-		<s:property value="%{resultString}" />
+		<s:property value="%{resultString}"/>
 		<br>
 
 		<s:form action="BooksUpdateAction">
