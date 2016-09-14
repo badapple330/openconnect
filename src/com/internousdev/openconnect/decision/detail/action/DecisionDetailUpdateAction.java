@@ -55,9 +55,10 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 		if( check ){
 			decisionDetailList = dao.select(decisionDetailId);
 			result = SUCCESS;
+			resultString="パスワードを確認しました";
 		}
 		session.put("decisionDetailId", decisionDetailId);
-		resultString="パスワードを確認しました";
+
 		return result;
 	}
 

@@ -241,7 +241,7 @@
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailSelectAction"
 			method="execute">
 			<result name="success">decision_detail.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailDeleteAction"
@@ -249,21 +249,21 @@
 			method="execute">
 			<result name="success" type="chain">DecisionDetailSelectAction
 			</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailUpdateAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailUpdateAction"
 			method="execute">
 			<result name="success">decision_edit.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailPreviewAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailPreviewAction"
 			method="execute">
 			<result name="success">decision_preview.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailApplicationAction"
@@ -271,7 +271,7 @@
 			method="execute">
 			<result name="success" type="chain">DecisionDetailSelectAction
 			</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailInsertAction"
@@ -279,7 +279,7 @@
 			method="execute">
 			<result name="success" type="chain">DecisionDetailSelectAction
 			</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_detail.jsp</result>
 		</action>
 
 		<!-- 決済手続き申請一覧画面への遷移 -->
@@ -287,7 +287,7 @@
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailSelectAction"
 			method="execute">
 			<result name="success">decision_application.jsp</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_application.jsp</result>
 		</action>
 
 		<action name="DecisionApplicationUpdateAction"
@@ -295,7 +295,7 @@
 			method="execute">
 			<result name="success" type="chain">DecisionApplicationSelectAction
 			</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_application.jsp</result>
 		</action>
 
 		<!-- 決済手続き電子化画面編集への遷移 -->
@@ -304,7 +304,7 @@
 			method="execute">
 			<result name="success" type="chain">DecisionDetailUpdateAction
 			</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_edit.jsp</result>
 		</action>
 
 		<action name="DecisionEditSelectAction"
@@ -312,21 +312,21 @@
 			method="execute">
 			<result name="success">decision_edit.jsp
 			</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_edit.jsp</result>
 		</action>
 
 		<action name="DecisionEditUpdateAction"
 			class="com.internousdev.openconnect.decision.edit.action.DecisionEditUpdateAction"
 			method="execute">
 			<result name="success" type="chain">DecisionEditSelectAction</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_edit.jsp</result>
 		</action>
 
 		<action name="BackGoDecisionAction" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success" type="chain">DecisionDetailSelectAction
 			</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/decision_edit.jsp</result>
 		</action>
 
 		<!-- 書籍一覧画面への遷移 -->
