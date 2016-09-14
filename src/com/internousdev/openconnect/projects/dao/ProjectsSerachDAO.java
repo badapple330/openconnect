@@ -28,7 +28,6 @@ public class ProjectsSerachDAO {
      * @param search
      * @return  searchList
      */
-
 	public List<ProjectsSearchDTO> searchList = new ArrayList<ProjectsSearchDTO>();
 
     public List<ProjectsSearchDTO> select(String search) {
@@ -47,8 +46,6 @@ public class ProjectsSerachDAO {
 
             	dto.setProjectId(rs.getInt("project_id"));
             	dto.setProjectName(rs.getString("project_name"));
-//            	dto.setStartDate(rs.getString("start_date"));
-//            	dto.setEndDate(rs.getString("end_date"));
             	try { dto.setStartDate(sdf.format(rs.getDate("start_date")).toString()); }catch(Exception e){}
             	try { dto.setEndDate(sdf.format(rs.getDate("end_date")).toString()); }catch(Exception e){}
             	dto.setNote(rs.getString("note"));

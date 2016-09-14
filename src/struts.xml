@@ -104,14 +104,14 @@
 			class="com.internousdev.openconnect.projects.action.ProjectsUpdateAction"
 			method="execute">
 			<result name="success" type="chain">ProjectsSelectAction</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/ProjectsSelectAction</result>
 		</action>
 
 		<action name="ProjectsInsertAction"
 			class="com.internousdev.openconnect.projects.action.ProjectsInsertAction"
 			method="execute">
 			<result name="success" type="chain">ProjectsSelectAction</result>
-			<result name="error">/register.jsp</result>
+			<result name="error">/ProjectsSelectAction</result>
 		</action>
 
 		<action name="ProjectsDeleteAction"

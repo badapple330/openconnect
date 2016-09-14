@@ -43,7 +43,6 @@ public class ProjectsUpdateDAO {
 			ps.setString(6,note);
 			ps.setInt(7,projectId);
 			count =ps.executeUpdate();
-			System.out.println(endDate);
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally{

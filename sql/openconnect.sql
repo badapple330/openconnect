@@ -115,7 +115,7 @@ project_name varchar(100) not null,
 manager_id int not null,
 sub_manager_id int not null,
 start_date date,
-end_date date,
+end_date date default 00000000,
 note varchar(255),
 foreign key(manager_id) references users(user_id),
 foreign key(sub_manager_id) references users(user_id)
