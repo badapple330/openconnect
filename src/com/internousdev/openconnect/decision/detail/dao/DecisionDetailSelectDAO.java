@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package com.internousdev.openconnect.decision.detail.dao;
 
 import java.sql.Connection;
@@ -43,7 +46,7 @@ public class DecisionDetailSelectDAO {
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setProjectId(rs.getInt("project_Id"));
 				dto.setDecisionId(rs.getInt("decision_id"));
-//				dto.setDecisionIdNumber(String.format("%05d", rs.getInt("decision_id")));
+				dto.setDecisionIdNumber(String.format("%05d", rs.getInt("decision_id")));
 				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus(rs.getString("decision_status"));

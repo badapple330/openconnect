@@ -27,7 +27,7 @@ $(function(){
 	        var index = $('.modal-edit-open').index($(this));
 
 
-			$('#edit-projectid').text($('.decision_id').eq(index).text());
+			$('#edit-projectid').text($('.decision_id').eq(index).val());
 
 			$('#edit-projectname').text($('.decision_name').eq(index).text());
 
@@ -78,7 +78,7 @@ $(function(){
 	        var index = $('.modal-open').index($(this));
 
 
-			$('#delete-projectid').text($('.decision_id').eq(index).text());
+			$('#delete-projectid').text($('.decision_id').eq(index).val());
 
 			$('#delete-projectname').text($('.decision_name').eq(index).text());
 

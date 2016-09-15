@@ -97,7 +97,7 @@
 							</tr>
 							<tr>
 								<td>開発端末</td>
-								<td>8</td>
+								<td>8.0</td>
 								<td><s:property value="persons" /></td>
 								<td><s:property value="developmentTerminal" /></td>
 							</tr>
@@ -109,7 +109,7 @@
 							</tr>
 							<tr>
 								<td>回線使用料</td>
-								<td>1</td>
+								<td>1.0</td>
 								<td>1</td>
 								<td>1.0</td>
 							</tr>
@@ -138,7 +138,7 @@
 							</tr>
 							<tr>
 								<td>開発要員</td>
-								<td>100</td>
+								<td>100.0</td>
 								<td><s:property value="persons" /></td>
 								<td><s:property value="developmentPersonnel" /></td>
 							</tr>

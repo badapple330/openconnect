@@ -85,24 +85,47 @@ public class DecisionDetailDTO {
 	/**
 	 *  開発要員
 	 */
-	private int developmentPersonnel;
+	private double developmentPersonnel;
 	/**
 	 *  開発端末
 	 */
-	private int developmentTerminal;
+	private double developmentTerminal;
 	/**
 	 *  建設費用
 	 */
-	private int developmentPersonnelSum;
+	private double developmentPersonnelSum;
 	/**
 	 *  損益費用
 	 */
-	private int profitAndLossCost;
+	private double profitAndLossCost;
 	/**
 	 *  合計
 	 */
-	private int sum;
+	private double sum;
+	/**
+	 *  数値を００００に直す
+	 */
+	private String decisionIdNumber;
 
+
+
+
+	/**
+	* 取得メソッド
+	* @author TATUHUMI ITOU
+	* @return decisionIdNumber
+	*/
+	public String getDecisionIdNumber() {
+		return decisionIdNumber;
+	}
+	/**
+	* 設定メソッド
+	* @author TATUHUMI ITOU
+	* @param decisionIdNumber
+	*/
+	public void setDecisionIdNumber(String decisionIdNumber) {
+		this.decisionIdNumber = decisionIdNumber;
+	}
 	/**
 	 * 取得メソッド 姓の漢字を取得
 	 * @author TATUHUMI ITOU
@@ -125,7 +148,7 @@ public class DecisionDetailDTO {
 	 * @return developmentTerminal
 	 */
 
-	public int getDevelopmentTerminal() {
+	public double getDevelopmentTerminal() {
 		return developmentTerminal;
 	}
 	/**
@@ -149,7 +172,7 @@ public class DecisionDetailDTO {
 	 * @author TATUHUMI ITOU
 	 * @param developmentTerminal
 	 */
-	public void setDevelopmentTerminal(int developmentTerminal) {
+	public void setDevelopmentTerminal(double developmentTerminal) {
 		this.developmentTerminal = developmentTerminal;
 	}
 	/**
@@ -157,7 +180,7 @@ public class DecisionDetailDTO {
 	 * @author TATUHUMI ITOU
 	 * @return developmentPersonnelSum
 	 */
-	public int getDevelopmentPersonnelSum() {
+	public double getDevelopmentPersonnelSum() {
 		return developmentPersonnelSum;
 	}
 	/**
@@ -165,7 +188,7 @@ public class DecisionDetailDTO {
 	 * @author TATUHUMI ITOU
 	 * @param developmentPersonnelSum
 	 */
-	public void setDevelopmentPersonnelSum(int developmentPersonnelSum) {
+	public void setDevelopmentPersonnelSum(double developmentPersonnelSum) {
 		this.developmentPersonnelSum = developmentPersonnelSum;
 	}
 	/**
@@ -173,7 +196,7 @@ public class DecisionDetailDTO {
 	 * @author TATUHUMI ITOU
 	 * @return profitAndLossCost
 	 */
-	public int getProfitAndLossCost() {
+	public double getProfitAndLossCost() {
 		return profitAndLossCost;
 	}
 	/**
@@ -181,7 +204,7 @@ public class DecisionDetailDTO {
 	 * @author TATUHUMI ITOU
 	 * @param profitAndLossCost
 	 */
-	public void setProfitAndLossCost(int profitAndLossCost) {
+	public void setProfitAndLossCost(double profitAndLossCost) {
 		this.profitAndLossCost = profitAndLossCost;
 	}
 	/**
@@ -189,7 +212,7 @@ public class DecisionDetailDTO {
 	 * @author TATUHUMI ITOU
 	 * @return sum
 	 */
-	public int getSum() {
+	public double getSum() {
 		return sum;
 	}
 	/**
@@ -197,7 +220,7 @@ public class DecisionDetailDTO {
 	 * @author TATUHUMI ITOU
 	 * @param sum
 	 */
-	public void setSum(int sum) {
+	public void setSum(double sum) {
 		this.sum = sum;
 	}
 	/**
@@ -205,7 +228,7 @@ public class DecisionDetailDTO {
 	 * @author TATUHUMI ITOU
 	 * @return developmentPersonnel
 	 */
-	public int getDevelopmentPersonnel() {
+	public double getDevelopmentPersonnel() {
 		return developmentPersonnel;
 	}
 	/**
@@ -213,7 +236,7 @@ public class DecisionDetailDTO {
 	 * @author TATUHUMI ITOU
 	 * @param developmentPersonnel
 	 */
-	public void setDevelopmentPersonnel(int developmentPersonnel) {
+	public void setDevelopmentPersonnel(double developmentPersonnel) {
 		this.developmentPersonnel = developmentPersonnel;
 	}
 	/**

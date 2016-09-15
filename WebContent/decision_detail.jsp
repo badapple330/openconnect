@@ -31,6 +31,7 @@
 		<tr>
 			<th>ID</th>
 			<th>プロジェクトID</th>
+			<th></th>
 			<th>案件番号</th>
 			<th>プロジェクト名</th>
 			<th>決裁分類</th>
@@ -47,7 +48,8 @@
 				<td class="decision_detail_id"><s:property
 						value="decisionDetailId" /></td>
 				<td><s:property value="projectId" /></td>
-				<td class="decision_id"><s:property value="decisionId" /></td>
+				<td><input type="hidden" value="<s:property value="decisionId" />"  class="decision_id"/></td>
+				<td><s:property value="decisionIdNumber" /></td>
 				<td class="decision_name"><s:property value="projectName" /></td>
 				<td class="decision_type"><s:property value="decisionType" /></td>
 				<td class="decision_status"><s:property value="decisionStatus" /></td>
