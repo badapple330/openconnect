@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
 /**
- * 決裁状況一覧をActionから受け取った検索文を検索するクラス
+ * 決裁状況一覧をActionから受け取った検索文で検索するクラス
  * @author KENICHI HORIGUCHI,KOUHEI NIRABARU
  * @since 2016/09/14
  * @version 1.0
@@ -18,12 +18,13 @@ import com.internousdev.util.DBConnector;
 public class DecisionSelectDAO {
 	/**
 	 * 決裁状況一覧情報を格納するリスト
+	 * @author  KENICHI HORIGUCHI
 	 */
 	private ArrayList<DecisionDTO> list = new ArrayList<DecisionDTO>();
 	/**
-	 * 画面に情報一覧を表示させる為のメソッド
-	 * @return result データベースからの決裁状況一覧情報を格納できたか否か
-	 * @throws SQLException
+	 * 表示メソッド ログインした際にDBからサイト情報をリスト化して抽出し、DTOに格納する
+	 * @author KENICHI HORIGUCHI
+	 * @return  searchString
 	 */
 	public boolean select(String searchString ) {
 		boolean result = false;
@@ -69,7 +70,7 @@ public class DecisionSelectDAO {
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド リスト
 	 * @author KENICHI HORIGUCHI
 	 * @return list
 	 */

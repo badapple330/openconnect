@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.internousdev.openconnect.decision.dto;
 /**
  * 決裁状況一覧から検索したデータを溜め込むクラス。
@@ -68,8 +65,10 @@ public class DecisionDTO {
 	 *
 	 */
 	private String iAId;
+
+
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 登録日
 	 * @author KENICHI HORIGUCHI
 	 * @return registration
 	 */
@@ -85,7 +84,7 @@ public class DecisionDTO {
 		this.registration = registration;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド ユーザーID
 	 * @author KENICHI HORIGUCHI
 	 * @return userId
 	 */
@@ -101,7 +100,7 @@ public class DecisionDTO {
 		this.userId = userId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクトID
 	 * @author KENICHI HORIGUCHI
 	 * @return projectId
 	 */
@@ -117,7 +116,7 @@ public class DecisionDTO {
 		this.projectId = projectId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 案件番号
 	 * @author KENICHI HORIGUCHI
 	 * @return decisionId
 	 */
@@ -133,7 +132,7 @@ public class DecisionDTO {
 		this.decisionId = decisionId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 案件名
 	 * @author KENICHI HORIGUCHI
 	 * @return decisionName
 	 */
@@ -149,7 +148,7 @@ public class DecisionDTO {
 		this.decisionName = decisionName;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 詳細
 	 * @author KENICHI HORIGUCHI
 	 * @return detail
 	 */
@@ -165,7 +164,7 @@ public class DecisionDTO {
 		this.detail = detail;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 実施起案番号
 	 * @author KENICHI HORIGUCHI
 	 * @return iDraftingId
 	 */
@@ -181,7 +180,7 @@ public class DecisionDTO {
 		this.iDraftingId = iDraftingId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 実施決裁番号
 	 * @author KENICHI HORIGUCHI
 	 * @return iApprovalId
 	 */
@@ -197,7 +196,7 @@ public class DecisionDTO {
 		this.iApprovalId = iApprovalId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 契約起案番号
 	 * @author KENICHI HORIGUCHI
 	 * @return aDraftingId
 	 */
@@ -213,7 +212,7 @@ public class DecisionDTO {
 		this.aDraftingId = aDraftingId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 契約決番号
 	 * @author KENICHI HORIGUCHI
 	 * @return cdId
 	 */
@@ -229,7 +228,7 @@ public class DecisionDTO {
 		this.cdId = cdId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 実施兼契約起案番号
 	 * @author KENICHI HORIGUCHI
 	 * @return iADId
 	 */
@@ -245,7 +244,7 @@ public class DecisionDTO {
 		this.iADId = iADId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 実施兼契約番号
 	 * @author KENICHI HORIGUCHI
 	 * @return iAId
 	 */

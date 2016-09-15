@@ -10,7 +10,7 @@ import com.internousdev.openconnect.decision.dao.DecisionUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- *画面から入力された値を更新するクラス。
+ *決裁状況一覧画面から入力された値を更新するクラス。
  * @author KENICHI HORIGUCHI,KOUHEI NITABARU
  * @since 2016/09/8
  * @version 1.0
@@ -71,14 +71,14 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * エラー
+	 * エラーメッセージ
 	 * @author KENICHI HORIGUCHI
 	 */
 	private String errorMsg;
 
 
 	/**
-	 * 成功
+	 * 成功メッセージ
 	 * @author KENICHI HORIGUCHI
 	 */
 	private String successMsg;
@@ -129,7 +129,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 登録日
 	 * @author KENICHI HORIGUCHI
 	 * @return registration
 	 */
@@ -147,7 +147,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド ユーザーID
 	 * @author KENICHI HORIGUCHI
 	 * @return userId
 	 */
@@ -165,7 +165,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクトID
 	 * @author KENICHI HORIGUCHI
 	 * @return projectId
 	 */
@@ -183,7 +183,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 案件番号
 	 * @author KENICHI HORIGUCHI
 	 * @return decisionId
 	 */
@@ -201,7 +201,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 案件名
 	 * @author KENICHI HORIGUCHI
 	 * @return decisionName
 	 */
@@ -219,7 +219,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 詳細
 	 * @author KENICHI HORIGUCHI
 	 * @return detail
 	 */
@@ -237,7 +237,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 実施起案番号
 	 * @author KENICHI HORIGUCHI
 	 * @return iDraftingId
 	 */
@@ -255,7 +255,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 実施決裁番号
 	 * @author KENICHI HORIGUCHI
 	 * @return iApprovalId
 	 */
@@ -273,7 +273,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 契約起案番号
 	 * @author KENICHI HORIGUCHI
 	 * @return aDraftingId
 	 */
@@ -291,7 +291,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 契約決番号
 	 * @author KENICHI HORIGUCHI
 	 * @return cdId
 	 */
@@ -300,7 +300,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 実施兼契約起案番号
 	 * @author KENICHI HORIGUCHI
 	 * @param cdId
 	 */
@@ -327,7 +327,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 実施兼契約番号
 	 * @author KENICHI HORIGUCHI
 	 * @return iAId
 	 */
@@ -345,7 +345,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 管理権限
 	 * @author KENICHI HORIGUCHI
 	 * @return
 	 */
@@ -363,7 +363,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド エラーメッセージ
 	 * @author KENICHI HORIGUCHI
 	 * @return errorMsg
 	 */
@@ -381,7 +381,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 成功メッセージ
 	 * @author KENICHI HORIGUCHI
 	 * @return successMsg
 	 */
