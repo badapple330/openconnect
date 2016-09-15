@@ -22,7 +22,7 @@
 		<input type="text" name="search" placeholder="プロジェクト名" maxlength="20">
 		<input type="submit" value="検索" class="button">
 	</s:form>
-
+	<br>
 	<s:property value="%{resultString}"/>
 
 	<s:form action="ProjectProgressUpdateAction">
@@ -71,7 +71,7 @@
 						<td><s:property value="startDate" /></td>
 						<td><s:property value="endDate" /></td>
 						<td><s:property value="note" /></td>
-						<td><s:if test="%{!(#session.userFlg == 1)}">
+						<td><s:if test="%{#session.userFlg == 3}">
 								<input type="button" class="button modal-open" value="削除" />
 							</s:if></td>
 					</tr>
@@ -79,11 +79,11 @@
 
 			</tbody>
 		</table>
-		<s:if test="%{!(#session.userFlg == 1)}">
+		<s:if test="%{#session.userFlg == 3}">
 			<input type="submit" class="button" value="編集" />
 		</s:if>
 	</s:form>
-
+	<br>
 	<s:form action="ProjectProgressInsertAction">
 		<table border="1">
 			<tr>
