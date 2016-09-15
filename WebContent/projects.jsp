@@ -34,7 +34,7 @@
 
 
 	<s:form action="ProjectsSelectAction">
-		<input type="text" pattern="^[0-9A-Za-z]+$" maxlength="100"
+		<input type="text"  maxlength="100"
 			name="search" placeholder="プロジェクト名を記入">
 		<input type="submit" value="検索する">
 	</s:form>
