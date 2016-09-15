@@ -61,7 +61,7 @@ public class AttendanceDTO {
 		return date;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 日付を設定
 	* @author MINORI SUNAGAWA
 	* @param date
 	*/
@@ -70,7 +70,7 @@ public class AttendanceDTO {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザーIDを取得
 	* @author MINORI SUNAGAWA
 	* @return userId
 	*/
@@ -78,7 +78,7 @@ public class AttendanceDTO {
 		return userId;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザーIDを設定
 	* @author MINORI SUNAGAWA
 	* @param userId
 	*/
@@ -87,7 +87,7 @@ public class AttendanceDTO {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講年を取得
 	* @author MINORI SUNAGAWA
 	* @return year
 	*/
@@ -95,7 +95,7 @@ public class AttendanceDTO {
 		return year;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講年を設定
 	* @author MINORI SUNAGAWA
 	* @param year
 	*/
@@ -103,7 +103,7 @@ public class AttendanceDTO {
 		this.year = year;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講開始月を取得
 	* @author MINORI SUNAGAWA
 	* @return month
 	*/
@@ -111,7 +111,7 @@ public class AttendanceDTO {
 		return month;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講開始月を設定
 	* @author MINORI SUNAGAWA
 	* @param month
 	*/
@@ -119,7 +119,7 @@ public class AttendanceDTO {
 		this.month = month;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 姓を取得
 	* @author MINORI SUNAGAWA
 	* @return familyNameKanji
 	*/
@@ -127,7 +127,7 @@ public class AttendanceDTO {
 		return familyNameKanji;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 姓を設定
 	* @author MINORI SUNAGAWA
 	* @param familyNameKanji
 	*/
@@ -135,7 +135,7 @@ public class AttendanceDTO {
 		this.familyNameKanji = familyNameKanji;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 名を取得
 	* @author MINORI SUNAGAWA
 	* @return givenNameKanji
 	*/
@@ -143,7 +143,7 @@ public class AttendanceDTO {
 		return givenNameKanji;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 名を設定
 	* @author MINORI SUNAGAWA
 	* @param givenNameKanji
 	*/
@@ -151,7 +151,7 @@ public class AttendanceDTO {
 		this.givenNameKanji = givenNameKanji;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 勤怠を取得
 	* @author MINORI SUNAGAWA
 	* @return attendance
 	*/
@@ -159,7 +159,7 @@ public class AttendanceDTO {
 		return attendance;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 勤怠を設定
 	* @author MINORI SUNAGAWA
 	* @param attendance
 	*/
@@ -167,7 +167,7 @@ public class AttendanceDTO {
 		this.attendance = attendance;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 面談を取得
 	* @author MINORI SUNAGAWA
 	* @return interview
 	*/
@@ -175,7 +175,7 @@ public class AttendanceDTO {
 		return interview;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 面談を設定
 	* @author MINORI SUNAGAWA
 	* @param interview
 	*/
@@ -183,7 +183,7 @@ public class AttendanceDTO {
 		this.interview = interview;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 勤怠文字を取得
 	* @author MINORI SUNAGAWA
 	* @return attendanceString
 	*/
@@ -191,7 +191,7 @@ public class AttendanceDTO {
 		return attendanceString;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 勤怠文字を設定
 	* @author MINORI SUNAGAWA
 	* @param attendanceString
 	*/
@@ -199,7 +199,7 @@ public class AttendanceDTO {
 		this.attendanceString = attendanceString;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 面談文字を取得
 	* @author MINORI SUNAGAWA
 	* @return interviewString
 	*/
@@ -207,7 +207,7 @@ public class AttendanceDTO {
 		return interviewString;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド  面談文字を設定
 	* @author MINORI SUNAGAWA
 	* @param interviewString
 	*/
