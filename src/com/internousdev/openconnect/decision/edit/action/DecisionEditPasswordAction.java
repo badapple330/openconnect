@@ -21,7 +21,7 @@ public class DecisionEditPasswordAction extends ActionSupport {
 	/**
 	 * 決裁手続きID
 	 */
-private int decisionDetailId;;
+	private int decisionDetailId;;
 	/**
 	 * シリアルバージョンID
 	 */
@@ -43,64 +43,59 @@ private int decisionDetailId;;
 		return result;
 	}
 
-
-
-
 	/**
-	* 取得メソッド
-	* @authorCHI TATUHUMI ITOU
-	* @return password
-	*/
+	 * パスワード取得メソッド
+	 * @authorCHI TATUHUMI ITOU
+	 * @return password
+	 */
 	public String getPassword() {
 		return password;
 	}
 
-
-
-
 	/**
-	* 設定メソッド
-	* @author TATUHUMI ITOU
-	* @param password
-	*/
+	 * パスワード設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param password
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	/**
-	* 取得メソッド
-	* @authorCHI TATUHUMI ITOU
-	* @return decisionDetailId
-	*/
+	 * ディティール取得メソッド
+	 * @authorCHI TATUHUMI ITOU
+	 * @return decisionDetailId
+	 */
 
 	public int getDecisionDetailId() {
 		return decisionDetailId;
 	}
+
 	/**
-	* 設定メソッド
-	* @author TATUHUMI ITOU
-	* @paramdecisionDetailId
-	*/
+	 * ディティール設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @paramdecisionDetailId
+	 */
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author TATUHUMI ITOU
-	* @return resultString
-	*/
+	 * エラーメッセージ取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 
 	/**
-	* 設定メソッド
-	* @author TATUHUMI ITOU
-	* @param resultString
-	*/
+	 * エラーメッセージ設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
-
 
 }

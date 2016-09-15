@@ -80,7 +80,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return result;
 	}
 	/**
-	 * 取得メソッド
+	 * 日付取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return day
 	 */
@@ -88,7 +88,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return day;
 	}
 	/**
-	 * 設定メソッド
+	 * 日付設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param day
 	 */
@@ -96,7 +96,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.day = day;
 	}
 	/**
-	 * 取得メソッド
+	 * 決裁分類取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return decisionType
 	 */
@@ -104,7 +104,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return decisionType;
 	}
 	/**
-	 * 設定メソッド
+	 * 決裁分類設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param decisionType
 	 */
@@ -112,7 +112,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.decisionType = decisionType;
 	}
 	/**
-	 * 取得メソッド
+	 * 起案者取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return userId
 	 */
@@ -120,7 +120,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return userId;
 	}
 	/**
-	 * 設定メソッド
+	 * 起案者設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param userId
 	 */
@@ -128,7 +128,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.userId = userId;
 	}
 	/**
-	 * 取得メソッド
+	 * 案件名取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return itemName
 	 */
@@ -136,7 +136,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return itemName;
 	}
 	/**
-	 * 設定メソッド
+	 * 案件名設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param itemName
 	 */
@@ -144,7 +144,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.itemName = itemName;
 	}
 	/**
-	 * 取得メソッド
+	 * 概要取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return summary
 	 */
@@ -152,7 +152,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return summary;
 	}
 	/**
-	 * 設定メソッド
+	 * 概要設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param summary
 	 */
@@ -160,7 +160,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.summary = summary;
 	}
 	/**
-	 * 取得メソッド
+	 * 理由取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return cause
 	 */
@@ -168,7 +168,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return cause;
 	}
 	/**
-	 * 設定メソッド
+	 * 理由設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param cause
 	 */
@@ -176,7 +176,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.cause = cause;
 	}
 	/**
-	 * 取得メソッド
+	 * 実施開始日取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return startDay
 	 */
@@ -184,7 +184,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return startDay;
 	}
 	/**
-	 * 設定メソッド
+	 * 実施開始日設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param startDay
 	 */
@@ -192,7 +192,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.startDay = startDay;
 	}
 	/**
-	 * 取得メソッド
+	 * 実施終了日取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return endDay
 	 */
@@ -200,7 +200,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return endDay;
 	}
 	/**
-	 * 設定メソッド
+	 * 実施終了日設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param endDay
 	 */
@@ -208,7 +208,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.endDay = endDay;
 	}
 	/**
-	 * 取得メソッド
+	 * 実地計画取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return plan
 	 */
@@ -216,7 +216,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return plan;
 	}
 	/**
-	 * 設定メソッド
+	 * 実地計画設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param plan
 	 */
@@ -224,7 +224,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.plan = plan;
 	}
 	/**
-	 * 取得メソッド
+	 * 人数取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return persons
 	 */
@@ -232,7 +232,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return persons;
 	}
 	/**
-	 * 設定メソッド
+	 * 人数設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param persons
 	 */
@@ -240,7 +240,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.persons = persons;
 	}
 	/**
-	 * 取得メソッド
+	 * 決裁手続きID取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return decisionDetailId
 	 */
@@ -248,7 +248,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return decisionDetailId;
 	}
 	/**
-	 * 設定メソッド
+	 * 決裁手続きID設定メソッド
 	 * @author TATUHUMI ITOU
 	 * @param decisionDetailId
 	 */
@@ -256,7 +256,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		this.decisionDetailId = decisionDetailId;
 	}
 	/**
-	 * 取得メソッド
+	 * 決裁手続きID取得メソッド
 	 * @author TATUHUMI ITOU
 	 * @return
 	 */
@@ -264,7 +264,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return serialVersionUID;
 	}
 	/**
-	* 取得メソッド
+	* エラーメッセージ取得メソッド
 	* @author TATUHUMI ITOU
 	* @return resultString
 	*/
@@ -272,7 +272,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return resultString;
 	}
 	/**
-	* 設定メソッド
+	* エラーメッセージ設定メソッド
 	* @author TATUHUMI ITOU
 	* @param resultString
 	*/

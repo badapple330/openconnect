@@ -21,7 +21,6 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class DecisionEditSelectAction extends ActionSupport implements SessionAware{
 
-
 	/**
 	 * シリアルID
 	 */
@@ -52,59 +51,57 @@ public class DecisionEditSelectAction extends ActionSupport implements SessionAw
 		return SUCCESS;
 	}
 	/**
-	* 取得メソッド
-	* @author TATUHUMI ITOU
-	* @return decisionDetailList
-	*/
+	 * ディティールリスト取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return decisionDetailList
+	 */
 	public List<DecisionDetailDTO> getDecisionDetailList() {
 		return decisionDetailList;
 	}
 
-
-
 	/**
-	* 設定メソッド
-	* @author TATUHUMI ITOU
-	* @param decisionDetailList
-	*/
+	 * 決裁手続き書設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param decisionDetailList
+	 */
 	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
 		this.decisionDetailList = decisionDetailList;
 	}
 
 	/**
-	* 取得メソッド
-	* @author TATUHUMI ITOU
-	* @return errorString
-	*/
+	 * 決裁手続き書取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return errorString
+	 */
 	public String getErrorString() {
 		return errorString;
 	}
 
 	/**
-	* 設定メソッド
-	* @author TATUHUMI ITOU
-	* @param errorString
-	*/
+	 * エラーメッセージ設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param errorString
+	 */
 	public void setErrorString(String errorString) {
 		this.errorString = errorString;
 	}
+
 	/**
-	* 取得メソッド
-	* @author TATUHUMI ITOU
-	* @return session
-	*/
+	 * セッション取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return session
+	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
+
 	/**
-	* 設定メソッド
-	* @author TATUHUMI ITOU
-	* @param session
-	*/
+	 * セッション設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param session
+	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
 
 }
