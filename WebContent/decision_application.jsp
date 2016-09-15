@@ -19,7 +19,7 @@
 	<br>
 
 	<table border="1">
-
+		<s:if test="%{decisionDetailList.size() > 0}">
 		<tr>
 			<th>ID</th>
 			<th>プロジェクトID</th>
@@ -31,6 +31,10 @@
 			<th></th>
 			<th></th>
 		</tr>
+		</s:if>
+		<s:if test="%{decisionDetailList.size() == 0}">
+		承認待ちの決裁はありません。
+		</s:if>
 		<s:iterator value="decisionDetailList">
 			<s:if test="%{decisionStatus=='承認待'}">
 				<tr>

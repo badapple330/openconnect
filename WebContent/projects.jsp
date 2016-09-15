@@ -41,7 +41,7 @@
 	<br>
 	<s:property value="%{resultString}" />
 	<br>
-	<s:form action="ProjectsListEdit">
+	<s:form action="ProjectsUpdateAction">
 
 		<table border="1">
 			<tbody id="list_body">

@@ -100,18 +100,18 @@
 			<result name="error">/projects.jsp</result>
 		</action>
 
-		<action name="ProjectsListEdit"
+		<action name="ProjectsUpdateAction"
 			class="com.internousdev.openconnect.projects.action.ProjectsUpdateAction"
 			method="execute">
 			<result name="success" type="chain">ProjectsSelectAction</result>
-			<result name="error">/ProjectsSelectAction</result>
+			<result name="error" type="chain">ProjectsSelectAction</result>
 		</action>
 
 		<action name="ProjectsInsertAction"
 			class="com.internousdev.openconnect.projects.action.ProjectsInsertAction"
 			method="execute">
 			<result name="success" type="chain">ProjectsSelectAction</result>
-			<result name="error">/ProjectsSelectAction</result>
+			<result name="error" type="chain">ProjectsSelectAction</result>
 		</action>
 
 		<action name="ProjectsDeleteAction"
