@@ -45,6 +45,11 @@ public class ProjectProgressInsertAction extends ActionSupport{
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
+	 * @param projectId
+	 * @param projectDay
+	 * @param projectPlan
+	 * @param projectResult
+	 * @param other
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute(){
@@ -79,7 +84,7 @@ public class ProjectProgressInsertAction extends ActionSupport{
 	/**
 	* 取得メソッド
 	* @author TATUHUMI ITOU
-	* @return
+	* @return serialVersionUID
 	*/
 	public static long getSerialversionuid() {
 		return serialVersionUID;

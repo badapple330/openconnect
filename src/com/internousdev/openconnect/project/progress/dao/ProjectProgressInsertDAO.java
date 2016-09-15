@@ -19,6 +19,12 @@ public class ProjectProgressInsertDAO {
 	 /**
      * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
      * @author TATUHUMI ITOU
+     * @param projectId
+     * @param projectDay
+     * @param projectPlan
+     * @param projectResult
+     * @param other
+     * @return count
      */
 	public int insert(int projectId,String projectDay,String projectPlan,String projectResult,String other){
 

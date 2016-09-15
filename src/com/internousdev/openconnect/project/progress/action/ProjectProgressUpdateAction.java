@@ -47,6 +47,11 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	/**
 	 * ユーザー情報を更新できたか否か判定するメソッド
 	 * @result ERROR ヴァリデーションによるエラーメッセージ
+	 * @param progressIdList.get(i)
+	 * @param projectDayList.get(i)
+	 * @param projectPlanList.get(i)
+	 * @param projectResultList.get(i)
+	 * @param otherList.get(i)
 	 * @return result データベースの情報を更新できたか否か
 	 * @throws SQLException
 	 */

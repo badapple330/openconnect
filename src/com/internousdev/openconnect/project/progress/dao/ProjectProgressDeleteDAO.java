@@ -18,7 +18,9 @@ import com.internousdev.util.DBConnector;
 public class ProjectProgressDeleteDAO {
 	 /**
      * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
+     * @param progressId
      * @author TATUHUMI ITOU
+     * @return count
      */
 	public int delete(int progressId){
 

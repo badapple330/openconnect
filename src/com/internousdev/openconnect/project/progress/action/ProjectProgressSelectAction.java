@@ -33,6 +33,7 @@ public class ProjectProgressSelectAction extends ActionSupport {
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 *
 	 * @author TATUHUMI ITOU
+	 * @param search
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {

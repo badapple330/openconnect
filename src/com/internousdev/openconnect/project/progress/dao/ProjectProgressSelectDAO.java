@@ -29,6 +29,7 @@ public class ProjectProgressSelectDAO {
 	 * 抽出メソッド 似たようなキーワードの検索結果情報をリスト化して抽出し、DTOに格納する
 	 *
 	 * @author TATUHUMI ITOU
+	 * @param search
 	 * @return  searchList 抽出に成功したらSUCCESS、失敗したらERROR
 	 */
 	public List<ProjectProgressDTO> select(String search) {

@@ -25,6 +25,7 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 	/**
 	 * 実行メソッド DAOにデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
+	 * @param progressId
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute(){
@@ -39,7 +40,7 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 	}
 	/**
 	* 取得メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @return progressId
 	*/
 	public int getProgressId() {
@@ -47,7 +48,7 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 	}
 	/**
 	* 設定メソッド
-	* @author KOHEI NITABARU
+	* @author TATUHUMI ITOU
 	* @param progressId
 	*/
 	public void setProgressId(int progressId) {
