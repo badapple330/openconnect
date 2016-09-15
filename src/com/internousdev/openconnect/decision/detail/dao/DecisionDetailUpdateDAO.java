@@ -72,8 +72,10 @@ public class DecisionDetailUpdateDAO {
 		}
 		return  decisionDetailList;
 	}
-
-
+	 /**
+     * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+     * @author TATUHUMI ITOU,KENICHI HORIGUCHI
+     */
 	public boolean check(int decisionDetailId,String password){
 
 		boolean result = false;
@@ -103,8 +105,8 @@ public class DecisionDetailUpdateDAO {
 	}
 
 	/**
-	* 取得メソッド
-	* @author TATUHUMI ITOU
+	* 取得メソッド 決裁手続きリストを取得
+	* @author TATUHUMI ITOU,KENICHI HORIGUCHI
 	* @return decisionDetailList
 	*/
 	public List<DecisionDetailDTO> getDecisionDetailList() {

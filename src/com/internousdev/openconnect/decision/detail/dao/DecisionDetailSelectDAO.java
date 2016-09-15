@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.internousdev.openconnect.decision.detail.dao;
 
 import java.sql.Connection;

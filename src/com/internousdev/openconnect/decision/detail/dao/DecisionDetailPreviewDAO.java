@@ -89,7 +89,7 @@ public class DecisionDetailPreviewDAO {
 		return  decisionDetailList;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 決裁手続きリストを取得
 	 * @author TATUHUMI ITOU
 	 * @return decisionDetailList
 	 */

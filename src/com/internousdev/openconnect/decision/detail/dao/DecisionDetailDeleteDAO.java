@@ -46,7 +46,10 @@ public class DecisionDetailDeleteDAO {
 		}
 		return count;
 	}
-
+	/**
+	 * 削除メソッド  画面で受け取ったプロジェクトIDを元にして、DBからそのIDの情報を削除する為のメソッド
+	 * @author TATUHUMI ITOU,KENICHI HORIGUCHI
+	 */
 	public boolean check(int decisionDetailId,String password){
 
 		boolean result = false;
