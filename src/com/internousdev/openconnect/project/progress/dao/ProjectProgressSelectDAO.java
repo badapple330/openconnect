@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,24 +37,26 @@ public class ProjectProgressSelectDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql = "select*from project_progress inner join projects on project_progress.project_id = projects.project_id "
-					+ "inner join users on projects.manager_id = users.user_id WHERE project_name LIKE '%" + search + "%'";
+			String sql = "select*from project_progress inner join projects on project_progress.project_id = projects.project_id WHERE project_name LIKE '%" + search + "%'";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
+
+	   		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
 			while (rs.next()) {
 				ProjectProgressDTO dto = new ProjectProgressDTO();
 				dto.setProgressId(rs.getInt("progress_id"));
 				dto.setProjectId(rs.getInt("project_id"));
-				dto.setProjectDay(rs.getString("project_day"));
+
+				try { dto.setProjectDay(sdf.format(rs.getDate("project_day")).toString()); }catch(Exception e){}
 				dto.setProjectPlan(rs.getString("project_plan"));
 				dto.setProjectResult(rs.getString("project_result"));
 				dto.setOther(rs.getString("other"));
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
-				dto.setStartDate(rs.getString("start_date"));
-				dto.setEndDate(rs.getString("end_date"));
+				try { dto.setStartDate(sdf.format(rs.getDate("start_date")).toString()); }catch(Exception e){}
+            	try { dto.setEndDate(sdf.format(rs.getDate("end_date")).toString()); }catch(Exception e){}
 				dto.setNote(rs.getString("note"));
 				searchList.add(dto);
 			}
