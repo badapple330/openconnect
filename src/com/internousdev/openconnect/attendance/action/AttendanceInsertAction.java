@@ -189,18 +189,11 @@ public class AttendanceInsertAction extends ActionSupport{
 
 
 
-
-
-
-
-
-
-
 		return result;
 	}
 
 	/**
-	 * 取得メソッド　シリアル番号を取得
+	 * 取得メソッド シリアル番号を取得
 	 * @author MINORI SUNAGAWA
 	 * @return serialVersionUID
 	 */
@@ -209,7 +202,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド　受講年を取得
+	* 取得メソッド 受講年を取得
 	* @author MINORI SUNAGAWA
 	* @return year
 	*/
@@ -218,7 +211,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講年を設定
 	* @author MINORI SUNAGAWA
 	* @param year
 	*/
@@ -227,7 +220,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講月を取得
 	* @author MINORI SUNAGAWA
 	* @return month
 	*/
@@ -236,7 +229,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講月を設定
 	* @author MINORI SUNAGAWA
 	* @param month
 	*/
@@ -245,7 +238,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド カレンダーを取得
 	* @author MINORI SUNAGAWA
 	* @return cal
 	*/
@@ -254,7 +247,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド カレンダーを設定
 	* @author MINORI SUNAGAWA
 	* @param cal
 	*/
@@ -263,7 +256,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 今月のカレンダーを取得
 	* @author MINORI SUNAGAWA
 	* @return thisCal
 	*/
@@ -272,7 +265,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド  今月のカレンダーを設定
 	* @author MINORI SUNAGAWA
 	* @param thisCal
 	*/
@@ -281,7 +274,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 結果文字を取得
 	* @author KENICHI HORIGUCHI
 	* @return resultString
 	*/
@@ -290,7 +283,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド  結果文字を設定
 	* @author KENICHI HORIGUCHI
 	* @param resultString
 	*/

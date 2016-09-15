@@ -33,7 +33,7 @@ public class AttendanceCalendarDTO {
 	 */
 	private String dayString;
 	/**
-	* 取得メソッド
+	* 取得メソッド 月を取得
 	* @author MINORI SUNAGAWA
 	* @return year
 	*/
@@ -49,7 +49,7 @@ public class AttendanceCalendarDTO {
 		this.year = year;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 年を取得
 	* @author MINORI SUNAGAWA
 	* @return yearString
 	*/
@@ -65,7 +65,7 @@ public class AttendanceCalendarDTO {
 		this.yearString = yearString;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 月を取得
 	* @author MINORI SUNAGAWA
 	* @return month
 	*/
@@ -73,7 +73,7 @@ public class AttendanceCalendarDTO {
 		return month;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 月を設定
 	* @author MINORI SUNAGAWA
 	* @param month
 	*/
@@ -81,7 +81,7 @@ public class AttendanceCalendarDTO {
 		this.month = month;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 月を取得
 	* @author MINORI SUNAGAWA
 	* @return monthString
 	*/
@@ -89,7 +89,7 @@ public class AttendanceCalendarDTO {
 		return monthString;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 月を設定
 	* @author MINORI SUNAGAWA
 	* @param monthString
 	*/
@@ -97,7 +97,7 @@ public class AttendanceCalendarDTO {
 		this.monthString = monthString;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 日を取得
 	* @author MINORI SUNAGAWA
 	* @return day
 	*/
@@ -105,7 +105,7 @@ public class AttendanceCalendarDTO {
 		return day;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 日を設定
 	* @author MINORI SUNAGAWA
 	* @param day
 	*/
@@ -113,7 +113,7 @@ public class AttendanceCalendarDTO {
 		this.day = day;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 日を取得
 	* @author MINORI SUNAGAWA
 	* @return dayString
 	*/
@@ -121,7 +121,7 @@ public class AttendanceCalendarDTO {
 		return dayString;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 日を設定
 	* @author MINORI SUNAGAWA
 	* @param dayString
 	*/

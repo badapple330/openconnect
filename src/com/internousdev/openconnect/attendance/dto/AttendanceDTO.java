@@ -53,7 +53,7 @@ public class AttendanceDTO {
 	private String interviewString;
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 日付を取得
 	* @author MINORI SUNAGAWA
 	* @return date
 	*/
