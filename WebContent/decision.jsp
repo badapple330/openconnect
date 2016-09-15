@@ -121,7 +121,7 @@
 								required name="projectId"
 								value="<s:property value="projectId" />" id="registration" placeholder="プロジェクトIDを入力"/></td>
 
-							<td><s:property value="decisionId" /></td>
+							<td><div class="decisionid"><s:property value="decisionId" /></div></td>
 
 							<td><input type="text" maxlength="100" placeholder="案件名を入力" name="decisionName"
 								id="display" value="<s:property value="decisionName" />" /></td>
