@@ -81,7 +81,7 @@ public class BooksBorrowDTO {
 	/**
 	 * 取得メソッド
 	 * @author TATSUYA HOSHI
-	 * @return
+	 * @return title
 	 */
 	public String getTitle() {
 		return title;
@@ -89,7 +89,7 @@ public class BooksBorrowDTO {
 	/**
 	 * 設定メソッド
 	 * @author TATSUYA HOSHI
-	 * @param
+	 * @param title
 	 */
 	public void setTitle(String title) {
 		this.title = title;

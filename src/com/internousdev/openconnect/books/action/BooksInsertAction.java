@@ -13,7 +13,7 @@ import com.internousdev.openconnect.books.dao.BooksInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 画面で新規に追加した情報を、DBに追加する為のクラス
+ * 画面で新規に追加したID、タイトルを、DBに追加する為のクラス
  * @author TATSUYA HOSHI
  */
 public class BooksInsertAction extends ActionSupport implements SessionAware{
@@ -91,27 +91,27 @@ public class BooksInsertAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 	/**
-	 * 取得メソッド
+	 * エラーメッセージ取得メソッド
 	 * @author TATSUYA HOSHI
-	 * @return
+	 * @return resultString
 	 */
 	public String getResultString() {
 		return resultString;
 	}
 
 	/**
-	 * 設定メソッド
+	 * エラーメッセージ設定メソッド
 	 * @author TATSUYA HOSHI
-	 * @param
+	 * @param resultString
 	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
 
 	/**
-	 * 取得メソッド
+	 * シリアルバージョン取得メソッド
 	 * @author TATSUYA HOSHI
-	 * @return
+	 * @return serialversion
 	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
