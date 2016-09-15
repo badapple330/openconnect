@@ -30,7 +30,7 @@ public class DecisionDetailUpdateDAO {
 		Connection con = db.getConnection();
 
 		try {
-			String sql="select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id where decision_detail_id =?";
+			String sql = "select * from decision_detail inner join projects on decision_detail.project_id = projects.project_id where decision_detail_id =?";
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setInt(1, decisionDetailId);
@@ -76,15 +76,15 @@ public class DecisionDetailUpdateDAO {
 
 		boolean result = false;
 
-		DBConnector db =new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		Connection con =db.getConnection();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+		Connection con = db.getConnection();
 
-		String sql = "select*from decision_detail where decision_detail_id=? and password=?";
+		String sql = "select * from decision_detail where decision_detail_id=? and password=?";
 		try{
 			PreparedStatement ps =con.prepareStatement(sql);
 			ps.setInt(1,decisionDetailId);
 			ps.setString(2,password);
-			ResultSet rs=ps.executeQuery();
+			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
 
 				result = true;

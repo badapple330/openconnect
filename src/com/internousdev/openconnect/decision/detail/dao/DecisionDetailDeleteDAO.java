@@ -5,6 +5,7 @@ package com.internousdev.openconnect.decision.detail.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
@@ -44,6 +45,34 @@ public class DecisionDetailDeleteDAO {
 			}
 		}
 		return count;
+	}
+
+	public boolean check(int decisionDetailId,String password){
+
+		boolean result = false;
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+		Connection con = db.getConnection();
+
+		String sql = "select * from decision_detail where decision_detail_id=? and password=?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,decisionDetailId);
+			ps.setString(2,password);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try{
+			con.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

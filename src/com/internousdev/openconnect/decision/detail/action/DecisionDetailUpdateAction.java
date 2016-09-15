@@ -37,7 +37,7 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 	/**
 	 * エラーメッセージ
 	 */
-	private String resultString = "パスワードがまちがっています。";
+	private String resultString = "パスワードが間違っています。";
 	/**
 	 * シリアルバージョンID
 	 */
@@ -55,7 +55,7 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 		if( check ){
 			decisionDetailList = dao.select(decisionDetailId);
 			result = SUCCESS;
-			resultString="パスワードを確認しました";
+			resultString="パスワードを確認しました。";
 		}
 		session.put("decisionDetailId", decisionDetailId);
 

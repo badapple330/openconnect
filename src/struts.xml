@@ -249,14 +249,14 @@
 			method="execute">
 			<result name="success" type="chain">DecisionDetailSelectAction
 			</result>
-			<result name="error">/decision_detail.jsp</result>
+			<result name="error" type="chain">DecisionDetailSelectAction</result>
 		</action>
 
 		<action name="DecisionDetailUpdateAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailUpdateAction"
 			method="execute">
 			<result name="success">decision_edit.jsp</result>
-			<result name="error">/decision_detail.jsp</result>
+			<result name="error" type="chain">DecisionDetailSelectAction</result>
 		</action>
 
 		<action name="DecisionDetailPreviewAction"

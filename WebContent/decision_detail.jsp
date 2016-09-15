@@ -156,13 +156,15 @@
 			type="button" class="modal-close button" value="閉じる">
 
 		<div class="delete-prepare">
-			本当に削除しますか？
+			パスワードを入力してください
 			<s:form action="DecisionDetailDeleteAction">
+				<input type="text" name="password" pattern="^[0-9A-Za-z]+$"
+					placeholder="半角英数字のみ">
 				<input type="hidden" name="decisionDetailId" value=""
 					id="true-delete">
-				<input type="submit" class="delete-true button" value="はい">
-				<input type="button" class="modal-close button" value="いいえ">
+				<input type="submit" class="delete-true button" value="削除">
 			</s:form>
+			<input type="button" class="modal-close button" value="閉じる">
 		</div>
 	</div>
 

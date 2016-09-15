@@ -19,6 +19,10 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = -758470450L;
 	/**
+	 * パスワード
+	 */
+	private String password;
+	/**
 	 * エラーメッセージ
 	 */
 	private String resultString = "削除できませんでした。";
@@ -34,48 +38,82 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	public String execute(){
 		DecisionDetailDeleteDAO dao = new DecisionDetailDeleteDAO();
 		String result = ERROR;
-		int count = 0;
-		count = dao.delete(decisionDetailId);
-		if(count > 0){
-			result = SUCCESS;
-			 resultString="削除しました";
+
+		boolean check = dao.check(decisionDetailId,password);
+
+		if( check ){
+			int count = 0;
+			count = dao.delete(decisionDetailId);
+			if(count > 0){
+				result = SUCCESS;
+				resultString="削除しました。";
+			}
+		}else{
+			resultString = "パスワードが間違っています。";
 		}
 		return result;
 	}
 
 	/**
-	* 取得メソッド
-	* @author TATSUHUMI ITOU
-	* @return decisionDetailId
-	*/
+	 * 取得メソッド
+	 * @author TATSUHUMI ITOU
+	 * @return decisionDetailId
+	 */
 	public int getDecisionDetailId() {
 		return decisionDetailId;
 	}
 	/**
-	* 設定メソッド
-	* @author TATSUHUMI ITOU
-	* @param decisionDetailId
-	*/
+	 * 設定メソッド
+	 * @author TATSUHUMI ITOU
+	 * @param decisionDetailId
+	 */
 	public void setDecisionDetailId(int decisionDetailId) {
 		this.decisionDetailId = decisionDetailId;
 	}
 
 	/**
-	* 取得メソッド
-	* @author TATSUHUMI ITOU
-	* @return resultString
-	*/
+	 * 取得メソッド
+	 * @author TATSUHUMI ITOU
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 
 	/**
-	* 設定メソッド
-	* @author TATSUHUMI ITOU
-	* @param resultString
-	*/
+	 * 設定メソッド
+	 * @author TATSUHUMI ITOU
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATSUHUMI ITOU
+	* @return password
+	*/
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATSUHUMI ITOU
+	* @param password
+	*/
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATSUHUMI ITOU
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
