@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 /**
- * DBの情報を追加する為のクラス
+ * DBにリリース状況の情報を追加する為のクラス
  * @author KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
@@ -18,9 +18,10 @@ import com.internousdev.util.DBConnector;
 public class ProjectStatusInsertDAO {
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 * @author MINORI SUNAGAWA
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * 実行メソッド DBにリリース状況の情報を追加
+	 * @author KOHEI NITABARU
+	 * @param projectId
+	 * @return count
 	 */
 	public int insert( int projectId ){
 

@@ -9,7 +9,7 @@ import com.internousdev.openconnect.project.status.dao.ProjectStatusUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * DBの情報を更新する為のクラス
+ * DBのリリース状況の情報を更新するクラス
  * @author KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
@@ -99,7 +99,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド A環境開始日リストを取得
 	 * @author KOHEI NITABARU
 	 * @return aEnvStartList
 	 */
@@ -108,7 +108,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド A環境開始日リストを設定
 	 * @author KOHEI NITABARU
 	 * @param aEnvStartList
 	 */
@@ -117,7 +117,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド A環境終了日リストを取得
 	 * @author KOHEI NITABARU
 	 * @return aEnvEndList
 	 */
@@ -126,7 +126,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド A環境終了日リストを設定
 	 * @author KOHEI NITABARU
 	 * @param aEnvEndList
 	 */
@@ -135,7 +135,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド B環境開始日リストを取得
 	 * @author KOHEI NITABARU
 	 * @return bEnvStartList
 	 */
@@ -144,7 +144,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド B環境開始日リストを設定
 	 * @author KOHEI NITABARU
 	 * @param bEnvStartList
 	 */
@@ -153,7 +153,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド B環境終了日リストを取得
 	 * @author KOHEI NITABARU
 	 * @return bEnvEndList
 	 */
@@ -162,7 +162,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド B環境終了日リストを設定
 	 * @author KOHEI NITABARU
 	 * @param bEnvEndList
 	 */
@@ -171,7 +171,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド リリース環境開始日リストを取得
 	 * @author KOHEI NITABARU
 	 * @return rEnvStartList
 	 */
@@ -180,7 +180,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド リリース環境開始日リストを設定
 	 * @author KOHEI NITABARU
 	 * @param rEnvStartList
 	 */
@@ -189,7 +189,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド リリース環境終了日リストを取得
 	 * @author KOHEI NITABARU
 	 * @return rEnvEndList
 	 */
@@ -198,7 +198,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド リリース環境終了日リストを設定
 	 * @author KOHEI NITABARU
 	 * @param rEnvEndList
 	 */
@@ -207,7 +207,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド AWSリリース状況リストを取得
 	* @author KOHEI NITABARU
 	* @return awsStatusList
 	*/
@@ -216,7 +216,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド AWSリリース状況リストを設定
 	* @author KOHEI NITABARU
 	* @param awsStatusList
 	*/
@@ -225,7 +225,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド ノートリストを取得
 	 * @author KOHEI NITABARU
 	 * @return noteList
 	 */
@@ -234,7 +234,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド ノートリストを取得
 	 * @author KOHEI NITABARU
 	 * @param noteList
 	 */
@@ -243,7 +243,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド リリース状況IDリストを取得
 	 * @author KOHEI NITABARU
 	 * @return statusIdList
 	 */
@@ -252,7 +252,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド リリース状況IDリストを設定
 	 * @author KOHEI NITABARU
 	 * @param statusIdList
 	 */
@@ -261,7 +261,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 結果文字リストを取得
 	 * @author KOHEI NITABARU
 	 * @return resultString
 	 */
@@ -270,7 +270,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 結果文字リストを設定
 	 * @author KOHEI NITABARU
 	 * @param resultString
 	 */
@@ -279,7 +279,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド シリアル番号を取得
 	 * @author KOHEI NITABARU
 	 * @return serialVersionUID
 	 */

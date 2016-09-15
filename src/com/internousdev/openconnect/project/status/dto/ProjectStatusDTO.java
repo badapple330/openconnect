@@ -4,7 +4,7 @@
 package com.internousdev.openconnect.project.status.dto;
 
 /**
- * DBの情報を画面に表示する為のクラス
+ * DBのリリース状況の情報を画面に表示する為のクラス
  * @author KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
@@ -55,7 +55,7 @@ public class ProjectStatusDTO {
 	 */
 	private int statusId;
 	/**
-	* 取得メソッド
+	* 取得メソッド プロジェクトIDを取得
 	* @author KOHEI NITABARU
 	* @return projectId
 	*/
@@ -63,7 +63,7 @@ public class ProjectStatusDTO {
 		return projectId;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド プロジェクトIDを設定
 	* @author KOHEI NITABARU
 	* @param projectId
 	*/
@@ -71,7 +71,7 @@ public class ProjectStatusDTO {
 		this.projectId = projectId;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド プロジェクト名を取得
 	* @author KOHEI NITABARU
 	* @return projectName
 	*/
@@ -79,7 +79,7 @@ public class ProjectStatusDTO {
 		return projectName;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド プロジェクト名を設定
 	* @author KOHEI NITABARU
 	* @param projectName
 	*/
@@ -87,7 +87,7 @@ public class ProjectStatusDTO {
 		this.projectName = projectName;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド A環境開始日を取得
 	* @author KOHEI NITABARU
 	* @return aEnvStart
 	*/
@@ -95,7 +95,7 @@ public class ProjectStatusDTO {
 		return aEnvStart;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド A環境開始日を設定
 	* @author KOHEI NITABARU
 	* @param aEnvStart
 	*/
@@ -103,7 +103,7 @@ public class ProjectStatusDTO {
 		this.aEnvStart = aEnvStart;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド A環境終了日を取得
 	* @author KOHEI NITABARU
 	* @return aEnvEnd
 	*/
@@ -111,7 +111,7 @@ public class ProjectStatusDTO {
 		return aEnvEnd;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド A環境終了日を設定
 	* @author KOHEI NITABARU
 	* @param aEnvEnd
 	*/
@@ -119,7 +119,7 @@ public class ProjectStatusDTO {
 		this.aEnvEnd = aEnvEnd;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド B環境開始日を取得
 	* @author KOHEI NITABARU
 	* @return bEnvStart
 	*/
@@ -127,7 +127,7 @@ public class ProjectStatusDTO {
 		return bEnvStart;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド B環境開始日を設定
 	* @author KOHEI NITABARU
 	* @param bEnvStart
 	*/
@@ -135,7 +135,7 @@ public class ProjectStatusDTO {
 		this.bEnvStart = bEnvStart;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド B環境終了日を取得
 	* @author KOHEI NITABARU
 	* @return bEnvEnd
 	*/
@@ -143,7 +143,7 @@ public class ProjectStatusDTO {
 		return bEnvEnd;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド B環境終了日を設定
 	* @author KOHEI NITABARU
 	* @param bEnvEnd
 	*/
@@ -151,7 +151,7 @@ public class ProjectStatusDTO {
 		this.bEnvEnd = bEnvEnd;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド リリース状況環境開始日を取得
 	* @author KOHEI NITABARU
 	* @return rEnvStart
 	*/
@@ -159,7 +159,7 @@ public class ProjectStatusDTO {
 		return rEnvStart;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド リリース状況環境開始日を設定
 	* @author KOHEI NITABARU
 	* @param rEnvStart
 	*/
@@ -167,7 +167,7 @@ public class ProjectStatusDTO {
 		this.rEnvStart = rEnvStart;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド リリース状況環境終了日を取得
 	* @author KOHEI NITABARU
 	* @return rEnvEnd
 	*/
@@ -175,7 +175,7 @@ public class ProjectStatusDTO {
 		return rEnvEnd;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド リリース状況環境終了日を設定
 	* @author KOHEI NITABARU
 	* @param rEnvEnd
 	*/
@@ -183,7 +183,7 @@ public class ProjectStatusDTO {
 		this.rEnvEnd = rEnvEnd;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド AWSリリース状況を取得
 	* @author KOHEI NITABARU
 	* @return awsStatus
 	*/
@@ -191,7 +191,7 @@ public class ProjectStatusDTO {
 		return awsStatus;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド AWSリリース状況を設定
 	* @author KOHEI NITABARU
 	* @param awsStatus
 	*/
@@ -199,7 +199,7 @@ public class ProjectStatusDTO {
 		this.awsStatus = awsStatus;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド ノートを取得
 	* @author KOHEI NITABARU
 	* @return note
 	*/
@@ -207,7 +207,7 @@ public class ProjectStatusDTO {
 		return note;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド ノートを設定
 	* @author KOHEI NITABARU
 	* @param note
 	*/
@@ -215,7 +215,7 @@ public class ProjectStatusDTO {
 		this.note = note;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド リリース状況IDを取得
 	* @author KOHEI NITABARU
 	* @return statusId
 	*/
@@ -223,7 +223,7 @@ public class ProjectStatusDTO {
 		return statusId;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド リリース状況IDを設定
 	* @author KOHEI NITABARU
 	* @param statusId
 	*/

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 /**
- * DBの情報を画面に表示する為のクラス
+ * DBのリリース状況の情報を更新するクラス
  * @author KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
@@ -15,10 +15,19 @@ import com.internousdev.util.DBConnector;
 public class ProjectStatusUpdateDAO {
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * 実行メソッド DBのリリース状況の情報を更新
 	 * @author KOHEI NITABARU
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * @param aEnvStart
+	 * @param aEnvEnd
+	 * @param bEnvStart
+	 * @param bEnvEnd
+	 * @param rEnvStart
+	 * @param rEnvEnd
+	 * @param note
+	 * @param statusId
+	 * @return count
 	 */
+
 	public int update( String aEnvStart, String aEnvEnd, String bEnvStart, String bEnvEnd, String rEnvStart, String rEnvEnd, String note, int statusId ){
 		int count=0;
 

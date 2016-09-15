@@ -10,8 +10,8 @@ import com.internousdev.openconnect.project.status.dto.ProjectStatusDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * DBの情報を画面に表示する為のクラス
- * @author MINORI SUNAGAWA
+ * DBからリリース状況を取得し表示する為のクラス
+ * @author KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
  */
@@ -54,7 +54,7 @@ public class ProjectStatusSelectAction extends ActionSupport{
 }
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 検索文字を取得
 	* @author KOHEI NITABARU
 	* @return searchString
 	*/
@@ -63,7 +63,7 @@ public class ProjectStatusSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 検索文字を設定
 	* @author KOHEI NITABARU
 	* @param searchString
 	*/
@@ -72,7 +72,7 @@ public class ProjectStatusSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド プロジェクトリリース状況リストを取得
 	* @author KOHEI NITABARU
 	* @return projectStatusList
 	*/
@@ -81,7 +81,7 @@ public class ProjectStatusSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド プロジェクトリリース状況リストを設定
 	* @author KOHEI NITABARU
 	* @param projectStatusList
 	*/
@@ -90,7 +90,7 @@ public class ProjectStatusSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 結果文字を取得
 	* @author KOHEI NITABARU
 	* @return resultString
 	*/
@@ -99,7 +99,7 @@ public class ProjectStatusSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 結果文字を設定
 	* @author KOHEI NITABARU
 	* @param resultString
 	*/
@@ -108,13 +108,12 @@ public class ProjectStatusSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド シリアル番号を取得
 	* @author KOHEI NITABARU
 	* @return serialVersionUID
 	*/
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
 
 }

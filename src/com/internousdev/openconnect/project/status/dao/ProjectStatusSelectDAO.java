@@ -14,7 +14,7 @@ import com.internousdev.openconnect.project.status.dto.ProjectStatusDTO;
 import com.internousdev.util.DBConnector;
 
 /**
- * DBの情報を画面に表示する為のクラス
+ * DBからリリース状況の情報を取得し表示する為のクラス
  * @author KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
@@ -22,9 +22,10 @@ import com.internousdev.util.DBConnector;
 public class ProjectStatusSelectDAO {
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 * 実行メソッド DBからリリース状況の情報を取得
 	 * @author MINORI SUNAGAWA
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * @param searchString
+	 * @return projectStatusList
 	 */
 	public ArrayList<ProjectStatusDTO> select(String searchString){
 
