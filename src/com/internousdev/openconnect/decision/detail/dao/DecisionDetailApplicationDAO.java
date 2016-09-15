@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
 /**
- * 更新したい内容を、DBへ転送する為のクラス
+ * 決裁手続き一覧から更新したい内容を、DBへ転送する為のクラス
  * @author TATSUHUMI ITOU
  */
 public class DecisionDetailApplicationDAO{

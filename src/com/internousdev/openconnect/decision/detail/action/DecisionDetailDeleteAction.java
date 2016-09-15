@@ -8,7 +8,7 @@ import com.internousdev.openconnect.decision.detail.dao.DecisionDetailDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 画面で受け取ったIDを元にして、DBの情報を削除する為のクラス
+ * 決裁手続き画面で受け取ったIDを元にして、DBの情報を削除する為のクラス
  * @author TATUHUMI ITOU
  * @since 2016/09/04
  * @version 1.0
@@ -55,7 +55,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 決裁手続きIDを取得
 	 * @author TATSUHUMI ITOU
 	 * @return decisionDetailId
 	 */
@@ -63,7 +63,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 		return decisionDetailId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 決裁手続きIDを設定
 	 * @author TATSUHUMI ITOU
 	 * @param decisionDetailId
 	 */
@@ -72,7 +72,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 結果を取得
 	 * @author TATSUHUMI ITOU
 	 * @return resultString
 	 */
@@ -81,7 +81,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 結果を設定
 	 * @author TATSUHUMI ITOU
 	 * @param resultString
 	 */
@@ -90,7 +90,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド パスワードを取得
 	* @author TATSUHUMI ITOU
 	* @return password
 	*/
@@ -99,7 +99,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド パスワードを設定
 	* @author TATSUHUMI ITOU
 	* @param password
 	*/
@@ -108,7 +108,7 @@ public class DecisionDetailDeleteAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド シリアルIDを取得
 	* @author TATSUHUMI ITOU
 	* @return serialVersionUID
 	*/

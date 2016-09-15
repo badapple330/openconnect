@@ -20,7 +20,7 @@ public class ScheduleDTO {
 	private String startDay;
 
 	/**
-	 *終了日
+	 * 終了日
 	 *@author MASAHIRO KEDSUKA
 	 */
 	private String endDay;
@@ -40,7 +40,7 @@ public class ScheduleDTO {
 
 
 	/**
-	 * 取得メソッド ID
+	 * 取得メソッド IDを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return id
 	 */
@@ -49,7 +49,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド IDを設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param id
 	 */
@@ -58,7 +58,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 取得メソッド 開始日
+	 * 取得メソッド 開始日を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return startDay
 	 */
@@ -67,7 +67,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 開始日を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param startDay
 	 */
@@ -76,7 +76,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 取得メソッド 終了日
+	 * 取得メソッド 終了日を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return endDay
 	 */
@@ -85,7 +85,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 終了日を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param endDay
 	 */
@@ -94,7 +94,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 取得メソッド 件名
+	 * 取得メソッド 件名を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return title
 	 */
@@ -103,7 +103,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 件名を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param title
 	 */
@@ -112,7 +112,7 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 取得メソッド 内容
+	 * 取得メソッド 内容を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return content
 	 */
@@ -121,14 +121,12 @@ public class ScheduleDTO {
 	}
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 内容を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param content
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-
 
 }

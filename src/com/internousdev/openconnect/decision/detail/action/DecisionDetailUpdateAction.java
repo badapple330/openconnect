@@ -64,7 +64,7 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 決裁手続きのリストを取得
 	 * @author TATSUHUMI ITOU
 	 * @return decisionDetailList
 	 */
@@ -72,7 +72,7 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 		return decisionDetailList;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 決裁手続きのリストを設定
 	 * @author TATSUHUMI ITOU
 	 * @param decisionDetailList
 	 */
@@ -80,7 +80,7 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 		this.decisionDetailList = decisionDetailList;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 決裁手続きIDを取得
 	 * @author TATSUHUMI ITOU
 	 * @return decisionDetailId
 	 */
@@ -88,7 +88,7 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 		return decisionDetailId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 決裁手続きIDを設定
 	 * @author TATSUHUMI ITOU
 	 * @param decisionDetailId
 	 */
@@ -96,7 +96,7 @@ public class DecisionDetailUpdateAction extends ActionSupport implements Session
 		this.decisionDetailId = decisionDetailId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 
 	 * @author TATSUHUMI ITOU
 	 * @return password
 	 */

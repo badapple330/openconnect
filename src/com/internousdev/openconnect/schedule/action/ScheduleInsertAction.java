@@ -2,6 +2,8 @@
  *
  */
 package com.internousdev.openconnect.schedule.action;
+import java.util.Map;
+
 import com.internousdev.openconnect.schedule.dao.ScheduleInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -48,6 +50,12 @@ public class ScheduleInsertAction extends ActionSupport{
 	private String successMsg;
 
 	/**
+	 * 管理権限
+	 * @author MASAHIRO KEDSUKA
+	 */
+	public Map<String, Object> session;
+
+	/**
 	 * 実行メソッド。DAOに情報を渡して、DBに追加する。
 	 */
 	public String execute(){
@@ -76,7 +84,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド 開始日
+	 * 取得メソッド 開始日を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return startDay
 	 */
@@ -86,7 +94,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 開始日を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param startDay
 	 */
@@ -97,7 +105,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド 件名
+	 * 取得メソッド 件名を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return Title
 	 */
@@ -107,7 +115,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 件名を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param title
 	 */
@@ -117,7 +125,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド 内容
+	 * 取得メソッド 内容を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return Content
 	 */
@@ -127,7 +135,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 内容を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param content
 	 */
@@ -137,7 +145,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド エラーメッセージ
+	 * 取得メソッド エラーメッセージを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return errorMsg
 	 */
@@ -147,7 +155,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド エラーメッセージを設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param errorMsg
 	 */
@@ -157,7 +165,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド 成功メッセージ
+	 * 取得メソッド 成功メッセージを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return successMsg
 	 */
@@ -167,7 +175,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 成功メッセージを設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param successMsg
 	 */
@@ -177,7 +185,27 @@ public class ScheduleInsertAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド シリアルID
+	* 取得メソッド 管理権限の状態を取得
+	* @author MASAHIRO KEDSUKA
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+	/**
+	* 設定メソッド 管理権限の状態を設定
+	* @author MASAHIRO KEDSUKA
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
+	/**
+	 * 取得メソッド シリアルIDを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return serialVersionUID
 	 */

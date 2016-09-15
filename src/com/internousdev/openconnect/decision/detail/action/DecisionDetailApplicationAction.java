@@ -3,7 +3,7 @@ package com.internousdev.openconnect.decision.detail.action;
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailApplicationDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * DBに情報を格納する為のクラス
+ * 決裁手続き一覧の情報をDBに格納する為のクラス
  * @author TATSUHUMI ITOU
  * * @since 2016/09/04
  * @version 1.0
@@ -37,7 +37,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 		return result;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 決裁状況を取得
 	* @author TATSUHUMI ITOU
 	* @return decisionStatus
 	*/
@@ -45,7 +45,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 		return decisionStatus;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 決裁状況を設定
 	* @author TATSUHUMI ITOU
 	* @param decisionStatus
 	*/
@@ -53,7 +53,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 		this.decisionStatus = decisionStatus;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 決裁手続きIDを取得
 	* @author TATSUHUMI ITOU
 	* @return decisionDetailId
 	*/
@@ -61,7 +61,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 		return decisionDetailId;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 決裁手続きIDを設定
 	* @author TATSUHUMI ITOU
 	* @param decisionDetailId
 	*/

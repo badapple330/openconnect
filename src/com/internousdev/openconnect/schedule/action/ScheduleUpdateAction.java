@@ -91,7 +91,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド リストのスケジュールID
+	 * 取得メソッド リスト形式のスケジュールIDを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleIdList
 	 */
@@ -101,7 +101,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド リスト形式のスケジュールIDを設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleIdList
 	 */
@@ -111,7 +111,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド リストの開始日
+	 * 取得メソッド リスト形式の開始日を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleStartdayList
 	 */
@@ -121,7 +121,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド リスト形式の開始日を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleStartdayList
 	 */
@@ -131,7 +131,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド リストの終了日
+	 * 取得メソッド リスト形式の終了日を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleEnddayList
 	 */
@@ -141,7 +141,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド リスト形式の終了日を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleEnddayList
 	 */
@@ -151,7 +151,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド リストの件名
+	 * 取得メソッド リスト形式の件名を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleTitleList
 	 */
@@ -161,7 +161,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド リスト形式の件名を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleTitleList
 	 */
@@ -171,7 +171,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド リストの内容
+	 * 取得メソッド リスト形式の内容を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleContentList
 	 */
@@ -181,7 +181,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド リスト形式の内容を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleContentList
 	 */
@@ -191,7 +191,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド エラーメッセージ
+	 * 取得メソッド エラーメッセージを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return errorMsg
 	 */
@@ -201,7 +201,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド エラーメッセージを設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param errorMsg
 	 */
@@ -211,7 +211,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド 成功メッセージ
+	 * 取得メソッド 成功メッセージの取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return successMsg
 	 */
@@ -221,7 +221,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 成功メッセージの設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param successMsg
 	 */
@@ -231,7 +231,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド シリアルID
+	 * 取得メソッド シリアルIDの取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return serialVersionUID
 	 */

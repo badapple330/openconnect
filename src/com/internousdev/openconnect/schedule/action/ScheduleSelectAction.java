@@ -59,7 +59,7 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド スケジュールリスト
+	 * 取得メソッド リスト形式のスケジュール一覧を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleList
 	 */
@@ -69,7 +69,7 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド リスト形式のスケジュール一覧を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleList
 	 */
@@ -79,7 +79,7 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド 検索文
+	 * 取得メソッド 検索文を取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return search
 	 */
@@ -89,7 +89,7 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 検索文を設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param search
 	 */
@@ -99,7 +99,7 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド エラーメッセージ
+	 * 取得メソッド エラーメッセージを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return errorMsg
 	 */
@@ -109,7 +109,7 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド エラーメッセージを設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param errorMsg
 	 */
@@ -119,7 +119,7 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド シリアルID
+	 * 取得メソッド シリアルIDを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return serialVersionUID
 	 */

@@ -58,7 +58,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 決裁手続きリストを取得
 	* @author TATUHUMI ITOU
 	* @return decisionDetailList
 	*/
@@ -69,7 +69,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 決裁手続きリストを設定
 	* @author TATUHUMI ITOU
 	* @param decisionDetailList
 	*/
@@ -80,7 +80,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 検索文を取得
 	* @author TATUHUMI ITOU
 	* @return searchString
 	*/
@@ -89,7 +89,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 検索文を設定
 	* @author TATUHUMI ITOU
 	* @param searchString
 	*/
@@ -98,7 +98,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド エラーメッセージを取得
 	* @author TATUHUMI ITOU
 	* @return errorString
 	*/
@@ -107,7 +107,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド エラーメッセージを設定
 	* @author TATUHUMI ITOU
 	* @param errorString
 	*/

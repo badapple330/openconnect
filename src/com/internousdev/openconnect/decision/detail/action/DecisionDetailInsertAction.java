@@ -7,7 +7,7 @@ package com.internousdev.openconnect.decision.detail.action;
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * 画面で新規に追加した情報を、DBに追加する為のクラス
+ * 決裁手続き画面で新規に追加した情報を、DBに追加する為のクラス
  * @author TATUHUMI ITOU
  * @since 2016/09/04
  * @version 1.0
@@ -48,7 +48,7 @@ private String password;
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド プロジェクトIDを取得
 	* @author TATUHUMI ITOU
 	* @return projectId
 	*/
@@ -56,7 +56,7 @@ private String password;
 		return projectId;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド プロジェクトIDを設定
 	* @author TATUHUMI ITOU
 	* @param projectId
 	*/
@@ -65,7 +65,7 @@ private String password;
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド パスワードを取得
 	* @author TATUHUMI ITOU
 	* @return password
 	*/
@@ -74,7 +74,7 @@ private String password;
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド パスワードを設定
 	* @author TATUHUMI ITOU
 	* @param password
 	*/
@@ -83,7 +83,7 @@ private String password;
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 結果を取得
 	* @author TATUHUMI ITOU
 	* @return resultString
 	*/
@@ -92,7 +92,7 @@ private String password;
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 結果を設定
 	* @author TATUHUMI ITOU
 	* @param resultString
 	*/

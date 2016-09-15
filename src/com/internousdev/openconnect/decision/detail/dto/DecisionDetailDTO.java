@@ -5,153 +5,219 @@ package com.internousdev.openconnect.decision.detail.dto;
 
 /**
  * @author internous
- *
+ * 決裁手続きから検索したデータを溜め込むクラス。
+ * @since 2016/09/07
  */
 public class DecisionDetailDTO {
 
+	/**
+	 *  プロジェクトID
+	 */
 	private int projectId;
+	/**
+	 *  日付
+	 */
 	private String day;
+	/**
+	 *  決裁分類
+	 */
 	private String decisionType;
+	/**
+	 *  決裁状況
+	 */
 	private String decisionStatus;
+	/**
+	 *  ユーザーID
+	 */
 	private int userId;
+	/**
+	 *  案件名
+	 */
 	private String itemName;
+	/**
+	 *  概要
+	 */
 	private String summary;
+	/**
+	 *  理由
+	 */
 	private String cause;
+	/**
+	 *  開始日
+	 */
 	private String startDay;
+	/**
+	 *  終了日
+	 */
 	private String endDay;
+	/**
+	 *  資料
+	 */
 	private String plan;
+	/**
+	 *  人数
+	 */
 	private int persons;
+	/**
+	 *  パスワード
+	 */
 	private String password;
+	/**
+	 *  決裁ID
+	 */
 	private int decisionId;
+	/**
+	 *  決裁手続きID
+	 */
 	private int decisionDetailId;
+	/**
+	 *  プロジェクト名
+	 */
 	private String projectName;
+	/**
+	 *  姓漢字
+	 */
 	private String familyNameKanji;
+	/**
+	 *  名漢字
+	 */
 	private String givenNameKanji;
-
+	/**
+	 *  開発要員
+	 */
 	private int developmentPersonnel;
+	/**
+	 *  開発端末
+	 */
 	private int developmentTerminal;
+	/**
+	 *  建設費用
+	 */
 	private int developmentPersonnelSum;
+	/**
+	 *  損益費用
+	 */
 	private int profitAndLossCost;
+	/**
+	 *  合計
+	 */
 	private int sum;
 
-
-
-
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 姓の漢字を取得
 	 * @author TATUHUMI ITOU
-	 * @return
+	 * @return familyNameKanji
 	 */
 	public String getFamilyNameKanji() {
 		return familyNameKanji;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 姓の漢字を設定
 	 * @author TATUHUMI ITOU
-	 * @param
+	 * @param familyNameKanji
 	 */
 	public void setFamilyNameKanji(String familyNameKanji) {
 		this.familyNameKanji = familyNameKanji;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 開発端末を取得
 	 * @author TATUHUMI ITOU
-	 * @return
+	 * @return developmentTerminal
 	 */
 
 	public int getDevelopmentTerminal() {
 		return developmentTerminal;
 	}
 	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return
-	*/
+	 * 取得メソッド 名の漢字を取得
+	 * @author KENICHI HORIGUCHI
+	 * @return givenNameKanji
+	 */
 	public String getGivenNameKanji() {
 		return givenNameKanji;
 	}
 	/**
-	* 設定メソッド
-	* @author KENICHI HORIGUCHI
-	* @param
-	*/
+	 * 設定メソッド 名の漢字を設定
+	 * @author KENICHI HORIGUCHI
+	 * @param givenNameKanji
+	 */
 	public void setGivenNameKanji(String givenNameKanji) {
 		this.givenNameKanji = givenNameKanji;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 開発端末を設定
 	 * @author TATUHUMI ITOU
-	 * @param
+	 * @param developmentTerminal
 	 */
 	public void setDevelopmentTerminal(int developmentTerminal) {
 		this.developmentTerminal = developmentTerminal;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 建設費用を取得
 	 * @author TATUHUMI ITOU
-	 * @return
+	 * @return developmentPersonnelSum
 	 */
 	public int getDevelopmentPersonnelSum() {
 		return developmentPersonnelSum;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド  建設費用を設定
 	 * @author TATUHUMI ITOU
-	 * @param
+	 * @param developmentPersonnelSum
 	 */
 	public void setDevelopmentPersonnelSum(int developmentPersonnelSum) {
 		this.developmentPersonnelSum = developmentPersonnelSum;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 損益費用を取得
 	 * @author TATUHUMI ITOU
-	 * @return
+	 * @return profitAndLossCost
 	 */
 	public int getProfitAndLossCost() {
 		return profitAndLossCost;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 損益費用を設定
 	 * @author TATUHUMI ITOU
-	 * @param
+	 * @param profitAndLossCost
 	 */
 	public void setProfitAndLossCost(int profitAndLossCost) {
 		this.profitAndLossCost = profitAndLossCost;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 合計を取得
 	 * @author TATUHUMI ITOU
-	 * @return
+	 * @return sum
 	 */
 	public int getSum() {
 		return sum;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 合計を設定
 	 * @author TATUHUMI ITOU
-	 * @param
+	 * @param sum
 	 */
 	public void setSum(int sum) {
 		this.sum = sum;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 開発要員を取得
 	 * @author TATUHUMI ITOU
-	 * @return
+	 * @return developmentPersonnel
 	 */
 	public int getDevelopmentPersonnel() {
 		return developmentPersonnel;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 開発要員を設定
 	 * @author TATUHUMI ITOU
-	 * @param
+	 * @param developmentPersonnel
 	 */
 	public void setDevelopmentPersonnel(int developmentPersonnel) {
 		this.developmentPersonnel = developmentPersonnel;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクトIDを取得
 	 * @author TATUHUMI ITOU
 	 * @return projectId
 	 */
@@ -159,7 +225,7 @@ public class DecisionDetailDTO {
 		return projectId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクトIDを設定
 	 * @author TATUHUMI ITOU
 	 * @param projectId
 	 */
@@ -167,7 +233,7 @@ public class DecisionDetailDTO {
 		this.projectId = projectId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 日付を取得
 	 * @author TATUHUMI ITOU
 	 * @return day
 	 */
@@ -175,7 +241,7 @@ public class DecisionDetailDTO {
 		return day;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 日付を設定
 	 * @author　TATUHUMI ITOU
 	 * @param day
 	 */
@@ -183,7 +249,7 @@ public class DecisionDetailDTO {
 		this.day = day;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 決裁分類を取得
 	 * @author TATUHUMI ITOU
 	 * @return decisionType
 	 */
@@ -191,7 +257,7 @@ public class DecisionDetailDTO {
 		return decisionType;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 決裁分類を設定
 	 * @author TATUHUMI ITOU
 	 * @param decisionType
 	 */
@@ -199,7 +265,7 @@ public class DecisionDetailDTO {
 		this.decisionType = decisionType;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 決裁状況を取得
 	 * @author TATUHUMI ITOU
 	 * @return decisionStatus
 	 */
@@ -207,7 +273,7 @@ public class DecisionDetailDTO {
 		return decisionStatus;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 決裁状況を設定
 	 * @author TATUHUMI ITOU
 	 * @param decisionStatus
 	 */
@@ -215,7 +281,7 @@ public class DecisionDetailDTO {
 		this.decisionStatus = decisionStatus;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド ユーザーIDを取得
 	 * @author TATUHUMI ITOU
 	 * @return userId
 	 */
@@ -223,7 +289,7 @@ public class DecisionDetailDTO {
 		return userId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド ユーザーIDを設定
 	 * @author TATUHUMI ITOU
 	 * @param userId
 	 */
@@ -231,7 +297,7 @@ public class DecisionDetailDTO {
 		this.userId = userId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 案件名を取得
 	 * @author TATUHUMI ITOU
 	 * @return itemName
 	 */
@@ -239,7 +305,7 @@ public class DecisionDetailDTO {
 		return itemName;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 案件名を設定
 	 * @author TATUHUMI ITOU
 	 * @param itemName
 	 */
@@ -247,7 +313,7 @@ public class DecisionDetailDTO {
 		this.itemName = itemName;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 概要を取得
 	 * @author TATUHUMI ITOU
 	 * @return summary
 	 */
@@ -255,7 +321,7 @@ public class DecisionDetailDTO {
 		return summary;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 概要を設定
 	 * @author TATUHUMI ITOU
 	 * @param summary
 	 */
@@ -263,7 +329,7 @@ public class DecisionDetailDTO {
 		this.summary = summary;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 理由を取得
 	 * @author TATUHUMI ITOU
 	 * @return cause
 	 */
@@ -271,7 +337,7 @@ public class DecisionDetailDTO {
 		return cause;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 理由を設定
 	 * @author TATUHUMI ITOU
 	 * @param cause
 	 */
@@ -279,7 +345,7 @@ public class DecisionDetailDTO {
 		this.cause = cause;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 開始日を取得
 	 * @author TATUHUMI ITOU
 	 * @return startDay
 	 */
@@ -287,7 +353,7 @@ public class DecisionDetailDTO {
 		return startDay;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 開始日を設定
 	 * @author KOHEI NITABARU
 	 * @param startDay
 	 */
@@ -295,7 +361,7 @@ public class DecisionDetailDTO {
 		this.startDay = startDay;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 終了日を取得
 	 * @author KOHEI NITABARU
 	 * @return endDay
 	 */
@@ -303,7 +369,7 @@ public class DecisionDetailDTO {
 		return endDay;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 終了日を設定
 	 * @author KOHEI NITABARU
 	 * @param endDay
 	 */
@@ -311,7 +377,7 @@ public class DecisionDetailDTO {
 		this.endDay = endDay;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 資料を取得
 	 * @author TATUHUMI ITOU
 	 * @return plan
 	 */
@@ -319,7 +385,7 @@ public class DecisionDetailDTO {
 		return plan;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 資料を取得
 	 * @author TATUHUMI ITOU
 	 * @param plan
 	 */
@@ -327,13 +393,13 @@ public class DecisionDetailDTO {
 		this.plan = plan;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 人数を取得
 	 * @author TATUHUMI ITOU
 	 * @return persons
 	 */
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド パスワードを取得
 	 * @author TATUHUMI ITOU
 	 * @return password
 	 */
@@ -341,15 +407,15 @@ public class DecisionDetailDTO {
 		return password;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 人数を取得
 	 * @author TATUHUMI ITOU
-	 * @return
+	 * @return persons
 	 */
 	public int getPersons() {
 		return persons;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 人数を設定
 	 * @author TATUHUMI ITOU
 	 * @param
 	 */
@@ -357,7 +423,7 @@ public class DecisionDetailDTO {
 		this.persons = persons;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド パスワードを設定
 	 * @author TATUHUMI ITOU
 	 * @param password
 	 */
@@ -365,7 +431,7 @@ public class DecisionDetailDTO {
 		this.password = password;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 決裁IDを取得
 	 * @author TATUHUMI ITOU
 	 * @return decisionId
 	 */
@@ -373,7 +439,7 @@ public class DecisionDetailDTO {
 		return decisionId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 決裁IDを設定
 	 * @author TATUHUMI ITOU
 	 * @param decisionId
 	 */
@@ -381,7 +447,7 @@ public class DecisionDetailDTO {
 		this.decisionId = decisionId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 決裁手続きIDを取得
 	 * @author TATUHUMI ITOU
 	 * @return decisionDetailId
 	 */
@@ -389,7 +455,7 @@ public class DecisionDetailDTO {
 		return decisionDetailId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 決裁手続きIDを設定
 	 * @author TATUHUMI ITOU
 	 * @param decisionDetailId
 	 */
@@ -397,7 +463,7 @@ public class DecisionDetailDTO {
 		this.decisionDetailId = decisionDetailId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクト名を取得
 	 * @author TATUHUMI ITOU
 	 * @return projectName
 	 */
@@ -405,7 +471,7 @@ public class DecisionDetailDTO {
 		return projectName;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクト名を設定
 	 * @author TATUHUMI ITOU
 	 * @param projectName
 	 */

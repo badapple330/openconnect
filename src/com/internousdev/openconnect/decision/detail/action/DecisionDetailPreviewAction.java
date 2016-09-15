@@ -43,7 +43,7 @@ public class DecisionDetailPreviewAction extends ActionSupport {
 		return result;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド リスト形式の決裁手続きを取得
 	* @author TATUHUMI ITOU
 	* @return decisionDetailList
 	*/
@@ -51,7 +51,7 @@ public class DecisionDetailPreviewAction extends ActionSupport {
 		return decisionDetailList;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド リスト形式の決裁手続きを設定
 	* @author TATUHUMI ITOU
 	* @param decisionDetailList
 	*/
@@ -59,7 +59,7 @@ public class DecisionDetailPreviewAction extends ActionSupport {
 		this.decisionDetailList = decisionDetailList;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 決裁手続きIDを取得
 	* @author TATUHUMI ITOU
 	* @return decisionDetailId
 	*/
@@ -67,7 +67,7 @@ public class DecisionDetailPreviewAction extends ActionSupport {
 		return decisionDetailId;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 決裁手続きIDを設定
 	* @author TATUHUMI ITOU
 	* @param decisionDetailId
 	*/

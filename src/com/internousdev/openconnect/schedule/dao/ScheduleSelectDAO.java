@@ -20,7 +20,7 @@ import com.internousdev.util.DBConnector;
 public class ScheduleSelectDAO {
 
 	/**
-	 * スケジュールリスト
+	 * リスト形式のスケジュール一覧
 	 * @author MASAHIRO KEDSUKA
 	 */
 	public List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();

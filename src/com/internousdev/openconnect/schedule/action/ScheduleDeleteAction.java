@@ -43,7 +43,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	private String errorMsg;
 
 	/**
-	 * セッション
+	 * 管理権限
 	 * @author MASAHIRO KEDSUKA
 	 */
 	public Map<String, Object> session;
@@ -67,7 +67,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド スケジュールID
+	 * 取得メソッド スケジュールのIDを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return scheduleId
 	 */
@@ -77,7 +77,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド スケジュールのIDを設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param scheduleId
 	 */
@@ -87,7 +87,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 取得メソッド 成功のメッセージ
+	 * 取得メソッド 成功のメッセージを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return successMsg
 	 */
@@ -97,7 +97,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 成功のメッセージを設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param successMsg
 	 */
@@ -107,7 +107,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 取得メソッド エラーメッセージ
+	 * 取得メソッド エラーメッセージを取得
 	 * @author MASAHIRO KEDSUKA
 	 * @return errorMsg
 	 */
@@ -117,7 +117,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド エラーメッセージを設定
 	 * @author MASAHIRO KEDSUKA
 	 * @param errorMsg
 	 */
@@ -127,7 +127,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	* 取得メソッド 管理権限のセッション
+	* 取得メソッド 管理権限の状態を取得
 	* @author MASAHIRO KEDSUKA
 	* @return session
 	*/
@@ -137,7 +137,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 管理権限の状態を設定
 	* @author MASAHIRO KEDSUKA
 	* @param session
 	*/
@@ -147,7 +147,7 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	* 取得メソッド シリアルID
+	* 取得メソッド シリアルIDを取得
 	* @author
 	* @return serialVersionUID
 	*/
