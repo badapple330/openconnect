@@ -32,6 +32,10 @@ public class ProjectsUpdateDAO {
 		Connection con = db.getConnection();
 
 		String sql = "UPDATE projects SET project_name=?, manager_id=?,sub_manager_id=? , start_date=? , end_date=? , note=? where  project_id=?";
+		//終了日が空白対応
+		if( endDate.equals("") ){
+			endDate = "0000-00-00";
+		}
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
