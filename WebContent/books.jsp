@@ -32,10 +32,10 @@
 		<s:form action="BooksUpdateAction">
 			<table border="1" cellspacing="0">
 				<tr>
-					<td>ID</td>
-					<td width="500">タイトル一覧</td>
+					<td><div class ="haba">ID</div></td>
+					<td><div class ="haba2">タイトル一覧</div></td>
 					<s:if test="%{#session.userFlg == 3}">
-						<td>削除</td>
+					<td>削除</td>
 					</s:if>
 					<td></td>
 				</tr>
@@ -43,7 +43,7 @@
 				<s:iterator value="searchList">
 					<tr>
 						<td class="bookId"><s:property value="bookId" /></td>
-						<td><input type="text" name="titleList"
+						<td><input type="text" size = "75" name="titleList"
 							value="<s:property value="title" />" class="bookTitle"></td>
 						<td><s:if test="%{#session.userFlg == 3}">
 								<input type="button" class="button modal-open" value="削除">

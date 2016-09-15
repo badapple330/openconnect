@@ -1,7 +1,16 @@
 @CHARSET "UTF-8";
 
-td{
-	text-align:center;
+td {
+	text-align: center;
+}
+
+.haba {
+	width: 20px;
+	text-align: center;
+}
+.haba2 {
+	size: 75;
+	text-align: center;
 }
 
 .delete {
@@ -10,11 +19,6 @@ td{
 
 .delete-prepare {
 	display: none;
-}
-
-
-p {
-	width: 100%;
 }
 
 .header {
@@ -32,7 +36,6 @@ p {
 input {
 	text-align: center;
 }
-
 
 .modal-open {
 	color: #cc0000;
@@ -60,3 +63,4 @@ input {
 	top: 0;
 	left: 0;
 	z-index: 1;
+}

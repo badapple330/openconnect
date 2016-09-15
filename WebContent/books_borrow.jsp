@@ -20,13 +20,13 @@
 		<s:property value="%{errorMsg}" />
 		<br>
 		<table border="1">
-
-			<td>id</td>
-			<td>タイトル</td>
-			<td>貸し出し状況</td>
-			<td>日付
-			<td>ユ ーザーID</td>
-
+			<tr>
+				<td>id</td>
+				<td>タイトル</td>
+				<td>貸し出し状況</td>
+				<td>日付</td>
+				<td>ユ ーザーID</td>
+			</tr>
 			<s:iterator value="bookList">
 				<tr>
 					<td><s:property value="bookId" /><input type="hidden"
