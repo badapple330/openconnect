@@ -96,7 +96,7 @@ public class StudentsDTO {
 	private String month;
 
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザーIDを取得
 	* @author KOHEI NITABARU
 	* @return userId
 	*/
@@ -104,7 +104,7 @@ public class StudentsDTO {
 		return userId;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザーIDを設定
 	* @author KOHEI NITABARU
 	* @param userId
 	*/
@@ -112,7 +112,7 @@ public class StudentsDTO {
 		this.userId = userId;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド パスワードを取得
 	* @author KOHEI NITABARU
 	* @return password
 	*/
@@ -120,7 +120,7 @@ public class StudentsDTO {
 		return password;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド パスワードを設定
 	* @author KOHEI NITABARU
 	* @param password
 	*/
@@ -128,7 +128,7 @@ public class StudentsDTO {
 		this.password = password;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 姓(英語)を取得
 	* @author KOHEI NITABARU
 	* @return familyName
 	*/
@@ -136,7 +136,7 @@ public class StudentsDTO {
 		return familyName;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 姓(英語)を設定
 	* @author KOHEI NITABARU
 	* @param familyName
 	*/
@@ -144,7 +144,7 @@ public class StudentsDTO {
 		this.familyName = familyName;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 名(英語)を取得
 	* @author KOHEI NITABARU
 	* @return givenName
 	*/
@@ -152,7 +152,7 @@ public class StudentsDTO {
 		return givenName;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 名(英語)を設定
 	* @author KOHEI NITABARU
 	* @param givenName
 	*/
@@ -160,7 +160,7 @@ public class StudentsDTO {
 		this.givenName = givenName;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 姓(漢字)を取得
 	* @author KOHEI NITABARU
 	* @return familyNameKanji
 	*/
@@ -168,7 +168,7 @@ public class StudentsDTO {
 		return familyNameKanji;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 姓(漢字)を設定
 	* @author KOHEI NITABARU
 	* @param familyNameKanji
 	*/
@@ -176,7 +176,7 @@ public class StudentsDTO {
 		this.familyNameKanji = familyNameKanji;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 姓(かな)を取得
 	* @author KOHEI NITABARU
 	* @return familyNameKana
 	*/
@@ -184,7 +184,7 @@ public class StudentsDTO {
 		return familyNameKana;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 姓(かな)を設定
 	* @author KOHEI NITABARU
 	* @param familyNameKana
 	*/
@@ -192,7 +192,7 @@ public class StudentsDTO {
 		this.familyNameKana = familyNameKana;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 名(漢字)を取得
 	* @author KOHEI NITABARU
 	* @return givenNameKanji
 	*/
@@ -200,7 +200,7 @@ public class StudentsDTO {
 		return givenNameKanji;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 名(漢字)を設定
 	* @author KOHEI NITABARU
 	* @param givenNameKanji
 	*/
@@ -208,7 +208,7 @@ public class StudentsDTO {
 		this.givenNameKanji = givenNameKanji;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 名(かな)を取得
 	* @author KOHEI NITABARU
 	* @return givenNameKana
 	*/
@@ -216,7 +216,7 @@ public class StudentsDTO {
 		return givenNameKana;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 名(かな)を設定
 	* @author KOHEI NITABARU
 	* @param givenNameKana
 	*/
@@ -224,7 +224,7 @@ public class StudentsDTO {
 		this.givenNameKana = givenNameKana;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 郵便番号を取得
 	* @author KOHEI NITABARU
 	* @return postal
 	*/
@@ -232,7 +232,7 @@ public class StudentsDTO {
 		return postal;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 郵便番号を設定
 	* @author KOHEI NITABARU
 	* @param postal
 	*/
@@ -240,7 +240,7 @@ public class StudentsDTO {
 		this.postal = postal;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 住所を取得
 	* @author KOHEI NITABARU
 	* @return address
 	*/
@@ -248,7 +248,7 @@ public class StudentsDTO {
 		return address;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 住所を設定
 	* @author KOHEI NITABARU
 	* @param address
 	*/
@@ -256,7 +256,7 @@ public class StudentsDTO {
 		this.address = address;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 電話番号を取得
 	* @author KOHEI NITABARU
 	* @return phoneNumber
 	*/
@@ -264,7 +264,7 @@ public class StudentsDTO {
 		return phoneNumber;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 電話番号を設定
 	* @author KOHEI NITABARU
 	* @param phoneNumber
 	*/
@@ -272,7 +272,7 @@ public class StudentsDTO {
 		this.phoneNumber = phoneNumber;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド メールアドレスを取得
 	* @author KOHEI NITABARU
 	* @return phoneEmail
 	*/
@@ -280,7 +280,7 @@ public class StudentsDTO {
 		return phoneEmail;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド メールアドレスを設定
 	* @author KOHEI NITABARU
 	* @param phoneEmail
 	*/
@@ -288,7 +288,7 @@ public class StudentsDTO {
 		this.phoneEmail = phoneEmail;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 携帯電話番号を取得
 	* @author KOHEI NITABARU
 	* @return mobileNumber
 	*/
@@ -296,7 +296,7 @@ public class StudentsDTO {
 		return mobileNumber;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 携帯電話番号を設定
 	* @author KOHEI NITABARU
 	* @param mobileNumber
 	*/
@@ -304,7 +304,7 @@ public class StudentsDTO {
 		this.mobileNumber = mobileNumber;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 携帯メールアドレスを取得
 	* @author KOHEI NITABARU
 	* @return mobileEmail
 	*/
@@ -312,7 +312,7 @@ public class StudentsDTO {
 		return mobileEmail;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 携帯メールアドレスを設定
 	* @author KOHEI NITABARU
 	* @param mobileEmail
 	*/
@@ -320,7 +320,7 @@ public class StudentsDTO {
 		this.mobileEmail = mobileEmail;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 性別を取得
 	* @author KOHEI NITABARU
 	* @return sex
 	*/
@@ -328,7 +328,7 @@ public class StudentsDTO {
 		return sex;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 性別を設定
 	* @author KOHEI NITABARU
 	* @param sex
 	*/
@@ -336,7 +336,7 @@ public class StudentsDTO {
 		this.sex = sex;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 誕生日を取得
 	* @author KOHEI NITABARU
 	* @return birthday
 	*/
@@ -344,7 +344,7 @@ public class StudentsDTO {
 		return birthday;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 誕生日を設定
 	* @author KOHEI NITABARU
 	* @param birthday
 	*/
@@ -352,7 +352,7 @@ public class StudentsDTO {
 		this.birthday = birthday;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 登録日を取得
 	* @author KOHEI NITABARU
 	* @return registerDay
 	*/
@@ -360,7 +360,7 @@ public class StudentsDTO {
 		return registerDay;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 登録日を設定
 	* @author KOHEI NITABARU
 	* @param registerDay
 	*/
@@ -368,7 +368,7 @@ public class StudentsDTO {
 		this.registerDay = registerDay;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 更新日を取得
 	* @author KOHEI NITABARU
 	* @return updateDay
 	*/
@@ -376,7 +376,7 @@ public class StudentsDTO {
 		return updateDay;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 更新日を設定
 	* @author KOHEI NITABARU
 	* @param updateDay
 	*/
@@ -384,7 +384,7 @@ public class StudentsDTO {
 		this.updateDay = updateDay;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザー削除フラグを取得
 	* @author KOHEI NITABARU
 	* @return userdelFlg
 	*/
@@ -392,7 +392,7 @@ public class StudentsDTO {
 		return userdelFlg;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザー削除フラグを設定
 	* @author KOHEI NITABARU
 	* @param userdelFlg
 	*/
@@ -400,7 +400,7 @@ public class StudentsDTO {
 		this.userdelFlg = userdelFlg;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド ログインフラグを取得
 	* @author KOHEI NITABARU
 	* @return loginFlg
 	*/
@@ -408,7 +408,7 @@ public class StudentsDTO {
 		return loginFlg;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド ログインフラグを設定
 	* @author KOHEI NITABARU
 	* @param loginFlg
 	*/
@@ -416,7 +416,7 @@ public class StudentsDTO {
 		this.loginFlg = loginFlg;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザーフラグを取得
 	* @author KOHEI NITABARU
 	* @return userFlg
 	*/
@@ -424,7 +424,7 @@ public class StudentsDTO {
 		return userFlg;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザーフラグを設定
 	* @author KOHEI NITABARU
 	* @param userFlg
 	*/
@@ -432,7 +432,7 @@ public class StudentsDTO {
 		this.userFlg = userFlg;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講年を取得
 	* @author KOHEI NITABARU
 	* @return year
 	*/
@@ -440,7 +440,7 @@ public class StudentsDTO {
 		return year;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講年を設定
 	* @author KOHEI NITABARU
 	* @param year
 	*/
@@ -448,7 +448,7 @@ public class StudentsDTO {
 		this.year = year;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講開始月を取得
 	* @author KOHEI NITABARU
 	* @return month
 	*/
@@ -456,14 +456,13 @@ public class StudentsDTO {
 		return month;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講開始月を設定
 	* @author KOHEI NITABARU
 	* @param month
 	*/
 	public void setMonth(String month) {
 		this.month = month;
 	}
-
 
 
 }

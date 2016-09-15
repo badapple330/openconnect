@@ -12,18 +12,23 @@ import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.internousdev.util.DBConnector;
 
 /**
- * DBの情報を表示する為のクラス
+ * DBから受講生の情報を取得し表示する為のクラス
  * @author KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
  */
 public class StudentsSelectDAO {
 
-	public List<StudentsDTO> searchList = new ArrayList<StudentsDTO>();
-
+	/**
+	 * 実行メソッド DBから受講生の情報を取得
+	 * @param search
+	 * @return searchList
+	 */
 	public List<StudentsDTO> select(String search) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
+
+		List<StudentsDTO> searchList = new ArrayList<StudentsDTO>();
 
 		try {
 			String sql = "SELECT * FROM users WHERE family_name LIKE '%" + search + "%'";

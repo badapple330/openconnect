@@ -7,12 +7,41 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 /**
- * DBの情報を更新する為のクラス
+ * DBの受講生の情報を更新する為のクラス
  * @author KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
  */
 public class StudentsUpdateDAO {
+
+	/**
+	 * 実行メソッド 受講生の情報をDBから削除
+	 * @author KOHEI NITABARU
+	 * @param userId
+	 * @param year
+	 * @param month
+	 * @param familyName
+	 * @param givenName
+	 * @param familyNameKanji
+	 * @param familyNameKana
+	 * @param givenNameKanji
+	 * @param givenNameKana
+	 * @param postal
+	 * @param address
+	 * @param phoneNumber
+	 * @param phoneEmail
+	 * @param mobileNumber
+	 * @param mobileEmail
+	 * @param sex
+	 * @param birthday
+	 * @param registerDay
+	 * @param updateDay
+	 * @param userdelFlg
+	 * @param loginFlg
+	 * @param userFlg
+	 * @param password
+	 * @return count
+	 */
 	public int update(
 			int userId, String password, String familyName, String givenName, String familyNameKanji, String familyNameKana,
 			String givenNameKanji, String givenNameKana, String postal, String address, String phoneNumber, String phoneEmail,

@@ -3,7 +3,11 @@ package com.internousdev.openconnect.students.action;
 import com.internousdev.openconnect.students.dao.StudentsInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
+/**
+ * DBに受講生の情報を追加するクラス
+ * @author KOHEI NITABARU
+ * @since 2016/09/07
+ */
 public class StudentsInsertAction extends ActionSupport  {
 
 	/**
@@ -55,12 +59,10 @@ public class StudentsInsertAction extends ActionSupport  {
 	 */
 	private String resultString = "追加に失敗しました。";
 
-
 	/**
-	 * DBの情報を追加する為のクラス
+	 * 実行メソッド DBに受講生の情報を追加
 	 * @author KOHEI NITABARU
-	 * @since 2016/09/04
-	 * @version 1.0
+	 * @return result
 	 */
 	public String execute() {
 		String result = ERROR;
@@ -76,7 +78,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド パスワードを取得
 	* @author KOHEI NITABARU
 	* @return password
 	*/
@@ -85,7 +87,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド パスワードを設定
 	* @author KOHEI NITABARU
 	* @param password
 	*/
@@ -94,7 +96,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 姓(英語)を取得
 	* @author KOHEI NITABARU
 	* @return familyName
 	*/
@@ -103,7 +105,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 姓(英語)を設定
 	* @author KOHEI NITABARU
 	* @param familyName
 	*/
@@ -112,7 +114,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 名(英語)を取得
 	* @author KOHEI NITABARU
 	* @return givenName
 	*/
@@ -121,7 +123,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 名(英語)を設定
 	* @author KOHEI NITABARU
 	* @param givenName
 	*/
@@ -130,7 +132,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 姓(漢字)を取得
 	* @author KOHEI NITABARU
 	* @return familyNameKanji
 	*/
@@ -139,7 +141,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 姓(漢字)を設定
 	* @author KOHEI NITABARU
 	* @param familyNameKanji
 	*/
@@ -148,7 +150,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 名(漢字)を取得
 	* @author KOHEI NITABARU
 	* @return givenNameKanji
 	*/
@@ -157,7 +159,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 名(漢字)を設定
 	* @author KOHEI NITABARU
 	* @param givenNameKanji
 	*/
@@ -166,7 +168,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド メールアドレスを取得
 	* @author KOHEI NITABARU
 	* @return phoneEmail
 	*/
@@ -175,7 +177,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド メールアドレスを設定
 	* @author KOHEI NITABARU
 	* @param phoneEmail
 	*/
@@ -184,7 +186,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 性別を取得
 	* @author KOHEI NITABARU
 	* @return sex
 	*/
@@ -193,7 +195,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 性別を設定
 	* @author KOHEI NITABARU
 	* @param sex
 	*/
@@ -202,7 +204,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザーフラグを取得
 	* @author KOHEI NITABARU
 	* @return userFlg
 	*/
@@ -211,7 +213,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザーフラグを設定
 	* @author KOHEI NITABARU
 	* @param userFlg
 	*/
@@ -220,7 +222,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講年を取得
 	* @author KOHEI NITABARU
 	* @return year
 	*/
@@ -229,7 +231,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講年を設定
 	* @author KOHEI NITABARU
 	* @param year
 	*/
@@ -238,7 +240,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講開始月を取得
 	* @author KOHEI NITABARU
 	* @return month
 	*/
@@ -247,7 +249,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講開始月を設定
 	* @author KOHEI NITABARU
 	* @param month
 	*/
@@ -256,7 +258,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 結果文字を取得
 	* @author KOHEI NITABARU
 	* @return resultString
 	*/
@@ -265,7 +267,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 結果文字を設定
 	* @author KOHEI NITABARU
 	* @param resultString
 	*/
@@ -274,7 +276,7 @@ public class StudentsInsertAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド シリアル番号を取得
 	* @author KOHEI NITABARU
 	* @return serialVersionUID
 	*/

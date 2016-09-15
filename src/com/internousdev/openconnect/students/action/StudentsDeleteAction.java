@@ -2,6 +2,11 @@ package com.internousdev.openconnect.students.action;
 import com.internousdev.openconnect.students.dao.StudentsDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * DBから受講生を削除するクラス
+ * @author KOHEI NITABARU
+ * @since 2016/09/07
+ */
 public class StudentsDeleteAction extends ActionSupport {
 
 	/**
@@ -18,10 +23,9 @@ public class StudentsDeleteAction extends ActionSupport {
 	private String resultString = "この受講生は削除できません。";
 
 	/**
-	 * DBの情報を削除する為のクラス
+	 * 実行メソッド 受講生の情報をDBから削除
 	 * @author KOHEI NITABARU
-	 * @since 2016/09/04
-	 * @version 1.0
+	 * @return result
 	 */
 	public String execute() {
 		StudentsDeleteDAO dao = new StudentsDeleteDAO();
@@ -36,7 +40,7 @@ public class StudentsDeleteAction extends ActionSupport {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザーIDを取得
 	* @author KOHEI NITABARU
 	* @return userId
 	*/
@@ -45,7 +49,7 @@ public class StudentsDeleteAction extends ActionSupport {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザーIDを設定
 	* @author KOHEI NITABARU
 	* @param userId
 	*/
@@ -54,7 +58,7 @@ public class StudentsDeleteAction extends ActionSupport {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 結果文字を取得
 	* @author KOHEI NITABARU
 	* @return resultString
 	*/
@@ -63,7 +67,7 @@ public class StudentsDeleteAction extends ActionSupport {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 結果文字を設定
 	* @author KOHEI NITABARU
 	* @param resultString
 	*/
@@ -72,7 +76,7 @@ public class StudentsDeleteAction extends ActionSupport {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド シリアル番号を取得
 	* @author KOHEI NITABARU
 	* @return serialVersionUID
 	*/

@@ -7,6 +7,12 @@ import java.util.List;
 import com.internousdev.openconnect.students.dao.StudentsUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * DBの受講生の情報を更新するクラス
+ * @author KOHEI NITABARU
+ * @since 2016/09/04
+ * @version 1.0
+ */
 public class StudentsUpdateAction extends ActionSupport{
 
 	/**
@@ -111,14 +117,13 @@ public class StudentsUpdateAction extends ActionSupport{
 	private String resultString = "更新に失敗しました。";
 
 	/**
-	 * DBの情報を更新する為のクラス
+	 * 実行メソッド DBの受講生情報を更新
 	 * @author KOHEI NITABARU
-	 * @since 2016/09/04
-	 * @version 1.0
+	 * @return result
 	 */
 	public String execute() throws SQLException{
 
-		String result =ERROR;
+		String result = ERROR;
 		StudentsUpdateDAO dao = new StudentsUpdateDAO();
 		int count = 0;
 		for(int i=0;i< userIdList.size();++i){
@@ -136,7 +141,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザーIDリストを取得
 	* @author KOHEI NITABARU
 	* @return userIdList
 	*/
@@ -145,7 +150,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザーIDリストを設定
 	* @author KOHEI NITABARU
 	* @param userIdList
 	*/
@@ -154,7 +159,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講年リストを取得
 	* @author KOHEI NITABARU
 	* @return yearList
 	*/
@@ -163,7 +168,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講年リストを設定
 	* @author KOHEI NITABARU
 	* @param yearList
 	*/
@@ -172,7 +177,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講開始月リストを取得
 	* @author KOHEI NITABARU
 	* @return monthList
 	*/
@@ -181,7 +186,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講開始月リストを設定
 	* @author KOHEI NITABARU
 	* @param monthList
 	*/
@@ -190,7 +195,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 姓(英語)リストを取得
 	* @author KOHEI NITABARU
 	* @return familyNameList
 	*/
@@ -199,7 +204,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 姓(英語)リストを設定
 	* @author KOHEI NITABARU
 	* @param familyNameList
 	*/
@@ -208,7 +213,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 名(英語)リストを取得
 	* @author KOHEI NITABARU
 	* @return givenNameList
 	*/
@@ -217,7 +222,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 名(英語)リストを設定
 	* @author KOHEI NITABARU
 	* @param givenNameList
 	*/
@@ -226,7 +231,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 姓(漢字)リストを取得
 	* @author KOHEI NITABARU
 	* @return familyNameKanjiList
 	*/
@@ -235,7 +240,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 姓(漢字)リストを設定
 	* @author KOHEI NITABARU
 	* @param familyNameKanjiList
 	*/
@@ -244,7 +249,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 姓(かな)リストを取得
 	* @author KOHEI NITABARU
 	* @return familyNameKanaList
 	*/
@@ -253,7 +258,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 姓(かな)リストを設定
 	* @author KOHEI NITABARU
 	* @param familyNameKanaList
 	*/
@@ -262,7 +267,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 名(漢字)リストを取得
 	* @author KOHEI NITABARU
 	* @return givenNameKanjiList
 	*/
@@ -271,7 +276,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 名(漢字)リストを設定
 	* @author KOHEI NITABARU
 	* @param givenNameKanjiList
 	*/
@@ -280,7 +285,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 名(かな)リストを取得
 	* @author KOHEI NITABARU
 	* @return givenNameKanaList
 	*/
@@ -289,7 +294,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 名(かな)リストを設定
 	* @author KOHEI NITABARU
 	* @param givenNameKanaList
 	*/
@@ -298,7 +303,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 郵便番号リストを取得
 	* @author KOHEI NITABARU
 	* @return postalList
 	*/
@@ -307,7 +312,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 郵便番号リストを設定
 	* @author KOHEI NITABARU
 	* @param postalList
 	*/
@@ -316,7 +321,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 住所リストを取得
 	* @author KOHEI NITABARU
 	* @return addressList
 	*/
@@ -325,7 +330,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 住所リストを設定
 	* @author KOHEI NITABARU
 	* @param addressList
 	*/
@@ -334,7 +339,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 電話番号リストを取得
 	* @author KOHEI NITABARU
 	* @return phoneNumberList
 	*/
@@ -343,7 +348,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 電話番号リストを設定
 	* @author KOHEI NITABARU
 	* @param phoneNumberList
 	*/
@@ -352,7 +357,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド メールアドレスリストを取得
 	* @author KOHEI NITABARU
 	* @return phoneEmailList
 	*/
@@ -361,7 +366,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド メールアドレスリストを設定
 	* @author KOHEI NITABARU
 	* @param phoneEmailList
 	*/
@@ -370,7 +375,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 携帯電話番号リストを取得
 	* @author KOHEI NITABARU
 	* @return mobileNumberList
 	*/
@@ -379,7 +384,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 携帯電話番号リストを設定
 	* @author KOHEI NITABARU
 	* @param mobileNumberList
 	*/
@@ -388,7 +393,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 携帯メールアドレスリストを取得
 	* @author KOHEI NITABARU
 	* @return mobileEmailList
 	*/
@@ -397,7 +402,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 携帯メールアドレスリストを設定
 	* @author KOHEI NITABARU
 	* @param mobileEmailList
 	*/
@@ -406,7 +411,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 性別リストを取得
 	* @author KOHEI NITABARU
 	* @return sexList
 	*/
@@ -415,7 +420,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 性別リストを設定
 	* @author KOHEI NITABARU
 	* @param sexList
 	*/
@@ -424,7 +429,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 誕生日リストを取得
 	* @author KOHEI NITABARU
 	* @return birthdayList
 	*/
@@ -433,7 +438,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 誕生日リストを設定
 	* @author KOHEI NITABARU
 	* @param birthdayList
 	*/
@@ -442,7 +447,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 登録日リストを取得
 	* @author KOHEI NITABARU
 	* @return registerDayList
 	*/
@@ -451,7 +456,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 登録日リストを設定
 	* @author KOHEI NITABARU
 	* @param registerDayList
 	*/
@@ -460,7 +465,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 更新日リストを取得
 	* @author KOHEI NITABARU
 	* @return updateDayList
 	*/
@@ -469,7 +474,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 更新日リストを設定
 	* @author KOHEI NITABARU
 	* @param updateDayList
 	*/
@@ -478,7 +483,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザー削除フラグリストを取得
 	* @author KOHEI NITABARU
 	* @return userdelFlgList
 	*/
@@ -487,7 +492,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザー削除フラグリストを設定
 	* @author KOHEI NITABARU
 	* @param userdelFlgList
 	*/
@@ -496,7 +501,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド ログインフラグリストを取得
 	* @author KOHEI NITABARU
 	* @return loginFlgList
 	*/
@@ -505,7 +510,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド ログインフラグリストを設定
 	* @author KOHEI NITABARU
 	* @param loginFlgList
 	*/
@@ -514,7 +519,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザーフラグリストを取得
 	* @author KOHEI NITABARU
 	* @return userFlgList
 	*/
@@ -523,7 +528,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザーフラグリストを設定
 	* @author KOHEI NITABARU
 	* @param userFlgList
 	*/
@@ -532,7 +537,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド パスワードリストを取得
 	* @author KOHEI NITABARU
 	* @return passwordList
 	*/
@@ -541,7 +546,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド パスワードリストを設定
 	* @author KOHEI NITABARU
 	* @param passwordList
 	*/
@@ -550,7 +555,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 結果文字リストを取得
 	* @author KOHEI NITABARU
 	* @return resultString
 	*/
@@ -559,7 +564,7 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 結果文字リストを設定
 	* @author KOHEI NITABARU
 	* @param resultString
 	*/
@@ -568,12 +573,14 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド シリアル番号を取得
 	* @author KOHEI NITABARU
 	* @return serialVersionUID
 	*/
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
 
 }

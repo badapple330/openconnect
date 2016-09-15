@@ -7,7 +7,11 @@ import com.internousdev.openconnect.students.dao.StudentsSelectDAO;
 import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
+/**
+ * DBから受講生一覧を取得し表示するクラス
+ * @author KOHEI NITABARU
+ * @since 2016/09/07
+ */
 public class StudentsSelectAction extends ActionSupport {
 
 	/**
@@ -22,17 +26,12 @@ public class StudentsSelectAction extends ActionSupport {
 	 * 検索文字
 	 */
     private String search = "";
-	/**
-	 * エラー文字
-	 */
-    private String errorMsg;
 
-    /**
-     * DBの情報を画面に表示する為のクラス
-     * @author KOHEI NITABARU
-     * @since 2016/09/04
-     * @version 1.0
-     */
+	/**
+	 * 実行メソッド 受講生一覧を表示
+	 * @author KOHEI NITABARU
+	 * @return result
+	 */
 	public String execute(){
 
     String result = ERROR;
@@ -41,15 +40,13 @@ public class StudentsSelectAction extends ActionSupport {
 
 	if (studentsList.size() != 0) {
 		result = SUCCESS;
-	} else {
-		errorMsg = "該当する情報は存在しません";
 	}
 
 	return result;
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講生リストを取得
 	* @author KOHEI NITABARU
 	* @return studentsList
 	*/
@@ -58,7 +55,7 @@ public class StudentsSelectAction extends ActionSupport {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講生リストを設定
 	* @author KOHEI NITABARU
 	* @param studentsList
 	*/
@@ -67,7 +64,7 @@ public class StudentsSelectAction extends ActionSupport {
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 検索文字を取得
 	* @author KOHEI NITABARU
 	* @return search
 	*/
@@ -76,7 +73,7 @@ public class StudentsSelectAction extends ActionSupport {
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 検索文字を設定
 	* @author KOHEI NITABARU
 	* @param search
 	*/
@@ -85,25 +82,7 @@ public class StudentsSelectAction extends ActionSupport {
 	}
 
 	/**
-	* 取得メソッド
-	* @author KOHEI NITABARU
-	* @return errorMsg
-	*/
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-
-	/**
-	* 設定メソッド
-	* @author KOHEI NITABARU
-	* @param errorMsg
-	*/
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
-	}
-
-	/**
-	* 取得メソッド
+	* 取得メソッド シリアル番号を取得
 	* @author KOHEI NITABARU
 	* @return serialVersionUID
 	*/

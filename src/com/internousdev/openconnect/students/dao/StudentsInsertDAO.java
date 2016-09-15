@@ -7,13 +7,27 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 /**
- * DBの情報を追加する為のクラス
+ * DBのに受講生情報を追加する為のDAOクラス
  * @author KOHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
  */
 public class StudentsInsertDAO {
 
+	/**
+	 * 実行メソッド DBに受講生の情報を追加
+	 * @param password
+	 * @param familyName
+	 * @param givenName
+	 * @param familyNameKanji
+	 * @param givenNameKanji
+	 * @param phoneEmail
+	 * @param sex
+	 * @param userFlg
+	 * @param year
+	 * @param month
+	 * @return count
+	 */
 	public int insert( String password, String familyName, String givenName, String familyNameKanji, String givenNameKanji, String phoneEmail, String sex, int userFlg, String year, String month) {
 	 int count = 0;
 	 DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
