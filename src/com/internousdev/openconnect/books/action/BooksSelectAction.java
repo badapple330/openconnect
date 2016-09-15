@@ -88,7 +88,7 @@ public class BooksSelectAction extends ActionSupport {
 	/**
 	 * エラーメッセージ取得メソッド
 	 * @author TATSUYA HOSHI
-	 * @return
+	 * @return resultString
 	 */
 	public String getResultString() {
 		return resultString;
@@ -96,7 +96,7 @@ public class BooksSelectAction extends ActionSupport {
 	/**
 	 * エラーメッセージ設定メソッド
 	 * @author TATSUYA HOSHI
-	 * @param
+	 * @param resultString
 	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;

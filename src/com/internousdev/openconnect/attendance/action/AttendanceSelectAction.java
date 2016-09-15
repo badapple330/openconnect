@@ -64,7 +64,7 @@ public class AttendanceSelectAction extends ActionSupport{
 }
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 勤怠日付を取得
 	* @author MINORI SUNAGAWA
 	* @return attendanceDate
 	*/
@@ -73,7 +73,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 勤怠日付を設定
 	* @author MINORI SUNAGAWA
 	* @param attendanceDate
 	*/
@@ -82,7 +82,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講年を取得
 	* @author MINORI SUNAGAWA
 	* @return year
 	*/
@@ -91,7 +91,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講年を設定
 	* @author MINORI SUNAGAWA
 	* @param year
 	*/
@@ -100,7 +100,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 受講開始月を取得
 	* @author MINORI SUNAGAWA
 	* @return month
 	*/
@@ -109,7 +109,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 受講開始月を設定
 	* @author MINORI SUNAGAWA
 	* @param month
 	*/
@@ -118,7 +118,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 勤怠リストを取得
 	* @author MINORI SUNAGAWA
 	* @return attendanceList
 	*/
@@ -127,7 +127,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 勤怠リストを設定
 	* @author MINORI SUNAGAWA
 	* @param attendanceList
 	*/
@@ -136,7 +136,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド  シリアル番号を取得
 	* @author MINORI SUNAGAWA
 	* @return serialVersionUID
 	*/
@@ -145,7 +145,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 結果文字を取得
 	* @author MINORI SUNAGAWA
 	* @return resultString
 	*/
@@ -154,7 +154,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 結果文字を設定
 	* @author MINORI SUNAGAWA
 	* @param resultString
 	*/

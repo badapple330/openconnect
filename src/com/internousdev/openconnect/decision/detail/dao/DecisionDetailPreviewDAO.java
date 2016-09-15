@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,8 @@ public class DecisionDetailPreviewDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
 
+
+
 		try {
 			String sql = "select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id "
 					+ "inner join users on decision_detail.user_id = users.user_id where decision_detail_id =?";
@@ -37,6 +40,7 @@ public class DecisionDetailPreviewDAO {
 			ps.setInt(1, decisionDetailId);
 
 			ResultSet rs = ps.executeQuery();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
 			while (rs.next()) {
 				DecisionDetailDTO dto = new DecisionDetailDTO();
@@ -46,13 +50,13 @@ public class DecisionDetailPreviewDAO {
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus(rs.getString("decision_status"));
 				dto.setProjectId(rs.getInt("project_id"));
-				dto.setDay(rs.getString("day"));
+				try { dto.setDay(sdf.format(rs.getDate("day")).toString()); }catch(Exception e){}
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setItemName(rs.getString("item_name"));
 				dto.setSummary(rs.getString("summary"));
 				dto.setCause(rs.getString("cause"));
-				dto.setStartDay(rs.getString("start_day"));
-				dto.setEndDay(rs.getString("end_day"));
+				try { dto.setStartDay(sdf.format(rs.getDate("start_day")).toString()); }catch(Exception e){}
+				try { dto.setEndDay(sdf.format(rs.getDate("end_day")).toString()); }catch(Exception e){}
 				dto.setPlan(rs.getString("plan"));
 				dto.setPersons(rs.getInt("persons"));
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));

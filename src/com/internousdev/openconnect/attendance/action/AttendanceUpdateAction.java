@@ -67,7 +67,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 }
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 日付を取得
 	* @author MINORI SUNAGAWA
 	* @return date
 	*/
@@ -76,7 +76,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 日付を設定
 	* @author MINORI SUNAGAWA
 	* @param date
 	*/
@@ -85,7 +85,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド ユーザーIDを取得
 	* @author MINORI SUNAGAWA
 	* @return
 	*/
@@ -94,7 +94,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド ユーザーIDを設定
 	* @author MINORI SUNAGAWA
 	* @param
 	*/
@@ -103,7 +103,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 勤怠を取得
 	* @author MINORI SUNAGAWA
 	* @return attendance
 	*/
@@ -112,7 +112,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 勤怠を設定
 	* @author MINORI SUNAGAWA
 	* @param attendance
 	*/
@@ -121,7 +121,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド 面談を取得
 	* @author MINORI SUNAGAWA
 	* @return interview
 	*/
@@ -130,7 +130,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド  面談を設定
 	* @author MINORI SUNAGAWA
 	* @param interview
 	*/
@@ -139,7 +139,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド
+	* 取得メソッド シリアル番号を取得
 	* @author MINORI SUNAGAWA
 	* @return serialVersionUID
 	*/
@@ -147,22 +147,23 @@ public class AttendanceUpdateAction extends ActionSupport{
 		return serialVersionUID;
 	}
 
-	/**
-	* 取得メソッド
-	* @author KENICHI HORIGUCHI
-	* @return resultString
-	*/
-	public String getResultString() {
-		return resultString;
-	}
 
 	/**
-	* 設定メソッド
+	* 設定メソッド 結果文字を設定
 	* @author KENICHI HORIGUCHI
 	* @param resultString
 	*/
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド 結果文字を取得
+	* @author KENICHI HORIGUCHI
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
 	}
 
 }

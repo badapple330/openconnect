@@ -51,7 +51,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	/**
 	 * ブックID取得メソッド
 	 * @author TATSUYA HOSHI
-	 * @return
+	 * @return bookId
 	 */
 	public int getBookId() {
 		return bookId;
@@ -60,7 +60,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	/**
 	 * ブックID設定メソッド
 	 * @author TATSUYA HOSHI
-	 * @param
+	 * @param bookId
 	 */
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
@@ -69,7 +69,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	/**
 	 * 貸し出しID取得メソッド
 	 * @author TATSUYA HOSHI
-	 * @return
+	 * @return borrowId
 	 */
 	public int getBorrowId() {
 		return borrowId;
@@ -78,7 +78,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	/**
 	 * 貸し出しID設定メソッド
 	 * @author TATSUYA HOSHI
-	 * @param
+	 * @param borrowId
 	 */
 	public void setBorrowId(int borrowId) {
 		this.borrowId = borrowId;
@@ -87,7 +87,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	/**
 	* エラーメッセージ取得メソッド
 	* @author TATSUYA HOSHI
-	* @return
+	* @return errorMsg
 	*/
 	public String getErrorMsg() {
 		return errorMsg;
@@ -96,7 +96,7 @@ public class BooksBorrowUpdateAction extends ActionSupport{
 	/**
 	* エラーメッセージ設定メソッド
 	* @author TATSUYA HOSHI
-	* @param
+	* @param errorMsg
 	*/
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;

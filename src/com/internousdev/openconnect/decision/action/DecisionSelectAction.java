@@ -6,7 +6,7 @@ import com.internousdev.openconnect.decision.dao.DecisionSelectDAO;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * DBの情報を画面に表示する為のクラス
+ * 決裁状況一覧のDBの情報を検索するクラス
  * @author KENICHI HORIGUCHI,KOUHEI NITABARU
  * @since 2016/09/04
  * @version 1.0
@@ -17,14 +17,24 @@ public class DecisionSelectAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 6053714239083263231L;
 	/**
+	 *@author KENICHI HORIGUCHI
 	 *プロジェクトリスト
 	 */
 	private ArrayList <DecisionDTO> decisiontList = new ArrayList <DecisionDTO>();
-
+	/**
+	 *エラーメッセージ
+	 * @author KENICHI HORIGUCHI
+	 */
 	private String errorSelect;
-
+	/**
+	 * 検索文
+	 * @author KENICHI HORIGUCHI
+	 */
 	private String searchString = "";
-
+	/**
+	 * 検索の実行メソッド
+	 * @author KENICHI HORIGUCHI
+	 */
 	public String execute(){
 		System.out.println(searchString);
 		DecisionSelectDAO dao = new DecisionSelectDAO();
@@ -36,7 +46,7 @@ public class DecisionSelectAction extends ActionSupport{
 		return SUCCESS;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 決裁状況リスト
 	 * @author KENICHI HORIGUCHI
 	 * @return decisiontList
 	 */
@@ -56,7 +66,7 @@ public class DecisionSelectAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド エラーメッセージ
 	 * @author KENICHI HORIGUCHI
 	 * @return errorSelect
 	 */
@@ -76,7 +86,7 @@ public class DecisionSelectAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 検索文
 	 * @author KENICHI HORIGUCHI
 	 * @return searchString
 	 */
@@ -96,7 +106,7 @@ public class DecisionSelectAction extends ActionSupport{
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド シリアルID
 	 * @author KENICHI HORIGUCHI
 	 * @return serialVersionUID
 	 */

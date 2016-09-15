@@ -37,7 +37,7 @@ public class BooksAction extends ActionSupport{
 		return result;
 	}
 	/**
-	 * ブックリストの取得メソッド
+	 * 取得メソッド ブックリスト
 	 * @author TATSUYA HOSHI
 	 * @return bookList
 	 */
@@ -45,7 +45,7 @@ public class BooksAction extends ActionSupport{
 		return bookList;
 	}
 	/**
-	 * ブックリスト設定メソッド
+	 *設定メソッド ブックリスト
 	 * @author TATSUYA HOSHI
 	 * @param bookList
 	 */
@@ -53,7 +53,7 @@ public class BooksAction extends ActionSupport{
 		this.bookList = bookList;
 	}
 	/**
-	 * シリアルバージョンの取得メソッド
+	 * 取得メソッド シリアルバージョン
 	 * @author TATSUYA HOSHI
 	 * @return serialversionuid
 	 */

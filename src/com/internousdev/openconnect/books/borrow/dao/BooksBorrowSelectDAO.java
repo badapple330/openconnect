@@ -14,7 +14,7 @@ import com.internousdev.openconnect.books.borrow.dto.BooksBorrowDTO;
 import com.internousdev.util.DBConnector;
 
 /**
- * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
+ * ID、タイトルを、DBから取り出しDTOへ転送する為のクラス
  * @author TATSUYA HOSHI
  */
 

@@ -34,7 +34,7 @@ public class GoogleOAuth extends ActionSupport implements ServletResponseAware,S
 	public void RequestToken() throws IOException{
 
 
-        // TODO: Put your own API key, secret, and callback URL here.
+
         String apiKey = "537839423978-l0guqh38qvai0urkq4vuht0tofko25rk.apps.googleusercontent.com";
         String apiSecret = "M6hOWDPIN-E8GN_uU1O8hO90";
         String callbackUrl = "http://www.internousdev.com:8080/openconnect/GoogleOAuth2.action";
@@ -52,7 +52,7 @@ public class GoogleOAuth extends ActionSupport implements ServletResponseAware,S
 
 
 
-        // TODO: Put your own token information here, if you don't want to start over the whole process.
+
         Token accessToken = new Token("ACCESS_TOKEN", "REFRESH_TOKEN");
 
             // Obtain the Authorization URL

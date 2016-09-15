@@ -14,7 +14,7 @@ import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.internousdev.util.DBConnector;
 
 /**
- * キーワードをDBから検索する為のクラス
+ * 検索キーワードをDBから検索する為のクラス
  *
  * @author TATSUYA HOSHI
  */
