@@ -54,7 +54,7 @@
 				</s:iterator>
 			</table>
 			<td><s:if test="%{#session.userFlg == 3}">
-					<input type="submit" class="button" value="編集" />
+					<input type="submit" class="button" value="編集完了" />
 				</s:if></td>
 		</s:form>
 
