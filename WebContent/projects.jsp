@@ -34,8 +34,8 @@
 
 
 	<s:form action="ProjectsSelectAction">
-		<input type="text"  maxlength="100"
-			name="search" placeholder="プロジェクト名を記入">
+		<input type="text" maxlength="100" name="search"
+			placeholder="プロジェクト名を入力">
 		<input type="submit" value="検索する">
 	</s:form>
 	<br>
@@ -79,20 +79,22 @@
 							maxlength="1000" value="<s:property value="subManagerId"/>"
 							class="projectSubManagerIdlist"></td>
 
-						<td><input type="text" name="projectStartDateList" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+						<td><input type="text" name="projectStartDateList"
+							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="（yyyy/MM/dd）で入力して下さい"
 							maxlength="15" value="<s:property value="startDate"/>"
 							class="projectStartDatelist"></td>
 
-						<td><input type="text" name="projectEndDateList" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+						<td><input type="text" name="projectEndDateList"
+							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="（yyyy/MM/dd）で入力して下さい"
 							maxlength="15" value="<s:property value="endDate"/>"
 							class="projectEnddatelist"></td>
 
 						<td><input type="text" name="projectNoteList" maxlength="255"
 							value="<s:property value="note"/>" class="projectNotelist"></td>
 
-						<td><s:if test="%{#session.userFlg >= 2}"><input type="button" value="削除" class="modal-open">
-								</s:if>
-						</td>
+						<td><s:if test="%{#session.userFlg >= 2}">
+								<input type="button" value="削除" class="modal-open">
+							</s:if></td>
 
 					</tr>
 				</s:iterator>
@@ -118,14 +120,15 @@
 				<tr>
 
 					<td><input type="text" name="projectName"
-						placeholder="プロジェクト名を記入" maxlength=100 required></td>
-					<td><input type="text" pattern="[1-9][0-9]*" name="managerId"
+						placeholder="プロジェクト名を記入" maxlength=100 title="" required></td>
+
+					<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"  name="managerId"
 						placeholder="管理者ID(リーダー)を記入" maxlength="1000" required></td>
-					<td><input type="text" pattern="[1-9][0-9]*"
-						name="subManagerId" placeholder="管理者ID(サブ)を記入" maxlength="1000"
-						required></td>
-					<td><input type="text" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-						name="startDate" placeholder="開始日を記入" maxlength="15" required></td>
+
+					<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ" name="subManagerId"
+					 placeholder="管理者ID(サブ)を記入" maxlength="1000"required></td>
+					<td><input type="text"pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="（yyyy/MM/dd）で入力して下さい"name="startDate"
+					placeholder="開始日を記入" maxlength="15" required></td>
 				</tr>
 		</table>
 		</tbody>
