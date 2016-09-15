@@ -54,7 +54,7 @@ public class ProjectsSearchDTO {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド  プロジェクトＩＤを取得
 	 * @author YUICHI KIRIU
 	 * @return projectId
 	 */
@@ -62,7 +62,7 @@ public class ProjectsSearchDTO {
 		return projectId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクトＩＤを設定
 	 * @author YUICHI KIRIU
 	 * @param projectId
 	 */
@@ -70,7 +70,7 @@ public class ProjectsSearchDTO {
 		this.projectId = projectId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクト名を取得
 	 * @author YUICHI KIRIU
 	 * @return projectName
 	 */
@@ -78,7 +78,7 @@ public class ProjectsSearchDTO {
 		return projectName;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクト名を設定
 	 * @author YUICHI KIRIU
 	 * @param projectName
 	 */
@@ -86,7 +86,7 @@ public class ProjectsSearchDTO {
 		this.projectName = projectName;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 管理者ＩＤ（リーダー）を取得
 	 * @author YUICHI KIRIU
 	 * @return managerId
 	 */
@@ -94,7 +94,7 @@ public class ProjectsSearchDTO {
 		return managerId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 管理者ＩＤ（リーダー）を設定
 	 * @author YUICHI KIRIU
 	 * @param managerId
 	 */
@@ -102,7 +102,7 @@ public class ProjectsSearchDTO {
 		this.managerId = managerId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 管理者ＩＤ（サブ）を取得
 	 * @author YUICHI KIRIU
 	 * @return subManagerId
 	 */
@@ -110,7 +110,7 @@ public class ProjectsSearchDTO {
 		return subManagerId;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 管理者ＩＤ（サブ）を設定
 	 * @author YUICHI KIRIU
 	 * @param subManagerId
 	 */
@@ -118,7 +118,7 @@ public class ProjectsSearchDTO {
 		this.subManagerId = subManagerId;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 開始日を取得
 	 * @author YUICHI KIRIU
 	 * @return startDate
 	 */
@@ -126,7 +126,7 @@ public class ProjectsSearchDTO {
 		return startDate;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 開始日を設定
 	 * @author YUICHI KIRIU
 	 * @param startDate
 	 */
@@ -134,7 +134,7 @@ public class ProjectsSearchDTO {
 		this.startDate = startDate;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 終了日を取得
 	 * @author YUICHI KIRIU
 	 * @return endDate
 	 */
@@ -142,7 +142,7 @@ public class ProjectsSearchDTO {
 		return endDate;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 終了日を設定
 	 * @author YUICHI KIRIU
 	 * @param endDate
 	 */
@@ -150,7 +150,7 @@ public class ProjectsSearchDTO {
 		this.endDate = endDate;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド  備考を取得
 	 * @author YUICHI KIRIU
 	 * @return Note
 	 */
@@ -158,7 +158,7 @@ public class ProjectsSearchDTO {
 		return Note;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 備考を設定
 	 * @author YUICHI KIRIU
 	 * @param note
 	 */

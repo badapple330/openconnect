@@ -57,26 +57,26 @@ public class ProjectsDeleteAction extends ActionSupport {
 		this.projectId = projectId;
 	}
 	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
+	 * 取得メソッド 結果文字を取得
+	 * @author YUICHI KIRIU
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 	/**
-	* 設定メソッド
-	* @author
-	* @param
-	*/
+	 * 設定メソッド 結果文字を設定
+	 * @author  YUICHI KIRIU
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
 	/**
-	* 取得メソッド
-	* @author
-	* @return
-	*/
+	 * 取得メソッド シリアル番号を取得
+	 * @author  YUICHI KIRIU
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

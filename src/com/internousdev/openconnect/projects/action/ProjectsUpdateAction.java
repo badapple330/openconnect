@@ -60,6 +60,11 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	private List<String> projectNoteList = new ArrayList<String>();
 
 	/**
+	 * 結果文字
+	 */
+	private String resultString = "編集に失敗しました。";
+
+	/**
 	 * セッション
 	 */
 	public Map<String, Object> session;
@@ -91,13 +96,14 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 		}
 		if(count > 0){
 			result = SUCCESS;
+			 resultString = "";
 		}
 		return result;
 	}
 
 	/**
-	 * 取得メソッド
-	 * @author YUICHI KIRIU プロジェクトＩＤリスト
+	 * 取得メソッド プロジェクトリストを取得
+	 * @author YUICHI KIRIU
 	 * @return projectIdList
 	 */
 	public List<Integer> getProjectIdList() {
@@ -105,8 +111,8 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author YUICHI KIRIU プロジェクトＩＤリスト
+	 * 設定メソッド プロジェクトリストを設定
+	 * @author YUICHI KIRIU
 	 * @param projectIdList
 	 */
 	public void setProjectIdList(List<Integer> projectIdList) {
@@ -114,8 +120,8 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド
-	 * @author YUICHI KIRIU プロジェクト名リスト
+	 * 取得メソッド プロジェクト名リストを取得
+	 * @author YUICHI KIRIU
 	 * @return projectNameList
 	 */
 	public List<String> getProjectNameList() {
@@ -123,8 +129,8 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author YUICHI KIRIU プロジェクト名リスト
+	 * 設定メソッド プロジェクト名リストを設定
+	 * @author YUICHI KIRIU
 	 * @param projectNameList
 	 */
 	public void setProjectNameList(List<String> projectNameList) {
@@ -132,7 +138,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド 管理者ＩＤ（リーダー）リスト
+	 * 取得メソッド 管理者ＩＤ（リーダー）リストを取得
 	 * @author YUICHI KIRIU
 	 * @return projectManagerIdList
 	 */
@@ -141,7 +147,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド  管理者ＩＤ（リーダー）リスト
+	 * 設定メソッド  管理者ＩＤ（リーダー）リストを設定
 	 * @author YUICHI KIRIU
 	 * @param projectManagerIdList
 	 */
@@ -150,7 +156,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド 管理者（サブ）リスト
+	 * 取得メソッド 管理者（サブ）リストを取得
 	 * @author YUICHI KIRIU
 	 * @return projectSubManagerIdList
 	 */
@@ -159,7 +165,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド 管理者（サブ）リスト
+	 * 設定メソッド 管理者（サブ）リストを設定
 	 * @author YUICHI KIRIU
 	 * @param projectSubManagerIdList
 	 */
@@ -168,7 +174,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド 開始日リスト
+	 * 取得メソッド 開始日リストを取得
 	 * @author YUICHI KIRIU
 	 * @return projectStartDateList
 	 */
@@ -177,7 +183,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド 開始日リスト
+	 * 設定メソッド 開始日リストを設定
 	 * @author  YUICHI KIRIU
 	 * @param projectStartDateList
 	 */
@@ -186,7 +192,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド 終了日リスト
+	 * 取得メソッド 終了日リストを取得
 	 * @author  YUICHI KIRIU
 	 * @return projectEndDateList
 	 */
@@ -195,7 +201,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド 終了日リスト
+	 * 設定メソッド 終了日リストを設定
 	 * @author YUICHI KIRIU
 	 * @param projectEndDateList
 	 */
@@ -204,7 +210,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド備考リスト
+	 * 取得メソッド 備考リストを取得
 	 * @author  YUICHI KIRIU
 	 * @return projectNoteList
 	 */
@@ -213,7 +219,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド 備考リスト
+	 * 設定メソッド 備考リストを設定
 	 * @author YUICHI KIRIU
 	 * @param projectNoteList
 	 */
@@ -222,7 +228,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 設定メソッド セッション
+	 * 設定メソッド セッションを設定
 	 * @author YUICHI KIRIU
 	 * @param Session
 	 */
@@ -232,7 +238,25 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	* 取得メソッド セッション
+	* 取得メソッド 結果文字を取得
+	* @author YUICHI KIRIU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド 結果文字を設定
+	* @author YUICHI KIRIU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド セッションを取得
 	* @author YUICHI KIRIU
 	* @return session
 	*/

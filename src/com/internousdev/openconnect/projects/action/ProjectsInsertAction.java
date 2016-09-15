@@ -45,6 +45,11 @@ public class ProjectsInsertAction  extends ActionSupport  {
 	 */
 	private String startDate;
 
+	/**
+	 * 結果文字
+	 */
+	private String resultString = "";
+
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -60,6 +65,8 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 		if (count > 0) {
 			result = SUCCESS;
+
+			resultString = "追加に成功しました";
 
 			int maxId = 0;
 
@@ -82,7 +89,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクトＩＤを取得
 	 * @author YUICHI KIRIU
 	 * @return projectId
 	 */
@@ -93,7 +100,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクトＩＤを設定
 	 * @author YUICHI KIRIU
 	 * @param projectId
 	 */
@@ -104,7 +111,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクト名を取得
 	 * @author YUICHI KIRIU
 	 * @return projectName
 	 */
@@ -115,7 +122,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクト名を設定
 	 * @author YUICHI KIRIU
 	 * @param projectName
 	 */
@@ -126,7 +133,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 管理者ＩＤ（リーダー）を取得
 	 * @author YUICHI KIRIU
 	 * @return managerId
 	 */
@@ -137,7 +144,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 管理者ＩＤ（リーダー）を設定
 	 * @author YUICHI KIRIU
 	 * @param managerId
 	 */
@@ -148,7 +155,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド　管理者ＩＤ（サブ）を取得
 	 * @author YUICHI KIRIU
 	 * @return subManagerId
 	 */
@@ -159,7 +166,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド管理者ＩＤ（サブ）を設定
 	 * @author YUICHI KIRIU
 	 * @param subManagerId
 	 */
@@ -170,7 +177,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 開始日を取得
 	 * @author YUICHI KIRIU
 	 * @return startDate
 	 */
@@ -181,7 +188,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 開始日を設定
 	 * @author YUICHI KIRIU
 	 * @param startDate
 	 */
@@ -190,6 +197,26 @@ public class ProjectsInsertAction  extends ActionSupport  {
 	}
 
 
+
+	/**
+	* 取得メソッド 終了日を取得
+	* @author YUICHI KIRIU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+
+
+	/**
+	* 設定メソッド 終了日を設定
+	* @author YUICHI KIRIU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
 
 
 

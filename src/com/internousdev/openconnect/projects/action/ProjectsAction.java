@@ -42,7 +42,7 @@ public class ProjectsAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド プロジェクトリスト
+	 * 取得メソッド プロジェクトリストを取得
 	 * @author  YUICHI KIRIU
 	 * @return projectList
 	 */
@@ -50,7 +50,7 @@ public class ProjectsAction extends ActionSupport{
 		return projectList;
 	}
 	/**
-	 * 設定メソッド プロジェクトリスト
+	 * 設定メソッド プロジェクトリストを設定
 	 * @author  YUICHI KIRIU
 	 * @param projectList
 	 */

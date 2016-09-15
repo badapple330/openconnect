@@ -25,8 +25,13 @@ public class ProjectsSelectAction extends ActionSupport{
 	 */
 	private String search = "";
 
+	/**
+	 * 検索結果文字
+	 */
+	private String resultString = "該当する情報は存在しません";
+
 	private List<ProjectsSearchDTO > projectList = new ArrayList<ProjectsSearchDTO>();
-	private String errorMsg;
+
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 *
@@ -39,13 +44,13 @@ public class ProjectsSelectAction extends ActionSupport{
 		projectList = dao.select(search);
 		if (projectList.size() != 0) {
 			result = SUCCESS;
-		} else {
-			errorMsg = "該当する情報は存在しません";
+			resultString = "";
+
 		}
 		return result;
 	}
 	/**
-	 * 取得メソッド
+	 * 取得メソッド 検索ワードを取得
 	 * @author YUICHI KIRIU
 	 * @return search
 	 */
@@ -53,7 +58,7 @@ public class ProjectsSelectAction extends ActionSupport{
 		return search;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド 検索ワードを設定
 	 * @author YUICHI KIRIU
 	 * @param search
 	 */
@@ -62,36 +67,38 @@ public class ProjectsSelectAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクトリストを取得
 	 * @author YUICHI KIRIU
 	 * @return projectList
 	 */
 	public List<ProjectsSearchDTO> getProjectList() {
 		return projectList;
 	}
+
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクトリストを設定
 	 * @author YUICHI KIRIU
 	 * @param projectList
 	 */
 	public void setProjectList(List<ProjectsSearchDTO> projectList) {
 		this.projectList = projectList;
 	}
+
 	/**
-	 * 取得メソッド
+	 * 取得メソッド エラーメッセージを取得
 	 * @author YUICHI KIRIU
-	 * @return errorMsg
+	 * @return resultString
 	 */
 	public String getErrorMsg() {
-		return errorMsg;
+		return resultString;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド エラーメッセージを設定
 	 * @author YUICHI KIRIU
-	 * @param errorMsg
+	 * @param resultString
 	 */
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
+	public void setErrorMsg(String resultString) {
+		this.resultString = resultString;
 	}
 
 
