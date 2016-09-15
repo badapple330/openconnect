@@ -22,7 +22,7 @@
 		<p>
 		<p>
 			<s:form action="DecisionSelectAction">
-				<input type="text" name="searchString" id="searchText" placeholder="案件名を入力" />
+				<input type="text" name="searchString" id="searchText" placeholder="案件名を入力" maxlength="100"/>
 				<input type="submit" value="検索" class="button" >
 			</s:form>
 		</p>
@@ -109,15 +109,15 @@
 								value=<s:property value="decisionId" /> name="decisionId"></td>
 							<td><input type="text"
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" placeholder="登録日を入力" required
-								name="registration" value="<s:property value="registration" />"
+								name="registration" maxlength="10" value="<s:property value="registration" />"
 								id="registration" /></td>
-							<td><input type="text" pattern="[1-9][0-9]*" maxlength="11"
+							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
 								required name="userId" value="<s:property value="userId" />"
 								id="registration" placeholder="姓を入力" /></td>
-							<td><input type="text" pattern="[1-9][0-9]*" maxlength="11"
+							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
 								required name="userId" value="<s:property value="userId" />"
 								id="registration" placeholder="名を入力" /></td>
-							<td><input type="text" pattern="[1-9][0-9]*" maxlength="11"
+							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
 								required name="projectId"
 								value="<s:property value="projectId" />" id="registration" placeholder="プロジェクトIDを入力"/></td>
 
