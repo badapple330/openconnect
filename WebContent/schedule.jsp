@@ -13,17 +13,6 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <!-- js読み込み -->
 <script src="js/bootstrap.js"></script>
-<script type="text/javascript">
-<!--
-	function keydown() {
-		if (event.keyCode == 116) {
-			event.keyCode = 0;
-			return false;
-		}
-	}
-	document.onkeydown = keydown;
-//-->
-</script>
 <title>スケジュール一覧</title>
 </head>
 <body>
@@ -72,10 +61,10 @@
 								value="<s:property value="startDay" />"
 								class="scheduleStartdayList" type="date"
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-								placeholder="開始日を入力" required></td>
+								placeholder="開始日を入力" title="yyyy/MM/ddで入力してください。" required></td>
 							<td><input type="text" name="scheduleEnddayList"
 								value="<s:property value="endDay" />" class="scheduleEnddayList"
-								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="yyyy/MM/ddで入力してください。"
 								placeholder="終了日を入力"></td>
 							<td><input type="text" name="scheduleTitleList"
 								value="<s:property value="title" />" class="scheduleTitleList"
