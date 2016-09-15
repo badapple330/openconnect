@@ -57,7 +57,7 @@ $(function(){
 	            //取得した値をcssに追加する
 	                $("#modal-main").css({
 	                    "left": ((w - cw)/2) + "px",
-	                    "top": ((h - ch)/2) + "px"
+	                    "top": "100px"
 	            });
 	        }
 	    });

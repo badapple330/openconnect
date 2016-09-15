@@ -35,9 +35,6 @@
 	<br>
 	<s:property value="%{resultString}" />
 	<br>
-	<br>
-	↓勤怠未入力(0が入っている)人には、あらかじめ1(出席)が入力されており<br>
-	このまま更新を押すと表示されている全ての人に1(出席)が保存されます。<br>
 	<table border="1">
 		<tr>
 			<td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>　</td><td>1</td><td>2</td>
@@ -46,6 +43,9 @@
 			<td>未入力</td><td>出席</td><td>遅刻(連絡有)</td><td>遅刻(連絡無)</td><td>欠席(連絡有)</td><td>欠席(連絡無)</td><td>連絡無し</td><td>　</td><td>面談有</td><td>面談無</td>
 		</tr>
 	</table>
+	<br>
+	↓勤怠未入力(0が入っている)人には、あらかじめ1(出席)が入力されており<br>
+	このまま更新を押すと表示されている全ての人に1(出席)が保存されます。<br>
 	<br>
 	<s:form action="AttendanceUpdateAction">
 		<table class="list" border="1">
@@ -75,9 +75,9 @@
 					<td><s:property value="familyNameKanji" /></td>
 					<td><s:property value="givenNameKanji" /></td>
 					<td><s:property value="attendanceString" /></td>
-					<td><input type="text" name="attendance" value="<s:property value="attendance"/>" class="textInt" required></td>
+					<td><input type="text" name="attendance" value="<s:property value="attendance"/>" class="textInt" pattern="[0-9]" title="半角数字1文字" required></td>
 					<td><s:property value="interviewString" /></td>
-					<td><input type="text" name="interview" value="<s:property value="interview"/>" class="textInt" required></td>
+					<td><input type="text" name="interview" value="<s:property value="interview"/>" class="textInt" pattern="[0-9]" title="半角数字1文字" required></td>
 				</tr>
 			</s:iterator>
 		</table>
