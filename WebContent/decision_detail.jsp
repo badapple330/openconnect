@@ -100,7 +100,7 @@
 		以下の内容を編集しますか？
 		<table border="1">
 			<tr>
-				<td>案件ID</td>
+				<td>案件番号</td>
 				<td><span id="edit-projectid"></span></td>
 			</tr>
 			<tr>
@@ -136,7 +136,7 @@
 		以下の内容を削除しますか？
 		<table border="1">
 			<tr>
-				<td>案件ID</td>
+				<td>案件番号</td>
 				<td><span id="delete-projectid"></span></td>
 			</tr>
 			<tr>
