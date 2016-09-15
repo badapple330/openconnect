@@ -107,7 +107,7 @@
 	<br>
 	<s:form action="ProjectsInsertAction">
 		<table border="1">
-			<tbody id="list_body">
+
 				<tr>
 
 					<td>プロジェクト名</td>
@@ -131,7 +131,7 @@
 					placeholder="開始日を記入" maxlength="15" required></td>
 				</tr>
 		</table>
-		</tbody>
+
 		<s:if test="%{#session.userFlg >= 2}">
 			<input class="button" type="submit" value="追加">
 		</s:if>
@@ -197,6 +197,7 @@
 	<br>
 	<br>
 	<br>
+	<!-- ページ表示 -->
 	<div id="pager">
 		<div id="page_ctrl">
 			<ul id="page_before">
