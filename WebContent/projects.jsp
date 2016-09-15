@@ -89,7 +89,9 @@
 
 						<td><input type="text" name="projectNoteList" maxlength="255"
 							value="<s:property value="note"/>" class="projectNotelist"></td>
-						<td><input type="button" value="削除" class="modal-open">
+
+						<td><s:if test="%{#session.userFlg >= 2}"><input type="button" value="削除" class="modal-open">
+								</s:if>
 						</td>
 
 					</tr>
