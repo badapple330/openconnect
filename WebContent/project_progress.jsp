@@ -173,9 +173,9 @@
 	<br>
 	<br>
 	<br>
-	<s:form action="BackGoAction">
-		<input type="submit" class="button" value="戻る">
-	</s:form>
+		<s:form action="GetAddressAction">
+			<button type="submit" class="button">戻る</button>
+		</s:form>
 
 </body>
 </html>

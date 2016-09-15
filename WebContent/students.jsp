@@ -51,7 +51,9 @@
       <th>ログインフラグ</th>
       <th>ユーザーフラグ</th>
        <th>パスワード</th>
+       <s:if test="%{#session.userFlg == 3}">
       <th>削除</th>
+      </s:if>
      </tr>
 
 <s:iterator value="studentsList">
@@ -76,16 +78,20 @@
       <td><input type="text" name="birthdayList" value="<s:property value="birthday" />" class="birthday bigText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="yyyy/MM/dd" maxlength="10"></td>
       <td><input type="text" name="registerDayList" value="<s:property value="registerDay" />" class="registerDay bigText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])\ ([0-9]{2})\:([0-9]{2})\:([0-9]{2})" title="yyyy/MM/dd hh:mm:ss" maxlength="10"></td>
       <td><input type="text" name="updateDayList" value="<s:property value="updateDay" />" class="updateDay bigText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])\ ([0-9]{2})\:([0-9]{2})\:([0-9]{2})" title="yyyy/MM/dd hh:mm:ss"  maxlength="10"></td>
-      <td><input type="text" name="userdelFlgList" value="<s:property value="userdelFlg" />" class="userdelFlg smallText" pattern="^([A-Za-z]{5})" title="trueかfalse"  maxlength="5"></td>
-      <td><input type="text" name="loginFlgList" value="<s:property value="loginFlg" />" class="loginFlg smallText" pattern="^([A-Za-z]{5})" title="trueかfalse" maxlength="5"></td>
+      <td><input type="text" name="userdelFlgList" value="<s:property value="userdelFlg" />" class="userdelFlg smallText" pattern="^([A-Za-z]*)" title="trueかfalse"  maxlength="5"></td>
+      <td><input type="text" name="loginFlgList" value="<s:property value="loginFlg" />" class="loginFlg smallText" pattern="^([A-Za-z]*)" title="trueかfalse" maxlength="5"></td>
       <td><input type="text" name="userFlgList" value="<s:property value="userFlg" />" class="userFlg smallText" pattern="[1-3]" title="1～3" maxlength="1" required></td>
       <td><input type="text" name="passwordList" value="<s:property value="password" />"class="password smallText" pattern="^([0-9A-Za-z]{8,})" title="半角英数字8文字以上20文字以内" maxlength="20" required></td>
+      <s:if test="%{#session.userFlg == 3}">
       <td><input type="button" class="button modal-open" value="削除" class="modal-open"></td>
+      </s:if>
 		</tr>
 		<input type="hidden" name="userIdList" value="<s:property value="userId" />" class="userId" >
 </s:iterator>
 </table>
+<s:if test="%{#session.userFlg == 3}">
 <input type="submit" class="button" value="編集" />
+</s:if>
 </s:form>
 
 <div id="modal-main">
@@ -106,7 +112,7 @@
 			</s:form>
 		</div>
 	</div>
-
+<s:if test="%{#session.userFlg == 3}">
 <h2>新規受講生追加</h2>
  <s:form action="StudentsInsertAction" >
  	<table border=1>
@@ -137,12 +143,13 @@
       </table>
       <input class="button" type="submit" value="追加">
 </s:form>
+</s:if>
 <br>
 <br>
 
-<s:form action="BackGoAction">
-	<input type="submit" class="button" value="戻る">
-</s:form>
+		<s:form action="GetAddressAction">
+			<button type="submit" class="button">戻る</button>
+		</s:form>
 </div>
 <br>
 </body>

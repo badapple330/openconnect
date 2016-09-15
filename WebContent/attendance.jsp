@@ -34,6 +34,7 @@
 	</s:form>
 	<br>
 	<s:property value="%{resultString}" />
+	<s:if test="%{#session.userFlg == 3}">
 	<br>
 	<table border="1">
 		<tr>
@@ -44,8 +45,10 @@
 		</tr>
 	</table>
 	<br>
+
 	↓勤怠未入力(0が入っている)人には、あらかじめ1(出席)が入力されており<br>
 	このまま更新を押すと表示されている全ての人に1(出席)が保存されます。<br>
+	</s:if>
 	<br>
 	<s:form action="AttendanceUpdateAction">
 		<table class="list" border="1">
@@ -82,15 +85,21 @@
 			</s:iterator>
 		</table>
 		<br>
-		<br>
+		<s:if test="%{#session.userFlg == 3}">
 		<s:submit value="更新" class="button" align="left"/>
+		</s:if>
 	</s:form>
 	<br>
+	<s:if test="%{#session.userFlg == 3}">
+	<h1>受講生の勤怠データ追加</h1>
+			例：2016　09　と入力した場合、9/1～9/30の、7月生～9月生全員のデータが追加されます。<br>
+			<br>
 			追加する年月を入力<br>
 			※正しく入力しないと「追加」ボタンを押せません。<br>
 			年<input type="text" class="inputYear" placeholder="例：2016" maxlength="4" required><br>
 			月<input type="text" class="inputMonth" placeholder="例：08" maxlength="2" required>
 			<input type="button" value="追加" class="modal-open"/>
+	</s:if>
 	<br>
 	<br>
 	<s:form action="GetAddressAction">

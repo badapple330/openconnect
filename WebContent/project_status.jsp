@@ -57,13 +57,15 @@
 
 		</table>
 		<br>
+		<s:if test="%{#session.userFlg == 3}">
 		<input type="submit" class="button" value="編集" />
+		</s:if>
 	</s:form>
 	<br>
 	<br>
-	<s:form action="BackGoAction">
-		<input type="submit" class="button" value="戻る">
-	</s:form>
+		<s:form action="GetAddressAction">
+			<button type="submit" class="button">戻る</button>
+		</s:form>
 	<br>
 </div>
 </body>
