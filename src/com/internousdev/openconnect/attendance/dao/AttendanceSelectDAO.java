@@ -48,7 +48,6 @@ public class AttendanceSelectDAO {
 					"%' and users.month like '%" + month +
 					"%' and users.family_name_kana like '%" + familyName +
 					"%' and users.given_name_kana like '%" + givenName + "%'";
-			System.out.println(familyName + " " + givenName);
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
