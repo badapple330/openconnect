@@ -125,12 +125,7 @@ input {
 	z-index: 1;
 }
 
-#acMenu dt{
-    display:block;
-}
-#acMenu dd{
-	display:none;
-}
+
 #btna{
     margin:20px 10px 0;
     padding:10px;

@@ -1,9 +1,14 @@
 package com.internousdev.openconnect.decision.action;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.internousdev.openconnect.decision.dao.DecisionSelectDAO;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
+import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
+import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
+import com.internousdev.openconnect.students.dao.StudentsSelectDAO;
+import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 決裁状況一覧のDBの情報を検索するクラス
@@ -22,6 +27,14 @@ public class DecisionSelectAction extends ActionSupport{
 	 */
 	private ArrayList <DecisionDTO> decisiontList = new ArrayList <DecisionDTO>();
 	/**
+	 * プロジェクトリスト
+	 */
+	private List<ProjectsSelectDTO> projectsList = new ArrayList<ProjectsSelectDTO>();
+	/**
+	 * プロジェクトリスト
+	 */
+	private List<StudentsDTO> studentsList = new ArrayList<StudentsDTO>();
+	/**
 	 *エラーメッセージ
 	 * @author KENICHI HORIGUCHI
 	 */
@@ -38,8 +51,14 @@ public class DecisionSelectAction extends ActionSupport{
 	public String execute(){
 		System.out.println(searchString);
 		DecisionSelectDAO dao = new DecisionSelectDAO();
+		ProjectsSelectDAO projectsDao = new ProjectsSelectDAO();
+		StudentsSelectDAO studentsDao = new StudentsSelectDAO();
+
 		if (dao.select(searchString)) {
 			decisiontList = dao.getList();
+			projectsList = projectsDao.select("");
+			studentsList = studentsDao.select("");
+
 		} else {
 			errorSelect = (getText("データがありません"));
 		}
@@ -113,5 +132,39 @@ public class DecisionSelectAction extends ActionSupport{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	/**
+	 *   取得メソッド プロジェクトリストを取得する
+	 * @author MASAHIRO KEDSUKA
+	 * @param projectsList セットする projectsList
+	 */
+	public List<ProjectsSelectDTO> getProjectsList() {
+		return projectsList;
+	}
+	/**
+	 *   格納メソッド プロジェクトリストを格納する
+	 * @author MASAHIRO KEDSUKA
+	 * @param projectsList セットする projectsList
+	 */
+	public void setProjectsList(List<ProjectsSelectDTO> projectsList) {
+		this.projectsList = projectsList;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public List<StudentsDTO> getStudentsList() {
+		return studentsList;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setStudentsList(List<StudentsDTO> studentsList) {
+		this.studentsList = studentsList;
+	}
+
+
 
 }

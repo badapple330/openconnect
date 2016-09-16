@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>決済状況一覧</title>
 <link rel="stylesheet" href="css/decision.css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -165,6 +166,83 @@
 			</center>
 		</s:form>
 		<br>
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("#menua").hide();
+
+			var flg = "close";
+
+			$("#btna").click(function() {
+
+				$("#menua").slideToggle();
+
+				if (flg == "close") {
+					$(this).text("－ ユーザー一覧を閉じる");
+					flg = "open";
+				} else {
+					$(this).text("＋ ユーザー一覧を表示");
+					flg = "close";
+				}
+			});
+		});
+	</script>
+
+	<div id="btna">＋ ユーザー一覧を表示</div>
+
+	<div id="menua">
+		<table border="1">
+			<tr>
+				<th>ユーザーID</th>
+				<th>ユーザー名</th>
+			</tr>
+			<s:iterator value="studentsList">
+				<tr>
+					<td><s:property value="userId" /></td>
+					<td><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></td>
+				</tr>
+			</s:iterator>
+		</table>
+	</div>
+
+			<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("#menub").hide();
+
+			var flg = "close";
+
+			$("#btnb").click(function() {
+
+				$("#menub").slideToggle();
+
+				if (flg == "close") {
+					$(this).text("－ プロジェクト一覧を閉じる");
+					flg = "open";
+				} else {
+					$(this).text("＋ プロジェクト一覧を表示");
+					flg = "close";
+				}
+			});
+		});
+	</script>
+
+	<div id="btnb">＋ プロジェクト一覧を表示</div>
+
+	<div id="menub">
+		<table border="1">
+			<tr>
+				<th>プロジェクトID</th>
+				<th>プロジェクト名</th>
+			</tr>
+			<s:iterator value="projectsList">
+				<tr>
+					<td><s:property value="projectId" /></td>
+					<td><s:property value="projectName" /></td>
+				</tr>
+			</s:iterator>
+		</table>
+	</div>
 		<s:form action="GetAddressAction">
 			<center>
 				<input type=submit value="戻る" class="button">
