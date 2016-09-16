@@ -61,8 +61,6 @@ public class AttendanceSelectAction extends ActionSupport{
 
 		attendanceDate = attendanceDate.replaceAll("/", "-");
 
-		System.out.println( familyName + " " + givenName );
-
 		attendanceList = dao.select(year, month, attendanceDate, familyName, givenName);
 
 		if( attendanceList.size() != 0 ){
@@ -87,7 +85,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	* @author MINORI SUNAGAWA
 	* @param lastName
 	*/
-	public void setLastName(String familyName) {
+	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
 
@@ -105,7 +103,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	* @author MINORI SUNAGAWA
 	* @param givenName
 	*/
-	public void setFirstName(String givenName) {
+	public void setGivenName(String givenName) {
 		this.givenName = givenName;
 	}
 
