@@ -51,8 +51,81 @@ public class ProjectsSearchDTO {
 	private String Note;
 
 
+	private String managerFamilyNameKanji;
+
+	private String managerGivenNameKanji;
+
+	private String subManagerFamilyNameKanji;
+
+	private String subManagerGivenNameKanji;
 
 
+
+
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getManagerFamilyNameKanji() {
+		return managerFamilyNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setManagerFamilyNameKanji(String managerFamilyNameKanji) {
+		this.managerFamilyNameKanji = managerFamilyNameKanji;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getManagerGivenNameKanji() {
+		return managerGivenNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setManagerGivenNameKanji(String managerGivenNameKanji) {
+		this.managerGivenNameKanji = managerGivenNameKanji;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getSubManagerFamilyNameKanji() {
+		return subManagerFamilyNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setSubManagerFamilyNameKanji(String subManagerFamilyNameKanji) {
+		this.subManagerFamilyNameKanji = subManagerFamilyNameKanji;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getSubManagerGivenNameKanji() {
+		return subManagerGivenNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setSubManagerGivenNameKanji(String subManagerGivenNameKanji) {
+		this.subManagerGivenNameKanji = subManagerGivenNameKanji;
+	}
 	/**
 	 * 取得メソッド  プロジェクトＩＤを取得
 	 * @author YUICHI KIRIU

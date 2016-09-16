@@ -24,13 +24,12 @@ public class ProjectsSelectAction extends ActionSupport{
 	 * 検索ワード
 	 */
 	private String search = "";
-
 	/**
 	 * 検索結果文字
 	 */
 	private String resultString = "該当する情報は存在しません";
 
-	private List<ProjectsSearchDTO > projectList = new ArrayList<ProjectsSearchDTO>();
+	private List<ProjectsSearchDTO > searchList = new ArrayList<ProjectsSearchDTO>();
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -41,8 +40,19 @@ public class ProjectsSelectAction extends ActionSupport{
 	public String execute() {
 		String result = ERROR;
 		ProjectsSerachDAO dao = new ProjectsSerachDAO();
-		projectList = dao.select(search);
-		if (projectList.size() != 0) {
+		searchList = dao.select(search);
+
+		for(int i=0;i<searchList.size();i++){
+
+			ProjectsSearchDTO dto = new ProjectsSearchDTO();
+
+			dto = dao.selectId(searchList.get(i).getSubManagerId());
+			searchList.get(i).setSubManagerGivenNameKanji( dto.getSubManagerGivenNameKanji() );
+			searchList.get(i).setSubManagerFamilyNameKanji( dto.getSubManagerFamilyNameKanji() );
+	}
+
+System.out.println(4);
+		if (searchList.size() != 0) {
 			result = SUCCESS;
 			resultString = "";
 
@@ -72,7 +82,7 @@ public class ProjectsSelectAction extends ActionSupport{
 	 * @return projectList
 	 */
 	public List<ProjectsSearchDTO> getProjectList() {
-		return projectList;
+		return searchList;
 	}
 
 	/**
@@ -81,7 +91,7 @@ public class ProjectsSelectAction extends ActionSupport{
 	 * @param projectList
 	 */
 	public void setProjectList(List<ProjectsSearchDTO> projectList) {
-		this.projectList = projectList;
+		this.searchList = projectList;
 	}
 
 	/**
@@ -99,6 +109,44 @@ public class ProjectsSelectAction extends ActionSupport{
 	 */
 	public void setErrorMsg(String resultString) {
 		this.resultString = resultString;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public List<ProjectsSearchDTO> getSearchList() {
+		return searchList;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setSearchList(List<ProjectsSearchDTO> searchList) {
+		this.searchList = searchList;
 	}
 
 

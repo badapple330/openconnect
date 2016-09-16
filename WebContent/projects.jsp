@@ -18,6 +18,11 @@
 	<!-- ヘッダー -->
 	<header><jsp:include page="header.jsp" /></header>
 
+
+
+
+
+
 	<!-- 一覧表示 -->
 	<div class="container">
 		<h1 class="page-header">プロジェクト一覧</h1>
@@ -50,14 +55,16 @@
 					<td></td>
 					<td>ID</td>
 					<td>プロジェクト名</td>
+					<td>管理者ID（リーダー）</td>
 					<td>管理者（リーダー）</td>
+					<td>管理者ID（サブ）</td>
 					<td>管理者（サブ）</td>
 					<td>開始日（yyyy/MM/dd）</td>
 					<td>終了日（yyyy/MM/dd）</td>
 					<td>備考</td>
 
 				</tr>
-				<s:iterator value="projectList">
+				<s:iterator value="searchList">
 					<!-- 繰り返し -->
 					<!-- 表示 -->
 
@@ -78,9 +85,16 @@
 							maxlength="1000" value="<s:property value="managerId"/>"
 							class="projectManagerIdlist"></td>
 
+							<td><s:property value="managerFamilyNameKanji"/>
+						<s:property value="managerGivenNameKanji"/></td>
+
 						<td><input type="text" name="projectSubManagerIdList"
 							maxlength="1000" value="<s:property value="subManagerId"/>"
 							class="projectSubManagerIdlist"></td>
+
+							<td><s:property value="subManagerFamilyNameKanji"/>
+						<s:property value="subManagerGivenNameKanji"/></td>
+
 
 						<td><input type="text" name="projectStartDateList"
 							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="（yyyy/MM/dd）で入力して下さい"
@@ -100,8 +114,7 @@
 							</s:if></td>
 
 					</tr>
-					<s:property value="familyNameKanji"/>
-						<s:property value="givenNameKanji"/>
+
 				</s:iterator>
 			</tbody>
 		</table>

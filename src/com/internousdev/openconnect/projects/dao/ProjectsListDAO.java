@@ -45,8 +45,7 @@ public class ProjectsListDAO {
             	dto.setNote(rs.getString("note"));
             	dto.setManagerId(rs.getInt("manager_id"));
             	dto.setSubManagerId(rs.getInt("sub_manager_id"));
-//            	dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
-//            	dto.setGivenNameKanji(rs.getString("given_name_kanji"));
+
 
 				projectList.add(dto);
 			}
@@ -61,42 +60,6 @@ public class ProjectsListDAO {
 		}
 		return projectList;
 	}
-
-
-	public List<ProjectsListDTO> selectId(int userId) {
-
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
-				"mysql");
-		Connection con = db.getConnection();
-
-		try {
-			String sql = "SELECT * FROM users  where user_id=?";
-			PreparedStatement ps = con.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-            	ProjectsListDTO dto = new ProjectsListDTO();
-
-            	dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
-            	dto.setGivenNameKanji(rs.getString("given_name_kanji"));
-
-				projectList.add(dto);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return projectList;
-	}
-	//ユーザーデーブルからＩＤを元にユーザ－の名前を引っ張りたいそのためにメソッドを作る
-
-
-
 
 	/**
 	 * 取得メソッド プロジェクト名リスト

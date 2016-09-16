@@ -40,13 +40,6 @@ public class ProjectsAction extends ActionSupport{
 		ProjectsListDAO dao = new ProjectsListDAO();
 		projectList = dao.select();
 
-System.out.println(1);
-		for(int i=0;i<projectList.size();i++){
-			dao.selectId(projectList.get(i).getManagerId());
-		}
-		System.out.println(2);
-
-
 		if (!(projectList == null)) {
 			result = SUCCESS;
 		}
