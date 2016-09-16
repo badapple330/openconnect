@@ -25,7 +25,7 @@
 	</s:form>
 	<br>
 	<br>
-	<s:property value="%{resultString}"/>
+	<s:property value="%{resultString}" />
 	<!-- 	リスト表示 -->
 	<table border="1">
 		<tr>
@@ -48,7 +48,8 @@
 				<td class="decision_detail_id"><s:property
 						value="decisionDetailId" /></td>
 				<td><s:property value="projectId" /></td>
-				<td><input type="hidden" value="<s:property value="decisionId" />"  class="decision_id"/></td>
+				<td><input type="hidden"
+					value="<s:property value="decisionId" />" class="decision_id" /></td>
 				<td><s:property value="decisionIdNumber" /></td>
 				<td class="decision_name"><s:property value="projectName" /></td>
 				<td class="decision_type"><s:property value="decisionType" /></td>
@@ -56,17 +57,20 @@
 				<td><s:if test="%{#session.userFlg  >= 2}">
 						<input type="button" value="編集" class="modal-edit-open">
 					</s:if></td>
-				<td>	<s:if test="%{#session.userFlg  >= 2}"><s:if test="%{decisionStatus=='承認'}">
-						<input type="button" value="申請" />
-					</s:if> <s:else>
-						<s:form action="DecisionDetailApplicationAction">
-							<input type="hidden" name="decisionDetailId"
-								value="<s:property value="decisionDetailId" />">
-							<input type="hidden" name="decisionStatus" value="承認待">
+				<td><s:if test="%{#session.userFlg  >= 2}">
+						<s:if test="%{decisionStatus=='承認'}">
+							<input type="button" value="申請" />
+						</s:if>
+						<s:else>
+							<s:form action="DecisionDetailApplicationAction">
+								<input type="hidden" name="decisionDetailId"
+									value="<s:property value="decisionDetailId" />">
+								<input type="hidden" name="decisionStatus" value="承認待">
 
-							<s:submit value="申請" />
-						</s:form>
-					</s:else></s:if></td>
+								<s:submit value="申請" />
+							</s:form>
+						</s:else>
+					</s:if></td>
 				<td><s:if test="%{#session.userFlg  >= 2}">
 						<input type="button" value="削除" class="modal-open">
 					</s:if></td>
@@ -169,6 +173,24 @@
 			<input type="button" class="modal-close button" value="閉じる">
 		</div>
 	</div>
+
+
+	<br>
+	<input type = "button" value = "＋">プロジェクト一覧を開く
+	<table border="1">
+		<tr>
+			<th>プロジェクトID</th>
+			<th>プロジェクト名</th>
+		</tr>
+		<s:iterator value="decisionDetailList">
+			<tr>
+				<td><s:property value="projectId" /></td>
+				<td><s:property value="projectName" /></td>
+			</tr>
+		</s:iterator>
+	</table>
+	<br>
+	<br>
 
 	<!-- 	戻る -->
 
