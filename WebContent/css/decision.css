@@ -1,5 +1,10 @@
 @CHARSET "UTF-8";
 
+table, td, th{
+	height: 20px;
+	table-layout: fixed;
+}
+
 td{
 	text-align:center;
 }
@@ -7,6 +12,7 @@ td{
 input[type="text"] {
 /* 	text-align: center; */
 	width:100%;
+	text-align:center;
 }
 
 #searchText{
@@ -14,6 +20,9 @@ input[type="text"] {
 }
 
 #registration{
+	width:170px;
+}
+#name{
 	width:170px;
 }
 
@@ -28,3 +37,12 @@ input[type="text"] {
 .decisionid{
 	width:75px;
 }
+
+.smallText{
+	width:50px;
+}
+
+.bigText{
+	width:100px;
+}
+

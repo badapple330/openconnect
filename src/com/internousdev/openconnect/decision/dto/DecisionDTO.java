@@ -1,7 +1,7 @@
 package com.internousdev.openconnect.decision.dto;
 /**
  * 決裁状況一覧から検索したデータを溜め込むクラス。
- * @author KENICHI HORIGUCHI
+ * @author KENICHI HORIGUCHI,KOUMEI IWAMOTO
  * @since 2016/09/14
  */
 public class DecisionDTO {
@@ -169,17 +169,6 @@ public class DecisionDTO {
 	public void setiAId(String iAId) {
 		this.iAId = iAId;
 	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
 
 	/**
 	 * 取得メソッド 登録日
@@ -191,7 +180,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOUMEI IWAMOTO
 	* @return
 	*/
 	public String getFamilyNameKanji() {
@@ -199,7 +188,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOUMEI IWAMOTO
 	* @param
 	*/
 	public void setFamilyNameKanji(String familyNameKanji) {
@@ -207,7 +196,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOUMEI IWAMOTO
 	* @return
 	*/
 	public String getGivenNameKanji() {
@@ -215,7 +204,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOUMEI IWAMOTO
 	* @param
 	*/
 	public void setGivenNameKanji(String givenNameKanji) {

@@ -23,7 +23,7 @@ public class DecisionSelectDAO {
 	private ArrayList<DecisionDTO> list = new ArrayList<DecisionDTO>();
 	/**
 	 * 表示メソッド ログインした際にDBからサイト情報をリスト化して抽出し、DTOに格納する
-	 * @author KENICHI HORIGUCHI
+	 * @author KENICHI HORIGUCHI,KOUMEI IWAMOTO
 	 * @return  searchString
 	 */
 	public boolean select(String searchString ) {

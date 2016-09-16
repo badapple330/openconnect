@@ -127,7 +127,7 @@
 								id="registration" placeholder="ユーザーIDを入力" /></td>
 
 
-							<td><s:property value="familyNameKanji" /></td>
+							<td><s:property value="familyNameKanji"  /></td>
 
 							<td><s:property value="givenNameKanji" /></td>
 
