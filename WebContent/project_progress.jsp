@@ -7,14 +7,16 @@
 <meta charset=UTF-8>
 <title>プロジェクト進捗状況</title>
 <link rel="stylesheet" href="css/project_progress.css">
+<link rel="stylesheet" href="css/accordion.css">
+
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/project_progress.js"></script>
 </head>
 <body>
 
-		<header><jsp:include page="header.jsp" /></header>
-			<div class="center">
-			<br>
+	<header><jsp:include page="header.jsp" /></header>
+	<div class="center">
+		<br>
 
 		<h1>プロジェクト進捗報告</h1>
 	</div>
@@ -23,7 +25,7 @@
 		<input type="submit" value="検索" class="button">
 	</s:form>
 	<br>
-	<s:property value="%{resultString}"/>
+	<s:property value="%{resultString}" />
 
 	<s:form action="ProjectProgressUpdateAction">
 		<table border=1>
@@ -105,21 +107,50 @@
 		</table>
 		<input type="submit" class="button" value="追加">
 	</s:form>
-<br>
-	<input type="button" value="＋">プロジェクト一覧を開く
-	<table border="1">
-		<tr>
-			<th>プロジェクトID</th>
-			<th>プロジェクト名</th>
-		</tr>
-		<s:iterator value="searchList">
+
+	<br>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("#menua").hide();
+
+			var flg = "close";
+
+			$("#btna").click(function() {
+
+				$("#menua").slideToggle();
+
+				if (flg == "close") {
+					$(this).text("－ プロジェクト一覧を閉じる");
+					flg = "open";
+				} else {
+					$(this).text("＋ プロジェクト一覧を表示");
+					flg = "close";
+				}
+			});
+		});
+	</script>
+
+	<div id="btna">＋ プロジェクト一覧を表示</div>
+
+	<div id="menua">
+		<table border="1">
 			<tr>
-				<td><s:property value="projectId" /></td>
-				<td><s:property value="projectName" /></td>
+				<th>プロジェクトID</th>
+				<th>プロジェクト名</th>
 			</tr>
-		</s:iterator>
-	</table>
-<br>
+			<s:iterator value="projectsList">
+				<tr>
+					<td><s:property value="projectId" /></td>
+					<td><s:property value="projectName" /></td>
+				</tr>
+			</s:iterator>
+		</table>
+	</div>
+
+	<br>
 	<div id="modal-main">
 		<table border="1">
 			<tr>
@@ -186,9 +217,9 @@
 	<br>
 	<br>
 	<br>
-		<s:form action="GetAddressAction">
-			<button type="submit" class="button">戻る</button>
-		</s:form>
+	<s:form action="GetAddressAction">
+		<button type="submit" class="button">戻る</button>
+	</s:form>
 
 </body>
 </html>
