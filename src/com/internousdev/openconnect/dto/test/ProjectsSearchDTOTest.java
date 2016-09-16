@@ -4,16 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.internousdev.openconnect.projects.dto.ProjectsSearchDTO;
+import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
 
 public class ProjectsSearchDTOTest {
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getProjectId()} のためのテスト・メソッド。
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#getProjectId()} のためのテスト・メソッド。
 	 */
 	@Test
 	    public void testGetProjectId1() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = 0;
 
 	        test.setProjectId(expected);
@@ -23,7 +23,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testGetProjectId2() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = 2147483647;
 
 	        test.setProjectId(expected);
@@ -33,7 +33,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testGetProjectId3() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = -2147483648;
 
 	        test.setProjectId(expected);
@@ -43,7 +43,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testGetProjectId4() throws Exception {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        try {
 	            int postalMin = Integer.parseInt("-2147483649");
 	            test.setProjectId(postalMin);
@@ -55,7 +55,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testGetProjectId5() throws Exception {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        try {
 	            int postalMax = Integer.parseInt("2147483648");
 	            test.setProjectId(postalMax);
@@ -70,12 +70,12 @@ public class ProjectsSearchDTOTest {
 
 
 	    /**
-	     * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setProjectId()}
+	     * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#setProjectId()}
 	     * のためのテスト・メソッド。
 	     */
 	    @Test
 	    public void testSetProjectId1() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = 0;
 
 	        test.setProjectId(expected);
@@ -86,7 +86,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testSetProjectId2() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = 2147483647;
 
 	        test.setProjectId(expected);
@@ -97,7 +97,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testSetProjectId3() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = -2147483648;
 
 	        test.setProjectId(expected);
@@ -108,7 +108,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testSetProjectId4() throws Exception {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        try {
 	            int postalMin = Integer.parseInt("-2147483649");
 	            test.setProjectId(postalMin);
@@ -120,7 +120,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testSetProjectId5() throws Exception {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        try {
 	            int postalMax = Integer.parseInt("2147483648");
 	            test.setProjectId(postalMax);
@@ -134,11 +134,11 @@ public class ProjectsSearchDTOTest {
 
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getProjectName()} のためのテスト・メソッド。
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#getProjectName()} のためのテスト・メソッド。
 	 */
 	@Test
 	public void testGetProjectName1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = null;
 
 		test.setProjectName(expected);
@@ -148,7 +148,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetProjectName2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "";
 
 		test.setProjectName(expected);
@@ -158,7 +158,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetProjectName3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = " ";
 
 		test.setProjectName(expected);
@@ -168,7 +168,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetProjectName4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "　";
 
 		test.setProjectName(expected);
@@ -178,7 +178,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetProjectName5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123";
 
 		test.setProjectName(expected);
@@ -188,7 +188,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetProjectName6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "あいう１２３";
 
 		test.setProjectName(expected);
@@ -198,7 +198,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetProjectName7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう１２３";
 
 		test.setProjectName(expected);
@@ -208,7 +208,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetProjectName8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう漢字";
 
 		test.setProjectName(expected);
@@ -217,12 +217,12 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setProjectName()}
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#setProjectName()}
 	 */
 
 	@Test
 	public void testSetProjectName1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = null;
 
 		test.setProjectName(expected);
@@ -233,7 +233,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetProjectName2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "";
 
 		test.setProjectName(expected);
@@ -244,7 +244,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetProjectName3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = " ";
 
 		test.setProjectName(expected);
@@ -255,7 +255,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetProjectName4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "　";
 
 		test.setProjectName(expected);
@@ -266,7 +266,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetProjectName5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123";
 
 		test.setProjectName(expected);
@@ -277,7 +277,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetProjectName6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "あいう１２３";
 
 		test.setProjectName(expected);
@@ -288,7 +288,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetProjectName7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう１２３";
 
 		test.setProjectName(expected);
@@ -299,7 +299,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetProjectName8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう漢字";
 
 		test.setProjectName(expected);
@@ -309,11 +309,11 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getManagerId()} のためのテスト・メソッド。
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#getManagerId()} のためのテスト・メソッド。
 	 */
 	@Test
 	    public void testGetManagerId1() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = 0;
 
 	        test.setManagerId(expected);
@@ -323,7 +323,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testGetManagerId2() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = 2147483647;
 
 	        test.setManagerId(expected);
@@ -333,7 +333,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testGetManagerId3() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = -2147483648;
 
 	        test.setManagerId(expected);
@@ -343,7 +343,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testGetManagerId4() throws Exception {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        try {
 	            int postalMin = Integer.parseInt("-2147483649");
 	            test.setManagerId(postalMin);
@@ -355,7 +355,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testGetManagerId5() throws Exception {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        try {
 	            int postalMax = Integer.parseInt("2147483648");
 	            test.setManagerId(postalMax);
@@ -369,12 +369,12 @@ public class ProjectsSearchDTOTest {
 
 
 	    /**
-	     * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setManagerId()}
+	     * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#setManagerId()}
 	     * のためのテスト・メソッド。
 	     */
 	    @Test
 	    public void testSetManagerId1() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = 0;
 
 	        test.setManagerId(expected);
@@ -385,7 +385,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testSetManagerId2() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = 2147483647;
 
 	        test.setManagerId(expected);
@@ -396,7 +396,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testSetManagerId3() {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        int expected = -2147483648;
 
 	        test.setManagerId(expected);
@@ -407,7 +407,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testSetManagerId4() throws Exception {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        try {
 	            int postalMin = Integer.parseInt("-2147483649");
 	            test.setManagerId(postalMin);
@@ -419,7 +419,7 @@ public class ProjectsSearchDTOTest {
 
 	    @Test
 	    public void testSetManagerId5() throws Exception {
-	        ProjectsSearchDTO test = new ProjectsSearchDTO();
+	        ProjectsSelectDTO test = new ProjectsSelectDTO();
 	        try {
 	            int postalMax = Integer.parseInt("2147483648");
 	            test.setManagerId(postalMax);
@@ -431,11 +431,11 @@ public class ProjectsSearchDTOTest {
 
 
 	    /**
-	     * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getSubManagerId()} のためのテスト・メソッド。
+	     * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#getSubManagerId()} のためのテスト・メソッド。
 	     */
 	    @Test
 	        public void testGetSubManagerId1() {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            int expected = 0;
 
 	            test.setSubManagerId(expected);
@@ -445,7 +445,7 @@ public class ProjectsSearchDTOTest {
 
 	        @Test
 	        public void testGetSubManagerId2() {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            int expected = 2147483647;
 
 	            test.setSubManagerId(expected);
@@ -455,7 +455,7 @@ public class ProjectsSearchDTOTest {
 
 	        @Test
 	        public void testGetSubManagerId3() {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            int expected = -2147483648;
 
 	            test.setSubManagerId(expected);
@@ -465,7 +465,7 @@ public class ProjectsSearchDTOTest {
 
 	        @Test
 	        public void testGetSubManagerId4() throws Exception {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            try {
 	                int postalMin = Integer.parseInt("-2147483649");
 	                test.setSubManagerId(postalMin);
@@ -477,7 +477,7 @@ public class ProjectsSearchDTOTest {
 
 	        @Test
 	        public void testGetSubManagerId5() throws Exception {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            try {
 	                int postalMax = Integer.parseInt("2147483648");
 	                test.setSubManagerId(postalMax);
@@ -491,12 +491,12 @@ public class ProjectsSearchDTOTest {
 
 
 	        /**
-	         * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setSubManagerId()}
+	         * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#setSubManagerId()}
 	         * のためのテスト・メソッド。
 	         */
 	        @Test
 	        public void testSetSubManagerId1() {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            int expected = 0;
 
 	            test.setSubManagerId(expected);
@@ -507,7 +507,7 @@ public class ProjectsSearchDTOTest {
 
 	        @Test
 	        public void testSetSubManagerId2() {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            int expected = 2147483647;
 
 	            test.setSubManagerId(expected);
@@ -518,7 +518,7 @@ public class ProjectsSearchDTOTest {
 
 	        @Test
 	        public void testSetSubManagerId3() {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            int expected = -2147483648;
 
 	            test.setSubManagerId(expected);
@@ -529,7 +529,7 @@ public class ProjectsSearchDTOTest {
 
 	        @Test
 	        public void testSetSubManagerId4() throws Exception {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            try {
 	                int postalMin = Integer.parseInt("-2147483649");
 	                test.setSubManagerId(postalMin);
@@ -541,7 +541,7 @@ public class ProjectsSearchDTOTest {
 
 	        @Test
 	        public void testSetSubManagerId5() throws Exception {
-	            ProjectsSearchDTO test = new ProjectsSearchDTO();
+	            ProjectsSelectDTO test = new ProjectsSelectDTO();
 	            try {
 	                int postalMax = Integer.parseInt("2147483648");
 	                test.setSubManagerId(postalMax);
@@ -554,11 +554,11 @@ public class ProjectsSearchDTOTest {
 
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getStartDate()} のためのテスト・メソッド。
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#getStartDate()} のためのテスト・メソッド。
 	 */
 	@Test
 	public void testGetStartDate1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = null;
 
 		test.setStartDate(expected);
@@ -568,7 +568,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetStartDate2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "";
 
 		test.setStartDate(expected);
@@ -578,7 +578,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetStartDate3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = " ";
 
 		test.setStartDate(expected);
@@ -588,7 +588,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetStartDate4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "　";
 
 		test.setStartDate(expected);
@@ -598,7 +598,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetStartDate5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123";
 
 		test.setStartDate(expected);
@@ -608,7 +608,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetStartDate6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "あいう１２３";
 
 		test.setStartDate(expected);
@@ -618,7 +618,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetStartDate7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう１２３";
 
 		test.setStartDate(expected);
@@ -628,7 +628,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetStartDate8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう漢字";
 
 		test.setStartDate(expected);
@@ -637,12 +637,12 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setStartDate()}
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#setStartDate()}
 	 */
 
 	@Test
 	public void testSetStartDate1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = null;
 
 		test.setStartDate(expected);
@@ -653,7 +653,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetStartDate2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "";
 
 		test.setStartDate(expected);
@@ -664,7 +664,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetStartDate3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = " ";
 
 		test.setStartDate(expected);
@@ -675,7 +675,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetStartDate4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "　";
 
 		test.setStartDate(expected);
@@ -686,7 +686,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetStartDate5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123";
 
 		test.setStartDate(expected);
@@ -697,7 +697,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetStartDate6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "あいう１２３";
 
 		test.setStartDate(expected);
@@ -708,7 +708,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetStartDate7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう１２３";
 
 		test.setStartDate(expected);
@@ -719,7 +719,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetStartDate8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう漢字";
 
 		test.setStartDate(expected);
@@ -729,11 +729,11 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getEndDate()}
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#getEndDate()}
 	 */
 	@Test
 	public void testGetEndDate1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = null;
 
 		test.setEndDate(expected);
@@ -743,7 +743,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetEndDate2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "";
 
 		test.setEndDate(expected);
@@ -753,7 +753,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetEndDate3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = " ";
 
 		test.setEndDate(expected);
@@ -763,7 +763,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetEndDate4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "　";
 
 		test.setEndDate(expected);
@@ -773,7 +773,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetEndDate5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123";
 
 		test.setEndDate(expected);
@@ -783,7 +783,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetEndDate6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "あいう１２３";
 
 		test.setEndDate(expected);
@@ -793,7 +793,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetEndDate7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう１２３";
 
 		test.setEndDate(expected);
@@ -803,7 +803,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetEndDate8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう漢字";
 
 		test.setEndDate(expected);
@@ -812,12 +812,12 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setEndDate()}
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#setEndDate()}
 	 */
 
 	@Test
 	public void testSetEndDate1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = null;
 
 		test.setEndDate(expected);
@@ -828,7 +828,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetEndDate2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "";
 
 		test.setEndDate(expected);
@@ -839,7 +839,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetEndDate3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = " ";
 
 		test.setEndDate(expected);
@@ -850,7 +850,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetEndDate4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "　";
 
 		test.setEndDate(expected);
@@ -861,7 +861,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetEndDate5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123";
 
 		test.setEndDate(expected);
@@ -872,7 +872,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetEndDate6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "あいう１２３";
 
 		test.setEndDate(expected);
@@ -883,7 +883,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetEndDate7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう１２３";
 
 		test.setEndDate(expected);
@@ -894,7 +894,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetEndDate8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう漢字";
 
 		test.setEndDate(expected);
@@ -904,11 +904,11 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#getNote()}
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#getNote()}
 	  */
 	@Test
 	public void testGetNote1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = null;
 
 		test.setNote(expected);
@@ -918,7 +918,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetNote2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "";
 
 		test.setNote(expected);
@@ -928,7 +928,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetNote3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = " ";
 
 		test.setNote(expected);
@@ -938,7 +938,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetNote4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "　";
 
 		test.setNote(expected);
@@ -948,7 +948,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetNote5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123";
 
 		test.setNote(expected);
@@ -958,7 +958,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetNote6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "あいう１２３";
 
 		test.setNote(expected);
@@ -968,7 +968,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetNote7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう１２３";
 
 		test.setNote(expected);
@@ -978,7 +978,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testGetNote8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう漢字";
 
 		test.setNote(expected);
@@ -987,12 +987,12 @@ public class ProjectsSearchDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.internousdev.dto.ProjectsSearchDTO#setNote()}
+	 * {@link com.internousdev.ProjectsSelectDTO.dto.ProjectsSearchDTO#setNote()}
 	 */
 
 	@Test
 	public void testSetNote1() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = null;
 
 		test.setNote(expected);
@@ -1003,7 +1003,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetNote2() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "";
 
 		test.setNote(expected);
@@ -1014,7 +1014,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetNote3() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = " ";
 
 		test.setNote(expected);
@@ -1025,7 +1025,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetNote4() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "　";
 
 		test.setNote(expected);
@@ -1036,7 +1036,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetNote5() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123";
 
 		test.setNote(expected);
@@ -1047,7 +1047,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetNote6() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "あいう１２３";
 
 		test.setNote(expected);
@@ -1058,7 +1058,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetNote7() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう１２３";
 
 		test.setNote(expected);
@@ -1069,7 +1069,7 @@ public class ProjectsSearchDTOTest {
 
 	@Test
 	public void testSetNote8() {
-		ProjectsSearchDTO test = new ProjectsSearchDTO();
+		ProjectsSelectDTO test = new ProjectsSelectDTO();
 		String expected = "abc123あいう漢字";
 
 		test.setNote(expected);

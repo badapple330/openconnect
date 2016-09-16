@@ -5,7 +5,7 @@ package com.internousdev.openconnect.projects.dto;
  * @author YUICHI KIRIU
  * @since 2016/09/08
  */
-public class ProjectsSearchDTO {
+public class ProjectsSelectDTO {
 
 
 	/**
