@@ -46,6 +46,7 @@ public class DecisionSelectDAO {
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setProjectId(rs.getInt("project_id"));
 				dto.setDecisionId(rs.getString("decision_id"));
+				dto.setDecisionIdNumber(String.format("%04d", rs.getInt("decision_id")));
 				dto.setDecisionName(rs.getString("decision_name"));
 				dto.setDetail(rs.getString("detail"));
 				dto.setIDraftingId(rs.getString("i_drafting_id"));

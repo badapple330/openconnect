@@ -71,6 +71,10 @@ public class DecisionDTO {
 	private String givenNameKanji;
 
 	private String projectName;
+	/**
+	 *  数値を００００に直す
+	 */
+	private String decisionIdNumber;
 
 
 	/**
@@ -305,6 +309,22 @@ public class DecisionDTO {
 	 */
 	public String getIDraftingId() {
 		return iDraftingId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return decisionIdNumber
+	*/
+	public String getDecisionIdNumber() {
+		return decisionIdNumber;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param decisionIdNumber
+	*/
+	public void setDecisionIdNumber(String decisionIdNumber) {
+		this.decisionIdNumber = decisionIdNumber;
 	}
 	/**
 	 * 設定メソッド

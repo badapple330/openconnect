@@ -58,10 +58,10 @@
 				<dd><a href="StudentsSelectAction" class="menuElement">受講生一覧</a></dd>
 				<dd><a href="AttendanceSelectAction" class="menuElement">勤怠更新</a></dd>
 				<dd><a href="DecisionSelectAction" class="menuElement">決済一覧状況</a></dd>
+				<dd><a href="DecisionDetailSelectAction" class="menuElement">決済手続き</a></dd>
 				<s:if test="%{#session.userFlg  >= 2}">
-					<dd><a href="DecisionDetailSelectAction" class="menuElement">決済手続き電子化</a></dd>
+					<dd><a href="DecisionApplicationSelectAction" class="menuElement">決済手続き申請一覧</a></dd>
 				</s:if>
-				<dd><a href="DecisionApplicationSelectAction" class="menuElement">決済手続き申請一覧</a></dd>
 				<dd><a href="BooksSelectAction" class="menuElement">書籍一覧</a></dd>
 				<dd><a href="BooksBorrowSelectAction" class="menuElement">書籍貸し出し</a></dd>
 				<dd><a href="ScheduleSelectAction" class="menuElement">スケジュール一覧</a></dd>
