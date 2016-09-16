@@ -121,25 +121,23 @@
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" placeholder="登録日を入力" required
 								name="registration" maxlength="10" value="<s:property value="registration" />"
 								id="registration" /></td>
+
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
 								required name="userId" value="<s:property value="userId" />"
 								id="registration" placeholder="ユーザーIDを入力" /></td>
-							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
-								required name="userId" value="<s:property value="familyNameKanji" />"
-								id="registration" placeholder="姓を入力" /></td>
-							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
-								required name="userId" value="<s:property value="givenNameKanji" />"
-								id="registration" placeholder="名を入力" /></td>
+
+
+							<td><s:property value="familyNameKanji" /></td>
+
+							<td><s:property value="givenNameKanji" /></td>
+
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
 								required name="projectId"
 								value="<s:property value="projectId" />" id="registration" placeholder="プロジェクトIDを入力"/></td>
 
-							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
-								required name="projectId"
-								value="<s:property value="projectName" />" id="registration" placeholder="プロジェクトIDを入力"/></td>
+                            <td><s:property value="projectName" /></td>
 
 							<td><div class="decisionid"><s:property value="decisionId" /></div></td>
-
 							<td><input type="text" maxlength="100" placeholder="案件名を入力" name="decisionName"
 								id="display" value="<s:property value="decisionName" />" /></td>
 							<td><input type="text" maxlength="255" placeholder="詳細を入力" name="detail"

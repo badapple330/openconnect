@@ -164,7 +164,7 @@ create table decision(
 registration date,
 user_id int,
 project_id int,
-decision_id int primary key auto_increment,
+decision_id int(4) zerofill primary key auto_increment,
 decision_name varchar(100),
 detail varchar(255),
 i_drafting_id varchar(100),
