@@ -3,8 +3,8 @@ package com.internousdev.openconnect.projects.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projects.dao.ProjectsSerachDAO;
-import com.internousdev.openconnect.projects.dto.ProjectsSearchDTO;
+import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
+import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -24,27 +24,28 @@ public class ProjectsSelectAction extends ActionSupport{
 	 * 検索ワード
 	 */
 	private String search = "";
+
 	/**
 	 * 検索結果文字
 	 */
 	private String resultString = "該当する情報は存在しません";
 
-	private List<ProjectsSearchDTO > searchList = new ArrayList<ProjectsSearchDTO>();
+	private List<ProjectsSelectDTO > searchList = new ArrayList<ProjectsSelectDTO>();
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 *
-	 * @author YUICHI KIRIU
+	 * @author YUICHI KIRIU TATUHUMI ITOU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {
 		String result = ERROR;
-		ProjectsSerachDAO dao = new ProjectsSerachDAO();
+		ProjectsSelectDAO dao = new ProjectsSelectDAO();
 		searchList = dao.select(search);
 
 		for(int i=0;i<searchList.size();i++){
 
-			ProjectsSearchDTO dto = new ProjectsSearchDTO();
+			ProjectsSelectDTO dto = new ProjectsSelectDTO();
 
 			dto = dao.selectId(searchList.get(i).getSubManagerId());
 			searchList.get(i).setSubManagerGivenNameKanji( dto.getSubManagerGivenNameKanji() );
@@ -81,7 +82,7 @@ System.out.println(4);
 	 * @author YUICHI KIRIU
 	 * @return projectList
 	 */
-	public List<ProjectsSearchDTO> getProjectList() {
+	public List<ProjectsSelectDTO> getProjectList() {
 		return searchList;
 	}
 
@@ -90,7 +91,7 @@ System.out.println(4);
 	 * @author YUICHI KIRIU
 	 * @param projectList
 	 */
-	public void setProjectList(List<ProjectsSearchDTO> projectList) {
+	public void setProjectList(List<ProjectsSelectDTO> projectList) {
 		this.searchList = projectList;
 	}
 
@@ -110,42 +111,37 @@ System.out.println(4);
 	public void setErrorMsg(String resultString) {
 		this.resultString = resultString;
 	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
 
 	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
+	* 取得メソッド 検索結果文字を取得
+	* @author YUICHI KIRIU
+	* @return resultString
 	*/
 	public String getResultString() {
 		return resultString;
 	}
 	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
+	* 設定メソッド 検索結果文字を設定
+	* @author YUICHI KIRIU
+	* @param resultString
 	*/
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
 	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
+	* 取得メソッド 検索リストを取得
+	* @author TATUHUMI ITOU
+	* @return searchList
 	*/
-	public List<ProjectsSearchDTO> getSearchList() {
+	public List<ProjectsSelectDTO> getSearchList() {
 		return searchList;
 	}
 	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
+	* 設定メソッド 検索リストを設定
+	* @author TATUHUMI ITOU
+	* @param searchList
 	*/
-	public void setSearchList(List<ProjectsSearchDTO> searchList) {
+	public void setSearchList(List<ProjectsSelectDTO> searchList) {
 		this.searchList = searchList;
 	}
 

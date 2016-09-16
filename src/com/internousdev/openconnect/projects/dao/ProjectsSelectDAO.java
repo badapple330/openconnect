@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.projects.dto.ProjectsSearchDTO;
+import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
 import com.internousdev.util.DBConnector;
 
 
@@ -19,18 +19,18 @@ import com.internousdev.util.DBConnector;
  * @since 2016/09/07
  */
 
-public class ProjectsSerachDAO {
+public class ProjectsSelectDAO {
 
 	/**
 	 * 検索したＤＢ情報をリスト化して抽出し、ＤＴＯに格納する
 	 *
-	 * @author YUICHI KIRIU
+	 * @author YUICHI KIRIU TATUHUMI ITO
 	 * @param search
 	 * @return  searchList
 	 */
-	public List<ProjectsSearchDTO> searchList = new ArrayList<ProjectsSearchDTO>();
+	public List<ProjectsSelectDTO> searchList = new ArrayList<ProjectsSelectDTO>();
 
-	public List<ProjectsSearchDTO> select(String search) {
+	public List<ProjectsSelectDTO> select(String search) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
@@ -42,7 +42,7 @@ public class ProjectsSerachDAO {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
 			while (rs.next()) {
-				ProjectsSearchDTO dto = new ProjectsSearchDTO();
+				ProjectsSelectDTO dto = new ProjectsSelectDTO();
 
 				dto.setProjectId(rs.getInt("project_id"));
 				dto.setProjectName(rs.getString("project_name"));
@@ -69,12 +69,12 @@ public class ProjectsSerachDAO {
 
 
 
-	public ProjectsSearchDTO selectId(int userId) {
+	public ProjectsSelectDTO selectId(int userId) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
 
-		ProjectsSearchDTO dto = new ProjectsSearchDTO();
+		ProjectsSelectDTO dto = new ProjectsSelectDTO();
 		try {
 			String sql = "SELECT * FROM users  where user_id=?";
 			PreparedStatement ps = con.prepareStatement(sql);
