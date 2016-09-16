@@ -34,6 +34,14 @@ public class AttendanceSelectAction extends ActionSupport{
 	 */
 	private String attendanceDate = "";
 	/**
+	 * 性名
+	 */
+	private String familyName = "";
+	/**
+	 * 性名
+	 */
+	private String givenName = "";
+	/**
 	 * 勤怠リスト
 	 */
 	private ArrayList<AttendanceDTO> attendanceList = new ArrayList<AttendanceDTO>();
@@ -53,7 +61,9 @@ public class AttendanceSelectAction extends ActionSupport{
 
 		attendanceDate = attendanceDate.replaceAll("/", "-");
 
-		attendanceList = dao.select(year, month, attendanceDate);
+		System.out.println( familyName + " " + givenName );
+
+		attendanceList = dao.select(year, month, attendanceDate, familyName, givenName);
 
 		if( attendanceList.size() != 0 ){
 
@@ -62,6 +72,42 @@ public class AttendanceSelectAction extends ActionSupport{
 
 		return result;
 }
+
+	/**
+	* 取得メソッド 性を取得
+	* @author MINORI SUNAGAWA
+	* @return familyName
+	*/
+	public String getFamilyName() {
+		return familyName;
+	}
+
+	/**
+	* 設定メソッド 性を設定
+	* @author MINORI SUNAGAWA
+	* @param lastName
+	*/
+	public void setLastName(String familyName) {
+		this.familyName = familyName;
+	}
+
+	/**
+	* 取得メソッド 名を取得
+	* @author MINORI SUNAGAWA
+	* @return givenName
+	*/
+	public String getGivenName() {
+		return givenName;
+	}
+
+	/**
+	* 設定メソッド 名を設定
+	* @author MINORI SUNAGAWA
+	* @param givenName
+	*/
+	public void setFirstName(String givenName) {
+		this.givenName = givenName;
+	}
 
 	/**
 	* 取得メソッド 勤怠日付を取得

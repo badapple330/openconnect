@@ -28,13 +28,21 @@ public class AttendanceDTO {
 	 */
 	private String month;
 	/**
-	 * 姓
+	 * 漢字姓
 	 */
 	private String familyNameKanji;
 	/**
-	 * 名
+	 * 漢字名
 	 */
 	private String givenNameKanji;
+	/**
+	 * かな性
+	 */
+	private String familyNameKana;
+	/**
+	 * かな名
+	 */
+	private String givenNameKana;
 	/**
 	 * 勤怠
 	 */
@@ -119,7 +127,7 @@ public class AttendanceDTO {
 		this.month = month;
 	}
 	/**
-	* 取得メソッド 姓を取得
+	* 取得メソッド 漢字姓を取得
 	* @author MINORI SUNAGAWA
 	* @return familyNameKanji
 	*/
@@ -127,7 +135,7 @@ public class AttendanceDTO {
 		return familyNameKanji;
 	}
 	/**
-	* 設定メソッド 姓を設定
+	* 設定メソッド 漢字姓を設定
 	* @author MINORI SUNAGAWA
 	* @param familyNameKanji
 	*/
@@ -135,7 +143,7 @@ public class AttendanceDTO {
 		this.familyNameKanji = familyNameKanji;
 	}
 	/**
-	* 取得メソッド 名を取得
+	* 取得メソッド 漢字名を取得
 	* @author MINORI SUNAGAWA
 	* @return givenNameKanji
 	*/
@@ -143,12 +151,44 @@ public class AttendanceDTO {
 		return givenNameKanji;
 	}
 	/**
-	* 設定メソッド 名を設定
+	* 設定メソッド 漢字名を設定
 	* @author MINORI SUNAGAWA
 	* @param givenNameKanji
 	*/
 	public void setGivenNameKanji(String givenNameKanji) {
 		this.givenNameKanji = givenNameKanji;
+	}
+	/**
+	* 取得メソッド かな性を取得
+	* @author MINORI SUNAGAWA
+	* @return familyNameKana
+	*/
+	public String getFamilyNameKana() {
+		return familyNameKana;
+	}
+	/**
+	* 設定メソッド かな姓を設定
+	* @author MINORI SUNAGAWA
+	* @param familyNameKana
+	*/
+	public void setFamilyNameKana(String familyNameKana) {
+		this.familyNameKana = familyNameKana;
+	}
+	/**
+	* 取得メソッド  かな名を取得
+	* @author MINORI SUNAGAWA
+	* @return givenNameKana
+	*/
+	public String getGivenNameKana() {
+		return givenNameKana;
+	}
+	/**
+	* 設定メソッド かな名を設定
+	* @author MINORI SUNAGAWA
+	* @param givenNameKana
+	*/
+	public void setGivenNameKana(String givenNameKana) {
+		this.givenNameKana = givenNameKana;
 	}
 	/**
 	* 取得メソッド 勤怠を取得

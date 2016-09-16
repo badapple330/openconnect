@@ -34,7 +34,7 @@ public class AttendanceSelectDAO {
 	 * @author MINORI SUNAGAWA
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-	public ArrayList<AttendanceDTO> select(String year, String month, String date){
+	public ArrayList<AttendanceDTO> select(String year, String month, String date, String familyName, String givenName){
 
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
@@ -43,9 +43,12 @@ public class AttendanceSelectDAO {
 		ArrayList<AttendanceDTO> attendanceList = new ArrayList<AttendanceDTO>();
 
 		try{
-			String sql = "select * from attendance join users on attendance.user_id = users.user_id "
-					+ "where attendance.date like '%" + date + "%' and users.year like '%" + year + "%' and users.month like '%" + month + "%'";
-
+			String sql = "select * from attendance join users on attendance.user_id = users.user_id "+ "where attendance.date like '%" + date +
+					"%' and users.year like '%" + year +
+					"%' and users.month like '%" + month +
+					"%' and users.family_name_kana like '%" + familyName +
+					"%' and users.given_name_kana like '%" + givenName + "%'";
+			System.out.println(familyName + " " + givenName);
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
@@ -57,6 +60,8 @@ public class AttendanceSelectDAO {
 				dto.setMonth( rs.getString( "month" ) );
 				dto.setFamilyNameKanji( rs.getString( "family_name_kanji" ) );
 				dto.setGivenNameKanji( rs.getString( "given_name_kanji" ) );
+//				dto.setFamilyNameKana( rs.getString( "family_name_kana" ));
+//				dto.setGivenNameKana( rs.getString( "given_name_kana" ));
 				dto.setAttendance(rs.getInt("attendance"));
 				dto.setInterview(rs.getInt("interview"));
 				dto.setAttendanceString( ATTENDANCE_STR[ dto.getAttendance() ] );
