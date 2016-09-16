@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.internousdev.openconnect.project.progress.dao.ProjectProgressSelectDAO;
 import com.internousdev.openconnect.project.progress.dto.ProjectProgressDTO;
-import com.internousdev.openconnect.projects.dao.ProjectsSerachDAO;
-import com.internousdev.openconnect.projects.dto.ProjectsSearchDTO;
+import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
+import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 画面で受け取った内容に似た物を、DBのプロジェクト名から検索する為のクラス
@@ -30,7 +30,7 @@ public class ProjectProgressSelectAction extends ActionSupport {
 	/**
 	 * プロジェクトリスト
 	 */
-	private List<ProjectsSearchDTO> projectsList = new ArrayList<ProjectsSearchDTO>();
+	private List<ProjectsSelectDTO> projectsList = new ArrayList<ProjectsSelectDTO>();
 	/**
 	 * エラーメッセージ
 	 */
@@ -45,7 +45,7 @@ public class ProjectProgressSelectAction extends ActionSupport {
 	public String execute() {
 		String result = ERROR;
 		ProjectProgressSelectDAO dao = new ProjectProgressSelectDAO();
-		ProjectsSerachDAO projectsDao = new ProjectsSerachDAO();
+		ProjectsSelectDAO projectsDao = new ProjectsSelectDAO();
 		searchList = dao.select(search);
 		projectsList = projectsDao.select("");
 		if (searchList.size() != 0) {
@@ -109,7 +109,7 @@ public class ProjectProgressSelectAction extends ActionSupport {
 	 * @author MASAHIRO KEDSUKA
 	 * @param projectsList セットする projectsList
 	 */
-	public List<ProjectsSearchDTO> getProjectsList() {
+	public List<ProjectsSelectDTO> getProjectsList() {
 		return projectsList;
 	}
 	/**
@@ -117,7 +117,7 @@ public class ProjectProgressSelectAction extends ActionSupport {
 	 * @author MASAHIRO KEDSUKA
 	 * @param projectsList セットする projectsList
 	 */
-	public void setProjectsList(List<ProjectsSearchDTO> projectsList) {
+	public void setProjectsList(List<ProjectsSelectDTO> projectsList) {
 		this.projectsList = projectsList;
 	}
 
