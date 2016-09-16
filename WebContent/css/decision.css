@@ -1,3 +1,5 @@
+
+
 @CHARSET "UTF-8";
 
 table, td, th{
@@ -26,6 +28,7 @@ input[type="text"] {
 	width:170px;
 }
 
+
 #id{
 	width:20px;
 }
@@ -45,4 +48,3 @@ input[type="text"] {
 .bigText{
 	width:100px;
 }
-

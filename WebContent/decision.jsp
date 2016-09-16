@@ -137,7 +137,7 @@
 
                             <td><s:property value="projectName" /></td>
 
-							<td><div class="decisionid"><s:property value="decisionId" /></div></td>
+							<td><div class="decisionid"><s:property value="decisionIdNumber" /></div></td>
 							<td><input type="text" maxlength="100" placeholder="案件名を入力" name="decisionName"
 								id="display" value="<s:property value="decisionName" />" /></td>
 							<td><input type="text" maxlength="255" placeholder="詳細を入力" name="detail"
