@@ -88,7 +88,6 @@
 	<s:if test="%{#session.userFlg  >= 2}">
 	<br>
 	存在するプロジェクトのIDを入力してください。<br>
-	↓の＋マークでプロジェクトの確認ができます。
 	<s:form action="DecisionDetailInsertAction">
 		<table border="1">
 
@@ -107,7 +106,7 @@
 	</s:form>
 
 	<br>
-	<input type = "button" value = "＋" id="listButton"><div id="listButtonStr">プロジェクト一覧を開く</div>
+	<input type = "button" value = "＋プロジェクト一覧を開く" id="listButton">
 	<div class="projectElement">
 	<table border="1" class="element">
 		<tr>

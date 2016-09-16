@@ -24,7 +24,7 @@ public class DecisionDTO {
 	 * 案件番号
 	 *
 	 */
-	private String decisionId;
+	private int decisionId;
 	/**
 	 * 案件名
 	 *
@@ -259,7 +259,7 @@ public class DecisionDTO {
 	 * @author KENICHI HORIGUCHI
 	 * @return decisionId
 	 */
-	public String getDecisionId() {
+	public int getDecisionId() {
 		return decisionId;
 	}
 	/**
@@ -267,7 +267,7 @@ public class DecisionDTO {
 	 * @author KENICHI HORIGUCHI
 	 * @param decisionId
 	 */
-	public void setDecisionId(String decisionId) {
+	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
 	}
 	/**

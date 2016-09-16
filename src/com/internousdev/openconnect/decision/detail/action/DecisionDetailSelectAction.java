@@ -8,8 +8,8 @@ import java.util.List;
 
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
-import com.internousdev.openconnect.projects.dao.ProjectsSerachDAO;
-import com.internousdev.openconnect.projects.dto.ProjectsSearchDTO;
+import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
+import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -33,7 +33,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	/**
 	 * プロジェクトリスト
 	 */
-	private List<ProjectsSearchDTO> projectsList = new ArrayList<ProjectsSearchDTO>();
+	private List<ProjectsSelectDTO> projectsList = new ArrayList<ProjectsSelectDTO>();
 	/**
 	 * 検索文字
 	 */
@@ -50,7 +50,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	public String execute(){
 
 		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
-		ProjectsSerachDAO projectsDao = new ProjectsSerachDAO();
+		ProjectsSelectDAO projectsDao = new ProjectsSelectDAO();
 
 		decisionDetailList = dao.select( searchString );
 
@@ -91,7 +91,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	* @author KOHEI NITABARU
 	* @return projectsList
 	*/
-	public List<ProjectsSearchDTO> getProjectsList() {
+	public List<ProjectsSelectDTO> getProjectsList() {
 		return projectsList;
 	}
 
@@ -100,7 +100,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	* @author KOHEI NITABARU
 	* @param projectsList
 	*/
-	public void setProjectsList(List<ProjectsSearchDTO> projectsList) {
+	public void setProjectsList(List<ProjectsSelectDTO> projectsList) {
 		this.projectsList = projectsList;
 	}
 

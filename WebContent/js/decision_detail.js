@@ -112,7 +112,6 @@ $(function(){
 $(function(){
 
 	var listButton = $('#listButton');
-	var listButtonStr = $('#listButtonStr');
 	var projectElement = $('.projectElement');
 
 	listButton.click(function(event){
@@ -120,12 +119,10 @@ $(function(){
 		if( projectElement.css('display') == 'none' ){
 
 			projectElement.slideDown();
-			listButtonStr.html('プロジェクト一覧を閉じる');
-			listButton.val('－');
+			listButton.val('－プロジェクト一覧を閉じる');
 		}else{
 			projectElement.slideUp();
-			listButtonStr.html('プロジェクト一覧を開く');
-			listButton.val('＋');
+			listButton.val('＋プロジェクト一覧を開く');
 		}
 	});
 });

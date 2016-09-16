@@ -45,7 +45,7 @@ public class DecisionSelectDAO {
 				dto.setRegistration(sdf.format( rs.getDate("registration") ).toString());
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setProjectId(rs.getInt("project_id"));
-				dto.setDecisionId(rs.getString("decision_id"));
+				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setDecisionIdNumber(String.format("%04d", rs.getInt("decision_id")));
 				dto.setDecisionName(rs.getString("decision_name"));
 				dto.setDetail(rs.getString("detail"));
@@ -58,11 +58,6 @@ public class DecisionSelectDAO {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
 				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
 				dto.setProjectName(rs.getString("project_name"));
-
-
-
-
-
 
 				list.add(dto);
 				result = true;
