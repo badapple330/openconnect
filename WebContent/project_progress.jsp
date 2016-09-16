@@ -105,8 +105,21 @@
 		</table>
 		<input type="submit" class="button" value="追加">
 	</s:form>
-
-
+<br>
+	<input type="button" value="＋">プロジェクト一覧を開く
+	<table border="1">
+		<tr>
+			<th>プロジェクトID</th>
+			<th>プロジェクト名</th>
+		</tr>
+		<s:iterator value="searchList">
+			<tr>
+				<td><s:property value="projectId" /></td>
+				<td><s:property value="projectName" /></td>
+			</tr>
+		</s:iterator>
+	</table>
+<br>
 	<div id="modal-main">
 		<table border="1">
 			<tr>
