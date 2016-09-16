@@ -11,3 +11,21 @@
 	position: absolute;
 	margin: 0 auto;
 }
+
+#menuBer{
+	text-align: left;
+    background: #cef;
+    width: 150px;
+    height: 40px;
+    line-height: 50px;
+    text-align: center;
+    border: #195dbe 1px solid;
+}
+
+#menuElementGroup{
+	display: none;
+}
+
+.menuElement{
+
+}

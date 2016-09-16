@@ -4,12 +4,6 @@ $(function(){
 	var openConnectLogo = $(".openConnect");
 
 	var left = 0;
-//	setInterval(move, 100);
-//	function move(){
-//	left ++;
-//	$('.openConnect').css("left", left+'px');
-//	}
-
 
 	// オープンコネクトの位置(左上～右下)を取得
 	var logoLeft = openConnectLogo.position().left;
@@ -35,12 +29,31 @@ $(function(){
 		}
 	}
 
+	// アコーディオン
+	var menuBer = $('#menuBer');
+	var menuElement = $('#menuElementGroup');
+
+	// マウスオン
+	menuBer.hover(function(event){
+
+		if( menuElement.css('display') == 'none' ){
+
+			menuElement.slideDown();
+		}
+	});
+
 	// マウス移動時
 	$("body").mousemove(function(e){
 
 		// 座標を保存
 		mouseX = e.pageX;
 		mouseY = e.pageY;
+
+		if( mouseX < menuBer.position().left || mouseX > menuBer.position().left + menuBer.outerWidth() ){
+
+			menuElement.slideUp();
+
+		}
 	});
 
 });

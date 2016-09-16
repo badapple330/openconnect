@@ -14,6 +14,8 @@
 
 	<!-- 	ヘッダー読み込み -->
 	<jsp:include page="header.jsp" />
+
+	<div class="container">
 	<br>
 	<!-- 一覧表示 -->
 	<h1>決裁手続き一覧</h1>
@@ -201,6 +203,8 @@
 	<s:form action="GetAddressAction">
 		<s:submit value="戻る" />
 	</s:form>
+
+	</div>
 
 </body>
 </html>

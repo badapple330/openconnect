@@ -32,6 +32,7 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
+
 						<s:if test="%{#session.userFlg == null}">
 
 							<li><a href="login.jsp">ログイン</a></li>
@@ -48,58 +49,26 @@
 						</s:if>
 					</ul>
 				</div>
+				<dl>
+				<dt id="menuBer">メニュー</dt>
+				</dl>
+				<dl id="menuElementGroup">
+				<dd><a href="ProjectsSelectAction" class="menuElement">プロジェクト一覧</a></dd>
+				<dd><a href="ProjectProgressSelectAction" class="menuElement">プロジェクト進捗報告</a></dd>
+				<dd><a href="StudentsSelectAction" class="menuElement">受講生一覧</a></dd>
+				<dd><a href="AttendanceSelectAction" class="menuElement">勤怠更新</a></dd>
+				<dd><a href="DecisionSelectAction" class="menuElement">決済一覧状況</a></dd>
+				<s:if test="%{#session.userFlg  >= 2}">
+					<dd><a href="DecisionDetailSelectAction" class="menuElement">決済手続き電子化</a></dd>
+				</s:if>
+				<dd><a href="DecisionApplicationSelectAction" class="menuElement">決済手続き申請一覧</a></dd>
+				<dd><a href="BooksSelectAction" class="menuElement">書籍一覧</a></dd>
+				<dd><a href="BooksBorrowSelectAction" class="menuElement">書籍貸し出し</a></dd>
+				<dd><a href="ScheduleSelectAction" class="menuElement">スケジュール一覧</a></dd>
+				</dl>
+
 			</div>
 		</nav>
-
-		<div class="goButton">
-
-			<!-- 	<!-- プロジェクト一覧 -->
-			<s:form action="ProjectsSelectAction">
-				<s:submit type="submit" value="プロジェクト一覧" />
-			</s:form>
-			<!-- 	<!-- プロジェクトリリース状況 -->
-			<s:form action="ProjectStatusSelectAction">
-				<s:submit type="submit" value="リリース状況" />
-			</s:form>
-			<!--プロジェクト進捗報告 -->
-			<s:form action="ProjectProgressSelectAction">
-				<s:submit value="プロジェクト進捗報告" />
-			</s:form>
-			<!--     受講生一覧 -->
-			<s:form action="StudentsSelectAction">
-				<s:submit type="submit" value="受講生一覧" />
-			</s:form>
-			<!-- 	<!--勤怠更新 -->
-			<s:form action="AttendanceSelectAction">
-				<s:submit type="submit" value="勤怠更新" />
-			</s:form>
-			<!-- 決済一覧状況 -->
-			<s:form action="DecisionSelectAction">
-				<s:submit type="submit" value="決済状況一覧" />
-			</s:form>
-			<!--決済手続き電子化 -->
-			<s:form action="DecisionDetailSelectAction">
-				<s:submit value="決済手続き" />
-			</s:form>
-			<!--決済手続き申請一覧 -->
-				<s:if test="%{#session.userFlg  >= 2}">
-				<s:form action="DecisionApplicationSelectAction">
-					<s:submit value="決済手続き申請一覧" />
-				</s:form>
-			</s:if>
-			<!--書籍一覧 -->
-			<s:form action="BooksSelectAction">
-				<s:submit value="書籍一覧" />
-			</s:form>
-			<!--書籍貸し出し -->
-			<s:form action="BooksBorrowSelectAction">
-				<s:submit value="書籍貸し出し" />
-			</s:form>
-			<!--スケジュール一覧 -->
-			<s:form action="ScheduleSelectAction">
-				<s:submit value="スケジュール一覧" />
-			</s:form>
-		</div>
 	</header>
 	<!-- ヘッダーはここまで -->
 
