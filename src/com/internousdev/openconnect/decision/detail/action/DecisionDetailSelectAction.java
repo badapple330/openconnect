@@ -8,6 +8,8 @@ import java.util.List;
 
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
+import com.internousdev.openconnect.projects.dao.ProjectsSerachDAO;
+import com.internousdev.openconnect.projects.dto.ProjectsSearchDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -29,6 +31,10 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	 */
 	private List<DecisionDetailDTO> decisionDetailList = new ArrayList<DecisionDetailDTO>();
 	/**
+	 * プロジェクトリスト
+	 */
+	private List<ProjectsSearchDTO> projectsList = new ArrayList<ProjectsSearchDTO>();
+	/**
 	 * 検索文字
 	 */
 	private String searchString = "";
@@ -44,8 +50,11 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	public String execute(){
 
 		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
+		ProjectsSerachDAO projectsDao = new ProjectsSerachDAO();
 
 		decisionDetailList = dao.select( searchString );
+
+		projectsList = projectsDao.select("");
 
 		if( decisionDetailList == null ){
 
@@ -77,7 +86,32 @@ public class DecisionDetailSelectAction extends ActionSupport{
 		this.decisionDetailList = decisionDetailList;
 	}
 
+	/**
+	* 取得メソッド プロジェクトリストを取得
+	* @author KOHEI NITABARU
+	* @return projectsList
+	*/
+	public List<ProjectsSearchDTO> getProjectsList() {
+		return projectsList;
+	}
 
+	/**
+	* 設定メソッド  プロジェクトリストを設定
+	* @author KOHEI NITABARU
+	* @param projectsList
+	*/
+	public void setProjectsList(List<ProjectsSearchDTO> projectsList) {
+		this.projectsList = projectsList;
+	}
+
+	/**
+	* 取得メソッド シリアル番号を取得
+	* @author KOHEI NITABARU
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	/**
 	* 取得メソッド 検索文を取得

@@ -90,3 +90,16 @@ body {
 input {
 	text-align: center;
 }
+
+.projectElement{
+    display: none;
+    z-index: 100;
+}
+
+#listButton{
+	display:inline;
+}
+
+#listButtonStr{
+	display:inline;
+}

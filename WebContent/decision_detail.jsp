@@ -14,7 +14,7 @@
 
 	<!-- 	ヘッダー読み込み -->
 	<jsp:include page="header.jsp" />
-
+	<br>
 	<!-- 一覧表示 -->
 	<h1>決裁手続き一覧</h1>
 	<br>
@@ -23,7 +23,6 @@
 			maxlength=30>
 		<s:submit value="検索" />
 	</s:form>
-	<br>
 	<br>
 	<s:property value="%{resultString}" />
 	<!-- 	リスト表示 -->
@@ -84,7 +83,10 @@
 		</s:iterator>
 
 	</table>
+	<s:if test="%{#session.userFlg  >= 2}">
 	<br>
+	存在するプロジェクトのIDを入力してください。<br>
+	↓の＋マークでプロジェクトの確認ができます。
 	<s:form action="DecisionDetailInsertAction">
 		<table border="1">
 
@@ -101,6 +103,24 @@
 		</table>
 		<input type="submit" value="追加">
 	</s:form>
+
+	<br>
+	<input type = "button" value = "＋" id="listButton"><div id="listButtonStr">プロジェクト一覧を開く</div>
+	<div class="projectElement">
+	<table border="1" class="element">
+		<tr>
+			<th>プロジェクトID</th>
+			<th>プロジェクト名</th>
+		</tr>
+		<s:iterator value="projectsList">
+			<tr>
+				<td><s:property value="projectId" /></td>
+				<td><s:property value="projectName" /></td>
+			</tr>
+		</s:iterator>
+	</table>
+	</div>
+	</s:if>
 
 	<div id="modal-edit-main">
 		以下の内容を編集しますか？
@@ -173,22 +193,6 @@
 			<input type="button" class="modal-close button" value="閉じる">
 		</div>
 	</div>
-
-
-	<br>
-	<input type = "button" value = "＋">プロジェクト一覧を開く
-	<table border="1">
-		<tr>
-			<th>プロジェクトID</th>
-			<th>プロジェクト名</th>
-		</tr>
-		<s:iterator value="decisionDetailList">
-			<tr>
-				<td><s:property value="projectId" /></td>
-				<td><s:property value="projectName" /></td>
-			</tr>
-		</s:iterator>
-	</table>
 	<br>
 	<br>
 

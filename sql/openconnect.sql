@@ -122,8 +122,14 @@ foreign key(sub_manager_id) references users(user_id)
 );
 
 insert into projects()values
-(1,"cosmos",1,2,"2016/08/01","2016/08/31","undecided"),
-(2,"credit",3,4,"2016/08/01","2016/08/31","undecided");
+(1,"cosmos",1,2,"2016/09/01","2016/09/30","undecided"),
+(2,"credit",3,4,"2016/09/01","2016/09/30","undecided"),
+(3,"mira-mode",1,2,"2016/08/01","2016/08/31","undecided"),
+(4,"rewrite",1,2,"2016/08/01","2016/08/31","undecided"),
+(5,"internousdev",1,2,"2016/08/01","2016/08/31","undecided"),
+(6,"visa",1,2,"2016/07/01","2016/07/31","undecided"),
+(7,"openconnect",1,2,"2016/07/01","2016/07/31","undecided"),
+(8,"chikezon",1,2,"2016/06/01","2016/06/30","undecided");
 
 /*サブプロジェクト / プロジェクトリリース状況一覧*/
 create table project_status(
@@ -141,7 +147,7 @@ foreign key(project_id) references projects(project_id)
 );
 
 insert project_status(project_id)values
-(1),(2);
+(1),(2),(3),(4),(5),(6),(7),(8);
 
 
 /*サブプロジェクト / 勤怠更新*/
@@ -205,7 +211,8 @@ book_id int primary key not null auto_increment,
 title varchar(100) not null unique
 );
 
-insert into books(title)values("やさしいJAVA");
+insert into books(title)values
+("やさしいJAVA"),("JAVAブロンズ問題集"),("JAVAシルバー問題集"),("JAVAゴールド問題集"),("unity");
 
 /*サブプロジェクト / 書籍貸出状況一覧*/
 create table books_borrow(
