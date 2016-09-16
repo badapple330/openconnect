@@ -66,6 +66,120 @@ public class DecisionDTO {
 	 */
 	private String iAId;
 
+	private String familyNameKanji;
+
+	private String givenNameKanji;
+
+	private String projectName;
+
+
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getProjectName() {
+		return projectName;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getiDraftingId() {
+		return iDraftingId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setiDraftingId(String iDraftingId) {
+		this.iDraftingId = iDraftingId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getiApprovalId() {
+		return iApprovalId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setiApprovalId(String iApprovalId) {
+		this.iApprovalId = iApprovalId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getaDraftingId() {
+		return aDraftingId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setaDraftingId(String aDraftingId) {
+		this.aDraftingId = aDraftingId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getiADId() {
+		return iADId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setiADId(String iADId) {
+		this.iADId = iADId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getiAId() {
+		return iAId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setiAId(String iAId) {
+		this.iAId = iAId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
 
 	/**
 	 * 取得メソッド 登録日
@@ -74,6 +188,38 @@ public class DecisionDTO {
 	 */
 	public String getRegistration() {
 		return registration;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getGivenNameKanji() {
+		return givenNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
 	}
 	/**
 	 * 設定メソッド

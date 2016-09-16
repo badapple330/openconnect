@@ -34,7 +34,7 @@ public class DecisionSelectDAO {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
-		String sql = "select * from decision where decision_name like'%" + searchString + "%'";
+		String sql = "select * from decision inner join users on decision.user_id = users.user_id inner join projects on decision.project_id = projects.project_id where decision_name like'%" + searchString + "%'";
 
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -54,6 +54,15 @@ public class DecisionSelectDAO {
 				dto.setCdId(rs.getString("cd_id"));
 				dto.setIADId(rs.getString("i_a_d_id"));
 				dto.setIAId(rs.getString("i_a_id"));
+				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
+				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
+				dto.setProjectName(rs.getString("project_name"));
+
+
+
+
+
+
 				list.add(dto);
 				result = true;
 			}

@@ -43,6 +43,11 @@
 						</td>
 						<td>
 							<h5>
+								<Strong>ユーザーID</Strong>
+							</h5>
+						</td>
+						<td>
+							<h5>
 								<Strong>姓</Strong>
 							</h5>
 						</td>
@@ -54,6 +59,11 @@
 						<td>
 							<h5>
 								<Strong>プロジェクトID</Strong>
+							</h5>
+						</td>
+						<td>
+							<h5>
+								<Strong>プロジェクト名</Strong>
 							</h5>
 						</td>
 						<td>
@@ -113,13 +123,20 @@
 								id="registration" /></td>
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
 								required name="userId" value="<s:property value="userId" />"
+								id="registration" placeholder="ユーザーIDを入力" /></td>
+							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
+								required name="userId" value="<s:property value="familyNameKanji" />"
 								id="registration" placeholder="姓を入力" /></td>
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
-								required name="userId" value="<s:property value="userId" />"
+								required name="userId" value="<s:property value="givenNameKanji" />"
 								id="registration" placeholder="名を入力" /></td>
 							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
 								required name="projectId"
 								value="<s:property value="projectId" />" id="registration" placeholder="プロジェクトIDを入力"/></td>
+
+							<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
+								required name="projectId"
+								value="<s:property value="projectName" />" id="registration" placeholder="プロジェクトIDを入力"/></td>
 
 							<td><div class="decisionid"><s:property value="decisionId" /></div></td>
 
