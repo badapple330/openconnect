@@ -39,10 +39,44 @@ public class ProjectsListDTO {
 	private String Note;
 
 
+private String familyNameKanji;
+
+private String givenNameKanji;
 
 
 
-
+	/**
+* 取得メソッド
+* @author TATSUYA HOSHI
+* @return
+*/
+public String getFamilyNameKanji() {
+	return familyNameKanji;
+}
+/**
+* 設定メソッド
+* @author TATSUYA HOSHI
+* @param
+*/
+public void setFamilyNameKanji(String familyNameKanji) {
+	this.familyNameKanji = familyNameKanji;
+}
+/**
+* 取得メソッド
+* @author TATSUYA HOSHI
+* @return
+*/
+public String getGivenNameKanji() {
+	return givenNameKanji;
+}
+/**
+* 設定メソッド
+* @author TATSUYA HOSHI
+* @param
+*/
+public void setGivenNameKanji(String givenNameKanji) {
+	this.givenNameKanji = givenNameKanji;
+}
 	/**
 	 * 取得メソッド プロジェクトＩＤを取得
 	 * @author YUICHI KIRIU

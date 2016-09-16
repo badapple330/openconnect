@@ -60,6 +60,9 @@
 				<s:iterator value="projectList">
 					<!-- 繰り返し -->
 					<!-- 表示 -->
+
+
+
 					<tr>
 
 
@@ -97,6 +100,8 @@
 							</s:if></td>
 
 					</tr>
+					<s:property value="familyNameKanji"/>
+						<s:property value="givenNameKanji"/>
 				</s:iterator>
 			</tbody>
 		</table>

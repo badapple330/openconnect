@@ -25,7 +25,11 @@ public class ProjectsAction extends ActionSupport{
 	 */
 	private List<ProjectsListDTO> projectList = new ArrayList<ProjectsListDTO>();
 
+
+	private int managerId;
 	/**
+	 *
+	 *
 	 *
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author YUICHI KIRIU
@@ -35,6 +39,14 @@ public class ProjectsAction extends ActionSupport{
 		String result = ERROR;
 		ProjectsListDAO dao = new ProjectsListDAO();
 		projectList = dao.select();
+
+System.out.println(1);
+		for(int i=0;i<projectList.size();i++){
+			dao.selectId(projectList.get(i).getManagerId());
+		}
+		System.out.println(2);
+
+
 		if (!(projectList == null)) {
 			result = SUCCESS;
 		}
@@ -56,6 +68,24 @@ public class ProjectsAction extends ActionSupport{
 	 */
 	public void setProjectList(List<ProjectsListDTO> projectList) {
 		this.projectList = projectList;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public int getManagerId() {
+		return managerId;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
 	}
 
 }

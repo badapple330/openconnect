@@ -56,7 +56,7 @@ public class ProjectsUpdateDAO {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(count);
+
 		return count;
 	}
 }
