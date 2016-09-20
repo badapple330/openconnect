@@ -230,8 +230,8 @@ foreign key(book_id) references books(book_id),
 foreign key(borrow_id) references users(user_id)
 );
 
-insert books_borrow(title)values
-("やさしいJAVA"),("JAVAブロンズ問題集"),("JAVAシルバー問題集"),("JAVAゴールド問題集"),("unity");
+insert books_borrow(book_id)values
+(1),(2),(3),(4),(5);
 
 /*サブプロジェクト / プロジェクト進捗状況*/
 create table project_progress(
