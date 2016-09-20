@@ -123,8 +123,8 @@ sub_manager_id int not null,
 start_date date,
 end_date date default 00000000,
 note varchar(255),
-foreign key(manager_id) references users(user_id),
-foreign key(sub_manager_id) references users(user_id)
+foreign key(manager_id) references users(user_id) on update cascade on delete cascade,
+foreign key(sub_manager_id) references users(user_id) on update cascade on delete cascade
 );
 
 insert into projects()values
@@ -149,7 +149,7 @@ r_envend date default 00000000,
 aws_status varchar(50) default "",
 note varchar(255) default "",
 status_id int primary key auto_increment,
-foreign key(project_id) references projects(project_id)
+foreign key(project_id) references projects(project_id) on update cascade on delete cascade
 );
 
 insert project_status(project_id)values
@@ -162,7 +162,7 @@ date DATE not null comment '日付',
 user_id int not null comment '生徒ID',
 attendance int default 0  comment '出欠状況',
 interview int default 2 comment '面談状況',
-foreign key(user_id) references users(user_id)
+foreign key(user_id) references users(user_id) on update cascade on delete cascade
 );
 
 /*サブプロジェクト / 決裁状況一覧*/
@@ -179,8 +179,8 @@ a_drafting_id varchar(100),
 cd_id varchar(100),
 i_a_d_id varchar(100),
 i_a_id varchar(100),
-foreign key(user_id) references users(user_id),
-foreign key(project_id) references projects(project_id)
+foreign key(user_id) references users(user_id) on update cascade on delete cascade,
+foreign key(project_id) references projects(project_id) on update cascade on delete cascade
 );
 insert into decision()value
 ("2016/08/21",1,1,1,"cinemajapanサイトにおけるチーム開発の実施について","-","KN-2016-05-30-005","J-2016-05-30-005","K-KN-2016-05-30-005","K-2016-05-30-005","-","-"),
@@ -206,9 +206,9 @@ persons int,
 password varchar(100),
 decision_id int,
 decision_detail_id int primary key auto_increment,
-foreign key(decision_id) references decision(decision_id),
-foreign key(user_id) references users(user_id),
-foreign key(project_id) references projects(project_id)
+foreign key(decision_id) references decision(decision_id) on update cascade on delete cascade,
+foreign key(user_id) references users(user_id) on update cascade on delete cascade,
+foreign key(project_id) references projects(project_id) on update cascade on delete cascade
 );
 
 insert decision_detail(decision_detail_id,project_id, user_id,decision_id )
@@ -229,8 +229,8 @@ book_id int not null,
 borrow_status varchar(10) not null default "貸出可",
 borrow_day date,
 borrow_id int,
-foreign key(book_id) references books(book_id),
-foreign key(borrow_id) references users(user_id)
+foreign key(book_id) references books(book_id) on update cascade on delete cascade,
+foreign key(borrow_id) references users(user_id) on update cascade on delete cascade
 );
 
 insert books_borrow(book_id)values
@@ -244,7 +244,7 @@ project_day date not null,
 project_plan varchar(255),
 project_result varchar(255),
 other varchar(255),
-foreign key(project_id) references projects(project_id)
+foreign key(project_id) references projects(project_id) on update cascade on delete cascade
 );
 
 insert into project_progress()values
