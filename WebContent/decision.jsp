@@ -6,11 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>決済状況一覧</title>
+
+
 <link rel="stylesheet" href="css/decision.css">
 
 <!-- JSファイル読み込み -->
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/decision.js"></script>
+
+
 <!-- <link href="css/bootstrap.css" rel="stylesheet" type="text/css"> -->
 </head>
 <body>
@@ -182,7 +186,7 @@
 		</s:form>
 		<br>
 
-
+<s:if test="%{#session.userFlg >= 2}">
 		<div id="btna">＋ ユーザー一覧を表示</div>
 
 		<div id="menua">
@@ -219,6 +223,7 @@
 				</s:iterator>
 			</table>
 		</div>
+		</s:if>
 		<s:form action="GetAddressAction">
 			<center>
 				<input type=submit value="戻る" class="button">
