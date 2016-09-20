@@ -1,0 +1,15 @@
+退会Action
+クラスにimplements SessionAwareを付ける
+int count =0;
+count = dao.delete((String)session.get("user"));とする。
+セッションは取り出したい値とのセットの方を指定するので
+
+セッション系の名前をきちんとsessionとする。
+
+
+
+そもそもsession.put("user_password",password)
+という記述の仕方にするべきである。
+
+ｊｓｐの方の#session.passwordは使わない。
+これに合わせてログインの方でも変える。

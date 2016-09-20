@@ -1,0 +1,30 @@
+	<!-- プロジェクト進捗画面への遷移 -->
+		<action name="project_progress_list"
+			class="com.internousdev.openconnect.action.ProjectAction" method="execute">
+			<result name="success">project_progress_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="projectSearch" class="com.internousdev.openconnect.action.SearchResultAction"
+			method="execute">
+			<result name="success">project_progress_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="projectCreate" class="com.internousdev.openconnect.action.ProjectNewAction"
+			method="execute">
+			<result name="success">project_progress_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="projectDelete" class="com.internousdev.openconnect.action.ProjectDeleteAction"
+			method="execute">
+			<result name="success">project_progress_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="projectEdit" class="com.internousdev.openconnect.action.ProjectUpdateAction"
+			method="execute">
+			<result name="success">project_progress_list.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>

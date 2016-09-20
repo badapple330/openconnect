@@ -1,0 +1,11 @@
+	//カレンダーの表示
+/*	$('#selectcalendar').checkcalendar({
+		'start'     :'2015-01',  //開始月を指定 yyyy-mm
+		'week'      : ["日", "月", "火", "水", "木", "金", "土"],
+		'roop'      : 3,          //何ヶ月分表示するか
+		'prefix'    : 'neko',    //カレンダーで使われる変数名 他と被らないようユニークに
+		'delimiter' : '/',        //送信時の日付の区切り文字 yyy/mm/dd
+		'td_on'     : '#BE8EB5',  //日付をONにしたときの背景色
+		'td_off'    : '#FFFFFF',  //日付をOFFにしたときの背景色
+		'send'      : 'test'      //postするときのinputのid <input type="hidden" id="days" name="days" >
+	});*/

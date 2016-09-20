@@ -1,0 +1,40 @@
+body {
+	font-family:'SimHei';
+	background-color: black;
+}
+
+.menu {
+	font-size: 15px;
+	text-decoration: none;
+}
+
+.menu:HOVER {
+	color: #98c5e9;
+}
+
+a:LINK {
+	color: white;
+}
+
+
+#logo {
+	width: 70%;
+	height: 30%;
+}
+
+.divmenu {
+	padding-top: 20px;
+	color: white;
+}
+
+#divlogo {
+	text-align: center;
+}
+
+#header {
+	display: flex;
+	justify-content: space-between;
+}
+.menu{
+	color: white;
+}

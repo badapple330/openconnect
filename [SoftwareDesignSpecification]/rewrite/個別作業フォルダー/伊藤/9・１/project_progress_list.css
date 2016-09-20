@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+#delete{
+	display:none;
+}
+
+#delete-prepare{
+	display:none;
+}
+
+
+body{
+  background-color:#808080;
+}
+
+p{
+  width:100%;
+}
+
+.header{
+  background-color:#ACAFD2;
+  height: 100px;
+  text-align: center;
+}
+
+
+.button{
+  height:30px;
+  width: 60px;
+  background-color:#1987E5;
+}
+
+.center{
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+input{
+	text-align:center;
+}
+
+

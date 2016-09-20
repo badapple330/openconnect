@@ -1,0 +1,3 @@
+DBConnector db = new DBConnector("com.mysql.jdbc.Driver",
+			"jdbc:mysql://localhost/","rewrite","root","mysql");
+Connection conn = db.getConnection();

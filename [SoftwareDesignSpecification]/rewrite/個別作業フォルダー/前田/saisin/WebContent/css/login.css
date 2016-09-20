@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+
+div.user {
+	padding: 10px;
+	border: 5px solid white;
+	margin: 5px
+
+}
+/*枠*/
+body {
+	background: #ffffb2;
+	color: black
+

@@ -1,0 +1,7 @@
+	<!--サイト記事管理画面 検索結果 -->
+		<action name="AdminArticleSearch"
+			class="com.internousdev.rewrite.action.SearchResultAction"
+			method="execute">
+			<result name="success">admin_article.jsp</result>
+			<result name="error">admin_article.jsp</result>
+		</action>

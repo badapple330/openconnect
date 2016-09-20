@@ -1,0 +1,7 @@
+SET @i := 0; UPDATE project_progress SET project_id = (@i := @i +1) ;
+
+select * from project_progress order by project_id desc;
+
+
+
+"SELECT*FROM project_progress order by project_id desc;";

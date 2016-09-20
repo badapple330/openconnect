@@ -1,0 +1,52 @@
+body{
+	background-color: #ebebeb;
+	font-family: 'SimHei' ;
+	color:#4c4c4c;
+}
+
+
+
+article{
+	background: white;
+	width:800px;
+	margin: auto;
+	padding: 20px;
+}
+
+h2{
+	border-bottom: 1px solid #000000;
+}
+
+img{
+	width:200px;
+	height:250px;
+}
+
+table{
+	width:700px;
+	margin: auto;
+	text-align: center;
+}
+
+td,th{
+	padding: 10px 10px;
+}
+
+div{
+	margin: 20px;
+}
+
+.btn{
+	text-decoration: none;
+	background-color: #fff;
+	border: 2px solid #b3b3b3;
+	color: #b3b3b3;
+	line-height: 50px;
+	padding: 10px 30px;
+
+}
+.btn:hover {
+	background-color: #98c5e9;
+	border-color: #98c5e9;
+	color: #fff;
+}
