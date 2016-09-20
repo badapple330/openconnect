@@ -18,7 +18,8 @@
 
 <h1>受講生一覧</h1>
 <s:form action="StudentsSelectAction">
-   <input type="text" name="search" placeholder="英語で姓か名を入力">
+	英語で姓か名を入力<br>
+   <input type="text" name="search" pattern="[A-Za-z]*" maxlength="30" title="半角英語のみ" placeholder="例：taro">
    <input class="button" type="submit" value="検索">
 </s:form>
 <br>

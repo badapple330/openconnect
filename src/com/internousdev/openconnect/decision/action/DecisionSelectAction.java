@@ -49,7 +49,6 @@ public class DecisionSelectAction extends ActionSupport{
 	 * @author KENICHI HORIGUCHI
 	 */
 	public String execute(){
-		System.out.println(searchString);
 		DecisionSelectDAO dao = new DecisionSelectDAO();
 		ProjectsSelectDAO projectsDao = new ProjectsSelectDAO();
 		StudentsSelectDAO studentsDao = new StudentsSelectDAO();

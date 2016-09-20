@@ -18,11 +18,12 @@
 
 		<br>
 		<h1>書籍一覧</h1>
-		<br> <br> 書籍の検索
+		<br> <br>
 
 		<s:form action="BooksSelectAction">
-			<input type="text" name="search" maxlength="50" title="50字以内"
-				placeholder="タイトル入力してください">
+			タイトルを入力<br>
+			<input type="text" name="search" maxlength="50"
+				placeholder="例：やさしいJAVA">
 			<input class="button" type="submit" value="検索">
 		</s:form>
 		<br>
@@ -43,8 +44,8 @@
 				<s:iterator value="searchList">
 					<tr>
 						<td class="bookId"><s:property value="bookId" /></td>
-						<td><input type="text" size = "75" name="titleList" maxlength="50" title="50字以内"
-							value="<s:property value="title" />" class="bookTitle"></td>
+						<td><input type="text" size = "75" name="titleList" maxlength="50"
+							value="<s:property value="title" />" class="bookTitle" placeholder="例：やさしいJAVA"></td>
 						<td><s:if test="%{#session.userFlg == 3}">
 								<input type="button" class="button modal-open" value="削除">
 							</s:if></td>
@@ -77,7 +78,7 @@
 		<s:form action="BooksInsertAction">
 			<s:if test="%{#session.userFlg == 3}">
 			書籍の追加
-				<input type="text" name="title" placeholder="タイトル入力してください">
+				<input type="text" name="title" placeholder="例：やさしいJAVA">
 				<input class="button" type="submit" value="追加">
 			</s:if>
 			<br>

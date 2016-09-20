@@ -30,7 +30,6 @@ public class DecisionDetailDeleteDAO {
 
 		String sql = "delete from decision_detail where decision_detail_id = ?";
 
-		System.out.println(decisionDetailId);
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, decisionDetailId);

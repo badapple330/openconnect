@@ -18,10 +18,11 @@
 	<div class="center">
 		<br>
 
-		<h1>プロジェクト進捗報告</h1>
+	<h1>プロジェクト進捗報告</h1>
 	</div>
 	<s:form action="ProjectProgressSelectAction">
-		<input type="text" name="search" placeholder="プロジェクト名" maxlength="20">
+		プロジェクト名を入力<br>
+		<input type="text" name="search" placeholder="例：rewrite" maxlength="20">
 		<input type="submit" value="検索" class="button">
 	</s:form>
 	<br>
@@ -51,13 +52,13 @@
 
 						<td><s:property value="projectId" /> <input type="hidden"
 							name="projectIdList" value="<s:property value="projectId"/>"
-							size="7" class="projectIdlist" maxlength="4"></td>
+							size="7" class="projectIdlist"></td>
 						<td><input type="text" name="projectDayList"
 							value="<s:property value="projectDay" />" size="8"
-							class="projectDaylist" maxlength="12"></td>
+							class="projectDaylist" maxlength="12" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="yyyy/MM/dd" placeholder="例2016/08/06"></td>
 						<td><input type="text" name="projectnameList"
 							value="<s:property value="projectName" />" class="projectlist"
-							maxlength="20"></td>
+							maxlength="20" placeholder="例：rewrite"></td>
 						<td><input type="text" name="projectPlanList"
 							value="<s:property value="projectPlan" />"
 							class="projectPlanlist" maxlength="100"></td>
@@ -95,7 +96,7 @@
 				<th>その他報告</th>
 			</tr>
 			<tr>
-				<td><input type="text" name="projectId" placeholder="半角数字のみ"
+				<td><input type="text" name="projectId" placeholder="半角数字で入力"
 					pattern="^[0-9]+$" maxlength="4"></td>
 				<td><input type="text" name="projectPlan" placeholder=""
 					maxlength="100"></td>
