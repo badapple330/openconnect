@@ -1,0 +1,1 @@
+	count = dao.update(nameList.get( checkList.get( i )-1),emailList.get(checkList.get( i ) -1),checkList.get( i ));

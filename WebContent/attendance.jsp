@@ -43,10 +43,28 @@
 	<br>
 	<table border="1">
 		<tr>
-			<td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>　</td><td>1</td><td>2</td>
+			<td><div class="smallWidth">0</div></td>
+			<td><div class="smallWidth">1</div></td>
+			<td><div class="middleWidth">2</div></td>
+			<td><div class="middleWidth">3</div></td>
+			<td><div class="middleWidth">4</div></td>
+			<td><div class="middleWidth">5</div></td>
+			<td><div class="smallWidth">6</div></td>
+			<td>　</td>
+			<td><div class="smallWidth">1</div></td>
+			<td><div class="smallWidth">2</div></td>
 		</tr>
 		<tr>
-			<td>未入力</td><td>出席</td><td>遅刻(連絡有)</td><td>遅刻(連絡無)</td><td>欠席(連絡有)</td><td>欠席(連絡無)</td><td>連絡無し</td><td>　</td><td>面談有</td><td>面談無</td>
+			<td>未入力</td>
+			<td>出席</td>
+			<td>遅刻(連絡有)</td>
+			<td>遅刻(連絡無)</td>
+			<td>欠席(連絡有)</td>
+			<td>欠席(連絡無)</td>
+			<td>連絡無し</td>
+			<td>　</td>
+			<td>面談有</td>
+			<td>面談無</td>
 		</tr>
 	</table>
 	<br>
@@ -61,14 +79,14 @@
 				<tr>
 					<th>日付</th>
 					<th>ID</th>
-					<th>受講年</th>
-					<th>受講開始月</th>
-					<th>姓</th>
-					<th>名</th>
-					<th>出席状況</th>
-					<th>出席状況入力</th>
-					<th>面談</th>
-					<th>面談入力</th>
+					<th><div class="smallWidth">受講年</div></th>
+					<th><div class="bigWidth">受講開始月</div></th>
+					<th><div class="smallWidth">姓</div></th>
+					<th><div class="smallWidth">名</div></th>
+					<th><div class="smallWidth">出席状況</div></th>
+					<th><div class="bigWidth">出席状況入力</div></th>
+					<th><div class="smallWidth">面談</div></th>
+					<th><div class="smallWidth">面談入力</div></th>
 				</tr>
 			</s:if>
 			<s:else>
@@ -76,17 +94,19 @@
 			</s:else>
 			<s:iterator value="attendanceList">
 				<tr>
-					<td><input type="text" name="date" value="<s:property value="date"/>" readonly class="textDate"></td>
-					<td><input type="text" name="userId" value="<s:property value="userId"/>" readonly class="textInt"></td>
+					<td><s:property value="date"/></td>
+					<td><s:property value="userId"/></td>
 					<td><s:property value="year" /></td>
 					<td><s:property value="month" /></td>
 					<td><s:property value="familyNameKanji" /></td>
 					<td><s:property value="givenNameKanji" /></td>
 					<td><s:property value="attendanceString" /></td>
-					<td><input type="text" name="attendance" value="<s:property value="attendance"/>" class="textInt" pattern="[0-9]" title="半角数字1文字" required></td>
+					<td><input type="text" name="attendance" value="<s:property value="attendance"/>" class="textInt" pattern="[0-6]" title="半角数字0～6" required></td>
 					<td><s:property value="interviewString" /></td>
-					<td><input type="text" name="interview" value="<s:property value="interview"/>" class="textInt" pattern="[0-9]" title="半角数字1文字" required></td>
+					<td><input type="text" name="interview" value="<s:property value="interview"/>" class="textInt" pattern="[0-2]" title="半角数字0～2" required></td>
 				</tr>
+				<input type="hidden"  name="date" value="<s:property value="date"/>">
+				<input type="hidden" name="userId" value="<s:property value="userId"/>">
 			</s:iterator>
 		</table>
 		<br>

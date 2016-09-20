@@ -1,18 +1,18 @@
-‹e’r
-•ÒW‚µ‚Ä‚¢‚éƒtƒ@ƒCƒ‹
-EPaymentMethod.jsp
-EGoCompletionAction.java
-EInsertPaymentDAO.java
-EInsertDTO.java
+èŠæ± 
+ç·¨é›†ã—ã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
+ãƒ»PaymentMethod.jsp
+ãƒ»GoCompletionAction.java
+ãƒ»InsertPaymentDAO.java
+ãƒ»InsertDTO.java
 
 
-ì¬F¬—Ñ
-jspFMemberComplete.jsp
-ActionFTurnBackPayAction.java
-@@@@GoTopAction.java
-@@@@LogoutAction.java
+ä½œæˆï¼šå°æ—
+jspï¼šMemberComplete.jsp
+Actionï¼šTurnBackPayAction.java
+ã€€ã€€ã€€ã€€GoTopAction.java
+ã€€ã€€ã€€ã€€LogoutAction.java
 
-œA£
+å»£ç€¬
 ----JSP----------------------------------------------------
 Main.jsp
 
@@ -28,23 +28,23 @@ ItemDAO
 SelectItemDAO
 SelectTicketsDAO
 
-¦
+â€»
 (InsertTicketsDAO
  GoCartDAO
  UpdateTicketsDAO)
-¦SelectGoodsAction‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‰»‚³‚ê‚Ä‚¢‚é‚ª
-DAO©‘Ì‚Í•ÒW‚µ‚½‹L‰¯‚È‚µB‚æ‚Á‚ÄA‹@”\‚µ‚Ä‚¢‚é‚©‚Í•s–¾B
+â€»SelectGoodsActionã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã•ã‚Œã¦ã„ã‚‹ãŒ
+DAOè‡ªä½“ã¯ç·¨é›†ã—ãŸè¨˜æ†¶ãªã—ã€‚ã‚ˆã£ã¦ã€æ©Ÿèƒ½ã—ã¦ã„ã‚‹ã‹ã¯ä¸æ˜ã€‚
 
 -----DTO-----------------------------------------------------------
 ItemDTO
 
-¦
+â€»
 (InsertDTO
  GoCartDTO)
-¦‹@”\‚µ‚Ä‚¢‚é‚©‚Í•s–¾B
+â€»æ©Ÿèƒ½ã—ã¦ã„ã‚‹ã‹ã¯ä¸æ˜ã€‚
 
 
-—é–Ø
+éˆ´æœ¨
 LoginNewMemberAction
 LoginMypageAction
 LoginCustomerAction
@@ -53,7 +53,7 @@ LoginDAO.java
 LoginDTO.java
 
 
-“Œ‹½
+æ±éƒ·
 Login.jsp
 Login.css
 
@@ -64,7 +64,7 @@ LoginAdmin.jsp
 LoginAdminAction.java
 
 
-R“c
+å±±ç”°
 
 MyPage.jsp
 
@@ -81,7 +81,7 @@ HistoryDTO
 
 
 
-’†‘º
+ä¸­æ‘
 Admin.jsp
 
 InsertAdminAction.java
@@ -96,13 +96,13 @@ InsertDTO.java
 
 Admin.css
 
-ƒ`ƒF
+ãƒã‚§
 SignUpAction.java
 SignUp.jsp
 InfoDAO.java
 
 
-‚Ù‚è‚¦‚­‚µ‚å‚ñ
+ã»ã‚Šãˆãã—ã‚‡ã‚“
 Completion.jsp
 -GoToMainAction.java
 

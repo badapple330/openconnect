@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+body{
+	background-color: #ebebeb;
+	font-family:'SimHei';
+	color: #4c4c4c;
+	text-align:center;
+}
+article{
+	background-color: white;
+	margin:auto;
+	padding: 20px;
+	width:700px;
+}
+h2{
+	color:black;
+	border-bottom:1px solid;
+	padding:10px;
+	text-align:left;
+}
+p{
+	text-align: center;
+	width: 700px;
+	margin: 10px auto;
+	padding:10px;
+}
+.btn {
+	text-decoration: none;
+	background-color: #fff;
+	border: 2px solid #b3b3b3;
+	color: black;
+	line-height: 30px;
+	    padding:10px 15px;
+
+}
+.btn:hover {
+	background-color: #98c5e9;
+	border-color: #98c5e9;
+	color: #fff;
+}

@@ -1,42 +1,42 @@
-�ς݃t�H���_���@SQL ���@spl��
-�f�[�^�x�[�X��
-ramen��kuruyama
-park��mackeypark
-DAO�̃f�[�^�x�[�X����Y�ꂸ�ɕς���I�I
+済みフォルダ名　SQL →　splに
+データベース名
+ramen→kuruyama
+park→mackeypark
+DAOのデータベース名を忘れずに変える！！
 
 
-�E�S��
-javadoc�G���[������
-packeage.info��K�؂�
-syso����
-�G���[�����̕�����e.printStackTrace();�ŁB
+・全般
+javadocエラー無くす
+packeage.infoを適切に
+syso消す
+エラー処理の文言はe.printStackTrace();で。
 
 
-�EAction
+・Action
 Map<String,Object> session;
-                 ���X�y�[�X
-����SUCCESS,ERROR�ȊO�̒l��Ԃ��Ȃ��B
-�Ԃ��̂͂Ȃ�ׂ�����
-����loginerror���Ԃ��Ȃ�A�������ŁB
+                 ↑スペース
+原則SUCCESS,ERROR以外の値を返さない。
+返すのはなるべく早く
+もしloginerror等返すなら、小文字で。
 
-�G���[���b�Z�[�W�n�̕ϐ���
-�`Message�ɓ���i�`Answer��NG)
-jsp���Y�ꂸ�ɕύX����B
+エラーメッセージ系の変数は
+〜Messageに統一（〜AnswerはNG)
+jspも忘れずに変更する。
 
-DAO�̖߂�l�̕]����K���s���B
-�܂��A������<0�ŁB�}�C�i�X���Ԃ��Ă���\��������B
+DAOの戻り値の評価を必ず行う。
+また、件数は<0で。マイナスが返ってくる可能性もある。
 
 
-�EDAO
-�f�[�^�x�[�X���ύX
-�߂�lvoid��NG
-���\�b�h�̖���
-insertById�Ƃ��i�����Ō�������ꍇ��By������)
+・DAO
+データベース名変更
+戻り値voidはNG
+メソッドの命名
+insertByIdとか（何かで検索する場合はByをつける)
 
-�X�V�n�͖߂�l�����B
-�����n�́Aboolean�������͒l�B
-���o���l�������ꍇ�́ADTO�Ɋi�[���ēn���B
-�������̖ڈ��́H
+更新系は戻り値件数。
+検索系は、booleanもしくは値。
+取り出す値が多い場合は、DTOに格納して渡す。
+↑多いの目安は？
 
 
 

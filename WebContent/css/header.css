@@ -23,11 +23,12 @@
 }
 
 #menuElementGroup{
+	background: #cef;
 	display: none;
     border: #195dbe 1px solid;
     width: 150px;
+    position: absolute;
 }
 
 .menuElement{
-
 }

@@ -14,6 +14,18 @@
 	width: 10em;
 }
 
+.smallWidth{
+	width: 70px;
+}
+
+.middleWidth{
+	width: 100px;
+}
+
+.bigWidth{
+	width: 120px;
+}
+
 #year{
 	display:inline;
 }

@@ -54,6 +54,7 @@
 				</dl>
 				<dl id="menuElementGroup">
 				<dd><a href="ProjectsSelectAction" class="menuElement">プロジェクト一覧</a></dd>
+				<dd><a href="ProjectStatusSelectAction" class="menuElement">プロジェクトリリース状況</a></dd>
 				<dd><a href="ProjectProgressSelectAction" class="menuElement">プロジェクト進捗報告</a></dd>
 				<dd><a href="StudentsSelectAction" class="menuElement">受講生一覧</a></dd>
 				<dd><a href="AttendanceSelectAction" class="menuElement">勤怠更新</a></dd>

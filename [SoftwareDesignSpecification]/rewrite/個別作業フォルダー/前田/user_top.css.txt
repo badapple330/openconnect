@@ -1,0 +1,35 @@
+.button {
+	position: relative;
+	display: inline-block;
+	padding: .9em 4em;
+	background-color: #333;
+	border: 2px solid #333;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	transition: all .3s;
+	border-radius: 25px;
+	width:300px;
+}
+
+.button::after {
+	position: absolute;
+	top: 50%;
+	right: .2em;
+	content: '';
+	margin-top: -5px;
+	border: 7px solid transparent;
+	border-top-width: 5px;
+	border-bottom-width: 5px;
+	border-left-color: #fff;
+	transition: all .3s;
+}
+
+.button:hover {
+	background-color: #fff;
+	color: #333;
+}
+
+.post-contents .button01:hover::after {
+	border-left-color: #333;
+}

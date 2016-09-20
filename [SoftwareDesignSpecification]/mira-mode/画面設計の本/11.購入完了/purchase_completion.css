@@ -1,0 +1,28 @@
+body{
+	background-color: #ebebeb;
+	font-family: 'SimHei' ;
+	color:#4c4c4c;
+
+	text-align: center;
+}
+
+.btn {
+	text-decoration: none;
+	background-color: #fff;
+	border: 2px solid #b3b3b3;
+	color: #b3b3b3;
+	line-height: 50px;
+	    padding: 10px 30px;
+
+}
+.btn:hover {
+	background-color: #98c5e9;
+	border-color: #98c5e9;
+	color: #fff;
+}
+
+article{
+	margin:300px auto;
+	border: 2px solid #4c4c4c;
+	width:500px;
+}
