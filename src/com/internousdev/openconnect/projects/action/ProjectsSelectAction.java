@@ -52,7 +52,6 @@ public class ProjectsSelectAction extends ActionSupport{
 			searchList.get(i).setSubManagerFamilyNameKanji( dto.getSubManagerFamilyNameKanji() );
 	}
 
-System.out.println(4);
 		if (searchList.size() != 0) {
 			result = SUCCESS;
 			resultString = "";

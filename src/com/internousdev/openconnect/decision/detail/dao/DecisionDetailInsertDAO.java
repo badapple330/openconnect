@@ -23,8 +23,6 @@ public class DecisionDetailInsertDAO {
 
 		int count = 0;
 
-		System.out.println(projectId);
-
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 		String sql = "INSERT INTO decision_detail(project_id,password)VALUES(? ,?)";

@@ -50,16 +50,16 @@
 		<br>
 
 		<s:form action="BooksBorrowUpdateAction">
-	書籍のID
+	書籍のIDを入力
 	<br>
 			<input type="text" name="bookId" pattern="[1-9][0-9]*" maxlength="3" title="半角数字3桁以内"
-				required placeholder="ID入力してください">
+				required placeholder="半角数字で入力">
 			<br>
 
-		ユーザーID
+		ユーザーIDを入力
 		 <br>
 			<input type="text" name="borrowId" pattern="[1-9][0-9]*" title="半角数字3桁以内"
-				maxlength="3" placeholder="ユーザーID入力してください">
+				maxlength="3" placeholder="半角数字で入力">
 			<input class="button" type="submit" value="貸し出し">
 			<br>
 		</s:form>

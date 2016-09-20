@@ -31,7 +31,7 @@ public class StudentsSelectDAO {
 		List<StudentsDTO> searchList = new ArrayList<StudentsDTO>();
 
 		try {
-			String sql = "SELECT * FROM users WHERE family_name LIKE '%" + search + "%'";
+			String sql = "SELECT * FROM users WHERE family_name LIKE '%" + search + "%' or given_name LIKE '%" + search + "%'";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();

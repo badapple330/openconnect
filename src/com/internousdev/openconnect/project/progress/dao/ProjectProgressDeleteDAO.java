@@ -31,7 +31,6 @@ public class ProjectProgressDeleteDAO {
 
 		String sql = "delete from project_progress where progress_Id = ?";
 
-		System.out.println(progressId);
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, progressId);
