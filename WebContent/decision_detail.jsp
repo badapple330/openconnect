@@ -31,16 +31,16 @@
 	<table border="1">
 		<tr>
 			<th>ID</th>
-			<th>プロジェクトID</th>
+			<th><div class="smallWidth">プロジェクトID</div></th>
 			<th></th>
-			<th>案件番号</th>
-			<th>プロジェクト名</th>
-			<th>決裁分類</th>
-			<th>申請・承認状況</th>
+			<th><div class="middleWidth">案件番号</div></th>
+			<th><div class="bigWidth">プロジェクト名</div></th>
+			<th><div class="middleWidth">決裁分類</div></th>
+			<th><div class="middleWidth">申請・承認状況</div></th>
 			<th><s:if test="%{#session.userFlg  >= 2}">編集</s:if></th>
 			<th><s:if test="%{#session.userFlg  >= 2}">申請</s:if></th>
 			<th><s:if test="%{#session.userFlg  >= 2}">削除</s:if></th>
-			<th>プレビュー</th>
+			<th><div class="middleWidth">プレビュー</div></th>
 		</tr>
 
 		<s:iterator value="decisionDetailList">

@@ -8,6 +8,20 @@
 	color: #cc0000;
 }
 
+.smallWidth {
+	width: 50px;
+	text-align: center;
+}
+
+.middleWidth {
+	width: 100px;
+	text-align: center;
+}
+
+.bigWidth {
+	width: 130px;
+	text-align: center;
+}
 
 #modal-edit-main {
 	display: none;
@@ -45,9 +59,8 @@
 	z-index: 1;
 }
 
-
-td,th{
-	text-align:center;
+td, th {
+	text-align: center;
 }
 
 .delete {
@@ -62,7 +75,6 @@ body {
 	background-color: #808080;
 }
 
-
 .header {
 	background-color: #ACAFD2;
 	height: 100px;
@@ -75,15 +87,13 @@ body {
 	background-color: #1987E5;
 }
 
-.table{
+.table {
 	border: solid 3px;
 	border-color: black;
 }
 
-
-.right{
-
-	width:100%;
+.right {
+	width: 100%;
 	margin-right: auto;
 }
 
@@ -91,11 +101,11 @@ input {
 	text-align: center;
 }
 
-.projectElement{
-    display: none;
-    z-index: 100;
+.projectElement {
+	display: none;
+	z-index: 100;
 }
 
-#listButton{
-	display:inline;
+#listButton {
+	display: inline;
 }
