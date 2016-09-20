@@ -37,10 +37,10 @@
 			<th>プロジェクト名</th>
 			<th>決裁分類</th>
 			<th>申請・承認状況</th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th><s:if test="%{#session.userFlg  >= 2}">編集</s:if></th>
+			<th><s:if test="%{#session.userFlg  >= 2}">申請</s:if></th>
+			<th><s:if test="%{#session.userFlg  >= 2}">削除</s:if></th>
+			<th>プレビュー</th>
 		</tr>
 
 		<s:iterator value="decisionDetailList">
@@ -97,9 +97,9 @@
 			</tr>
 			<tr>
 				<td><input type="text" name="projectId" pattern="^[0-9]+$"
-					placeholder="半角数字のみ" maxlength=20></td>
+					placeholder="半角数字のみ" maxlength=5 required></td>
 				<td><input type="text" name="password" pattern="^[0-9A-Za-z]+$"
-					placeholder="半角英数字のみ" maxlength=20></td>
+					placeholder="半角英数字のみ" maxlength=20 required></td>
 			</tr>
 		</table>
 		<input type="submit" value="追加">

@@ -28,7 +28,7 @@
 							日付
 							<s:property value="day" />
 						</div> <br> 決裁分類：<s:property value="decisionType" /> <br>
-						起案者：<br> ユーザーID：<s:property value="userId" /><br> 氏名 <s:property
+						起案者：<br> 氏名 <s:property
 							value="familyNameKanji" />
 						<s:property value="givenNameKanji" /> <br> <br> 案件名：<s:property
 							value="itemName" /> <br> <br> 概要： <br> <s:property
