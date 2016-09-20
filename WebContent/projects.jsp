@@ -41,6 +41,8 @@
 	</s:form>
 	<br>
 	<s:property value="%{resultString}" />
+	<s:property value="successMsg" />
+	<s:property value="errorMsg" />
 	<br>
 	<s:form action="ProjectsUpdateAction">
 
@@ -70,32 +72,37 @@
 						<td><s:property value="projectId" /></td>
 
 						<td><input type="text" name="projectNameList" maxlength="100"
-							value="<s:property value="projectName"/>" class="projectNamelist" placeholder="例：rewrite"></td>
+							value="<s:property value="projectName"/>" class="projectNamelist"
+							placeholder="例：rewrite"></td>
 
 						<td><input type="text" name="projectManagerIdList"
 							maxlength="10" value="<s:property value="managerId"/>"
-							class="projectManagerIdlist" placeholder="半角数字で入力"></td>
+							class="projectManagerIdlist" pattern="[1-9][0-9]*"
+							placeholder="半角数字で入力" title="半角数字を入力してください。" required></td>
 
-							<td><s:property value="managerFamilyNameKanji"/>
-						<s:property value="managerGivenNameKanji"/></td>
+						<td><s:property value="managerFamilyNameKanji" /> <s:property
+								value="managerGivenNameKanji" /></td>
 
 						<td><input type="text" name="projectSubManagerIdList"
 							maxlength="10" value="<s:property value="subManagerId"/>"
-							class="projectSubManagerIdlist" placeholder="半角数字で入力"></td>
+							class="projectSubManagerIdlist" pattern="[1-9][0-9]*"
+							placeholder="半角数字で入力" title="半角数字を入力してください。" required></td>
 
-							<td><s:property value="subManagerFamilyNameKanji"/>
-						<s:property value="subManagerGivenNameKanji"/></td>
+						<td><s:property value="subManagerFamilyNameKanji" /> <s:property
+								value="subManagerGivenNameKanji" /></td>
 
 
 						<td><input type="text" name="projectStartDateList"
-							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="（yyyy/MM/dd）で入力して下さい"
-							maxlength="10" value="<s:property value="startDate"/>"
+							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+							title="（yyyy/MM/dd）で入力して下さい" maxlength="10"
+							value="<s:property value="startDate"/>"
 							class="projectStartDatelist" placeholder="例：2016/08/06"></td>
 
 						<td><input type="text" name="projectEndDateList"
-							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="（yyyy/MM/dd）で入力して下さい"
-							maxlength="10" value="<s:property value="endDate"/>"
-							class="projectEnddatelist" placeholder="例：2016/08/10"></td>
+							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+							title="（yyyy/MM/dd）で入力して下さい" maxlength="10"
+							value="<s:property value="endDate"/>" class="projectEnddatelist"
+							placeholder="例：2016/08/10"></td>
 
 						<td><input type="text" name="projectNoteList" maxlength="100"
 							value="<s:property value="note"/>" class="projectNotelist"></td>
@@ -115,8 +122,8 @@
 	</s:form>
 	<br>
 	<s:if test="%{#session.userFlg >= 2}">
-	<s:form action="ProjectsInsertAction">
-		<table border="1">
+		<s:form action="ProjectsInsertAction">
+			<table border="1">
 
 				<tr>
 
@@ -132,20 +139,22 @@
 					<td><input type="text" name="projectName"
 						placeholder="例：rewrite" maxlength=100 title="" required></td>
 
-					<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"  name="managerId"
-						placeholder="半角数字で入力" maxlength="10" required></td>
+					<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
+						name="managerId" placeholder="半角数字で入力" maxlength="10" required></td>
 
-					<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ" name="subManagerId"
-					 placeholder="半角数字で入力" maxlength="10"required></td>
-					<td><input type="text"pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="（yyyy/MM/dd）で入力して下さい"name="startDate"
-					placeholder="例：2016/08/30" maxlength="10" required></td>
+					<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
+						name="subManagerId" placeholder="半角数字で入力" maxlength="10" required></td>
+					<td><input type="text"
+						pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+						title="（yyyy/MM/dd）で入力して下さい" name="startDate"
+						placeholder="例：2016/08/30" maxlength="10" required></td>
 				</tr>
-		</table>
+			</table>
 
 			<input class="button" type="submit" value="追加">
-	</s:form>
+		</s:form>
 		<br>
-		<input type = "button" value = "＋受講生一覧を開く" id="listButton">
+		<input type="button" value="＋受講生一覧を開く" id="listButton">
 		<div id="studentsElement">
 			<table border="1">
 				<tr>
