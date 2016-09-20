@@ -34,7 +34,7 @@
 
 
 	<s:form action="ProjectsSelectAction">
-		プロジェクトIDを入力<br>
+		プロジェクト名を入力<br>
 		<input type="text" maxlength="100" name="search"
 			placeholder="例：rewrite">
 		<input type="submit" value="検索する">
