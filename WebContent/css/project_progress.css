@@ -1,5 +1,19 @@
 @CHARSET "UTF-8";
 
+.textInt {
+	text-align: center;
+	width: 2em;
+}
+
+.textDate {
+	text-align: center;
+	width: 8em;
+}
+
+.textString {
+	width: 10em;
+}
+
 td{
 	text-align:center;
 }

@@ -33,17 +33,17 @@
 			<tbody id="list_body">
 				<tr>
 					<th></th>
-					<th>プロジェクトID</th>
-					<th>日付</th>
-					<th>プロジェクト名</th>
-					<th>進捗予定</th>
-					<th>進捗結果</th>
-					<th>その他報告</th>
-					<th>リーダーID</th>
-					<th>サブリーダーID</th>
-					<th>開始日</th>
-					<th>終了日</th>
-					<th>メモ</th>
+					<th><div class="textInt">プロジェクトID</div></th>
+					<th><div class="textDate">日付</div></th>
+					<th><div class="textString">プロジェクト名</div></th>
+					<th><div class="textString">進捗予定</div></th>
+					<th><div class="textString">進捗結果</div></th>
+					<th><div class="textString">その他報告</div></th>
+					<th><div class="textInt">リーダーID</div></th>
+					<th><div class="textInt">サブリーダーID</div></th>
+					<th><div class="textDate">開始日</div></th>
+					<th><div class="textDate">終了日</div></th>
+					<th><div class="textDate">メモ</div></th>
 				</tr>
 				<s:iterator value="searchList">
 					<tr>
