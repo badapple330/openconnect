@@ -22,10 +22,10 @@
 		<table border="1">
 			<tr>
 				<td>id</td>
-				<td>タイトル</td>
-				<td>貸し出し状況</td>
-				<td>日付</td>
-				<td>ユ ーザーID</td>
+				<td><div class="bigWidth">タイトル</div></td>
+				<td><div class="middleWidth">貸し出し状況</div></td>
+				<td><div class="middleWidth">日付</div></td>
+				<td><div class="smallWidth">ユ ーザーID</div></td>
 			</tr>
 			<s:iterator value="bookList">
 				<tr>

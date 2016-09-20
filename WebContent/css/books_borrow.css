@@ -19,3 +19,14 @@ text-align: center;
 input {
 	text-align: center;
 }
+.smallWidth{
+	width: 70px;
+}
+
+.middleWidth{
+	width: 100px;
+}
+
+.bigWidth{
+	width: 500px;
+}
