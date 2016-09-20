@@ -31,7 +31,7 @@
 日付を入力(入力必須)<input type="text" name="attendanceDate" placeholder="例：2016/08/19" class="textString" maxlength="10" value="2016/" required>
 		<br>
 		<br>
-性を入力(ひらがな)<input type = "text" name="familyName" placeholder="例：いとう" class="textString" maxlength="50">
+姓を入力(ひらがな)<input type = "text" name="familyName" placeholder="例：いとう" class="textString" maxlength="50">
 
 名を入力(ひらがな)<input type = "text" name="givenName" placeholder="例：ふみふみ" class="textString" maxlength="50">
 		<br>

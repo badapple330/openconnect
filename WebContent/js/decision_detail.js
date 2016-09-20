@@ -108,7 +108,7 @@ $(function(){
 	});
 });
 
-
+// リスト
 $(function(){
 
 	var listButton = $('#listButton');

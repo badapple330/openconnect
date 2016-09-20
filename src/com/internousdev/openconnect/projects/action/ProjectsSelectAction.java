@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
 import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
+import com.internousdev.openconnect.students.dao.StudentsSelectDAO;
+import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -30,7 +32,15 @@ public class ProjectsSelectAction extends ActionSupport{
 	 */
 	private String resultString = "該当する情報は存在しません";
 
+	/**
+	 * 検索リスト
+	 */
 	private List<ProjectsSelectDTO > searchList = new ArrayList<ProjectsSelectDTO>();
+
+	/**
+	 * 受講生リスト
+	 */
+	private List<StudentsDTO> studentsList = new ArrayList<StudentsDTO>();
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -50,13 +60,17 @@ public class ProjectsSelectAction extends ActionSupport{
 			dto = dao.selectId(searchList.get(i).getSubManagerId());
 			searchList.get(i).setSubManagerGivenNameKanji( dto.getSubManagerGivenNameKanji() );
 			searchList.get(i).setSubManagerFamilyNameKanji( dto.getSubManagerFamilyNameKanji() );
-	}
+		}
 
 		if (searchList.size() != 0) {
 			result = SUCCESS;
 			resultString = "";
 
 		}
+
+		StudentsSelectDAO selectDao = new StudentsSelectDAO();
+		studentsList = selectDao.select("");
+
 		return result;
 	}
 	/**
@@ -112,36 +126,60 @@ public class ProjectsSelectAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド 検索結果文字を取得
-	* @author YUICHI KIRIU
-	* @return resultString
-	*/
+	 * 取得メソッド 検索結果文字を取得
+	 * @author YUICHI KIRIU
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 	/**
-	* 設定メソッド 検索結果文字を設定
-	* @author YUICHI KIRIU
-	* @param resultString
-	*/
+	 * 設定メソッド 検索結果文字を設定
+	 * @author YUICHI KIRIU
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
 	/**
-	* 取得メソッド 検索リストを取得
-	* @author TATUHUMI ITOU
-	* @return searchList
-	*/
+	 * 取得メソッド 検索リストを取得
+	 * @author TATUHUMI ITOU
+	 * @return searchList
+	 */
 	public List<ProjectsSelectDTO> getSearchList() {
 		return searchList;
 	}
 	/**
-	* 設定メソッド 検索リストを設定
-	* @author TATUHUMI ITOU
-	* @param searchList
-	*/
+	 * 設定メソッド 検索リストを設定
+	 * @author TATUHUMI ITOU
+	 * @param searchList
+	 */
 	public void setSearchList(List<ProjectsSelectDTO> searchList) {
 		this.searchList = searchList;
+	}
+	/**
+	* 取得メソッド 受講生リストを取得
+	* @author TATUHUMI ITOU
+	* @return studentsList
+	*/
+	public List<StudentsDTO> getStudentsList() {
+		return studentsList;
+	}
+	/**
+	* 設定メソッド 受講生リストを設定
+	* @author TATUHUMI ITOU
+	* @param studentsList
+	*/
+	public void setStudentsList(List<StudentsDTO> studentsList) {
+		this.studentsList = studentsList;
+	}
+	/**
+	* 取得メソッド シリアル番号を取得
+	* @author TATUHUMI ITOU
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 

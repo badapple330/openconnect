@@ -114,6 +114,7 @@
 		</s:if>
 	</s:form>
 	<br>
+	<s:if test="%{#session.userFlg >= 2}">
 	<s:form action="ProjectsInsertAction">
 		<table border="1">
 
@@ -141,10 +142,35 @@
 				</tr>
 		</table>
 
-		<s:if test="%{#session.userFlg >= 2}">
 			<input class="button" type="submit" value="追加">
-		</s:if>
 	</s:form>
+		<br>
+		<input type = "button" value = "＋受講生一覧を開く" id="listButton">
+		<div id="studentsElement">
+			<table border="1">
+				<tr>
+					<th>ユーザーID</th>
+					<th>姓(英語)</th>
+					<th>名(英語)</th>
+					<th>姓(漢字)</th>
+					<th>姓(かな)</th>
+					<th>名(漢字)</th>
+					<th>名(かな)</th>
+				</tr>
+				<s:iterator value="studentsList">
+					<tr>
+						<td><s:property value="userId" /></td>
+						<td><s:property value="familyName" /></td>
+						<td><s:property value="givenName" /></td>
+						<td><s:property value="familyNameKanji" /></td>
+						<td><s:property value="familyNameKana" /></td>
+						<td><s:property value="givenNameKanji" /></td>
+						<td><s:property value="givenNameKana" /></td>
+					</tr>
+				</s:iterator>
+			</table>
+		</div>
+	</s:if>
 
 
 	<div id="modal-main">

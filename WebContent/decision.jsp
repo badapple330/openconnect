@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>決済状況一覧</title>
+<title>決裁状況一覧</title>
 
 
 <link rel="stylesheet" href="css/decision.css">

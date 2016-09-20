@@ -150,3 +150,22 @@ $(function() {
 	});
 	draw();
 });
+
+//リスト
+$(function(){
+
+	var listButton = $('#listButton');
+	var studentsElement = $('#studentsElement');
+
+	listButton.click(function(event){
+
+		if( studentsElement.css('display') == 'none' ){
+
+			studentsElement.slideDown();
+			listButton.val('－受講生一覧を閉じる');
+		}else{
+			studentsElement.slideUp();
+			listButton.val('＋受講生一覧を開く');
+		}
+	});
+});
