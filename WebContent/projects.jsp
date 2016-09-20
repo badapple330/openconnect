@@ -232,18 +232,7 @@
 	<br>
 	<br>
 	<br>
-	<!-- ページ表示 -->
-	<div id="pager">
-		<div id="page_ctrl">
-			<ul id="page_before">
-				<li id="page_prev">prev</li>
-			</ul>
-			<ul id="page_number"></ul>
-			<ul id="page_after">
-				<li id="page_next">next</li>
-			</ul>
-		</div>
-	</div>
+
 	<br>
 	<br>
 	<br>
