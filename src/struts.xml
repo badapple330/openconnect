@@ -404,8 +404,12 @@
 		<action name="ScheduleDeleteAction"
 			class="com.internousdev.openconnect.schedule.action.ScheduleDeleteAction"
 			method="execute">
-			<result name="success" type="chain">ScheduleSelectAction</result>
-			<result name="error" type="chain">ScheduleSelecActiont</result>
+						<!-- デフォルトinterceptor -->
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">ScheduleSelectAction</result>
+			<result type="chain">ScheduleSelectAction</result>
 		</action>
 
 
