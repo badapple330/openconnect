@@ -34,128 +34,133 @@
 		<s:property value="notLoginMsg" />
 
 
+		<s:if test="%{#session.userFlg < 1}">
+			ログイン後に表示します。
+		</s:if>
+		<s:if test="%{#session.userFlg >= 1}">
+			<s:form action="ScheduleSelectAction">
+				<input type="text" name="search" placeholder="件名を入力" maxlength=100 />
+				<s:submit value="検索"></s:submit>
+			</s:form>
+			<br>
 
-		<s:form action="ScheduleSelectAction">
-			<input type="text" name="search" placeholder="件名を入力" maxlength=100 />
-			<s:submit value="検索"></s:submit>
-		</s:form>
-		<br>
-
-		<s:property value="successMsg" />
-		<s:property value="errorMsg" />
-		<s:property value="selectSuccessMsg" />
-		<s:property value="selectErrorMsg" />
-		<s:form action="ScheduleUpdateAction">
-			<table border=1 style="">
-				<tbody>
-					<tr>
-						<th>ID</th>
-						<th>開始日（yyyy/MM/dd）</th>
-						<th>終了日（yyyy/MM/dd）</th>
-						<th>件名</th>
-						<th>内容</th>
-						<th></th>
-					</tr>
-
-					<s:iterator value="scheduleList">
+			<s:property value="successMsg" />
+			<s:property value="errorMsg" />
+			<s:property value="selectSuccessMsg" />
+			<s:property value="selectErrorMsg" />
+			<s:form action="ScheduleUpdateAction">
+				<table border=1 style="">
+					<tbody>
 						<tr>
-							<td><s:property value="id" /></td>
-							<td><input type="text" name="scheduleStartdayList"
-								value="<s:property value="startDay" />"
-								class="scheduleStartdayList" type="date"
-								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-								title="yyyy/MM/ddで入力してください。" placeholder="開始日を入力" required></td>
-							<td><input type="text" name="scheduleEnddayList"
-								value="<s:property value="endDay" />" class="scheduleEnddayList"
-								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-								title="yyyy/MM/ddで入力してください。" placeholder="終了日を入力"></td>
-							<td><input type="text" name="scheduleTitleList"
-								value="<s:property value="title" />" class="scheduleTitleList"
-								placeholder="件名を入力" maxlength=100 required></td>
-							<td><input type="text" name="scheduleContentList"
-								value="<s:property value="content" />"
-								class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
-							<td><s:if test="%{#session.userFlg >= 2}">
-									<input type="button" class="button modal-open" value="削除" />
-								</s:if></td>
+							<th>ID</th>
+							<th>開始日（yyyy/MM/dd）</th>
+							<th>終了日（yyyy/MM/dd）</th>
+							<th>件名</th>
+							<th>内容</th>
+							<th></th>
 						</tr>
-						<input type="hidden" name="scheduleIdList"
-							value="<s:property value="id" />" class="scheduleIdList">
-					</s:iterator>
-				</tbody>
-			</table>
-			<s:if test="%{#session.userFlg >= 2}">
-				<button type="submit" class="button">編集</button>
-			</s:if>
-		</s:form>
 
-		<br> 開始日は今日の日付が自動で入力されます。
-		<s:form action="ScheduleInsertAction">
-			<table border=1 style="">
-				<tbody>
-					<tr>
-						<td>件名</td>
-						<td>内容</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><input type="text" name="title" placeholder="件名を入力"
-							maxlength=100 required></td>
-						<td><input type="text" name="content" placeholder="内容を入力"
-							maxlength=100></td>
-						<!-- tokenタグ -->
-						<s:if test="%{#session.userFlg >= 2}">
-							<s:token />
-							<td><button type="submit" class="button" name="startDay">追加</button></td>
-						</s:if>
-					</tr>
-				</tbody>
-			</table>
-		</s:form>
-
-
-		<div id="modal-main">
-			<!-- #contents START -->
-			<div id="modal-style">
-				<table class="modal_border">
-
-					<tr>
-						<td>開始日
-							<div class="delete-startday modalDelete"></div>
-						</td>
-					</tr>
-					<tr>
-						<td>終了日
-							<div class="delete-endday modalDelete"></div>
-						</td>
-					</tr>
-					<tr>
-						<td>件名
-							<div class="delete-title modalDelete"></div>
-						</td>
-					</tr>
-					<tr>
-						<td>内容
-							<div class="delete-content modalDelete"></div>
-						</td>
-					</tr>
+						<s:iterator value="scheduleList">
+							<tr>
+								<td><s:property value="id" /></td>
+								<td><input type="text" name="scheduleStartdayList"
+									value="<s:property value="startDay" />"
+									class="scheduleStartdayList" type="date"
+									pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+									title="yyyy/MM/ddで入力してください。" placeholder="開始日を入力" required></td>
+								<td><input type="text" name="scheduleEnddayList"
+									value="<s:property value="endDay" />"
+									class="scheduleEnddayList"
+									pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
+									title="yyyy/MM/ddで入力してください。" placeholder="終了日を入力"></td>
+								<td><input type="text" name="scheduleTitleList"
+									value="<s:property value="title" />" class="scheduleTitleList"
+									placeholder="件名を入力" maxlength=100 required></td>
+								<td><input type="text" name="scheduleContentList"
+									value="<s:property value="content" />"
+									class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
+								<td><s:if test="%{#session.userFlg >= 2}">
+										<input type="button" class="button modal-open" value="削除" />
+									</s:if></td>
+							</tr>
+							<input type="hidden" name="scheduleIdList"
+								value="<s:property value="id" />" class="scheduleIdList">
+						</s:iterator>
+					</tbody>
 				</table>
-				<input type="button" class="delete-true button" value="削除">
-				<input type="button" class="modal-close button" value="閉じる">
+				<s:if test="%{#session.userFlg >= 2}">
+					<button type="submit" class="button">編集</button>
+				</s:if>
+			</s:form>
 
-				<div class="delete-prepare">
-					<p>本当に削除しますか。</p>
-					<s:form action="ScheduleDeleteAction">
-						<input type="hidden" name="scheduleId" value=""
-							class="true-delete">
+			<br> 開始日は今日の日付が自動で入力されます。
+		<s:form action="ScheduleInsertAction">
+				<table border=1 style="">
+					<tbody>
+						<tr>
+							<td>件名</td>
+							<td>内容</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><input type="text" name="title" placeholder="件名を入力"
+								maxlength=100 required></td>
+							<td><input type="text" name="content" placeholder="内容を入力"
+								maxlength=100></td>
+							<!-- tokenタグ -->
+							<s:if test="%{#session.userFlg >= 2}">
+								<s:token />
+								<td><button type="submit" class="button" name="startDay">追加</button></td>
+							</s:if>
+						</tr>
+					</tbody>
+				</table>
+			</s:form>
+
+
+			<div id="modal-main">
+				<!-- #contents START -->
+				<div id="modal-style">
+					<table class="modal_border">
+
+						<tr>
+							<td>開始日
+								<div class="delete-startday modalDelete"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>終了日
+								<div class="delete-endday modalDelete"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>件名
+								<div class="delete-title modalDelete"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>内容
+								<div class="delete-content modalDelete"></div>
+							</td>
+						</tr>
+					</table>
+					<input type="button" class="delete-true button" value="削除">
+					<input type="button" class="modal-close button" value="閉じる">
+
+					<div class="delete-prepare">
+						<p>本当に削除しますか。</p>
+						<s:form action="ScheduleDeleteAction">
+							<input type="hidden" name="scheduleId" value=""
+								class="true-delete">
 							<s:token />
-						<input type="submit" class="delete-true button" value="はい">
-						<input type="button" class="modal-close button" value="いいえ">
-					</s:form>
+							<input type="submit" class="delete-true button" value="はい">
+							<input type="button" class="modal-close button" value="いいえ">
+						</s:form>
 
+					</div>
 				</div>
 			</div>
-		</div>
+		</s:if>
 		<br>
 		<s:form action="GetAddressAction">
 			<button type="submit" class="button">戻る</button>
