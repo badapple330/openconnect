@@ -43,6 +43,8 @@
 
 		<s:property value="successMsg" />
 		<s:property value="errorMsg" />
+		<s:property value="selectSuccessMsg" />
+		<s:property value="selectErrorMsg" />
 		<s:form action="ScheduleUpdateAction">
 			<table border=1 style="">
 				<tbody>

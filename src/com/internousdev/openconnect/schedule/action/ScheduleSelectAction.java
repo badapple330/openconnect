@@ -32,12 +32,16 @@ public class ScheduleSelectAction extends ActionSupport {
 	 * @author MASAHIRO KEDSUKA
 	 */
 	private String search = "";
-
+	/**
+	 *成功メッセージ
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String selectSuccessMsg;
 	/**
 	 *エラーメッセージ
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private String errorMsg;
+	private String selectErrorMsg;
 
 	/**
 	 * 検索の実行メソッド
@@ -49,10 +53,12 @@ public class ScheduleSelectAction extends ActionSupport {
 
 		scheduleList = dao.select(search);
 		if (scheduleList.size() != 0) {
-			//			success_msg = (getText("「"+search+"」を検索しました。"));
+			if(search.equals("")){
+				selectSuccessMsg ="すべてを表示しました。";
+			}else{selectSuccessMsg = (getText("「"+search+"」を検索しました。"));}
 			result = SUCCESS;
 		} else {
-			errorMsg = (getText("データがありません"));
+			selectErrorMsg = (getText("該当する情報は存在しません"));
 		}
 		return result;
 	}
@@ -98,23 +104,46 @@ public class ScheduleSelectAction extends ActionSupport {
 	}
 
 
+
+
+
+	/**
+	 * 取得メソッド 成功メッセージを取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return selectSuccessMsg
+	 */
+	public String getSelectSuccessMsg() {
+		return selectSuccessMsg;
+	}
+
+
+	/**
+	 * 設定メソッド 成功メッセージを設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param selectSuccessMsg
+	 */
+	public void setSelectSuccessMsg(String selectSuccessMsg) {
+		this.selectSuccessMsg = selectSuccessMsg;
+	}
+
+
 	/**
 	 * 取得メソッド エラーメッセージを取得
 	 * @author MASAHIRO KEDSUKA
-	 * @return errorMsg
+	 * @return selectErrorMsg
 	 */
-	public String getErrorMsg() {
-		return errorMsg;
+	public String getSelectErrorMsg() {
+		return selectErrorMsg;
 	}
 
 
 	/**
 	 * 設定メソッド エラーメッセージを設定
 	 * @author MASAHIRO KEDSUKA
-	 * @param errorMsg
+	 * @param selectErrorMsg
 	 */
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
+	public void setSelectErrorMsg(String selectErrorMsg) {
+		this.selectErrorMsg = selectErrorMsg;
 	}
 
 
