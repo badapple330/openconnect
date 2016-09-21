@@ -19,6 +19,8 @@
 	<div class="container">
 
 	<h1>勤怠更新</h1>
+
+	<s:if test="%{#session.userFlg >= 1}">
 	<br>
 	<br>
 	<s:form action="AttendanceSelectAction">
@@ -40,8 +42,10 @@
 	</s:form>
 	<br>
 	<s:property value="%{resultString}" />
-	<s:if test="%{#session.userFlg == 3}">
+	<s:property value="%{resultSelect" />
 	<br>
+	<s:if test="%{attendanceList.size() > 0}">
+	<s:if test="%{#session.userFlg == 3}">
 	<table border="1">
 		<tr>
 			<td><div class="smallWidth">0</div></td>
@@ -76,7 +80,6 @@
 	<br>
 	<s:form action="AttendanceUpdateAction">
 		<table class="list" border="1">
-			<s:if test="attendanceList.size() > 0">
 				<tr>
 					<th>日付</th>
 					<th>ID</th>
@@ -89,7 +92,6 @@
 					<th><div class="smallWidth">面談</div></th>
 					<th><div class="smallWidth">面談入力</div></th>
 				</tr>
-			</s:if>
 			<s:else>
 				<s:property value="%{errorSelect}" />
 			</s:else>
@@ -115,6 +117,7 @@
 		<s:submit value="更新" class="button" align="left"/>
 		</s:if>
 	</s:form>
+	</s:if>
 	<br>
 	<s:if test="%{#session.userFlg == 3}">
 	<h1>受講生の勤怠データ追加</h1>
@@ -128,9 +131,6 @@
 	</s:if>
 	<br>
 	<br>
-	<s:form action="GetAddressAction">
-		<s:submit value="戻る" class="button" />
-	</s:form>
 
 	<!-- 		追加モーダル -->
 	<div id="modal-main">
@@ -148,6 +148,15 @@
 		</s:form>
 		<input type="button" class="modal-close button" value="閉じる">
 	</div>
+
+	</s:if>
+	<s:else>
+	ログイン後に表示します。
+	</s:else>
+
+	<s:form action="GetAddressAction">
+		<s:submit value="戻る" class="button" />
+	</s:form>
 
 	</div>
 </body>

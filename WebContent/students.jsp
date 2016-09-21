@@ -16,9 +16,11 @@
 <jsp:include page="header.jsp" />
 
 <div class="container">
-<s:if test="%{#session.userFlg >= 1}">
 
 <h1>受講生一覧</h1>
+
+<s:if test="%{#session.userFlg >= 1}">
+
 <s:form action="StudentsSelectAction">
 	英語で姓か名を入力<br>
    <input type="text" name="searchString" pattern="[A-Za-z]*" maxlength="30" title="半角英語のみ" placeholder="例：taro">
@@ -28,9 +30,12 @@
 <s:property value="%{resultString}" />
 <s:property value="%{resultSelect}" />
 <br>
+<s:if test="%{studentsList.size() > 0}">
+
+	ユーザーフラグ：　1=一般　2=リーダー権限　3=講師権限
   <table border="1">
      <tr>
-	<s:if test="%{studentsList.size() > 0}">
+
       <th><div class="smallWidth">ID</div></th>
       <th><div class="smallWidth">受講年</div></th>
       <th><div class="bigWidth">受講開始月</div></th>
@@ -57,7 +62,6 @@
        <th><div class="bigWidth">パスワード</div></th>
        <th><div class="smallWidth">編集</div></th>
        <th><div class="smallWidth">削除</div></th>
-      </s:if>
       </s:if>
      </tr>
 
@@ -124,7 +128,7 @@
 		<input type="hidden" name="userIdList" value="<s:property value="userId" />" class="userId" >
 </s:iterator>
 </table>
-
+</s:if>
 	<div id="modal-deleteMain">
 			id ： <div class="deleteUserId modalString"></div><br>
 			受講年 ： <div class="deleteYear modalString"></div><br>
@@ -181,48 +185,47 @@
 			<input type="button" class="modal-close button" value="閉じる">
 	</div>
 
-<s:if test="%{#session.userFlg == 3}">
-<h2>新規受講生追加</h2>
- <s:form action="StudentsInsertAction" >
- 	<table border=1>
- 	<tr>
- 	<td>受講年</td>
- 	<td>受講開始月</td>
- 	<td>姓(英語)</td>
- 	<td>名(英語)</td>
- 	<td>姓(漢字)</td>
- 	<td>名(漢字)</td>
- 	<td>メールアドレス</td>
- 	<td>性別</td>
- 	<td>ユーザーフラグ</td>
- 	<td>パスワード</td>
- 	</tr>
- 	<tr>
-      <td><input type="text" name="year" placeholder="例：2016" pattern="([0-3][0-9][0-9][0-9])" title="半角数字4文字" maxlength="4" required></td>
-      <td><input type="text" name="month" placeholder="例：08" pattern="([0-1][0-9])" title="半角数字2文字"  maxlength="2" required></td>
-      <td><input type="text" name="familyName"placeholder="例：tanaka" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td>
-      <td><input type="text" name="givenName" placeholder="例：taro" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td>
-      <td><input type="text" name="familyNameKanji"placeholder="例：田中" maxlength="20" required></td>
-      <td><input type="text" name="givenNameKanji" placeholder="例：太郎" maxlength="20" required></td>
-      <td><input type="text" name="phoneEmail" placeholder="例：example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100" required></td>
-      <td><input type="text" name="sex" placeholder="男or女" pattern="[男女]+$" title="男か女" maxlength="3" required></td>
-      <td><input type="text" name="userFlg" placeholder="1～3" pattern="[1-3]" title="1～3" maxlength="1" required></td>
-      <td><input type="text" name="password" placeholder="8桁以上" pattern="^([0-9A-Za-z]{8,})" title="半角英数字8文字以上20文字以内" maxlength="20" required></td>
-		</tr>
-      </table>
-      <input class="button" type="submit" value="追加">
-</s:form>
-</s:if>
+<%-- <s:if test="%{#session.userFlg == 3}"> --%>
+<!-- <h2>新規受講生追加</h2> -->
+<%--  <s:form action="StudentsInsertAction" > --%>
+<!--  	<table border=1> -->
+<!--  	<tr> -->
+<!--  	<td>受講年</td> -->
+<!--  	<td>受講開始月</td> -->
+<!--  	<td>姓(英語)</td> -->
+<!--  	<td>名(英語)</td> -->
+<!--  	<td>姓(漢字)</td> -->
+<!--  	<td>名(漢字)</td> -->
+<!--  	<td>メールアドレス</td> -->
+<!--  	<td>性別</td> -->
+<!--  	<td>ユーザーフラグ</td> -->
+<!--  	<td>パスワード</td> -->
+<!--  	</tr> -->
+<!--  	<tr> -->
+<!--       <td><input type="text" name="year" placeholder="例：2016" pattern="([0-3][0-9][0-9][0-9])" title="半角数字4文字" maxlength="4" required></td> -->
+<!--       <td><input type="text" name="month" placeholder="例：08" pattern="([0-1][0-9])" title="半角数字2文字"  maxlength="2" required></td> -->
+<!--       <td><input type="text" name="familyName"placeholder="例：tanaka" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td> -->
+<!--       <td><input type="text" name="givenName" placeholder="例：taro" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td> -->
+<!--       <td><input type="text" name="familyNameKanji"placeholder="例：田中" maxlength="20" required></td> -->
+<!--       <td><input type="text" name="givenNameKanji" placeholder="例：太郎" maxlength="20" required></td> -->
+<!--       <td><input type="text" name="phoneEmail" placeholder="例：example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100" required></td> -->
+<!--       <td><input type="text" name="sex" placeholder="男or女" pattern="[男女]+$" title="男か女" maxlength="3" required></td> -->
+<!--       <td><input type="text" name="userFlg" placeholder="1～3" pattern="[1-3]" title="1～3" maxlength="1" required></td> -->
+<!--       <td><input type="text" name="password" placeholder="8桁以上" pattern="^([0-9A-Za-z]{8,})" title="半角英数字8文字以上20文字以内" maxlength="20" required></td> -->
+<!-- 		</tr> -->
+<!--       </table> -->
+<!--       <input class="button" type="submit" value="追加"> -->
+<%-- </s:form> --%>
+<%-- </s:if> --%>
 <br>
 <br>
-
+		</s:if>
+		<s:else>
+		ログイン後に表示します。
+		</s:else>
 		<s:form action="GetAddressAction">
 			<button type="submit" class="button">戻る</button>
 		</s:form>
-</s:if>
-<s:else>
-ログイン後に表示します。
-</s:else>
 </div>
 <br>
 </body>

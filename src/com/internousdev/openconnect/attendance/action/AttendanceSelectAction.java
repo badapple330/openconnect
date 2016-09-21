@@ -48,7 +48,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	/**
 	 * 結果文字
 	 */
-	private String resultString = "";
+	private String resultSelect = "該当する情報はありません。";
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -66,6 +66,7 @@ public class AttendanceSelectAction extends ActionSupport{
 		if( attendanceList.size() != 0 ){
 
 			result = SUCCESS;
+			resultSelect = "検索結果を表示しました。";
 		}
 
 		return result;
@@ -191,19 +192,19 @@ public class AttendanceSelectAction extends ActionSupport{
 	/**
 	* 取得メソッド 結果文字を取得
 	* @author MINORI SUNAGAWA
-	* @return resultString
+	* @return resultSelect
 	*/
 	public String getResultString() {
-		return resultString;
+		return resultSelect;
 	}
 
 	/**
 	* 設定メソッド 結果文字を設定
 	* @author MINORI SUNAGAWA
-	* @param resultString
+	* @param resultSelect
 	*/
-	public void setResultString(String resultString) {
-		this.resultString = resultString;
+	public void setResultString(String resultSelect) {
+		this.resultSelect = resultSelect;
 	}
 
 

@@ -200,6 +200,13 @@
 		</action>
 
 		<!-- 勤怠一覧を表示するためのアクション -->
+		<action name="GoAttendanceAction"
+			class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">attendance.jsp</result>
+			<result name="error">/attendance.jsp</result>
+		</action>
+
 		<action name="AttendanceSelectAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
 			method="execute">

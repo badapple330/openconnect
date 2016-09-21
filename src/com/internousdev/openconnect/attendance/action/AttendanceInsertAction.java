@@ -46,7 +46,7 @@ public class AttendanceInsertAction extends ActionSupport{
 	/**
 	 * 結果文字
 	 */
-	private String resultString = "";
+	private String resultString = "追加に失敗しました。";
 
 	/**
 	 * 実行メソッド 勤怠管理のDB

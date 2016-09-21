@@ -57,7 +57,7 @@
 				<dd><a href="ProjectStatusSelectAction" class="menuElement">プロジェクトリリース状況</a></dd>
 				<dd><a href="ProjectProgressSelectAction" class="menuElement">プロジェクト進捗報告</a></dd>
 				<dd><a href="StudentsSelectAction" class="menuElement">受講生一覧</a></dd>
-				<dd><a href="AttendanceSelectAction" class="menuElement">勤怠更新</a></dd>
+				<dd><a href="GoAttendanceAction" class="menuElement">勤怠更新</a></dd>
 				<dd><a href="DecisionSelectAction" class="menuElement">決裁一覧状況</a></dd>
 				<dd><a href="DecisionDetailSelectAction" class="menuElement">決裁手続き</a></dd>
 				<s:if test="%{#session.userFlg  >= 2}">
