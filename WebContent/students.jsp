@@ -45,7 +45,7 @@
       <th><div class="bigWidth">姓(ふりがな)</div></th>
       <th><div class="smallWidth">名(漢字)</div></th>
       <th><div class="bigWidth">名(ふりがな)</div></th>
-       <s:if test="%{#session.userFlg == 3}">
+       <s:if test="%{#session.userFlg == 100}">
       <th><div class="bigWidth">郵便番号</div></th>
       <th><div class="smallWidth">住所</div></th>
       <th><div class="bigWidth">電話番号</div></th>
@@ -77,7 +77,7 @@
       <td><input type="text" name="familyNameKanaList" value="<s:property value="familyNameKana" />" class="familyNameKana maxText" maxlength="20"></td>
       <td><input type="text" name="givenNameKanjiList" value="<s:property value="givenNameKanji" />" class="givenNameKanji maxText" maxlength="20" required></td>
       <td><input type="text" name="givenNameKanaList" value="<s:property value="givenNameKana" />" class="givenNameKana maxText" maxlength="20"></td>
-      <s:if test="%{#session.userFlg == 3}">
+      <s:if test="%{#session.userFlg == 100}">
       <td><input type="text" name="postalList" value="<s:property value="postal" />" placeholder="半角数字7桁" class="postal maxText" pattern="[0-9]*" title="ハイフン無しで半角数字7桁" maxlength="7"></td>
       <td><input type="text" name="addressList" value="<s:property value="address" />" class="address maxText" maxlength="100"></td>
       <td><input type="text" name="phoneNumberList" value="<s:property value="phoneNumber" />" placeholder="半角数字" class="phoneNumber maxText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内" maxlength="20"></td>

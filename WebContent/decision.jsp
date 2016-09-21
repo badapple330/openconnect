@@ -24,9 +24,6 @@
 	<header><jsp:include page="header.jsp" /></header>
 
 	<div class="container">
-	<s:if test="%{#session.userFlg < 1}">
-	ログイン後に表示します。
-	</s:if>
 
 	<s:if test="%{#session.userFlg >= 1}">
 
@@ -183,14 +180,14 @@
 			</table>
 
 			<br>
-			<center><s:if test="%{#session.userFlg >= 2}">
+			<center><s:if test="%{#session.userFlg >= 50}">
 				<input type="submit" value="編集" class="button">
 			</s:if>
 			</center>
 		</s:form>
 		<br>
 
-		<s:if test="%{#session.userFlg >= 2}">
+		<s:if test="%{#session.userFlg >= 50}">
 			<div id="btna">＋ ユーザー一覧を表示</div>
 
 			<div id="menua">
@@ -225,7 +222,10 @@
 				</table>
 			</div>
 		</s:if>
-				</s:if>
+	</s:if>
+	<s:else>
+	ログイン後に表示します。
+	</s:else>
 
 		<s:form action="GetAddressAction">
 			<center>

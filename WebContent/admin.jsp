@@ -13,9 +13,13 @@
 <script src="./js/admin.js"></script>
 </head>
 <body>
+	<jsp:include page="header.jsp" />
+
 	<div class="centerdesign">
 		<h1 style="text-align: center;">管理画面</h1>
 	</div>
+
+	<s:if test="%{#session.userFlg >= 1}">
 	<p class="caution">数字入力は半角のみ、 アプリID欄にはアプリIDのみ記入可能、
 		値の確認は下のアプリ一覧情報取得から行ってください。 テンキー入力不可。</p>
 	<br>
@@ -155,8 +159,12 @@
 	<div id="page-top">
 		<a href="#wrap">PAGE TOP</a>
 	</div>
+	</s:if>
+	<s:else>
+	ログイン後に表示します。
+	</s:else>
 	<s:form action="GetAddressAction">
-		<s:submit align="center" cssClass="Button" value="HOMEへ" />
+		<s:submit align="center" cssClass="Button" value="戻る" />
 	</s:form>
 </body>
 </html>
