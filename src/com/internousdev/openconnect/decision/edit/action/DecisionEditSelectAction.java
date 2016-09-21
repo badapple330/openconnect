@@ -45,7 +45,7 @@ public class DecisionEditSelectAction extends ActionSupport implements SessionAw
 	public String execute(){
 		DecisionEditSelectDAO dao = new DecisionEditSelectDAO();
 		decisionDetailList = dao.select((int) (session.get("decisionDetailId")) );
-		if( decisionDetailList == null ){
+		if( decisionDetailList.size()==0){
 			resultString = "データがありません";
 		}
 		return SUCCESS;

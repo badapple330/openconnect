@@ -41,7 +41,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	/**
 	 * エラー文字
 	 */
-	private String resultSelect = "";
+	private String resultSelect = "検索結果を表示しました";
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -56,10 +56,11 @@ public class DecisionDetailSelectAction extends ActionSupport{
 
 		projectsList = projectsDao.select("");
 
-		if( decisionDetailList == null ){
-
-			resultSelect = "データがありません";
+		if( decisionDetailList.size() == 0 ){
+			resultSelect = "該当する情報はありません";
 		}
+
+
 
 		return SUCCESS;
 	}
