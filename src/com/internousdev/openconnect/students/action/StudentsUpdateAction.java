@@ -1,8 +1,6 @@
 package com.internousdev.openconnect.students.action;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.internousdev.openconnect.students.dao.StudentsUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,97 +18,98 @@ public class StudentsUpdateAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 8587637642584563442L;
 	/**
-	 * ユーザーIDリスト
+	 * ユーザーID
 	 */
-	private List<Integer> userIdList = new ArrayList<Integer>();
+	private int userId;
 	/**
-	 * 受講年リスト
+	 * 受講年
 	 */
-	private List<Integer> yearList = new ArrayList<Integer>();
+	private int year;
 	/**
-	 * 受講開始月リスト
+	 * 受講開始月
 	 */
-	private List<String> monthList = new ArrayList<String>();
+	private String month;
 	/**
-	 * 姓(英語)リスト
+	 * 姓(英語)
 	 */
-	private List<String> familyNameList = new ArrayList<String>();
+	private String familyName;
 	/**
-	 * 名(英語)リスト
+	 * 名(英語)
 	 */
-	private List<String> givenNameList = new ArrayList<String>();
+	private String givenName;
 	/**
-	 * 姓(漢字)リスト
+	 * 姓(漢字)
 	 */
-	private List<String> familyNameKanjiList = new ArrayList<String>();
+	private String familyNameKanji;
 	/**
-	 * 姓(かな)リスト
+	 * 姓(かな)
 	 */
-	private List<String> familyNameKanaList = new ArrayList<String>();
+	private String familyNameKana;
 	/**
-	 * 名(漢字)リスト
+	 * 名(漢字)
 	 */
-	private List<String> givenNameKanjiList = new ArrayList<String>();
+	private String givenNameKanji;
 	/**
-	 * 名(かな)リスト
+	 * 名(かな)
 	 */
-	private List<String> givenNameKanaList = new ArrayList<String>();
+	private String givenNameKana;
 	/**
-	 * 郵便番号リスト
+	 * 郵便番号
 	 */
-	private List<String> postalList = new ArrayList<String>();
+	private String postal;
 	/**
-	 * 住所リスト
+	 * 住所
 	 */
-	private List<String> addressList = new ArrayList<String>();
+	private String address;
 	/**
-	 * 電話番号リスト
+	 * 電話番号
 	 */
-	private List<String> phoneNumberList = new ArrayList<String>();
+	private String phoneNumber;
 	/**
-	 * メールアドレスリスト
+	 * メールアドレス
 	 */
-	private List<String> phoneEmailList = new ArrayList<String>();
+	private String phoneEmail;
 	/**
-	 * 携帯電話番号リスト
+	 * 携帯電話番号
 	 */
-	private List<String> mobileNumberList = new ArrayList<String>();
+	private String mobileNumber;
 	/**
-	 * 携帯メールアドレスリスト
+	 * 携帯メールアドレス
 	 */
-	private List<String> mobileEmailList = new ArrayList<String>();
+	private String mobileEmail;
 	/**
-	 * 性別リスト
+	 * 性別
 	 */
-	private List<String> sexList = new ArrayList<String>();
+	private String sex;
 	/**
-	 * 誕生日リスト
+	 * 誕生日
 	 */
-	private List<String> birthdayList = new ArrayList<String>();
+	private String birthday;
 	/**
-	 * 作成日リスト
+	 * 作成日
 	 */
-	private List<String> registerDayList = new ArrayList<String>();
+	private String registerDay;
 	/**
-	 * 更新日リスト
+	 * 更新日
 	 */
-	private List<String> updateDayList = new ArrayList<String>();
+	private String updateDay;
 	/**
-	 * ユーザー削除フラグリスト
+	 * ユーザー削除フラグ
 	 */
-	private List<Boolean> userdelFlgList = new ArrayList<Boolean>();
+	private String userdelFlg;
 	/**
-	 * ログインフラグリスト
+	 * ログインフラグ
 	 */
-	private List<Boolean> loginFlgList = new ArrayList<Boolean>();
+	private String loginFlg;
 	/**
-	 * ユーザーフラグリスト
+	 * ユーザーフラグ
 	 */
-	private List<Integer> userFlgList = new ArrayList<Integer>();
+	private int userFlg;
 	/**
-	 * パスワードリスト
+	 * パスワード
 	 */
-	private List<String> passwordList = new ArrayList<String>();
+	private String password;
+
 	/**
 	 * 結果文字
 	 */
@@ -123,16 +122,17 @@ public class StudentsUpdateAction extends ActionSupport{
 	 */
 	public String execute() throws SQLException{
 
+		System.out.println(userdelFlg + " : " + loginFlg);
+
 		String result = ERROR;
 		StudentsUpdateDAO dao = new StudentsUpdateDAO();
 		int count = 0;
-		for(int i=0;i< userIdList.size();++i){
-			count = dao.update(
-					userIdList.get(i),passwordList.get(i),familyNameList.get(i),givenNameList.get(i),familyNameKanjiList.get(i),familyNameKanaList.get(i),
-					givenNameKanjiList.get(i),givenNameKanaList.get(i),postalList.get(i),addressList.get(i),phoneNumberList.get(i),phoneEmailList.get(i),
-					mobileNumberList.get(i),mobileEmailList.get(i),sexList.get(i),birthdayList.get(i),registerDayList.get(i),updateDayList.get(i),userdelFlgList.get(i),
-					loginFlgList.get(i),userFlgList.get(i),yearList.get(i),monthList.get(i));
-		}
+		count = dao.update(
+				userId,password,familyName,givenName,familyNameKanji,familyNameKana,
+				givenNameKanji,givenNameKana,postal,address,phoneNumber,phoneEmail,
+				mobileNumber,mobileEmail,sex,birthday,userdelFlg.equals("TRUE"),
+				loginFlg.equals("TRUE"),userFlg,year,month);
+
 		if ( count > 0){
 			result = SUCCESS;
 			resultString = "更新に成功しました。";
@@ -141,442 +141,442 @@ public class StudentsUpdateAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド ユーザーIDリストを取得
-	* @author KOHEI NITABARU
-	* @return userIdList
-	*/
-	public List<Integer> getUserIdList() {
-		return userIdList;
+	 * 取得メソッド ユーザーIDを取得
+	 * @author KOHEI NITABARU
+	 * @return userId
+	 */
+	public int getUserId() {
+		return userId;
 	}
 
 	/**
-	* 設定メソッド ユーザーIDリストを設定
-	* @author KOHEI NITABARU
-	* @param userIdList
-	*/
-	public void setUserIdList(List<Integer> userIdList) {
-		this.userIdList = userIdList;
+	 * 設定メソッド ユーザーIDを設定
+	 * @author KOHEI NITABARU
+	 * @param userId
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	/**
-	* 取得メソッド 受講年リストを取得
-	* @author KOHEI NITABARU
-	* @return yearList
-	*/
-	public List<Integer> getYearList() {
-		return yearList;
+	 * 取得メソッド 受講年を取得
+	 * @author KOHEI NITABARU
+	 * @return year
+	 */
+	public int getYear() {
+		return year;
 	}
 
 	/**
-	* 設定メソッド 受講年リストを設定
-	* @author KOHEI NITABARU
-	* @param yearList
-	*/
-	public void setYearList(List<Integer> yearList) {
-		this.yearList = yearList;
+	 * 設定メソッド 受講年を設定
+	 * @author KOHEI NITABARU
+	 * @param year
+	 */
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 	/**
-	* 取得メソッド 受講開始月リストを取得
-	* @author KOHEI NITABARU
-	* @return monthList
-	*/
-	public List<String> getMonthList() {
-		return monthList;
+	 * 取得メソッド 受講開始月を取得
+	 * @author KOHEI NITABARU
+	 * @return month
+	 */
+	public String getMonth() {
+		return month;
 	}
 
 	/**
-	* 設定メソッド 受講開始月リストを設定
-	* @author KOHEI NITABARU
-	* @param monthList
-	*/
-	public void setMonthList(List<String> monthList) {
-		this.monthList = monthList;
+	 * 設定メソッド 受講開始月を設定
+	 * @author KOHEI NITABARU
+	 * @param month
+	 */
+	public void setMonth(String month) {
+		this.month = month;
 	}
 
 	/**
-	* 取得メソッド 姓(英語)リストを取得
-	* @author KOHEI NITABARU
-	* @return familyNameList
-	*/
-	public List<String> getFamilyNameList() {
-		return familyNameList;
+	 * 取得メソッド 姓(英語)を取得
+	 * @author KOHEI NITABARU
+	 * @return familyName
+	 */
+	public String getFamilyName() {
+		return familyName;
 	}
 
 	/**
-	* 設定メソッド 姓(英語)リストを設定
-	* @author KOHEI NITABARU
-	* @param familyNameList
-	*/
-	public void setFamilyNameList(List<String> familyNameList) {
-		this.familyNameList = familyNameList;
+	 * 設定メソッド 姓(英語)を設定
+	 * @author KOHEI NITABARU
+	 * @param familyName
+	 */
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
 	}
 
 	/**
-	* 取得メソッド 名(英語)リストを取得
-	* @author KOHEI NITABARU
-	* @return givenNameList
-	*/
-	public List<String> getGivenNameList() {
-		return givenNameList;
+	 * 取得メソッド 名(英語)を取得
+	 * @author KOHEI NITABARU
+	 * @return givenName
+	 */
+	public String getGivenName() {
+		return givenName;
 	}
 
 	/**
-	* 設定メソッド 名(英語)リストを設定
-	* @author KOHEI NITABARU
-	* @param givenNameList
-	*/
-	public void setGivenNameList(List<String> givenNameList) {
-		this.givenNameList = givenNameList;
+	 * 設定メソッド 名(英語)を設定
+	 * @author KOHEI NITABARU
+	 * @param givenName
+	 */
+	public void setGivenName(String givenName) {
+		this.givenName = givenName;
 	}
 
 	/**
-	* 取得メソッド 姓(漢字)リストを取得
-	* @author KOHEI NITABARU
-	* @return familyNameKanjiList
-	*/
-	public List<String> getFamilyNameKanjiList() {
-		return familyNameKanjiList;
+	 * 取得メソッド 姓(漢字)を取得
+	 * @author KOHEI NITABARU
+	 * @return familyNameKanji
+	 */
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
 	}
 
 	/**
-	* 設定メソッド 姓(漢字)リストを設定
-	* @author KOHEI NITABARU
-	* @param familyNameKanjiList
-	*/
-	public void setFamilyNameKanjiList(List<String> familyNameKanjiList) {
-		this.familyNameKanjiList = familyNameKanjiList;
+	 * 設定メソッド 姓(漢字)を設定
+	 * @author KOHEI NITABARU
+	 * @param familyNameKanji
+	 */
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
 	}
 
 	/**
-	* 取得メソッド 姓(かな)リストを取得
-	* @author KOHEI NITABARU
-	* @return familyNameKanaList
-	*/
-	public List<String> getFamilyNameKanaList() {
-		return familyNameKanaList;
+	 * 取得メソッド 姓(かな)を取得
+	 * @author KOHEI NITABARU
+	 * @return familyNameKana
+	 */
+	public String getFamilyNameKana() {
+		return familyNameKana;
 	}
 
 	/**
-	* 設定メソッド 姓(かな)リストを設定
-	* @author KOHEI NITABARU
-	* @param familyNameKanaList
-	*/
-	public void setFamilyNameKanaList(List<String> familyNameKanaList) {
-		this.familyNameKanaList = familyNameKanaList;
+	 * 設定メソッド 姓(かな)を設定
+	 * @author KOHEI NITABARU
+	 * @param familyNameKana
+	 */
+	public void setFamilyNameKana(String familyNameKana) {
+		this.familyNameKana = familyNameKana;
 	}
 
 	/**
-	* 取得メソッド 名(漢字)リストを取得
-	* @author KOHEI NITABARU
-	* @return givenNameKanjiList
-	*/
-	public List<String> getGivenNameKanjiList() {
-		return givenNameKanjiList;
+	 * 取得メソッド 名(漢字)を取得
+	 * @author KOHEI NITABARU
+	 * @return givenNameKanji
+	 */
+	public String getGivenNameKanji() {
+		return givenNameKanji;
 	}
 
 	/**
-	* 設定メソッド 名(漢字)リストを設定
-	* @author KOHEI NITABARU
-	* @param givenNameKanjiList
-	*/
-	public void setGivenNameKanjiList(List<String> givenNameKanjiList) {
-		this.givenNameKanjiList = givenNameKanjiList;
+	 * 設定メソッド 名(漢字)を設定
+	 * @author KOHEI NITABARU
+	 * @param givenNameKanji
+	 */
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
 	}
 
 	/**
-	* 取得メソッド 名(かな)リストを取得
-	* @author KOHEI NITABARU
-	* @return givenNameKanaList
-	*/
-	public List<String> getGivenNameKanaList() {
-		return givenNameKanaList;
+	 * 取得メソッド 名(かな)を取得
+	 * @author KOHEI NITABARU
+	 * @return givenNameKana
+	 */
+	public String getGivenNameKana() {
+		return givenNameKana;
 	}
 
 	/**
-	* 設定メソッド 名(かな)リストを設定
-	* @author KOHEI NITABARU
-	* @param givenNameKanaList
-	*/
-	public void setGivenNameKanaList(List<String> givenNameKanaList) {
-		this.givenNameKanaList = givenNameKanaList;
+	 * 設定メソッド 名(かな)を設定
+	 * @author KOHEI NITABARU
+	 * @param givenNameKana
+	 */
+	public void setGivenNameKana(String givenNameKana) {
+		this.givenNameKana = givenNameKana;
 	}
 
 	/**
-	* 取得メソッド 郵便番号リストを取得
-	* @author KOHEI NITABARU
-	* @return postalList
-	*/
-	public List<String> getPostalList() {
-		return postalList;
+	 * 取得メソッド 郵便番号を取得
+	 * @author KOHEI NITABARU
+	 * @return postal
+	 */
+	public String getPostal() {
+		return postal;
 	}
 
 	/**
-	* 設定メソッド 郵便番号リストを設定
-	* @author KOHEI NITABARU
-	* @param postalList
-	*/
-	public void setPostalList(List<String> postalList) {
-		this.postalList = postalList;
+	 * 設定メソッド 郵便番号を設定
+	 * @author KOHEI NITABARU
+	 * @param postal
+	 */
+	public void setPostal(String postal) {
+		this.postal = postal;
 	}
 
 	/**
-	* 取得メソッド 住所リストを取得
-	* @author KOHEI NITABARU
-	* @return addressList
-	*/
-	public List<String> getAddressList() {
-		return addressList;
+	 * 取得メソッド 住所を取得
+	 * @author KOHEI NITABARU
+	 * @return address
+	 */
+	public String getAddress() {
+		return address;
 	}
 
 	/**
-	* 設定メソッド 住所リストを設定
-	* @author KOHEI NITABARU
-	* @param addressList
-	*/
-	public void setAddressList(List<String> addressList) {
-		this.addressList = addressList;
+	 * 設定メソッド 住所を設定
+	 * @author KOHEI NITABARU
+	 * @param address
+	 */
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	/**
-	* 取得メソッド 電話番号リストを取得
-	* @author KOHEI NITABARU
-	* @return phoneNumberList
-	*/
-	public List<String> getPhoneNumberList() {
-		return phoneNumberList;
+	 * 取得メソッド 電話番号を取得
+	 * @author KOHEI NITABARU
+	 * @return phoneNumber
+	 */
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
 	/**
-	* 設定メソッド 電話番号リストを設定
-	* @author KOHEI NITABARU
-	* @param phoneNumberList
-	*/
-	public void setPhoneNumberList(List<String> phoneNumberList) {
-		this.phoneNumberList = phoneNumberList;
+	 * 設定メソッド 電話番号を設定
+	 * @author KOHEI NITABARU
+	 * @param phoneNumber
+	 */
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	/**
-	* 取得メソッド メールアドレスリストを取得
-	* @author KOHEI NITABARU
-	* @return phoneEmailList
-	*/
-	public List<String> getPhoneEmailList() {
-		return phoneEmailList;
+	 * 取得メソッド メールアドレスを取得
+	 * @author KOHEI NITABARU
+	 * @return phoneEmail
+	 */
+	public String getPhoneEmail() {
+		return phoneEmail;
 	}
 
 	/**
-	* 設定メソッド メールアドレスリストを設定
-	* @author KOHEI NITABARU
-	* @param phoneEmailList
-	*/
-	public void setPhoneEmailList(List<String> phoneEmailList) {
-		this.phoneEmailList = phoneEmailList;
+	 * 設定メソッド メールアドレスを設定
+	 * @author KOHEI NITABARU
+	 * @param phoneEmail
+	 */
+	public void setPhoneEmail(String phoneEmail) {
+		this.phoneEmail = phoneEmail;
 	}
 
 	/**
-	* 取得メソッド 携帯電話番号リストを取得
-	* @author KOHEI NITABARU
-	* @return mobileNumberList
-	*/
-	public List<String> getMobileNumberList() {
-		return mobileNumberList;
+	 * 取得メソッド 携帯電話番号を取得
+	 * @author KOHEI NITABARU
+	 * @return mobileNumber
+	 */
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
 	/**
-	* 設定メソッド 携帯電話番号リストを設定
-	* @author KOHEI NITABARU
-	* @param mobileNumberList
-	*/
-	public void setMobileNumberList(List<String> mobileNumberList) {
-		this.mobileNumberList = mobileNumberList;
+	 * 設定メソッド 携帯電話番号を設定
+	 * @author KOHEI NITABARU
+	 * @param mobileNumber
+	 */
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 	/**
-	* 取得メソッド 携帯メールアドレスリストを取得
-	* @author KOHEI NITABARU
-	* @return mobileEmailList
-	*/
-	public List<String> getMobileEmailList() {
-		return mobileEmailList;
+	 * 取得メソッド 携帯メールアドレスを取得
+	 * @author KOHEI NITABARU
+	 * @return mobileEmail
+	 */
+	public String getMobileEmail() {
+		return mobileEmail;
 	}
 
 	/**
-	* 設定メソッド 携帯メールアドレスリストを設定
-	* @author KOHEI NITABARU
-	* @param mobileEmailList
-	*/
-	public void setMobileEmailList(List<String> mobileEmailList) {
-		this.mobileEmailList = mobileEmailList;
+	 * 設定メソッド 携帯メールアドレスを設定
+	 * @author KOHEI NITABARU
+	 * @param mobileEmail
+	 */
+	public void setMobileEmail(String mobileEmail) {
+		this.mobileEmail = mobileEmail;
 	}
 
 	/**
-	* 取得メソッド 性別リストを取得
-	* @author KOHEI NITABARU
-	* @return sexList
-	*/
-	public List<String> getSexList() {
-		return sexList;
+	 * 取得メソッド 性別を取得
+	 * @author KOHEI NITABARU
+	 * @return sex
+	 */
+	public String getSex() {
+		return sex;
 	}
 
 	/**
-	* 設定メソッド 性別リストを設定
-	* @author KOHEI NITABARU
-	* @param sexList
-	*/
-	public void setSexList(List<String> sexList) {
-		this.sexList = sexList;
+	 * 設定メソッド 性別を設定
+	 * @author KOHEI NITABARU
+	 * @param sex
+	 */
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	/**
-	* 取得メソッド 誕生日リストを取得
-	* @author KOHEI NITABARU
-	* @return birthdayList
-	*/
-	public List<String> getBirthdayList() {
-		return birthdayList;
+	 * 取得メソッド 誕生日を取得
+	 * @author KOHEI NITABARU
+	 * @return birthday
+	 */
+	public String getBirthday() {
+		return birthday;
 	}
 
 	/**
-	* 設定メソッド 誕生日リストを設定
-	* @author KOHEI NITABARU
-	* @param birthdayList
-	*/
-	public void setBirthdayList(List<String> birthdayList) {
-		this.birthdayList = birthdayList;
+	 * 設定メソッド 誕生日を設定
+	 * @author KOHEI NITABARU
+	 * @param birthday
+	 */
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
 	/**
-	* 取得メソッド 登録日リストを取得
-	* @author KOHEI NITABARU
-	* @return registerDayList
-	*/
-	public List<String> getRegisterDayList() {
-		return registerDayList;
+	 * 取得メソッド 登録日を取得
+	 * @author KOHEI NITABARU
+	 * @return registerDay
+	 */
+	public String getRegisterDay() {
+		return registerDay;
 	}
 
 	/**
-	* 設定メソッド 登録日リストを設定
-	* @author KOHEI NITABARU
-	* @param registerDayList
-	*/
-	public void setRegisterDayList(List<String> registerDayList) {
-		this.registerDayList = registerDayList;
+	 * 設定メソッド 登録日を設定
+	 * @author KOHEI NITABARU
+	 * @param registerDay
+	 */
+	public void setRegisterDay(String registerDay) {
+		this.registerDay = registerDay;
 	}
 
 	/**
-	* 取得メソッド 更新日リストを取得
-	* @author KOHEI NITABARU
-	* @return updateDayList
-	*/
-	public List<String> getUpdateDayList() {
-		return updateDayList;
+	 * 取得メソッド 更新日を取得
+	 * @author KOHEI NITABARU
+	 * @return updateDay
+	 */
+	public String getUpdateDay() {
+		return updateDay;
 	}
 
 	/**
-	* 設定メソッド 更新日リストを設定
-	* @author KOHEI NITABARU
-	* @param updateDayList
-	*/
-	public void setUpdateDayList(List<String> updateDayList) {
-		this.updateDayList = updateDayList;
+	 * 設定メソッド 更新日を設定
+	 * @author KOHEI NITABARU
+	 * @param updateDay
+	 */
+	public void setUpdateDay(String updateDay) {
+		this.updateDay = updateDay;
 	}
 
 	/**
-	* 取得メソッド ユーザー削除フラグリストを取得
-	* @author KOHEI NITABARU
-	* @return userdelFlgList
-	*/
-	public List<Boolean> getUserdelFlgList() {
-		return userdelFlgList;
+	 * 取得メソッド ユーザー削除フラグを取得
+	 * @author KOHEI NITABARU
+	 * @return userdelFlg
+	 */
+	public String getUserdelFlg() {
+		return userdelFlg;
 	}
 
 	/**
-	* 設定メソッド ユーザー削除フラグリストを設定
-	* @author KOHEI NITABARU
-	* @param userdelFlgList
-	*/
-	public void setUserdelFlgList(List<Boolean> userdelFlgList) {
-		this.userdelFlgList = userdelFlgList;
+	 * 設定メソッド ユーザー削除フラグを設定
+	 * @author KOHEI NITABARU
+	 * @param userdelFlg
+	 */
+	public void setUserdelFlg(String userdelFlg) {
+		this.userdelFlg = userdelFlg;
 	}
 
 	/**
-	* 取得メソッド ログインフラグリストを取得
-	* @author KOHEI NITABARU
-	* @return loginFlgList
-	*/
-	public List<Boolean> getLoginFlgList() {
-		return loginFlgList;
+	 * 取得メソッド ログインフラグを取得
+	 * @author KOHEI NITABARU
+	 * @return loginFlg
+	 */
+	public String getLoginFlg() {
+		return loginFlg;
 	}
 
 	/**
-	* 設定メソッド ログインフラグリストを設定
-	* @author KOHEI NITABARU
-	* @param loginFlgList
-	*/
-	public void setLoginFlgList(List<Boolean> loginFlgList) {
-		this.loginFlgList = loginFlgList;
+	 * 設定メソッド ログインフラグを設定
+	 * @author KOHEI NITABARU
+	 * @param loginFlg
+	 */
+	public void setLoginFlg(String loginFlg) {
+		this.loginFlg = loginFlg;
 	}
 
 	/**
-	* 取得メソッド ユーザーフラグリストを取得
-	* @author KOHEI NITABARU
-	* @return userFlgList
-	*/
-	public List<Integer> getUserFlgList() {
-		return userFlgList;
+	 * 取得メソッド ユーザーフラグを取得
+	 * @author KOHEI NITABARU
+	 * @return userFlg
+	 */
+	public int getUserFlg() {
+		return userFlg;
 	}
 
 	/**
-	* 設定メソッド ユーザーフラグリストを設定
-	* @author KOHEI NITABARU
-	* @param userFlgList
-	*/
-	public void setUserFlgList(List<Integer> userFlgList) {
-		this.userFlgList = userFlgList;
+	 * 設定メソッド ユーザーフラグを設定
+	 * @author KOHEI NITABARU
+	 * @param userFlg
+	 */
+	public void setUserFlg(int userFlg) {
+		this.userFlg = userFlg;
 	}
 
 	/**
-	* 取得メソッド パスワードリストを取得
-	* @author KOHEI NITABARU
-	* @return passwordList
-	*/
-	public List<String> getPasswordList() {
-		return passwordList;
+	 * 取得メソッド パスワードを取得
+	 * @author KOHEI NITABARU
+	 * @return password
+	 */
+	public String getPassword() {
+		return password;
 	}
 
 	/**
-	* 設定メソッド パスワードリストを設定
-	* @author KOHEI NITABARU
-	* @param passwordList
-	*/
-	public void setPasswordList(List<String> passwordList) {
-		this.passwordList = passwordList;
+	 * 設定メソッド パスワードを設定
+	 * @author KOHEI NITABARU
+	 * @param password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	/**
-	* 取得メソッド 結果文字リストを取得
-	* @author KOHEI NITABARU
-	* @return resultString
-	*/
+	 * 取得メソッド 結果文字リストを取得
+	 * @author KOHEI NITABARU
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 
 	/**
-	* 設定メソッド 結果文字リストを設定
-	* @author KOHEI NITABARU
-	* @param resultString
-	*/
+	 * 設定メソッド 結果文字リストを設定
+	 * @author KOHEI NITABARU
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
 
 	/**
-	* 取得メソッド シリアル番号を取得
-	* @author KOHEI NITABARU
-	* @return serialVersionUID
-	*/
+	 * 取得メソッド シリアル番号を取得
+	 * @author KOHEI NITABARU
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

@@ -3,6 +3,7 @@ package com.internousdev.openconnect.students.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 
@@ -45,7 +46,7 @@ public class StudentsUpdateDAO {
 	public int update(
 			int userId, String password, String familyName, String givenName, String familyNameKanji, String familyNameKana,
 			String givenNameKanji, String givenNameKana, String postal, String address, String phoneNumber, String phoneEmail,
-			String mobileNumber, String mobileEmail, String sex, String birthday, String registerDay, String updateDay,
+			String mobileNumber, String mobileEmail, String sex, String birthday,
 			boolean userdelFlg, boolean loginFlg, int userFlg, int year, String month){
 
 		int result = 0;
@@ -56,18 +57,18 @@ public class StudentsUpdateDAO {
 		String sql = "UPDATE users SET "
 				+ "password=?, family_name=?, given_name=?, family_name_kanji=?, family_name_kana=?, given_name_kanji=?,"
 				+ " given_name_kana=?, postal=?, address=?, phone_number=?, phone_email=?, mobile_number=?, mobile_email=?, "
-				+ "sex=?, birthday=?, register_day=?, update_day=?, userdel_flg=?, login_flg=?, user_flg=?, year=?, month=? "
+				+ "sex=?, birthday=?, update_day=?, userdel_flg=?, login_flg=?, user_flg=?, year=?, month=? "
 				+ "where user_id=?";
 
 		String birthDayStr = birthday;
-		String registerDayStr = registerDay;
-		String updateDayStr = updateDay;
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
 		if( birthDayStr.equals("") ) birthDayStr = "0000-00-00";
-		if( registerDayStr.equals("") ) registerDayStr = "0000-00-00";
-		if( updateDayStr.equals("") ) updateDayStr = "0000-00-00";
 
 		try{
+			String updateDayStr = sdf.format(System.currentTimeMillis());
+
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1,password);
@@ -85,15 +86,13 @@ public class StudentsUpdateDAO {
 			ps.setString(13,mobileEmail);
 			ps.setString(14,sex);
 			ps.setString(15,birthDayStr);
-			ps.setString(16,registerDayStr);
-			ps.setString(17,updateDayStr);
-			ps.setBoolean(18,userdelFlg);
-			ps.setBoolean(19,loginFlg);
-			ps.setInt(20,userFlg);
-			ps.setInt(21,year);
-			ps.setString(22,month);
-			ps.setInt(23,userId);
-
+			ps.setString(16,updateDayStr);
+			ps.setBoolean(17,userdelFlg);
+			ps.setBoolean(18,loginFlg);
+			ps.setInt(19,userFlg);
+			ps.setInt(20,year);
+			ps.setString(21,month);
+			ps.setInt(22,userId);
 			result = ps.executeUpdate();
 
 		}catch (SQLException e) {

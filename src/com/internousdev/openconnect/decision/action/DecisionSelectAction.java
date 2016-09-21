@@ -23,7 +23,7 @@ public class DecisionSelectAction extends ActionSupport{
 	private static final long serialVersionUID = 6053714239083263231L;
 	/**
 	 *@author KENICHI HORIGUCHI
-	 *プロジェクトリスト
+	 *決裁一覧
 	 */
 	private ArrayList <DecisionDTO> decisiontList = new ArrayList <DecisionDTO>();
 	/**
@@ -31,14 +31,14 @@ public class DecisionSelectAction extends ActionSupport{
 	 */
 	private List<ProjectsSelectDTO> projectsList = new ArrayList<ProjectsSelectDTO>();
 	/**
-	 * プロジェクトリスト
+	 * 生徒一覧
 	 */
 	private List<StudentsDTO> studentsList = new ArrayList<StudentsDTO>();
 	/**
 	 *エラーメッセージ
 	 * @author KENICHI HORIGUCHI
 	 */
-	private String errorSelect;
+	private String resultSelect = "";
 	/**
 	 * 検索文
 	 * @author KENICHI HORIGUCHI
@@ -55,12 +55,14 @@ public class DecisionSelectAction extends ActionSupport{
 
 		if (dao.select(searchString)) {
 			decisiontList = dao.getList();
-			projectsList = projectsDao.select("");
-			studentsList = studentsDao.select("");
 
 		} else {
-			errorSelect = (getText("データがありません"));
+			resultSelect = (getText("データがありません"));
 		}
+
+		projectsList = projectsDao.select("");
+		studentsList = studentsDao.select("");
+
 		return SUCCESS;
 	}
 	/**
@@ -86,20 +88,20 @@ public class DecisionSelectAction extends ActionSupport{
 	/**
 	 * 取得メソッド エラーメッセージ
 	 * @author KENICHI HORIGUCHI
-	 * @return errorSelect
+	 * @return resultSelect
 	 */
-	public String getErrorSelect() {
-		return errorSelect;
+	public String getResultSelect() {
+		return resultSelect;
 	}
 
 
 	/**
 	 * 設定メソッド
 	 * @author KENICHI HORIGUCHI
-	 * @param errorSelect
+	 * @param resultSelect
 	 */
-	public void setErrorSelect(String errorSelect) {
-		this.errorSelect = errorSelect;
+	public void setResultSelect(String resultSelect) {
+		this.resultSelect = resultSelect;
 	}
 
 

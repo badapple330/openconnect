@@ -1,17 +1,33 @@
 @CHARSET "UTF-8";
 
-.smallText{
-	width:50px;
+.maxText{
+	width: 100%;
 }
 
-.bigText{
-	width:100px;
+.smallWidth{
+	width: 60px;
 }
-.modalDelete{
+
+.bigWidth{
+	width: 100px;
+}
+
+.modalString{
 	display:inline;
 }
 
-#modal-main {
+#modal-deleteMain {
+	display: none;
+	width: 500px;
+	height: 300px;
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+	color: #666666;
+	position: fixed;
+	z-index: 2;
+}
+#modal-updateMain {
 	display: none;
 	width: 500px;
 	height: 300px;

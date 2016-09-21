@@ -1,7 +1,5 @@
 package com.internousdev.openconnect.decision.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -9,6 +7,7 @@ import java.util.ArrayList;
 
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
+import com.mysql.jdbc.Connection;
 /**
  * 決裁状況一覧をActionから受け取った検索文で検索するクラス
  * @author KENICHI HORIGUCHI,KOUHEI NIRABARU
@@ -30,14 +29,14 @@ public class DecisionSelectDAO {
 		boolean result = false;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection conn = db.getConnection();
+		Connection conn = (Connection) db.getConnection();
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
 		String sql = "select * from decision inner join users on decision.user_id = users.user_id inner join projects on decision.project_id = projects.project_id where decision_name like'%" + searchString + "%'";
 
 		try {
-			PreparedStatement ps = conn.prepareStatement(sql);
+			java.sql.PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()) {
