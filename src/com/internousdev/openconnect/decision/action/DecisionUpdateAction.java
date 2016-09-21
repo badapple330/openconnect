@@ -71,18 +71,10 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * エラーメッセージ
+	 * 結果表示
 	 * @author KENICHI HORIGUCHI
 	 */
-	private String errorMsg;
-
-
-	/**
-	 * 成功メッセージ
-	 * @author KENICHI HORIGUCHI
-	 */
-	private String successMsg;
-
+	private String resultString = "更新に失敗しました。";
 
 	/**
 	 *管理権限
@@ -120,10 +112,8 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 					);
 		}
 		if(count > 0){
-			successMsg = (getText("更新しました。"));
 			result = SUCCESS;
-		} else {
-			errorMsg = (getText("更新できませんでした。"));
+			resultString = (getText("更新しました。"));
 		}
 		return result;
 	}
@@ -365,36 +355,19 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	/**
 	 * 取得メソッド エラーメッセージ
 	 * @author KENICHI HORIGUCHI
-	 * @return errorMsg
+	 * @return resultString
 	 */
-	public String getErrorMsg() {
-		return errorMsg;
+	public String getResultString() {
+		return resultString;
 	}
 
 	/**
 	 * 設定メソッド
 	 * @author KENICHI HORIGUCHI
-	 * @param errorMsg
+	 * @param resultString
 	 */
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
-	/**
-	 * 取得メソッド 成功メッセージ
-	 * @author KENICHI HORIGUCHI
-	 * @return successMsg
-	 */
-	public String getSuccessMsg() {
-		return successMsg;
-	}
-
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param successMsg
-	 */
-	public void setSuccessMsg(String successMsg) {
-		this.successMsg = successMsg;
-	}
 }

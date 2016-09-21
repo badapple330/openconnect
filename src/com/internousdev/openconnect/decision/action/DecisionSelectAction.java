@@ -35,10 +35,10 @@ public class DecisionSelectAction extends ActionSupport{
 	 */
 	private List<StudentsDTO> studentsList = new ArrayList<StudentsDTO>();
 	/**
-	 *エラーメッセージ
+	 *結果表示
 	 * @author KENICHI HORIGUCHI
 	 */
-	private String resultSelect = "";
+	private String resultSelect = "該当する情報は存在しません。";
 	/**
 	 * 検索文
 	 * @author KENICHI HORIGUCHI
@@ -53,119 +53,125 @@ public class DecisionSelectAction extends ActionSupport{
 		ProjectsSelectDAO projectsDao = new ProjectsSelectDAO();
 		StudentsSelectDAO studentsDao = new StudentsSelectDAO();
 
+
+
 		if (dao.select(searchString)) {
 			decisiontList = dao.getList();
+			if(searchString.equals("")){
+				resultSelect ="すべてを表示しました。";
+			} else {
+				resultSelect = searchString + " を検索しました。";
+			}
+			} else {
+				resultSelect = (getText("該当する情報はありません。"));
+			}
 
-		} else {
-			resultSelect = (getText("データがありません"));
+			projectsList = projectsDao.select("");
+			studentsList = studentsDao.select("");
+
+			return SUCCESS;
+		}
+		/**
+		 * 取得メソッド 決裁状況リスト
+		 * @author KENICHI HORIGUCHI
+		 * @return decisiontList
+		 */
+		public ArrayList <DecisionDTO> getDecisiontList() {
+			return decisiontList;
 		}
 
-		projectsList = projectsDao.select("");
-		studentsList = studentsDao.select("");
 
-		return SUCCESS;
+		/**
+		 * 設定メソッド
+		 * @author KENICHI HORIGUCHI
+		 * @param decisiontList
+		 */
+		public void setDecisiontList(ArrayList <DecisionDTO> decisiontList) {
+			this.decisiontList = decisiontList;
+		}
+
+
+		/**
+		 * 取得メソッド エラーメッセージ
+		 * @author KENICHI HORIGUCHI
+		 * @return resultSelect
+		 */
+		public String getResultSelect() {
+			return resultSelect;
+		}
+
+
+		/**
+		 * 設定メソッド
+		 * @author KENICHI HORIGUCHI
+		 * @param resultSelect
+		 */
+		public void setResultSelect(String resultSelect) {
+			this.resultSelect = resultSelect;
+		}
+
+
+		/**
+		 * 取得メソッド 検索文
+		 * @author KENICHI HORIGUCHI
+		 * @return searchString
+		 */
+		public String getSearchString() {
+			return searchString;
+		}
+
+
+		/**
+		 * 設定メソッド
+		 * @author KENICHI HORIGUCHI
+		 * @param searchString
+		 */
+		public void setSearchString(String searchString) {
+			this.searchString = searchString;
+		}
+
+
+		/**
+		 * 取得メソッド シリアルID
+		 * @author KENICHI HORIGUCHI
+		 * @return serialVersionUID
+		 */
+		public static long getSerialversionuid() {
+			return serialVersionUID;
+		}
+		/**
+		 *   取得メソッド プロジェクトリストを取得する
+		 * @author MASAHIRO KEDSUKA
+		 * @param projectsList セットする projectsList
+		 */
+		public List<ProjectsSelectDTO> getProjectsList() {
+			return projectsList;
+		}
+		/**
+		 *   格納メソッド プロジェクトリストを格納する
+		 * @author MASAHIRO KEDSUKA
+		 * @param projectsList セットする projectsList
+		 */
+		public void setProjectsList(List<ProjectsSelectDTO> projectsList) {
+			this.projectsList = projectsList;
+		}
+		/**
+		 * 取得メソッド
+		 * @author MASAHIRO KEDSUKA
+		 * @return studentsList セットする studentsList
+		 */
+		public List<StudentsDTO> getStudentsList() {
+			return studentsList;
+		}
+		/**
+		 * 設定メソッド
+		 * @author MASAHIRO KEDSUKA
+		 * @param studentsList セットする studentsList
+		 */
+		public void setStudentsList(List<StudentsDTO> studentsList) {
+			this.studentsList = studentsList;
+		}
+
+
+
 	}
-	/**
-	 * 取得メソッド 決裁状況リスト
-	 * @author KENICHI HORIGUCHI
-	 * @return decisiontList
-	 */
-	public ArrayList <DecisionDTO> getDecisiontList() {
-		return decisiontList;
-	}
-
-
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param decisiontList
-	 */
-	public void setDecisiontList(ArrayList <DecisionDTO> decisiontList) {
-		this.decisiontList = decisiontList;
-	}
-
-
-	/**
-	 * 取得メソッド エラーメッセージ
-	 * @author KENICHI HORIGUCHI
-	 * @return resultSelect
-	 */
-	public String getResultSelect() {
-		return resultSelect;
-	}
-
-
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param resultSelect
-	 */
-	public void setResultSelect(String resultSelect) {
-		this.resultSelect = resultSelect;
-	}
-
-
-	/**
-	 * 取得メソッド 検索文
-	 * @author KENICHI HORIGUCHI
-	 * @return searchString
-	 */
-	public String getSearchString() {
-		return searchString;
-	}
-
-
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param searchString
-	 */
-	public void setSearchString(String searchString) {
-		this.searchString = searchString;
-	}
-
-
-	/**
-	 * 取得メソッド シリアルID
-	 * @author KENICHI HORIGUCHI
-	 * @return serialVersionUID
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	/**
-	 *   取得メソッド プロジェクトリストを取得する
-	 * @author MASAHIRO KEDSUKA
-	 * @param projectsList セットする projectsList
-	 */
-	public List<ProjectsSelectDTO> getProjectsList() {
-		return projectsList;
-	}
-	/**
-	 *   格納メソッド プロジェクトリストを格納する
-	 * @author MASAHIRO KEDSUKA
-	 * @param projectsList セットする projectsList
-	 */
-	public void setProjectsList(List<ProjectsSelectDTO> projectsList) {
-		this.projectsList = projectsList;
-	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public List<StudentsDTO> getStudentsList() {
-		return studentsList;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setStudentsList(List<StudentsDTO> studentsList) {
-		this.studentsList = studentsList;
-	}
-
-
-
-}
