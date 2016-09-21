@@ -79,8 +79,46 @@
       <td><input type="text" name="birthdayList" value="<s:property value="birthday" />" class="birthday bigText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="yyyy/MM/dd" maxlength="10"></td>
       <td><input type="text" name="registerDayList" value="<s:property value="registerDay" />" class="registerDay bigText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])\ ([0-9]{2})\:([0-9]{2})\:([0-9]{2})" title="yyyy/MM/dd hh:mm:ss" maxlength="10"></td>
       <td><input type="text" name="updateDayList" value="<s:property value="updateDay" />" class="updateDay bigText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])\ ([0-9]{2})\:([0-9]{2})\:([0-9]{2})" title="yyyy/MM/dd hh:mm:ss"  maxlength="10"></td>
-      <td><input type="text" name="userdelFlgList" value="<s:property value="userdelFlg" />" class="userdelFlg smallText" pattern="^([A-Za-z]*)" title="trueかfalse"  maxlength="5"></td>
-      <td><input type="text" name="loginFlgList" value="<s:property value="loginFlg" />" class="loginFlg smallText" pattern="^([A-Za-z]*)" title="trueかfalse" maxlength="5"></td>
+
+
+      <td>
+      <s:if test="%{userdelFlg==0}">
+<select name="userdelFlgList" class="userdelFlg smallText">
+<option value="TRUE">true</option>
+<option value="FALSE" selected>false</option>
+</select>
+</s:if>
+
+<s:else>
+<select name="userdelFlgList" class="userdelFlg smallText">
+<option value="TRUE" selected>true</option>
+<option value="FALSE">false</option>
+</select>
+
+</s:else></td>
+
+<%--       <input type="text" name="userdelFlgList" value="<s:property value="userdelFlg" />" class="userdelFlg smallText" --%>
+<!--       pattern="^([A-Za-z]*)" title="trueかfalse"  maxlength="5"></td> -->
+
+      <td>
+       <s:if test="%{loginFlg==0}">
+<select name="loginFlgList" class="userdelFlg smallText">
+<option value="TRUE">true</option>
+<option value="FALSE" selected>false</option>
+</select>
+</s:if>
+
+<s:else>
+<select name="loginFlgList" class="userdelFlg smallText">
+<option value="TRUE" selected>true</option>
+<option value="FALSE">false</option>
+</select>
+
+</s:else></td>
+
+<%--       <input type="text" name="loginFlgList" value="<s:property value="loginFlg" />" --%>
+<!--        class="loginFlg smallText" pattern="^([A-Za-z]*)" title="trueかfalse" maxlength="5"> -->
+
       <td><input type="text" name="userFlgList" value="<s:property value="userFlg" />" class="userFlg smallText" pattern="[1-3]" title="1～3" maxlength="1" required></td>
       <td><input type="text" name="passwordList" value="<s:property value="password" />"class="password smallText" pattern="^([0-9A-Za-z]{8,})" title="半角英数字8文字以上20文字以内" maxlength="20" required></td>
       <s:if test="%{#session.userFlg == 3}">
