@@ -29,7 +29,7 @@
 			</s:form>
 			<br>
 			<s:property value="%{resultSelect}" />
-			<s:property value="%{resultStrng}" />
+			<s:property value="%{resultString}" />
 			<br>
 			<s:form action="ProjectStatusUpdateAction">
 				<table border=1>
@@ -86,7 +86,7 @@
 
 				</table>
 				<br>
-				<s:if test="%{#session.userFlg == 3}">
+				<s:if test="%{#session.userFlg >=50}">
 					<input type="submit" class="button" value="編集" />
 				</s:if>
 			</s:form>
