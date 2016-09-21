@@ -15,6 +15,7 @@
 <jsp:include page="header.jsp" />
 
 <div class="container">
+<s:if test="%{#session.userFlg >= 1}">
 
 <h1>受講生一覧</h1>
 <s:form action="StudentsSelectAction">
@@ -25,35 +26,35 @@
 <br>
 <s:property value="%{resultString}" />
 <br>
-<s:form action="StudentsUpdateAction">
   <table border="1">
      <tr>
 
-      <th>ID</th>
-      <th>受講年</th>
-      <th>受講開始月</th>
-      <th>姓(英語)</th>
-      <th>名(英語)</th>
-      <th>姓(漢字)</th>
-      <th>姓(ふりがな)</th>
-      <th>名(漢字)</th>
-      <th>名(ふりがな)</th>
-      <th>郵便番号</th>
-      <th>住所</th>
-      <th>電話番号</th>
-      <th>メールアドレス</th>
-      <th>携帯電話番号</th>
-      <th>携帯メールアドレス</th>
-      <th>性別</th>
-      <th>誕生日</th>
-      <th>登録日</th>
-      <th>更新日</th>
-      <th>退会フラグ</th>
-      <th>ログインフラグ</th>
-      <th>ユーザーフラグ</th>
-       <th>パスワード</th>
+      <th><div class="smallWidth">ID</div></th>
+      <th><div class="smallWidth">受講年</div></th>
+      <th><div class="bigWidth">受講開始月</div></th>
+      <th><div class="smallWidth">姓(英語)</div></th>
+      <th><div class="smallWidth">名(英語)</div></th>
+      <th><div class="smallWidth">姓(漢字)</div></th>
+      <th><div class="bigWidth">姓(ふりがな)</div></th>
+      <th><div class="smallWidth">名(漢字)</div></th>
+      <th><div class="bigWidth">名(ふりがな)</div></th>
        <s:if test="%{#session.userFlg == 3}">
-      <th>削除</th>
+      <th><div class="bigWidth">郵便番号</div></th>
+      <th><div class="smallWidth">住所</div></th>
+      <th><div class="bigWidth">電話番号</div></th>
+      <th><div class="bigWidth">メールアドレス</div></th>
+      <th><div class="bigWidth">携帯電話番号</div></th>
+      <th><div class="bigWidth">携帯メールアドレス</div></th>
+      <th><div class="smallWidth">性別</div></th>
+      <th><div class="bigWidth">誕生日</div></th>
+      <th><div class="bigWidth">登録日</div></th>
+      <th><div class="bigWidth">更新日</div></th>
+      <th><div class="smallWidth">退会フラグ</div></th>
+      <th><div class="smallWidth">ログインフラグ</div></th>
+      <th><div class="smallWidth">ユーザーフラグ</div></th>
+       <th><div class="bigWidth">パスワード</div></th>
+       <th><div class="smallWidth">編集</div></th>
+       <th><div class="smallWidth">削除</div></th>
       </s:if>
      </tr>
 
@@ -61,84 +62,72 @@
 
      <tr>
       <td><s:property value="userId" /></td>
-      <td><input type="text" name="yearList" value="<s:property value="year" />" class="year smallText" pattern="[0-3]([0-9]{3})" title="半角数字4文字"  maxlength="4" required></td>
-      <td><input type="text" name="monthList" value="<s:property value="month" />"class="month smallText" pattern="[0-1][0-9]" title="半角数字2文字" maxlength="2" required></td>
-      <td><input type="text" name="familyNameList" value="<s:property value="familyName" />"class="familyName smallText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内"  maxlength="20" required></td>
-      <td><input type="text" name="givenNameList" value="<s:property value="givenName" />"class="givenName smallText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td>
-      <td><input type="text" name="familyNameKanjiList" value="<s:property value="familyNameKanji" />" class="familyNameKanji smallText" maxlength="20" required></td>
-      <td><input type="text" name="familyNameKanaList" value="<s:property value="familyNameKana" />" class="familyNameKana smallText" maxlength="20"></td>
-      <td><input type="text" name="givenNameKanjiList" value="<s:property value="givenNameKanji" />" class="givenNameKanji smallText" maxlength="20" required></td>
-      <td><input type="text" name="givenNameKanaList" value="<s:property value="givenNameKana" />" class="givenNameKana smallText" maxlength="20"></td>
-      <td><input type="text" name="postalList" value="<s:property value="postal" />" class="postal bigText" pattern="[0-9]*" title="ハイフン無しで半角数字7文字" maxlength="7"></td>
-      <td><input type="text" name="addressList" value="<s:property value="address" />" class="address bigText" maxlength="100"></td>
-      <td><input type="text" name="phoneNumberList" value="<s:property value="phoneNumber" />" class="phoneNumber bigText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内" maxlength="20"></td>
-      <td><input type="text" name="phoneEmailList" value="<s:property value="phoneEmail" />" class="phoneEmail bigText" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100" required></td>
-      <td><input type="text" name="mobileNumberList" value="<s:property value="mobileNumber" />" class="mobileNumber bigText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内"  maxlength="20"></td>
-      <td><input type="text" name="mobileEmailList" value="<s:property value="mobileEmail" />" class="mobileEmail bigText" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100"></td>
-      <td><input type="text" name="sexList" value="<s:property value="sex" />" class="sex smallText" pattern="[男女]+$" title="男か女" maxlength="3" required></td>
-      <td><input type="text" name="birthdayList" value="<s:property value="birthday" />" class="birthday bigText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="yyyy/MM/dd" maxlength="10"></td>
-      <td><input type="text" name="registerDayList" value="<s:property value="registerDay" />" class="registerDay bigText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])\ ([0-9]{2})\:([0-9]{2})\:([0-9]{2})" title="yyyy/MM/dd hh:mm:ss" maxlength="10"></td>
-      <td><input type="text" name="updateDayList" value="<s:property value="updateDay" />" class="updateDay bigText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])\ ([0-9]{2})\:([0-9]{2})\:([0-9]{2})" title="yyyy/MM/dd hh:mm:ss"  maxlength="10"></td>
-
-
+      <td><input type="text" name="yearList" value="<s:property value="year" />" class="year maxText" pattern="[0-3]([0-9]{3})" title="半角数字4文字"  maxlength="4" required></td>
+      <td><input type="text" name="monthList" value="<s:property value="month" />"class="month maxText" pattern="[0-1][0-9]" title="半角数字2文字" maxlength="2" required></td>
+      <td><input type="text" name="familyNameList" value="<s:property value="familyName" />"class="familyName maxText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内"  maxlength="20" required></td>
+      <td><input type="text" name="givenNameList" value="<s:property value="givenName" />"class="givenName maxText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td>
+      <td><input type="text" name="familyNameKanjiList" value="<s:property value="familyNameKanji" />" class="familyNameKanji maxText" maxlength="20" required></td>
+      <td><input type="text" name="familyNameKanaList" value="<s:property value="familyNameKana" />" class="familyNameKana maxText" maxlength="20"></td>
+      <td><input type="text" name="givenNameKanjiList" value="<s:property value="givenNameKanji" />" class="givenNameKanji maxText" maxlength="20" required></td>
+      <td><input type="text" name="givenNameKanaList" value="<s:property value="givenNameKana" />" class="givenNameKana maxText" maxlength="20"></td>
+      <s:if test="%{#session.userFlg == 3}">
+      <td><input type="text" name="postalList" value="<s:property value="postal" />" class="postal maxText" pattern="[0-9]*" title="ハイフン無しで半角数字7文字" maxlength="7"></td>
+      <td><input type="text" name="addressList" value="<s:property value="address" />" class="address maxText" maxlength="100"></td>
+      <td><input type="text" name="phoneNumberList" value="<s:property value="phoneNumber" />" class="phoneNumber maxText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内" maxlength="20"></td>
+      <td><input type="text" name="phoneEmailList" value="<s:property value="phoneEmail" />" class="phoneEmail maxText" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100" required></td>
+      <td><input type="text" name="mobileNumberList" value="<s:property value="mobileNumber" />" class="mobileNumber maxText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内"  maxlength="20"></td>
+      <td><input type="text" name="mobileEmailList" value="<s:property value="mobileEmail" />" class="mobileEmail maxText" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100"></td>
+      <td><input type="text" name="sexList" value="<s:property value="sex" />" class="sex maxText" pattern="[男女]+$" title="男か女" maxlength="3" required></td>
+      <td><input type="text" name="birthdayList" value="<s:property value="birthday" />" class="birthday maxText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="yyyy/MM/dd" maxlength="10"></td>
+      <td><s:property value="registerDay" /></td>
+      <td><s:property value="updateDay" /></td>
       <td>
       <s:if test="%{userdelFlg==0}">
-<select name="userdelFlgList" class="userdelFlg smallText">
+<select name="userdelFlgList" class="userdelFlg maxText">
 <option value="TRUE">true</option>
 <option value="FALSE" selected>false</option>
 </select>
 </s:if>
 
 <s:else>
-<select name="userdelFlgList" class="userdelFlg smallText">
+<select name="userdelFlgList" class="userdelFlg maxText">
 <option value="TRUE" selected>true</option>
 <option value="FALSE">false</option>
 </select>
 
 </s:else></td>
-
-<%--       <input type="text" name="userdelFlgList" value="<s:property value="userdelFlg" />" class="userdelFlg smallText" --%>
-<!--       pattern="^([A-Za-z]*)" title="trueかfalse"  maxlength="5"></td> -->
-
       <td>
        <s:if test="%{loginFlg==0}">
-<select name="loginFlgList" class="userdelFlg smallText">
+<select name="loginFlgList" class="loginFlg maxText">
 <option value="TRUE">true</option>
 <option value="FALSE" selected>false</option>
 </select>
 </s:if>
 
 <s:else>
-<select name="loginFlgList" class="userdelFlg smallText">
+<select name="loginFlgList" class="loginFlg maxText">
 <option value="TRUE" selected>true</option>
 <option value="FALSE">false</option>
 </select>
 
 </s:else></td>
 
-<%--       <input type="text" name="loginFlgList" value="<s:property value="loginFlg" />" --%>
-<!--        class="loginFlg smallText" pattern="^([A-Za-z]*)" title="trueかfalse" maxlength="5"> -->
-
-      <td><input type="text" name="userFlgList" value="<s:property value="userFlg" />" class="userFlg smallText" pattern="[1-3]" title="1～3" maxlength="1" required></td>
-      <td><input type="text" name="passwordList" value="<s:property value="password" />"class="password smallText" pattern="^([0-9A-Za-z]{8,})" title="半角英数字8文字以上20文字以内" maxlength="20" required></td>
-      <s:if test="%{#session.userFlg == 3}">
-      <td><input type="button" class="button modal-open" value="削除" class="modal-open"></td>
+      <td><input type="text" name="userFlgList" value="<s:property value="userFlg" />" class="userFlg maxText" pattern="[1-3]" title="1～3" maxlength="1" required></td>
+      <td><input type="text" name="passwordList" value="<s:property value="password" />"class="password maxText" pattern="^([0-9A-Za-z]{8,})" title="半角英数字8文字以上20文字以内" maxlength="20" required></td>
+		<td><input type="button" class="button modal-update" value="編集"></td>
+      <td><input type="button" class="button modal-delete" value="削除"></td>
       </s:if>
 		</tr>
 		<input type="hidden" name="userIdList" value="<s:property value="userId" />" class="userId" >
 </s:iterator>
 </table>
-<s:if test="%{#session.userFlg == 3}">
-<input type="submit" class="button" value="編集" />
-</s:if>
-</s:form>
 
-<div id="modal-main">
-			id ： <div class="deleteUserId modalDelete"></div><br>
-			受講年 ： <div class="deleteYear modalDelete"></div><br>
-			受講開始月 ： <div class="deleteMonth modalDelete"></div><br>
-			姓 ： <div class="deleteFamilyName modalDelete"></div><br>
-			名 ： <div class="deleteGivenName modalDelete"></div><br>
+	<div id="modal-deleteMain">
+			id ： <div class="deleteUserId modalString"></div><br>
+			受講年 ： <div class="deleteYear modalString"></div><br>
+			受講開始月 ： <div class="deleteMonth modalString"></div><br>
+			姓 ： <div class="deleteFamilyName modalString"></div><br>
+			名 ： <div class="deleteGivenName modalString"></div><br>
 			<input type="button" class="delete-true button" value="削除">
 			<input type="button" class="modal-close button" value="閉じる">
 
@@ -151,6 +140,44 @@
 			</s:form>
 		</div>
 	</div>
+
+	<div id="modal-updateMain">
+			id ： <div class="updateUserId modalString"></div><br>
+			受講年 ： <div class="updateYear modalString"></div><br>
+			受講開始月 ： <div class="updateMonth modalString"></div><br>
+			姓 ： <div class="updateFamilyName modalString"></div><br>
+			名 ： <div class="updateGivenName modalString"></div><br>
+			<br>
+			上記の受講生の編集を行います。
+			<s:form action="StudentsUpdateAction">
+			<input type="hidden" name="userId" class="updateUserId" value="">
+			<input type="hidden" name="year" class="updateYear" value="">
+			<input type="hidden" name="month" class="updateMonth" value="">
+			<input type="hidden" name="familyName" class="updateFamilyName" value="">
+			<input type="hidden" name="givenName" class="updateGivenName" value="">
+			<input type="hidden" name="familyNameKanji" class="updateFamilyNameKanji" value="">
+			<input type="hidden" name="familyNameKana" class="updateFamilyNameKana" value="">
+			<input type="hidden" name="givenNameKanji" class="updateGivenNameKanji" value="">
+			<input type="hidden" name="givenNameKana" class="updateGivenNameKana" value="">
+			<input type="hidden" name="postal" class="updatePostal" value="">
+			<input type="hidden" name="address" class="updateAddress" value="">
+			<input type="hidden" name="phoneNumber" class="updatePhoneNumber" value="">
+			<input type="hidden" name="phoneEmail" class="updatePhoneEmail" value="">
+			<input type="hidden" name="mobileNumber" class="updateMobileNumber" value="">
+			<input type="hidden" name="mobileEmail" class="updateMobileEmail" value="">
+			<input type="hidden" name="sex"  class="updateSex" value="">
+			<input type="hidden" name="birthday" class="updateBirthday" value="">
+			<input type="hidden" name="userdelFlg" class="updateUserdelFlg" value="">
+			<input type="hidden" name="loginFlg" class="updateLoginFlg" value="">
+			<input type="hidden" name="userFlg" class="updateUserFlg" value="">
+			<input type="hidden" name="password" class="updatePassword" value="">
+
+			<input type="submit" class="delete-true button" value="編集">
+			</s:form>
+
+			<input type="button" class="modal-close button" value="閉じる">
+	</div>
+
 <s:if test="%{#session.userFlg == 3}">
 <h2>新規受講生追加</h2>
  <s:form action="StudentsInsertAction" >
@@ -189,6 +216,7 @@
 		<s:form action="GetAddressAction">
 			<button type="submit" class="button">戻る</button>
 		</s:form>
+</s:if>
 </div>
 <br>
 </body>
