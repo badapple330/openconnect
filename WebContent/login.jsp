@@ -43,7 +43,7 @@
 					<!------------------    メールアドレス    ------------------->
 					<div class="form-group">
 						<label class="col-sm-3">メールアドレス</label>
-						<s:textfield class="col-sm-5" name="email" value="" value="" placeholder="example@example.com"/>
+						<s:textfield class="col-sm-5" name="email" value="" value="" placeholder="example@example.com" />
 					</div>
 
 					<!------------------    パスワード    ------------------->
