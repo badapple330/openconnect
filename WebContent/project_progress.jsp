@@ -100,11 +100,11 @@
 				<td><input type="text" name="projectId" placeholder="半角数字で入力"
 					pattern="^[0-9]+$" maxlength="4"></td>
 				<td><input type="text" name="projectPlan" placeholder=""
-					maxlength="4"></td>
+					maxlength="200"></td>
 				<td><input type="text" name="projectResult" placeholder=""
-					maxlength="4"></td>
+					maxlength="200"></td>
 				<td><input type="text" name="other" placeholder=""
-					maxlength="50"></td>
+					maxlength="200"></td>
 			</tr>
 		</table>
 		<input type="submit" class="button" value="追加">

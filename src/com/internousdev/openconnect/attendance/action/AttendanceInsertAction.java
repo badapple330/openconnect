@@ -57,17 +57,23 @@ public class AttendanceInsertAction extends ActionSupport{
 
 		String result = ERROR;
 
-		setThisCalendar();
+		try{
 
-		for( int i=0; i<3; i++){
+			setThisCalendar();
 
-			if( insertUsers( cal ) ){
+			for( int i=0; i<3; i++){
 
-				result = SUCCESS;
-				resultString = "追加に成功しました";
+				if( insertUsers( cal ) ){
+
+					result = SUCCESS;
+					resultString = "追加に成功しました";
+				}
+
+				cal.add( Calendar.MONTH, -1 );
 			}
 
-			cal.add( Calendar.MONTH, -1 );
+		}catch( Exception e ){
+			return result;
 		}
 
 		return result;
@@ -202,91 +208,91 @@ public class AttendanceInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド 受講年を取得
-	* @author MINORI SUNAGAWA
-	* @return year
-	*/
+	 * 取得メソッド 受講年を取得
+	 * @author MINORI SUNAGAWA
+	 * @return year
+	 */
 	public String getYear() {
 		return year;
 	}
 
 	/**
-	* 設定メソッド 受講年を設定
-	* @author MINORI SUNAGAWA
-	* @param year
-	*/
+	 * 設定メソッド 受講年を設定
+	 * @author MINORI SUNAGAWA
+	 * @param year
+	 */
 	public void setYear(String year) {
 		this.year = year;
 	}
 
 	/**
-	* 取得メソッド 受講月を取得
-	* @author MINORI SUNAGAWA
-	* @return month
-	*/
+	 * 取得メソッド 受講月を取得
+	 * @author MINORI SUNAGAWA
+	 * @return month
+	 */
 	public String getMonth() {
 		return month;
 	}
 
 	/**
-	* 設定メソッド 受講月を設定
-	* @author MINORI SUNAGAWA
-	* @param month
-	*/
+	 * 設定メソッド 受講月を設定
+	 * @author MINORI SUNAGAWA
+	 * @param month
+	 */
 	public void setMonth(String month) {
 		this.month = month;
 	}
 
 	/**
-	* 取得メソッド カレンダーを取得
-	* @author MINORI SUNAGAWA
-	* @return cal
-	*/
+	 * 取得メソッド カレンダーを取得
+	 * @author MINORI SUNAGAWA
+	 * @return cal
+	 */
 	public Calendar getCal() {
 		return cal;
 	}
 
 	/**
-	* 設定メソッド カレンダーを設定
-	* @author MINORI SUNAGAWA
-	* @param cal
-	*/
+	 * 設定メソッド カレンダーを設定
+	 * @author MINORI SUNAGAWA
+	 * @param cal
+	 */
 	public void setCal(Calendar cal) {
 		this.cal = cal;
 	}
 
 	/**
-	* 取得メソッド 今月のカレンダーを取得
-	* @author MINORI SUNAGAWA
-	* @return thisCal
-	*/
+	 * 取得メソッド 今月のカレンダーを取得
+	 * @author MINORI SUNAGAWA
+	 * @return thisCal
+	 */
 	public Calendar getThisCal() {
 		return thisCal;
 	}
 
 	/**
-	* 設定メソッド  今月のカレンダーを設定
-	* @author MINORI SUNAGAWA
-	* @param thisCal
-	*/
+	 * 設定メソッド  今月のカレンダーを設定
+	 * @author MINORI SUNAGAWA
+	 * @param thisCal
+	 */
 	public void setThisCal(Calendar thisCal) {
 		this.thisCal = thisCal;
 	}
 
 	/**
-	* 取得メソッド 結果文字を取得
-	* @author KENICHI HORIGUCHI
-	* @return resultString
-	*/
+	 * 取得メソッド 結果文字を取得
+	 * @author KENICHI HORIGUCHI
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 
 	/**
-	* 設定メソッド  結果文字を設定
-	* @author KENICHI HORIGUCHI
-	* @param resultString
-	*/
+	 * 設定メソッド  結果文字を設定
+	 * @author KENICHI HORIGUCHI
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
