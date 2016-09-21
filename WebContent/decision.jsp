@@ -23,6 +23,11 @@
 	<header><jsp:include page="header.jsp" /></header>
 
 	<div class="container">
+	<s:if test="%{#session.userFlg < 1}">
+	ログイン後に表示します。
+	</s:if>
+
+	<s:if test="%{#session.userFlg >= 1}">
 
 		<br>
 		<h1>決裁状況一覧</h1>
@@ -37,8 +42,8 @@
 			</s:form>
 		</p>
 		<br>
-		<s:property value="successMsg" />
-		<s:property value="errorMsg" />
+		<s:property value="resultString" />
+		<s:property value="resultSelect" />
 		<br>
 		<s:form action="DecisionUpdateAction">
 			<table border="1">
@@ -177,10 +182,10 @@
 			</table>
 
 			<br>
-			<s:if test="%{#session.userFlg >= 2}">
+			<center><s:if test="%{#session.userFlg >= 2}">
 				<input type="submit" value="編集" class="button">
 			</s:if>
-
+			</center>
 		</s:form>
 		<br>
 
@@ -203,10 +208,7 @@
 				</table>
 			</div>
 
-
-
 			<div id="btnb">＋ プロジェクト一覧を表示</div>
-
 			<div id="menub">
 				<table border="1">
 					<tr>
@@ -222,6 +224,7 @@
 				</table>
 			</div>
 		</s:if>
+				</s:if>
 
 		<s:form action="GetAddressAction">
 			<center>
@@ -230,5 +233,6 @@
 		</s:form>
 
 	</div>
+
 </body>
 </html>

@@ -65,18 +65,250 @@ public class DecisionDTO {
 	 *
 	 */
 	private String iAId;
-
+	/**
+	 * 姓
+	 *
+	 */
 	private String familyNameKanji;
-
+	/**
+	 * 名
+	 *
+	 */
 	private String givenNameKanji;
-
+	/**
+	 * プロジェクト名
+	 *
+	 */
 	private String projectName;
 	/**
 	 *  数値を００００に直す
+	 *
 	 */
 	private String decisionIdNumber;
-
-
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getRegistration() {
+		return registration;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setRegistration(String registration) {
+		this.registration = registration;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public int getUserId() {
+		return userId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public int getProjectId() {
+		return projectId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setProjectId(int projectId) {
+		this.projectId = projectId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public int getDecisionId() {
+		return decisionId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setDecisionId(int decisionId) {
+		this.decisionId = decisionId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getDecisionName() {
+		return decisionName;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setDecisionName(String decisionName) {
+		this.decisionName = decisionName;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getDetail() {
+		return detail;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getIDraftingId() {
+		return iDraftingId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setIDraftingId(String iDraftingId) {
+		this.iDraftingId = iDraftingId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getIApprovalId() {
+		return iApprovalId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setIApprovalId(String iApprovalId) {
+		this.iApprovalId = iApprovalId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getADraftingId() {
+		return aDraftingId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setADraftingId(String aDraftingId) {
+		this.aDraftingId = aDraftingId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getCdId() {
+		return cdId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setCdId(String cdId) {
+		this.cdId = cdId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getIADId() {
+		return iADId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setIADId(String iADId) {
+		this.iADId = iADId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getIAId() {
+		return iAId;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setIAId(String iAId) {
+		this.iAId = iAId;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
+	}
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public String getGivenNameKanji() {
+		return givenNameKanji;
+	}
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
+	}
 	/**
 	* 取得メソッド
 	* @author TATSUYA HOSHI
@@ -98,320 +330,17 @@ public class DecisionDTO {
 	* @author TATSUYA HOSHI
 	* @return
 	*/
-	public String getiDraftingId() {
-		return iDraftingId;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setiDraftingId(String iDraftingId) {
-		this.iDraftingId = iDraftingId;
-	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public String getiApprovalId() {
-		return iApprovalId;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setiApprovalId(String iApprovalId) {
-		this.iApprovalId = iApprovalId;
-	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public String getaDraftingId() {
-		return aDraftingId;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setaDraftingId(String aDraftingId) {
-		this.aDraftingId = aDraftingId;
-	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public String getiADId() {
-		return iADId;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setiADId(String iADId) {
-		this.iADId = iADId;
-	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public String getiAId() {
-		return iAId;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setiAId(String iAId) {
-		this.iAId = iAId;
-	}
-
-	/**
-	 * 取得メソッド 登録日
-	 * @author KENICHI HORIGUCHI
-	 * @return registration
-	 */
-	public String getRegistration() {
-		return registration;
-	}
-	/**
-	* 取得メソッド
-	* @author KOUMEI IWAMOTO
-	* @return
-	*/
-	public String getFamilyNameKanji() {
-		return familyNameKanji;
-	}
-	/**
-	* 設定メソッド
-	* @author KOUMEI IWAMOTO
-	* @param
-	*/
-	public void setFamilyNameKanji(String familyNameKanji) {
-		this.familyNameKanji = familyNameKanji;
-	}
-	/**
-	* 取得メソッド
-	* @author KOUMEI IWAMOTO
-	* @return
-	*/
-	public String getGivenNameKanji() {
-		return givenNameKanji;
-	}
-	/**
-	* 設定メソッド
-	* @author KOUMEI IWAMOTO
-	* @param
-	*/
-	public void setGivenNameKanji(String givenNameKanji) {
-		this.givenNameKanji = givenNameKanji;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param registration
-	 */
-	public void setRegistration(String registration) {
-		this.registration = registration;
-	}
-	/**
-	 * 取得メソッド ユーザーID
-	 * @author KENICHI HORIGUCHI
-	 * @return userId
-	 */
-	public int getUserId() {
-		return userId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param userId
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	/**
-	 * 取得メソッド プロジェクトID
-	 * @author KENICHI HORIGUCHI
-	 * @return projectId
-	 */
-	public int getProjectId() {
-		return projectId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param projectId
-	 */
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
-	}
-	/**
-	 * 取得メソッド 案件番号
-	 * @author KENICHI HORIGUCHI
-	 * @return decisionId
-	 */
-	public int getDecisionId() {
-		return decisionId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param decisionId
-	 */
-	public void setDecisionId(int decisionId) {
-		this.decisionId = decisionId;
-	}
-	/**
-	 * 取得メソッド 案件名
-	 * @author KENICHI HORIGUCHI
-	 * @return decisionName
-	 */
-	public String getDecisionName() {
-		return decisionName;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param decisionName
-	 */
-	public void setDecisionName(String decisionName) {
-		this.decisionName = decisionName;
-	}
-	/**
-	 * 取得メソッド 詳細
-	 * @author KENICHI HORIGUCHI
-	 * @return detail
-	 */
-	public String getDetail() {
-		return detail;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param detail
-	 */
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-	/**
-	 * 取得メソッド 実施起案番号
-	 * @author KENICHI HORIGUCHI
-	 * @return iDraftingId
-	 */
-	public String getIDraftingId() {
-		return iDraftingId;
-	}
-	/**
-	* 取得メソッド を取得
-	* @author KOHEI NITABARU
-	* @return decisionIdNumber
-	*/
 	public String getDecisionIdNumber() {
 		return decisionIdNumber;
 	}
 	/**
-	* 設定メソッド を設定
-	* @author KOHEI NITABARU
-	* @param decisionIdNumber
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
 	*/
 	public void setDecisionIdNumber(String decisionIdNumber) {
 		this.decisionIdNumber = decisionIdNumber;
 	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param iDraftingId
-	 */
-	public void setIDraftingId(String iDraftingId) {
-		this.iDraftingId = iDraftingId;
-	}
-	/**
-	 * 取得メソッド 実施決裁番号
-	 * @author KENICHI HORIGUCHI
-	 * @return iApprovalId
-	 */
-	public String getIApprovalId() {
-		return iApprovalId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param iApprovalId
-	 */
-	public void setIApprovalId(String iApprovalId) {
-		this.iApprovalId = iApprovalId;
-	}
-	/**
-	 * 取得メソッド 契約起案番号
-	 * @author KENICHI HORIGUCHI
-	 * @return aDraftingId
-	 */
-	public String getADraftingId() {
-		return aDraftingId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param aDraftingId
-	 */
-	public void setADraftingId(String aDraftingId) {
-		this.aDraftingId = aDraftingId;
-	}
-	/**
-	 * 取得メソッド 契約決番号
-	 * @author KENICHI HORIGUCHI
-	 * @return cdId
-	 */
-	public String getCdId() {
-		return cdId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param cdId
-	 */
-	public void setCdId(String cdId) {
-		this.cdId = cdId;
-	}
-	/**
-	 * 取得メソッド 実施兼契約起案番号
-	 * @author KENICHI HORIGUCHI
-	 * @return iADId
-	 */
-	public String getIADId() {
-		return iADId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param iADId
-	 */
-	public void setIADId(String iADId) {
-		this.iADId = iADId;
-	}
-	/**
-	 * 取得メソッド 実施兼契約番号
-	 * @author KENICHI HORIGUCHI
-	 * @return iAId
-	 */
-	public String getIAId() {
-		return iAId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param iAId
-	 */
-	public void setIAId(String iAId) {
-		this.iAId = iAId;
-	}
+
+
 }
