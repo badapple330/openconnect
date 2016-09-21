@@ -1,5 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
@@ -31,10 +30,12 @@
 	</header>
 	<!-- ヘッダーはここまで -->
 
-<!------------------    ユーザーログイン    ------------------->
+	<!------------------    ユーザーログイン    ------------------->
+
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
+				<s:property value="%{resultString}" />
 
 				<s:form theme="simple" id="inner" class="form-horizontal"
 					action="LoginAction" autocomplete="off">
@@ -49,14 +50,15 @@
 						<label class="col-sm-3">パスワード</label>
 						<s:password class="col-sm-5" name="password" value="" />
 					</div>
-	<div class="form-group">
+					<div class="form-group">
 
-						<s:textfield  type="hidden" name="userFlg" value="userFlg" />
+						<s:textfield type="hidden" name="userFlg" value="userFlg" />
 					</div>
 					<!------------------    ログイン情報を送信    ------------------->
 					<div class="form-group">
 						<div>
 							<s:submit type="submit" value="ログイン" />
+
 						</div>
 					</div>
 				</s:form>
