@@ -112,7 +112,7 @@
 									maxlength="100" value="<s:property value="note"/>"
 									class="projectNotelist"></td>
 
-								<td><s:if test="%{#session.userFlg >= 2}">
+								<td><s:if test="%{#session.userFlg >= 50}">
 										<input type="button" value="削除" class="modal-open">
 									</s:if></td>
 
@@ -121,12 +121,12 @@
 						</s:iterator>
 					</tbody>
 				</table>
-				<s:if test="%{#session.userFlg == 3}">
+				<s:if test="%{#session.userFlg == 100}">
 					<input class="button" type="submit" value="編集">
 				</s:if>
 			</s:form>
 			<br>
-			<s:if test="%{#session.userFlg >= 2}">
+			<s:if test="%{#session.userFlg >= 50}">
 				<s:form action="ProjectsInsertAction">
 					<table border="1">
 
