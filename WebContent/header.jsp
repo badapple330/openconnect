@@ -52,6 +52,22 @@
 				<dl>
 				<dt id="menuBer">メニュー</dt>
 				</dl>
+
+
+
+				<select>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+				</select>
+
+
+
 				<dl id="menuElementGroup">
 				<dd><a href="ProjectsSelectAction" class="menuElement">プロジェクト一覧</a></dd>
 				<dd><a href="ProjectStatusSelectAction" class="menuElement">プロジェクトリリース状況</a></dd>

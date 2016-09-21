@@ -25,9 +25,6 @@
 			ログイン後に表示します。
 		</s:if>
 	</div>
-	<s:if test="%{#session.userFlg < 10}">
-			ログイン後に表示します。
-		</s:if>
 	<s:if test="%{#session.userFlg >= 10}">
 		<s:form action="ProjectProgressSelectAction">
 		プロジェクト名を入力<br>

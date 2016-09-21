@@ -12,15 +12,21 @@
 <link rel="stylesheet" href="css/decision_detail.css">
 </head>
 <body>
-	<s:if test="%{#session.userFlg >= 10}">
+
 		<!-- 	ヘッダー読み込み -->
 		<jsp:include page="header.jsp" />
 
+<s:if test="%{#session.userFlg < 10}">
+			ログイン後に表示します。
+		</s:if>
+<s:if test="%{#session.userFlg >= 10}">
 		<div class="container">
 			<br>
 			<!-- 一覧表示 -->
 			<h1>決裁手続き一覧</h1>
 			<br>
+
+
 			<s:form action="DecisionDetailSelectAction">
 	プロジェクト検索<input type="text" placeholder="例：rewrite" name="searchString"
 					maxlength=30>
