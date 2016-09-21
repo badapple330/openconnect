@@ -32,7 +32,7 @@ public class ProjectStatusSelectAction extends ActionSupport{
 	/**
 	 * 結果文字
 	 */
-	private String resultString = "";
+	private String resultSelect = "該当する情報はありません。";
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -48,6 +48,12 @@ public class ProjectStatusSelectAction extends ActionSupport{
 		if( projectStatusList.size() != 0 ){
 
 			result = SUCCESS;
+
+			if(searchString.equals("")){
+				resultSelect ="すべてを表示しました。";
+			} else {
+				resultSelect = (getText("｢"+searchString + "｣ を検索しました。"));
+			}
 		}
 
 		return result;
@@ -94,8 +100,8 @@ public class ProjectStatusSelectAction extends ActionSupport{
 	* @author KOHEI NITABARU
 	* @return resultString
 	*/
-	public String getResultString() {
-		return resultString;
+	public String getResultSelect() {
+		return resultSelect;
 	}
 
 	/**
@@ -103,8 +109,8 @@ public class ProjectStatusSelectAction extends ActionSupport{
 	* @author KOHEI NITABARU
 	* @param resultString
 	*/
-	public void setResultString(String resultString) {
-		this.resultString = resultString;
+	public void setResultSelect(String resultString) {
+		this.resultSelect = resultString;
 	}
 
 	/**

@@ -45,7 +45,7 @@
 	<s:property value="%{resultSelect" />
 	<br>
 	<s:if test="%{attendanceList.size() > 0}">
-	<s:if test="%{#session.userFlg == 3}">
+	<s:if test="%{#session.userFlg == 100}">
 	<table border="1">
 		<tr>
 			<td><div class="smallWidth">0</div></td>
@@ -113,13 +113,13 @@
 			</s:iterator>
 		</table>
 		<br>
-		<s:if test="%{#session.userFlg == 3}">
+		<s:if test="%{#session.userFlg == 100}">
 		<s:submit value="更新" class="button" align="left"/>
 		</s:if>
 	</s:form>
 	</s:if>
 	<br>
-	<s:if test="%{#session.userFlg == 3}">
+	<s:if test="%{#session.userFlg == 100}">
 	<h1>受講生の勤怠データ追加</h1>
 			例：2016　09　と入力した場合、9/1～9/30の、7月生～9月生全員のデータが追加されます。<br>
 			<br>
