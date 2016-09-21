@@ -48,8 +48,8 @@
 						<tr>
 							<td class="bookId"><s:property value="bookId" /></td>
 							<td><input type="text" size="75" name="titleList"
-								maxlength="50" value="<s:property value="title" />"
-								class="bookTitle" placeholder="例：やさしいJAVA"></td>
+								maxlength="50" value="<s:property value="title"/>"
+								class="bookTitle" placeholder="例：やさしいJAVA" required></td>
 							<td><s:if test="%{#session.userFlg == 3}">
 									<input type="button" class="button modal-open" value="削除">
 								</s:if></td>
