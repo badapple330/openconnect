@@ -21,14 +21,14 @@
 
 		<h1>プロジェクト進捗報告</h1>
 
-		<s:if test="%{#session.userFlg < 1}">
+		<s:if test="%{#session.userFlg < 10}">
 			ログイン後に表示します。
 		</s:if>
 	</div>
-	<s:if test="%{#session.userFlg < 1}">
+	<s:if test="%{#session.userFlg < 10}">
 			ログイン後に表示します。
 		</s:if>
-	<s:if test="%{#session.userFlg >= 1}">
+	<s:if test="%{#session.userFlg >= 10}">
 		<s:form action="ProjectProgressSelectAction">
 		プロジェクト名を入力<br>
 			<input type="text" name="search" placeholder="例：rewrite"
@@ -86,7 +86,7 @@
 							<td><s:property value="startDate" /></td>
 							<td><s:property value="endDate" /></td>
 							<td><s:property value="note" /></td>
-							<td><s:if test="%{#session.userFlg == 3}">
+							<td><s:if test="%{#session.userFlg == 100}">
 									<input type="button" class="button modal-open" value="削除" />
 								</s:if></td>
 						</tr>
@@ -94,7 +94,7 @@
 
 				</tbody>
 			</table>
-			<s:if test="%{#session.userFlg == 3}">
+			<s:if test="%{#session.userFlg == 100}">
 				<input type="submit" class="button" value="編集" />
 			</s:if>
 		</s:form>

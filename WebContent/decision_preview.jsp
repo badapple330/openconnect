@@ -12,7 +12,7 @@
 <title>決裁プレビュー</title>
 </head>
 <body>
-<s:if test="%{#session.userFlg >= 1}">
+<s:if test="%{#session.userFlg >= 10}">
 	<jsp:include page="header.jsp" />
 
 	<h1>決裁プレビュー画面</h1>

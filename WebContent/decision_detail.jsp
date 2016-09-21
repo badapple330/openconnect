@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/decision_detail.css">
 </head>
 <body>
-	<s:if test="%{#session.userFlg >= 1}">
+	<s:if test="%{#session.userFlg >= 10}">
 		<!-- 	ヘッダー読み込み -->
 		<jsp:include page="header.jsp" />
 
@@ -39,9 +39,9 @@
 					<th><div class="bigWidth">プロジェクト名</div></th>
 					<th><div class="middleWidth">決裁分類</div></th>
 					<th><div class="middleWidth">申請・承認状況</div></th>
-					<th><s:if test="%{#session.userFlg  >= 2}">編集</s:if></th>
-					<th><s:if test="%{#session.userFlg  >= 2}">申請</s:if></th>
-					<th><s:if test="%{#session.userFlg  >= 2}">削除</s:if></th>
+					<th><s:if test="%{#session.userFlg  >= 50}">編集</s:if></th>
+					<th><s:if test="%{#session.userFlg  >= 50}">申請</s:if></th>
+					<th><s:if test="%{#session.userFlg  >= 50}">削除</s:if></th>
 					<th><div class="middleWidth">プレビュー</div></th>
 				</tr>
 
@@ -58,10 +58,10 @@
 						<td class="decision_type"><s:property value="decisionType" /></td>
 						<td class="decision_status"><s:property
 								value="decisionStatus" /></td>
-						<td><s:if test="%{#session.userFlg  >= 2}">
+						<td><s:if test="%{#session.userFlg  >= 50}">
 								<input type="button" value="編集" class="modal-edit-open">
 							</s:if></td>
-						<td><s:if test="%{#session.userFlg  >= 2}">
+						<td><s:if test="%{#session.userFlg  >= 50}">
 								<s:if test="%{decisionStatus=='承認'}">
 									<input type="button" value="申請" />
 								</s:if>
@@ -75,7 +75,7 @@
 									</s:form>
 								</s:else>
 							</s:if></td>
-						<td><s:if test="%{#session.userFlg  >= 2}">
+						<td><s:if test="%{#session.userFlg  >= 50}">
 								<input type="button" value="削除" class="modal-open">
 							</s:if></td>
 
@@ -88,7 +88,7 @@
 				</s:iterator>
 
 			</table>
-			<s:if test="%{#session.userFlg  >= 2}">
+			<s:if test="%{#session.userFlg  >= 50}">
 				<br>
 	存在するプロジェクトのIDを入力してください。<br>
 				<s:form action="DecisionDetailInsertAction">
