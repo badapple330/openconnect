@@ -30,7 +30,7 @@ public class ProjectsSelectAction extends ActionSupport{
 	/**
 	 * 検索結果文字
 	 */
-	private String resultString = "該当する情報は存在しません";
+	private String resultSelect = "該当する情報は存在しません";
 
 	/**
 	 * 検索リスト
@@ -64,8 +64,11 @@ public class ProjectsSelectAction extends ActionSupport{
 
 		if (searchList.size() != 0) {
 			result = SUCCESS;
-			resultString = "";
+			if(search.equals("")){
+				resultSelect ="すべてを表示しました。";
+			}else{resultSelect = search + " を検索しました。";
 
+			}
 		}
 
 		StudentsSelectDAO selectDao = new StudentsSelectDAO();
@@ -114,15 +117,15 @@ public class ProjectsSelectAction extends ActionSupport{
 	 * @return resultString
 	 */
 	public String getErrorMsg() {
-		return resultString;
+		return resultSelect;
 	}
 	/**
 	 * 設定メソッド エラーメッセージを設定
 	 * @author YUICHI KIRIU
 	 * @param resultString
 	 */
-	public void setErrorMsg(String resultString) {
-		this.resultString = resultString;
+	public void setErrorMsg(String resultSelect) {
+		this.resultSelect = resultSelect;
 	}
 
 	/**
@@ -130,16 +133,16 @@ public class ProjectsSelectAction extends ActionSupport{
 	 * @author YUICHI KIRIU
 	 * @return resultString
 	 */
-	public String getResultString() {
-		return resultString;
+	public String getResultSelect() {
+		return resultSelect;
 	}
 	/**
 	 * 設定メソッド 検索結果文字を設定
 	 * @author YUICHI KIRIU
 	 * @param resultString
 	 */
-	public void setResultString(String resultString) {
-		this.resultString = resultString;
+	public void setResultSelect(String resultSelect) {
+		this.resultSelect = resultSelect;
 	}
 	/**
 	 * 取得メソッド 検索リストを取得

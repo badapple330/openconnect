@@ -82,6 +82,8 @@ public class ProjectsInsertAction  extends ActionSupport  {
 			ProjectStatusInsertDAO insertDao = new ProjectStatusInsertDAO();
 
 			insertDao.insert(maxId);
+		}else{
+			resultString = "追加に失敗しました";
 		}
 		return result;
 	}

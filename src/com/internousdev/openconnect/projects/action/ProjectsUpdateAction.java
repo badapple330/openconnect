@@ -96,7 +96,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 		}
 		if(count > 0){
 			result = SUCCESS;
-			 resultString = "";
+			 resultString = "編集に成功しました。";
 		}
 		return result;
 	}
