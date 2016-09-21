@@ -148,6 +148,7 @@
 					<s:form action="ScheduleDeleteAction">
 						<input type="hidden" name="scheduleId" value=""
 							class="true-delete">
+							<s:token />
 						<input type="submit" class="delete-true button" value="はい">
 						<input type="button" class="modal-close button" value="いいえ">
 					</s:form>

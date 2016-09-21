@@ -10,6 +10,8 @@
 	display: inline;
 }
 
+
+/* モーダル コンテンツエリア */
 #modal-main {
 	display: none;
 	width: 500px;
