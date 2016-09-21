@@ -201,7 +201,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 取得メソッド 終了日を取得
+	* 取得メソッド  結果文字を取得
 	* @author YUICHI KIRIU
 	* @return resultString
 	*/
@@ -212,7 +212,7 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 
 	/**
-	* 設定メソッド 終了日を設定
+	* 設定メソッド  結果文字を設定
 	* @author YUICHI KIRIU
 	* @param resultString
 	*/

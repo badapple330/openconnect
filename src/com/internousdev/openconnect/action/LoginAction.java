@@ -84,8 +84,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * メールアドレスを取得するためのメソッド
 	 *
-	 * @author MAIKI OKANO
-	 * @return email 取得するメールアドレス
+	 * @author MAIKI OKANO0
+0	 * @return email 取得するメールアドレス
 	 */
 	public String getEmail() {
 		return email;
