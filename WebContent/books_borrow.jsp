@@ -20,7 +20,7 @@
 		<br> <br>
 
 
-		<s:if test="%{#session.userFlg >= 1}">
+		<s:if test="%{#session.userFlg >= 10}">
 
 			<s:property value="%{resultSelect}" />
 			<br>

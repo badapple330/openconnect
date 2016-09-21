@@ -22,7 +22,7 @@
 		<h1>書籍一覧</h1>
 		<br> <br>
 
-		<s:if test="%{#session.userFlg >= 1}">
+		<s:if test="%{#session.userFlg >= 10}">
 
 			<s:form action="BooksSelectAction">
 			タイトルを入力<br>
@@ -40,7 +40,7 @@
 					<tr>
 						<td><div class="haba">ID</div></td>
 						<td><div class="haba2">タイトル一覧</div></td>
-						<s:if test="%{#session.userFlg == 3}">
+						<s:if test="%{#session.userFlg >= 100}">
 							<td>削除</td>
 						</s:if>
 						<td></td>
@@ -52,7 +52,7 @@
 							<td><input type="text" size="75" name="titleList"
 								maxlength="50" value="<s:property value="title"/>"
 								class="bookTitle" placeholder="例：やさしいJAVA" required></td>
-							<td><s:if test="%{#session.userFlg == 3}">
+							<td><s:if test="%{#session.userFlg >= 100}">
 									<input type="button" class="button modal-open" value="削除">
 								</s:if></td>
 							<td><input type="hidden" name="bookIdList"
@@ -60,7 +60,7 @@
 						</tr>
 					</s:iterator>
 				</table>
-				<td><s:if test="%{#session.userFlg == 3}">
+				<td><s:if test="%{#session.userFlg >= 100}">
 						<input type="submit" class="button" value="編集完了" />
 					</s:if></td>
 			</s:form>
@@ -82,7 +82,7 @@
 			</div>
 
 			<s:form action="BooksInsertAction">
-				<s:if test="%{#session.userFlg == 3}">
+				<s:if test="%{#session.userFlg >= 100}">
 			書籍の追加
 				<input type="text" name="title" placeholder="例：やさしいJAVA">
 					<input class="button" type="submit" value="追加">
