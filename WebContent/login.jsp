@@ -6,6 +6,8 @@
 
 <html>
 <head>
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Open Connect -ログイン</title>
 <!-- css読み込み -->
@@ -35,7 +37,7 @@
 			<div class="col-sm-8 col-sm-offset-2">
 
 				<s:form theme="simple" id="inner" class="form-horizontal"
-					action="LoginAction">
+					action="LoginAction" autocomplete="off">
 					<!------------------    メールアドレス    ------------------->
 					<div class="form-group">
 						<label class="col-sm-3">メールアドレス</label>
