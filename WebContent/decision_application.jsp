@@ -11,7 +11,7 @@
 <title>申請一覧</title>
 </head>
 <body>
-
+<s:if test="%{#session.userFlg >= 1}">
 	<jsp:include page="header.jsp" />
 
 	<h1>決裁手続き申請一覧画面</h1>
@@ -70,8 +70,10 @@
 	</table>
 	<br>
 	<br>
+		</s:if>
 	<s:form action="GetAddressAction">
 		<s:submit value="戻る" class="button" />
 	</s:form>
+
 </body>
 </html>

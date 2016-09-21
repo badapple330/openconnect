@@ -41,7 +41,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 	/**
 	 * エラー文字
 	 */
-	private String errorString = "";
+	private String resultSelect = "";
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -58,7 +58,7 @@ public class DecisionDetailSelectAction extends ActionSupport{
 
 		if( decisionDetailList == null ){
 
-			errorString = "データがありません";
+			resultSelect = "データがありません";
 		}
 
 		return SUCCESS;
@@ -131,22 +131,28 @@ public class DecisionDetailSelectAction extends ActionSupport{
 		this.searchString = searchString;
 	}
 
-	/**
-	* 取得メソッド エラーメッセージを取得
-	* @author TATUHUMI ITOU
-	* @return errorString
-	*/
-	public String getErrorString() {
-		return errorString;
-	}
+
 
 	/**
-	* 設定メソッド エラーメッセージを設定
+	* 取得メソッド
 	* @author TATUHUMI ITOU
-	* @param errorString
+	* @return resultSelect
 	*/
-	public void setErrorString(String errorString) {
-		this.errorString = errorString;
+	public String getResultSelect() {
+		return resultSelect;
 	}
+
+
+
+	/**
+	* 設定メソッド
+	* @author TATUHUMI ITOU
+	* @param resultSelect
+	*/
+	public void setResultSelect(String resultSelect) {
+		this.resultSelect = resultSelect;
+	}
+
+
 
 }

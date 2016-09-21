@@ -11,7 +11,7 @@
 <title>決裁プレビュー</title>
 </head>
 <body>
-
+<s:if test="%{#session.userFlg >= 1}">
 	<jsp:include page="header.jsp" />
 
 	<h1>決裁プレビュー画面</h1>
@@ -174,6 +174,7 @@
 				</tr>
 			</table>
 		</s:iterator>
+		</s:if>
 		<form>
 <input type="button" value="戻る" onclick="history.back()">
 </form>

@@ -36,7 +36,7 @@ public class DecisionEditSelectAction extends ActionSupport implements SessionAw
 	/**
 	 * エラーメッセージ
 	 */
-	private String errorString ;
+	private String resultString ;
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -46,7 +46,7 @@ public class DecisionEditSelectAction extends ActionSupport implements SessionAw
 		DecisionEditSelectDAO dao = new DecisionEditSelectDAO();
 		decisionDetailList = dao.select((int) (session.get("decisionDetailId")) );
 		if( decisionDetailList == null ){
-			errorString = "データがありません";
+			resultString = "データがありません";
 		}
 		return SUCCESS;
 	}
@@ -68,24 +68,24 @@ public class DecisionEditSelectAction extends ActionSupport implements SessionAw
 		this.decisionDetailList = decisionDetailList;
 	}
 
-	/**
-	 * 決裁手続き書取得メソッド
-	 * @author TATUHUMI ITOU
-	 * @return errorString
-	 */
-	public String getErrorString() {
-		return errorString;
-	}
+
 
 	/**
-	 * エラーメッセージ設定メソッド
-	 * @author TATUHUMI ITOU
-	 * @param errorString
-	 */
-	public void setErrorString(String errorString) {
-		this.errorString = errorString;
+	* 取得メソッド
+	* @author  TATUHUMI ITOU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
 	}
-
+	/**
+	* 設定メソッド
+	* @author  TATUHUMI ITOU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
 	/**
 	 * セッション取得メソッド
 	 * @author TATUHUMI ITOU

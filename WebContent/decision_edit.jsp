@@ -11,11 +11,12 @@
 <title>決裁編集</title>
 </head>
 <body>
-
+<s:if test="%{#session.userFlg >= 1}">
 	<jsp:include page="header.jsp" />
 
 <h1>決裁手続き編集画面</h1>
 	<s:property value="%{resultString}"/>
+	<s:property value="%{resultSelect}" />
 <s:iterator value="decisionDetailList">
 
 
@@ -100,8 +101,10 @@
 </s:iterator>
 
 <br>
+</s:if>
 <s:form action="BackGoDecisionAction">
 <input type="submit" value="戻る" class="button">
 </s:form>
+
 </body>
 </html>
