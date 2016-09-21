@@ -29,7 +29,7 @@ public class BooksSelectAction extends ActionSupport {
 	/**
 	 * エラーメッセージ
 	 */
-	private String resultString;
+	private String resultSelect;
 	/**
 	 * DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
@@ -40,8 +40,9 @@ public class BooksSelectAction extends ActionSupport {
 		searchList = dao.select(search);
 		if (searchList.size() != 0) {
 			result = SUCCESS;
+			resultSelect = "検索結果を表示しました。";
 		}else {
-			resultString = "該当する書籍は存在しません";
+			resultSelect = "該当する書籍は存在しません";
 		}
 		return result;
 	}
@@ -88,18 +89,18 @@ public class BooksSelectAction extends ActionSupport {
 	/**
 	 * エラーメッセージ取得メソッド
 	 * @author TATSUYA HOSHI
-	 * @return resultString
+	 * @return resultSelect
 	 */
-	public String getResultString() {
-		return resultString;
+	public String getResultSelect() {
+		return resultSelect;
 	}
 	/**
 	 * エラーメッセージ設定メソッド
 	 * @author TATSUYA HOSHI
-	 * @param resultString
+	 * @param resultSelect
 	 */
-	public void setResultString(String resultString) {
-		this.resultString = resultString;
+	public void setResultSelect(String resultSelect) {
+		this.resultSelect = resultSelect;
 	}
 
 
