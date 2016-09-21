@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset=UTF-8>
-
+<link rel="shortcut icon" href="favicon.ico">
 
 <title>書籍一覧</title>
 <link rel="stylesheet" href="css/books.css">

@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset=UTF-8>
+<link rel="shortcut icon" href="favicon.ico">
 <title>プロジェクト進捗状況</title>
 <link rel="stylesheet" href="css/project_progress.css">
 <link rel="stylesheet" href="css/accordion.css">

@@ -6,6 +6,7 @@
 <head>
 <LINK rel="stylesheet" type="text/css" href="css/style.css">
 <meta charset="UTF-8">
+<link rel="shortcut icon" href="favicon.ico">
 <script src="js/jquery-3.0.0.min.js"></script>
 <script src="js/sendCheck.js"></script>
 <title>申請一覧</title>

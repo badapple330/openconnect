@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset=UTF-8>
+<link rel="shortcut icon" href="favicon.ico">
 <title>プロジェクトリリース状況</title>
 <link rel="stylesheet" href="css/project_status.css">
 </head>

@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset=UTF-8>
+<link rel="shortcut icon" href="favicon.ico">
 <title>受講生一覧</title>
 <link rel="stylesheet" href="css/students.css">
 <script src="js/jquery-3.1.0.min.js"></script>

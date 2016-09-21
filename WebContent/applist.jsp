@@ -7,6 +7,7 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="favicon.ico">
 <title>Open Connect</title>
 <!-- css読み込み  -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">

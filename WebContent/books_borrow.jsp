@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="favicon.ico">
 <title>書籍貸し出し</title>
 <link rel="stylesheet" href="css/books_borrow.css">
 </head>
