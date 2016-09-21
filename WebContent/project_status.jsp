@@ -13,14 +13,15 @@
 <body>
 	<header><jsp:include page="header.jsp" /></header>
 	<div class="container">
+
+		<div class="center">
+			<br>
+			<h1>プロジェクトリリース状況</h1>
+		</div>
 		<s:if test="%{#session.userFlg < 1}">
-	ログイン後に表示します。
-	</s:if>
+			ログイン後に表示します。
+		</s:if>
 		<s:if test="%{#session.userFlg >= 1}">
-			<div class="center">
-				<br>
-				<h1>プロジェクトリリース状況</h1>
-			</div>
 			<br>
 			<s:form action="ProjectStatusSelectAction">
 				<input type="text" name="searchString" placeholder="プロジェクト名"
@@ -86,7 +87,7 @@
 
 				</table>
 				<br>
-				<s:if test="%{#session.userFlg >=50}">
+				<s:if test="%{#session.userFlg >= 50}">
 					<input type="submit" class="button" value="編集" />
 				</s:if>
 			</s:form>
