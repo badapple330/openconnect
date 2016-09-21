@@ -13,14 +13,16 @@
 <script src="js/books.js"></script>
 </head>
 <body>
-	<s:if test="%{#session.userFlg >= 1}">
-		<jsp:include page="header.jsp" />
 
-		<div class="container">
+	<jsp:include page="header.jsp" />
 
-			<br>
-			<h1>書籍一覧</h1>
-			<br> <br>
+	<div class="container">
+
+		<br>
+		<h1>書籍一覧</h1>
+		<br> <br>
+
+		<s:if test="%{#session.userFlg >= 1}">
 
 			<s:form action="BooksSelectAction">
 			タイトルを入力<br>
@@ -93,11 +95,16 @@
 				<br>
 
 			</s:form>
-	</s:if>
-	<s:form action="GetAddressAction">
-		<input type="submit" class="button" value="戻る">
-		<br>
-	</s:form>
+		</s:if>
+
+		<s:else>
+		ログイン後表示します
+		</s:else>
+
+		<s:form action="GetAddressAction">
+			<input type="submit" class="button" value="戻る">
+			<br>
+		</s:form>
 
 	</div>
 

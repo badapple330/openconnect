@@ -10,14 +10,18 @@
 <link rel="stylesheet" href="css/books_borrow.css">
 </head>
 <body>
-	<s:if test="%{#session.userFlg >= 1}">
-		<jsp:include page="header.jsp" />
 
-		<div class="container">
+	<jsp:include page="header.jsp" />
 
-			<br>
-			<h1>書籍貸し出し</h1>
-			<br> <br> <br>
+	<div class="container">
+
+		<br>
+		<h1>書籍貸し出し</h1>
+		<br> <br>
+
+
+		<s:if test="%{#session.userFlg >= 1}">
+
 			<s:property value="%{resultSelect}" />
 			<br>
 			<table border="1">
@@ -64,12 +68,16 @@
 				<input class="button" type="submit" value="貸し出し">
 				<br>
 			</s:form>
-	</s:if>
+		</s:if>
 
-	<s:form action="GetAddressAction">
-		<input class="button" type="submit" value="戻る">
-		<br>
-	</s:form>
+		<s:else>
+		ログイン後表示します
+		</s:else>
+
+		<s:form action="GetAddressAction">
+			<input class="button" type="submit" value="戻る">
+			<br>
+		</s:form>
 	</div>
 
 </body>
