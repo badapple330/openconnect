@@ -36,17 +36,17 @@
 				<!------------------    名前(漢字)    ------------------->
 				<tr>
 					<th>名前（漢字）</th>
-					<td><input type="text" name="name" value="" placeholder="野比"
+					<td><input type="text" name="name" value="" placeholder="氏名"
 						maxlength="24" required /> <input type="text" name="name"
-						value="" placeholder="のび太" maxlength="25" required /></td>
+						value="" placeholder="名前" maxlength="25" required /></td>
 				</tr>
 
 				<!------------------    名前(ふりがな)    ------------------->
 				<tr>
 					<th>名前（ふりがな）</th>
-					<td><input type="text" name="nameF" value="" placeholder="のび"
+					<td><input type="text" name="nameF" value="" placeholder="みょうじ"
 						maxlength="24" required /> <input type="text" name="nameF"
-						value="" placeholder="のびた" maxlength="25" required /></td>
+						value="" placeholder="なまえ" maxlength="25" required /></td>
 				</tr>
 
 				<!------------------    郵便番号    ------------------->
