@@ -25,11 +25,11 @@
 
 	<div class="container">
 
-	<s:if test="%{#session.userFlg >= 1}">
+
 
 		<br>
 		<h1>決裁状況一覧</h1>
-		<br>
+			<s:if test="%{#session.userFlg >= 1}">
 		<div align="left">案件名を入力してください</div>
 		<p>
 		<p>
