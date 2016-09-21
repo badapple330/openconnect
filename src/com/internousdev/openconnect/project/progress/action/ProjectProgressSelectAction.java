@@ -32,9 +32,9 @@ public class ProjectProgressSelectAction extends ActionSupport {
 	 */
 	private List<ProjectsSelectDTO> projectsList = new ArrayList<ProjectsSelectDTO>();
 	/**
-	 * エラーメッセージ
+	 * 検索結果
 	 */
-	private String errorMsg;
+	private String resultString="";
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 *
@@ -50,10 +50,29 @@ public class ProjectProgressSelectAction extends ActionSupport {
 		projectsList = projectsDao.select("");
 		if (searchList.size() != 0) {
 			result = SUCCESS;
+			resultString = "検索結果を表示しました。";
 		} else {
-			errorMsg = "該当する情報は存在しません";
+			resultString = "該当する情報は存在しません";
 		}
 		return result;
+	}
+
+	/**
+	* 取得メソッド  検索結果を取得
+	* @author YUICHI KIRIU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド 検索結果を設定
+	* @author YUICHI KIRIU
+	* @param resuluString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 	/**
@@ -72,22 +91,7 @@ public class ProjectProgressSelectAction extends ActionSupport {
 	public void setSearch(String search) {
 		this.search = search;
 	}
-	/**
-	 *  取得メソッド エラーメッセージを取得する
-	 * @author TATUHUMI ITOU
-	 * @return errorMsg
-	 */
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-	/**
-	 *   格納メソッド エラーメッセージを格納する
-	 * @author TATUHUMI ITOU
-	 * @param errorMsg　セットする　errorMsg
-	 */
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
-	}
+
 	/**
 	 *  取得メソッド 検索リストを取得する
 	 * @author TATUHUMI ITOU
