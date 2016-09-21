@@ -25,7 +25,11 @@ public class StudentsSelectAction extends ActionSupport {
 	/**
 	 * 検索文字
 	 */
-    private String search = "";
+    private String searchString = "";
+	/**
+	 * 結果文字
+	 */
+    private String resultSelect = "該当する情報はありません。";
 
 	/**
 	 * 実行メソッド 受講生一覧を表示
@@ -36,10 +40,11 @@ public class StudentsSelectAction extends ActionSupport {
 
     String result = ERROR;
     StudentsSelectDAO dao = new StudentsSelectDAO();
-    studentsList = dao.select(search);
+    studentsList = dao.select(searchString);
 
 	if (studentsList.size() != 0) {
 		result = SUCCESS;
+		resultSelect = "検索結果を表示しました。";
 	}
 
 	return result;
@@ -68,8 +73,8 @@ public class StudentsSelectAction extends ActionSupport {
 	* @author KOHEI NITABARU
 	* @return search
 	*/
-	public String getSearch() {
-		return search;
+	public String getSearchString() {
+		return searchString;
 	}
 
 	/**
@@ -77,8 +82,8 @@ public class StudentsSelectAction extends ActionSupport {
 	* @author KOHEI NITABARU
 	* @param search
 	*/
-	public void setSearch(String search) {
-		this.search = search;
+	public void setSearchString(String searchString) {
+		this.searchString = searchString;
 	}
 
 	/**
@@ -88,6 +93,24 @@ public class StudentsSelectAction extends ActionSupport {
 	*/
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	/**
+	* 取得メソッド 結果文字を取得
+	* @author KOHEI NITABARU
+	* @return resultSelect
+	*/
+	public String getResultSelect() {
+		return resultSelect;
+	}
+
+	/**
+	* 設定メソッド 結果文字を設定
+	* @author KOHEI NITABARU
+	* @param resultSelect
+	*/
+	public void setResultSelect(String resultSelect) {
+		this.resultSelect = resultSelect;
 	}
 
 }

@@ -20,15 +20,16 @@
 <h1>受講生一覧</h1>
 <s:form action="StudentsSelectAction">
 	英語で姓か名を入力<br>
-   <input type="text" name="search" pattern="[A-Za-z]*" maxlength="30" title="半角英語のみ" placeholder="例：taro">
+   <input type="text" name="searchString" pattern="[A-Za-z]*" maxlength="30" title="半角英語のみ" placeholder="例：taro">
    <input class="button" type="submit" value="検索">
 </s:form>
 <br>
 <s:property value="%{resultString}" />
+<s:property value="%{resultSelect}" />
 <br>
   <table border="1">
      <tr>
-
+	<s:if test="%{studentsList.size() > 0}">
       <th><div class="smallWidth">ID</div></th>
       <th><div class="smallWidth">受講年</div></th>
       <th><div class="bigWidth">受講開始月</div></th>
@@ -56,29 +57,30 @@
        <th><div class="smallWidth">編集</div></th>
        <th><div class="smallWidth">削除</div></th>
       </s:if>
+      </s:if>
      </tr>
 
 <s:iterator value="studentsList">
 
      <tr>
       <td><s:property value="userId" /></td>
-      <td><input type="text" name="yearList" value="<s:property value="year" />" class="year maxText" pattern="[0-3]([0-9]{3})" title="半角数字4文字"  maxlength="4" required></td>
-      <td><input type="text" name="monthList" value="<s:property value="month" />"class="month maxText" pattern="[0-1][0-9]" title="半角数字2文字" maxlength="2" required></td>
-      <td><input type="text" name="familyNameList" value="<s:property value="familyName" />"class="familyName maxText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内"  maxlength="20" required></td>
-      <td><input type="text" name="givenNameList" value="<s:property value="givenName" />"class="givenName maxText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td>
+      <td><input type="text" name="yearList" value="<s:property value="year" />" placeholder="例：2016" class="year maxText" pattern="[0-3]([0-9]{3})" title="半角数字4桁"  maxlength="4" required></td>
+      <td><input type="text" name="monthList" value="<s:property value="month" />" placeholder="例：08" class="month maxText" pattern="[0-1][0-9]" title="半角数字2桁" maxlength="2" required></td>
+      <td><input type="text" name="familyNameList" value="<s:property value="familyName" />" class="familyName maxText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内"  maxlength="20" required></td>
+      <td><input type="text" name="givenNameList" value="<s:property value="givenName" />" class="givenName maxText" pattern="^[0-9A-Za-z]+$" title="半角英数字20文字以内" maxlength="20" required></td>
       <td><input type="text" name="familyNameKanjiList" value="<s:property value="familyNameKanji" />" class="familyNameKanji maxText" maxlength="20" required></td>
       <td><input type="text" name="familyNameKanaList" value="<s:property value="familyNameKana" />" class="familyNameKana maxText" maxlength="20"></td>
       <td><input type="text" name="givenNameKanjiList" value="<s:property value="givenNameKanji" />" class="givenNameKanji maxText" maxlength="20" required></td>
       <td><input type="text" name="givenNameKanaList" value="<s:property value="givenNameKana" />" class="givenNameKana maxText" maxlength="20"></td>
       <s:if test="%{#session.userFlg == 3}">
-      <td><input type="text" name="postalList" value="<s:property value="postal" />" class="postal maxText" pattern="[0-9]*" title="ハイフン無しで半角数字7文字" maxlength="7"></td>
+      <td><input type="text" name="postalList" value="<s:property value="postal" />" placeholder="半角数字7桁" class="postal maxText" pattern="[0-9]*" title="ハイフン無しで半角数字7桁" maxlength="7"></td>
       <td><input type="text" name="addressList" value="<s:property value="address" />" class="address maxText" maxlength="100"></td>
-      <td><input type="text" name="phoneNumberList" value="<s:property value="phoneNumber" />" class="phoneNumber maxText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内" maxlength="20"></td>
-      <td><input type="text" name="phoneEmailList" value="<s:property value="phoneEmail" />" class="phoneEmail maxText" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100" required></td>
-      <td><input type="text" name="mobileNumberList" value="<s:property value="mobileNumber" />" class="mobileNumber maxText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内"  maxlength="20"></td>
-      <td><input type="text" name="mobileEmailList" value="<s:property value="mobileEmail" />" class="mobileEmail maxText" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100"></td>
-      <td><input type="text" name="sexList" value="<s:property value="sex" />" class="sex maxText" pattern="[男女]+$" title="男か女" maxlength="3" required></td>
-      <td><input type="text" name="birthdayList" value="<s:property value="birthday" />" class="birthday maxText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="yyyy/MM/dd" maxlength="10"></td>
+      <td><input type="text" name="phoneNumberList" value="<s:property value="phoneNumber" />" placeholder="半角数字" class="phoneNumber maxText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内" maxlength="20"></td>
+      <td><input type="text" name="phoneEmailList" value="<s:property value="phoneEmail" />" placeholder="例：example@gmail.com" class="phoneEmail maxText" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100" required></td>
+      <td><input type="text" name="mobileNumberList" value="<s:property value="mobileNumber" />" placeholder="半角数字" class="mobileNumber maxText" pattern="[0-9]*" title="ハイフン無しで半角数字20文字以内"  maxlength="20"></td>
+      <td><input type="text" name="mobileEmailList" value="<s:property value="mobileEmail" />" placeholder="例：example@gmail.com" class="mobileEmail maxText" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="example@gmail.comなど" maxlength="100"></td>
+      <td><input type="text" name="sexList" value="<s:property value="sex" />" placeholder="男or女" class="sex maxText" pattern="[男女]+$" title="男か女" maxlength="3" required></td>
+      <td><input type="text" name="birthdayList" value="<s:property value="birthday" />" placeholder="例：2016/08/01" class="birthday maxText" pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])" title="yyyy/MM/dd" maxlength="10"></td>
       <td><s:property value="registerDay" /></td>
       <td><s:property value="updateDay" /></td>
       <td>
@@ -217,6 +219,9 @@
 			<button type="submit" class="button">戻る</button>
 		</s:form>
 </s:if>
+<s:else>
+ログイン後に表示します。
+</s:else>
 </div>
 <br>
 </body>
