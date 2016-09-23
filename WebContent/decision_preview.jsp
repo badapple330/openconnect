@@ -5,23 +5,25 @@
 <html>
 <head>
 <LINK rel="stylesheet" type="text/css" href="css/style.css">
+<LINK rel="stylesheet" type="text/css" href="css/decision_preview.css">
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="favicon.ico">
-<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/sendCheck.js"></script>
+<script type="text/javascript" src="js/decision_preview.js"></script>
 <title>決裁プレビュー</title>
 </head>
 <body>
-<s:if test="%{#session.userFlg >= 10}">
-	<jsp:include page="header.jsp" />
+	<s:if test="%{#session.userFlg >= 1}">
+		<jsp:include page="header.jsp" />
 
-	<h1>決裁プレビュー画面</h1>
-	<br>
-	<br>
-	<s:if test="decisionDetailList.size() == 0">
+		<h1>決裁プレビュー画面</h1>
+		<br>
+		<br>
+		<s:if test="decisionDetailList.size() == 0">
 		まだ何も編集されていません。
 	</s:if>
-	<s:iterator value="decisionDetailList">
+		<s:iterator value="decisionDetailList">
 			<table border="1">
 				<tr>
 					<td>
@@ -29,9 +31,8 @@
 							日付
 							<s:property value="day" />
 						</div> <br> 決裁分類：<s:property value="decisionType" /> <br>
-						起案者：<br> 氏名 <s:property
-							value="familyNameKanji" />
-						<s:property value="givenNameKanji" /> <br> <br> 案件名：<s:property
+						起案者：<br> 氏名 <s:property value="familyNameKanji" /> <s:property
+							value="givenNameKanji" /> <br> <br> 案件名：<s:property
 							value="itemName" /> <br> <br> 概要： <br> <s:property
 							value="summary" /> <br> <br>
 						<center>
@@ -53,14 +54,11 @@
 								</td>
 							</tr>
 							<tr>
-								<td>承認者：<br>
-								<br>日付：
+								<td>承認者：<br> <br>日付：
 								</td>
-								<td>承認者：<br>
-								<br>日付：
+								<td>承認者：<br> <br>日付：
 								</td>
-								<td>承認者：<br>
-								<br>日付：
+								<td>承認者：<br> <br>日付：
 								</td>
 							</tr>
 						</table> <br>
@@ -73,7 +71,23 @@
 				<tr>
 					<td>
 						<h2>実施計画</h2> <br> <br> 以下の通り、当該開発計画を実施して良いかお伺いしたい。 <br>
-						<br> 資料： <br> <s:property value="plan" /> <br>
+						<br>
+						資料：<br>
+						<s:property value="plan" />
+						<s:form action="DecisionDetailDownloadAction">
+							保存するURLを記入<input type="text" name="saveUrl" placeholder="例：C:\Users\internous\temp" class="saveText" required>
+							<br>
+							<s:iterator value="downloadList">
+								<div class="textInline">
+									<input type="submit" value="ダウンロード" class="downloadButton" />
+									<s:property value="fileName" /><br>
+								</div>
+								<input type="hidden" value="<s:property value="fileName" />" class="fileNameStr">
+							</s:iterator>
+							<input type="hidden" name="fileName" value="" class="fileName">
+							<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />">
+						</s:form>
+
 					</td>
 				</tr>
 			</table>
@@ -83,9 +97,8 @@
 				<tr>
 					<td>
 						<h2 align="center">見積書</h2> <br>・以下は、建設費用と損益費用の表である。 <br>
-・建設費用と損益費用それぞれの小計を出し合計費用を求める。
-
- <br>・小数点以下が発生する金額に関しては小計にて切り上げて表示する。 <br> <br>
+						・建設費用と損益費用それぞれの小計を出し合計費用を求める。 <br>・小数点以下が発生する金額に関しては小計にて切り上げて表示する。
+						<br> <br>
 
 
 						<center>建設費用表</center>
@@ -175,9 +188,10 @@
 				</tr>
 			</table>
 		</s:iterator>
-		</s:if>
-		<form>
-<input type="button" value="戻る" onclick="history.back()">
-</form>
+	</s:if>
+
+			<form>
+	<input type="button" value="戻る" onclick="history.back()">
+	</form>
 </body>
 </html>

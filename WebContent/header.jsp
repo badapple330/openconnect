@@ -44,15 +44,11 @@
 							<li><a href="GoLogoutAction">ログアウト</a></li>
 
 						</s:if>
-						<s:if test="%{#session.userFlg == 3}">
+						<s:if test="%{#session.userFlg == 100}">
 							<li><a href="admin.jsp">管理者画面</a></li>
 						</s:if>
 					</ul>
 				</div>
-				<dl>
-				<dt id="menuBer">メニュー</dt>
-				</dl>
-
 
 <select name="pulldown2">
 <option value="">移動先を選択</option>
@@ -63,7 +59,7 @@
 <option value="GoAttendanceAction">勤怠更新</option>
 <option value="DecisionSelectAction">決裁一覧状況</option>
 <option value="DecisionDetailSelectAction">決裁手続き</option>
-<s:if test="%{#session.userFlg  >= 2}">
+<s:if test="%{#session.userFlg  >= 50}">
 <option value="DecisionApplicationSelectAction">決済手続き申請一覧</option>
 </s:if>
 <option value="BooksSelectAction">書籍一覧</option>

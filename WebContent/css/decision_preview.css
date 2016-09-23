@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.textInline{
+	display: inline;
+}
+
+table{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.saveText{
+	width: 100%;
+}
