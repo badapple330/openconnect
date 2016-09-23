@@ -84,7 +84,7 @@
 			<s:form action="BooksInsertAction">
 				<s:if test="%{#session.userFlg >= 100}">
 			書籍の追加
-				<input type="text" name="title" placeholder="例：やさしいJAVA">
+				<input type="text" name="title" placeholder="例：やさしいJAVA" required>
 					<input class="button" type="submit" value="追加">
 				</s:if>
 				<br>

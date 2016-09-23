@@ -82,7 +82,6 @@ public class AttendanceSelectAction extends ActionSupport{
 
 		if( attendanceList.size() == 1 ) return;
 
-		int max = 0;
 		boolean isSort = false;
 
 		int i = 0;
