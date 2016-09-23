@@ -17,15 +17,20 @@
 <title>新規登録</title>
 </head>
 <body>
+
+	<jsp:include page="header.jsp" />
+
 	<div align="center">
-		<s:form action="RegisterAction">
+
 
 			<br>
 			<br>
-			<br>
-			<br>
-			<br>
 			<h1>新規登録</h1>
+
+		<s:if test="%{#session.userFlg >= 100}">
+
+			<s:form action="RegisterAction">
+
 			<s:if test="errorMsg != null">
 				<div class="error">
 					<s:property value="errorMsg" />
@@ -131,9 +136,15 @@
 			<!------------------    リセットボタン    ------------------->
 			<td><input type="reset" value="リセット"></td>
 		</s:form>
-		<p>
-			<a href="index.jsp"><button>キャンセル</button></a>
-		</p>
+
+		</s:if>
+		<s:else>
+			講師権限でログイン時のみ表示します。
+		</s:else>
+
+		<s:form action="GetAddressAction">
+			<button type="submit" class="button">戻る</button>
+		</s:form>
 	</div>
 
 

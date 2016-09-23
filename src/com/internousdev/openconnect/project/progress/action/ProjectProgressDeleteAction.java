@@ -23,6 +23,10 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 	 */
 	private int progressId;
 	/**
+	 * 結果文字
+	 */
+	private String resultString = "削除に失敗しました。";
+	/**
 	 * 実行メソッド DAOにデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
 	 * @param progressId
@@ -35,11 +39,12 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 		count = dao.delete(progressId);
 		if(count > 0){
 			result = SUCCESS;
+			resultString = "削除に成功しました。";
 		}
 		return result;
 	}
 	/**
-	* 取得メソッド
+	* 取得メソッド 進捗報告IDを取得
 	* @author TATUHUMI ITOU
 	* @return progressId
 	*/
@@ -47,12 +52,36 @@ public class ProjectProgressDeleteAction extends ActionSupport{
 		return progressId;
 	}
 	/**
-	* 設定メソッド
+	* 設定メソッド 進捗報告IDを設定
 	* @author TATUHUMI ITOU
 	* @param progressId
 	*/
 	public void setProgressId(int progressId) {
 		this.progressId = progressId;
+	}
+	/**
+	* 取得メソッド 結果文字を取得
+	* @author TATUHUMI ITOU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+	/**
+	* 設定メソッド 結果文字を設定
+	* @author TATUHUMI ITOU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+	/**
+	* 取得メソッド シリアル番号を取得
+	* @author TATUHUMI ITOU
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 

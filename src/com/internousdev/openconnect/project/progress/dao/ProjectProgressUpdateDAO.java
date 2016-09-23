@@ -22,7 +22,7 @@ public class ProjectProgressUpdateDAO {
      * @param other
 	 * @return count
      */
-	public int select(int progresstId,String projectDay,String projectPlan,String projectResult,String other) throws SQLException{
+	public int update(int progresstId,String projectDay,String projectPlan,String projectResult,String other) throws SQLException{
 		int count = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -32,6 +32,8 @@ public class ProjectProgressUpdateDAO {
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
+
+			System.out.println(projectDay + " : " + projectPlan + " : " + projectResult + " : " + other + " : " + progresstId);
 			ps.setString(1,projectDay);
 			ps.setString(2,projectPlan);
 			ps.setString(3,projectResult);

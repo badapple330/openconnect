@@ -1,13 +1,7 @@
 @CHARSET "UTF-8";
 
-.textInt {
-	text-align: center;
-	width: 2em;
-}
-
-.textDate {
-	text-align: center;
-	width: 8em;
+.textMax{
+	width: 100%;
 }
 
 .textString {

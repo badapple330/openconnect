@@ -42,7 +42,7 @@
 	</s:form>
 	<br>
 	<s:property value="%{resultString}" />
-	<s:property value="%{resultSelect" />
+	<s:property value="%{resultSelect}" />
 	<br>
 	<s:if test="%{attendanceList.size() > 0}">
 	<s:if test="%{#session.userFlg == 100}">
@@ -79,18 +79,18 @@
 	</s:if>
 	<br>
 	<s:form action="AttendanceUpdateAction">
-		<table class="list" border="1">
+		<table border="1">
 				<tr>
 					<th>日付</th>
 					<th>ID</th>
 					<th><div class="smallWidth">受講年</div></th>
-					<th><div class="bigWidth">受講開始月</div></th>
+					<th><div class="middleWidth">受講開始月</div></th>
 					<th><div class="smallWidth">姓</div></th>
 					<th><div class="smallWidth">名</div></th>
 					<th><div class="smallWidth">出席状況</div></th>
-					<th><div class="bigWidth">出席状況入力</div></th>
+					<th><div class="middleWidth">出席状況入力</div></th>
 					<th><div class="smallWidth">面談</div></th>
-					<th><div class="smallWidth">面談入力</div></th>
+					<th><div class="middleWidth">面談入力</div></th>
 				</tr>
 			<s:else>
 				<s:property value="%{errorSelect}" />
@@ -104,9 +104,9 @@
 					<td><s:property value="familyNameKanji" /></td>
 					<td><s:property value="givenNameKanji" /></td>
 					<td><s:property value="attendanceString" /></td>
-					<td><input type="text" name="attendance" value="<s:property value="attendance"/>" class="textInt" pattern="[0-6]" title="半角数字0～6" required></td>
+					<td><div class="middleWidth"><input type="text" name="attendance" value="<s:property value="attendance"/>" class="textMax" pattern="[0-6]" title="半角数字0～6" required></div></td>
 					<td><s:property value="interviewString" /></td>
-					<td><input type="text" name="interview" value="<s:property value="interview"/>" class="textInt" pattern="[0-2]" title="半角数字0～2" required></td>
+					<td><div class="middleWidth"><input type="text" name="interview" value="<s:property value="interview"/>" class="textMax" pattern="[0-2]" title="半角数字0～2" required></div></td>
 				</tr>
 				<input type="hidden"  name="date" value="<s:property value="date"/>">
 				<input type="hidden" name="userId" value="<s:property value="userId"/>">

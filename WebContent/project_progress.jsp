@@ -34,23 +34,24 @@
 		</s:form>
 		<br>
 		<s:property value="%{resultString}" />
+		<s:property value="%{resultSelect}" />
 
 		<s:form action="ProjectProgressUpdateAction">
 			<table border=1>
 				<tbody id="list_body">
 					<tr>
 						<th></th>
-						<th><div class="textInt">プロジェクトID</div></th>
-						<th><div class="textDate">日付</div></th>
-						<th><div class="textString">プロジェクト名</div></th>
-						<th><div class="textString">進捗予定</div></th>
-						<th><div class="textString">進捗結果</div></th>
-						<th><div class="textString">その他報告</div></th>
-						<th><div class="textInt">リーダーID</div></th>
-						<th><div class="textInt">サブリーダーID</div></th>
-						<th><div class="textDate">開始日</div></th>
-						<th><div class="textDate">終了日</div></th>
-						<th><div class="textDate">メモ</div></th>
+						<th><div class="middleWidth">プロジェクトID</div></th>
+						<th><div class="smallWidth">日付</div></th>
+						<th><div class="middleWidth">プロジェクト名</div></th>
+						<th><div class="middleWidth">進捗予定</div></th>
+						<th><div class="middleWidth">進捗結果</div></th>
+						<th><div class="middleWidth">その他報告</div></th>
+						<th><div class="middleWidth">リーダーID</div></th>
+						<th><div class="middleWidth">サブリーダーID</div></th>
+						<th><div class="smallWidth">開始日</div></th>
+						<th><div class="smallWidth">終了日</div></th>
+						<th><div class="smallWidth">メモ</div></th>
 					</tr>
 					<s:iterator value="searchList">
 						<tr>
@@ -65,9 +66,7 @@
 								class="projectDaylist" maxlength="12"
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 								title="yyyy/MM/dd" placeholder="例2016/08/06"></td>
-							<td><input type="text" name="projectnameList"
-								value="<s:property value="projectName" />" class="projectlist"
-								maxlength="20" placeholder="例：rewrite"></td>
+							<td><s:property value="projectName" /></td>
 							<td><input type="text" name="projectPlanList"
 								value="<s:property value="projectPlan" />"
 								class="projectPlanlist" maxlength="100"></td>
