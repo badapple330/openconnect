@@ -35,7 +35,8 @@
 <br>
 <br>
 <h1>【決裁書】</h1>
-<s:form action="DecisionEditUpdateAction">
+<s:form action="DecisionEditUpdateAction" method="post" enctype="multipart/form-data">
+
 <table border="1">
 
 <tr><td width="450">
@@ -83,6 +84,13 @@
 <br>
 <input type="text" class="bigText" name="plan" value="<s:property value="plan"/>" placeholder="プロジェクト体制図・見積書" maxlength="200">
 <br>
+<input type="file" name="myFile" />
+<input type="file" name="myFile" />
+<input type="file" name="myFile" />
+<s:property value="myFileFileName.get(0)"/><br>
+<s:property value="myFileFileName.get(1)"/><br>
+<s:property value="myFileFileName.get(2)"/><br>
+が提出されました
 </td></tr></table>
 <br>
 <br>

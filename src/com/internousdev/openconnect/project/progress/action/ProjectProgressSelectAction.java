@@ -34,7 +34,7 @@ public class ProjectProgressSelectAction extends ActionSupport {
 	/**
 	 * 検索結果
 	 */
-	private String resultString="";
+	private String resultSelect = "該当する情報は存在しません。";
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 *
@@ -50,9 +50,7 @@ public class ProjectProgressSelectAction extends ActionSupport {
 		projectsList = projectsDao.select("");
 		if (searchList.size() != 0) {
 			result = SUCCESS;
-			resultString = "検索結果を表示しました。";
-		} else {
-			resultString = "該当する情報は存在しません";
+			resultSelect = "検索結果を表示しました。";
 		}
 		return result;
 	}
@@ -60,19 +58,28 @@ public class ProjectProgressSelectAction extends ActionSupport {
 	/**
 	* 取得メソッド  検索結果を取得
 	* @author YUICHI KIRIU
-	* @return resultString
+	* @return resultSelect
 	*/
-	public String getResultString() {
-		return resultString;
+	public String getResultSelect() {
+		return resultSelect;
 	}
 
 	/**
 	* 設定メソッド 検索結果を設定
 	* @author YUICHI KIRIU
-	* @param resuluString
+	* @param resultSelect
 	*/
-	public void setResultString(String resultString) {
-		this.resultString = resultString;
+	public void setResultSelect(String resultSelect) {
+		this.resultSelect = resultSelect;
+	}
+
+	/**
+	* 取得メソッド シリアル番号を取得
+	* @author YUICHI KIRIU
+	* @return serialVersionUID
+	*/
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	/**

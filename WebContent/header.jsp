@@ -54,35 +54,42 @@
 				</dl>
 
 
+<select name="pulldown2">
+<option value="">移動先を選択</option>
+<option value="ProjectsSelectAction" >プロジェクト一覧</option>
+<option value="ProjectStatusSelectAction" >プロジェクトリリース状況</option>
+<option value="ProjectProgressSelectAction">プロジェクト進捗報告</option>
+<option value="StudentsSelectAction">受講生一覧</option>
+<option value="GoAttendanceAction">勤怠更新</option>
+<option value="DecisionSelectAction">決裁一覧状況</option>
+<option value="DecisionDetailSelectAction">決裁手続き</option>
+<s:if test="%{#session.userFlg  >= 2}">
+<option value="DecisionApplicationSelectAction">決済手続き申請一覧</option>
+</s:if>
+<option value="BooksSelectAction">書籍一覧</option>
+<option value="BooksBorrowSelectAction">書籍貸し出し</option>
+<option value="ScheduleSelectAction">スケジュール一覧</option>
+</select>
+<input type="button" id="location" value="移動">
 
-				<select>
-				<option></option>
-				<option></option>
-				<option></option>
-				<option></option>
-				<option></option>
-				<option></option>
-				<option></option>
-				<option></option>
-				</select>
 
 
 
-				<dl id="menuElementGroup">
-				<dd><a href="ProjectsSelectAction" class="menuElement">プロジェクト一覧</a></dd>
-				<dd><a href="ProjectStatusSelectAction" class="menuElement">プロジェクトリリース状況</a></dd>
-				<dd><a href="ProjectProgressSelectAction" class="menuElement">プロジェクト進捗報告</a></dd>
-				<dd><a href="StudentsSelectAction" class="menuElement">受講生一覧</a></dd>
-				<dd><a href="GoAttendanceAction" class="menuElement">勤怠更新</a></dd>
-				<dd><a href="DecisionSelectAction" class="menuElement">決裁一覧状況</a></dd>
-				<dd><a href="DecisionDetailSelectAction" class="menuElement">決裁手続き</a></dd>
-				<s:if test="%{#session.userFlg  >= 2}">
-					<dd><a href="DecisionApplicationSelectAction" class="menuElement">決済手続き申請一覧</a></dd>
-				</s:if>
-				<dd><a href="BooksSelectAction" class="menuElement">書籍一覧</a></dd>
-				<dd><a href="BooksBorrowSelectAction" class="menuElement">書籍貸し出し</a></dd>
-				<dd><a href="ScheduleSelectAction" class="menuElement">スケジュール一覧</a></dd>
-				</dl>
+<!-- 				<dl id="menuElementGroup"> -->
+<!-- 				<dd><a href="ProjectsSelectAction" class="menuElement">プロジェクト一覧</a></dd> -->
+<!-- 				<dd><a href="ProjectStatusSelectAction" class="menuElement">プロジェクトリリース状況</a></dd> -->
+<!-- 				<dd><a href="ProjectProgressSelectAction" class="menuElement">プロジェクト進捗報告</a></dd> -->
+<!-- 				<dd><a href="StudentsSelectAction" class="menuElement">受講生一覧</a></dd> -->
+<!-- 				<dd><a href="GoAttendanceAction" class="menuElement">勤怠更新</a></dd> -->
+<!-- 				<dd><a href="DecisionSelectAction" class="menuElement">決裁一覧状況</a></dd> -->
+<!-- 				<dd><a href="DecisionDetailSelectAction" class="menuElement">決裁手続き</a></dd> -->
+<%-- 				<s:if test="%{#session.userFlg  >= 2}"> --%>
+<!-- 					<dd><a href="DecisionApplicationSelectAction" class="menuElement">決済手続き申請一覧</a></dd> -->
+<%-- 				</s:if> --%>
+<!-- 				<dd><a href="BooksSelectAction" class="menuElement">書籍一覧</a></dd> -->
+<!-- 				<dd><a href="BooksBorrowSelectAction" class="menuElement">書籍貸し出し</a></dd> -->
+<!-- 				<dd><a href="ScheduleSelectAction" class="menuElement">スケジュール一覧</a></dd> -->
+<!-- 				</dl> -->
 
 			</div>
 		</nav>

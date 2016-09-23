@@ -56,4 +56,9 @@ $(function(){
 		}
 	});
 
+$('#location').click(function() {
+    if ($(this).val() != '') {
+      window.location.href = $('select[name=pulldown2]').val();
+    }
+  });
 });
