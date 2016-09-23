@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
+import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
+import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.internousdev.openconnect.decision.edit.dao.DecisionEditUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -77,7 +79,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 	/**
 	 * 決裁手続きID
 	 */
-	private int decisionDetailId;;
+	private int decisionDetailId;
 	/**
 	 * シリアルバージョンID
 	 */
@@ -92,23 +94,24 @@ public class DecisionEditUpdateAction extends ActionSupport {
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {
-		String result =ERROR;
+		String result = ERROR;
 		DecisionEditUpdateDAO dao = new DecisionEditUpdateDAO();
 		int count = 0;
 		count = dao.update(day,decisionType,userId,itemName,
 				summary,cause,startDay,endDay,plan,persons,decisionDetailId);
 
+		DecisionDetailSelectDAO selectDao = new DecisionDetailSelectDAO();
+		List<DecisionDetailDTO> list = selectDao.select(decisionDetailId);
+
 		//ここでファイルの保存場所を決めています。
-		//		destPath = "C:/plea/filetest/";
 		destPath = System.getProperty("user.home") + File.separator + "temp" + File.separator;
 
 		try{
-			System.out.println("Src File name: " + myFile);
-			System.out.println("Dst File name: " + myFileFileName);
-			System.out.println(destPath);
+
+			String fileName = "【" + decisionType + "】" + list.get(0).getProjectName() + "_";
 
 			for(int i=0;i<myFile.size();i++){
-				File destFile  = new File(destPath, myFileFileName.get(i));
+				File destFile  = new File(destPath, fileName + myFileFileName.get(i));
 				FileUtils.copyFile(myFile.get(i), destFile);
 			}
 

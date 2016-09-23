@@ -29,7 +29,7 @@ public class DecisionDetailSelectDAO {
 
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
-		String sql = "select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id where project_name LIKE '%" + searchString + "%'";
+		String sql = "select * from decision_detail inner join projects on decision_detail.project_id = projects.project_id where project_name LIKE '%" + searchString + "%'";
 
 		List<DecisionDetailDTO> decisionDetailList  = new ArrayList<DecisionDetailDTO>();
 
@@ -66,7 +66,7 @@ public class DecisionDetailSelectDAO {
 		return decisionDetailList ;
 	}
 
-	public List<DecisionDetailDTO> selectins( int decisionDetailId ){
+	public List<DecisionDetailDTO> select( int decisionDetailId ){
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select decision_detail.day, decision_detail.summary, projects.project_name , "

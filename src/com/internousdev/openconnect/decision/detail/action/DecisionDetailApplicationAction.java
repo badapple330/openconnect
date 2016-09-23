@@ -74,7 +74,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 
 		if(decisionStatus.equals("承認")){
 			DecisionDetailSelectDAO daos = new DecisionDetailSelectDAO();
-			decisionDetailInsList = daos.selectins( decisionDetailId );
+			decisionDetailInsList = daos.select( decisionDetailId );
 
 			day = decisionDetailInsList.get(0).getDay();
 			projectName = decisionDetailInsList.get(0).getProjectName();

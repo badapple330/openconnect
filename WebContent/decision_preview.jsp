@@ -74,6 +74,7 @@
 						<br>
 						資料：<br>
 						<s:property value="plan" />
+						<s:if test="downloadList.size() > 0">
 						<s:form action="DecisionDetailDownloadAction">
 							保存するURLを記入<input type="text" name="saveUrl" placeholder="例：C:\Users\internous\temp" class="saveText" required>
 							<br>
@@ -87,7 +88,7 @@
 							<input type="hidden" name="fileName" value="" class="fileName">
 							<input type="hidden" name="decisionDetailId" value="<s:property value="decisionDetailId" />">
 						</s:form>
-
+						</s:if>
 					</td>
 				</tr>
 			</table>
