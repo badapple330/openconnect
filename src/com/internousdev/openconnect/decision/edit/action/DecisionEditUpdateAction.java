@@ -1,7 +1,15 @@
 package com.internousdev.openconnect.decision.edit.action;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+
 import com.internousdev.openconnect.decision.edit.dao.DecisionEditUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
+
 /**
  * DBの情報を画面に表示する為のクラス
  * @author TATUHUMI ITOU
@@ -10,6 +18,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 public class DecisionEditUpdateAction extends ActionSupport {
+	private List<File> myFile=new ArrayList<File>();
+	private String myFileContentType;
+	private List<String> myFileFileName=new ArrayList<String>();
+	private String destPath;
 	/**
 	 * 日付
 	 */
@@ -73,12 +85,77 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		int count = 0;
 		count = dao.update(day,decisionType,userId,itemName,
 				summary,cause,startDay,endDay,plan,persons,decisionDetailId);
+
+		destPath = "C:/plea/filetest/";
+
+		try{
+			System.out.println("Src File name: " + myFile);
+			System.out.println("Dst File name: " + myFileFileName);
+
+			for(int i=0;i<myFile.size();i++){
+			File destFile  = new File(destPath, myFileFileName.get(i));
+			FileUtils.copyFile(myFile.get(i), destFile);
+			}
+
+//			System.out.println( FileUtils.readFileToString(myFile));
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 		if(count > 0){
 			result = SUCCESS;
 			resultString = "編集しました。";
 		}
+
 		return result;
 	}
+
+
+
+
+	public List<File> getMyFile() {
+		return myFile;
+	}
+
+
+
+
+	public void setMyFile(List<File> myFile) {
+		this.myFile = myFile;
+	}
+
+
+
+
+	public String getMyFileContentType() {
+		return myFileContentType;
+	}
+
+
+	public void setMyFileContentType(String myFileContentType) {
+		this.myFileContentType = myFileContentType;
+	}
+
+	public List<String> getMyFileFileName() {
+		return myFileFileName;
+	}
+
+
+	public void setMyFileFileName(List<String> myFileFileName) {
+		this.myFileFileName = myFileFileName;
+	}
+
+
+
+
+	public String getDestPath() {
+		return destPath;
+	}
+
+
+	public void setDestPath(String destPath) {
+		this.destPath = destPath;
+	}
+
 	/**
 	 * 日付取得メソッド
 	 * @author TATUHUMI ITOU
