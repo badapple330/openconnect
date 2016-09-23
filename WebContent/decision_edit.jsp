@@ -87,6 +87,10 @@
 <input type="file" name="myFile" />
 <input type="file" name="myFile" />
 <input type="file" name="myFile" />
+<s:property value="myFileFileName.get(0)"/><br>
+<s:property value="myFileFileName.get(1)"/><br>
+<s:property value="myFileFileName.get(2)"/><br>
+が提出されました
 </td></tr></table>
 <br>
 <br>

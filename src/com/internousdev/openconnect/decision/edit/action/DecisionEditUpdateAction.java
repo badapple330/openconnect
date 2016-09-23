@@ -18,9 +18,21 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 public class DecisionEditUpdateAction extends ActionSupport {
+	/**
+	 * ファイル
+	 */
 	private List<File> myFile=new ArrayList<File>();
+	/**
+	 * ファイル種類
+	 */
 	private String myFileContentType;
+	/**
+	 * ファイル名
+	 */
 	private List<String> myFileFileName=new ArrayList<String>();
+	/**
+	 * 保存場所
+	 */
 	private String destPath;
 	/**
 	 * 日付
@@ -86,6 +98,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		count = dao.update(day,decisionType,userId,itemName,
 				summary,cause,startDay,endDay,plan,persons,decisionDetailId);
 
+		//ここでファイルの保存場所を決めています。
 		destPath = "C:/plea/filetest/";
 
 		try{
@@ -97,7 +110,6 @@ public class DecisionEditUpdateAction extends ActionSupport {
 			FileUtils.copyFile(myFile.get(i), destFile);
 			}
 
-//			System.out.println( FileUtils.readFileToString(myFile));
 		}catch(IOException e){
 			e.printStackTrace();
 		}
@@ -108,50 +120,68 @@ public class DecisionEditUpdateAction extends ActionSupport {
 
 		return result;
 	}
-
-
-
-
+	/**
+	 * ファイル取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return myFile
+	 */
 	public List<File> getMyFile() {
 		return myFile;
 	}
-
-
-
-
+	/**
+	 * ファイル設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param myFile
+	 */
 	public void setMyFile(List<File> myFile) {
 		this.myFile = myFile;
 	}
-
-
-
-
+	/**
+	 * ファイル種類取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return myFileContentType
+	 */
 	public String getMyFileContentType() {
 		return myFileContentType;
 	}
-
-
+	/**
+	 * ファイル種類設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param myFileContentType
+	 */
 	public void setMyFileContentType(String myFileContentType) {
 		this.myFileContentType = myFileContentType;
 	}
-
+	/**
+	 * ファイル名取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return myFileFileName
+	 */
 	public List<String> getMyFileFileName() {
 		return myFileFileName;
 	}
-
-
+	/**
+	 * ファイル名設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param myFileFileName
+	 */
 	public void setMyFileFileName(List<String> myFileFileName) {
 		this.myFileFileName = myFileFileName;
 	}
-
-
-
-
+	/**
+	 * 保存場所取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return destPath
+	 */
 	public String getDestPath() {
 		return destPath;
 	}
 
-
+	/**
+	 * 保存場所設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param destPath
+	 */
 	public void setDestPath(String destPath) {
 		this.destPath = destPath;
 	}
