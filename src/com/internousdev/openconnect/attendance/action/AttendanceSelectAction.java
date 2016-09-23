@@ -85,7 +85,9 @@ public class AttendanceSelectAction extends ActionSupport{
 		int max = 0;
 		boolean isSort = false;
 
-		for( int i=0; i<attendanceList.size() - 1; i++ ){
+		int i = 0;
+
+		while( i < attendanceList.size() - 1 ){
 
 			isSort = false;
 
@@ -106,6 +108,8 @@ public class AttendanceSelectAction extends ActionSupport{
 			}
 
 			if( isSort ) continue;
+
+			i++;
 		}
 	}
 
