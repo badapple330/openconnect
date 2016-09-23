@@ -60,7 +60,13 @@ public class DecisionDetailPreviewAction extends ActionSupport {
 
 		File[] fileList = targetDir.listFiles();
 
+		if( fileList == null ) return;
+
+		String searchStr = "【" + decisionType + "】" + projectName + "_";
+
 		for( int i=0; i<fileList.length; i++ ){
+
+			if( !fileList[i].getName().startsWith(searchStr) ) continue;
 
 			DecisionDetailDownloadDTO dto = new DecisionDetailDownloadDTO();
 
