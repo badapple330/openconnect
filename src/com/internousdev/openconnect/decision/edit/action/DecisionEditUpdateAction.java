@@ -21,7 +21,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 	/**
 	 * ファイル
 	 */
-	private List<File> myFile=new ArrayList<File>();
+	private List<File> myFile = new ArrayList<File>();
 	/**
 	 * ファイル種類
 	 */
@@ -29,7 +29,7 @@ public class DecisionEditUpdateAction extends ActionSupport {
 	/**
 	 * ファイル名
 	 */
-	private List<String> myFileFileName=new ArrayList<String>();
+	private List<String> myFileFileName = new ArrayList<String>();
 	/**
 	 * 保存場所
 	 */
@@ -99,15 +99,17 @@ public class DecisionEditUpdateAction extends ActionSupport {
 				summary,cause,startDay,endDay,plan,persons,decisionDetailId);
 
 		//ここでファイルの保存場所を決めています。
-		destPath = "C:/plea/filetest/";
+		//		destPath = "C:/plea/filetest/";
+		destPath = System.getProperty("user.home") + File.separator + "temp" + File.separator;
 
 		try{
 			System.out.println("Src File name: " + myFile);
 			System.out.println("Dst File name: " + myFileFileName);
+			System.out.println(destPath);
 
 			for(int i=0;i<myFile.size();i++){
-			File destFile  = new File(destPath, myFileFileName.get(i));
-			FileUtils.copyFile(myFile.get(i), destFile);
+				File destFile  = new File(destPath, myFileFileName.get(i));
+				FileUtils.copyFile(myFile.get(i), destFile);
 			}
 
 		}catch(IOException e){
@@ -371,18 +373,18 @@ public class DecisionEditUpdateAction extends ActionSupport {
 		return serialVersionUID;
 	}
 	/**
-	* エラーメッセージ取得メソッド
-	* @author TATUHUMI ITOU
-	* @return resultString
-	*/
+	 * エラーメッセージ取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 	/**
-	* エラーメッセージ設定メソッド
-	* @author TATUHUMI ITOU
-	* @param resultString
-	*/
+	 * エラーメッセージ設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
