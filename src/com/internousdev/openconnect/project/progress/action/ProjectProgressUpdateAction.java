@@ -57,13 +57,13 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	 */
 	public String execute() throws SQLException{
 
-
-		String result =ERROR;
+		String result = ERROR;
 		ProjectProgressUpdateDAO dao = new ProjectProgressUpdateDAO();
 		int count = 0;
 
 		for(int i=0;i<progressIdList.size();++i){
-			count = dao.select(progressIdList.get(i),projectDayList.get(i),projectPlanList.get(i),projectResultList.get(i),otherList.get(i));}
+			count = dao.update(progressIdList.get(i),projectDayList.get(i),projectPlanList.get(i),projectResultList.get(i),otherList.get(i));
+		}
 		if(count > 0){
 			result = SUCCESS;
 			resultString = "編集しました。";
@@ -73,19 +73,19 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
-	* @author TATUHUMI ITOU
-	* @return progressIdList
-	*/
+	 * 取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return progressIdList
+	 */
 	public List<Integer> getProgressIdList() {
 		return progressIdList;
 	}
 
 	/**
-	* 設定メソッド
-	* @author TATUHUMI ITOU
-	* @param progressIdList
-	*/
+	 * 設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param progressIdList
+	 */
 	public void setProgressIdList(List<Integer> progressIdList) {
 		this.progressIdList = progressIdList;
 	}
@@ -163,19 +163,19 @@ public class ProjectProgressUpdateAction extends ActionSupport  {
 	}
 
 	/**
-	* 取得メソッド
-	* @author TATUHUMI ITOU
-	* @return resultString
-	*/
+	 * 取得メソッド
+	 * @author TATUHUMI ITOU
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 
 	/**
-	* 設定メソッド
-	* @author TATUHUMI ITOU
-	* @param resultString
-	*/
+	 * 設定メソッド
+	 * @author TATUHUMI ITOU
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}

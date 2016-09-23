@@ -67,142 +67,179 @@ public class AttendanceSelectAction extends ActionSupport{
 
 			result = SUCCESS;
 			resultSelect = "検索結果を表示しました。";
+
+			sort();
 		}
 
 		return result;
-}
+	}
 
 	/**
-	* 取得メソッド 性を取得
-	* @author MINORI SUNAGAWA
-	* @return familyName
-	*/
+	 * 実行メソッド ソート
+	 * @author MINORI SUNAGAWA
+	 */
+	private void sort(){
+
+		if( attendanceList.size() == 1 ) return;
+
+		int max = 0;
+		boolean isSort = false;
+
+		for( int i=0; i<attendanceList.size() - 1; i++ ){
+
+			isSort = false;
+
+			for( int j=i+1; j<attendanceList.size(); j++ ){
+
+				String date1 = attendanceList.get(i).getYear() + attendanceList.get(i).getMonth();
+				String date2 = attendanceList.get(j).getYear() + attendanceList.get(j).getMonth();
+
+				if( Integer.parseInt( date1 ) < Integer.parseInt( date2 ) ){
+
+					AttendanceDTO dto = attendanceList.get(i);
+					attendanceList.remove(i);
+					attendanceList.add( dto );
+					isSort = true;
+
+					break;
+				}
+			}
+
+			if( isSort ) continue;
+		}
+	}
+
+	/**
+	 * 取得メソッド 性を取得
+	 * @author MINORI SUNAGAWA
+	 * @return familyName
+	 */
 	public String getFamilyName() {
 		return familyName;
 	}
 
 	/**
-	* 設定メソッド 性を設定
-	* @author MINORI SUNAGAWA
-	* @param lastName
-	*/
+	 * 設定メソッド 性を設定
+	 * @author MINORI SUNAGAWA
+	 * @param lastName
+	 */
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
 
 	/**
-	* 取得メソッド 名を取得
-	* @author MINORI SUNAGAWA
-	* @return givenName
-	*/
+	 * 取得メソッド 名を取得
+	 * @author MINORI SUNAGAWA
+	 * @return givenName
+	 */
 	public String getGivenName() {
 		return givenName;
 	}
 
 	/**
-	* 設定メソッド 名を設定
-	* @author MINORI SUNAGAWA
-	* @param givenName
-	*/
+	 * 設定メソッド 名を設定
+	 * @author MINORI SUNAGAWA
+	 * @param givenName
+	 */
 	public void setGivenName(String givenName) {
 		this.givenName = givenName;
 	}
 
 	/**
-	* 取得メソッド 勤怠日付を取得
-	* @author MINORI SUNAGAWA
-	* @return attendanceDate
-	*/
+	 * 取得メソッド 勤怠日付を取得
+	 * @author MINORI SUNAGAWA
+	 * @return attendanceDate
+	 */
 	public String getAttendanceDate() {
 		return attendanceDate;
 	}
 
 	/**
-	* 設定メソッド 勤怠日付を設定
-	* @author MINORI SUNAGAWA
-	* @param attendanceDate
-	*/
+	 * 設定メソッド 勤怠日付を設定
+	 * @author MINORI SUNAGAWA
+	 * @param attendanceDate
+	 */
 	public void setAttendanceDate(String attendanceDate) {
 		this.attendanceDate = attendanceDate;
 	}
 
 	/**
-	* 取得メソッド 受講年を取得
-	* @author MINORI SUNAGAWA
-	* @return year
-	*/
+	 * 取得メソッド 受講年を取得
+	 * @author MINORI SUNAGAWA
+	 * @return year
+	 */
 	public String getYear() {
 		return year;
 	}
 
 	/**
-	* 設定メソッド 受講年を設定
-	* @author MINORI SUNAGAWA
-	* @param year
-	*/
+	 * 設定メソッド 受講年を設定
+	 * @author MINORI SUNAGAWA
+	 * @param year
+	 */
 	public void setYear(String year) {
 		this.year = year;
 	}
 
 	/**
-	* 取得メソッド 受講開始月を取得
-	* @author MINORI SUNAGAWA
-	* @return month
-	*/
+	 * 取得メソッド 受講開始月を取得
+	 * @author MINORI SUNAGAWA
+	 * @return month
+	 */
 	public String getMonth() {
 		return month;
 	}
 
 	/**
-	* 設定メソッド 受講開始月を設定
-	* @author MINORI SUNAGAWA
-	* @param month
-	*/
+	 * 設定メソッド 受講開始月を設定
+	 * @author MINORI SUNAGAWA
+	 * @param month
+	 */
 	public void setMonth(String month) {
 		this.month = month;
 	}
 
 	/**
-	* 取得メソッド 勤怠リストを取得
-	* @author MINORI SUNAGAWA
-	* @return attendanceList
-	*/
+	 * 取得メソッド 勤怠リストを取得
+	 * @author MINORI SUNAGAWA
+	 * @return attendanceList
+	 */
 	public ArrayList<AttendanceDTO> getAttendanceList() {
 		return attendanceList;
 	}
 
 	/**
-	* 設定メソッド 勤怠リストを設定
-	* @author MINORI SUNAGAWA
-	* @param attendanceList
-	*/
+	 * 設定メソッド 勤怠リストを設定
+	 * @author MINORI SUNAGAWA
+	 * @param attendanceList
+	 */
 	public void setAttendanceList(ArrayList<AttendanceDTO> attendanceList) {
 		this.attendanceList = attendanceList;
 	}
 
 	/**
-	* 取得メソッド  シリアル番号を取得
-	* @author MINORI SUNAGAWA
-	* @return serialVersionUID
-	*/
+	 * 取得メソッド  シリアル番号を取得
+	 * @author MINORI SUNAGAWA
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	/**
-	* 取得メソッド 結果文字を取得
-	* @author MINORI SUNAGAWA
-	* @return resultSelect
-	*/
+	 * 取得メソッド 結果文字を取得
+	 * @author MINORI SUNAGAWA
+	 * @return resultSelect
+	 */
 	public String getResultString() {
 		return resultSelect;
 	}
 
 	/**
-	* 設定メソッド 結果文字を設定
-	* @author MINORI SUNAGAWA
-	* @param resultSelect
-	*/
+	 * 設定メソッド 結果文字を設定
+	 * @author MINORI SUNAGAWA
+	 * @param resultSelect
+	 */
 	public void setResultString(String resultSelect) {
 		this.resultSelect = resultSelect;
 	}

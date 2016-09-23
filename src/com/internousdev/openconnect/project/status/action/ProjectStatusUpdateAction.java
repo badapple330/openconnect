@@ -59,7 +59,7 @@ public class ProjectStatusUpdateAction extends ActionSupport{
 	/**
 	 * 結果文字
 	 */
-	private String resultString = "";
+	private String resultString = "更新に失敗しました。";
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
