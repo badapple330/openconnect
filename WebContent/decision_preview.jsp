@@ -23,6 +23,7 @@
 		<s:if test="decisionDetailList.size() == 0">
 		まだ何も編集されていません。
 	</s:if>
+	<s:property value="%{resultString}" /><br>
 		<s:iterator value="decisionDetailList">
 			<table border="1">
 				<tr>

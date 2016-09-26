@@ -12,9 +12,14 @@
 <title>決裁編集</title>
 </head>
 <body>
-<s:if test="%{#session.userFlg >= 10}">
-	<jsp:include page="header.jsp" />
 
+	<jsp:include page="header.jsp" />
+<br>
+	<s:form action="BackGoDecisionAction">
+<input type="submit" value="戻る" class="button">
+</s:form>
+
+<s:if test="%{#session.userFlg >= 1}">
 <h1>決裁手続き編集画面</h1>
 	<s:property value="%{resultString}"/>
 	<s:property value="%{resultSelect}" />
@@ -111,6 +116,10 @@
 
 <br>
 </s:if>
+<s:else>
+ログイン後に表示します。
+</s:else>
+
 <s:form action="BackGoDecisionAction">
 <input type="submit" value="戻る" class="button">
 </s:form>
