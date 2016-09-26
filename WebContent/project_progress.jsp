@@ -66,7 +66,11 @@
 								class="projectDaylist" maxlength="12"
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 								title="yyyy/MM/dd" placeholder="例2016/08/06"></td>
-							<td><s:property value="projectName" /></td>
+
+							<td><s:property value="projectName" />
+							<input type="hidden"
+								value="<s:property value="projectName" />" class="projectName"></td>
+
 							<td><input type="text" name="projectPlanList"
 								value="<s:property value="projectPlan" />"
 								class="projectPlanlist" maxlength="100"></td>

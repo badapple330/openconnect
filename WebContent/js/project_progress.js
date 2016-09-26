@@ -30,7 +30,7 @@ $(function(){
 
 			$('#delete-projectday').text($('.projectDaylist').eq(index).val());
 
-			$('#delete-projectname').text($('.projectlist').eq(index).val());
+			$('#delete-projectname').text($('.projectName').eq(index).val());
 
 			$('#delete-projectplan').text($('.projectPlanlist').eq(index).val());
 

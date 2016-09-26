@@ -26,6 +26,10 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
 	/**
+	 * 結果文字
+	 */
+	private String resultString = "ダウンロードに失敗しました。";
+	/**
 	 * 実行メソッド ファイルダウンロード
 	 * @author KOHEI NITABARU
 	 */
@@ -38,9 +42,10 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 			File file1  = new File(destPath, fileName);
 			File file2  = new File(saveUrl, fileName);
 			FileUtils.copyFile(file1, file2);
+
+			resultString = fileName + "をダウンロードしました。";
 		}catch( Exception e ){
 			e.printStackTrace();
-			System.out.println(fileName);
 		}
 
 		return SUCCESS;
@@ -84,6 +89,22 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 	*/
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	/**
+	* 取得メソッド 結果文字を取得
+	* @author KOHEI NITABARU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+	/**
+	* 設定メソッド 結果文字を設定
+	* @author KOHEI NITABARU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 }

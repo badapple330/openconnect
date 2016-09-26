@@ -5,6 +5,7 @@
 
 <struts>
 	<constant name="struts.devMode" value="true" />
+	<constant name="struts.multipart.maxSize" value="1000000" />
 	<package name="com.internousdev.openconnect.action" extends="struts-default">
 
 		<!-- ログイン処理 -->
