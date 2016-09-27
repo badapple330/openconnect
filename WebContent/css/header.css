@@ -1,8 +1,29 @@
-.openConnect{
-	display: block;
-	width: 500px;
-	position: relative;
+.headerSpace{
+	height: 80px;
+	width: 100%;
+    background: #cef;
+    position: absolute;
+}
 
+.logo{
+	display: inline;
+	position: absolute;
+}
+
+.openConnect{
+	width: 200px;
+	position: relative;
+}
+
+.menuGroup{
+	width: 100%;
+	text-align: right;
+}
+
+.menu{
+	display: inline-block;
+	width: 80px;
+	text-align: center;
 }
 
 .goButton{

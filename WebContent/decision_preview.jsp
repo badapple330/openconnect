@@ -77,7 +77,7 @@
 						<s:property value="plan" />
 						<s:if test="downloadList.size() > 0">
 						<s:form action="DecisionDetailDownloadAction">
-							保存するURLを記入<input type="text" name="saveUrl" placeholder="例：C:\Users\internous\temp" class="saveText" required>
+							ファイルを保存する場所<input type="text" name="saveUrl" placeholder="例：C:\Users\internous\temp" class="saveText" required>
 							<br>
 							<s:iterator value="downloadList">
 								<div class="textInline">

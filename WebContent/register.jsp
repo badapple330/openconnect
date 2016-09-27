@@ -41,7 +41,7 @@
 				<!------------------    名前(漢字)    ------------------->
 				<tr>
 					<th>名前（漢字）</th>
-					<td><input type="text" name="name" value="" placeholder="氏名"
+					<td><input type="text" name="name" value="" placeholder="苗字"
 						maxlength="24" required /> <input type="text" name="name"
 						value="" placeholder="名前" maxlength="25" required /></td>
 				</tr>
@@ -92,7 +92,7 @@
 					<th>メールアドレス</th>
 					<td><input type="text" name="email"
 						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
-						required title="メールアドレスを記入してください" /></td>
+						required title="example@gmail.com" placeholder="example@gmail.com"/></td>
 				</tr>
 
 				<!------------------    性別    ------------------->

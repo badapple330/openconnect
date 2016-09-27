@@ -5,6 +5,7 @@
 <html>
 <head>
 <LINK rel="stylesheet" type="text/css" href="css/style.css">
+<LINK rel="stylesheet" type="text/css" href="css/decision_application.css">
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="favicon.ico">
 <script src="js/jquery-3.0.0.min.js"></script>
@@ -22,15 +23,15 @@
 	<table border="1">
 		<s:if test="%{decisionDetailList.size() > 0}">
 		<tr>
-			<th>ID</th>
-			<th>プロジェクトID</th>
-			<th>案件番号</th>
-			<th>プロジェクト名</th>
-			<th>決裁分類</th>
-			<th>申請・承認状況</th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th><div class="smallWidth">ID</div></th>
+			<th><div class="bigWidth">プロジェクトID</div></th>
+			<th><div class="middleWidth">案件番号</div></th>
+			<th><div class="bigWidth">プロジェクト名</div></th>
+			<th><div class="middleWidth">決裁分類</div></th>
+			<th><div class="bigWidth">申請・承認状況</div></th>
+			<th><div class="middleWidth">プレビュー</div></th>
+			<th><div class="smallWidth">承認</div></th>
+			<th><div class="smallWidth">差戻し</div></th>
 		</tr>
 		</s:if>
 		<s:if test="%{decisionDetailList.size() == 0}">
