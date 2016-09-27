@@ -25,55 +25,85 @@
 	</s:if>
 	<s:property value="%{resultString}" /><br>
 		<s:iterator value="decisionDetailList">
-			<table border="1">
+			<table>
 				<tr>
 					<td>
 						<div align="right">
 							日付
 							<s:property value="day" />
-						</div> <br> 決裁分類：<s:property value="decisionType" /> <br>
-						起案者：<br> 氏名 <s:property value="familyNameKanji" /> <s:property
-							value="givenNameKanji" /> <br> <br> 案件名：<s:property
-							value="itemName" /> <br> <br> 概要： <br> <s:property
-							value="summary" /> <br> <br>
-						<center>
+						</div>
+						<br>
+						決裁分類：<s:property value="decisionType" />
+						<br>
+						起案者
+						<br>
+						氏名<s:property value="familyNameKanji" />
+						<s:property value="givenNameKanji" />
+						<br>
+						<br>
+						案件名：<s:property value="itemName" />
+						<br>
+						<br>
+						概要：
+						<br>
+						<s:property value="summary" />
+						<br>
+						<br>
+						<div class="center">
 							<h1>記</h1>
-						</center> <br> １）理由・目的 <br> <s:property value="cause" /> <br>
-						<br> ２）費用 <br> 建設費用：<s:property
-							value="developmentPersonnelSum" /> 万円 <br> 損益費用：<s:property
-							value="profitAndLossCost" /> 万円 <br> 合計費用： <s:property
-							value="sum" />万円 <br> <br> ３）実施時期・実施期間 <br> <s:property
-							value="startDay" />～<s:property value="endDay" /> <br> <br>
-						<div align="right">以上</div> <br> <br>
-						<table border="1" align="center">
+						</div>
+						<br>
+						１）理由・目的
+						<br>
+						<s:property value="cause" />
+						<br>
+						<br>
+						２）費用
+						<br>
+						建設費用<s:property value="developmentPersonnelSum" /> 万円
+						<br>
+						損益費用：<s:property value="profitAndLossCost" /> 万円
+						<br>
+						合計費用：<s:property value="sum" />万円
+						<br>
+						<br>
+						３）実施時期・実施期間
+						<br>
+						<s:property value="startDay" />～<s:property value="endDay" />
+						<br>
+						<br>
+						<div align="right">以上</div>
+						<br>
+						<br>
+						<table id="tableApproval">
 							<tr>
-								<td>―：<br>
-								</td>
-								<td>起案番号：<br>
-								</td>
-								<td>実施決裁番号：<br>
-								</td>
+								<td><div class="width4">―：<br><br></div></td>
+								<td><div class="width4">起案番号：<br><br></div></td>
+								<td><div class="width4">実施決裁番号：<br><br></div></td>
 							</tr>
 							<tr>
-								<td>承認者：<br> <br>日付：
-								</td>
-								<td>承認者：<br> <br>日付：
-								</td>
-								<td>承認者：<br> <br>日付：
-								</td>
+								<td><div class="width4">承認者：<br> <br>日付：</div></td>
+								<td><div class="width4">承認者：<br> <br>日付：</div></td>
+								<td><div class="width4">承認者：<br> <br>日付：</div></td>
 							</tr>
-						</table> <br>
+						</table>
+						<br>
 					</td>
 				</tr>
 			</table>
 			<br>
 			<br>
-			<table border="1">
+			<table>
 				<tr>
 					<td>
-						<h2>実施計画</h2> <br> <br> 以下の通り、当該開発計画を実施して良いかお伺いしたい。 <br>
+						<h2>実施計画</h2>
 						<br>
-						資料：<br>
+						<br>
+						以下の通り、当該開発計画を実施して良いかお伺いしたい。
+						<br>
+						<br>
+						資料：
+						<br>
 						<s:property value="plan" />
 						<s:if test="downloadList.size() > 0">
 						<s:form action="DecisionDetailDownloadAction">
@@ -95,16 +125,15 @@
 			</table>
 			<br>
 			<br>
-			<table border="1">
+			<table>
 				<tr>
 					<td>
-						<h2 align="center">見積書</h2> <br>・以下は、建設費用と損益費用の表である。 <br>
+						<h2 class="center">見積書</h2> <br>・以下は、建設費用と損益費用の表である。 <br>
 						・建設費用と損益費用それぞれの小計を出し合計費用を求める。 <br>・小数点以下が発生する金額に関しては小計にて切り上げて表示する。
 						<br> <br>
 
-
-						<center>建設費用表</center>
-						<table border="1" class="cost_Table">
+						<div class="center">建設費用表</div>
+						<table class="tableCost">
 							<tr>
 								<td><b>建設費用</b></td>
 								<td>1単位当たりの金額（万円）</td>
@@ -143,9 +172,8 @@
 							</tr>
 						</table> <br> <br>
 
-
-						<center>損益費用表</center>
-						<table border="1" class="cost_Table">
+						<div class="center">損益費用表</div>
+						<table class="tableCost">
 							<tr>
 								<td><b>損益費用</b></td>
 								<td>1単位当たりの金額（万円）</td>
@@ -170,8 +198,11 @@
 								<td></td>
 								<td><s:property value="profitAndLossCost" /></td>
 							</tr>
-						</table> <br> <br> 合計費用
-						<table border="1" class="cost_Table">
+						</table>
+						<br>
+						<br>
+						<div class="center">合計費用</div>
+						<table class="tableCost">
 							<tr>
 								<td>建設費用（万円）</td>
 								<td><s:property value="developmentPersonnelSum" /></td>
