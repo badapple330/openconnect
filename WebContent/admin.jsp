@@ -7,6 +7,7 @@
 <link href="css/admin.css" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="oc.png">
 <title>admin画面</title>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
