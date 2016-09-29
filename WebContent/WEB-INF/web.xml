@@ -16,4 +16,9 @@
 <!-- サイトのURLに接続したとき、一番最初に表示したいファイルを指定する -->
 <welcome-file>index.jsp</welcome-file>
 </welcome-file-list>
+  <session-config>
+    <session-timeout>
+      5
+    </session-timeout>
+  </session-config>
 </web-app>

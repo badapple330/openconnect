@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="img/oc.png">
+<link rel="apple-touch-icon" href="img/oc.png">
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/schedule.js"></script>
 <link rel="stylesheet" href="css/schedule.css">

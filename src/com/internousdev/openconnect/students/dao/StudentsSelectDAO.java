@@ -65,6 +65,8 @@ public class StudentsSelectDAO {
 				dto.setYear(rs.getString("year"));
 				dto.setMonth(rs.getString("month"));
 
+				System.out.println(rs.getDate("update_day") + " : " + dto.getUpdateDay() );
+
 				searchList.add(dto);
 			}
 

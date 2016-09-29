@@ -122,8 +122,6 @@ public class StudentsUpdateAction extends ActionSupport{
 	 */
 	public String execute() throws SQLException{
 
-		System.out.println(userdelFlg + " : " + loginFlg);
-
 		String result = ERROR;
 		StudentsUpdateDAO dao = new StudentsUpdateDAO();
 		int count = 0;
