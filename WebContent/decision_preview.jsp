@@ -7,7 +7,8 @@
 <LINK rel="stylesheet" type="text/css" href="css/style.css">
 <LINK rel="stylesheet" type="text/css" href="css/decision_preview.css">
 <meta charset="UTF-8">
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="img/oc.png">
+<link rel="apple-touch-icon" href="img/oc.png">
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/sendCheck.js"></script>
 <script type="text/javascript" src="js/decision_preview.js"></script>
