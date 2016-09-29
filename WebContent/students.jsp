@@ -48,18 +48,18 @@
       <th><div class="bigWidth">名(ふりがな)</div></th>
        <s:if test="%{#session.userFlg == 100}">
       <th><div class="bigWidth">郵便番号</div></th>
-      <th><div class="smallWidth">住所</div></th>
+      <th><div class="bigWidth">住所</div></th>
       <th><div class="bigWidth">電話番号</div></th>
       <th><div class="bigWidth">メールアドレス</div></th>
       <th><div class="bigWidth">携帯電話番号</div></th>
-      <th><div class="bigWidth">携帯メールアドレス</div></th>
+      <th><div class="largeWidth">携帯メールアドレス</div></th>
       <th><div class="smallWidth">性別</div></th>
       <th><div class="bigWidth">誕生日</div></th>
-      <th><div class="bigWidth">登録日</div></th>
-      <th><div class="bigWidth">更新日</div></th>
-      <th><div class="smallWidth">退会フラグ</div></th>
-      <th><div class="smallWidth">ログインフラグ</div></th>
-      <th><div class="smallWidth">ユーザーフラグ</div></th>
+      <th><div class="largeWidth">登録日</div></th>
+      <th><div class="largeWidth">更新日</div></th>
+      <th><div class="bigWidth">退会フラグ</div></th>
+      <th><div class="bigWidth">ログインフラグ</div></th>
+      <th><div class="bigWidth">ユーザーフラグ</div></th>
        <th><div class="bigWidth">パスワード</div></th>
        <th><div class="smallWidth">編集</div></th>
        <th><div class="smallWidth">削除</div></th>

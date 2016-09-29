@@ -45,7 +45,7 @@
 					<th><div class="middleWidth">案件番号</div></th>
 					<th><div class="bigWidth">プロジェクト名</div></th>
 					<th><div class="middleWidth">決裁分類</div></th>
-					<th><div class="middleWidth">申請・承認状況</div></th>
+					<th><div class="bigWidth">申請・承認状況</div></th>
 					<th><s:if test="%{#session.userFlg  >= 50}">編集</s:if></th>
 					<th><s:if test="%{#session.userFlg  >= 50}">申請</s:if></th>
 					<th><s:if test="%{#session.userFlg  >= 50}">削除</s:if></th>
