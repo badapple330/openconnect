@@ -277,7 +277,12 @@
 		<action name="DecisionDetailDownloadAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailDownloadAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailPreviewAction</result>
+			<result name="success"  type="stream">
+			<param name="inputName">inputStream</param>
+			<param name="contentType">application/octet-stream; charset=UTF-8</param>
+			<param name="contentLength">${ contentLength }</param>
+			<param name="contentDisposition">attachment; filename = ${fileName};filename*=utf-8''${encodedFileName}</param>
+			</result>
 		</action>
 
 		<action name="DecisionDetailApplicationAction"
