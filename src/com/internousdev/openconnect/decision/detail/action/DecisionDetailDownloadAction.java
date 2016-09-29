@@ -9,12 +9,7 @@ import java.net.URLEncoder;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
-//@Result(name = ActionSupport.SUCCESS, type = "stream", params = { "inputName",
-//		"inputStream", "contentType",
-//		"application/octet-stream; charset=UTF-8", "contentLength",
-//		"${ contentLength }", "contentDisposition",
-//"attachment; filename = ${fileName};filename*=utf-8''${encodedFileName}" })
-//@Action(value = "download")
+
 /**
  * DBの情報を画面に表示する為のクラス
  * @author KOHEI NITABARU
@@ -130,7 +125,7 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 		this.resultString = resultString;
 	}
 	/**
-	* 取得メソッド を取得
+	* 取得メソッド ファイルエンコード名を取得
 	* @author KOHEI NITABARU
 	* @return encodedFileName
 	*/
@@ -138,7 +133,7 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 		return encodedFileName;
 	}
 	/**
-	* 設定メソッド を設定
+	* 設定メソッド ファイルエンコード名を設定
 	* @author KOHEI NITABARU
 	* @param encodedFileName
 	*/
@@ -146,7 +141,7 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 		this.encodedFileName = encodedFileName;
 	}
 	/**
-	* 取得メソッド を取得
+	* 取得メソッド 文字数を取得
 	* @author KOHEI NITABARU
 	* @return contentLength
 	*/
@@ -154,7 +149,7 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 		return contentLength;
 	}
 	/**
-	* 設定メソッド を設定
+	* 設定メソッド 文字数を設定
 	* @author KOHEI NITABARU
 	* @param contentLength
 	*/
@@ -162,7 +157,7 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 		this.contentLength = contentLength;
 	}
 	/**
-	* 取得メソッド を取得
+	* 取得メソッド 入力ストリームを取得
 	* @author KOHEI NITABARU
 	* @return inputStream
 	*/
@@ -170,7 +165,7 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 		return inputStream;
 	}
 	/**
-	* 設定メソッド を設定
+	* 設定メソッド 入力ストリームを設定
 	* @author KOHEI NITABARU
 	* @param inputStream
 	*/
