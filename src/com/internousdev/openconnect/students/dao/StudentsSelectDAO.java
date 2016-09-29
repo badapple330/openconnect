@@ -57,15 +57,13 @@ public class StudentsSelectDAO {
 				dto.setMobileEmail(rs.getString("mobile_email"));
 				dto.setSex(rs.getString("sex"));
 				try{ dto.setBirthday(sdf.format( rs.getDate("birthday") ).toString()); }catch(Exception e){}
-				try{ dto.setRegisterDay(sdf2.format( rs.getDate("register_day") ).toString()); }catch(Exception e){ e.printStackTrace(); }
-				try{ dto.setUpdateDay(sdf2.format( rs.getDate("update_day") ).toString()); }catch(Exception e){ e.printStackTrace(); }
+				try{ dto.setRegisterDay(sdf2.format( rs.getTimestamp("register_day") ).toString()); }catch(Exception e){ e.printStackTrace(); }
+				try{ dto.setUpdateDay(sdf2.format( rs.getTimestamp("update_day") ).toString()); }catch(Exception e){ e.printStackTrace(); }
 				dto.setUserdelFlg(rs.getBoolean("userdel_flg"));
 				dto.setLoginFlg(rs.getBoolean("login_flg"));
 				dto.setUserFlg(rs.getInt("user_flg"));
 				dto.setYear(rs.getString("year"));
 				dto.setMonth(rs.getString("month"));
-
-				System.out.println(rs.getDate("update_day") + " : " + dto.getUpdateDay() );
 
 				searchList.add(dto);
 			}
