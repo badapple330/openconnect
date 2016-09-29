@@ -33,7 +33,7 @@ public class ProjectProgressUpdateDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			System.out.println(projectDay + " : " + projectPlan + " : " + projectResult + " : " + other + " : " + progresstId);
+
 			ps.setString(1,projectDay);
 			ps.setString(2,projectPlan);
 			ps.setString(3,projectResult);
