@@ -31,7 +31,7 @@
 					<td><div class="bigWidth">タイトル</div></td>
 					<td><div class="middleWidth">貸し出し状況</div></td>
 					<td><div class="middleWidth">日付</div></td>
-					<td><div class="smallWidth">ユ ーザーID</div></td>
+					<td><div class="middleWidth">ユ ーザーID</div></td>
 				</tr>
 				<s:iterator value="bookList">
 					<tr>

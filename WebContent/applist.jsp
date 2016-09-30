@@ -26,10 +26,15 @@
 		<h1 class="page-header">アプリ一覧</h1>
 		<s:iterator value="siteInfoList">
 			<ul>
-				<s:a href="%{siteUrl}">
-					<s:property value="siteName" />
-					<br>
+
+			<s:a href="%{siteUrl}">
+
+					<h3><s:property value="siteName" /></h3>
+
+
+
 				</s:a>
+
 			</ul>
 		</s:iterator>
 		<s:property value="notLoginMsg" />

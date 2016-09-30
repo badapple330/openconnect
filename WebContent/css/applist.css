@@ -1,22 +1,21 @@
 @CHARSET "UTF-8";
 
-body{
-	background-image:url("../img/umi.jpg");
+body {
+	background-image: url("../img/umi.jpg");
 	background-size: 100% 150%;
 	color: #ccffcc;
 }
 
-.midashi{
-text-align:center;
-font-size:500%;
+.midashi {
+	text-align: center;
+	font-size: 500%;
 }
 
-.list{
-text-align:center;
-color:#FFFFFF;
-font-size:300%;
+.list {
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 300%;
 }
-
 
 #in {
 	position: relative;
@@ -34,6 +33,7 @@ font-size:300%;
 	margin: -1.5em 0 0 -50%;
 }
 
-#in input[type="submit"]{
-	font-size:200%
+#in input[type="submit"] {
+	font-size: 200%
 }
+
