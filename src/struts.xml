@@ -26,6 +26,16 @@
 			<result name="success" type="redirectAction">GetAddressAction</result>
 		</action>
 
+		<action name="GoAdminAction" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">admin.jsp</result>
+		</action>
+
+		<action name="GoRegisterAction" class="com.internousdev.openconnect.action.JustGoAction"
+			method="execute">
+			<result name="success">register.jsp</result>
+		</action>
+
 		<action name="TwitterLogin"
 			class="com.internousdev.openconnect.action.GoTwitterAction" method="execute">
 			<result name="success">/applist.jsp</result>

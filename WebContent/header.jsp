@@ -36,17 +36,24 @@
 <!-- 					<ul class="nav navbar-nav navbar-right"> -->
 						<div class="menuGroup">
 						<s:if test="%{#session.userFlg == null}">
-
-							<li class="menu"><a href="login.jsp">ログイン</a></li>
+							<form action="LoginAction" class="formButton">
+								<input type="submit" class="menu" value="ログイン">
+							</form>
 						</s:if>
 
 						<s:if test="%{#session.userFlg != null}">
-							<li class="menu"><a href="GoLogoutAction">ログアウト</a></li>
+							<form action="GoLogoutAction" class="formButton">
+								<input type="submit" class="menu" value="ログアウト">
+							</form>
 
 						</s:if>
 						<s:if test="%{#session.userFlg == 100}">
-							<li class="menu"><a href="admin.jsp">管理者画面</a></li>
-							<li class="menu"><a href="register.jsp">新規登録</a></li>
+							<form action="GoAdminAction" class="formButton">
+								<input type="submit" class="menu" value="管理者画面">
+							</form>
+							<form action="GoRegisterAction" class="formButton">
+								<input type="submit" class="menu" value="新規登録">
+							</form>
 						</s:if>
 <!-- 					</ul> -->
 <!-- 				</div> -->

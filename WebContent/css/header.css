@@ -21,8 +21,9 @@
 }
 
 .menu{
-	display: inline-block;
-	width: 80px;
+	display: inline;
+	width: 100px;
+	height: 80px;
 	text-align: center;
 }
 
@@ -52,4 +53,8 @@
 }
 
 .menuElement{
+}
+
+.formButton{
+	display: inline;
 }
