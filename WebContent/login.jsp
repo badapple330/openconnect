@@ -13,6 +13,7 @@
 <title>Open Connect -ログイン</title>
 <!-- css読み込み -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/login.css">
 <!-- js読み込み -->
 <script src="js/bootstrap.js"></script>
 </head>
@@ -42,27 +43,23 @@
 				<s:form theme="simple" id="inner" class="form-horizontal"
 					action="LoginAction" autocomplete="off">
 					<!------------------    メールアドレス    ------------------->
-					<div class="form-group">
-						<label class="col-sm-3">メールアドレス</label>
-						<s:textfield class="col-sm-5" name="email"  value="" placeholder="example@example.com" />
-					</div>
+						<div class="stringWidth">メールアドレス</div>
+						<s:textfield class="textWidth" name="email"  value="" placeholder="example@example.com" />
+						<br>
+						<br>
 
 					<!------------------    パスワード    ------------------->
-					<div class="form-group">
-						<label class="col-sm-3">パスワード</label>
-						<s:password class="col-sm-5" name="password" value="" />
-					</div>
-					<div class="form-group">
+						<div class="stringWidth">パスワード</div>
+						<s:password class="textWidth" name="password" value="" />
 
 						<s:textfield type="hidden" name="userFlg" value="userFlg" />
-					</div>
+						<br>
+						<br>
 					<!------------------    ログイン情報を送信    ------------------->
-					<div class="form-group">
 						<div>
 							<s:submit type="submit" value="ログイン" />
 
 						</div>
-					</div>
 				</s:form>
 			</div>
 		</div>
