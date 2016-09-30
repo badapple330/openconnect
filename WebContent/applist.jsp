@@ -29,7 +29,7 @@
 
 			<s:a href="%{siteUrl}">
 
-					<h3><s:property value="siteName" /></h3>
+					<h1><s:property value="siteName" /></h1>
 
 
 
