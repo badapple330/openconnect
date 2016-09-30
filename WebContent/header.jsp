@@ -36,7 +36,7 @@
 <!-- 					<ul class="nav navbar-nav navbar-right"> -->
 						<div class="menuGroup">
 						<s:if test="%{#session.userFlg == null}">
-							<form action="LoginAction" class="formButton">
+							<form action="GoLoginAction" class="formButton">
 								<input type="submit" class="menu" value="ログイン">
 							</form>
 						</s:if>
@@ -59,7 +59,7 @@
 <!-- 				</div> -->
 <br>
 <s:if test="%{#session.userFlg >= 1}">
-					<select name="pulldown2">
+					<select name="pulldown2" id="selectBer">
 						<option value="">移動先を選択</option>
 						<option value="ProjectsSelectAction">プロジェクト一覧</option>
 						<option value="ProjectStatusSelectAction">プロジェクトリリース状況</option>

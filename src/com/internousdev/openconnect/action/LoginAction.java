@@ -43,7 +43,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	 */
 	public String execute() {
 		String result = ERROR;
-		resultString = "メールアドレスまたはパスワードが正しく入力されていません";
 
 		String sql1 = "SELECT user_flg FROM users WHERE phone_email = ? AND password = ?";
 		String sql2 = "SELECT user_flg FROM users WHERE mobile_email = ? AND password = ?";
@@ -56,6 +55,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("userFlg",dao.getFlg());
 			session.put("user", password);
 			session.put("user", email);
+		}else{
+			resultString = "メールアドレスまたはパスワードが正しく入力されていません";
 		}
 
 		return result;
