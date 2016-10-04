@@ -1,6 +1,5 @@
 package com.internousdev.openconnect.schedule.action;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,161 +7,237 @@ import com.internousdev.openconnect.schedule.dao.ScheduleUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 画面から入力された値を更新するクラス。
+ * スケジュール一覧で入力された値を更新するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
 public class ScheduleUpdateAction extends ActionSupport {
 
 	/**
-	 * ID、開始日、終了日、件名、内容それぞれのリスト形式のもの。エラー。
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = 2437915534439167729L;
+
+	/**
+	 * ID
+	 * @author MASAHIRO KEDSUKA
 	 */
 	private List<Integer> scheduleIdList = new ArrayList<Integer>();
-	private List<Date> scheduleStart_dayList = new ArrayList<Date>();
-	private List<Date> scheduleEnd_dayList = new ArrayList<Date>();
-	private List<String> scheduleTitleList = new ArrayList<String>();
-	private List<String> scheduleContentList = new ArrayList<String>();
-	private String errortitle;
 
-
-	/* (非 Javadoc)
-	 * 更新のメソッド。
+	/**
+	 * 開始日
+	 * @author MASAHIRO KEDSUKA
 	 */
-	public String execute(){
-        String ret = ERROR;
+	private List<String> scheduleStartdayList = new ArrayList<String>();
 
-        ScheduleUpdateDAO dao = new ScheduleUpdateDAO();
-        int count = 0;
+	/**
+	 *終了日
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private List<String> scheduleEnddayList = new ArrayList<String>();
 
-        for(int i = 0 ; i < scheduleIdList.size() ;++i){
-        	count = dao.update(scheduleIdList.get(i),scheduleStart_dayList.get(i),scheduleEnd_dayList.get(i),scheduleTitleList.get(i),scheduleContentList.get(i));}
+	/**
+	 * 件名
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private List<String> scheduleTitleList = new ArrayList<String>();
 
-        		if ( count > 0) {
-        			ret = SUCCESS;
-        		} else {
-        			errortitle=(getText("更新できませんでした"));
-        		}
-		return ret;
-		}
+	/**
+	 * 内容
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private List<String> scheduleContentList = new ArrayList<String>();
+
+	/**
+	 * エラーメッセージ
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String errorMsg;
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return scheduleIdList
-	*/
+	 * 成功メッセージ
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String successMsg;
+
+
+	/**
+	 * 更新のメソッド。
+	 */
+	public String execute(){
+		String ret = ERROR;
+
+		ScheduleUpdateDAO dao = new ScheduleUpdateDAO();
+		int count = 0;
+
+		for(int i = 0 ; i < scheduleIdList.size() ;++i){
+			count = dao.update(
+					scheduleIdList.get(i),
+					scheduleStartdayList.get(i),
+					scheduleEnddayList.get(i),
+					scheduleTitleList.get(i),
+					scheduleContentList.get(i)
+					);
+		}
+		if ( count > 0) {
+			successMsg=(getText("更新しました。"));
+			ret = SUCCESS;
+		} else {
+			errorMsg=(getText("更新できませんでした"));
+		}
+		return ret;
+	}
+
+
+	/**
+	 * 取得メソッド リスト形式のスケジュールIDを取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return scheduleIdList
+	 */
 	public List<Integer> getScheduleIdList() {
 		return scheduleIdList;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param scheduleIdList
-	*/
+	 * 設定メソッド リスト形式のスケジュールIDを設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param scheduleIdList
+	 */
 	public void setScheduleIdList(List<Integer> scheduleIdList) {
 		this.scheduleIdList = scheduleIdList;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return scheduleStart_dayList
-	*/
-	public List<Date> getScheduleStart_dayList() {
-		return scheduleStart_dayList;
+	 * 取得メソッド リスト形式の開始日を取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return scheduleStartdayList
+	 */
+	public List<String> getScheduleStartdayList() {
+		return scheduleStartdayList;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param scheduleStart_dayList
-	*/
-	public void setScheduleStart_dayList(List<Date> scheduleStart_dayList) {
-		this.scheduleStart_dayList = scheduleStart_dayList;
+	 * 設定メソッド リスト形式の開始日を設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param scheduleStartdayList
+	 */
+	public void setScheduleStartdayList(List<String> scheduleStartdayList) {
+		this.scheduleStartdayList = scheduleStartdayList;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return scheduleEnd_dayList
-	*/
-	public List<Date> getScheduleEnd_dayList() {
-		return scheduleEnd_dayList;
+	 * 取得メソッド リスト形式の終了日を取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return scheduleEnddayList
+	 */
+	public List<String> getScheduleEnddayList() {
+		return scheduleEnddayList;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param scheduleEnd_dayList
-	*/
-	public void setScheduleEnd_dayList(List<Date> scheduleEnd_dayList) {
-		this.scheduleEnd_dayList = scheduleEnd_dayList;
+	 * 設定メソッド リスト形式の終了日を設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param scheduleEnddayList
+	 */
+	public void setScheduleEnddayList(List<String> scheduleEnddayList) {
+		this.scheduleEnddayList = scheduleEnddayList;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return scheduleTitleList
-	*/
+	 * 取得メソッド リスト形式の件名を取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return scheduleTitleList
+	 */
 	public List<String> getScheduleTitleList() {
 		return scheduleTitleList;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param scheduleTitleList
-	*/
+	 * 設定メソッド リスト形式の件名を設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param scheduleTitleList
+	 */
 	public void setScheduleTitleList(List<String> scheduleTitleList) {
 		this.scheduleTitleList = scheduleTitleList;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return scheduleContentList
-	*/
+	 * 取得メソッド リスト形式の内容を取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return scheduleContentList
+	 */
 	public List<String> getScheduleContentList() {
 		return scheduleContentList;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param scheduleContentList
-	*/
+	 * 設定メソッド リスト形式の内容を設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param scheduleContentList
+	 */
 	public void setScheduleContentList(List<String> scheduleContentList) {
 		this.scheduleContentList = scheduleContentList;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return errortitle
-	*/
-	public String getErrortitle() {
-		return errortitle;
+	 * 取得メソッド エラーメッセージを取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return errorMsg
+	 */
+	public String getErrorMsg() {
+		return errorMsg;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param errortitle
-	*/
-	public void setErrortitle(String errortitle) {
-		this.errortitle = errortitle;
+	 * 設定メソッド エラーメッセージを設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param errorMsg
+	 */
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
 	}
+
+
+	/**
+	 * 取得メソッド 成功メッセージの取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return successMsg
+	 */
+	public String getSuccessMsg() {
+		return successMsg;
+	}
+
+
+	/**
+	 * 設定メソッド 成功メッセージの設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param successMsg
+	 */
+	public void setSuccessMsg(String successMsg) {
+		this.successMsg = successMsg;
+	}
+
+
+	/**
+	 * 取得メソッド シリアルIDの取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return serialVersionUID
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 
 }

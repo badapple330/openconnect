@@ -1,0 +1,25 @@
+body{
+	font-family: 'SimHei' ;
+	color:#4c4c4c;
+	text-align: center;
+}
+
+article{
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+li{
+	font-size: 20px;
+	display:inline-block;
+	list-style-type: none;
+}
+ul{
+	margin-right: 45px;
+	font-size: 0;
+}
+a{
+	text-decoration: none;
+}
+a:link{ color: #FFFFFF }
+a:visited { color: #FFFFFF; }

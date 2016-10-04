@@ -1,0 +1,27 @@
+
+
+<!-- ŒˆÏŽè‘±‚«“dŽq‰»‰æ–Ê•ÒW‚Ö‚Ì‘JˆÚ -->
+		<action name="PasswordEdit"
+			class="com.internousdev.openconnect.decisionUpdate.action.DecisionEditPasswordAction"
+			method="execute">
+			<result name="success" type="chain">DecisionDetailUpdate
+			</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="DecisionDetailUpdateEdit"
+			class="com.internousdev.openconnect.decisionUpdate.action.DecisionDetailUpdateAction"
+			method="execute">
+			<result name="success">decision_update.jsp
+			</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+
+		<action name="DecisionEdit"
+			class="com.internousdev.openconnect.decisionUpdate.action.DecisionEditAction"
+			method="execute">
+			<result name="success" type="chain">DecisionDetailUpdateEdit
+			</result>
+			<result name="error">/register.jsp</result>
+		</action>

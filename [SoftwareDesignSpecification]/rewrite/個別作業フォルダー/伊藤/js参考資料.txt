@@ -1,0 +1,9 @@
+$('.main-slider-slick').slick({
+	autoplay: true,
+	dots: true,
+	fade: true,
+	autoplaySpeed: 7000,
+	speed: 800,
+	pauseOnDotsHover: false,
+	pauseOnHover: false
+}).css('padding', 0);

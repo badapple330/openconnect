@@ -1,5 +1,29 @@
 @CHARSET "UTF-8";
 
+.textInt {
+	text-align: center;
+	width: 2em;
+}
+
+.textDate {
+	text-align: center;
+	width: 8em;
+}
+
+.textString {
+	width: 10em;
+}
+
+.smallWidth{
+	width: 50px;
+}
+.middleWidth{
+	width: 100px;
+}
+.bigWidth{
+	width: 120px;
+}
+
 td{
 	text-align:center;
 }
@@ -26,11 +50,11 @@ p {
 	text-align: center;
 }
 
-.button {
-	height: 30px;
-	width: 60px;
-	background-color: #1987E5;
-}
+/* .button { */
+/* 	height: 30px; */
+/* 	width: 60px; */
+/* 	background-color: #1987E5; */
+/* } */
 
 .center {
 	margin: 0 auto;
@@ -123,4 +147,25 @@ input {
 	top: 0;
 	left: 0;
 	z-index: 1;
+}
+
+
+#btna{
+    margin:20px 10px 0;
+    padding:10px;
+    cursor:pointer;
+    background: #EEE;
+    color: #444;
+    border-top: 1px solid #FFF;
+    border-left: 1px solid #FFF;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    -moz-box-shadow: -1px -1px 1px rgba(000,000,000,0.3),1px 1px 1px rgba(255,255,255,1);
+    -webkit-box-shadow: -1px -1px 1px rgba(000,000,000,0.3),1px 1px 1px rgba(255,255,255,1);
+    width: 200px;
+}
+
+#menua{
+    margin:10px;
+    text-align:left;
 }

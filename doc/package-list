@@ -2,7 +2,6 @@ com.internousdev.openconnect.action
 com.internousdev.openconnect.attendance.action
 com.internousdev.openconnect.attendance.dao
 com.internousdev.openconnect.attendance.dto
-com.internousdev.openconnect.attendance.util
 com.internousdev.openconnect.books.action
 com.internousdev.openconnect.books.dao
 com.internousdev.openconnect.books.dto
@@ -16,12 +15,18 @@ com.internousdev.openconnect.decision.dto
 com.internousdev.openconnect.decisionDetail.action
 com.internousdev.openconnect.decisionDetail.dao
 com.internousdev.openconnect.decisionDetail.dto
+com.internousdev.openconnect.decisionUpdate.action
+com.internousdev.openconnect.decisionUpdate.dao
+com.internousdev.openconnect.decisionUpdate.dto
 com.internousdev.openconnect.dto
 com.internousdev.openconnect.dto.test
 com.internousdev.openconnect.google
 com.internousdev.openconnect.projectProgress.action
 com.internousdev.openconnect.projectProgress.dao
 com.internousdev.openconnect.projectProgress.dto
+com.internousdev.openconnect.projectStatus.action
+com.internousdev.openconnect.projectStatus.dao
+com.internousdev.openconnect.projectStatus.dto
 com.internousdev.openconnect.projects.action
 com.internousdev.openconnect.projects.dao
 com.internousdev.openconnect.projects.dto

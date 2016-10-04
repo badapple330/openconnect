@@ -1,0 +1,45 @@
+Action
+  import org.apache.commons.io.FileUtils; がない
+
+　 File insertFolder = new File(path+"/"+coordinateImgPass);
+　　↓
+　 File insertFolder = new File(path,coordinateImgPass); だったような？
+
+
+アップロードでとってきたファイルは別フォルダにあるから、指定のフォルダにコピーする作業
+　try{
+	Fileutils.copyFile(file,insertFolder);
+　} catch (IOException e){
+	e.printStackTrace();
+  }
+
+
+画像に対する制限など
+　参考url
+　　http://niudev.blogspot.jp/2012/03/struts2.html
+　　https://struts.apache.org/docs/file-upload.html
+
+<action name="GoCoordePostAction" class="com.internous.miramode.action.GoCoordePostAction" method="execute"> 
+	<interceptor-ref name="fileUpload">
+		<param name="maximumSize">2097152</param>
+		<param name="allowedTypes">image/png</param>
+	</interceptor-ref>
+	<interceptor-ref name="defaultStack"></interceptor-ref>
+	<result name="success">coordinate_post.jsp</result> 
+	<result name="error" type="redirectAction">
+		<param name="actionName">coordinate_post.jsp</param>
+	</result> 
+</action> 
+
+
+
+画像ファイルにはいくつか種類があり、使うファイルによってここの記載も増やす必要がある
+<param name="allowedTypes">image/png,image/gif,image/jpeg,image/pjpeg</param>
+
+
+jsp側
+　<img src="img/uploadCoordeImg/<s:property value = "画像ファイル名" />"
+
+画像ファイル名：actionで指定して、DBに登録している(title+date+".png)こと
+
+参考：https://struts.apache.org/docs/file-upload.html

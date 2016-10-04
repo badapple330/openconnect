@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="img/oc.png">
+<link rel="apple-touch-icon" href="img/oc.png">
 <!-- css読み込み -->
 <link rel="stylesheet" href="css/register.css" type="text/css">
 <!-- js読み込み -->
@@ -16,15 +18,20 @@
 <title>新規登録</title>
 </head>
 <body>
+
+	<jsp:include page="header.jsp" />
+
 	<div align="center">
-		<s:form action="RegisterAction">
+
 
 			<br>
 			<br>
-			<br>
-			<br>
-			<br>
 			<h1>新規登録</h1>
+
+		<s:if test="%{#session.userFlg >= 100}">
+
+			<s:form action="RegisterAction">
+
 			<s:if test="errorMsg != null">
 				<div class="error">
 					<s:property value="errorMsg" />
@@ -35,17 +42,17 @@
 				<!------------------    名前(漢字)    ------------------->
 				<tr>
 					<th>名前（漢字）</th>
-					<td><input type="text" name="name" value="" placeholder="野比"
+					<td><input type="text" name="name" value="" placeholder="苗字"
 						maxlength="24" required /> <input type="text" name="name"
-						value="" placeholder="のび太" maxlength="25" required /></td>
+						value="" placeholder="名前" maxlength="25" required /></td>
 				</tr>
 
 				<!------------------    名前(ふりがな)    ------------------->
 				<tr>
 					<th>名前（ふりがな）</th>
-					<td><input type="text" name="nameF" value="" placeholder="のび"
+					<td><input type="text" name="nameF" value="" placeholder="みょうじ"
 						maxlength="24" required /> <input type="text" name="nameF"
-						value="" placeholder="のびた" maxlength="25" required /></td>
+						value="" placeholder="なまえ" maxlength="25" required /></td>
 				</tr>
 
 				<!------------------    郵便番号    ------------------->
@@ -86,7 +93,7 @@
 					<th>メールアドレス</th>
 					<td><input type="text" name="email"
 						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
-						required title="メールアドレスを記入してください" /></td>
+						required title="example@gmail.com" placeholder="example@gmail.com"/></td>
 				</tr>
 
 				<!------------------    性別    ------------------->
@@ -130,9 +137,15 @@
 			<!------------------    リセットボタン    ------------------->
 			<td><input type="reset" value="リセット"></td>
 		</s:form>
-		<p>
-			<a href="index.jsp"><button>キャンセル</button></a>
-		</p>
+
+		</s:if>
+		<s:else>
+			講師権限でログイン時のみ表示します。
+		</s:else>
+
+		<s:form action="GetAddressAction">
+			<button type="submit" class="button">戻る</button>
+		</s:form>
 	</div>
 
 

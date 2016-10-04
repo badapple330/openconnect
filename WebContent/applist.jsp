@@ -7,6 +7,9 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="img/oc.png">
+<link rel="apple-touch-icon" href="img/oc.png">
+
 <title>Open Connect</title>
 <!-- css読み込み  -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -23,10 +26,15 @@
 		<h1 class="page-header">アプリ一覧</h1>
 		<s:iterator value="siteInfoList">
 			<ul>
-				<s:a href="%{siteUrl}">
-					<s:property value="siteName" />
-					<br>
+
+			<s:a href="%{siteUrl}">
+
+					<h1><s:property value="siteName" /></h1>
+
+
+
 				</s:a>
+
 			</ul>
 		</s:iterator>
 		<s:property value="notLoginMsg" />

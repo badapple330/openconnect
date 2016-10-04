@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+td {
+text-align: center;
+}
+
+.header {
+	background-color: #ACAFD2;
+	height: 100px;
+	text-align: center;
+}
+
+.center {
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
+input {
+	text-align: center;
+}
+.smallWidth{
+	width: 70px;
+}
+
+.middleWidth{
+	width: 100px;
+}
+
+.bigWidth{
+	width: 500px;
+}

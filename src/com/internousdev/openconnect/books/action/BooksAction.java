@@ -10,8 +10,8 @@ import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * DBの情報を画面に表示する為のクラス
- * @author Tatsuya Hoshi
+ * DBの書籍情報、ID、タイトル一覧、削除を書籍画面に表示する為のクラス
+ * @author TATSUYA HOSHI
  */
 public class BooksAction extends ActionSupport{
 	/**
@@ -23,7 +23,7 @@ public class BooksAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
 	/**
-	 * DAOに入力されたデータを渡して、結果を返す
+	 * DAOに入力されたデータを受け取り、結果を渡す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {
@@ -37,29 +37,30 @@ public class BooksAction extends ActionSupport{
 		return result;
 	}
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド ブックリスト
+	 * @author TATSUYA HOSHI
+	 * @return bookList
+	 */
 	public List<BooksDTO> getBookList() {
 		return bookList;
 	}
 	/**
-	* 設定メソッド
-	* @author Tatsuya Hoshi
-	* @param
-	*/
+	 *設定メソッド ブックリスト
+	 * @author TATSUYA HOSHI
+	 * @param bookList
+	 */
 	public void setBookList(List<BooksDTO> bookList) {
 		this.bookList = bookList;
 	}
 	/**
-	* 取得メソッド
-	* @author Tatsuya Hoshi
-	* @return
-	*/
+	 * 取得メソッド シリアルバージョン
+	 * @author TATSUYA HOSHI
+	 * @return serialversionuid
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 
 
 

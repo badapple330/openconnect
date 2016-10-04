@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.schedule.dao.ScheduleSelectDAO;
-import com.internousdev.openconnect.schedule.dto.ScheduleSelectDTO;
+import com.internousdev.openconnect.schedule.dto.ScheduleDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
- * DBを検索するクラス。
+ * スケジュール一覧のDBを検索するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -17,96 +17,143 @@ public class ScheduleSelectAction extends ActionSupport {
 
 
 	/**
-	 * @author MASAHIRO KEDSUKA
-	 * スケジュールリスト。検索文。エラー
+	 * シリアル番号
 	 */
-	private List<ScheduleSelectDTO> schedulelist = new ArrayList<ScheduleSelectDTO>();
+	private static final long serialVersionUID = -6055065667656806167L;
+
+	/**
+	 * @author MASAHIRO KEDSUKA
+	 * スケジュールリスト
+	 */
+	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
+
+	/**
+	 * 検索文
+	 * @author MASAHIRO KEDSUKA
+	 */
 	private String search = "";
-	private String errorSelect;
+	/**
+	 *成功メッセージ
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String selectSuccessMsg;
+	/**
+	 *エラーメッセージ
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String selectErrorMsg;
 
-
-
-	/* (非 Javadoc)
-	 * 検索の実行メソッド。
+	/**
+	 * 検索の実行メソッド
+	 * @author MASAHIRO KEDSUKA
 	 */
 	public String execute() {
 		String result = ERROR;
 		ScheduleSelectDAO dao = new ScheduleSelectDAO();
 
-		schedulelist = dao.select(search);
-		if (schedulelist.size() != 0) {
+		scheduleList = dao.select(search);
+		if (scheduleList.size() != 0) {
+			if(search.equals("")){
+				selectSuccessMsg ="すべてを表示しました。";
+			}else{selectSuccessMsg = (getText("「"+search+"」を検索しました。"));}
 			result = SUCCESS;
 		} else {
-			errorSelect = (getText("データがありません"));
+			selectErrorMsg = (getText("該当する情報は存在しません"));
 		}
 		return result;
 	}
 
 
-
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return schedulelist
-	*/
-	public List<ScheduleSelectDTO> getSchedulelist() {
-		return schedulelist;
+	 * 取得メソッド リスト形式のスケジュール一覧を取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return scheduleList
+	 */
+	public List<ScheduleDTO> getScheduleList() {
+		return scheduleList;
 	}
 
 
-
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param schedulelist
-	*/
-	public void setSchedulelist(List<ScheduleSelectDTO> schedulelist) {
-		this.schedulelist = schedulelist;
+	 * 設定メソッド リスト形式のスケジュール一覧を設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param scheduleList
+	 */
+	public void setScheduleList(List<ScheduleDTO> scheduleList) {
+		this.scheduleList = scheduleList;
 	}
 
 
-
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return search
-	*/
+	 * 取得メソッド 検索文を取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return search
+	 */
 	public String getSearch() {
 		return search;
 	}
 
 
-
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param search
-	*/
+	 * 設定メソッド 検索文を設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param search
+	 */
 	public void setSearch(String search) {
 		this.search = search;
 	}
 
 
 
-	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return errorSelect
-	*/
-	public String getErrorSelect() {
-		return errorSelect;
-	}
-
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param errorSelect
-	*/
-	public void setErrorSelect(String errorSelect) {
-		this.errorSelect = errorSelect;
+	 * 取得メソッド 成功メッセージを取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return selectSuccessMsg
+	 */
+	public String getSelectSuccessMsg() {
+		return selectSuccessMsg;
 	}
 
+
+	/**
+	 * 設定メソッド 成功メッセージを設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param selectSuccessMsg
+	 */
+	public void setSelectSuccessMsg(String selectSuccessMsg) {
+		this.selectSuccessMsg = selectSuccessMsg;
+	}
+
+
+	/**
+	 * 取得メソッド エラーメッセージを取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return selectErrorMsg
+	 */
+	public String getSelectErrorMsg() {
+		return selectErrorMsg;
+	}
+
+
+	/**
+	 * 設定メソッド エラーメッセージを設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param selectErrorMsg
+	 */
+	public void setSelectErrorMsg(String selectErrorMsg) {
+		this.selectErrorMsg = selectErrorMsg;
+	}
+
+
+	/**
+	 * 取得メソッド シリアルIDを取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return serialVersionUID
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }

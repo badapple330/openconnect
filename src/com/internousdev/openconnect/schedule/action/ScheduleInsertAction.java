@@ -2,125 +2,215 @@
  *
  */
 package com.internousdev.openconnect.schedule.action;
-import java.sql.Date;
+import java.util.Map;
 
 import com.internousdev.openconnect.schedule.dao.ScheduleInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * DBに情報を追加するクラス。
+ * スケジュール一覧のDBに情報を追加するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
 public class ScheduleInsertAction extends ActionSupport{
 
 	/**
-	 * 開始日、件名、内容
+	 * シリアル番号
+	 */
+	private static final long serialVersionUID = -1823142777543076903L;
+
+	/**
+	 * 開始日
 	 * @author MASAHIRO KEDSUKA
 	 */
-	private Date Start_day;
-	private String Title;
-	private String Content;
-	private String errortitle;
+	private String startDay;
 
+	/**
+	 * 件名
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String title;
 
-	/* (非 Javadoc)
+	/**
+	 * 内容
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String content;
+
+	/**
+	 *エラー
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String errorMsg;
+
+	/**
+	 * 成功
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String successMsg;
+
+	/**
+	 * 管理権限
+	 * @author MASAHIRO KEDSUKA
+	 */
+	public Map<String, Object> session;
+
+	/**
 	 * 実行メソッド。DAOに情報を渡して、DBに追加する。
 	 */
 	public String execute(){
-        String ret = ERROR;
-        int k;
+		String ret = ERROR;
+		int k;
 
-        ScheduleInsertDAO dao = new ScheduleInsertDAO();
+		if(startDay.isEmpty()&&title.isEmpty()){
+			ret = ERROR;
+			errorMsg=(getText("追加できませんでした"));
+			return ret;
+		}else{
 
-        k = dao.insert(Start_day,Title,Content);
+			ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-        if (k>0) {
-            ret = SUCCESS;
-        } else {
-        	errortitle=(getText("登録できませんでした"));
-        }
+			k = dao.insert(startDay,title,content);
+
+			if (k>0) {
+				successMsg=(getText("追加しました。"));
+				ret = SUCCESS;
+			} else {
+				errorMsg=(getText("追加に失敗しました"));
+			}
+		}
 		return ret;
 	}
 
+
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return Start_day
-	*/
-	public Date getStart_day() {
-		return Start_day;
+	 * 取得メソッド 開始日を取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return startDay
+	 */
+	public String getStartDay() {
+		return startDay;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param start_day
-	*/
-	public void setStart_day(Date start_day) {
-		Start_day = start_day;
+	 * 設定メソッド 開始日を設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param startDay
+	 */
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
 	}
 
 
+
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return Title
-	*/
+	 * 取得メソッド 件名を取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return Title
+	 */
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param title
-	*/
+	 * 設定メソッド 件名を設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param title
+	 */
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return Content
-	*/
+	 * 取得メソッド 内容を取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return Content
+	 */
 	public String getContent() {
-		return Content;
+		return content;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param content
-	*/
+	 * 設定メソッド 内容を設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param content
+	 */
 	public void setContent(String content) {
-		Content = content;
+		this.content = content;
 	}
 
 
 	/**
-	* 取得メソッド
-	* @author MASAHIRO KEDSUKA
-	* @return errortitle
-	*/
-	public String getErrortitle() {
-		return errortitle;
+	 * 取得メソッド エラーメッセージを取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return errorMsg
+	 */
+	public String getErrorMsg() {
+		return errorMsg;
 	}
 
 
 	/**
-	* 設定メソッド
-	* @author MASAHIRO KEDSUKA
-	* @param errortitle
-	*/
-	public void setErrortitle(String errortitle) {
-		this.errortitle = errortitle;
+	 * 設定メソッド エラーメッセージを設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param errorMsg
+	 */
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
 	}
 
+
+	/**
+	 * 取得メソッド 成功メッセージを取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return successMsg
+	 */
+	public String getSuccessMsg() {
+		return successMsg;
+	}
+
+
+	/**
+	 * 設定メソッド 成功メッセージを設定
+	 * @author MASAHIRO KEDSUKA
+	 * @param successMsg
+	 */
+	public void setSuccessMsg(String successMsg) {
+		this.successMsg = successMsg;
+	}
+
+
+	/**
+	* 取得メソッド 管理権限の状態を取得
+	* @author MASAHIRO KEDSUKA
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+	/**
+	* 設定メソッド 管理権限の状態を設定
+	* @author MASAHIRO KEDSUKA
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
+	/**
+	 * 取得メソッド シリアルIDを取得
+	 * @author MASAHIRO KEDSUKA
+	 * @return serialVersionUID
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }

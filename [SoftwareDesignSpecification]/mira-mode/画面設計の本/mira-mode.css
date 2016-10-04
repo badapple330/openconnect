@@ -1,0 +1,378 @@
+﻿iframe{
+	float: left;
+	margin:0 0  20px 0;
+	padding: 0;
+	border: 0;
+}
+body{
+	background-color: #ebebeb;
+	font-family: 'SimHei' ;
+	color:#4c4c4c;
+}
+/* 小サイズのボタン*/
+.btn1{
+	text-decoration: none;
+	background-color: #fff;
+	border: 2px solid #b3b3b3;
+	color: #b3b3b3;
+  align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 25px;
+}
+/* 中サイズのボタン*/
+.btn2{
+	text-decoration: none;
+	background-color: #fff;
+	border: 2px solid #b3b3b3;
+	color: #b3b3b3;
+  align-items: center;
+	justify-content: center;
+	width: 100px;
+	height: 50px;
+}
+/* 大サイズのボタン*/
+.btn3{
+	text-decoration: none;
+	background-color: #fff;
+	border: 2px solid #b3b3b3;
+	color: #b3b3b3;
+  align-items: center;
+	justify-content: center;
+	width: 150px;
+	height: 50px;
+}
+/*ボタンのhover*/
+.btn1:hover,.btn2:hover,.btn3:hover{
+	background-color: #98c5e9;
+	border-color: #98c5e9;
+	color: #fff;
+  cursor: pointer;
+}
+.btn2::after {
+	top: -100%;
+	width: 100%;
+	height: 100%;
+}
+.btn2:hover::after {
+	top: 0;
+	background-color: #333;
+}
+/*hover時のぷるぷる*/
+.rum:hover{
+	animation: rumble 0.1s linear infinite;
+}
+@keyframes rumble{
+	0%	{transform:rotate(0deg)	translate(0,0);}
+	12.5%	{transform:rotate(1deg)	translate(1px,-1px);}
+	25%	{transform:rotate(2deg)	translate(0px,1px);}
+	37.5%	{transform:rotate(1deg)	translate(-1px,0);}
+	50%	{transform:rotate(0deg)	translate(0,0);}
+	62.5%	{transform:rotate(-1deg)	translate(1px,0);}
+	75%	{transform:rotate(-2deg)	translate(0,1px);}
+	87.5%	{transform:rotate(-1deg)	translate(-1px,-1px);}
+	100%	{transform:rotate(0deg)	translate(0,0);}
+}
+/*テーブルのレイアウト*/
+table{
+	width:700px;
+	margin:10px auto;
+	border-spacing:0
+}
+td,th{
+	padding: 20px 20px;
+  text-align: left;
+}
+.thead th{
+	border-bottom: 1px solid #b3b3b3;
+}
+/*imgのレイアウト*/
+img{
+	width:200px;
+	height:250px;
+}
+/*articleのレイアウト*/
+article{
+	background: white;
+	width:800px;
+	margin: auto;
+	padding: 20px;
+	min-height: 700px;
+}
+/*navのレイアウト*/
+nav{
+  background: white;
+  width: 200px;
+  padding: 10px;
+	box-shadow:10px 0px 10px -10px	rgba(0, 0, 0, 0.5);
+}
+/*テキストフィールドのレイアウト*/
+.text,input{
+	border: none;
+	background: transparent;
+	outline: 0;
+	border-bottom: 1px solid #aaaaaa;
+}
+.text:focus,input:focus{
+	border-bottom:1px solid #000000;
+}
+/*ｈ２*/
+h2{
+  border-bottom: 2px solid  #b3b3b3;
+}
+/*ボタンリスト*/
+.btnlist{
+  text-align:center;
+  margin: 50px 0;
+}
+/*listタグ*/
+ul{
+  list-style: none;
+}
+/*imgsリスト*/
+.imgs li{
+  float: left;
+  margin:20px;
+}
+.clear{
+  clear: both;
+}
+.imgs li:hover {
+  background:linear-gradient(0deg,#98c5e9, #98c5e9 1%, #ffffff 1%, #ffffff);
+	border-color: #98c5e9;
+  cursor: pointer;
+}
+/*camera画像*/
+#camera{
+	width: 100px;
+	height: auto;
+}
+/*マイページ*/
+#menu{
+	display: flex;
+	justify-content: space-around;
+}
+.menu{
+	width: 150px;
+	height: 50px;
+	background: white;
+	border: 0;
+	font-family: 'SimHei' ;
+}
+.menu:hover{
+	background:linear-gradient(0deg,#98c5e9, #98c5e9 10%, #ffffff 10%, #ffffff);
+	cursor: pointer;
+}
+#posttitle {
+	width: 300px;
+	height: 400px;
+	color: #4c4c4c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #b3b3b3;
+  flex-direction: column;
+}
+#posttitle:hover{
+	background-color: #98c5e9;
+	color:white;
+}
+.main{
+  display: flex;
+  align-items: center;
+}
+.history{
+  margin: 10px;
+	width: 500px;
+}
+.historylist{
+  margin-left: 10px;
+}
+/*itemdiv*/
+.itemdiv{
+  display: flex;
+  align-items: center;
+}
+/*コーディネート投稿*/
+.itemdiv ul li{
+  margin: 20px 0;
+}
+/*管理者メイン*/
+.btnlist ul li{
+  margin: 20px 0;
+}
+/*会社概要*/
+.corpoul{
+  margin-left: 0;
+  padding-left: 0;
+}
+#iframe{
+  width: 700px;
+  margin: 20px auto;
+}
+/*aタグ*/
+a{
+	text-decoration: none;
+	color: #4c4c4c;
+}
+a:link{ color: #4c4c4c }
+a:visited { color: #4c4c4c; }
+/*フッター*/
+footer{
+  background-color: #000000;
+	color: #FFFFFF;
+  text-align: center;
+}
+footer ul li{
+  display: inline-block;
+  padding: 0;
+}
+footer a:link{ color: #FFFFFF }
+footer a:visited { color: #FFFFFF; }
+
+/*ヘッダー*/
+header{
+  display: flex;
+  background: white;
+	justify-content: space-between;
+	box-shadow:5px 10px 10px -10px	rgba(0, 0, 0, 0.5);
+}
+header img{
+  width: initial;
+  height: initial;
+  margin: auto;
+}
+.divlogo{
+  margin: auto;
+}
+.divmenu {
+	padding-top: 15px;
+	float: right;
+  margin-right: 10px;
+}
+.menu{
+	color: black;
+	text-decoration: none;
+}
+.menu:HOVER {
+	color: #98c5e9;
+}
+/*商品管理*/
+.itemcontrol{
+	width: 100px;
+	height: 100px;
+}
+/*コーディネート詳細*/
+.eva{
+	background: white;
+	clear:both;
+	padding: 5px;
+	border: 1px solid #b3b3b3;
+	margin-bottom: 10px;
+}
+.left {
+	float: left;
+	margin: 0;
+	width: 400px;
+}
+.img img {
+	width: 100%;
+	height: auto;
+	float: left;
+	margin-bottom: 20px;
+}
+.message {
+	clear: both;
+	width: :300px;
+	text-align: center;
+	background-color: white;
+	border: 1px solid #b3b3b3;
+	padding-left: 10px;
+}
+.right {
+	width: 250px;
+	float: right;
+	text-align: center;
+	margin: 0;
+}
+.comment {
+	width: 390px;
+	height: 500px;
+	float: right;
+	border: 1px solid #b3b3b3;
+	margin-bottom: 10px;
+	background-color: white;
+	text-align: left;
+}
+.insertcomment{
+	display: flex;
+	height: 35px;
+	align-items: center;
+}
+.useritem {
+	background-color: purple;
+}
+.user {
+	clear: both;
+	width: 390px;
+	height: 50px;
+	float: right;
+	border: 1px solid #b3b3b3;
+	background-color: white;
+	margin-bottom: 10px;
+}
+.buy {
+	clear: both;
+}
+.user_comment{
+ text-align:left;
+ border-top: 1px solid #b3b3b3;
+}
+.item {
+	float: right;
+	width: 390px;
+	border: 1px solid #b3b3b3;
+	background-color: white;
+}
+
+#itemimg {
+	width:390px;
+	height: auto;
+	float: left;
+}
+select {
+	border: none;
+	background: transparent;
+	outline: 0;
+	text-decoration: none;
+	background-color: #fff;
+	border-bottom: : 1px solid #b3b3b3;
+	color: #b3b3b3;
+	line-height: 50px;
+	margin-right: 20px;
+}
+/*アイテム詳細*/
+.itemtitle {
+	width: 390px;
+	height: 200px;
+	float: right;
+	border: 1px solid #b3b3b3;
+	margin-bottom: 10px;
+	background-color:white;
+}
+
+.itemcomment {
+	clear: both;
+	width: 390px;
+	height: 400px;
+	float: right;
+	border: 1px solid #b3b3b3;
+	background-color: white;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.notice {
+	font-size: small;
+	color: #F78181;
+}

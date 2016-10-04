@@ -1,1 +1,0 @@
-<a href='GoGoogleAction'><img src="./images/google-j.png"></a>

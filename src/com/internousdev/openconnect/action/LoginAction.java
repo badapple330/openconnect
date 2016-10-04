@@ -31,9 +31,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private String password;
 
 	/**
-	 * 戻り値
+	 * 結果文字
 	 */
-	private String result;
+	private String resultString = "";
 
 	/**
 	 * DAOに入力情報を渡し、結果を返す
@@ -42,7 +42,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	 * @return result データベースの情報と照合できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {
-		result = ERROR;
+		String result = ERROR;
 
 		String sql1 = "SELECT user_flg FROM users WHERE phone_email = ? AND password = ?";
 		String sql2 = "SELECT user_flg FROM users WHERE mobile_email = ? AND password = ?";
@@ -50,10 +50,13 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		LoginDAO dao = new LoginDAO();
 		if (dao.select(email, password, sql1) || dao.select(email, password, sql2)) {
 			result = SUCCESS;
+			resultString = "";
 			session.clear();
 			session.put("userFlg",dao.getFlg());
 			session.put("user", password);
 			session.put("user", email);
+		}else{
+			resultString = "メールアドレスまたはパスワードが正しく入力されていません";
 		}
 
 		return result;
@@ -82,8 +85,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * メールアドレスを取得するためのメソッド
 	 *
-	 * @author MAIKI OKANO
-	 * @return email 取得するメールアドレス
+	 * @author MAIKI OKANO0
+0	 * @return email 取得するメールアドレス
 	 */
 	public String getEmail() {
 		return email;
@@ -115,5 +118,25 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	/**
+	* 取得メソッド  結果文字を取得
+	* @author YUICHI KIRIU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド  結果文字を設定
+	* @author YUICHI KIRIU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+
 
 }

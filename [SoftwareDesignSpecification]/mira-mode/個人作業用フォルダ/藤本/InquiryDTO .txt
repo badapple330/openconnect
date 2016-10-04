@@ -1,0 +1,86 @@
+package com.internous.miramode.dto;
+
+/**
+ * InquiryDTO ‚¨–â‚¢‡‚í‚¹‚Ìƒf[ƒ^‚ğŠi”[‚·‚é‚½‚ß‚ÌƒNƒ‰ƒX
+ * @author Megumi Fujimoto
+ * @version 1.0
+ * @since 2016/08/03
+ */
+
+public class InquiryDTO {
+
+  /**
+   * ‚¨–â‡‚¹Ò‚ÌE-mailAddress
+   */
+  private String email;
+
+  /**
+   * ‚¨–â‡‚¹“à—e
+   */
+  private String content;
+
+  /**
+   * ‚¨–â‡‚¹“ú
+   */
+  private String contact_date;
+
+  /**
+   * æ“¾ƒƒ\ƒbƒh
+   * ‚¨–â‡‚¹Ò‚ÌE-mailAddress‚ğæ“¾
+   * @author Megumi Fujimoto
+   * @return email æ“¾‚·‚é‚¨–â‡‚¹ÒEmail
+   */
+  public String getEmail() {
+    return email;
+  }
+
+  /**
+   * Ši”[ƒƒ\ƒbƒh
+   *‚¨–â‡‚¹Ò‚ÌEmailAddress‚ğŠi”[
+   * @author Megumi Fujimoto
+   * @param email Ši”[‚·‚é‚¨–â‡‚¹ÒEmail
+   */
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  /**
+   * æ“¾ƒƒ\ƒbƒh
+   * ‚¨–â‡‚¹“à—e‚ğæ“¾
+   * @author Megumi Fujimoto
+   * @return comment æ“¾‚·‚é‚¨–â‚¢‡‚í‚¹“à—e
+   */
+  public String getContent() {
+    return content;
+  }
+
+  /**
+   * Ši”[ƒƒ\ƒbƒh
+   * ‚¨–â‡‚¹“à—e‚ğŠi”[
+   * @author Megumi Fujimoto
+   * @param content Ši”[‚·‚é‚¨–â‚¢‡‚í‚¹“à—e
+   */
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  /**
+   * æ“¾ƒƒ\ƒbƒh
+   * ‚¨–â‡‚¹“ú‚ğæ“¾
+   * @author Megumi Fujimoto
+   * @return contact_dateæ“¾‚·‚é‚¨–â‚¢‡‚í‚¹“ú
+   */
+  public String getContact_date() {
+    return contact_date;
+  }
+
+  /**
+   * Ši”[ƒƒ\ƒbƒh
+   * ‚¨–â‡‚¹“ú‚ğŠi”[
+   * @author Megumi Fujimoto
+   * @param contact_dateŠi”[‚·‚é‚¨–â‚¢‡‚í‚¹“ú
+   */
+  public void setContact_date(String contact_date) {
+    this.contact_date = contact_date;
+  }
+}

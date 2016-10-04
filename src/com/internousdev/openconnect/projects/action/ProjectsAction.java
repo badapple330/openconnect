@@ -15,9 +15,22 @@ DB情報を画面に表示させるクラス
  */
 public class ProjectsAction extends ActionSupport{
 
-	private List<ProjectsListDTO> projectList = new ArrayList<ProjectsListDTO>();
+	/**
+	 *シリアル番号
+	 */
+	private static final long serialVersionUID = -62325123075153619L;
 
 	/**
+	 *プロジェクトリスト
+	 */
+	private List<ProjectsListDTO> projectList = new ArrayList<ProjectsListDTO>();
+
+
+	private int managerId;
+	/**
+	 *
+	 *
+	 *
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author YUICHI KIRIU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
@@ -26,6 +39,7 @@ public class ProjectsAction extends ActionSupport{
 		String result = ERROR;
 		ProjectsListDAO dao = new ProjectsListDAO();
 		projectList = dao.select();
+
 		if (!(projectList == null)) {
 			result = SUCCESS;
 		}
@@ -33,7 +47,7 @@ public class ProjectsAction extends ActionSupport{
 	}
 
 	/**
-	 * 取得メソッド
+	 * 取得メソッド プロジェクトリストを取得
 	 * @author  YUICHI KIRIU
 	 * @return projectList
 	 */
@@ -41,12 +55,30 @@ public class ProjectsAction extends ActionSupport{
 		return projectList;
 	}
 	/**
-	 * 設定メソッド
+	 * 設定メソッド プロジェクトリストを設定
 	 * @author  YUICHI KIRIU
 	 * @param projectList
 	 */
 	public void setProjectList(List<ProjectsListDTO> projectList) {
 		this.projectList = projectList;
+	}
+
+	/**
+	* 取得メソッド
+	* @author TATSUYA HOSHI
+	* @return
+	*/
+	public int getManagerId() {
+		return managerId;
+	}
+
+	/**
+	* 設定メソッド
+	* @author TATSUYA HOSHI
+	* @param
+	*/
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
 	}
 
 }

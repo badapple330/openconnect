@@ -2,7 +2,7 @@
     <wb-module deploy-name="openconnect">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="java-output-path" value="/openconnect/build/classes"/>
         <property name="context-root" value="openconnect"/>
+        <property name="java-output-path" value="/openconnect/build/classes"/>
     </wb-module>
 </project-modules>

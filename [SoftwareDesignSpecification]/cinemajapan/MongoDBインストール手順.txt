@@ -1,77 +1,77 @@
-MongoDBƒCƒ“ƒXƒg[ƒ‹‚ÌŠT—v----------------------------------------------
+MongoDBã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã®æ¦‚è¦----------------------------------------------
 
-MongoDB‚ðŽg—p‚·‚é‚É‚ÍMySQL‚Æ“¯‚¶‚æ‚¤‚ÉAMongoDB‚ðƒCƒ“ƒXƒg[ƒ‹
-‚µAŠÂ‹«•Ï”‚ðÝ’è‚µ‚Ä‚©‚çAƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒgã‚Å‹N“®‚µ‚Ü‚·B
+MongoDBã‚’ä½¿ç”¨ã™ã‚‹ã«ã¯MySQLã¨åŒã˜ã‚ˆã†ã«ã€MongoDBã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+ã—ã€ç’°å¢ƒå¤‰æ•°ã‚’è¨­å®šã—ã¦ã‹ã‚‰ã€ã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆä¸Šã§èµ·å‹•ã—ã¾ã™ã€‚
 
 
 
-MongoDB‚ÌŠÂ‹«\’zŽè‡---------------------------------------------
+MongoDBã®ç’°å¢ƒæ§‹ç¯‰æ‰‹é †---------------------------------------------
 
-‡@ MongoDB‚ðƒ_ƒEƒ“ƒ[ƒh‚·‚é
+â‘  MongoDBã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
 https://www.mongodb.org/downloads#production
 Download MongoDB
-VERSION‚ªˆê”Ôã‚Ìwindows 64-bit 2008 R2+‚ð‘I‘ð
-BINARY‚Ì—Î‚Ìƒ_ƒEƒ“ƒ[ƒhƒ{ƒ^ƒ“‚ð‰Ÿ‚·DOWNLOAD(msi)
+VERSIONãŒä¸€ç•ªä¸Šã®windows 64-bit 2008 R2+ã‚’é¸æŠž
+BINARYã®ç·‘ã®ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™DOWNLOAD(msi)
 
-‡AƒCƒ“ƒXƒg[ƒ‹‚·‚é
+â‘¡ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹
 mongodb-win32-x86_64-2008plus-ssl-3.0.7-signed.msi
-‚ðŽÀs‚·‚é
-ƒCƒ“ƒXƒg[ƒ‰[‚ª‹N“®‚·‚é
-Next¨I accept the terms in the License Agreement‚Éƒ`ƒFƒbƒN‚ð“ü‚ê‚é
-Complete‚ðƒNƒŠƒbƒN
-Install‚ðƒNƒŠƒbƒN¨ƒCƒ“ƒXƒg[ƒ‹‚ªI‚í‚Á‚½‚çFinish‚ðƒNƒŠƒbƒN
+ã‚’å®Ÿè¡Œã™ã‚‹
+ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ©ãƒ¼ãŒèµ·å‹•ã™ã‚‹
+Nextâ†’I accept the terms in the License Agreementã«ãƒã‚§ãƒƒã‚¯ã‚’å…¥ã‚Œã‚‹
+Completeã‚’ã‚¯ãƒªãƒƒã‚¯
+Installã‚’ã‚¯ãƒªãƒƒã‚¯â†’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒçµ‚ã‚ã£ãŸã‚‰Finishã‚’ã‚¯ãƒªãƒƒã‚¯
 
-‡Bbin‚ÉPath‚ðÝ’è‚·‚é
-c‚ÌProgram Files‚ÉMongoDB‚Æ‚¢‚¤ƒtƒHƒ‹ƒ_‚ª‚Å‚«‚Ä‚¢‚é
-MongoDB>Server>3.0>bin‚ðŠJ‚¢‚Ä‚¢‚­
-ƒAƒhƒŒƒXƒo[‚Ì‰E‹ó”’‚ðƒNƒŠƒbƒN‚µ‚ÄƒAƒhƒŒƒXƒo[‚Ì
-C:\Program Files\MongoDB\Server\3.0\bin‚ðƒRƒs[‚·‚é
+â‘¢binã«Pathã‚’è¨­å®šã™ã‚‹
+cã®Program Filesã«MongoDBã¨ã„ã†ãƒ•ã‚©ãƒ«ãƒ€ãŒã§ãã¦ã„ã‚‹
+MongoDB>Server>3.0>binã‚’é–‹ã„ã¦ã„ã
+ã‚¢ãƒ‰ãƒ¬ã‚¹ãƒãƒ¼ã®å³ç©ºç™½ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã‚¢ãƒ‰ãƒ¬ã‚¹ãƒãƒ¼ã®
+C:\Program Files\MongoDB\Server\3.0\binã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹
 
-ƒRƒ“ƒsƒ…[ƒ^„ƒVƒXƒeƒ€‚ÌƒvƒƒpƒeƒB„ƒVƒXƒeƒ€‚ÌÚ×Ý’è„ŠÂ‹«•Ï”
-Path‚ÉƒRƒs[‚µ‚½C:\Program Files\MongoDB\Server\3.0\bin‚ð’Ç‹L
-(ƒZƒ~ƒRƒƒ“;‚ðæ“ª‚É‚Â‚¯‚é‚Ì‚ð–Y‚ê‚È‚¢‚±‚Æ)
+ã‚³ãƒ³ãƒ”ãƒ¥ãƒ¼ã‚¿ï¼žã‚·ã‚¹ãƒ†ãƒ ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼žã‚·ã‚¹ãƒ†ãƒ ã®è©³ç´°è¨­å®šï¼žç’°å¢ƒå¤‰æ•°
+Pathã«ã‚³ãƒ”ãƒ¼ã—ãŸC:\Program Files\MongoDB\Server\3.0\binã‚’è¿½è¨˜
+(ã‚»ãƒŸã‚³ãƒ­ãƒ³;ã‚’å…ˆé ­ã«ã¤ã‘ã‚‹ã®ã‚’å¿˜ã‚Œãªã„ã“ã¨)
 
-ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚ð—§‚¿ã‚°
+ã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‚’ç«‹ã¡ä¸Šã’
 cd C:\Program Files\MongoDB\Server\3.0\bin
-‚Æ“ü—Í‚·‚é
-‚»‚ÌŒã
+ã¨å…¥åŠ›ã™ã‚‹
+ãã®å¾Œ
 mongo --version
-‚Æ“ü—Í‚·‚é
-‚¤‚Ü‚­‚¢‚¯‚Î
-MongoDB shell version:3.0.7‚Æ•\Ž¦‚³‚ê‚é
-³í‚ÉƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ä‚¢‚é
+ã¨å…¥åŠ›ã™ã‚‹
+ã†ã¾ãã„ã‘ã°
+MongoDB shell version:3.0.7ã¨è¡¨ç¤ºã•ã‚Œã‚‹
+æ­£å¸¸ã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚‹
 
 
-‡Cƒ[ƒJƒ‹ƒfƒBƒXƒNC:’¼‰º‚ÉƒtƒHƒ‹ƒ_‚ðì¬‚·‚é
-ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚ð—§‚¿ã‚°‚Ä
+â‘£ãƒ­ãƒ¼ã‚«ãƒ«ãƒ‡ã‚£ã‚¹ã‚¯C:ç›´ä¸‹ã«ãƒ•ã‚©ãƒ«ãƒ€ã‚’ä½œæˆã™ã‚‹
+ã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‚’ç«‹ã¡ä¸Šã’ã¦
 mkdir C:\mongodb\data C:\mongodb\logs
-‚ÆA“ü—Í‚µ‚ÄŽÀs
-(ˆ—“à—e@C:’¼‰º‚Émondodb‚Æ‚¢‚¤ƒtƒHƒ‹ƒ_‚ðì¬‚µ‚Ä‚»‚Ì’†‚É‚³‚ç‚É
-data‚Ælogs‚Æ‚¢‚¤ƒtƒHƒ‹ƒ_‚ðì‚Á‚Ä‚¢‚é)
-‚¤‚Ü‚­‚¢‚¯‚Îƒ[ƒJƒ‹ƒfƒBƒXƒNC‚Ì’†‚Émongodb‚Æ‚¢‚¤ƒtƒHƒ‹ƒ_‚ª‚Å‚«‚Ä‚¢‚Ä
-‚»‚Ì’†‚Édata logs‚Ì2‚Âƒ@ƒCƒ‹‚ª‚Å‚«‚Ä‚¢‚é
+ã¨ã€å…¥åŠ›ã—ã¦å®Ÿè¡Œ
+(å‡¦ç†å†…å®¹ã€€C:ç›´ä¸‹ã«mondodbã¨ã„ã†ãƒ•ã‚©ãƒ«ãƒ€ã‚’ä½œæˆã—ã¦ãã®ä¸­ã«ã•ã‚‰ã«
+dataã¨logsã¨ã„ã†ãƒ•ã‚©ãƒ«ãƒ€ã‚’ä½œã£ã¦ã„ã‚‹)
+ã†ã¾ãã„ã‘ã°ãƒ­ãƒ¼ã‚«ãƒ«ãƒ‡ã‚£ã‚¹ã‚¯Cã®ä¸­ã«mongodbã¨ã„ã†ãƒ•ã‚©ãƒ«ãƒ€ãŒã§ãã¦ã„ã¦
+ãã®ä¸­ã«data logsã®2ã¤ã‚¡ã‚¤ãƒ«ãŒã§ãã¦ã„ã‚‹
 
-‡E mongodb‚ð‹N“®
-ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒgã‚Å«
+â‘¥ mongodbã‚’èµ·å‹•
+ã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆä¸Šã§â†“
 mongod --dbpath c:\mongodb\data --logpath c:\mongodb\logs\mongodb.log
-‚Æ“ü—Í‚·‚é
-‚¤‚Ü‚­‚¢‚­‚Æ‰½‚à•\Ž¦‚³‚ê‚¸‚»‚±‚Å‚Æ‚Ü‚é
+ã¨å…¥åŠ›ã™ã‚‹
+ã†ã¾ãã„ãã¨ä½•ã‚‚è¡¨ç¤ºã•ã‚Œãšãã“ã§ã¨ã¾ã‚‹
 
-‡Fmongodb‚ð‹N“®(2–‡–Ú)
-¡‚ÌƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚ð‚»‚Ì‚Ü‚ÜŽc‚µ‚½‚Ü‚ÜA
-V‹K‚ÅƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚ð‹N“®‚·‚é
+â‘¦mongodbã‚’èµ·å‹•(2æžšç›®)
+ä»Šã®ã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‚’ãã®ã¾ã¾æ®‹ã—ãŸã¾ã¾ã€
+æ–°è¦ã§ã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‚’èµ·å‹•ã™ã‚‹
 mongo
-‚Æ“ü—Í‚·‚é
-‚¤‚Ü‚­‚¢‚¯‚Îconnecting to: test‚ÆÅŒã‚Ìs‚É•\Ž¦‚³‚ê‚é
-db‚Æ“ü—Í‚µ‚ÄƒGƒ“ƒ^[‰Ÿ‚·
-test‚Æ•\Ž¦‚³‚ê‚ê‚Î³í‚ÉÚ‘±‚Å‚«‚Ä‚¢‚Ü‚·
+ã¨å…¥åŠ›ã™ã‚‹
+ã†ã¾ãã„ã‘ã°connecting to: testã¨æœ€å¾Œã®è¡Œã«è¡¨ç¤ºã•ã‚Œã‚‹
+dbã¨å…¥åŠ›ã—ã¦ã‚¨ãƒ³ã‚¿ãƒ¼æŠ¼ã™
+testã¨è¡¨ç¤ºã•ã‚Œã‚Œã°æ­£å¸¸ã«æŽ¥ç¶šã§ãã¦ã„ã¾ã™
 
-‚±‚ê‚ÅMongoDB‚ÌŠÂ‹«\’z‚ÍŠ®—¹‚Å‚·
-ˆÈŒãAÚ‘±‚·‚éÛ‚Í‡EC‡F‚ÌŽè‡‚©‚çƒXƒ^[ƒg‚µ‚Ü‚·
+ã“ã‚Œã§MongoDBã®ç’°å¢ƒæ§‹ç¯‰ã¯å®Œäº†ã§ã™
+ä»¥å¾Œã€æŽ¥ç¶šã™ã‚‹éš›ã¯â‘¥ï¼Œâ‘¦ã®æ‰‹é †ã‹ã‚‰ã‚¹ã‚¿ãƒ¼ãƒˆã—ã¾ã™
 
 ------------------------------------------------------------
-‚±‚Ì•”•ª‚Í‚Ü‚¾Š®¬‚µ‚Ä‚¢‚Ü‚¹‚ñ
-‡F •Ê‚ÌƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚©‚çmongoƒVƒFƒ‹‚ðˆµ‚¤
+ã“ã®éƒ¨åˆ†ã¯ã¾ã å®Œæˆã—ã¦ã„ã¾ã›ã‚“
+â‘¦ åˆ¥ã®ã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‹ã‚‰mongoã‚·ã‚§ãƒ«ã‚’æ‰±ã†
 
 http://qiita.com/yoh-nak/items/f0c429f10347ae7ec98b
 

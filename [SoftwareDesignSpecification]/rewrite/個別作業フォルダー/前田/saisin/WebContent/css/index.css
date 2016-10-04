@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+
+body {
+	background-image:
+	background-size: cover;
+}
+
+#header {
+
+}
+
+#header-left {
+	font-size: 35px;
+	height: 150px;
+	font-family: メイリオ;
+}
+
+#main {
+	text-align: center;
+	height: 400px;
+}
+
+#get {
+	padding: 10px 40px;
+	float: left;
+}
+
+#set {
+	padding: 10px 40px;
+	float: left;
+}
+
+#enemy {
+	padding: 10px 40px;
+	float: left;
+}
+
+#triangleLeft {
+	width: 0;
+	height: 0;
+	border-right: 50px solid #ffdead;
+	border-top: 50px solid transparent;
+	border-bottom: 50px solid transparent;
+	float: left;
+	margin-top: 125px;
+}
+
+#triangleRight {
+	width: 0;
+	height: 0;
+	border-left: 50px solid #ffdead;
+	border-top: 50px solid transparent;
+	border-bottom: 50px solid transparent;
+	float: left;
+	margin-top: 125px;
+}
+
+#jenre {
+	font-family: ＭＳ Ｐ明朝;
+	background-image:;
+	height: 130px;
+}
+
+table {
+	border-collapse: collapse;
+	font-size: 35px;
+}
+
+th, th {
+	padding: 15px;
+}

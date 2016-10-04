@@ -1,8 +1,30 @@
-.openConnect{
-	display: block;
-	width: 500px;
-	position: relative;
+.headerSpace{
+	height: 80px;
+	width: 100%;
+    background: #cef;
+    position: absolute;
+}
 
+.logo{
+	display: inline;
+	position: absolute;
+}
+
+.openConnect{
+	width: 200px;
+	position: relative;
+}
+
+.menuGroup{
+	width: 100%;
+	text-align: right;
+}
+
+.menu{
+	display: inline;
+	width: 150px;
+	height: 80px;
+	text-align: center;
 }
 
 .goButton{
@@ -10,4 +32,41 @@
 	top: 68px;
 	position: absolute;
 	margin: 0 auto;
+}
+
+#menuBer{
+	text-align: left;
+    background: #cef;
+    width: 150px;
+    height: 40px;
+    line-height: 50px;
+    text-align: center;
+    border: #195dbe 1px solid;
+}
+
+#menuElementGroup{
+	background: #cef;
+	display: none;
+    border: #195dbe 1px solid;
+    width: 150px;
+    position: absolute;
+}
+
+.menuElement{
+}
+
+.formButton{
+	display: inline;
+}
+
+#location{
+	width: 150px;
+	height: 80px;
+}
+
+#selectBer{
+	width: 250px;
+	height: 80px;
+	font-size: 20px;
+	font-weight:bold;
 }

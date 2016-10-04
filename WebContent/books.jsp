@@ -5,89 +5,109 @@
 <html>
 <head>
 <meta charset=UTF-8>
+<link rel="shortcut icon" href="img/oc.png">
+<link rel="apple-touch-icon" href="img/oc.png">
+
 <title>書籍一覧</title>
+<link rel="stylesheet" href="css/books.css">
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/books.js"></script>
 </head>
 <body>
 
-	<div class="header">
-		<h1>ヘッダー</h1>
-	</div>
-	<br>
-	<h1>書籍一覧</h1>
-	<br>
-	<br> 書籍の検索
+	<jsp:include page="header.jsp" />
 
-	<s:form action="BooksSearch">
-		<input type="text" name="search">
-		<input class="button" type="submit" value="検索">
-	</s:form>
+	<div class="container">
 
-	<s:form action="BooksEdit">
-		<table border="1" cellspacing="0">
-			<tr>
-				<th>ID</th>
-				<th width="500">タイトル一覧</th>
-				<th></th>
-				<th>削除</th>
-			</tr>
+		<br>
+		<h1>書籍一覧</h1>
+		<br> <br>
 
-			<s:iterator value="bookList">
+		<s:if test="%{#session.userFlg >= 10}">
 
-				<tr>
+			<s:form action="BooksSelectAction">
+			タイトルを入力<br>
+				<input type="text" name="search" maxlength="50"
+					placeholder="例：やさしいJAVA">
+				<input class="button" type="submit" value="検索">
+			</s:form>
+			<br>
+			<s:property value="%{resultSelect}" />
+			<s:property value="%{resultString}" />
+			<br>
 
-					<td><input type="text" name ="bookIdList" value ="<s:property  value="bookId" />"></td>
-					<td><input type="text" name ="titleList" value="<s:property value="title" />"></td>
-					<td></td>
+			<s:form action="BooksUpdateAction">
+				<table border="1" cellspacing="0">
+					<tr>
+						<td><div class="haba">ID</div></td>
+						<td><div class="haba2">タイトル一覧</div></td>
+						<s:if test="%{#session.userFlg >= 100}">
+							<td>削除</td>
+						</s:if>
+						<td></td>
+					</tr>
 
-					<td><input type="submit" class="button" value="削除"></td>
+					<s:iterator value="searchList">
+						<tr>
+							<td class="bookId"><s:property value="bookId" /></td>
+							<td><input type="text" size="75" name="titleList"
+								maxlength="50" value="<s:property value="title"/>"
+								class="bookTitle" placeholder="例：やさしいJAVA" required></td>
+							<td><s:if test="%{#session.userFlg >= 100}">
+									<input type="button" class="button modal-open" value="削除">
+								</s:if></td>
+							<td><input type="hidden" name="bookIdList"
+								value="<s:property value="bookId" />"></td>
+						</tr>
+					</s:iterator>
+				</table>
+				<td><s:if test="%{#session.userFlg >= 100}">
+						<input type="submit" class="button" value="編集完了" />
+					</s:if></td>
+			</s:form>
 
-				</tr>
+			<div id="modal-main">
+				<!-- #contents START -->
+				ID <span id="book_id"></span><br> タイトル <span id="title"></span><br>
+				<input type="button" class="delete-true button" value="削除"><br>
+				<input type="button" class="modal-close button" value="閉じる">
 
-				</s:iterator>
+				<div class="delete-prepare">
+					本当に削除しますか？
+					<s:form action="BooksDeleteAction">
+						<input type="hidden" name="bookId" value="" id="true-delete">
+						<input type="submit" class="delete-true button" value="はい">
+						<input type="button" class="modal-close button" value="いいえ">
+					</s:form>
+				</div>
+			</div>
 
-			<s:iterator value="searchList">
-				<tr>
-					<td><s:property value="bookId" /></td>
-					<td><input type="text" value="<s:property value="title" />"></td>
-				</tr>
-			</s:iterator>
+			<s:form action="BooksInsertAction">
+				<s:if test="%{#session.userFlg >= 100}">
+			書籍の追加
+				<input type="text" name="title" placeholder="例：やさしいJAVA" required>
+					<input class="button" type="submit" value="追加">
+				</s:if>
+				<br>
+			</s:form>
 
-		</table>
+			<s:form action="BooksBorrowSelectAction">
+				<input type="submit" class="button" value="貸し出し">
+				<br>
 
-		<td><input type="submit" class="button" value="編集" /></td>
+			</s:form>
+		</s:if>
 
-<%-- 		<s:iterator value="bookListEdit"> --%>
-<!-- 			<tr> -->
-<%-- 				<td><s:property value="bookIdList" /></td> --%>
-<!-- 			</tr> -->
-<%-- 		</s:iterator> --%>
+		<s:else>
+		ログイン後表示します
+		</s:else>
 
-	</s:form>
-
-	<!-- 	<div id="delete-prepare"> -->
-	<!-- 		本当に削除しますか？ <input type="button" class="delete-true button" value="はい"> -->
-	<!-- 		<input type="button" class="modal-close button" value="いいえ"> -->
-	<!-- 	</div> -->
-
-	<div class="delete">
-		<s:form action="BooksDelete">
-			<input type="text" id="delete-booklistid" name="bookId"
-				placeholder="プロジェクトID">
-			<input type="submit" class="button" value="削除">
-			<!-- 			<input type="button" class="modal-close button" value="閉じる"> -->
+		<s:form action="GetAddressAction">
+			<input type="submit" class="button" value="戻る">
+			<br>
 		</s:form>
+
 	</div>
-
-
-	書籍の追加
-	<s:form action="BooksCreate">
-		<input type="text" name="title">
-		<input class="button" type="submit" value="追加">
-	</s:form>
-
-	<s:form action="BackGoAction">
-		<input type="submit" class="button" value="戻る">
-	</s:form>
 
 </body>
 </html>

@@ -37,60 +37,60 @@ insert into user(user_id,password,name,name_f,postal,address,tel_number,email,se
 
 #購入履歴
 create table history(
-user_id tinyint not null,
-purchaseDate varchar(16) not null,
-ticket_number varchar(5)
+user_id tinyint not null comment'ユーザーID',
+purchaseDate varchar(16) not null comment'購入日',
+ticket_number varchar(5) comment'チケット番号'
 );
 
 #チームテーブル作成
 create table team(
-team_id tinyint primary key not null auto_increment,
-team_name varchar(50) not null
+team_id tinyint primary key not null auto_increment comment'チームID',
+team_name varchar(50) not null comment'チーム名'
 );
 
 #カートテーブル作成
 create table cart(
-user_id tinyint not null,
-game_id varchar(5) not null,
-item_name varchar(100),
-item_count int(4)
+user_id tinyint not null comment'ユーザー番号',
+game_id varchar(5) not null comment'ゲームID',
+item_name varchar(100) comment'アイテム名',
+item_count int(4) comment'アイテム数'
 );
 
 #座席情報テーブル作成
 create table seating(
-stadium_id tinyint not null,
-stadium_name varchar(50),
-area_id tinyint,
-area varchar(1),
-max_seats int(5),
-remaining_seats int(5),
-price int(5) not null
+stadium_id tinyint not null comment'試合会場ID',
+stadium_name varchar(50) comment'会場名',
+area_id tinyint comment'座席エリア',
+area varchar(1) comment'エリア箇所',
+max_seats int(5) comment'エリア席上限数',
+remaining_seats int(5) comment'エリア残り席数',
+price int(5) not null comment'値段'
 );
 
 #コンビニ決済テーブル作成
 create table conv_store(
-user_id int not null,
-user_name varchar(100) not null,
-user_home varchar(50) not null,
-user_email varchar(50) not null,
-user_telephone varchar(100)  not null,
-user_age int(4) not null
+user_id int not null comment'ユーザーID',
+user_name varchar(100) not null comment'名前',
+user_home varchar(50) not null comment'住所',
+user_email varchar(50) not null comment'メールアドレス',
+user_telephone varchar(100)  not null comment'電話番号',
+user_age int(4) not null comment'年齢'
 );
 
 #試合内容テーブル作成
 create table game(
-game_id varchar(5) primary key not null,
-team_id tinyint not null,
-team2_id tinyint not null,
-stadium_id tinyint not null
+game_id varchar(5) primary key not null comment'ゲームID',
+team_id tinyint not null comment'出場チーム1ID',
+team2_id tinyint not null comment'出場チーム2ID',
+stadium_id tinyint not null comment'スタジアムID'
 );
 
 #管理テーブル作成
 create table administrator(
-admin_id varchar(30) primary key not null,
-admin_name varchar(30) not null,
-admin_password varchar(16) not null,
-login boolean
+admin_id varchar(30) primary key not null comment'管理者ID',
+admin_name varchar(30) not null comment'管理者名',
+admin_password varchar(16) not null comment'パスワード',
+login boolean comment'ログイン確認'
 );
 
 #チーム名とチームIDを入力

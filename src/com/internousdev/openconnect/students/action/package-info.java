@@ -1,5 +1,5 @@
 /**
- *  画面遷移に必要なActionクラスを提供します
+ *  受講生一覧の管理に必要なActionクラスを提供します
  * @author KOHEI NITABARU
  * @since 2016/09/01
  */
