@@ -15,6 +15,10 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.1
  */
 public class LoginAction extends ActionSupport implements SessionAware {
+
+	/**
+	 * シリアルバージョンUID
+	 */
 	private static final long serialVersionUID = 1422381634250534884L;
 
 	/**
@@ -44,18 +48,19 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 
-		String sql1 = "SELECT user_flg FROM users WHERE phone_email = ? AND password = ?";
-		String sql2 = "SELECT user_flg FROM users WHERE mobile_email = ? AND password = ?";
+		String sql = "SELECT user_id, userdel_flg, user_flg, login_flg FROM users WHERE phone_email = ? OR "
+				+ "mobile_email = ? AND password = ?";
 
-		LoginDAO dao = new LoginDAO();
-		if (dao.select(email, password, sql1) || dao.select(email, password, sql2)) {
+		LoginDAO loginDao = new LoginDAO();
+		if (loginDao.select(email, password, sql)) {
 			result = SUCCESS;
 			resultString = "";
 			session.clear();
-			session.put("userFlg",dao.getFlg());
+			session.put("userFlg", loginDao.getFlg());
 			session.put("user", password);
 			session.put("user", email);
-		}else{
+			session.put("userId", loginDao.getUserId());
+		} else {
 			resultString = "メールアドレスまたはパスワードが正しく入力されていません";
 		}
 
@@ -76,30 +81,34 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	 * セッションを格納するためのメソッド
 	 *
 	 * @author MAIKI OKANO
-	 * @param session 格納するセッション
+	 * @param session
+	 *            格納するセッション
 	 */
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
 	/**
 	 * メールアドレスを取得するためのメソッド
 	 *
-	 * @author MAIKI OKANO0
-0	 * @return email 取得するメールアドレス
+	 * @author MAIKI OKANO0 0 * @return email 取得するメールアドレス
 	 */
 	public String getEmail() {
 		return email;
 	}
+
 	/**
 	 * メールアドレスを格納するためのメソッド
 	 *
 	 * @author MAIKI OKANO
-	 * @param email 格納するメールアドレス
+	 * @param email
+	 *            格納するメールアドレス
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	/**
 	 * パスワードを取得するためのメソッド
 	 *
@@ -109,34 +118,36 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public String getPassword() {
 		return password;
 	}
+
 	/**
 	 * パスワードを格納するためのメソッド
 	 *
 	 * @author MAIKI OKANO
-	 * @param password 格納するパスワード
+	 * @param password
+	 *            格納するパスワード
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
 	/**
-	* 取得メソッド  結果文字を取得
-	* @author YUICHI KIRIU
-	* @return resultString
-	*/
+	 * 取得メソッド 結果文字を取得
+	 *
+	 * @author YUICHI KIRIU
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 
 	/**
-	* 設定メソッド  結果文字を設定
-	* @author YUICHI KIRIU
-	* @param resultString
-	*/
+	 * 設定メソッド 結果文字を設定
+	 *
+	 * @author YUICHI KIRIU
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
-
-
 
 }

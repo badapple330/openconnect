@@ -36,7 +36,8 @@ public class ScheduleSelectDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "select * from schedule where title LIKE '%" + search + "%'";
+		String sql = "select * from schedule where id LIKE '%" + search + "%' OR title LIKE '%" + search + "%'"
+				+ " OR content LIKE '%" + search + "%'";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 

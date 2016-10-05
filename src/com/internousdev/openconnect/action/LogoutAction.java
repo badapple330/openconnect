@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.openconnect.dao.LogoutDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * LogoutAction セッションを切断するクラス
@@ -28,7 +29,10 @@ public class LogoutAction extends ActionSupport implements SessionAware {
      */
     public String execute() {
 
-        sessionMap.clear();
+    	LogoutDAO logoutDao = new LogoutDAO();
+    	logoutDao.logoutAction((Integer) sessionMap.get("userId"));
+
+    	sessionMap.clear();
         return SUCCESS;
     }
 

@@ -8,15 +8,49 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 
 /**
-* LoginDAO
-* ユーザーテーブルに接続する為のクラス
-* @author MAIKI OKANO
-* @since 2016/07/25
-* @version 1.0
-*/
+ * LoginDAO
+ * ユーザーテーブルに接続する為のクラス
+ * @author MAIKI OKANO
+ * @since 2016/07/25
+ * @version 1.0
+ */
 public class LoginDAO {
 
-	private int flg = 0;
+	/**
+	 * ユーザーフラグ
+	 */
+	private int userFlg;
+
+	/**
+	 * ログインアクションフラグ
+	 */
+	private int loginActionFlg;
+
+	/**
+	 * ユーザーデリートフラグ
+	 */
+	private int userDelFlg;
+
+	/**
+	 * ユーザーID
+	 */
+	private int userId;
+
+	/**
+	 * DataBaseConnector
+	 */
+	private DBConnector dbConnector;
+
+	/**
+	 * Connection
+	 */
+	private Connection connection;
+
+	public LoginDAO() {
+		dbConnector = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		connection = dbConnector.getConnection();
+	}
 
 	/**
 	 * 指定された情報をDBの情報と照合するメソッド
@@ -26,33 +60,69 @@ public class LoginDAO {
 	 */
 	public boolean select(String email, String password, String sql) {
 		boolean result = false;
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
-				"mysql");
-		Connection con = db.getConnection();
 
 		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, email);
+			preparedStatement.setString(2, email);
+			preparedStatement.setString(3, password);
+			ResultSet resultSet = preparedStatement.executeQuery();
 
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, email);
-			ps.setString(2, password);
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				flg = rs.getInt("user_flg");
-				result = true;
+			if (resultSet.next()) {
+				userId = resultSet.getInt("user_id");
+				userFlg = resultSet.getInt("user_flg");
+				userDelFlg = resultSet.getInt("userdel_flg");
+				loginActionFlg = resultSet.getInt("login_flg");
 			}
 
-
+			// ログイン可能な状態であるかをチェック
+			if(loginActionFlg <= 0 && userFlg != 0 && userDelFlg == 0) {
+				if(this.changeLoginFlg(userId, 1)) {
+					result = true;
+				}
+			}
+			if(loginActionFlg > 0 && userFlg != 0) {
+				// タイムアウト等でログアウトした場合にログイン状態を戻す
+				this.changeLoginFlg(userId, 0);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (con != null) {
+			if (connection != null) {
 				try {
-					con.close();
+					connection.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
 		}
+
+		return result;
+	}
+
+	/**
+	 * ログインユーザーを対象にログインフラグを変更
+	 * @param userId
+	 * @return blooean
+	 * @throws SQLException
+	 */
+	public boolean changeLoginFlg(int userId, int changeLoginFlg) throws SQLException {
+		String sql = "UPDATE users SET login_flg = ? WHERE user_id = ?";
+		boolean result = false;
+
+		try {
+			PreparedStatement updateStatement = connection.prepareStatement(sql);
+			updateStatement.setInt(1, changeLoginFlg);
+			updateStatement.setInt(2, userId);
+			updateStatement.executeUpdate();
+
+			result = true;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			connection.close();
+		}
+
 		return result;
 	}
 
@@ -63,7 +133,7 @@ public class LoginDAO {
 	 * @return flg 取得するユーザーフラグ
 	 */
 	public int getFlg() {
-		return flg;
+		return userFlg;
 	}
 	/**
 	 * ユーザーフラグを格納するメソッド
@@ -72,8 +142,28 @@ public class LoginDAO {
 	 * @param flg
 	 *            格納するユーザーフラグ
 	 */
-	public void setFlg(int flg) {
-		this.flg = flg;
+	public void setFlg(int userFlg) {
+		this.userFlg = userFlg;
+	}
+
+	/**
+	 * 対象ユーザーのIDを取得
+	 *
+	 * @author Mitsuhashi Ryota
+	 * @return userId 登録されたユーザーのPrimaryKey
+	 */
+	public int getUserId() {
+		return userId;
+	}
+
+	/**
+	 * 対象ユーザーのIDを格納
+	 *
+	 * @author Mitsuhashi Ryota
+	 * @param userId
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 }
