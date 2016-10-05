@@ -31,7 +31,7 @@
 					<td><div class="bigWidth">タイトル</div></td>
 					<td><div class="middleWidth">貸し出し状況</div></td>
 					<td><div class="middleWidth">日付</div></td>
-					<td><div class="middleWidth">ユ ーザーID</div></td>
+					<td><div class="middleWidth">ユ ーザー名</div></td>
 				</tr>
 				<s:iterator value="bookList">
 					<tr>
@@ -46,9 +46,9 @@
 						<td><s:property value="borrowDay" /><input type="hidden"
 							name="dayList" value="<s:property value="borrowDay" />"
 							class="day"></td>
-						<td><s:property value="borrowId" /><input type="hidden"
-							name="borrowIdList" value="<s:property value="borrowId" />"
-							class="userId"></td>
+						<td><s:property value="userName" /><input type="hidden"
+							name="borrowIdList" value="<s:property value="userName" />"
+							class="userName"></td>
 
 					</tr>
 				</s:iterator>
@@ -75,7 +75,7 @@
 		ログイン後表示します
 		</s:else>
 
-		<s:form action="GetAddressAction">
+		<s:form action="BooksSelectAction">
 			<input class="button" type="submit" value="戻る">
 			<br>
 		</s:form>

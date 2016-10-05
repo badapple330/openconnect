@@ -143,7 +143,7 @@ insert into ticket(item_name,period,division,explanation,design,img_path,price,r
 
 drop table if exists temp;
 create table temp(
-temp_id int primary key auto_increment comment'',
+temp_id int primary key auto_increment comment'仮ID',
 user_name varchar(255) comment'名前',
 user_kana varchar(255) comment'カナ',
 password varchar(255) comment'パスワード',

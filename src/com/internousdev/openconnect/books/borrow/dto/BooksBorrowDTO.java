@@ -14,6 +14,28 @@ public class BooksBorrowDTO {
 	private String borrowDay;
 	private int borrowId;
 	private String title;
+	private String userName;
+
+
+
+
+	/**
+	* ユーザー名取得メソッド
+	*
+	* @author UKYO MATSUZAKI
+	* @return userName
+	*/
+	public String getUserName() {
+		return userName;
+	}
+	/**
+	*ユーザー名 設定メソッド
+	* @author UKYO MATSUZAKI
+	* @param userName
+	*/
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	/**
 	 * 取得メソッド
 	 * @author TATSUYA HOSHI
