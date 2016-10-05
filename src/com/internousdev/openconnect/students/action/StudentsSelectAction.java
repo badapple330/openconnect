@@ -9,148 +9,151 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * DBから受講生一覧を取得し表示するクラス
+ *
  * @author KOHEI NITABARU
  * @since 2016/09/07
  */
 public class StudentsSelectAction extends ActionSupport {
 
-	/**
-	 * シリアル番号
-	 */
-	private static final long serialVersionUID = 214651219760554487L;
-	/**
-	 * 生徒リスト
-	 */
-	private List<StudentsDTO> studentsList = new ArrayList<StudentsDTO>();
-	/**
-	 * 検索文字
-	 */
-	private String searchString = "";
-	/**
-	 * 結果文字
-	 */
-	private String resultSelect = "該当する情報はありません。";
+    /**
+     * シリアル番号
+     */
+    private static final long serialVersionUID = 214651219760554487L;
+    /**
+     * 生徒リスト
+     */
+    private List<StudentsDTO> studentsList = new ArrayList<StudentsDTO>();
+    /**
+     * 検索文字
+     */
+    private String searchString = "";
+    /**
+     * 結果文字
+     */
+    private String resultSelect = "該当する情報はありません。";
 
-	/**
-	 * 実行メソッド 受講生一覧を表示
-	 * @author KOHEI NITABARU
-	 * @return result
-	 */
-	public String execute(){
+    /**
+     * 実行メソッド 受講生一覧を表示
+     *
+     * @author KOHEI NITABARU
+     * @return result
+     */
+    public String execute() {
 
-		String result = ERROR;
-		StudentsSelectDAO dao = new StudentsSelectDAO();
-		studentsList = dao.select(searchString);
+        String result = ERROR;
+        StudentsSelectDAO dao = new StudentsSelectDAO();
+        studentsList = dao.select(searchString);
 
-		if (studentsList.size() != 0) {
-			result = SUCCESS;
-			resultSelect = "検索結果を表示しました。";
-			sort();
-		}
+        if (studentsList.size() != 0) {
+            result = SUCCESS;
+            resultSelect = "検索結果を表示しました。";
+            sort();
+        }
 
-		return result;
-	}
+        return result;
+    }
 
-	/**
-	 * 実行メソッド ソート
-	 * @author MINORI SUNAGAWA
-	 */
-	private void sort(){
+    /**
+     * 実行メソッド ソート
+     *
+     * @author MINORI SUNAGAWA
+     */
+    private void sort() {
 
-		if( studentsList.size() == 1 ) return;
+        if (studentsList.size() == 1) {
+            return;
+        }
+        boolean result = false;
+        int i = 0;
 
-		boolean isSort = false;
+        while (i < studentsList.size() - 1) {
+            result = false;
+            for (int j = i + 1; j < studentsList.size(); j++) {
+                String date1 = studentsList.get(i).getYear() + studentsList.get(i).getMonth();
+                String date2 = studentsList.get(j).getYear() + studentsList.get(j).getMonth();
+                if (Integer.parseInt(date1) < Integer.parseInt(date2)) {
+                    StudentsDTO dto = studentsList.get(i);
+                    studentsList.remove(i);
+                    studentsList.add(dto);
+                    result = true;
+                    break;
+                }
+            }
+            if (result)
+                continue;
 
-		int i = 0;
+            i++;
+        }
+    }
 
-		while( i < studentsList.size() - 1 ){
+    /**
+     * 取得メソッド 受講生リストを取得
+     *
+     * @author KOHEI NITABARU
+     * @return studentsList
+     */
+    public List<StudentsDTO> getStudentsList() {
+        return studentsList;
+    }
 
-			isSort = false;
+    /**
+     * 設定メソッド 受講生リストを設定
+     *
+     * @author KOHEI NITABARU
+     * @param studentsList
+     */
+    public void setStudentsList(List<StudentsDTO> studentsList) {
+        this.studentsList = studentsList;
+    }
 
-			for( int j=i+1; j<studentsList.size(); j++ ){
+    /**
+     * 取得メソッド 検索文字を取得
+     *
+     * @author KOHEI NITABARU
+     * @return search
+     */
+    public String getSearchString() {
+        return searchString;
+    }
 
-				String date1 = studentsList.get(i).getYear() + studentsList.get(i).getMonth();
-				String date2 = studentsList.get(j).getYear() + studentsList.get(j).getMonth();
+    /**
+     * 設定メソッド 検索文字を設定
+     *
+     * @author KOHEI NITABARU
+     * @param search
+     */
+    public void setSearchString(String searchString) {
+        this.searchString = searchString;
+    }
 
-				if( Integer.parseInt( date1 ) < Integer.parseInt( date2 ) ){
+    /**
+     * 取得メソッド シリアル番号を取得
+     *
+     * @author KOHEI NITABARU
+     * @return serialVersionUID
+     */
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
-					StudentsDTO dto = studentsList.get(i);
-					studentsList.remove(i);
-					studentsList.add( dto );
-					isSort = true;
+    /**
+     * 取得メソッド 結果文字を取得
+     *
+     * @author KOHEI NITABARU
+     * @return resultSelect
+     */
+    public String getResultSelect() {
+        return resultSelect;
+    }
 
-					break;
-				}
-			}
-
-			if( isSort ) continue;
-
-			i++;
-		}
-	}
-
-	/**
-	 * 取得メソッド 受講生リストを取得
-	 * @author KOHEI NITABARU
-	 * @return studentsList
-	 */
-	public List<StudentsDTO> getStudentsList() {
-		return studentsList;
-	}
-
-	/**
-	 * 設定メソッド 受講生リストを設定
-	 * @author KOHEI NITABARU
-	 * @param studentsList
-	 */
-	public void setStudentsList(List<StudentsDTO> studentsList) {
-		this.studentsList = studentsList;
-	}
-
-	/**
-	 * 取得メソッド 検索文字を取得
-	 * @author KOHEI NITABARU
-	 * @return search
-	 */
-	public String getSearchString() {
-		return searchString;
-	}
-
-	/**
-	 * 設定メソッド 検索文字を設定
-	 * @author KOHEI NITABARU
-	 * @param search
-	 */
-	public void setSearchString(String searchString) {
-		this.searchString = searchString;
-	}
-
-	/**
-	 * 取得メソッド シリアル番号を取得
-	 * @author KOHEI NITABARU
-	 * @return serialVersionUID
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * 取得メソッド 結果文字を取得
-	 * @author KOHEI NITABARU
-	 * @return resultSelect
-	 */
-	public String getResultSelect() {
-		return resultSelect;
-	}
-
-	/**
-	 * 設定メソッド 結果文字を設定
-	 * @author KOHEI NITABARU
-	 * @param resultSelect
-	 */
-	public void setResultSelect(String resultSelect) {
-		this.resultSelect = resultSelect;
-	}
+    /**
+     * 設定メソッド 結果文字を設定
+     *
+     * @author KOHEI NITABARU
+     * @param resultSelect
+     */
+    public void setResultSelect(String resultSelect) {
+        this.resultSelect = resultSelect;
+    }
 
 }
-
