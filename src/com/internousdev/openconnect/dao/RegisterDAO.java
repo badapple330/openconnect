@@ -43,37 +43,48 @@ public class RegisterDAO {
 	 *
 	 * @return result 挿入に成功したら1以上、失敗したら0
 	 */
-	public int insert(String userID, String password, String name, String nameF, String postal, String address,
-			String telNumber, String email, String sex, String birthday) {
+	public int insert(int userId, String password, String familyName, String givenName, String familyNameKanji, String familyNameKana,
+			String givenNameKanji, String givenNameKana, String zip, String address, String telNumber, String email, String mobileNumber,
+			String mobileEmail, String sex, String birthday, int year, String month) {
 		int result = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "insert into user(user_id, password, name, name_f, postal, address,"
-				+ "tel_number, email, sex, birthday, register_day, update_day," + "userdel_flg, login_flg, user_flg)"
-				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//		String sql = "insert into user(user_id, password, name, name_f, postal, address,"
+//				+ "tel_number, email, sex, birthday, register_day, update_day," + "userdel_flg, login_flg, user_flg)"
+//				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+		String sql = "insert into users(user_id, password, family_name, given_name, family_name_kanji, given_name_kanji,"
++" family_name_kana, given_name_kana, postal, address, phone_number, phone_email, mobile_number, mobile_email, sex,"
++" birthday, register_day, login_flg, user_flg, year, month)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String registerDay = sdf.format(System.currentTimeMillis());
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, userID);
+			ps.setInt(1, userId);
 			ps.setString(2, password);
-			ps.setString(3, name);
-			ps.setString(4, nameF);
-			ps.setString(5, postal);
-			ps.setString(6, address);
-			ps.setString(7, telNumber);
-			ps.setString(8, email);
-			ps.setString(9, sex);
-			ps.setString(10, birthday);
-			ps.setString(11, registerDay);
-			ps.setString(12, "0000/00/00 00:00:00");
-			ps.setBoolean(13, false);
-			ps.setBoolean(14, true);
-			ps.setInt(15, 1);
+			ps.setString(3, familyName);
+			ps.setString(4, givenName);
+			ps.setString(5, familyNameKanji);
+			ps.setString(6, givenNameKanji);
+			ps.setString(7, familyNameKana);
+			ps.setString(8, givenNameKana);
+			ps.setString(9, zip);
+			ps.setString(10, address);
+			ps.setString(11, telNumber);
+			ps.setString(12, email);
+			ps.setString(13, mobileNumber);
+			ps.setString(14, mobileEmail);
+			ps.setString(15, sex);
+			ps.setString(16, birthday);
+			ps.setString(17, registerDay);
+			ps.setBoolean(18, true);
+			ps.setInt(19, 1);
+			ps.setInt(20, year);
+			ps.setString(21, month);
 			result = ps.executeUpdate();
 
 		} catch (Exception e) {

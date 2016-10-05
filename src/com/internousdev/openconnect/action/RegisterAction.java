@@ -11,7 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
  * 入力された新規登録情報をDAOに渡して結果を操作するためのクラス
  *
  * @author YUKI MAEDA
- * @since 2016/07/11
+ * @author MASAHIRO KEDSUKA
+ * @since 2016/10/05
  */
 public class RegisterAction extends ActionSupport implements SessionAware {
 
@@ -25,7 +26,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	/**
 	 * ユーザーID
 	 */
-	private String userId;
+	private int userId;
 
 	/**
 	 * ログインパスワード
@@ -35,21 +36,42 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	/**
 	 * ログインパスワード確認
 	 */
-	private String passwordcheck;
+	private String passwordCheck;
 	/**
-	 * 名前
+	 * 姓（漢字）
 	 */
-	private String name;
+	private String familyNameKanji;
 
 	/**
-	 * 名前（ふりがな）
+	 * 名（漢字）
 	 */
-	private String nameF;
+	private String givenNameKanji;
+
+	/**
+	 * 姓（ふりがな）
+	 */
+	private String familyNameKana;
+
+	/**
+	 * 名（ふりがな）
+	 */
+	private String givenNameKana;
+
+	/**
+	 * 姓（英語）
+	 */
+	private String familyName;
+
+
+	/**
+	 * 名（英語）
+	 */
+	private String givenName;
 
 	/**
 	 * 郵便番号
 	 */
-	private String postal;
+	private String zip;
 
 	/**
 	 * 住所
@@ -57,14 +79,24 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	private String address;
 
 	/**
-	 * 代表者
+	 * 電話番号
 	 */
 	private String telNumber;
+
+	/**
+	 * 携帯電話番号
+	 */
+	private String mobileNumber;
 
 	/**
 	 * メールアドレス
 	 */
 	private String email;
+
+	/**
+	 * 携帯メールアドレス
+	 */
+	private String mobileEmail;
 
 	/**
 	 * 性別
@@ -75,6 +107,16 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * 誕生日
 	 */
 	private String birthday;
+
+	/**
+	 * 受講年
+	 */
+	private int year;
+
+	/**
+	 * 受講開始月
+	 */
+	private String month;
 
 	/**
 	 * エラーメッセージ
@@ -90,16 +132,19 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 		RegisterDAO dao = new RegisterDAO();
-			if(!(password.equals(passwordcheck))){
-				errorMsg = "パスワードが異なります";
-			}else if (dao.select(email)) {
-				errorMsg = "入力されたメールアドレスは別のアカウントで使用されています";
-			}else if (dao.insert(userId, password, name, nameF, postal, address, telNumber, email, sex, birthday) > 0) {
-				result = SUCCESS;
-				sessionMap.put("user", password);
-			} else {
+		if(!(password.equals(passwordCheck))){
+			errorMsg = "パスワードが異なります";
+		}else if (dao.select(email)) {
+			errorMsg = "入力されたメールアドレスは別のアカウントで使用されています";
+		}else if (dao.insert(
+				userId, password, familyName, givenName, familyNameKanji, familyNameKana,
+				givenNameKanji, givenNameKana, zip, address, telNumber, email, mobileNumber,
+				mobileEmail, sex, birthday, year, month) > 0) {
+			result = SUCCESS;
+			sessionMap.put("user", password);
+		} else {
 			errorMsg = "入力情報に誤りがあります";
-			}
+		}
 		return result;
 	}
 
@@ -109,7 +154,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @author YUKI MAEDA
 	 * @return userId 取得するユーザーID
 	 */
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
@@ -119,7 +164,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @author YUKI MAEDA
 	 * @param userId 格納するユーザーID
 	 */
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
@@ -150,8 +195,8 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @author YUKI MAEDA
 	 * @return passwordcheck 取得するパスワード(確認用)
 	 */
-	public String getPasswordcheck() {
-		return passwordcheck;
+	public String getPasswordCheck() {
+		return passwordCheck;
 	}
 
 	/**
@@ -160,48 +205,190 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @author YUKI MAEDA
 	 * @param passwordcheck 格納するパスワード(確認用)
 	 */
-	public void setPasswordcheck(String passwordcheck) {
-		this.passwordcheck = passwordcheck;
+	public void setPasswordCheck(String passwordCheck) {
+		this.passwordCheck = passwordCheck;
+	}
+
+
+
+	/**
+	 * 取得メソッド を取得
+	 * @author
+	 * @return familyNameKanji
+	 */
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
 	}
 
 	/**
-	 * 名前を取得するためのメソッド
-	 *
-	 * @author YUKI MAEDA
-	 * @return name 取得する名前
+	 * 設定メソッド を設定
+	 * @author
+	 * @param familyNameKanji
 	 */
-	public String getName() {
-		return name;
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
 	}
 
 	/**
-	 * 名前を格納するためのメソッド
-	 *
-	 * @author YUKI MAEDA
-	 * @param name 格納する名前
+	 * 取得メソッド を取得
+	 * @author
+	 * @return givenNameKanji
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public String getGivenNameKanji() {
+		return givenNameKanji;
 	}
 
 	/**
-	 * 名前（ふりがな）を取得するためのメソッド
-	 *
-	 * @author YUKI MAEDA
-	 * @return nameF 取得する名前（ふりがな）
+	 * 設定メソッド を設定
+	 * @author
+	 * @param givenNameKanji
 	 */
-	public String getNameF() {
-		return nameF;
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
 	}
 
 	/**
-	 * 名前（ふりがな）を格納するためのメソッド
-	 *
-	 * @author YUKI MAEDA
-	 * @param nameF 格納する名前（ふりがな）
+	 * 取得メソッド を取得
+	 * @author
+	 * @return familyNameKana
 	 */
-	public void setNameF(String nameF) {
-		this.nameF = nameF;
+	public String getFamilyNameKana() {
+		return familyNameKana;
+	}
+
+	/**
+	 * 設定メソッド を設定
+	 * @author
+	 * @param familyNameKana
+	 */
+	public void setFamilyNameKana(String familyNameKana) {
+		this.familyNameKana = familyNameKana;
+	}
+
+	/**
+	 * 取得メソッド を取得
+	 * @author
+	 * @return givenNamekana
+	 */
+	public String getGivenNameKana() {
+		return givenNameKana;
+	}
+
+	/**
+	 * 設定メソッド を設定
+	 * @author
+	 * @param givenNamekana
+	 */
+	public void setGivenNameKana(String givenNameKana) {
+		this.givenNameKana = givenNameKana;
+	}
+
+	/**
+	 * 取得メソッド を取得
+	 * @author
+	 * @return familyName
+	 */
+	public String getFamilyName() {
+		return familyName;
+	}
+
+	/**
+	 * 設定メソッド を設定
+	 * @author
+	 * @param familyName
+	 */
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
+	}
+
+	/**
+	 * 取得メソッド を取得
+	 * @author
+	 * @return givenName
+	 */
+	public String getGivenName() {
+		return givenName;
+	}
+
+	/**
+	 * 設定メソッド を設定
+	 * @author
+	 * @param givenName
+	 */
+	public void setGivenName(String givenName) {
+		this.givenName = givenName;
+	}
+
+	/**
+	 * 取得メソッド を取得
+	 * @author
+	 * @return mobileNumber
+	 */
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	/**
+	 * 設定メソッド を設定
+	 * @author
+	 * @param mobileNumber
+	 */
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	/**
+	 * 取得メソッド を取得
+	 * @author
+	 * @return mobileEmail
+	 */
+	public String getMobileEmail() {
+		return mobileEmail;
+	}
+
+	/**
+	 * 設定メソッド を設定
+	 * @author
+	 * @param mobileEmail
+	 */
+	public void setMobileEmail(String mobileEmail) {
+		this.mobileEmail = mobileEmail;
+	}
+
+	/**
+	 * 取得メソッド を取得
+	 * @author
+	 * @return year
+	 */
+	public int getYear() {
+		return year;
+	}
+
+	/**
+	 * 設定メソッド を設定
+	 * @author
+	 * @param year
+	 */
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	/**
+	 * 取得メソッド を取得
+	 * @author
+	 * @return month
+	 */
+	public String getMonth() {
+		return month;
+	}
+
+	/**
+	 * 設定メソッド を設定
+	 * @author
+	 * @param month
+	 */
+	public void setMonth(String month) {
+		this.month = month;
 	}
 
 	/**
@@ -210,8 +397,8 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @author YUKI MAEDA
 	 * @return postal 取得する郵便番号
 	 */
-	public String getPostal() {
-		return postal;
+	public String getZip() {
+		return zip;
 	}
 
 	/**
@@ -220,9 +407,11 @@ public class RegisterAction extends ActionSupport implements SessionAware {
 	 * @author YUKI MAEDA
 	 * @param postal 格納する郵便番号
 	 */
-	public void setPostal(String postal) {
-		this.postal = postal;
+	public void setZip(String zip) {
+		this.zip = zip;
 	}
+
+
 
 	/**
 	 * 住所を取得するためのメソッド
