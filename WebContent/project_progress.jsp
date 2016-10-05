@@ -87,7 +87,7 @@
 							<td><s:property value="startDate" /></td>
 							<td><s:property value="endDate" /></td>
 							<td><s:property value="note" /></td>
-							<td><s:if test="%{#session.userFlg == 100}">
+							<td><s:if test="%{#session.userFlg == 3}">
 									<input type="button" class="button modal-open" value="削除" />
 								</s:if></td>
 						</tr>
@@ -95,7 +95,7 @@
 
 				</tbody>
 			</table>
-			<s:if test="%{#session.userFlg == 100}">
+			<s:if test="%{#session.userFlg == 3}">
 				<input type="submit" class="button" value="編集" />
 			</s:if>
 		</s:form>

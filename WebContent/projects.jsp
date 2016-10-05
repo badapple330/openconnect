@@ -122,7 +122,7 @@
 						</s:iterator>
 					</tbody>
 				</table>
-				<s:if test="%{#session.userFlg == 100}">
+				<s:if test="%{#session.userFlg == 3}">
 					<input class="button" type="submit" value="編集">
 				</s:if>
 			</s:form>

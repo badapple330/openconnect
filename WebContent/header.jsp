@@ -47,7 +47,7 @@
 							</form>
 
 						</s:if>
-						<s:if test="%{#session.userFlg == 100}">
+						<s:if test="%{#session.userFlg == 3}">
 							<form action="GoAdminAction" class="formButton">
 								<input type="submit" class="menu" value="管理者画面">
 							</form>
