@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/nagomi.css">
 <link rel="stylesheet" href="css/footer.css">
 
 <title>利用規約</title>
@@ -13,7 +12,6 @@
 </head>
 <body>
 
-	<header><jsp:include page="header.jsp" /></header>
 
 	<div id="wrapper" class="body">
 		<div class="contents">
@@ -110,7 +108,6 @@
 			</div>
 
 
-			<jsp:include page="footer.jsp" />
 		</div>
 	</div>
 </body>

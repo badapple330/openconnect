@@ -5,13 +5,11 @@
 <html>
 <head>
 <link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" href="css/nagomi.css">
 <meta charset="UTF-8">
 <title>会社概要</title>
 </head>
 <body>
 
-<header><s:include value="header.jsp"></s:include></header>
 
 	<div class="contents">
 		<h1>会社概要</h1>
@@ -61,7 +59,6 @@
 			<br>
 		</div>
 
-		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>
