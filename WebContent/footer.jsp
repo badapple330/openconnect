@@ -8,9 +8,9 @@
 	<div class="footer">
 		<nav>
 			<ul>
-				<li><a href="./company_overview.jsp" target="blank">会社概要</a></li>
+				<li><a href="company_overview.jsp" target="blank">会社概要</a></li>
 
-				<li><a href="./terms_of_use.jsp" target="blank">利用規約</a></li>
+				<li><a href="terms_of_use.jsp" target="blank">利用規約</a></li>
 			</ul>
 
 		</nav>
