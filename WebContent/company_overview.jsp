@@ -60,12 +60,8 @@
 			</table>
 			<br>
 		</div>
-		<div align="center">
-			<s:form action="">
-			<input type="submit" value="戻る" onclick="history.back()" />
-			</s:form>
-		</div>
-		<footer><jsp:include page="footer.jsp" /></footer>
+
+		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>

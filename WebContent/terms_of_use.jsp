@@ -110,12 +110,7 @@
 			</div>
 
 
-			<div align="center">
-				<input type="button" value="戻る" onclick="history.back()" />
-			</div>
-
-
-			<footer><jsp:include page="footer.jsp" /></footer>
+			<jsp:include page="footer.jsp" />
 		</div>
 	</div>
 </body>
