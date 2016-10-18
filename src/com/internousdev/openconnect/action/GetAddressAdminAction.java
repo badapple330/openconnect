@@ -7,24 +7,25 @@ import com.internousdev.openconnect.dao.GetAddressDAO;
 import com.internousdev.openconnect.dto.GetAddressDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * InsertAction 管理者画面からサイト情報を取得する為のアクション
- * @author Arima Genki
+ * 管理者画面にてサイト情報を取得する
+ * @author GENKI ARIMA
  * @author MAIKI OKANO
  * @since 2015/06/16
  * @since 2015/07/25
  * @version 1.1
  */
 public class GetAddressAdminAction extends ActionSupport {
-
 	/**
 	 * シリアルバージョンIDの生成
 	 */
 	private static final long serialVersionUID = -375236489777102919L;
-
+	/**
+	 * サイト情報一覧
+	 */
 	private List<GetAddressDTO> siteInfoList = new ArrayList<GetAddressDTO>();
 	/**
 	 * 取得した情報をListに格納し、resultを返すメソッド
-	 * @author Arima Genki
+	 * @author GENKI ARIMA
 	 * @since 2015/06/16
 	 * @return result データベースから情報を取得できたらSUCCESS、失敗したらERROR
 	 */
@@ -39,7 +40,7 @@ public class GetAddressAdminAction extends ActionSupport {
 	}
 	/**
 	 * リスト取得メソッド
-	 * @author Arima Genki
+	 * @author GENKI ARIMA
 	 * @since 2015/06/16
 	 * @return siteInfoList 取得するサイトリスト
 	 */

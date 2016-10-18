@@ -1,12 +1,12 @@
-package com.internousdev.openconnect.action;
+ package com.internousdev.openconnect.action;
 
 import java.io.Serializable;
 
 import com.internousdev.openconnect.dao.AddAppDAO;
 import com.opensymphony.xwork2.ActionSupport;
+
 /**
- * AddAppAction 管理者画面でのアプリ追加を行うクラス
- *
+ * 管理者画面にてアプリケーションを追加する
  * @author MAIKI OKANO
  * @since 2016/07/20
  * @version 1.0

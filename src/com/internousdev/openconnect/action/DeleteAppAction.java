@@ -5,14 +5,12 @@ import java.sql.SQLException;
 import com.internousdev.openconnect.dao.DeleteAppDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * DeleteAppAction 管理者画面でのアプリ削除を行うクラス
- *
+ * 管理者画面にてアプリケーションを削除する
  * @author MAIKI OKANO
  * @since 2016/07/20
  * @version 1.0
  */
 public class DeleteAppAction extends ActionSupport {
-
 	/**
 	 * シリアルバージョンIDの生成
 	 */
@@ -86,4 +84,3 @@ public class DeleteAppAction extends ActionSupport {
 		this.messageDel = messageDel;
 	}
 }
-

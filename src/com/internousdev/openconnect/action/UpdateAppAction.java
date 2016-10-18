@@ -9,21 +9,18 @@ import com.internousdev.openconnect.dao.UpdateAppDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * AddAppAction 管理者画面でのアプリ追加を行うクラス
- *
- * @author Arima Genki
- * @since 2015/06/15
+ * 管理者画面にてアプリケーションを追加する
+ * @author GENKI ARIMA
  * @author MAIKI OKANO
+ * @since 2015/06/15
  * @since 2016/07/20
  * @version 1.1
  */
 public class UpdateAppAction extends ActionSupport implements SessionAware {
-
 	/**
 	 * シリアルバージョンIDの生成
 	 */
 	private static final long serialVersionUID = 811223625143510825L;
-
 	/**
      * サイトID
      */
@@ -55,9 +52,9 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 入力された値をDBに登録されている商品に反映し、resultを返すメソッド
-	 * @author Arima Genki
-	 * @since 2015/06/15
+	 * @author GENKI ARIMA
 	 * @author MAIKI OKANO
+	 * @since 2015/06/15
 	 * @since 2015/07/21
 	 * @return result データベースの情報を更新できたらSUCCESS、失敗したらERROR
 	 */
@@ -79,8 +76,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-     * 取得メソッド サイトIDを取得
-     *
+     * サイトIDを取得する
      * @author MAIKI OKANO
      * @return siteId 取得するサイトID
      */
@@ -88,8 +84,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		return siteId;
 	}
 	/**
-     * 格納メソッド サイトIDを格納
-     *
+     * サイトIDを格納する
      * @author MAIKI OKANO
      * @param siteId 格納するサイトID
      */
@@ -97,8 +92,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		this.siteId = siteId;
 	}
 	 /**
-     * 取得メソッド サイトの名前を取得
-     *
+     * サイトの名前を取得する
      * @author MAIKI OKANO
      * @return siteName 取得するサイトの名前
      */
@@ -106,8 +100,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		return siteName;
 	}
 	/**
-     * 格納メソッド サイトの名前を格納
-     *
+     * サイト名を格納する
      * @author MAIKI OKANO
      * @param siteName 格納するサイトの名前
      */
@@ -115,8 +108,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		this.siteName = siteName;
 	}
 	/**
-     * 取得メソッド サイトURLを取得
-     *
+     * サイトURLを取得する
      * @author MAIKI OKANO
      * @return siteUrl 取得するサイトのURL
      */
@@ -124,7 +116,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		return siteUrl;
 	}
 	/**
-     * 格納メソッド サイトURLを格納
+     * サイトURLを格納する
      *
      * @author MAIKI OKANO
      * @param siteUrl サイトのURL
@@ -133,8 +125,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		this.siteUrl = siteUrl;
 	}
 	/**
-     * 取得メソッド サイトのジャンルを取得
-     *
+     * サイトジャンルを取得する
      * @author MAIKI OKANO
      * @return genre 取得するサイトのジャンル
      */
@@ -142,8 +133,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		return genre;
 	}
 	/**
-     * 格納メソッド サイトのジャンルを格納
-     *
+     * サイトジャンルを格納する
      * @author MAIKI OKANO
      * @param genre 格納するサイトのジャンル
      */
@@ -151,8 +141,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		this.genre = genre;
 	}
 	/**
-     * 取得メソッド セッションを取得
-     *
+     * セッション情報を取得する
      * @author MAIKI OKANO
      * @return sessionMap 取得するセッションマップ
      */
@@ -160,8 +149,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		return sessionMap;
 	}
 	/**
-     * 格納メソッド セッションを格納
-     *
+     * セッション情報を格納する
      * @author MAIKI OKANO
      * @param sessionMap 格納するセッションマップ
      */
@@ -170,8 +158,7 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		this.sessionMap = sessionMap;
 	}
 	/**
-     * 取得メソッド メッセージを取得
-     *
+     * メッセージを取得する
      * @author MAIKI OKANO
      * @return messageUp 取得するメッセージ
      */
@@ -179,28 +166,25 @@ public class UpdateAppAction extends ActionSupport implements SessionAware {
 		return messageUp;
 	}
 	/**
-     * 格納メソッド メッセージを格納
-     *
+     * メッセージを格納する
      * @author MAIKI OKANO
      * @return messageUp 格納するメッセージ
      */
 	public void setMessageUp(String messageUp) {
 		this.messageUp = messageUp;
 	}
-/**取得メソッド
- *  @author TAMAMI KAKISHITA
- *
- * */
+	/**
+	 * 結果を取得する
+	 *  @author TAMAMI KAKISHITA
+	 * */
 	public String getResult() {
 		return result;
 	}
-/**格納メソッド
- *  @author TAMAMI KAKISHITA
- *
- * */
+	/**
+	 * 結果を格納する
+	 *  @author TAMAMI KAKISHITA
+	 * */
 	public void setResult(String result) {
 		this.result = result;
 	}
-
-
 }
