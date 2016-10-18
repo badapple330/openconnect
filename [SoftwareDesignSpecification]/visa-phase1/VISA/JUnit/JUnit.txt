@@ -1,0 +1,83 @@
+【 単体試験（Unit）について 】 
+ 
+・「com.internousdev.プロジェクト名.dto.test」パッケージを作成する。 
+・テスト用のファイル作成 
+　-例）xxxxDTOTest.java　名でクラスファイル作成（DTOのクラスファイル名で） 
+・getter、setterひとつずつに対し値が取得できているかテストを行う。 
+ 
+データ型が「int」の場合と「String」の場合で書き方、テストの値が変わってくる。 
+【int】 
+０、MAX、MINに対して値が取れているかチェック 
+    private int testInt=0; 
+    private int testInt=9999999; 
+    private int testInt=1; 
+ 
+【String】 
+null、から、半角スペース、全角スペース、半角英数字、全角、半角全角、全角漢字、に対して値が取得できているかチェック 
+         testStringNull    = null; 
+         testStringKara    = “”; 
+         testStringHSpace  = " "; 
+         testStringZSpace  = "　"; 
+         testStringHankaku = "abc123"; 
+         testStringZenkaku = "あいう１２３"; 
+     testStringHankaku = "abc123あいう１２３"; 
+         testStringZenkaku = "ａｂｃ１２３あいう漢字"; 
+    } 
+ 
+[ Stringの場合]
+
+ゲット  
+    /** 
+     * {@link com.internousdev.xxxxx.dto.LoginDTO#getPassword()} のためのテスト・メソッド。 
+     */ 
+    @Test 
+    public void testGetPassword1() { 
+        LoginDTO test = new LoginDTO(); 
+        String expected = null; 
+ 
+        test.setPassword(expected); 
+        String actual = test.getPassword(); 
+ 
+        assertEquals(expected, actual); 
+    } 
+ 
+セット 
+
+  /** 
+     * {@link com.internousdev.xxxxx.dto.LoginDTO#getPassword()} のためのテスト・メソッド。 
+     */ 
+    @Test 
+    public void testSetPassword1() { 
+        LoginDTO test = new LoginDTO(); 
+        String expected = ""; 
+ 
+        test.setPassword(expected); 
+        String actual = test.getPassword(); 
+ 
+        assertEquals(expected, actual); 
+    } 
+ 
+データ型がStringの場合 
+ 
+[ intの場合 ] 
+ゲット 
+@Test 
+    public void testGetUserId1() { 
+        LoginDTO test = new LoginDTO(); 
+        int expected = 0; 
+ 
+        test.setUserId(expected); 
+ 
+        assertEquals(expected, test.getUserId()); 
+    } 
+セット 
+@Test 
+    public void testSetUserId1() { 
+        LoginDTO test = new LoginDTO(); 
+        int expected = 0; 
+ 
+        test.setUserId(expected) 
+        int actual = test.getLoginId(); 
+ 
+        assertEquals(expected,actual); 
+    }

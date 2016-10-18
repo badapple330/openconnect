@@ -1,0 +1,509 @@
+﻿
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ブログ一覧</title>
+
+<!-- basic CSS -->
+<link href="css/style.css" rel="stylesheet">
+
+<!-- bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Modal CSS -->
+<link href="css/modal.css" rel="stylesheet">
+
+<!-- detail CSS -->
+<link href="css/detail.css" rel="stylesheet">
+
+<!-- paging CSS -->
+<link href="css/paging.css" rel="stylesheet">
+
+<!-- JQuery -->
+<script src="js/jquery-3.0.0.min.js"></script>
+
+<!-- bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Modal JavaScript -->
+<script src="js/Modal.js"></script>
+
+<!-- leanModal JavaScript -->
+<script src="js/jquery.leanModal.min.js"></script>
+
+<!-- detail JavaScript -->
+<script src="js/detail.js"></script>
+
+<!-- paging JavaScript -->
+<script src="js/paging.js"></script>
+
+</head>
+<body>
+
+    
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- ヘッダーここから -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- cssの読み込み -->
+<link href="css/style.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- 検索フォーム用css読み込み -->
+<link href="css/search.css" rel="stylesheet">
+
+<!-- モーダルのcss -->
+<link rel="stylesheet" href="css/modal.css">
+
+<!-- アコーディオンのcss -->
+<link rel="stylesheet" href="css/accordion.css">
+
+<!-- モーダルウィンドウのjQuery -->
+<script src="js/jquery.leanModal.min.js"></script>
+
+<!-- アコーディオンのjQuery -->
+<script src="js/accordion.js"></script>
+
+<!-- 外部ファイル読み込み -->
+<script src="js/Modal.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- 検索用js読み込み -->
+<script src="js/search.js"></script>
+
+<title>ヘッダー</title>
+</head>
+
+<!-- ボディここから -->
+<body>
+     <h1>スタッフブログ</h1>
+
+  <div class="row center">
+    <div id="page_ctrl">
+      <ul id="page_before" class="box h2">
+          <li id="page_first">|&lt;</li>
+        <li id="page_prev">&lt;</li>
+      </ul>
+      <ul id="page_number" class="box h2"></ul>
+      <ul id="page_after">
+        <li id="page_next" class="box h2">&gt;</li>
+        <li id="page_last" class="box h2">&gt;|</li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <form id="BlogDeleteAction" name="BlogDeleteAction" action="/internousdev/BlogDeleteAction.action;jsessionid=301E60BC3567AFDFD401B6B7BE21A1A1" method="post">
+      <input type="hidden" name="id" value="1" id="BlogDeleteAction_id"/>
+      <div class="container blog article">
+        <div class="row center">
+          <br> <img src="img/slash.PNG"
+            class="picture" width="350">
+        </div>
+        <div class="row">
+
+          <h1>
+            本ブログについて
+          </h1>
+
+        </div>
+        <div class="center">
+            <div class="toggle">
+              <input type="button" class="btn btn-success detail"
+                value="文章全体を見る">
+            </div>
+            <div id="hide">
+              
+本ブログでは現在受講中カレッジ生及び、これから受講するか検討されてる方々に
+今後の為になる、IT業界に関連する事やプログラマとって役立つ情報をお届けします。これからもinternousdevを宜しくお願いします。
+
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <div class="right">
+          2016-03-03 03:03:03.0　
+          ブログ管理スタッフ
+         <br>
+         コメント数 (???) <!-- &nbsp;&nbsp;&nbsp; -->　　　　
+          <a rel="leanModal" href="#div111" class="btn btn-primary wide-button">コメント</a>
+           いいね数 (???)　　　　
+<a class="btn btn-primary wide-button">いいね</a>
+
+                   
+        </div>
+
+ <div id="div111">
+ <h5>【コメント】<h5>
+   <table class="block-center">
+<tr>
+<th>名前</th>
+<td><input type="text" name="名前" maxlength="16"
+                        pattern="^[a-zA-Z]{1}[0-9a-zA-Z]+[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                        placeholder="名前、ニックネーム等" required></td>
+</td>
+</tr>
+
+<tr>
+<th>タイトル</th>
+<td><input type="text" name="名前" maxlength="30"
+                        pattern="^[a-zA-Z]{1}[0-9a-zA-Z]+[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                        placeholder="タイトル" required></td>
+</td>
+</tr>
+
+<tr>
+<th>本文</th>
+<td><textarea name="text" cols="50" rows="10" id="BlogDeleteAction_text" placeholder="入力必須"></textarea></td>
+</td>
+</tr>
+
+</table>
+
+<a class="modal_close btn btn-primary wide-button"
+      href="javascript:void(0)">戻る</a>
+    <button type="submit" id="BlogDeleteAction_0" value="確認" class="btn btn-primary wide-button">
+確認
+</button>
+
+
+
+
+</div>
+
+
+
+        <div id="div787-11">
+          <h3>削除してもよろしいですか？</h3>
+          <br> <a class="modal_close btn btn-primary wide-button"
+            href="javascript:void(0)">いいえ</a>
+          <button type="submit" id="BlogDeleteAction_2" value="はい" class="btn btn-primary wide-button">
+はい
+</button>
+
+        </div>
+
+
+      </div>
+      <div class="clear"></div>
+    </form>
+
+
+
+
+  
+    <form id="BlogDeleteAction" name="BlogDeleteAction" action="/internousdev/BlogDeleteAction.action;jsessionid=301E60BC3567AFDFD401B6B7BE21A1A1" method="post">
+      <input type="hidden" name="id" value="2" id="BlogDeleteAction_id"/>
+      <div class="container blog article">
+        <div class="row center">
+          <br> <img src="img/slash.PNG"
+            class="picture" width="350">
+        </div>
+        <div class="row">
+
+          <h1>
+            本ブログについて
+          </h1>
+
+        </div>
+        <div class="center">
+            <div class="toggle">
+              <input type="button" class="btn btn-success detail"
+                value="文章全体を見る">
+            </div>
+            <div id="hide">
+              本ブログでは現在受講中カレッジ生及び、これから受講するか検討されてる方々に
+今後の為になる、IT業界に関連する事やプログラマとって役立つ情報をお届けします。これからもinternousdevを宜しくお願いします。
+
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <div class="right">
+          2016-04-04 04:04:04.0　
+          ブログ管理スタッフ
+         <br>
+         コメント数 (???) <!-- &nbsp;&nbsp;&nbsp; -->　　　　
+          <a rel="leanModal" href="#div111" class="btn btn-primary wide-button">コメント</a>
+           いいね数 (???)　　　　
+<a class="btn btn-primary wide-button">いいね</a>
+
+                   
+        </div>
+
+ <div id="div111">
+ <h5>【コメント】<h5>
+   <table class="block-center">
+<tr>
+<th>名前</th>
+<td><input type="text" name="名前" maxlength="16"
+                        pattern="^[a-zA-Z]{1}[0-9a-zA-Z]+[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                        placeholder="名前、ニックネーム等" required></td>
+</td>
+</tr>
+
+<tr>
+<th>タイトル</th>
+<td><input type="text" name="名前" maxlength="30"
+                        pattern="^[a-zA-Z]{1}[0-9a-zA-Z]+[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                        placeholder="タイトル" required></td>
+</td>
+</tr>
+
+<tr>
+<th>本文</th>
+<td><textarea name="text" cols="50" rows="10" id="BlogDeleteAction_text" placeholder="入力必須"></textarea></td>
+</td>
+</tr>
+
+</table>
+
+<a class="modal_close btn btn-primary wide-button"
+      href="javascript:void(0)">戻る</a>
+    <button type="submit" id="BlogDeleteAction_0" value="確認" class="btn btn-primary wide-button">
+確認
+</button>
+
+
+
+
+</div>
+
+
+
+        <div id="div787-12">
+          <h3>削除してもよろしいですか？</h3>
+          <br> <a class="modal_close btn btn-primary wide-button"
+            href="javascript:void(0)">いいえ</a>
+          <button type="submit" id="BlogDeleteAction_2" value="はい" class="btn btn-primary wide-button">
+はい
+</button>
+
+        </div>
+
+
+      </div>
+      <div class="clear"></div>
+    </form>
+
+
+
+
+  
+    <form id="BlogDeleteAction" name="BlogDeleteAction" action="/internousdev/BlogDeleteAction.action;jsessionid=301E60BC3567AFDFD401B6B7BE21A1A1" method="post">
+      <input type="hidden" name="id" value="3" id="BlogDeleteAction_id"/>
+      <div class="container blog article">
+        <div class="row center">
+          <br> <img src="C:\pleiades-neon-newest\pleiades\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\コピー160802internousdev\internousdevKoala.jpg"
+            class="picture" width="350">
+        </div>
+        <div class="row">
+
+          <h1>
+            20160802
+          </h1>
+
+        </div>
+        <div class="center">
+            <div class="toggle">
+              <input type="button" class="btn btn-success detail"
+                value="文章全体を見る">
+            </div>
+            <div id="hide">
+              いやふいおでょうｈじｊれおいｆｒｆれｆ
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <div class="right">
+          2016-08-02 11:24:31.0　
+          じょにーでっぷ
+         <br>
+         コメント数 (???) <!-- &nbsp;&nbsp;&nbsp; -->　　　　
+          <a rel="leanModal" href="#div111" class="btn btn-primary wide-button">コメント</a>
+           いいね数 (???)　　　　
+<a class="btn btn-primary wide-button">いいね</a>
+
+                   
+        </div>
+
+ <div id="div111">
+ <h5>【コメント】<h5>
+   <table class="block-center">
+<tr>
+<th>名前</th>
+<td><input type="text" name="名前" maxlength="16"
+                        pattern="^[a-zA-Z]{1}[0-9a-zA-Z]+[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                        placeholder="名前、ニックネーム等" required></td>
+</td>
+</tr>
+
+<tr>
+<th>タイトル</th>
+<td><input type="text" name="名前" maxlength="30"
+                        pattern="^[a-zA-Z]{1}[0-9a-zA-Z]+[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                        placeholder="タイトル" required></td>
+</td>
+</tr>
+
+<tr>
+<th>本文</th>
+<td><textarea name="text" cols="50" rows="10" id="BlogDeleteAction_text" placeholder="入力必須"></textarea></td>
+</td>
+</tr>
+
+</table>
+
+<a class="modal_close btn btn-primary wide-button"
+      href="javascript:void(0)">戻る</a>
+    <button type="submit" id="BlogDeleteAction_0" value="確認" class="btn btn-primary wide-button">
+確認
+</button>
+
+
+
+
+</div>
+
+
+
+        <div id="div787-13">
+          <h3>削除してもよろしいですか？</h3>
+          <br> <a class="modal_close btn btn-primary wide-button"
+            href="javascript:void(0)">いいえ</a>
+          <button type="submit" id="BlogDeleteAction_2" value="はい" class="btn btn-primary wide-button">
+はい
+</button>
+
+        </div>
+
+
+      </div>
+      <div class="clear"></div>
+    </form>
+
+
+
+
+  
+    <form id="BlogDeleteAction" name="BlogDeleteAction" action="/internousdev/BlogDeleteAction.action;jsessionid=301E60BC3567AFDFD401B6B7BE21A1A1" method="post">
+      <input type="hidden" name="id" value="4" id="BlogDeleteAction_id"/>
+      <div class="container blog article">
+        <div class="row center">
+          <br> <img src=""
+            class="picture" width="350">
+        </div>
+        <div class="row">
+
+          <h1>
+            wfeew
+          </h1>
+
+        </div>
+        <div class="center">
+            <div class="toggle">
+              <input type="button" class="btn btn-success detail"
+                value="文章全体を見る">
+            </div>
+            <div id="hide">
+              rfwerfew
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <div class="right">
+          2016-08-02 13:56:00.0　
+          freferwf
+         <br>
+         コメント数 (???) <!-- &nbsp;&nbsp;&nbsp; -->　　　　
+          <a rel="leanModal" href="#div111" class="btn btn-primary wide-button">コメント</a>
+           いいね数 (???)　　　　
+<a class="btn btn-primary wide-button">いいね</a>
+
+                   
+        </div>
+
+ <div id="div111">
+ <h5>【コメント】<h5>
+   <table class="block-center">
+<tr>
+<th>名前</th>
+<td><input type="text" name="名前" maxlength="16"
+                        pattern="^[a-zA-Z]{1}[0-9a-zA-Z]+[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                        placeholder="名前、ニックネーム等" required></td>
+</td>
+</tr>
+
+<tr>
+<th>タイトル</th>
+<td><input type="text" name="名前" maxlength="30"
+                        pattern="^[a-zA-Z]{1}[0-9a-zA-Z]+[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                        placeholder="タイトル" required></td>
+</td>
+</tr>
+
+<tr>
+<th>本文</th>
+<td><textarea name="text" cols="50" rows="10" id="BlogDeleteAction_text" placeholder="入力必須"></textarea></td>
+</td>
+</tr>
+
+</table>
+
+<a class="modal_close btn btn-primary wide-button"
+      href="javascript:void(0)">戻る</a>
+    <button type="submit" id="BlogDeleteAction_0" value="確認" class="btn btn-primary wide-button">
+確認
+</button>
+
+
+
+
+</div>
+
+
+
+        <div id="div787-14">
+          <h3>削除してもよろしいですか？</h3>
+          <br> <a class="modal_close btn btn-primary wide-button"
+            href="javascript:void(0)">いいえ</a>
+          <button type="submit" id="BlogDeleteAction_2" value="はい" class="btn btn-primary wide-button">
+はい
+</button>
+
+        </div>
+
+
+      </div>
+      <div class="clear"></div>
+    </form>
+
+
+
+
+  
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8"></div>
+      <div class="col-xs-4">
+        
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+</body>
+</html>

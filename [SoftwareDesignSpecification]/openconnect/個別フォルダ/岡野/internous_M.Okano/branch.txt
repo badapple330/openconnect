@@ -1,0 +1,23 @@
+branch 作成手順
+
+クローン後
+
+対象サイトのディレクトリ上でbranchを作る。
+C:.....\git\solare>git branch phase2
+
+↑solareの部分は自サイト名で。
+
+（作れたか確認）
+>git branch
+
+branchを切り替える。
+>git checkout phase2
+
+（切り替えられたか確認）
+>git branch
+
+最後にアップロードする。
+>git push origin phase2
+
+↑((「ローカルのコードを、originというリモートサーバに対して
+アップロードせよ。指定するブランチはphase2である。」))

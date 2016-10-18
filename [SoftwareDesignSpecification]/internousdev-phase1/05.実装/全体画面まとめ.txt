@@ -1,0 +1,243 @@
+担当画面、お問い合わせ入力画面、お問い合わせ入力完了画面、お問い合わせ一覧画面、会社概要画面
+
+　担当者、川内谷　優輝、工藤　祐介
+
+　作成物
+　　・jsp
+　　　company_information.jsp（工藤　祐介）
+　　　information_complete.jsp（工藤　祐介）
+　　　information_confirm.jsp（工藤　祐介）
+　　　information.jsp（工藤　祐介）
+
+　　・Action
+    　GoInformationConfirmAction（川内谷　優輝）
+　　　InformationDeleteAction（工藤　祐介）
+　　　InformationInsertAction（工藤　祐介）
+
+　　・DAO
+　　　InformationDAO（川内谷　優輝）
+　　　InformationDeleteDAO（工藤　祐介）
+　　　InformationInsertDAO（工藤　祐介）
+
+　　・DTO
+　　　InformationDTO（川内谷　優輝）
+
+　  ・Util
+　    MongoDBConnector（工藤　祐介）
+
+　実装済
+　　・お問い合わせ投稿
+　　・お問い合わせ一覧表示
+　　・お問い合わせ削除
+　　・GoogleMap
+
+　未実装
+　　・なし
+
+担当画面、ヘッダー画面、フッター画面、新規登録完了画面、検索結果画面
+
+　担当者、鈴木　博義、高橋　裕也
+
+　作成物
+　　・jsp
+　　　header.jsp（高橋　裕也）
+　　　footer.jsp（鈴木　博義）
+　　　sign_up.jsp（鈴木　博義）
+　　　search.jsp（鈴木　博義）
+
+　　・Action
+　　　LogoutAction（鈴木　博義）
+　　　GoTopAction（鈴木　博義）
+　　　package-info（鈴木　博義）
+　　　NewRegisterAction（高橋　裕也）
+　　　LoginAction（高橋　裕也）
+
+　　・DAO
+　　　LoginDAO（高橋　裕也）
+　　　package-info（鈴木　博義）
+
+　　・DTO
+　　　LoginDTO（高橋　裕也）
+　　　package-info（鈴木　博義）
+
+　　・util
+    　package-info（鈴木　博義）
+
+　　・css
+　　　style.css（鈴木　博義）
+　　　accordion.css（高橋　裕也）
+　　　modal.css（高橋　裕也）
+
+　　・js
+　　　accordion.js（高橋　裕也）
+　　　Modal.js（高橋　裕也）
+　　　jquery.leanModal.min.js（高橋　裕也）
+
+　実装済
+　　・フラグによるボタン切り替え機能
+　　・各画面への遷移ボタン
+　　・ログイン機能
+　　・新規登録機能
+　　・モーダルウィンドウ機能
+　　・アコーディオン機能
+　　・フラグによるボタン切り替え機能
+　　・各画面への遷移ボタン
+
+　未実装
+　　・サイト内検索機能
+　　・AD(広告)機能
+
+担当画面、チャットルーム内画面、チャットルーム一覧画面、チャットルーム作成画面
+
+　担当者、倉地 将吾、工藤 秀樹、中田 拓郎、藤本 徳美
+
+　作成物
+　　・jsp
+　　　chat_room.jsp(倉地 将吾、工藤 秀樹)
+　　  chat_room_list.jsp(中田 拓郎)
+　　  chat_room_create.jsp(藤本 徳美)
+
+　　・Action
+   　 ChatRoomCreateAction(藤本 徳美)
+ 　   ChatRoomDeleteAction(中田 拓郎)
+   　 ChatRoomInfoAction(中田 拓郎)
+   　 EntryChatRoomAction(中田 拓郎)
+   　 InsertChatAction(倉地 将吾、工藤 秀樹)
+   　 SelectChatAction(倉地 将吾、工藤 秀樹)
+
+　　・DAO
+　　　ChatDAO(倉地 将吾、工藤 秀樹)
+   　 ChatmessageDeleteDAO(中田 拓郎)
+    　ChatRoomCreateDAO(藤本 徳美)
+    　ChatRoomDeleteDAO(中田 拓郎)
+   　 ChatRoomGetAdminPasswordDAO(中田 拓郎)
+  　  ChatRoomInfoDAO(中田 拓郎)
+  　  EntryChatRoomDAO(中田 拓郎)
+    
+　　・DTO
+　　　ChatDTO(倉地 将吾、工藤 秀樹)
+   　 ChatroomListDTO(中田 拓郎)
+
+　  ・CSS
+  　  chat_room.css(倉地 将吾、工藤 秀樹)
+    　Chat_room_create.css(藤本 徳美)
+
+　  ・js
+  　  chat_room_create.js(工藤 秀樹)
+    　chat_room_list.js(工藤 秀樹)
+    　chat_room.js(倉地 将吾、工藤 秀樹)
+
+　実装済
+　　・作成されているチャットルームの一覧を表示
+　　・部屋の作成、削除を行うことができる（ログインしているユーザーのみ）
+　　・指定したチャットルームへの入室機能
+　　・チャットルーム情報を入力後部屋作成ボタンを押下することでチャットルーム情報をDBに格納
+　　・部屋一覧画面へボタンでチャットルーム一覧画面へ遷移
+　　・リセットボタンで入力した値を消す
+　　・入室したチャットルームに書き込まれたチャット履歴を表示
+　　・名前とチャット内容を入力し、任意で文字色の指定を行い、投稿ボタンを押下をすることでDBにチャット内容を挿入
+　　・退室ボタン押下でチャットルーム一覧画面へ遷移
+　　・更新ボタン押下でチャット履歴の更新
+
+　未実装
+　　・部屋内に人がいても部屋の削除を行うことができてしまう
+　　・モーダルに値入力後モーダルを消し、再度モーダルを開くと値が残っている
+　　・部屋が削除されていたとしてもチャット内容を書き込むことができてしまう(その履歴を消す方法はない)
+　　・部屋が削除されている状態で更新を押すと部屋IDが0の部屋に飛んでしまい、書き込みができてしまう
+
+担当画面、トップページ画面、ショッピング画面、イベントページ画面
+
+　担当者、吉原 亮、只野 天馬、木村 紳一郎
+
+　作成物
+　　・jsp
+　　　top_page.jsp (吉原 亮)
+　　　shopping.jsp（只野 天馬）
+
+　　・Action
+　　　EventInsertAction (吉原 亮)
+　　　GoShoppingBeautyAction（木村 紳一郎）
+　　　GoShoppingEntertainmentAction（只野 天馬）
+　　　GoShoppingFashionAction（木村 紳一郎）
+　　　GoShoppingGourmetAction（只野 天馬）
+　　　GoShoppingReadAction（只野 天馬）
+　　　GoShoppingRentalAction（木村 紳一郎）
+　　　GoShoppingSportsAction（只野 天馬）
+　　　GoShoppingTicketAction（木村 紳一郎）
+　　　GoShoppingTravelAction（木村 紳一郎）
+　　　GoShoppingViewAction（只野 天馬）
+
+　　・DTO   
+　　　EventDTO (吉原 亮)
+　　　ShoppingDTO（只野 天馬）
+
+　　・DAO
+　　　EventInsertDAO (吉原 亮)
+　　　EventDeleteDAO (吉原 亮)
+　　　ShoppingDAO（木村 紳一郎）
+
+　実装済
+　　・各画面への遷移リンクボタンの実装
+　　・イベント管理ページの追加及び削除機能
+
+　未実装
+　　・swiper機能
+
+担当画面、ブログ画面、ブログ記事投稿画面、ブログ記事投稿完了画面
+          学ぶ画面、学ぶ記事投稿画面、学ぶ記事投稿完了画面
+	  
+　担当者、名前　永井　孝樹、古瀬　諒
+
+　作成物
+　　・jsp
+　　　blog.jsp（古瀬　諒）
+　　　blog_post.jsp（古瀬　諒）
+　　　blog_comlete.jsp （古瀬　諒）
+　　　study.jsp（永井　孝樹）
+　　　study_post.jsp（永井　孝樹）
+　　　study_complete.jsp（永井　孝樹）
+
+　　・Action
+    　BlogDeleteAction（古瀬　諒）
+　　　BlogInsertAction（古瀬　諒）
+　　　GoBlogAction（古瀬　諒）
+　    StudyDeleteAction（永井　孝樹）
+　　　StudyInsertAction（永井　孝樹）
+　　　GoStudyAction（永井　孝樹）
+　　　GoStudyPostAction（永井　孝樹）
+
+　　・DTO
+　　　BlogDTO（古瀬　諒）
+　　　StudyDTO（永井　孝樹）
+
+　　・DAO
+　　　BlogDAO（古瀬　諒）
+　　　BlogDeleteDAO（古瀬　諒）
+　　　BlogInsertDAO（古瀬　諒）
+    　StudyDAO（永井　孝樹）
+　　　StudyDeleteDAO（永井　孝樹）
+　　　StudyInsertDAO（永井　孝樹）
+
+　  ・CSS
+　　　detail.css（永井　孝樹、古瀬　諒）
+　　
+　  ・js
+　　　blog.js（古瀬　諒）
+　　　detail.js（永井　孝樹、古瀬　諒）
+
+
+　実装済
+　　・学ぶ記事の内容（画像、タイトル、著者、中身）を表示
+　　・学ぶ記事全体を見るボタン実装
+　　・学ぶ記事投稿ボタン実装（管理者のみ表示）
+　　・学ぶ記事削除ボタン実装 (管理者のみ表示)
+　　・ブログ記事投稿内容（タイトル、本文、著者、画像）の入力
+　　・リセットボタン実装
+　　・確認ボタン実装（確認ボタン（記事投稿完了画面へ遷移）、戻る）
+　　・戻るボタン実装
+
+
+　未実装
+　　・ブログ、学ぶの記事を投稿した際、文章がされていない。
+　　・ブログ、学ぶ一覧ページネーション不具合
+	

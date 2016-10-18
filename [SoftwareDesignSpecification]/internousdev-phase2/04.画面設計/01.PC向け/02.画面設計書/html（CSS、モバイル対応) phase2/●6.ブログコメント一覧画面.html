@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>コメント一覧</title>
+
+<!-- basic CSS -->
+<link href="css/style.css" rel="stylesheet">
+
+<!-- bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Modal CSS -->
+<link href="css/modal.css" rel="stylesheet">
+
+<!-- JQuery -->
+<script src="js/jquery-3.0.0.min.js"></script>
+
+<!-- bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Modal JavaScript -->
+<script src="js/Modal.js"></script>
+
+<!-- leanModal JavaScript -->
+<script src="js/jquery.leanModal.min.js"></script>
+
+
+
+<script >
+function show(inputData){
+    var objID=document.getElementById( "layer_" + inputData );
+    var buttonID=document.getElementById( "category_" + inputData );
+    if(objID.className=='close') {
+        objID.style.display='block';
+        objID.className='open';
+    }else{
+        objID.style.display='none';
+        objID.className='close';
+    }
+}
+</script>
+
+
+
+
+</head>
+<body>
+    <header><jsp:include page="header.jsp" /></header>
+
+    <div class="center">
+        <h1>コメント一覧</h1>
+
+   <!--      <s:property value="title" />
+        <s:property value="deleteError"/>
+        <s:property value="entryErrorMsg"/>
+    -->
+<div class="left">
+<h2>ブログタイトル壱</h2>
+</div>
+       <table class="table table-responsive table-bordered white">
+            <tr>
+                <th>コメント番号</th>
+
+                <th>名前</th>
+                <th>タイトル</th>
+              <th> 本文 </th>
+            </tr>
+<!--             <s:iterator id="list" value="list" status="rowstatus">
+ -->             <tr>
+                  <td>1</td>
+                  <td>Ｄ次郎</td>
+                  <td>素晴らしいです</td>
+                  <td>
+<a href="javascript:void(0)" id="category_折りたたみA" onclick="show('折りたたみA');">rufhuirhfuihewuahfue</a>
+<div id="layer_折りたたみA" style="display: none;position:relative;margin-left:15pt" class="close">rufhuirhfuihewuahfue
+jwiogalriejwafilehiwaj/dojefoie
+</div><br>
+2016-08-02 09:07
+  </td>
+
+                  </tr>
+
+                  <tr>
+                  <td>2</td>
+                  <td>Ｅ之介</td>
+                  <td>がんばりましょー！！</td>
+                  <td>
+                  <a href="javascript:void(0)" id="category_折りたたみ２" onclick="show('折りたたみ２');">サンプル冒頭です、、、</a>
+<div id="layer_折りたたみ２" style="display: none;position:relative;margin-left:15pt" class="close">サンプル本文ですぁじぇいぁｈｗふぃぅえｈｗふぉうへｗ
+</div>
+<br>2016-09-01 18:02
+                  </td>
+
+                  </tr>
+
+                  <tr>
+                  <td>3</td>
+                  <td>Ｆ枝</td>
+                  <td>わんだふぉー！</td>
+                 <td>
+<a href="javascript:void(0)" id="category_折りたたみ３" onclick="show('折りたたみ３');">あいう、、</a>
+<div id="layer_折りたたみ３" style="display: none;position:relative;margin-left:15pt" class="close">えお・かきくけこ・さしすせそ・たちつてと
+</div>             <br>2017-04-04 00:56    </td>
+
+                  </tr>
+
+                   <!--  <td><s:property value="roomName"/></td>
+                    <td><s:property value="comment"/></td>
+                    <td><a rel="leanModal"class="btn btn-primary wide-button deleteBtn" href="#div791">削除</a></td>
+                    <s:if test="password != ''">
+                        <s:hidden class="id" name="id" value="%{id}"/>
+                        <td><a rel="leanModal" class="btn btn-primary wide-button entryBtn" href="#div792">入室</a></td>
+                    </s:if>
+                    <s:else>
+                        <td>
+                            <s:form action="EntryChatRoomAction">
+                                <s:submit label="入室" type="button" class="btn btn-primary wide-button"/>
+                                <s:hidden class="id" name="id" value="%{id}"/>
+                            </s:form>
+                        </td>
+                    </s:else> -->
+                <!-- </tr> -->
+         <!--    </s:iterator> -->
+        </table>
+    </div>
+
+
+ <div class="center">
+    <div class="left">
+<h2>ブログタイトル弐</h2>
+</div>
+       <table class="table table-responsive table-bordered white">
+        <tr>
+                <th>コメント番号</th>
+
+                <th>名前</th>
+                <th>タイトル</th>
+              <th> 本文 </th>
+            </tr>
+
+
+<tr>
+                  <td>1</td>
+                  <td>Ａ太郎</td>
+                  <td>サイコーです</td>
+                  <td>
+<a href="javascript:void(0)" id="category_折りたたみ４" onclick="show('折りたたみ４');">rufhuirhfuihewuahfue</a>
+<div id="layer_折りたたみ４" style="display: none;position:relative;margin-left:15pt" class="close">rufhuirhfuihewuahfue
+ｇれｇれｗｇｒｔjwiogalriejwafilehiwaj/dojefoie
+</div><br>2010-05-05 20:45
+  </td>
+
+                  </tr>
+
+                  <tr>
+                  <td>2</td>
+                  <td>Ｂ子</td>
+                  <td>私は、、</td>
+                  <td>
+                  <a href="javascript:void(0)" id="category_折りたたみ５" onclick="show('折りたたみ５');">サンプル冒頭でｔｇｒｇれす、、、</a>
+<div id="layer_折りたたみ５" style="display: none;position:relative;margin-left:15pt" class="close">サンプル本文ですぁじぇいぁｈｗふｇれｇれぃぅえｈｗふぉうへｗ
+</div>
+<br>2011-07-07 16:09
+                  </td>
+
+                  </tr>
+
+                  <tr>
+                  <td>3</td>
+                  <td>Ｃ美</td>
+                  <td>すごいです！</td>
+                 <td>
+<a href="javascript:void(0)" id="category_折りたたみ６" onclick="show('折りたたみ６');">あいうｇてｇれｇｒ、、</a>
+<div id="layer_折りたたみ６" style="display: none;position:relative;margin-left:15pt" class="close">えお・かきくけこ・さしすせそ・たちつてとｇれｇれｇれ
+</div>           <br>2016-03-22 12:00      </td>
+
+                  </tr>
+
+             </table>
+    </div>
+
+
+
+
+  <!--   <s:if test="list.size() < 3">
+        <s:if test = "%{#session.email != null}">
+        <a href="<s:url action="ChatRoomCreateAction"/>">
+        <s:submit class="btn btn-primary wide-button" value="新規作成"/></a>
+        </s:if>
+        <s:else>
+        <p>部屋作成はログインユーザーのみ行なえます</p>
+        </s:else>
+    </s:if>
+
+    <div id="div791">
+        <s:form action="ChatRoomDeleteAction">
+        <s:if test = "%{#session.email != null}">
+            <h4>削除パスワードを入力して下さい</h4>
+            <p>
+                <s:textfield name="adminPassword" value=""/>
+            </p>
+            <s:submit class="btn btn-primary wide-button" value="削除"/>
+            </s:if>
+            <s:else>
+            <p>削除権限がありません</p>
+            </s:else>
+            <s:hidden class="inModal" name="id"/>
+
+            <a class="modal_close btn btn-primary wide-button">戻る</a>
+        </s:form>
+    </div>
+
+    <div id="div792">
+        <s:form action="EntryChatRoomAction">
+            <h4>パスワードを入力して下さい</h4>
+            <p><s:textfield id="textField" name="password" value=""/></p>
+            <s:submit class="btn btn-primary wide-button" value="入室" />
+            <s:hidden class="inModal" name="id"/>
+            <s:reset class="modal_close btn btn-primary wide-button" value="戻る"></s:reset>
+        </s:form>
+    </div>
+
+    <s:form action="ChatRoomInfoAction">
+        <s:submit label="更新" type="button"/>
+    </s:form> -->
+    <footer><jsp:include page="footer.jsp" /></footer>
+</body>

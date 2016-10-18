@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<LINK rel="stylesheet" type="text/css" href="css/style.css">
+<meta charset="UTF-8">
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/sendCheck.js"></script>
+<title>決裁編集</title>
+</head>
+<body>
+
+<h1 class="header">ヘッダー<h1>
+
+<h1>決裁手続き編集画面</h1>
+<br>
+<br>
+<table border="1"><tr><td>
+パスワード変更　<input type="text" placeholder="例：12345">　<input type="button" value="変更" class="button">
+<br>
+</td></tr></table>
+<br>
+<br>
+<h1>【決裁書】</h1>
+<table border="1"><tr><td>
+日付　<input type="text" placeholder="例：20160819">
+<br>
+決裁分類
+<br>
+<input type="radio" name="type" checked>実施決裁　<input type="radio" name="type">契約決裁
+<br>
+起案者　<input type="text" placeholder="IDを入力">
+<br>
+案件名　<input type="text" placeholder="例：ECサイト（openconnect）の構築の実施について">
+<br>
+概要　<input type="text" placeholder="例：受講生および受講生が行うプロジェクト等を管理するサイトを構築する。">
+<br>
+理由　<input type="text" placeholder="例：受講生の出席状況やプロジェクトの進捗状況の管理を電子化">
+<br>
+実施時期・実施機関
+<br>
+開始日　<input type="text" placeholder="例：20160901">
+<br>
+終了日　<input type="text" placeholder="例：20160926">
+<br>
+</td></tr></table>
+<br>
+<br>
+<br>
+<h1>【実施計画】</h1>
+<table border="1"><tr><td>
+資料
+<br>
+<input type="text" class="bigText" placeholder="・プロジェクト体制図・見積書">
+<br>
+</td></tr></table>
+<br>
+<br>
+<br>
+<h1>【見積書】</h1>
+<table border="1"><tr><td>
+人数　<input type="text" placeholder="半角数字で入力">人
+<br>
+</td></tr></table>
+<br>
+<br>
+<input type="button" value="登録" class="button">
+<br>
+<br>
+<input type="button" value="戻る" class="button">
+</body>
+</html>

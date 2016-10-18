@@ -1,0 +1,68 @@
+<!DOCTYPE>
+
+<html>
+<head>
+
+<title>書籍貸出状況一覧</title>
+
+<!-- cssの読み込み -->
+<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="header"><h1>ヘッダー</h1></div>
+<br>
+<h1>書籍貸出状況一覧</h1>
+<br>
+<br>
+書籍の検索<input type=“text” name=“○○○○">
+<input class="button" type="submit" value="検索">
+
+<table border=“1” cellspacing=“0”>
+<tr>
+
+<th>id</th>
+<th width="500">タイトル一覧</th>
+<th>貸出状況</th>
+<th>貸出日付</th>
+<th>借りた人：姓</th>
+<th>借りた人：名</th>
+</tr>
+
+<tr>
+<td>1</td><td>やさしいJAVA</td>
+<td><input type="text" value="貸出可" size=5></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>2</td><td>誰でもわかるJAVA</td>
+<td><input type="text" value="貸出不可" size=5></td>
+<td><input type="text" value="2016/08/28" size=6></td>
+<td><input type="text" value="田中" size=5></td>
+<td><input type="text" value="太郎" size=5></td>
+</tr>
+
+<tr>
+
+<td>3</td><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+</table>
+
+
+</br>
+貸出状況変更：<input class="button" type="submit" value="状況変更">
+<br>
+<input class="button" type="submit" value="戻る">
+</br>
+
+</body>
+</html>

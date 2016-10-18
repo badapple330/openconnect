@@ -1,0 +1,15 @@
+"study.jsp"及び"blog.jsp"にてclassの名前｢element｣
+の表記がheader.jspにも使われている為、
+他のclassに被らないように名前の変更をお願いします。
+
+変更名は任意で、主な変更箇所は、
+
+blog.jspは72行目
+
+study.jspは69行目
+
+paging.jsは11行目・43行目・44行目
+
+になります。
+
+*例(article)など※(現状被っていないと思われる。)

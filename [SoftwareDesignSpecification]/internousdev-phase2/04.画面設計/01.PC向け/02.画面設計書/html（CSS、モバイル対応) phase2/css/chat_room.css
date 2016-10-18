@@ -1,0 +1,28 @@
+h1{
+	text-align: center;
+}
+
+.chat{
+	float: left;
+}
+
+#black{
+	color: black;
+	cursor: pointer;
+	margin-right: 5px;
+	font-size: 70px;
+}
+
+#red{
+	color: red;
+	cursor: pointer;
+	margin-right: 5px;
+	font-size: 70px;
+}
+
+#green{
+	color: green;
+	cursor: pointer;
+	margin-right: 5px;
+	font-size: 70px;
+}
