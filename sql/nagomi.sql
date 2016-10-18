@@ -102,6 +102,7 @@ amount int not null,
 note varchar(100),
 payment_method enum('wiretransfer','credit') not null,
 payment_receive boolean default false,
+stay_day varchar(50),
 departure_day date not null,
 cancel_flg boolean default false,
 registration_date datetime not null,
@@ -297,13 +298,12 @@ payment_method,
 payment_receive,
 stay_day,
 departure_day,
-departure_date,
 cancel_flg,
 registration_date,
 updated_date
 )values
-('日帰り',1,9,1,"どこか遠くへ片道切符","往路のみです。",1,0,0,1,0,0,0,0,10000,"探さないでください",'wiretransfer',false,"","2016/10/07","2016/10/07 10:00",false,"2016/10/07 00:00", "2016/10/07 00:00"),
-('宿泊',2,9,2,"どこか遠くへ片道切符","往路のみです。",1,0,0,1,0,0,0,0,10000,"探さないでください",'wiretransfer',false,"","2016/10/07","2016/10/07 10:00",false,"2016/10/07 00:00", "2016/10/07 00:00"
+('日帰り',1,9,1,"どこか遠くへ片道切符","往路のみです。",1,0,0,1,0,0,0,0,10000,"探さないでください",'wiretransfer',false,"","2016/10/07",false,"2016/10/07 00:00", "2016/10/07 00:00"),
+('宿泊',2,9,2,"どこか遠くへ片道切符","往路のみです。",1,0,0,1,0,0,0,0,10000,"探さないでください",'wiretransfer',false,"","2016/10/07",false,"2016/10/07 00:00", "2016/10/07 00:00"
 );
 
 
@@ -314,7 +314,7 @@ room_1,
 room_2,
 room_3,
 room_4
-)values(
+)values(2,0,0,0,0
 );
 
 
