@@ -14,6 +14,6 @@
 			</ul>
 
 		</nav>
-		<small>Copyright © ProgrammerCollege、all rights reserved.</small>
+		<small>Copyright © 2014-2016 ProgrammerCollege、all rights reserved.</small>
 	</div>
 </footer>
