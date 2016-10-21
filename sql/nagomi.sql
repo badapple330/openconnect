@@ -42,20 +42,20 @@ img_address text not null,
 child_price int not null,
 adult_price int not null,
 day_off date,
-meeting_place varchar(30) not null,
+meeting_place varchar(50) not null,
 meeting_time varchar(10) not null,
 break_time varchar(10) not null,
-resting_place varchar(30) not null,
+resting_place varchar(50) not null,
 stroll_time varchar(10) not null,
-stroll_location varchar(30) not null,
+stroll_location varchar(50) not null,
 end_time varchar(10) not null,
-end_location varchar(30) not null,
+end_location varchar(50) not null,
 start_day date,
 end_day date,
 stay_day varchar(50),
 delete_flg boolean default false not null,
 registration_date datetime not null,
-updated_date datetime not null
+updated_date datetime
 );
 
 /*予約
@@ -84,7 +84,7 @@ updated_date datetime not null
  * 更新日 = updated_date
  */
 create table reserve(
-id int primary key not null primary key,
+id int primary key not null auto_increment,
 plan_category enum('日帰り','宿泊') not null,
 user_id int not null,
 plan_id int not null,
@@ -193,7 +193,7 @@ stay_day varchar(50),
 family_name varchar(50),
 given_name varchar(50),
 credit_name varchar(50),
-credit_number int,
+credit_number varchar(16),
 name_e varchar(50),
 security_code int,
 expiration_day varchar(25),
