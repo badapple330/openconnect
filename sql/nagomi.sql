@@ -207,7 +207,7 @@ foreign key(plan_id) references plan(plan_id) on delete cascade
 
 create table credit(
 credit_name enum('visa','mastercard','americanexpress'),
-credit_number int,
+credit_number varchar(16),
 name_e varchar(50),
 security_code int,
 expiration_day varchar(50),
