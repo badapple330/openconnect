@@ -100,7 +100,7 @@ room_3 int default 0,
 room_4 int default 0,
 amount int not null,
 note varchar(100),
-payment_method enum('wiretransfer','credit') not null,
+payment_method enum('口座振込み','クレジット') not null,
 payment_receive boolean default false,
 stay_day varchar(50),
 departure_day date not null,
@@ -229,6 +229,9 @@ password varchar(10) not null,
 admin_name varchar(50) not null
 );
 
+/* 日帰りプラン5件
+ */
+
 insert into plan(
 plan_category,
 plan_name,
@@ -236,11 +239,13 @@ overview,
 content,
 place,
 departure_location,
+place_time,
 img_address,
 child_price,
 adult_price,
-meeting_time,
+day_off,
 meeting_place,
+meeting_time,
 break_time,
 resting_place,
 stroll_time,
@@ -249,12 +254,64 @@ end_time,
 end_location,
 delete_flg,
 registration_date,
-updated_date,
-place_time
-)values
-('日帰り',"どこか遠くへ片道切符","往路のみです。","誰にも探されずひっそりと","新宿駅新南改札直結2分","バスタ新宿","image",0,10000,"09:00","バスタ新宿","12:30","食事処","13:30","お土産屋","19:00","バスタ新宿前",false,"2016/10/07 00:00:00","2016/10/07 00:00:00","1111"),
-('宿泊',"どこか遠くへ片道切符","往路のみです。","誰にも探されずひっそりと","新宿駅新南改札直結2分","バスタ新宿","image",0,10000,"09:00","バスタ新宿","12:30","食事処","13:30","お土産屋","19:00","バスタ新宿前",false,"2016/10/07 00:00:00","2016/10/07 00:00:00","1111"
+updated_date
+)values(
+'日帰り',"薬師日帰り温泉ツアー/Yakusi Day Onsen Tour",
+"薬師温泉旅籠で山里の幸と名湯を味わえます。/You can taste the famous spa and food of the mountain village in the Yakushi Onsen Hatago.",
+"山懐に佇む茅葺木の一軒宿。流れ落ちる滝を眼前に望む露天風呂は、開放感に満ちています。
+/Hotel thatched nestled in mountain recesses. Open-air bath overlooking the waterfall in front of the eyes are full of sense of openness.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Shinjuku Bus Terminal","9:00","TopBackGround3.jpg",
+2300,4600,
+"2016/11/02",
+"バスタ新宿/Shinjuku Bus Terminal","9:30","11:30","休憩/Break time","13:30","薬師温泉/Yakusi Onsen","19:00","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/07 00:00:00","2016/10/07 00:00:00"
+),(
+'日帰り',"草津日帰り温泉ツアー/Kusatu Day Onsen Tour",
+"日本三名泉に数えられる名湯です。/It is a famous onsen, which is counted in Japan's three famous onsen.",
+"日本有数の湧出量を誇り、温泉街中心にある湯畑や、熱の湯の湯もみは、草津ならではの風情ある景観です。
+/Proud of Japan's leading amount of discharge, water field and in the spa town center, hot water fir of the heat of the hot water is taste a landscape of Kusatsu unique.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Shinjuku Bus Terminal","8:30","TopBackGround4.jpg",
+2800,5600,
+"2016/11/13",
+"バスタ新宿/Shinjuku Bus Terminal","9:00","11:00","休憩/Break time","12:00","草津温泉/Kusatu Onsen","20:00","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/12 00:00:00","2016/10/12 00:00:00"
+),(
+'日帰り',"湯河原日帰り温泉ツアー/Yugawara Day Onsen Tour",
+"万葉集にも詠まれ、古くから知られた肌に優しい美肌の湯。/Also poems in Manyoshu, friendly beautiful skin Onsen of the skin to have been known for a long time.",
+"にっぽんの温泉100選から、誰もが知る有名な温泉ですが、風情が残る温泉街をじっくりと歩きながら歴史・文化に深く触れることで、今まで知らなかった温泉の魅力を再発見していきましょう！
+/ From best 100 Onsen of Japan, it is a famous hot spring that everyone knows. Taste is deeply touching thing in history and culture while walking carefully the remains spa town, let's re-discovered the Onsen of the charm did not know until now.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Shinjuku Bus Terminal","8:00","TopBackGround2.jpg",
+2600,5200,
+"2016/11/13",
+"バスタ新宿/Shinjuku Bus Terminal","8:30","10:30","湯河原温泉/Yugawara Onsen","12:30","昼食/Lunch time","19:00","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/08 00:00:00","2016/10/08 00:00:00"
+),(
+'日帰り',"鬼怒川日帰り温泉ツアー/Kinugawa Day Onsen Tour",
+"鬼怒川のせせらぎを望む温泉でくつろぎタイム/Time of relaxation at the Onsen overlooking the babbling Kinugawa.",
+"「傷は川治、火傷は滝（現鬼怒川温泉）」と称された、火傷への効能がある名湯です。日光もすぐ近くで観光も楽しめます。
+/Wounds Kawaji, burns Falls (Kinugawa Onsen) was called, it is the name hot water there is a potency to burn. Nikko also enjoy sightseeing in the immediate vicinity.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Shinjuku Bus Terminal","8:00","TopBackGround1.jpg",
+2700,5400,
+"2016/11/13",
+"バスタ新宿/Shinjuku Bus Terminal","9:00","12:00","休憩/Break time","12:30","鬼怒川温泉/Kinugawa Onsen","19:30","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/08 00:00:00","2016/10/08 00:00:00"
+),(
+'日帰り',"四万ダム日帰り温泉ツアー/Yonman Dam Day Onsen Tour",
+"古くより湯治場として栄えてきた温泉です。/It is a hot spring that has prospered as a watering place than old.",
+"古くより湯治場として栄えてきた温泉。四万（よんまん）の病に効く温泉ということから、四万温泉と名付けられたとも言われます。 当ツアーで訪れる「四万やまぐち館」は、300年あまりの歴史を誇り、露天風呂からは四万川が眺められます。豊かな自然の中で秋のひとときをお過ごしください。
+/It is a hot spring that has prospered as a watering place than old. From the fact that hot springs work to forty thousand of the disease, it is said to be named Yonman Onsen.
+ Visit in this tour, Yonman-Yamaguchi-kan is proud of the 300 plus years of history, from the open-air bath and overlooking the Shimagawa. Please spend the autumn of moments in the rich nature.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Busta Shinjuku","8:30","img_intro.jpg",
+4000,2000,
+"2016/11/13",
+"バスタ新宿/Shinjuku Bus Terminal","9:00","11:00","四万温泉/Yonman Onsen","12:30","昼食","19:30","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/08 00:00:00","2016/10/08 00:00:00"
 );
+
+
+
+/* 宿泊プラン5件
+ */
 
 insert into plan(
 plan_category,
@@ -263,23 +320,80 @@ overview,
 content,
 place,
 departure_location,
+place_time,
 img_address,
 child_price,
 adult_price,
-day_off,
+meeting_place,
+meeting_time,
+break_time,
+resting_place,
+stroll_time,
+stroll_location,
+end_time,
+end_location,
 start_day,
 end_day,
 stay_day,
 registration_date,
 updated_date
 )values(
+"宿泊","箱根湯本宿泊温泉ツアー/Hakoneyumoto Accommodation Onsen Tour",
+"箱根の玄関口であり、箱根旅行の拠点でもある箱根湯本温泉郷。/Is a gateway of Hakone, is a hub of Hakone travel Hakoneyumoto Onsen.",
+"箱根の玄関口であり、箱根旅行の拠点でもある箱根湯本温泉郷。約50件ものお土産店とお食事どころが軒を連ねる駅前商店街や、近年駅舎をリニューアルした箱根湯本駅は年間を通して多くの観光客でにぎわいます。11月3日に行われる箱根大名行列なども見どころです。
+/Is a gateway of Hakone, is a hub of Hakone travel Hakoneyumoto Onsen.
+ Station shopping district and the souvenir shops and dining far from also reviews about 50 enter one's eaves, in recent years Hakoneyumoto was renewed station building is crowded with many tourists throughout the year.
+ This interest is also such place is Hakone daimyo on November 3.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","新宿駅西口/Shinjuku Station West Exit","8:30","onsen1.jpg",
+4000,10000,
+"新宿駅西口/Shinjuku Station West Exit","9:00","12:00","箱根/Hakone","13:00","箱根湯本/Hakoneyumoto","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"1泊2日/2 days 1 night","2016/10/20 13:30","2016/10/20 13:30"
+),(
+"宿泊","湯河原宿泊温泉ツアー/Yugawara Accommodation Onsen Tour",
+"往復のセットでこの価格！神奈川県・湯河原温泉ツアー/This price round-trip of the set! Kanagawa Yugawara Onsen tour.",
+"お好きな時間の食事＆温泉入浴込でこのお値段！！お好きなお店でご当地グルメを味わえます！湯河原名物担々やきそばがおすすめ！！！
+/Your favorite time of the meal and Onsen bathing only at this price !!You can enjoy your local gourmet in your favorite shop!
+ Recommend Yugawara specialty Tantan noodles !!!",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","新宿駅西口/Shinjuku Station West Exit","8:30","onsen1.jpg",
+2000,7000,
+"新宿駅西口/Shinjuku Station West Exit","9:00","12:00","湯河原/Yugawara","13:00","湯河原/Yugawara","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"1泊2日/2 days 1 night","2016/10/20 13:30","2016/10/20 13:30"
+),(
+"宿泊","北海道、登別宿泊温泉ツアー/Hokkaido Noboribetu Accommodation Onsen Tour",
+"9種類ものバラエティ豊かな泉質が魅力。世界的にも珍しく「温泉のデパート」と呼ばれるほど。/9 kinds of variety of spring quality is attractive. Enough to be unusually referred to as a Onsen of department store in the world.",
+"古くは湯治場として病気、怪我の療養に利用され重宝された。湧き出る湯量は豊富で1日1万トン。9種類ものバラエティ豊かな泉質が魅力。世界的にも珍しく「温泉のデパート」と呼ばれるほど。美味しい海鮮丼も魅力。
+/Old disease as a watering place, has been found useful is used for the medical treatment of the injured. Spring hot water is rich in one day 1 million tons.
+ Enough to be unusually referred to as a Onsen of department store in the world. Delicious seafood bowl attractive.",
+"羽田駅徒歩1分/Haneda Station 1-minute walk","羽田空港第一ターミナル/Haneda Airport Terminal 1","8:30","onsen1.jpg",
+8000,20000,
+"羽田空港第一ターミナル/Haneda Airport Terminal 1","9:00","13:00","千歳空港/Chitose Airport","15:00","登別/Noboribetu","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"2泊3日/3 days 2 night","2016/10/20 13:30","2016/10/20 13:30"
+),(
+"宿泊","鬼怒川宿泊温泉ツアー/Kinugawa Accommodation Onsen Tour",
+"鬼怒川の絶景に佇む！鬼怒川の絶景を眺めながらご入浴は最高！/Nestled in the superb view of the Kinugawa! Your bathing while admiring the views of Kinugawa is the best!",
+"鬼怒川の絶景に佇む！鬼怒川の絶景を眺めながらご入浴は最高！夕食は個室料亭にて和食膳をお・も・て・な・し！
+/Nestled in the superb view of the Kinugawa! Your bathing while admiring the views of Kinugawa is the best! Dinner is a Japanese Zen  O・MO・TE・NA・SI at the private restaurant!",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","新宿駅西口/Shinjuku Station West Exit","8:30","onsen1.jpg",
+5000,13000,"新宿駅西口/Shinjuku Station West Exit","9:00","12:00","鬼怒川/Kinugawa","13:00","鬼怒川/Kinugawa","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"1泊2日/2 days 1 night","2016/10/20 13:30","2016/10/20 13:30"
+),(
+"宿泊","草津源泉かけ流し宿泊ツアー/Kusatsu Source Over Sink Accommodation Tour",
+"隣接の温泉館も含めて湯めぐりが楽しめます。/Hot water tour you can enjoy, including the adjacent hot springs museum.",
+" こだわりの源泉かけ流し！！源泉から引いた温泉水を湯船に供給し、あふれ出るお湯を循環させず排出している仕組みが「かけ流し」。温泉分析書に基づいて、加水・加温は温度調節以外は行わないという条件を満たす湯船を持っている宿を厳選しました。お湯自慢の宿ならではの贅沢なひとときをどうぞ。
+/Good sources over sink! ! Is supplied to the bathtub with hot spring water drawn from the source, a mechanism that has been discharged without circulating the hot water overflow is over flow.
+ Based on the Onsen analysis report, hydrolysis-warming has carefully selected the inn to have a meet bathtub that is not performed other than the temperature adjustment. Leave a luxurious moments of hot water unique pride of the inn.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","新宿駅西口/Shinjuku Station West Exit","8:30","onsen1.jpg",
+7000,18000,
+"新宿駅西口/Shinjuku Station West Exit","9:00","13:00","草津/Kusatsu","14:00","草津/Kusatsu","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"2泊3日/3 days 2 night","2016/10/20 13:30","2016/10/20 13:30"
 );
 
 
+/* 日帰り予約6件(3件キャンセル)
+ */
 
 insert into reserve(
 plan_category,
-id,
 user_id,
 plan_id,
 plan_name,
@@ -301,9 +415,120 @@ departure_day,
 cancel_flg,
 registration_date,
 updated_date
-)values
-('日帰り',1,9,1,"どこか遠くへ片道切符","往路のみです。",1,0,0,1,0,0,0,0,10000,"探さないでください",'wiretransfer',false,"","2016/10/07",false,"2016/10/07 00:00", "2016/10/07 00:00"),
-('宿泊',2,9,2,"どこか遠くへ片道切符","往路のみです。",1,0,0,1,0,0,0,0,10000,"探さないでください",'wiretransfer',false,"","2016/10/07",false,"2016/10/07 00:00", "2016/10/07 00:00"
+)values(
+"日帰り",2,1,"薬師日帰り温泉ツアー/Yakusi Day Onsen Tour",
+"薬師温泉旅籠で山里の幸と名湯を味わえます。/You can taste the famous spa and food of the mountain village in the Yakushi Onsen Hatago.",
+1,1,1,3,0,0,0,0,6900,
+"",
+'クレジット',false,"","2016/11/3",false,
+"2016/10/20 13:00","2016/10/20 13:30"
+),(
+"日帰り",3,2,"草津日帰り温泉ツアー/Kusatu Day Onsen Tour",
+"日本三名泉に数えられる名湯です。/It is a famous onsen, which is counted in Japan's three famous onsen.",
+1,1,1,3,0,0,0,0,8400,
+"バス酔いしやすい。/Easy to bus sickness.",
+'クレジット',false,"","2016/11/4",false,
+"2016/10/20 13:30","2016/10/20 13:30"
+),(
+"日帰り",5,3,"湯河原日帰り温泉ツアー/Yugawara Day Onsen Tour",
+"万葉集にも詠まれ、古くから知られた肌に優しい美肌の湯。/Also poems in Manyoshu, friendly beautiful skin Onsen of the skin to have been known for a long time.",
+1,1,1,3,0,0,0,0,7800,
+"",
+'口座振込み',false,"","2016/11/1",false,
+"2016/10/20 13:00","2016/10/20 13:30"
+),(
+"日帰り",1,5,"四万ダム日帰り温泉ツアー/Yonman Dam Day Onsen Tour",
+"古くより湯治場として栄えてきた温泉です。/It is a hot spring that has prospered as a watering place than old.",
+2,0,0,2,0,0,0,0,8000,
+"",
+'クレジット',false,"","2016/11/5",true,
+"2016/10/20 13:00","2016/10/20 13:30"
+),(
+"日帰り",3,2,"草津日帰り温泉ツアー/Kusatu Day Onsen Tour",
+"日本三名泉に数えられる名湯です。/It is a famous onsen, which is counted in Japan's three famous onsen.",
+1,1,1,3,0,0,0,0,8400,
+"バス酔いしやすい。/Easy to bus sickness.",
+'クレジット',false,"","2016/11/8",true,
+"2016/10/20 13:30","2016/10/20 13:30"
+),(
+"日帰り",4,4,"鬼怒川日帰り温泉ツアー/Kinugawa Day Onsen Tour",
+"鬼怒川の絶景に佇む！鬼怒川の絶景を眺めながらご入浴は最高！/Nestled in the superb view of the Kinugawa! Your bathing while admiring the views of Kinugawa is the best!",
+1,1,0,2,0,0,0,0,8100,
+"",
+'口座振込み',false,"","2016/11/10",true,
+"2016/10/20 13:00","2016/10/20 13:30"
+);
+
+
+
+/* 宿泊予約6件(3件キャンセル)
+ */
+
+insert into reserve(
+plan_category,
+user_id,
+plan_id,
+plan_name,
+overview,
+adult_num,
+child_num,
+baby_num,
+total_num,
+room_1,
+room_2,
+room_3,
+room_4,
+amount,
+note,
+payment_method,
+payment_receive,
+stay_day,
+departure_day,
+cancel_flg,
+registration_date,
+updated_date
+)values(
+"宿泊",1,1,"箱根湯本宿泊温泉ツアー/Hakoneyumoto Accommodation Onsen Tour",
+"箱根の玄関口であり、箱根旅行の拠点でもある箱根湯本温泉郷。/Is a gateway of Hakone, is a hub of Hakone travel Hakoneyumoto Onsen.",
+1,1,1,3,0,0,1,0,14000,
+"",
+'クレジット',false,"1泊2日/2 days 1 night","2016/11/3",false,
+"2016/10/20 13:00","2016/10/20 13:30"
+),(
+"宿泊",5,2,"湯河原宿泊温泉ツアー/Yugawara Accommodation Onsen Tour",
+"往復のセットでこの価格！神奈川県・湯河原温泉ツアー/This price round-trip of the set! Kanagawa Yugawara Onsen tour.",
+1,1,0,2,0,1,0,0,9000,
+"バス酔いしやすい。/Easy to bus sickness.",
+'クレジット',false,"1泊2日/2 days 1 night","2016/11/5",false,
+"2016/10/20 13:30","2016/10/20 13:30"
+),(
+"宿泊",3,3,"北海道、登別宿泊温泉ツアー/Hokkaido Noboribetu Accommodation Onsen Tour",
+"9種類ものバラエティ豊かな泉質が魅力。世界的にも珍しく「温泉のデパート」と呼ばれるほど。/9 kinds of variety of spring quality is attractive. Enough to be unusually referred to as a Onsen of department store in the world.",
+3,0,0,3,3,0,0,0,60000,
+"",
+'口座振込み',false,"2泊3日/3 days 2 night","2016/11/6",false,
+"2016/10/20 13:00","2016/10/20 13:30"
+),(
+"宿泊",4,5,"草津源泉かけ流し宿泊ツアー/Kusatsu Source Over Sink Accommodation Tour",
+"隣接の温泉館も含めて湯めぐりが楽しめます。/Hot water tour you can enjoy, including the adjacent hot springs museum.",
+1,0,0,1,1,0,0,0,18000,
+"",
+'クレジット',false,"2泊3日/3 days 2 night","2016/11/3",true,
+"2016/10/20 13:00","2016/10/20 13:30"
+),(
+"宿泊",2,2,"湯河原宿泊温泉ツアー/Yugawara Accommodation Onsen Tour",
+"往復のセットでこの価格！神奈川県・湯河原温泉ツアー/This price round-trip of the set! Kanagawa Yugawara Onsen tour.",
+1,2,0,3,0,0,1,0,11000,
+"バス酔いしやすい。/Easy to bus sickness.",
+'クレジット',false,"1泊2日/2 days 1 night","2016/11/5",true,
+"2016/10/20 13:30","2016/10/20 13:30"
+),(
+"宿泊",1,3,"鬼怒川宿泊温泉ツアー/Kinugawa Accommodation Onsen Tour",
+"鬼怒川の絶景に佇む！鬼怒川の絶景を眺めながらご入浴は最高！/Nestled in the superb view of the Kinugawa! Your bathing while admiring the views of Kinugawa is the best!",
+1,1,0,2,0,1,0,0,18000,
+"",
+'口座振込み',false,"1泊2日/2 days 1 night","2016/11/6",true,
+"2016/10/20 13:00","2016/10/20 13:30"
 );
 
 
