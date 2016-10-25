@@ -44,14 +44,14 @@
 }
 
 /* ’†ŠñÈ‚Ì‚b‚r‚r‚Å‚· */
-.nakayose {
+#terms p{
     width: 800px;
     margin: 0 auto;
     text-align: left;
 }
 
 /* ŒÅ’èheader‚Ì•¶‚Ì—]”’‚Å‚· */
-.contents{
+.contents p{
   padding-top:10px;
   margin-top:50px;
   height:auto;
