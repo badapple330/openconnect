@@ -229,7 +229,7 @@ password varchar(10) not null,
 admin_name varchar(50) not null
 );
 
-/* 日帰りプラン5件
+/* 日帰りプラン10件
  */
 
 insert into plan(
@@ -306,7 +306,59 @@ false,"2016/10/08 00:00:00","2016/10/08 00:00:00"
 "2016/11/13",
 "バスタ新宿/Shinjuku Bus Terminal","9:00","11:00","四万温泉/Yonman Onsen","12:30","昼食","19:30","バスタ新宿/Shinjuku Bus Terminal",
 false,"2016/10/08 00:00:00","2016/10/08 00:00:00"
+),(
+'日帰り',"万座日帰り温泉ツアー/Manza Day Onsen Tour",
+"綺麗な乳白色の源泉が、癒しをもたらします。/Beautiful milky white spa will heal you. ",
+"自然に抱かれた露天風呂は景色がよく最高です。
+/Wrapped in nature spa is so amazing view.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Shinjuku Bus Terminal","9:00","TopBackGround5.jpg",
+2300,4600,
+"2016/11/02",
+"バスタ新宿/Shinjuku Bus Terminal","9:30","11:30","休憩/Break time","13:30","万座温泉/Manza Onsen","19:00","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/07 00:00:00","2016/10/07 00:00:00"
+),(
+'日帰り',"猿ヶ京日帰り温泉ツアー/ Sarugakyou Day Onsen Tour",
+"辺り一面の紅葉を楽しめる温泉です。/You have fun spa with autumn leaves.",
+" ロープウェイで紅葉を楽しんだあとは、さらに紅葉の見える温泉でほっこりと
+/ You have fun ropeway with autamn leaves,after that you take beautiful spa",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Shinjuku Bus Terminal","8:30","onsen6.jpg",
+2800,5600,
+"2016/11/13",
+"バスタ新宿/Shinjuku Bus Terminal","9:00","11:00","休憩/Break time","12:00","猿ヶ京温泉/Sarugakyou Onsen","20:00","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/12 00:00:00","2016/10/12 00:00:00"
+),(
+'日帰り',"関所の湯日帰り温泉ツアー/Sekisyonoyu Day Onsen Tour",
+"独自に掘削された源泉を引いた温泉施設/Hot spring facilities minus their own excavated source.",
+"紅葉と滝のコントラストを楽しみながら、マイナスイオンをたっぷり浴びてリフレッシュ！
+/You have fun while enjoying the contrast of autumn leaves and waterfalls, refresh plenty bathed in negative ion.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Shinjuku Bus Terminal","8:00","onsen7.jpg",
+2600,5200,
+"2016/11/13",
+"バスタ新宿/Shinjuku Bus Terminal","8:30","10:30","関所温泉/Sekisyo Onsen","12:30","昼食/Lunch time","19:00","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/08 00:00:00","2016/10/08 00:00:00"
+),(
+'日帰り',
+"那須鹿の湯日帰り温泉ツアー/Nasushikanoyu Day Onsen Tour",
+"鹿の湯は約1300年続く静寂と癒しの湯。/Deer of hot water is about 1300 years followed by silence and healing of hot water.",
+"地産池消のランチプレート、那須の美味しさがギュッとつまった「なすべん」の昼食もお楽しみください！
+/Local production pond consumption of the lunch plate,Please also enjoy lunch in the taste of eggplant was jammed tightly NasuBen!",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Shinjuku Bus Terminal","8:00","onsen9.jpg",
+2700,5400,
+"2016/11/13",
+"バスタ新宿/Shinjuku Bus Terminal","9:00","12:00","休憩/Break time","12:30","那須温泉日帰り温泉ツアー/Nasuonsen Onsen","19:30","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/08 00:00:00","2016/10/08 00:00:00"
+),(
+'日帰り',"芦野温泉温泉ツアー/Ashino Day Onsen Tour",
+"広々とした木造の浴舎には名物の薬草の湯などがあります。/The spacious bath house of wooden and a hot water of specialty herbs.",
+"PH9.8のアルカリ性単純温泉でお肌ツルツル！
+/Your skin smooth with an alkaline simple hot spring of PH9.8!",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","バスタ新宿/Busta Shinjuku","8:30","onsen8.jpg",
+4500,2500,
+"2016/11/13",
+"バスタ新宿/Shinjuku Bus Terminal","9:00","11:00","芦野温泉/Ashino Onsen","12:30","昼食","19:30","バスタ新宿/Shinjuku Bus Terminal",
+false,"2016/10/08 00:00:00","2016/10/08 00:00:00"
 );
+
 
 
 
