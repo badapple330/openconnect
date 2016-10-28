@@ -438,133 +438,78 @@ updated_date
 7000,18000,
 "新宿駅西口/Shinjuku Station West Exit","9:00","13:00","草津/Kusatsu","14:00","草津/Kusatsu","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
 "2泊3日/3 days 2 night","2016/10/20 13:30","2016/10/20 13:30"
+),
+insert into plan(
+plan_category,
+plan_name,
+overview,
+content,
+place,
+departure_location,
+place_time,
+img_address,
+child_price,
+adult_price,
+meeting_place,
+meeting_time,
+break_time,
+resting_place,
+stroll_time,
+stroll_location,
+end_time,
+end_location,
+start_day,
+end_day,
+stay_day,
+registration_date,
+updated_date
+)values(
+'宿泊',"白骨温泉宿泊温泉ツアー/Shirahone Accommodation Onsen Tour",
+"山間にひっそりと佇む秘湯/Hidden spring, tucked away in the mountains.",
+"単純硫化水素の湯は湯口では透明に近く空気に触れると白濁になる。その効能は「三日入れば風邪をひかない」といわれる程。
+/Hot water of a simple hydrogen sulfide will be cloudy and touch the transparent near the air in the sprue. Its efficacy is enough to be referred to as the .",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","新宿駅西口/Shinjuku Station West Exit","8:30","onsen1.jpg",
+4500,10500,
+"新宿駅西口/Shinjuku Station West Exit","9:00","12:00","休憩/Break","13:00","白骨/Shirahone","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"1泊2日/2 days 1 night","2016/10/20 13:30","2016/10/20 13:30"
 ),(
-'宿泊',
-"玉造温泉　湯之助の宿/Inn tamatsukuri onsen YunoSuke",
-"玉造温泉の開祖であり代々その発展に力を注いできた長谷川家が、明治元年に開業した旅館。
-/Founder and is Hasegawa house that has for generations focused on the development of tamatsukuri onsen, was opened in Meiji Ryokan.",
-"日本随一と言われる約120坪の混浴大露天風呂は、源泉かけ流しで美肌効果が高いと評判です。
-/Mixed bathing large open-air bath of about 120 square meters, which is said to be Japan's premier is the reputation that there is a high beautiful skin effect at the source over sink.",
-"新宿駅徒歩2分/Shinjuku Station 2-minute walk",
-"バスタ新宿/Shinjuku Bus Terminal",
-"9:00",
-"onsen6.jpg",
-3300,
-6600,
-"2016/11/04",
-"バスタ新宿/Shinjuku Bus Terminal",
-"9:30",
-"10:30",
-"休憩/Break time",
-"12:30",
-"玉造温泉/Tamatsukuri onsen",
-"18:00",
-"バスタ新宿/Shinjuku Bus Terminal",
-false,
-"2016/10/26 00:00:00",
-"2016/10/26 00:00:00"
+'宿泊',"伊香保温泉宿泊温泉ツアー/Igaho Accommodation Onsen Tour",
+"大正浪漫の雰囲気が漂う温泉地/Hot springs Taisho romantic ambience.",
+"大正浪漫の雰囲気が漂い、ノスタルジックな気分にさせてくれる。のんびりそぞろ歩きがおすすめの温泉地。
+/It drifts atmosphere of Taisho Roman, makes us nostalgic mood. Hot springs of recommended leisurely stroll.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","新宿駅西口/Shinjuku Station West Exit","8:30","onsen3.jpg",
+3000,7000,
+"新宿駅西口/Shinjuku Station West Exit","9:00","12:00","休憩/Break","13:00","伊香保/Igaho","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"1泊2日/2 days 1 night","2016/10/20 13:30","2016/10/20 13:30"
 ),(
-'宿泊',
-"熱海倶楽部　迎賓館/Atami Club Guest House",
-"全室が源泉かけ流しの半露天風呂付の宿。
-/Inn with a semi-open-air bath of all rooms is poured over source.",
-"標高300メートルからの相模湾の絶景は一見の価値あり。お客さまの声2,000件以上を有する信頼の宿です。
-/Superb view of Sagami Bay from an altitude of 300 meters is worth a look. Is the inn of trust having the above review voice 2,000 customers.",
-"新宿駅徒歩3分/Shinjuku Station 3-minute walk",
-"バスタ新宿/Shinjuku Bus Terminal",
-"9:00",
-"onsen8",
-3100,
-7200,
-"2016/11/06",
-"バスタ新宿/Shinjuku Bus Terminal",
-"9:30",
-"11:30",
-"休憩/Break time",
-"13:30",
-"熱海倶楽部/Atami Club",
-"19:00",
-"バスタ新宿/Shinjuku Bus Terminal",
-false,
-"2016/10/26 00:00:00",
-"2016/10/26 00:00:00"
+'宿泊',"野沢宿泊温泉ツアー/Nozawa Accommodation Onsen Tour",
+"無料で利用できる１３の外湯あり/
+There are 13 outside hot water that can be used free of charge.",
+"多くの源泉が自噴しており効能豊かな天然温泉を温泉街に点在する１３ヵ所の外湯で楽しむことができる。/
+Many of the source can be enjoyed in the outside hot water of 13 places that dot the spa town's rich natural hot spring efficacy has been artesian.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","新宿駅西口/Shinjuku Station West Exit","8:30","onsen7.jpg",
+5000,13000,"新宿駅西口/Shinjuku Station West Exit","9:00","12:00","鬼怒川/Kinugawa","13:00","鬼怒川/Kinugawa","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"1泊2日/2 days 1 night","2016/10/20 13:30","2016/10/20 13:30"
 ),(
-'宿泊',
-"鳴子温泉　名湯の宿　鳴子ホテル/Inn Naruko Hotel Naruko Onsen name hot water",
-"3本の源泉により時間とともに七色に変わるという温泉を持つ「鳴子温泉　名湯の宿　鳴子ホテル」。
-/By three sources with a hot spring that change in seven colors with time inn Naruko Hotel Naruko Onsen name hot water",
-"とろりと肌にまとわりつくような湯の感覚はまるで美容液のよう。郷土色を生かしたみちのくバイキングも好評です。
-/Sensation of hot water, such as clinging to the skin To trolley like a cosmetic solution. Michinoku Viking by taking advantage of Kyodoshoku is also popular.",
-"新宿駅徒歩2分/Shinjuku Station 2-minute walk",
-"バスタ新宿/Shinjuku Bus Terminal",
-"9:00",
-"onsen9.jpg",
-4200,
-8500,
-"2016/11/11",
-"バスタ新宿/Shinjuku Bus Terminal",
-"9:20",
-"11:45",
-"休憩/Break time",
-"14:45",
-"鳴子温泉/Naruko Onsen",
-"20:30",
-"バスタ新宿/Shinjuku Bus Terminal",
-false,
-"2016/10/26 00:00:00",
-"2016/10/26 00:00:00"
+'宿泊',"日光湯元宿泊ツアー/Nikko yumoto Accommodation Tour",
+"日光の最奥地、湯の湖岸の国民保養温泉地/
+Most outback of sunlight, hot water of the shore of national resort spas.",
+"日光の最奥地、湯の湖岸の国民保養温泉地としての指定されている。豊富な硫黄泉は美人の湯として人気。
+/Most outback of sunlight, has been designated as a national recreation hot springs of the shores of the hot water. Rich sulfur fountain is popular as a hot water of beauty.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","新宿駅西口/Shinjuku Station West Exit","8:30","onsen5.jpg",
+7000,18000,
+"新宿駅西口/Shinjuku Station West Exit","9:00","13:00","草津/Kusatsu","14:00","日光湯元/Nikko yumoto","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"1泊2日/2 days 1 night","2016/10/20 13:30","2016/10/20 13:30"
 ),(
-'宿泊',
-"美ヶ原温泉　ホテル翔峰/Utsukushigahara Onsen Hotel Shoho",
-"国民保健温泉地にも指定されている美ヶ原温泉の宿「美ヶ原温泉　ホテル翔峰」。
-/National Health spa Utsukushigahara hot spring that has been designated as a destination inn Utsukushigahara Onsen Hotel Shoho.",
-"敷地内から湧き出る豊富な自家源泉を、5種類のお風呂で楽しめます。すべての客室から雄大な北アルプスや、城下町松本の風景が見渡せることも大きな魅力。
-/A rich self-source gushing from within the site, you can enjoy in the five types of the bath. All of the majestic and North Alps from the room, also a big attraction that the castle town of Matsumoto of landscape overlooking.",
-"新宿駅徒歩2分/Shinjuku Station 2-minute walk",
-"バスタ新宿/Shinjuku Bus Terminal",
-"8:00",
-"onsen10.jpg",
-2500,
-6000,
-"2016/11/11",
-"バスタ新宿/Shinjuku Bus Terminal",
-"9:30",
-"11:15",
-"休憩/Break time",
-"14:20",
-"鳴子温泉/Naruko Onsen",
-"20:00",
-"バスタ新宿/Shinjuku Bus Terminal",
-false,
-"2016/10/26 00:00:00",
-"2016/10/26 00:00:00"
-),(
-'宿泊',
-"源泉の一軒宿　ふくみつ華山温泉/One inn Fukumitsu Huashan hot spring sources",
-"2015年に大リニューアルを終えた「源泉の一軒宿　ふくみつ華山温泉」。
-/In 2015 it finished the large renewal one inn Fukumitsu Huashan hot spring source.",
-"和モダンの落ち着いた佇まい、食事の創作懐石は全室個室など、大人がゆったり楽しめることが人気です。源泉かけ流しの「あたたまりの湯」は、肌触りもなめらか。
-/Appearance calm of modern sum, creative multi-course meal, such as all rooms private, is a popular that adults comfortably enjoy. Source warm up of hot water in the sink over is, it feels also smooth.",
-"新宿駅徒歩2分/Shinjuku Station 2-minute walk",
-"バスタ新宿/Shinjuku Bus Terminal",
-"9:30",
-"onsen11.jpg",
-3500,
-7400,
-"2016/11/12",
-"バスタ新宿/Shinjuku Bus Terminal",
-"10:30",
-"12:15",
-"休憩/Break time",
-"15:30",
-"鳴子温泉/Naruko Onsen",
-"20:30",
-"バスタ新宿/Shinjuku Bus Terminal",
-false,
-"2016/10/26 00:00:00",
-"2016/10/26 00:00:00"
+'宿泊',"富士河口湖宿泊温泉ツアー/Hujikakou Accommodation Onsen Tour",
+"富士山と湖を眺めながら温泉が楽しめる/Hot spring can enjoy while overlooking the Mount Fuji and lake",
+"河口湖では「天水の湯」、「霊水の湯」、「芙蓉の湯」、「麗峰の湯」の4つの源泉が湧出しており、湖畔沿いには富士山と湖を眺めながら温泉が楽しめる露天風呂がある。
+/Tianshui of hot water in the Lake Kawaguchi, hot water of the miraculous water, Yu Furong, has been gushing four sources of hot water of Uraraho, hot spring can enjoy while overlooking the Mount Fuji and the lake along the lakeside open-air there is a bath.",
+"新宿駅徒歩2分/Shinjuku Station 2-minute walk","新宿駅西口/Shinjuku Station West Exit","8:30","onsen1.jpg",
+4500,10500,
+"新宿駅西口/Shinjuku Station West Exit","9:00","12:00","休憩/Break","13:00","富士河口/Hujikakou","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
+"1泊2日/2 days 1 night","2016/10/20 13:30","2016/10/20 13:30"
 );
-
 
 /* 日帰り予約6件(3件キャンセル)
  */
