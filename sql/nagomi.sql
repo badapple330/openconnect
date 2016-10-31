@@ -438,7 +438,8 @@ updated_date
 7000,18000,
 "新宿駅西口/Shinjuku Station West Exit","9:00","13:00","草津/Kusatsu","14:00","草津/Kusatsu","21:00","新宿駅西口/Shinjuku Station West Exit","2016/11/3","2016/12/4",
 "2泊3日/3 days 2 night","2016/10/20 13:30","2016/10/20 13:30"
-),
+);
+
 insert into plan(
 plan_category,
 plan_name,
