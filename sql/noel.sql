@@ -5,9 +5,12 @@ use noel;
 /*商品
  * プラン種別 = plan_category
  * 商品id = item_id
+ * ジャンル = item_category
  * 商品名称 = item_name
  * 単価 = plice
  * 詳細文 = overview
+ * サイズ = size
+ * アレルギー = allergy
  * 在庫 = count
  * 売上数 = earnings_count
  * 画像01 = img_address_001
@@ -21,9 +24,12 @@ use noel;
 
 create table item(
 item_id int not null primary key auto_increment,
+item_categoty varchar(50) not null,
 item_name varchar(100) not null,
 price int not null,
 overview text not null,
+size varchar(50) not null,
+allergy varchar(100) not null,
 count int not null,
 earnings_count int not null,
 img_address_001 text not null,
