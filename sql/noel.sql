@@ -11,7 +11,9 @@ use noel;
  * サイズ = size
  * アレルギー = allergy
  * 販売期間 = sales_period
- * 画像01 = img_address
+ * 画像01 = img_address_01
+ * 画像02 = img_address_02
+ * 画像03 = img_address_03
  * デリートフラグ = delete_flg
  * 登録日 = registration_date
  * 更新日 = updated_date
@@ -27,9 +29,9 @@ overview text not null,
 size varchar(50) not null,
 allergy varchar(100) not null,
 sales_period date not null,
-img_address_001 text not null,
-img_address_002 text not null,
-img_address_003 text not null,
+img_address_01 text not null,
+img_address_02 text not null,
+img_address_03 text not null,
 delete_flg boolean not null default false,
 registration_date datetime not null,
 updated_date datetime not null,
