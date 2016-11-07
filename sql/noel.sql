@@ -3,17 +3,15 @@ create database noel;
 use noel;
 
 /*商品
- * プラン種別 = plan_category
  * 商品id = item_id
- * ジャンル = item_category
  * 商品名称 = item_name
- * 単価 = plice
+ * ジャンル = item_category
+ * 価格 = price
  * 詳細文 = overview
  * サイズ = size
  * アレルギー = allergy
- * 在庫 = count
- * 売上数 = earnings_count
- * 画像01 = img_address_001
+ * 販売期間 = img_address_001
+ * 画像01 = sales_period
  * 画像02 = img_address_002
  * 画像03 = img_address_003
  * デリートフラグ = delete_flg
@@ -24,14 +22,13 @@ use noel;
 
 create table item(
 item_id int not null primary key auto_increment,
-item_categoty varchar(50) not null,
 item_name varchar(100) not null,
+item_category varchar(50) not null,
 price int not null,
 overview text not null,
 size varchar(50) not null,
 allergy varchar(100) not null,
-count int not null,
-earnings_count int not null,
+sales_period date not null,
 img_address_001 text not null,
 img_address_002 text not null,
 img_address_003 text not null,
@@ -42,9 +39,10 @@ company_name varchar(100) not null
 );
 
 /*購入
- * id = id
+ * 購入id = parchase_id
  * ユーザーid = user_id
  * 商品id = item_id
+ * 商品名称 = item_name
  * 注文数 = order_count
  * 合計金額 = amount
  * 購入日 = purchase_date
@@ -54,9 +52,10 @@ company_name varchar(100) not null
  */
 
 create table parchase(
-id int not null,
+parchase_id int not null,
 user_id int not null,
 item_id int not null,
+item_name varchar(100) not null,
 order_count int not null,
 amount int not null,
 purchase_date date not null,
@@ -70,14 +69,9 @@ foreign key(item_id) references item(item_id)
 /*カート
  * ユーザーID = user_id
  * 商品id = item_id
- * 姓（漢字） = family_name_kanji
- * 名（漢字） = given_name_kanji
- * 住所 = address
- * メールアドレス = email
- * 電話番号 = phone_number
  * 商品名称 = item_name
  * 注文数 = order_count
- * 単価 = price
+ * 価格 = price
  * 合計金額 = amount
  * 備考 = note
  */
@@ -85,11 +79,6 @@ foreign key(item_id) references item(item_id)
 create table cart(
 user_id int not null,
 item_id int not null default"0",
-family_name_kanji varchar(50) not null,
-given_name_kanji varchar(50) not null,
-address varchar(255) not null,
-email varchar(255) not null,
-phone_number varchar(255) not null,
 item_name varchar(100) not null,
 order_count int not null,
 price int not null,
@@ -116,11 +105,37 @@ create table credit(
 credit_name enum('visa','mastercard','americanexpress') not null,
 credit_number varchar(16) not null,
 name_e varchar(50) not null,
-security_code int not null,
+security_code int(4) not null,
 expiration_day datetime not null,
 corporation_name varchar(50) not null,
 use_day date not null,
 division varchar(10) not null,
-split int not null,
+split int,
+spend int not null
+);
+
+/*一時保管
+ * クレジットの種類 = credit_name
+ * クレジット番号 = credit_number
+ * 姓名（ローマ字） = name_e
+ * セキュリティコード = security_code
+ * 有効期限 = expiration_day
+ * ご利用店名 = corporation_name
+ * ご利用日 = use_day
+ * 支払い区分 = division
+ * 分割回数 = split
+ * ご利用金額 = spend
+ */
+
+create table work(
+credit_name enum('visa','mastercard','americanexpress') not null,
+credit_number varchar(16) not null,
+name_e varchar(50) not null,
+security_code int(4) not null,
+expiration_day datetime not null,
+corporation_name varchar(50) not null,
+use_day date not null,
+division varchar(10) not null,
+split int,
 spend int not null
 );
