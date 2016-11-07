@@ -10,10 +10,8 @@ use noel;
  * 詳細文 = overview
  * サイズ = size
  * アレルギー = allergy
- * 販売期間 = img_address_001
- * 画像01 = sales_period
- * 画像02 = img_address_002
- * 画像03 = img_address_003
+ * 販売期間 = sales_period
+ * 画像01 = img_address
  * デリートフラグ = delete_flg
  * 登録日 = registration_date
  * 更新日 = updated_date
