@@ -38,6 +38,28 @@ updated_date datetime not null,
 company_name varchar(100) not null
 );
 
+/*商品追加用
+ * 商品名称 = item_name
+ * ジャンル = item_category
+ * 価格 = price
+ * 詳細文 = overview
+ * サイズ = size
+ * アレルギー = allergy
+ * 販売期間 = sales_period
+ * 画像 = img_address
+ */
+
+create table item_add(
+item_name varchar(100) not null,
+item_category varchar(50) not null,
+price int not null,
+overview text not null,
+size varchar(50) not null,
+allergy varchar(100) not null,
+sales_period date not null,
+img_address text not null
+);
+
 /*購入
  * 購入id = parchase_id
  * ユーザーid = user_id
