@@ -43,6 +43,7 @@ company_name varchar(100) not null
  * ジャンル = item_category
  * 価格 = price
  * 詳細文 = overview
+ * 店舗名 = store_name
  * サイズ = size
  * アレルギー = allergy
  * 販売期間 = sales_period
