@@ -63,9 +63,9 @@ company_name varchar(100) not null,
 size varchar(50) not null,
 allergy varchar(100) not null,
 sales_period date not null,
-img_address_01 text not null,
-img_address_02 text not null,
-img_address_03 text not null
+img_address01 text not null,
+img_address02 text not null,
+img_address03 text not null
 );
 
 /*購入
