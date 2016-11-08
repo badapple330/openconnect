@@ -54,8 +54,8 @@ company_name varchar(100) not null
  */
 
 create table item_add(
-item_name varchar(100) not null,
 item_category varchar(50) not null,
+item_name varchar(100) not null,
 price int not null,
 overview text not null,
 store_name varchar(100) not null,
