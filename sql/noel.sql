@@ -39,15 +39,18 @@ company_name varchar(100) not null
 );
 
 /*商品追加用
- * 商品名称 = item_name
  * ジャンル = item_category
+ * 商品名称 = item_name
  * 価格 = price
  * 詳細文 = overview
  * 店舗名 = store_name
+ * 会社名 = company_name
  * サイズ = size
  * アレルギー = allergy
  * 販売期間 = sales_period
- * 画像 = img_address
+ * 画像01 = img_address01
+ * 画像02 = img_address02
+ * 画像03 = img_address03
  */
 
 create table item_add(
@@ -55,10 +58,14 @@ item_name varchar(100) not null,
 item_category varchar(50) not null,
 price int not null,
 overview text not null,
+store_name varchar(100) not null,
+company_name varchar(100) not null,
 size varchar(50) not null,
 allergy varchar(100) not null,
 sales_period date not null,
-img_address text not null
+img_address_01 text not null,
+img_address_02 text not null,
+img_address_03 text not null
 );
 
 /*購入
@@ -125,16 +132,16 @@ foreign key(item_id) references item(item_id)
  */
 
 create table credit(
-credit_name enum('visa','mastercard','americanexpress'),
-credit_number varchar(16),
-name_e varchar(50)l,
-security_code int(4),
-expiration_day datetime,
-corporation_name varchar(50),
-use_day date,
-division varchar(10),
+credit_name enum('visa','mastercard','americanexpress') not null,
+credit_number varchar(16) not null,
+name_e varchar(50) not null,
+security_code int(4) not null,
+expiration_day datetime not null,
+corporation_name varchar(50) not null,
+use_day date not null,
+division varchar(10) not null,
 split int,
-spend int
+spend int not null
 );
 
 /*一時保管
@@ -151,14 +158,14 @@ spend int
  */
 
 create table work(
-credit_name enum('visa','mastercard','americanexpress'),
-credit_number varchar(16),
-name_e varchar(50),
-security_code int(4),
-expiration_day datetime,
-corporation_name varchar(50),
-use_day date,
-division varchar(10),
+credit_name enum('visa','mastercard','americanexpress') not null,
+credit_number varchar(16) not null,
+name_e varchar(50) not null,
+security_code int(4) not null,
+expiration_day datetime not null,
+corporation_name varchar(50) not null,
+use_day date not null,
+division varchar(10) not null,
 split int,
-spend int
+spend int not null
 );
