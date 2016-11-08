@@ -169,3 +169,94 @@ division varchar(10) not null,
 split int,
 spend int not null
 );
+
+/*商品の追加１０件
+ * おすすめ＆スタンダード５件ずつ
+*/
+
+insert into item(
+item_name,
+item_category,
+price,
+overview,
+size,
+allergy,
+sales_period,
+img_address_01,
+img_address_02,
+img_address_03,
+delete_flg,
+registration_date,
+updated_date,
+company_name
+)values(
+"ルリシュワール/Lulishwar","お勧めケーキ/Recommendation Cake","5800",
+"ふわふわスポンジ、乳味ゆたかな生クリームと苺、それぞれのおいしさを引き立合うバランスで仕上げました。
+/Fluffy sponge, milky cream Fried cream and strawberries, finished in balance that attracts each other's taste.",
+"直径195mm/Diameter 195 mm","卵,牛乳,小麦粉/egg,milk,flour","2016/11/08",
+"cake.jpg","cake2.jpg","cake3.jpg",
+false,"2016/11/08 11:29:00","2016/11/08 11:29:00","直樹製菓/Naoki Confectionery"
+),(
+"ブラン・アンジュ/Bran Anjou","お勧めケーキ/Recommendation Cake","5500",
+"新鮮な上質のクリームチーズを数種、オリジナルレシピでブレンド。
+/Several fresh, fine cream cheese, blended with original recipe.",
+"直径210mm/Diameter 210 mm","卵,牛乳/egg,milk","2016/11/09",
+"cheese.jpg","cheese2.jpg","cheese3.jpg",
+false,"2016/11/08 13:19:00","2016/11/08 13:28:00","森長製菓株式会社/Morinaga Seika Co., Ltd."
+),(
+"フォレ・ノワール/Fore Noir","お勧めケーキ/Recommendation Cake","4500",
+"2種類のアイスをチョコクリームでコーティング。
+/Coat 2 types of ice with chocolate cream.",
+"直径210mm/Diameter 210 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/08",
+"choco.jpg","choco2.jpg","choco3.jpg",
+false,"2016/11/08 14:29:00","2016/11/08 14:38:00","シュトレーゼ/Chaterase"
+),(
+"ベルド・ソリレ/Berd Sorile","お勧めケーキ/Recommendation Cake","4800",
+"チーズタルトに、秋冬にふさわしいウィリアム・ポワールやリンゴのプレザーブ（シロップ煮）など、8種類のフルーツを飾った華やかなタルトです。
+/It is a gorgeous tart decorating eight kinds of fruits, including cheese tart, William Poir suitable for fall and winter and apple's preserve (syrup boiled).",
+"直径200mm/Diameter 200 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/08",
+"fruit.jpg","fruit2.jpg","fruit3.jpg",
+false,"2016/11/08 16:29:00","2016/11/08 16:38:00","ジャンヌアルベル/Jeanne Albert"
+),(
+"モンブラン/Mont Blanc","お勧めケーキ/Recommendation Cake","5900",
+"アーモンドの入ったスポンジにラム酒のシロップを染み込ませ、濃厚なマロンクリームの内側には、生クリーム、バニラビーンズの入ったたっぷりのカ スタード、マロングラッセ、更にマロンクリームを閉じ込めた、モンブラン好きにはたまらないスイーツです。
+/Immersed a sponge containing almonds with a syrup of rum, and inside the rich marron cream was confined a plenty of mustard with fresh cream, vanilla beans, malon glace and further malon cream, like Mont Blanc It is irresistible sweets.",
+"直径165mm/Diameter 165 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/08",
+"montblanc.jpg","montblanc2.jpg","montblanc3.jpg",
+false,"2016/11/08 15:29:00","2016/11/08 15:38:00","アディドス/Adidos"
+),(
+"ルリシュワール/Lulishwar","スタンダードケーキ/Standard Cake","5800",
+"ふわふわスポンジ、乳味ゆたかな生クリームと苺、それぞれのおいしさを引き立合うバランスで仕上げました。
+/Fluffy sponge, milky cream Fried cream and strawberries, finished in balance that attracts each other's taste.",
+"直径195mm/Diameter 195 mm","卵,牛乳,小麦粉/egg,milk,flour","2016/11/08",
+"cake.jpg","cake2.jpg","cake3.jpg",
+false,"2016/11/08 11:29:00","2016/11/08 11:29:00","直樹製菓/Naoki Confectionery"
+),(
+"ブラン・アンジュ/Bran Anjou","スタンダードケーキ/Standard Cake","5500",
+"新鮮な上質のクリームチーズを数種、オリジナルレシピでブレンド。
+/Several fresh, fine cream cheese, blended with original recipe.",
+"直径210mm/Diameter 210 mm","卵,牛乳/egg,milk","2016/11/09",
+"cheese.jpg","cheese2.jpg","cheese3.jpg",
+false,"2016/11/08 13:19:00","2016/11/08 13:28:00","森長製菓株式会社/Morinaga Seika Co., Ltd."
+),(
+"フォレ・ノワール/Fore Noir","スタンダードケーキ/Standard Cake","4500",
+"2種類のアイスをチョコクリームでコーティング。
+/Coat 2 types of ice with chocolate cream.",
+"直径210mm/Diameter 210 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/08",
+"choco.jpg","choco2.jpg","choco3.jpg",
+false,"2016/11/08 14:29:00","2016/11/08 14:38:00","シュトレーゼ/Chaterase"
+),(
+"ベルド・ソリレ/Berd Sorile","スタンダードケーキ/Standard Cake","4800",
+"チーズタルトに、秋冬にふさわしいウィリアム・ポワールやリンゴのプレザーブ（シロップ煮）など、8種類のフルーツを飾った華やかなタルトです。
+/It is a gorgeous tart decorating eight kinds of fruits, including cheese tart, William Poir suitable for fall and winter and apple's preserve (syrup boiled).",
+"直径200mm/Diameter 200 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/08",
+"fruit.jpg","fruit2.jpg","fruit3.jpg",
+false,"2016/11/08 16:29:00","2016/11/08 16:38:00","ジャンヌアルベル/Jeanne Albert"
+),(
+"モンブラン/Mont Blanc","スタンダードケーキ/Standard Cake","5900",
+"アーモンドの入ったスポンジにラム酒のシロップを染み込ませ、濃厚なマロンクリームの内側には、生クリーム、バニラビーンズの入ったたっぷりのカ スタード、マロングラッセ、更にマロンクリームを閉じ込めた、モンブラン好きにはたまらないスイーツです。
+/Immersed a sponge containing almonds with a syrup of rum, and inside the rich marron cream was confined a plenty of mustard with fresh cream, vanilla beans, malon glace and further malon cream, like Mont Blanc It is irresistible sweets.",
+"直径165mm/Diameter 165 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/08",
+"montblanc.jpg","montblanc2.jpg","montblanc3.jpg",
+false,"2016/11/08 15:29:00","2016/11/08 15:38:00","アディドス/Adidos"
+);
