@@ -125,16 +125,16 @@ foreign key(item_id) references item(item_id)
  */
 
 create table credit(
-credit_name enum('visa','mastercard','americanexpress') not null,
-credit_number varchar(16) not null,
-name_e varchar(50) not null,
-security_code int(4) not null,
-expiration_day datetime not null,
-corporation_name varchar(50) not null,
-use_day date not null,
-division varchar(10) not null,
+credit_name enum('visa','mastercard','americanexpress'),
+credit_number varchar(16),
+name_e varchar(50)l,
+security_code int(4),
+expiration_day datetime,
+corporation_name varchar(50),
+use_day date,
+division varchar(10),
 split int,
-spend int not null
+spend int
 );
 
 /*一時保管
@@ -151,14 +151,14 @@ spend int not null
  */
 
 create table work(
-credit_name enum('visa','mastercard','americanexpress') not null,
-credit_number varchar(16) not null,
-name_e varchar(50) not null,
-security_code int(4) not null,
-expiration_day datetime not null,
-corporation_name varchar(50) not null,
-use_day date not null,
-division varchar(10) not null,
+credit_name enum('visa','mastercard','americanexpress'),
+credit_number varchar(16),
+name_e varchar(50),
+security_code int(4),
+expiration_day datetime,
+corporation_name varchar(50),
+use_day date,
+division varchar(10),
 split int,
-spend int not null
+spend int
 );
