@@ -11,9 +11,9 @@ use noel;
  * サイズ = size
  * アレルギー = allergy
  * 販売期間 = sales_period
- * 画像01 = img_address_01
- * 画像02 = img_address_02
- * 画像03 = img_address_03
+ * 画像001 = img_address001
+ * 画像002 = img_address002
+ * 画像003 = img_address003
  * デリートフラグ = delete_flg
  * 登録日 = registration_date
  * 更新日 = updated_date
@@ -29,43 +29,13 @@ overview text not null,
 size varchar(50) not null,
 allergy varchar(100) not null,
 sales_period date not null,
-img_address_01 text not null,
-img_address_02 text not null,
-img_address_03 text not null,
+img_address001 text not null,
+img_address002 text not null,
+img_address003 text not null,
 delete_flg boolean not null default false,
 registration_date datetime not null,
 updated_date datetime not null,
 company_name varchar(100) not null
-);
-
-/*商品追加用
- * ジャンル = item_category
- * 商品名称 = item_name
- * 価格 = price
- * 詳細文 = overview
- * 店舗名 = store_name
- * 会社名 = company_name
- * サイズ = size
- * アレルギー = allergy
- * 販売期間 = sales_period
- * 画像01 = img_address01
- * 画像02 = img_address02
- * 画像03 = img_address03
- */
-
-create table item_add(
-item_category varchar(50) not null,
-item_name varchar(100) not null,
-price int not null,
-overview text not null,
-store_name varchar(100) not null,
-company_name varchar(100) not null,
-size varchar(50) not null,
-allergy varchar(100) not null,
-sales_period date not null,
-img_address01 text not null,
-img_address02 text not null,
-img_address03 text not null
 );
 
 /*購入
@@ -182,9 +152,9 @@ overview,
 size,
 allergy,
 sales_period,
-img_address_01,
-img_address_02,
-img_address_03,
+img_address001,
+img_address002,
+img_address003,
 delete_flg,
 registration_date,
 updated_date,
