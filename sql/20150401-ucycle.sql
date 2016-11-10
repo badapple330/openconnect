@@ -1,4 +1,5 @@
-drop database ucycle;
+set names utf8;
+drop database if exists ucycle;
 create database if not exists ucycle;
 use ucycle;
 

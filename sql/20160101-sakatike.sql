@@ -1,4 +1,4 @@
-
+set names utf8;
 drop database if exists ticket;
 create database if not exists ticket;
 use ticket;

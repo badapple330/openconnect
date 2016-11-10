@@ -1,3 +1,4 @@
+set names utf8;
 drop database if exists tbox;
 
 create database tbox default character set utf8;

@@ -1,3 +1,4 @@
+set names utf8;
 		drop database if exists rakugo;
 		create database rakugo;
 		use rakugo;

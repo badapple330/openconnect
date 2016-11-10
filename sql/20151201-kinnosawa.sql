@@ -1,3 +1,4 @@
+set names utf8;
 drop database if exists kinnosawa;
 create database kinnosawa;
 use kinnosawa;

@@ -16,59 +16,125 @@ git clone -b master https://github.com/internousdevwork/fcblogin
 git clone -b master https://github.com/internousdevwork/rate-exchanger
 git clone -b master https://github.com/internousdevwork/creditcard
 
+# -----------------------------------------------------------------------------
 # 201407
+# -----------------------------------------------------------------------------
+# 某中小企業向け 書籍管理サイト
 git clone -b master https://github.com/internousdevwork/bookmanager07
+
+# 某ショッピングサイト
 git clone -b master https://github.com/internousdevwork/shop
+
+# -----------------------------------------------------------------------------
 # 201408
+# -----------------------------------------------------------------------------
+# <成果物なし>
+
+# -----------------------------------------------------------------------------
 # 201409
+# -----------------------------------------------------------------------------
+# 某大手書店向け 書籍管理サイト
 git clone -b master https://github.com/internousdevwork/bookmanager09
+
+# 某通販企業向けショッピングモールサイト
+# <凍結>
+
+# -----------------------------------------------------------------------------
 # 201410
+# -----------------------------------------------------------------------------
+# 
 git clone -b master https://github.com/internousdevwork/ec_b_10
+
+# -----------------------------------------------------------------------------
 # 201411
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/EC_11a
 git clone -b master https://github.com/internousdevwork/EC_11
+
+# -----------------------------------------------------------------------------
 # 201412
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/attendance_12
 git clone -b phase2 https://github.com/internousdevwork/chikezon
+# -----------------------------------------------------------------------------
 # 201501
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/sakatike
 git clone -b master https://github.com/internousdevwork/oden
 git clone -b phase2 https://github.com/internousdevwork/uesto
+# -----------------------------------------------------------------------------
 # 201502
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/tourticket
 git clone -b phase2 https://github.com/internousdevwork/solare
+# -----------------------------------------------------------------------------
 # 201503
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/worldtravel
 git clone -b master https://github.com/internousdevwork/gpscoffee
+# -----------------------------------------------------------------------------
 # 201504
+# -----------------------------------------------------------------------------
 git clone -b phase2 https://github.com/internousdevwork/lapoupee
 git clone -b master https://github.com/internousdevwork/ucycle
+# -----------------------------------------------------------------------------
 # 201505
+# -----------------------------------------------------------------------------
 git clone -b phase2 https://github.com/internousdevwork/livetickets
 git clone -b phase2 https://github.com/internousdevwork/baseballticket
 git clone -b phase3 https://github.com/internousdevwork/ichigoichie
+# -----------------------------------------------------------------------------
 # 201506
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
 # 201507
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/k-home
+
+# -----------------------------------------------------------------------------
 # 201508
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/aquarium
+
+# -----------------------------------------------------------------------------
 # 201509
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/lereve
 git clone -b master https://github.com/internousdevwork/shizuku
+
+# -----------------------------------------------------------------------------
 # 201510
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/footprinter
 git clone -b master https://github.com/internousdevwork/ukiukitopia
+
+# -----------------------------------------------------------------------------
 # 201511
+# -----------------------------------------------------------------------------
 git clone -b phase2 https://github.com/internousdevwork/cinemajapan
 git clone -b master https://github.com/internousdevwork/chocotime
+
+# -----------------------------------------------------------------------------
 # 201512
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/rakuraku
 git clone -b master https://github.com/internousdevwork/kinnosawa
+
+# -----------------------------------------------------------------------------
 # 201601
+# -----------------------------------------------------------------------------
 git clone -b master https://github.com/internousdevwork/mackeypark
 git clone -b master https://github.com/internousdevwork/kuruyama
+
+# -----------------------------------------------------------------------------
 # 201602
+# -----------------------------------------------------------------------------
+# 一般消費者向け 舞台チケット予約サイト
 git clone -b master https://github.com/internousdevwork/gekidanroadshow
+
+# 
+git clone -b phase2 https://github.com/internousdevwork/ichigoichie
 
 git clone -b master https://github.com/internousdevwork/visa
 

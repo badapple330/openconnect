@@ -1,3 +1,4 @@
+set names utf8;
 drop database if exists live;
 create database if not exists live;
 use live;

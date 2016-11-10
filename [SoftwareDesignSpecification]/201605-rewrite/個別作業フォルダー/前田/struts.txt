@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="com.internousdev.rewrite.action" extends="struts-default">
+
+
+
+		<action name="LoginAction" class="com.internousdev.rewrite.action.LoginAction"
+			method="execute">
+			<result name="success">/main.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
+
+				<action name="UserApplyAction" class="com.internousdev.rewrite.action.UserApplyAction"
+			method="execute">
+			<result name="success">/main.jsp</result>
+			<result name="error">/user_apply.jsp</result>
+		</action>
+
+        <action name="UserInfoEditAction" class="com.internousdev.rewrite.action.UserInfoEditAction"
+			method="execute">
+			<result name="success">/.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
+
+
+		<action name="UserInfoEditAction" class="com.internousdev.rewrite.action.UserInfoEditAction"
+			method="execute">
+			<result name="success">/user_info_edit.jsp</result>
+			<result name="error">/user_info_edit.jsp</result>
+		</action>
+
+
+
+		<!--フッター（footer.jsp） -->
+		<!--①フッターから、「About Us」ボタンで会社概要画面へ遷移 -->
+		<action name="GoAboutUsAction" class="com.internousdev.rewrite.action.JustGoAction"
+			method="execute">
+			<result name="success">about_us.jsp</result>
+		</action>
+
+		<!--②管理人画面から、「Contact Us」ボタンでお問い合わせ画面へ遷移 -->
+		<action name="GoContactUsAction" class="com.internousdev.rewrite.action.JustGoAction"
+			method="execute">
+			<result name="success">contact_us.jsp</result>
+		</action>
+
+		<!-- 前田ちゃんのところ -->
+		<action name="AppReviewAction" class="com.internousdev.rewrite.action.AppReviewAction"
+			method="execute">
+			<result name="success">/test_review.jsp</result>
+			<result name="error">/test_review.jsp</result>
+		</action>
+
+
+		<action name="UserReviewAction" class="com.internousdev.rewrite.action.UserReviewAction"
+			method="execute">
+			<result name="success">/user_review.jsp</result>
+			<result name="error">/user_review.jsp</result>
+		</action>
+
+		<action name="UserReviewOldAction"
+			class="com.internousdev.rewrite.action.UserReviewOldAction" method="execute">
+			<result name="success">/user_review.jsp</result>
+			<result name="error">/user_review.jsp</result>
+		</action>
+
+		<action name="DeleteReviewAction"
+			class="com.internousdev.rewrite.action.DeleteReviewAction" method="execute">
+			<result name="success">/user_review.jsp</result>
+			<result name="error">/user_review.jsp</result>
+		</action>
+
+
+		<action name="AdminReviewAction"
+			class="com.internousdev.rewrite.action.AdminReviewAction" method="execute">
+			<result name="success">/admin_review.jsp</result>
+			<result name="error">/admin_review.jsp</result>
+		</action>
+
+
+		<action name="AdminReviewTextAction"
+			class="com.internousdev.rewrite.action.AdminReviewTextAction" method="execute">
+			<result name="success">/admin_review.jsp</result>
+			<result name="error">/admin_review.jsp</result>
+		</action>
+
+		<action name="DeleteAdminReviewAction"
+			class="com.internousdev.rewrite.action.DeleteAdminReviewAction"
+			method="execute">
+			<result name="success">/admin_review.jsp</result>
+			<result name="error">/admin_review.jsp</result>
+		</action>
+
+		<!--//About_usページ(about_us.jsp) -->
+		<!--//About_us画面から、「rewrite」ボタンで、メインページへ遷移 -->
+		<action name="AboutUsAction" class="com.internousdev.rewrite.action.JustGoAction"
+			method="execute">
+			<result name="success">main.jsp</result>
+		</action>
+
+		<!--//管理人ページ（admin_top.jsp） -->
+		<!--//1 管理人画面から、「ユーザー管理」ボタンでユーザー管理画面へ遷移 -->
+		<action name="AdminUserAction" class="com.internousdev.rewrite.action.JustGoAction"
+			method="execute">
+			<result name="success">admin_user.jsp</result>
+		</action>
+
+		<!--//2 管理人画面から、「レビュー管理」ボタンでレビュー管理画面へ遷移 -->
+		<action name="GoAdminReviewAction" class="com.internousdev.rewrite.action.JustGoAction"
+			method="execute">
+			<result name="success">admin_review.jsp</result>
+		</action>
+
+		<!--//3 管理人画面から、「サイト記事管理」ボタンでサイト記事管理画面へ遷移 -->
+		<action name="AdminArticleAction" class="com.internousdev.rewrite.action.JustGoAction"
+			method="execute">
+			<result name="success">admin_article.jsp</result>
+		</action>
+
+
+		<!--//ユーザー画面（user_top.jsp） -->
+
+		<!--//1ユーザー画面から、「登録内容変更」ボタンで登録内容変更画面へ遷移 -->
+		<action name="UserInfoEditAction" class="com.internousdev.rewrite.action.JustGoAction"
+			method="execute">
+			<result name="success">user_info_edit.jsp</result>
+		</action>
+
+		<!--//2ユーザー画面から「レビュー履歴変更」ボタンでレビュー履歴画面へ遷移 -->
+		<action name="GoUserReviewAction" class="com.internousdev.rewrite.action.JustGoAction"
+			method="execute">
+			<result name="success">user_review.jsp</result>
+		</action>
+
+		<!--//3ユーザー画面から「退会」ボタンで登録情報を削除して、メイン画面へ遷移 -->
+		<action name="UserWithdrawalAction"
+			class="com.internousdev.rewrite.action.UserWithdrawalAction" method="execute">
+			<result name="success">/main.jsp</result>
+			<result name="error">/user_top.jsp</result>
+		</action>
+		<!-- //４ユーザー画面からログアウト -->
+		<action name="GoLogoutAction" class="com.internousdev.rewrite.action.JustGoAction"
+			method="execute">
+			<result name="success">main.jsp</result>
+			<result name="error">user_top.jsp</result>
+		</action>
+
+		<action name="SubmitContactAction" class="com.internousdev.rewrite.action.ContactUsAction"
+			method="execute">
+			<result name="success">main.jsp</result>
+			<result name="error">user_top.jsp</result>
+		</action>
+
+
+
+		<!--伊藤担当ここまで -->
+
+
+
+	</package>
+</struts>

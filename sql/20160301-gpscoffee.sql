@@ -1,5 +1,4 @@
 set names utf8;
-
 drop database if exists gpscoffee;
 create database gpscoffee default character set utf8;
 use gpscoffee;
@@ -7,60 +6,60 @@ use gpscoffee;
 /* プレミアム会員情報テーブル	*/
 drop table if exists premium_membership;
 create table premium_membership(
-	id int(4) primary key auto_increment comment'アカウント番号',
-	premium_id varchar(30) unique comment'プレミアムID',
-	premium_pass varchar(30) comment'プレミアムパスワード',
-	name varchar(30) comment'名前',
-	phone_number varchar(30) comment'電話番号',
-	register_date timestamp default current_timestamp comment'登録日時',
-	update_date timestamp comment'更新日時',
-	delete_date timestamp comment'削除日時'
+	id int(4) primary key auto_increment comment 'アカウント番号',
+	premium_id varchar(30) unique comment 'プレミアムID',
+	premium_pass varchar(30) comment 'プレミアムパスワード',
+	name varchar(30) comment '名前',
+	phone_number varchar(30) comment '電話番号',
+	register_date timestamp default current_timestamp comment '登録日時',
+	update_date timestamp comment '更新日時',
+	delete_date timestamp comment '削除日時'
 );
 
 
 /* コーヒー豆情報テーブル */
 drop table if exists bean_goods;
 create table bean_goods(
-	goods_id int(3) primary key comment'商品ID',
-	bean_name varchar(30) unique comment'コーヒー豆の種類',
-	direct_from varchar(30) comment'産地',
-	price int(4) comment'グラム単価',
-	bitterness int(3) comment'苦味の度合い',
-	sourness int(3) comment'酸味の度合い',
-	depth int(3) comment'コクの度合い',
-	image_url varchar(255) comment'画像URL',
-	premium_image_url varchar(255) comment'プレミアム画像URL',
-	description varchar(500) comment'コーヒー豆の説明'
+	goods_id int(3) primary key comment '商品ID',
+	bean_name varchar(30) unique comment 'コーヒー豆の種類',
+	direct_from varchar(30) comment '産地',
+	price int(4) comment 'グラム単価',
+	bitterness int(3) comment '苦味の度合い',
+	sourness int(3) comment '酸味の度合い',
+	depth int(3) comment 'コクの度合い',
+	image_url varchar(255) comment '画像URL',
+	premium_image_url varchar(255) comment 'プレミアム画像URL',
+	description varchar(500) comment 'コーヒー豆の説明'
 );
 
 /* 店舗情報テーブル */
 drop table if exists store_list;
 create table store_list(
-	shop_id int(3) primary key comment'店舗ID',
-	shop_name varchar(50) comment'店舗名',
-	zipcode varchar(8) comment'店舗郵便番号',
-	shop_address varchar(255) comment'店舗住所',
-	shop_number varchar(30) comment'店舗電話番号',
-	administrator_id varchar(30) comment'管理用ID',
-	administrator_pass varchar(30) comment'管理用パスワード',
-	administrator_name varchar(255) comment'管理者名'
+	shop_id int(3) primary key comment '店舗ID',
+	shop_name varchar(50) comment '店舗名',
+	zipcode varchar(8) comment '店舗郵便番号',
+	shop_address varchar(255) comment '店舗住所',
+	shop_number varchar(30) comment '店舗電話番号',
+	administrator_id varchar(30) comment '管理用ID',
+	administrator_pass varchar(30) comment '管理用パスワード',
+	administrator_name varchar(255) comment '管理者名'
 );
 
 /* 店舗商品テーブル */
 drop table if exists store_goods;
 create table store_goods(
-	shop_id int(3) comment'管理店舗ID',
-	goods_id int(3) comment'商品ID',
-	stock int(5) comment'グラム在庫',
+	shop_id int(3) comment '管理店舗ID',
+	goods_id int(3) comment '商品ID',
+	stock int(5) comment 'グラム在庫',
 	unique(shop_id,goods_id)
 );
 
 /* 予約情報テーブル */
 drop table if exists reservation;
 create table reservation(
-	shop_id int(3) comment'受注店舗ID',
-	inquiry int(14) primary key auto_increment comment'受注番号',
-	premium_id varchar(30) comment'プレミアム会員ID',
+	shop_id int(3) comment '受注店舗ID',
+	inquiry int(14) primary key auto_increment comment '受注番号',
+	premium_id varchar(30) comment 'プレミアム会員ID',
 	bean_name varchar(30) comment'コーヒー豆の種類',
 	bean_roast int(1) comment'焙煎方法',
 	bean_grind int(1) comment'挽き方',

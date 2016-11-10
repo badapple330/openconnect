@@ -1,0 +1,5 @@
+ユーザ画面トップ
+http://internousdev-b.com/shizuku
+
+管理者画面トップ
+http://internousdev-b.com/shizuku/admin/login

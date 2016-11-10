@@ -1,3 +1,4 @@
+set names utf8;
 /*データベースの削除*/
 drop database if exists baseballticket;
 #データベース作成

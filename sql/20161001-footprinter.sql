@@ -1,54 +1,54 @@
-DROP DATABASE IF EXISTS footprinter;
-CREATE DATABASE footprinter;
+set names utf8;
+drop database if exists footprinter;
+create database footprinter;
+use footprinter;
 
-use footprinter
+drop table if exists user;
+drop table if exists event;
+drop table if exists order_info;
+drop table if exists admin;
+drop table if exists category;
 
-DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS event;
-DROP TABLE IF EXISTS order_info;
-DROP TABLE IF EXISTS admin;
-DROP TABLE IF EXISTS category;
-
-CREATE TABLE IF NOT EXISTS user(
-id int NOT NULL PRIMARY KEY AUTO_INCREMENT comment'ユーザーID',
-email varchar(100) comment'メールアドレス',
-password varchar(255) comment'パスワード',
-name varchar(100) comment'名前',
-name_kana varchar(100) comment'名前カナ',
-tel varchar(11) comment'電話番号',
-postal_code varchar(8) comment'郵便番号',
-address varchar(255) comment'住所',
-credit_token varchar(255) comment'クレジットトークン',
-credit_num varchar(4) comment'クレジット番号',
-unique_id varchar(255) comment'固有ID',
-oauth_name varchar(50) comment'OAuth名',
-delete_flag int NOT NULL DEFAULT 0 comment'',
-created_at datetime NOT NULL comment'登録日',
-updated_at datetime NOT NULL comment'更新日',
-UNIQUE(email,password),
-INDEX (credit_token)
+create table if not exists user(
+id int not null primary key auto_increment comment 'ユーザーID',
+email varchar(100) comment 'メールアドレス',
+password varchar(255) comment 'パスワード',
+name varchar(100) comment '名前',
+name_kana varchar(100) comment '名前カナ',
+tel varchar(11) comment '電話番号',
+postal_code varchar(8) comment '郵便番号',
+address varchar(255) comment '住所',
+credit_token varchar(255) comment 'クレジットトークン',
+credit_num varchar(4) comment 'クレジット番号',
+unique_id varchar(255) comment '固有ID',
+oauth_name varchar(50) comment 'OAuth名',
+delete_flag int NOT NULL DEFAULT 0 comment '',
+created_at datetime not null comment '登録日',
+updated_at datetime not null comment '更新日',
+unique(email,password),
+index (credit_token)
 );
 
-CREATE TABLE if not exists category(
-category_id int NOT NULL PRIMARY KEY AUTO_INCREMENT comment'カテゴリコード',
-category_name varchar(10) UNIQUE not null comment'カテゴリ名',
-created_at datetime NOT NULL comment'登録日',
-updated_at datetime NOT NULL comment'更新日'
+create table if not exists category(
+category_id int NOT NULL PRIMARY KEY AUTO_INCREMENT comment 'カテゴリコード',
+category_name varchar(10) UNIQUE not null comment 'カテゴリ名',
+created_at datetime NOT NULL comment '登録日',
+updated_at datetime NOT NULL comment '更新日'
 );
 
 CREATE TABLE if not exists event(
-id int NOT NULL PRIMARY KEY AUTO_INCREMENT comment'イベントID',
-name varchar(100) NOT NULL comment'イベント名',
-event_date date NOT NULL comment'イベント日',
-price float NOT NULL comment'イベント値段',
-num_of_tickets int NOT NULL comment'申し込み限度',
-remaining int NOT NULL comment'申し込み残数',
-detail text NOT NULL comment'イベント情報',
-img_path varchar(100) NOT NULL comment'画像パス',
-category_id int NOT NULL comment'カテゴリID',
-delete_flag int NOT NULL DEFAULT 0 comment'',
-created_at datetime NOT NULL comment'登録日',
-updated_at datetime NOT NULL comment'更新日',
+id int not null primary key auto_increment comment 'イベントID',
+name varchar(100) NOT NULL comment 'イベント名',
+event_date date NOT NULL comment 'イベント日',
+price float NOT NULL comment 'イベント値段',
+num_of_tickets int NOT NULL comment '申し込み限度',
+remaining int NOT NULL comment '申し込み残数',
+detail text NOT NULL comment 'イベント情報',
+img_path varchar(100) NOT NULL comment '画像パス',
+category_id int NOT NULL comment 'カテゴリID',
+delete_flag int NOT NULL DEFAULT 0 comment '',
+created_at datetime NOT NULL comment '登録日',
+updated_at datetime NOT NULL comment '更新日',
 FOREIGN KEY (category_id) REFERENCES category(category_id)
 );
 

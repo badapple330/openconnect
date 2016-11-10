@@ -1,0 +1,164 @@
+package com.internousdev.pizzaseijin.action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import com.internousdev.pizzaseijin.dao.AddCartDAO;
+import com.internousdev.pizzaseijin.dao.DeleteCartDAO;
+
+/**
+ * カート内の商品の情報を編集する為のクラス
+ * @author N.Minami
+ * @version 1.1
+ * @since 1.0
+ */
+public class EditItemsAction extends ActionSupport implements SessionAware {
+
+	/**
+	 * 生成したシリアル・バージョンID
+	 */
+	private static final long serialVersionUID = -6865088539370529745L;
+	/**
+	 * セッション
+	 */
+	private Map<String, Object> session;
+	/**
+	 * 編集したいカート内の商品のID
+	 */
+	private int itemId;
+	/**
+	 * 編集したいカート内のピザの枚数
+	 */
+	private int itemSheet;
+	/**
+	 * 編集したいカート内のピザのピース数
+	 */
+	private int itemPeace;
+	/**
+	 * 編集したいカート内のサイドメニューの数量
+	 */
+	private int itemNum;
+	/**
+	 * カート画面で押されたボタンのバリュー値
+	 */
+	private String submit;
+
+	/**
+	 * カート内の商品の情報を編集する為のメソッド
+	 * @return result カート内の商品の情報の編集が成功したか否か
+	 */
+	public String execute() {
+		String result = ERROR;
+		int count = 0;
+		
+		int userId = (int) session.get("userId");
+
+		itemNum += itemSheet * 12 + itemPeace;
+		if (submit.equals("削除") || submit.equals("cancel") || itemNum == 0 ) {
+			DeleteCartDAO dao = new DeleteCartDAO();
+			count = dao.deleteItem(userId, itemId);
+			if (count > 0) {
+				result = SUCCESS;
+			}
+		} else {
+			AddCartDAO dao = new AddCartDAO();		
+			count = dao.update(userId, itemId, itemNum);
+			if (count > 0) {
+				result = SUCCESS;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * セッションを格納する為のメソッド
+	 * @param session セッション
+	 */
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	/**
+	 * 編集したいカート内の商品のIDを取得する為のメソッド
+	 * @return　itemId　編集したいカート内の商品のID
+	 */
+	public int getItemId() {
+		return itemId;
+	}
+
+	/**
+	 * 編集したいカート内の商品のIDを格納する為のメソッド
+	 * @param itemId 編集したいカート内の商品のID
+	 */
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+	/**
+	 * カート画面で押されたボタンのバリュー値を取得する為のメソッド
+	 * @return　itemId　カート画面で押されたボタンのバリュー値
+	 */
+	public String getSubmit() {
+		return submit;
+	}
+
+	/**
+	 * カート画面で押されたボタンのバリュー値を格納する為のメソッド
+	 * @param submit カート画面で押されたボタンのバリュー値
+	 */
+	public void setSubmit(String submit) {
+		this.submit = submit;
+	}
+
+	/**
+	 * 編集したいカート内のピザの枚数を取得する為のメソッド
+	 * @return　itemSheet　編集したいカート内のピザの枚数
+	 */
+	public int getItemSheet() {
+		return itemSheet;
+	}
+
+	/**
+	 * 編集したいカート内のピザの枚数を格納する為のメソッド
+	 * @param itemSheet 編集したいカート内のピザの枚数
+	 */
+	public void setItemSheet(int itemSheet) {
+		this.itemSheet = itemSheet;
+	}
+
+	/**
+	 * 編集したいカート内のピザのピース数を取得する為のメソッド
+	 * @return　itemPeace　編集したいカート内のピザのピース数
+	 */
+	public int getItemPeace() {
+		return itemPeace;
+	}
+
+	/**
+	 * 編集したいカート内のピザのピース数を格納する為のメソッド
+	 * @param itemPeace 編集したいカート内のピザのピース数
+	 */
+	public void setItemPeace(int itemPeace) {
+		this.itemPeace = itemPeace;
+	}
+
+	/**
+	 * 編集したいカート内のサイドメニューの数量を格納する為のメソッド
+	 * @return itemNum 編集したいカート内のサイドメニューの数量
+	 */
+	public int getItemNum() {
+		return itemNum;
+	}
+
+	/**
+	 * 編集したいカート内のサイドメニューの数量を格納する為のメソッド
+	 * @param itemNum 編集したいカート内のサイドメニューの数量
+	 */
+	public void setItemNum(int itemNum) {
+		this.itemNum = itemNum;
+	}
+
+}

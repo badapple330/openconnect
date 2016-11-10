@@ -1,7 +1,6 @@
 set names utf8;
-
-drop database if exists youJustJewelry;
-create database youJustJewelry default character set utf8;
+drop database if exists youjustjewelry;
+create database youjustjewelry default character set utf8;
 use youJustJewelry;
 
 /* 商品情報テーブル */

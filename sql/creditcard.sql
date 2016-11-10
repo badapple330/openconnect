@@ -1,3 +1,4 @@
+set names utf8;
 drop database if exists creditcard_manager;
 create database creditcard_manager;
 

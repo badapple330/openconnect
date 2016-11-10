@@ -1,3 +1,4 @@
+set names utf8;
 /*@auhter
  * @since 2016/08/15
  * @virsion 1.0

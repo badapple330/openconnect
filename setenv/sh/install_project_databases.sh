@@ -138,4 +138,13 @@ source ./../../sql/mastercard.sql
 source ./../../sql/americanexpress.sql
 source ./../../sql/samurai.sql
 # ---
+# [201610] 201608 & 201609
+# ---
+source ./../../sql/nagomi.sql
+# ---
+# [201611] 201609 & 201610
+# ---
+source ./../../sql/noel.sql
+
+
 EOF

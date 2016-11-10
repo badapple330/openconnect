@@ -1,4 +1,4 @@
-
+set names utf8;
 DROP DATABASE if EXISTS samurai;
 CREATE DATABASE samurai;
 

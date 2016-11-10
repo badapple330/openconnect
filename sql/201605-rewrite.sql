@@ -1,25 +1,8 @@
-	DROP DATABASE IF EXISTS rewrite;
-CREATE DATABASE rewrite;
-/* 一旦消して再度作ることでデータの重複を防ぐ */
+set names utf8;
+drop database if exists rewrite;
+create database rewrite;
 use rewrite;
-/* ユーザー情報登録 *
- * ユーザーID = user_id
- * パスワード = password
- * 名前 = name
- * 名前(ふりがな) = name_f
- * 郵便番号 = postal
- * 住所 = address
- * 電話番号 = tel_number
- * メールアドレス = email
- * 性別 = sex
- * 生年月日 = birthday
- * ハンドルネーム = handle_name
- * 登録日 = register_day
- * 更新日 = update_day
- * 退会フラグ = userdel_flg
- * ログインフラグ = login_flg
- * ユーザーフラグ = user_flg
- */
+
 create table user (
 user_id int not null auto_increment comment 'ユーザーID',
 password varchar(255) not null  comment 'パスワード',
@@ -38,16 +21,8 @@ userdel_flg boolean not null default FALSE comment '削除フラグ',
 login_flg boolean not null default TRUE  comment 'ログインフラグ',
 user_flg int not null default 1  comment 'ユーザーフラグ',
 PRIMARY KEY (user_id)
-)comment = 'ユーザー情報格納テーブル';
-/* 記事情登録 *
- * サイトID = site_id
- * サイト投稿日時 = site_date
- * サイトタイトル = site_title
- * ジャンル = site_genre
- * 要約 = site_article
- *  画像URL = image_url
- * サイトURL = site_Banner
- */
+)comment='ユーザー情報テーブル';
+
 create table article(
 site_id int not null auto_increment comment 'サイトID',
 site_date datetime not null comment 'サイト投稿日時',
@@ -57,32 +32,21 @@ summary varchar(255) not null comment '要約',
 image_url varchar(255) null comment '画像URL',
 site_Banner varchar(255) not null comment 'サイトURL',
 primary key(site_id)
-)comment = '記事情報格納テーブル';
+)comment='記事情報テーブル';
 
-/* レビュー情報登録 *
- * ユーザーID = user_id
- * レビュー投稿日時 = review_date
- * レビュー内容 = text
- * サイトタイトル = title
- */
 create table user_review(
 user_id int not null comment 'ユーザーID',
 review_date datetime not null comment 'レビュー投稿日時',
 text varchar(255) not null comment 'レビュー内容',
 title varchar(255) not null comment 'サイトタイトル'
-)comment = 'レビュー情報格納テーブル';
-/* お問い合わせ情報登録 *
- * 名前 = contact_name
- * メールアドレス = contact_email
- * お問い合わせ日時 = contact_date
- * お問い合わせ内容 = contact_text
- */
+)comment='レビュー情報テーブル';
+
 create table contact_us(
 contact_name varchar(10) not null comment '名前',
 contact_email varchar(255) comment 'メールアドレス',
 contact_date datetime not null comment 'お問い合わせ日時',
 contact_text varchar(255) not null default "　" comment 'お問い合わせ内容'
-)comment = 'お問い合わせ情報格納テーブル';
+)comment = 'お問い合わせ情報テーブル';
 
 /*以下テスト用データ*/
 
@@ -142,4 +106,3 @@ insert into user_review(user_id, review_date, text, title)values
 (5,"2016-08-29 09:54:45","わろた","今日のフリーザ様"),
 (6,"2016-09-30 16:52:22","だれかコメントしてやれよ","今日のフリーザ様")
 ;
-

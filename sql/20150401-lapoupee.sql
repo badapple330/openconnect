@@ -1,72 +1,66 @@
-DROP DATABASE IF EXISTS lapoupee;
+set names utf8;
+drop database if exists lapoupee;
+create database lapoupee;
+use lapoupee;
 
-CREATE DATABASE IF NOT EXISTS lapoupee;
-USE lapoupee;
-
-DROP TABLE IF EXISTS GOODS;
-DROP TABLE IF EXISTS CUSTOMER_INFO;
-DROP TABLE IF EXISTS ORDER_INFO;
-DROP TABLE IF EXISTS CART;
-DROP TABLE IF EXISTS TEMP;
-
-CREATE TABLE TEMP(
-TEMP_ID INT PRIMARY KEY AUTO_INCREMENT,
-CUSTOMER_NAME VARCHAR(50),
-CUSTOMER_PASS VARCHAR(25),
-MAILADDRESS  VARCHAR(50) UNIQUE NOT NULL,
-POSTCODE  VARCHAR(7),
-ADDRESS  VARCHAR(255),
-TELLNUMBER VARCHAR(12),
-HOUSENUMBER VARCHAR(100),
-REGISTER_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
+create table temp(
+temp_id int primary key auto_increment,
+customer_name varchar(50),
+customer_pass varchar(25),
+mailaddress  varchar(50) unique not null,
+postcode  varchar(7),
+address  varchar(255),
+tellnumber varchar(12),
+housenumber varchar(100),
+register_date timestamp default current_timestamp()
 );
 
-CREATE TABLE IF NOT EXISTS GOODS(
-GOODS_ID INT(10) AUTO_INCREMENT,
-GOODS_NAME VARCHAR(100) UNIQUE NOT NULL,
-STOCK INT(4),
-UNIT_PRICE INT(10),
-PRIMARY KEY(GOODS_ID)
+create table if not exists goods(
+goods_id int(10) auto_increment,
+goods_name varchar(100) unique not null,
+stock int(4),
+unit_price int(10),
+primary key(goods_id)
 );
 
-CREATE TABLE IF NOT EXISTS CUSTOMER_INFO(
-CUSTOMER_ID BIGINT(16) NOT NULL AUTO_INCREMENT,
-CUSTOMER_NAME VARCHAR(50) NOT NULL,
-CUSTOMER_PASS VARCHAR(25) NOT NULL,
-MAILADDRESS  VARCHAR(50) UNIQUE NOT NULL,
-POSTCODE  VARCHAR(7) NOT NULL,
-ADDRESS  VARCHAR(255) NOT NULL,
-TELLNUMBER VARCHAR(12) NOT NULL,
-HOUSENUMBER VARCHAR(100),
-REGISTER_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-PRIMARY KEY(CUSTOMER_ID)
+create table if not exists customer_info(
+customer_id bigint(16) not null auto_increment,
+customer_name varchar(50) not null,
+customer_pass varchar(25) not null,
+mailaddress  varchar(50) unique not null,
+postcode  varchar(7) not null,
+address  varchar(255) not null,
+tellnumber varchar(12) not null,
+housenumber varchar(100),
+register_date timestamp default current_timestamp(),
+primary key(customer_id)
 );
 
-CREATE TABLE IF NOT EXISTS ORDER_INFO(
-CUSTOMER_ID BIGINT(16) NOT NULL,
-GOODS_ID INT(10) NOT NULL,
-ORDER_QUANTITY INT(3) NOT NULL,
-TOTAL_AMOUNT INT(10) NOT NULL,
-PAY_MATHOD INT(1) NOT NULL,
-CREDIT_COMPANY INT(1),
-CREDIT_NUMBER BIGINT(16),
-CON_SET INT(1),
-BANK_SET INT(1),
-PURCHASEDAY TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-FOREIGN KEY(GOODS_ID) REFERENCES GOODS(GOODS_ID)
+create table if not exists order_info(
+customer_id bigint(16) not null,
+goods_id int(10) not null,
+order_quantity int(3) not null,
+total_amount int(10) not null,
+pay_mathod int(1) not null,
+credit_company int(1),
+credit_number bigint(16),
+con_set int(1),
+bank_set int(1),
+purchaseday timestamp default current_timestamp(),
+foreign key(goods_id) references goods(goods_id)
 );
 
-CREATE TABLE IF NOT EXISTS CART(
-TEMPORARY_ID VARCHAR(50) NOT NULL,
-GOODS_NAME VARCHAR(100) NOT NULL,
-SALES_COUNT INT(10) NOT NULL,
-UNIT_PRICE INT(10) NOT NULL,
-TOTAL_AMOUNT INT(10) NOT NULL
+create table if not exists cart(
+temporary_id varchar(50) not null,
+goods_name varchar(100) not null,
+sales_count int(10) not null,
+unit_price int(10) not null,
+total_amount int(10) not null
 );
 
-ALTER TABLE CART MODIFY COLUMN TOTAL_AMOUNT BIGINT NOT NULL;
+alter table cart modify column total_amount bigint not null;
 
-INSERT INTO GOODS(GOODS_NAME,STOCK,UNIT_PRICE)VALUES
+insert into goods(goods_name,stock,unit_price)values
 ("少年冒険者",50,6000),
 ("冒険者",80,5000),
 ("騎士",80,6000),
@@ -83,7 +77,7 @@ INSERT INTO GOODS(GOODS_NAME,STOCK,UNIT_PRICE)VALUES
 ("サイクロプス",60,8000),
 ("影",40,20000);
 
-INSERT INTO CUSTOMER_INFO(CUSTOMER_NAME,CUSTOMER_PASS,MAILADDRESS,POSTCODE,ADDRESS,TELLNUMBER,HOUSENUMBER)VALUES
+insert into customer_info(customer_name,customer_pass,mailaddress,postcode,address,tellnumber,housenumber)values
 ("ikeda","ikeda123","ikeda@ikeda.co.jp","1234567","東京都八王子市xxx","09012345678","1-1-1"),
 ("kuriya","kuriya","kuriya@kuriya.co.jp","1234567","東京都xxx","09012345678","1-1-1"),
 ("hosoya","hosoya","hosoya@hosoya.co.jp","1234567","東京都xxx","09012345678","1-1-1"),

@@ -1,7 +1,6 @@
+set names utf8;
 drop database if exists visa;
-
 create database visa;
-
 use visa;
 
 

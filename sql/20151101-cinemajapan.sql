@@ -1,3 +1,4 @@
+set names utf8;
 drop database if exists cinemajapan;
 create database cinemajapan;
 use cinemajapan;

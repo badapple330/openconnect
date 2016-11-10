@@ -1,0 +1,164 @@
+@CHARSET "UTF-8";
+/* CSS Document */
+
+/*---------------------------------------------
+
+reset
+
+---------------------------------------------*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+img {
+	margin:0;
+	padding:0;
+	}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+	}
+fieldset,
+img {
+	border:0;
+	}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+	font-style:normal;
+	font-weight:normal;
+	}
+ol,
+ul {
+	list-style:none;
+	}
+caption,
+th {
+	text-align:left;
+	}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size:100%;
+	font-weight:normal;
+	}
+img {
+	vertical-align:top;
+	}
+
+a {
+	border:none; outline:none;
+	}
+*{
+	zoom : 1;
+	}
+
+/*---------------------------------------------
+
+style
+
+---------------------------------------------*/
+
+body{
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size:13px;
+	color:#ffffff;
+	background: #000;
+	text-align:center;
+	position:relative;
+}
+
+p{font-size: 5em; width: 80%; margin: 0 auto; line-height: 1.5em;}
+
+.section,
+.slide{
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+#sec1{
+	background-image:url(../img/bg1.jpg);
+}
+
+#sec2 .slide1{
+	background-image:url(../img/bg2_1.jpg);
+}
+
+#sec2 .slide2{
+	background-image:url(../img/bg2_2.jpg);
+}
+
+#sec2 .slide3{
+	background-image:url(../img/bg2_3.jpg);
+}
+
+#sec3{
+	background-image: url(../img/bg3.jpg);
+}
+
+
+/*---------------------------------------------
+
+fullPage.js css override
+
+---------------------------------------------*/
+
+.fp-controlArrow.fp-prev{
+	border-width: 15px 20px 15px 0;
+}
+.fp-controlArrow.fp-next{
+	border-width: 15px 0px 15px 20px;
+	right: 50px;
+}
+
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span{
+	background: transparent;
+	border: 1px solid #ffffff;
+}
+
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span{
+	background: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

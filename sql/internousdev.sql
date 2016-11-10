@@ -1,3 +1,4 @@
+set names utf8;
 DROP DATABASE IF EXISTS internousdev;
 
 CREATE DATABASE internousdev;

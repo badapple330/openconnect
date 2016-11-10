@@ -1,3 +1,4 @@
+set names utf8;
 DROP DATABASE IF Exists gtickets;
 CREATE DATABASE IF NOT Exists gtickets;
 use gtickets;

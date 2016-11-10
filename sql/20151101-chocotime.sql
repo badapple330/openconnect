@@ -1,3 +1,4 @@
+set names utf8;
 drop database if exists chocotime;
 create database chocotime;
 use chocotime;

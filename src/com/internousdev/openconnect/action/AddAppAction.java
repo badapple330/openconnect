@@ -61,53 +61,48 @@ public class AddAppAction extends ActionSupport implements Serializable{
 	}
 
 	 /**
-     * 取得メソッド サイトIDを取得
-     *
+     * <p>サイトIDを取得します</p>
      * @author MAIKI OKANO
-     * @return siteId 取得するサイトID
+     * @return siteId サイトID
      */
 	public int getSiteId() {
 		return siteId;
 	}
 	/**
-     * 格納メソッド サイトIDを格納
-     *
+     * <p>サイトIDを格納します</p>
      * @author MAIKI OKANO
-     * @param siteId 格納するサイトID
+     * @param siteId サイトID
      */
 	public void setSiteId(int siteId) {
 		this.siteId = siteId;
 	}
 	 /**
-     * 取得メソッド サイトの名前を取得
-     *
+     * <p>サイト名を取得します</p>
      * @author MAIKI OKANO
-     * @return siteName 取得するサイトの名前
+     * @return siteName サイト名
      */
 	public String getSiteName() {
 		return siteName;
 	}
 	/**
-     * 格納メソッド サイトの名前を格納
-     *
+     * <p>サイト名を格納します</p>
      * @author MAIKI OKANO
-     * @param siteName 格納するサイト名前
+     * @param siteName サイト名
      */
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
 	}
 	/**
-     * 取得メソッド サイトURLを取得
-     *
+     * <p>サイトURLを取得します</p>
      * @author MAIKI OKANO
      * @return siteUrl 取得するサイトURL
      */
 	public String getSiteUrl() {
 		return siteUrl;
 	}
+	
 	/**
-     * 格納メソッド サイトURLを格納
-     *
+     * <p>サイトURLを格納します</p>
      * @author MAIKI OKANO
      * @param siteUrl 格納するサイトURL
      */

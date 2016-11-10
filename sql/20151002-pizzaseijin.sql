@@ -1,3 +1,4 @@
+set names utf8;
 DROP DATABASE IF EXISTS pizza_seijin;
 CREATE DATABASE pizza_seijin;
 

@@ -1,0 +1,105 @@
+package jp.co.internous.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import jp.co.internous.dto.CompleteDTO;
+/**
+ * CompleatDAO
+ * コンプリートダオクラス
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @version 1.0
+ */
+public class CompleteDAO {
+
+	Connection con;
+	PreparedStatement ps;
+	ResultSet rs;
+	public int id;
+	public boolean res;
+	public int rsCount;
+/**
+ * ユーザー情報を取得メソッド
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @param mailad メール情報
+ * @param password パスワード
+ * @return res 結果
+ * @throws Exception
+ */
+	public boolean select(String mailad,String password)throws Exception{
+		res=false;
+		con=DBconnector.getConnection();
+		try{
+			String sql="select * from customer_info where mailad=? and customer_pass=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1,mailad);
+			ps.setString(2,password);
+			rs=ps.executeQuery();
+
+			while(rs.next()){
+				res=true;
+				CompleteDTO dto =new CompleteDTO();
+				dto.setId(rs.getInt(1));
+				dto.setMailad(rs.getString(6));
+				dto.setPassword(rs.getString(7));
+
+				this.id=dto.getId();
+
+			}
+		}catch(Exception e){
+
+		}finally{
+			con.close();
+		}
+		return res;
+	}
+/**
+ * 購入情報を登録メソッド
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @param id 顧客ID
+ * @param goods_id 商品ID
+ * @param order_count 注文数
+ * @param total_amount 合計金額
+ * @return rsCount 結果
+ * @throws Exception 
+ */
+	public int insert(int id, int goods_id, int order_count, int total_amount)throws Exception{
+		con=DBconnector.getConnection();
+		try{
+			String sql="insert into order_info (customer_id,goods_id,order_count,total_amount)values(?,?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1,id);
+			ps.setInt(2,goods_id);
+			ps.setInt(3,order_count);
+			ps.setInt(4,total_amount);
+			rsCount =ps.executeUpdate();
+		}catch(Exception e){
+
+		}finally{
+			con.close();
+		}
+		return rsCount;
+	}
+/**
+ * 顧客ID取得メソッド
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @return id 顧客ID
+ */
+	public int getId() {
+		return id;
+	}
+/**
+ * 顧客ID登録メソッド
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @param id 顧客ID
+ */
+	public void setId(int id) {
+		this.id = id;
+	}
+}

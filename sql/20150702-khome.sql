@@ -1,3 +1,4 @@
+set names utf8;
 drop database if exists khome;
 
 create database khome;

@@ -1,57 +1,49 @@
+set names utf8;
 drop database if exists solare;
-
-create database if not exists solare;
+create database solare;
 use solare;
 
-drop table if exists customer_info;
-
 create table customer_info(
-account_number int(10) primary key auto_increment,
-customer_id varchar(30) unique,
-acc_password varchar(30),
-user_uuid varchar(100),
-last_name varchar(255),
-first_name varchar(255),
-customer_mailaddress varchar(255),
-customer_gender int(1),
-phone_number varchar(30),
-register_date timestamp DEFAULT 0,
-update_date timestamp DEFAULT current_timestamp on update current_timestamp
+account_number int(10) primary key auto_increment comment "",
+customer_id varchar(30) unique comment "",
+acc_password varchar(30) comment "",
+user_uuid varchar(100) comment "",
+last_name varchar(255) comment "",
+first_name varchar(255) comment "",
+customer_mailaddress varchar(255) comment "",
+customer_gender int(1) comment "",
+phone_number varchar(30) comment "",
+register_date timestamp DEFAULT 0 comment "",
+update_date timestamp DEFAULT current_timestamp on update current_timestamp comment ""
 );
 
-drop table if exists customerID_info;
-
-create table customerID_info(
-customerID_number int(10) primary key auto_increment,
-customer_id varchar(30),
-user_uuid varchar(100),
-insert_date timestamp,
-delete_date timestamp
+create table customerid_info(
+customerid_number int(10) primary key auto_increment comment "",
+customer_id varchar(30) comment "",
+user_uuid varchar(100) comment "",
+insert_date timestamp comment "",
+delete_date timestamp comment ""
 );
-
-drop table if exists reservation_info;
 
 create table reservation_info(
-reservation_number int(10) primary key auto_increment,
-customer_reservation_number int(1),
-account_number int(10),
-course_number int(20),
-number_of_ppl int(10),
-full_name varchar(50),
-phone_number varchar(30),
-reservation_date timestamp default 0,
-reservation_dayofweek int(5),
-reservation_time int(5),
-register_date timestamp default 0,
-update_date timestamp default current_timestamp on update current_timestamp,
-delete_date timestamp
+reservation_number int(10) primary key auto_increment comment "",
+customer_reservation_number int(1) comment "",
+account_number int(10) comment "",
+course_number int(20) comment "",
+number_of_ppl int(10) comment "",
+full_name varchar(50) comment "",
+phone_number varchar(30) comment "",
+reservation_date timestamp default 0 comment "",
+reservation_dayofweek int(5) comment "",
+reservation_time int(5) comment "",
+register_date timestamp default 0 comment "",
+update_date timestamp default current_timestamp on update current_timestamp comment "",
+delete_date timestamp comment ""
 );
 
-drop table if exists seat_info;
-
 create table seat_info(
-date date,
-dayofweek int(1),
-max_number_of_ppl int(5),
-remaining_seats int(5)
+date date comment "",
+dayofweek int(1) comment "",
+max_number_of_ppl int(5) comment "",
+remaining_seats int(5) comment ""
 );

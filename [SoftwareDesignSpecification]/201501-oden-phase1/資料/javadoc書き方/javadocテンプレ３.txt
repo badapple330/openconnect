@@ -1,0 +1,68 @@
+package jp.co.internous.dto;
+/**
+ * CompleatDTO
+ * コンプリートディーティーオークラス
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @version 1.0
+ */
+public class CompleteDTO {
+
+	private int id;
+	private String mailad;
+	private String password;
+/**
+ * id取得メソッド
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @return id 顧客ID
+ */
+	public int getId(){
+		return id;
+	}
+/**
+ * id登録メソッド
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @param id 顧客ID
+ */
+	public void setId(int id){
+		this.id=id;
+	}
+/**
+ * メール情報を取得メソッド
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @return mailad メール情報
+ */
+	public String getMailad() {
+		return mailad;
+	}
+/**
+ * メール情報を登録メソッド
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @param mailad メール情報
+ */
+	public void setMailad(String mailad) {
+		this.mailad = mailad;
+	}
+/**
+ * パスワード取得メソッド
+ * @author 平山欽一
+ * @since 2015/02/12
+ * @return password パスワード
+ */
+	public String getPassword() {
+		return password;
+	}
+/**
+ * パスワード登録メソッド
+ * @author 平山欽一
+ * @since 2015/02/12}
+ * @param password パスワード
+ */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+}

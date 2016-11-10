@@ -1,3 +1,4 @@
+set names utf8;
 create database if not exists Ichigoichie;
 
 use Ichigoichie;
