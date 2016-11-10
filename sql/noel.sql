@@ -141,3 +141,14 @@ division varchar(10) not null,
 split int,
 spend int not null
 );
+
+/*管理者
+ * 管理者番号 =admin_id
+ * パスワード = password
+ * 管理者名 = admin_name
+ */
+create table admin(
+admin_id varchar(10) not null,
+password varchar(10) not null,
+admin_name varchar(50) not null
+);
