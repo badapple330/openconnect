@@ -3,7 +3,7 @@ package com.internousdev.openconnect.decision.detail.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.decision.dao.DecisionInsertDAO;
+import com.internousdev.openconnect.decision.dao.DecisionDAO;
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailApplicationDAO;
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
@@ -82,7 +82,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 			projectId = decisionDetailInsList.get(0).getProjectId();
 			userId = decisionDetailInsList.get(0).getUserId();
 
-			DecisionInsertDAO daoi = new DecisionInsertDAO();
+			DecisionDAO daoi = new DecisionDAO();
 			daoi.insert(day,userId,projectId,projectName,summary);
 
 		}

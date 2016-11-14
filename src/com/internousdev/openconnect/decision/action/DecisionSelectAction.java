@@ -3,7 +3,7 @@ package com.internousdev.openconnect.decision.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.decision.dao.DecisionSelectDAO;
+import com.internousdev.openconnect.decision.dao.DecisionDAO;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
 import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
@@ -49,7 +49,7 @@ public class DecisionSelectAction extends ActionSupport{
 	 * @author KENICHI HORIGUCHI
 	 */
 	public String execute(){
-		DecisionSelectDAO dao = new DecisionSelectDAO();
+		DecisionDAO dao = new DecisionDAO();
 		ProjectsSelectDAO projectsDao = new ProjectsSelectDAO();
 		StudentsSelectDAO studentsDao = new StudentsSelectDAO();
 

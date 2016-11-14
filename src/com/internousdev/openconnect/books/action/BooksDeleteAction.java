@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.openconnect.books.dao.BooksDeleteDAO;
+import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -33,7 +33,7 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute(){
-		BooksDeleteDAO dao = new BooksDeleteDAO();
+		BooksDAO dao = new BooksDAO();
 		String result = ERROR;
 		int count = 0;
 		count = dao.delete(bookId);

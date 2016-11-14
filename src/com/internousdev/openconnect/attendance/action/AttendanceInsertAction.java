@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.internousdev.openconnect.attendance.dao.AttendanceInsertDAO;
+import com.internousdev.openconnect.attendance.dao.AttendanceDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceCalendarDTO;
 import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -163,7 +163,7 @@ public class AttendanceInsertAction extends ActionSupport{
 
 		boolean result = false;
 
-		AttendanceInsertDAO dao = new AttendanceInsertDAO();
+		AttendanceDAO dao = new AttendanceDAO();
 
 		AttendanceCalendarDTO dto = getCalendarString( cal );
 

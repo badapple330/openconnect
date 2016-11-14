@@ -5,7 +5,7 @@ package com.internousdev.openconnect.attendance.action;
 
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.attendance.dao.AttendanceUpdateDAO;
+import com.internousdev.openconnect.attendance.dao.AttendanceDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -48,7 +48,7 @@ public class AttendanceUpdateAction extends ActionSupport{
 	 */
 	public String execute(){
 		String result = ERROR;
-		AttendanceUpdateDAO dao = new AttendanceUpdateDAO();
+		AttendanceDAO dao = new AttendanceDAO();
 
 		int count = 0;
 

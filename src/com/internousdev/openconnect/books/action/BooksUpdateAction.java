@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.books.dao.BooksUpdateDAO;
+import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 画面で受け取った更新情報を、DBへ転送する為のクラス
@@ -32,7 +32,7 @@ public class BooksUpdateAction extends ActionSupport {
 	public String execute() throws SQLException{
 
 		String result = ERROR;
-		BooksUpdateDAO dao = new BooksUpdateDAO();
+		BooksDAO dao = new BooksDAO();
 		int count = 0 ;
 
 		for(int i=0; i<bookIdList.size(); ++i){

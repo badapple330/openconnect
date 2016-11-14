@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.openconnect.decision.dao.DecisionUpdateDAO;
+import com.internousdev.openconnect.decision.dao.DecisionDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -90,7 +90,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 		String result = ERROR;
 
-		DecisionUpdateDAO dao = new DecisionUpdateDAO();
+		DecisionDAO dao = new DecisionDAO();
 
 		int count = 0;
 

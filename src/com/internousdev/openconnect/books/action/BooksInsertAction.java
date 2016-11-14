@@ -9,7 +9,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.books.borrow.dao.BooksBorrowInsertDAO;
-import com.internousdev.openconnect.books.dao.BooksInsertDAO;
+import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -40,7 +40,7 @@ public class BooksInsertAction extends ActionSupport implements SessionAware{
 	public String execute(){
 
 		String result = ERROR;
-		BooksInsertDAO dao = new BooksInsertDAO();
+		BooksDAO dao = new BooksDAO();
 		int count = 0 ;
 		count = dao.insert(title);
 		if (count > 0) {

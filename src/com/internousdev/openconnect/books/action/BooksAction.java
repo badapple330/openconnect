@@ -52,16 +52,4 @@ public class BooksAction extends ActionSupport{
 	public void setBookList(List<BooksDTO> bookList) {
 		this.bookList = bookList;
 	}
-	/**
-	 * 取得メソッド シリアルバージョン
-	 * @author TATSUYA HOSHI
-	 * @return serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-
-
-
 }

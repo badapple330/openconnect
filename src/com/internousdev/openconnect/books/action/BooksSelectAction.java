@@ -6,7 +6,7 @@ package com.internousdev.openconnect.books.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.openconnect.books.dao.BooksSelectDAO;
+import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
@@ -36,8 +36,9 @@ public class BooksSelectAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
-		BooksSelectDAO dao = new BooksSelectDAO();
-		searchList = dao.select(search);
+		BooksDAO dao = new BooksDAO();
+//		searchList = dao.select(search);
+		searchList = dao.select();
 		if (searchList.size() != 0) {
 			result = SUCCESS;
 			resultSelect = "検索結果を表示しました。";

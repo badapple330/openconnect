@@ -5,7 +5,7 @@ package com.internousdev.openconnect.attendance.action;
 
 import java.util.ArrayList;
 
-import com.internousdev.openconnect.attendance.dao.AttendanceSelectDAO;
+import com.internousdev.openconnect.attendance.dao.AttendanceDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -57,7 +57,7 @@ public class AttendanceSelectAction extends ActionSupport{
 	 */
 	public String execute(){
 		String result = ERROR;
-		AttendanceSelectDAO dao = new AttendanceSelectDAO();
+		AttendanceDAO dao = new AttendanceDAO();
 
 		attendanceDate = attendanceDate.replaceAll("/", "-");
 
