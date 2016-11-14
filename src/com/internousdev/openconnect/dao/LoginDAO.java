@@ -66,13 +66,13 @@ public class LoginDAO {
 			preparedStatement.setString(1, email);
 			preparedStatement.setString(2, email);
 			preparedStatement.setString(3, password);
-			ResultSet resultSet = preparedStatement.executeQuery();
+			ResultSet rs = preparedStatement.executeQuery();
 
-			if (resultSet.next()) {
-				userId = resultSet.getInt("user_id");
-				userFlg = resultSet.getInt("user_flg");
-				userDelFlg = resultSet.getInt("userdel_flg");
-				loginActionFlg = resultSet.getInt("login_flg");
+			if (rs.next()) {
+				userId = rs.getInt("user_id");
+				userFlg = rs.getInt("user_flg");
+				userDelFlg = rs.getInt("userdel_flg");
+				loginActionFlg = rs.getInt("login_flg");
 			}
 
 			// ログイン可能な状態であるかをチェック
@@ -96,7 +96,6 @@ public class LoginDAO {
 				}
 			}
 		}
-
 		return result;
 	}
 
@@ -111,10 +110,10 @@ public class LoginDAO {
 		boolean result = false;
 
 		try {
-			PreparedStatement updateStatement = connection.prepareStatement(sql);
-			updateStatement.setInt(1, changeLoginFlg);
-			updateStatement.setInt(2, userId);
-			updateStatement.executeUpdate();
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, changeLoginFlg);
+			ps.setInt(2, userId);
+			ps.executeUpdate();
 
 			result = true;
 		} catch(SQLException e) {
@@ -149,7 +148,7 @@ public class LoginDAO {
 	/**
 	 * 対象ユーザーのIDを取得
 	 *
-	 * @author Mitsuhashi Ryota
+	 * @author RYOTA MITSUHASHI
 	 * @return userId 登録されたユーザーのPrimaryKey
 	 */
 	public int getUserId() {
@@ -159,7 +158,7 @@ public class LoginDAO {
 	/**
 	 * 対象ユーザーのIDを格納
 	 *
-	 * @author Mitsuhashi Ryota
+	 * @author RYOTA MITSUHASHI
 	 * @param userId
 	 */
 	public void setUserId(int userId) {

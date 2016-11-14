@@ -2,7 +2,7 @@
 
 import java.io.Serializable;
 
-import com.internousdev.openconnect.dao.AddAppDAO;
+import com.internousdev.openconnect.dao.AppDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -45,7 +45,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
      */
 	public String execute() {
 		String result = ERROR;
-		AddAppDAO dao = new AddAppDAO();
+		AppDAO dao = new AppDAO();
 
 		int count = 0;
 		count = dao.insert(siteId, siteName, siteUrl, genre);
@@ -100,7 +100,7 @@ public class AddAppAction extends ActionSupport implements Serializable{
 	public String getSiteUrl() {
 		return siteUrl;
 	}
-	
+
 	/**
      * <p>サイトURLを格納します</p>
      * @author MAIKI OKANO

@@ -1062,8 +1062,7 @@ public class AttendanceDTOTest {
                     assertThat3(e.getMessage(), "For input string: \"2147483648\"");
                 }
             }
-            private void assertThat31(String message, String string) {
-            }
+
 
 
 
@@ -1126,8 +1125,6 @@ public class AttendanceDTOTest {
                 } catch (RuntimeException e) {
                     assertThat4(e.getMessage(), "For input string: \"2147483648\"");
                 }
-            }
-            private void assertThat41(String message, String string) {
             }
 
             /**
@@ -1361,10 +1358,6 @@ public class AttendanceDTOTest {
                         assertThat3(e.getMessage(), "For input string: \"2147483648\"");
                     }
                 }
-                private void assertThat311(String message, String string) {
-                }
-
-
 
                 /**
                  * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getInterview()} のためのテスト・メソッド。
@@ -1426,8 +1419,7 @@ public class AttendanceDTOTest {
                         assertThat4(e.getMessage(), "For input string: \"2147483648\"");
                     }
                 }
-                private void assertThat6(String message, String string) {
-                }
+
 
                 /**
                  * {@link com.internousdev.ProjectStatusDTO.dto.AttendanceDTO#getInterviewString()} のためのテスト・メソッド。

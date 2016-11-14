@@ -37,7 +37,7 @@
 			<br>
 
 			<s:form action="BooksUpdateAction">
-				<table border="1" cellspacing="0">
+				<table border='1'  style='border-spacing:0'>
 					<tr>
 						<td><div class="haba">ID</div></td>
 						<td><div class="haba2">タイトル一覧</div></td>

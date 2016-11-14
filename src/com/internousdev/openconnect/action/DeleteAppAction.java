@@ -2,7 +2,7 @@ package com.internousdev.openconnect.action;
 
 import java.sql.SQLException;
 
-import com.internousdev.openconnect.dao.DeleteAppDAO;
+import com.internousdev.openconnect.dao.AppDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 管理者画面にてアプリケーションを削除する
@@ -32,7 +32,7 @@ public class DeleteAppAction extends ActionSupport {
      */
 	public String execute() throws SQLException {
 		String result = ERROR;
-		DeleteAppDAO dao = new DeleteAppDAO();
+		AppDAO dao = new AppDAO();
 		int count =0;
 		count = dao.delete(siteId);
 

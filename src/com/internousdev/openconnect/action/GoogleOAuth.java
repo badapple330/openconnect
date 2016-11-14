@@ -18,7 +18,7 @@ public class GoogleOAuth extends ActionSupport implements ServletResponseAware,S
 	private static final long serialVersionUID = 9003709578956580769L;
 
 	private static final String NETWORK_NAME = "Google";
-    private static final String PROTECTED_RESOURCE_URL = "https://www.googleapis.com/oauth2/v1/userinfo";
+//    private static final String PROTECTED_RESOURCE_URL = "https://www.googleapis.com/oauth2/v1/userinfo";
     private static final String SCOPE = "https://www.googleapis.com/auth/userinfo.profile";
     private static final Token EMPTY_TOKEN = null;
 	private HttpServletResponse response;
@@ -53,7 +53,7 @@ public class GoogleOAuth extends ActionSupport implements ServletResponseAware,S
 
 
 
-        Token accessToken = new Token("ACCESS_TOKEN", "REFRESH_TOKEN");
+//        Token accessToken = new Token("ACCESS_TOKEN", "REFRESH_TOKEN");
 
             // Obtain the Authorization URL
             System.out.println("Fetching the Authorization URL...");

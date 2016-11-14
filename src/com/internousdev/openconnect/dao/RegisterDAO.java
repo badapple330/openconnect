@@ -111,8 +111,7 @@ public class RegisterDAO {
 	public boolean select(String email) {
 		boolean result = false;
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
-				"mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 
 		String sql = "select * from user where email=?";
