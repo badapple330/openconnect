@@ -7,7 +7,19 @@ git clone -b master https://github.com/internousdevwork/openconnect1505
 git clone -b master https://github.com/internousdevwork/prototype
 git clone -b master https://github.com/internousdevwork/prototype_11
 git clone -b master https://github.com/internousdevwork/prototype1509
+git clone -b master https://github.com/internousdevwork/prototype1511
+git clone -b master https://github.com/internousdevwork/prototype1511u2
 git clone -b master https://github.com/internousdevwork/prototype1512
+git clone -b master https://github.com/internousdevwork/prototype1512u2
+git clone -b master https://github.com/internousdevwork/prototype1601
+git clone -b master https://github.com/internousdevwork/prototype1602
+git clone -b master https://github.com/internousdevwork/prototype1603
+git clone -b master https://github.com/internousdevwork/prototype1604
+git clone -b master https://github.com/internousdevwork/prototype1605
+git clone -b master https://github.com/internousdevwork/prototype1606
+git clone -b master https://github.com/internousdevwork/prototype1607
+git clone -b master https://github.com/internousdevwork/prototype1608
+git clone -b master https://github.com/internousdevwork/prototype1610
 git clone -b master https://github.com/internousdevwork/releaseproject
 git clone -b master https://github.com/internousdevwork/java
 git clone -b master https://github.com/internousdevwork/mypage
@@ -54,8 +66,8 @@ git clone -b master https://github.com/internousdevwork/ec_b_10
 # 201411
 # -----------------------------------------------------------------------------
 # 2015年01月作成
-# 某フィギュア・ホビー販売サイト[ec_11a]
-git clone -b master https://github.com/internousdevwork/EC_11a
+# 某フィギュア・ホビー販売サイト[ec_11a]  A環境の為、コメントアウト。
+# git clone -b master https://github.com/internousdevwork/EC_11a
  某フィギュア・ホビー販売サイト[ec_11]
 git clone -b master https://github.com/internousdevwork/EC_11
 
@@ -114,6 +126,8 @@ git clone -b master https://github.com/internousdevwork/gpscoffee
 # 201504
 # -----------------------------------------------------------------------------
 # 某フィギュア・ホビー販売サイト（改修版）
+# git clone -b master https://github.com/internousdevwork/lapoupee
+# 某フィギュア・ホビー販売サイト（改修版）
 git clone -b phase2 https://github.com/internousdevwork/lapoupee
 # 某自転車レンタルサイト
 git clone -b master https://github.com/internousdevwork/ucycle
@@ -122,17 +136,20 @@ git clone -b master https://github.com/internousdevwork/ucycle
 # 201505
 # -----------------------------------------------------------------------------
 # 某ライブチケット販売サイト
-git clone -b phase2 https://github.com/internousdevwork/livetickets
+git clone -b master https://github.com/internousdevwork/livetickets
 # 某野球観戦チケット販売サイト
-git clone -b phase2 https://github.com/internousdevwork/baseballticket
+git clone -b master https://github.com/internousdevwork/baseballticket
 # 某着物レンタルサイト
-git clone -b phase3 https://github.com/internousdevwork/ichigoichie
+git clone -b master https://github.com/internousdevwork/ichigoichie
 
 # -----------------------------------------------------------------------------
 # 201506
 # -----------------------------------------------------------------------------
 # 某ゲーム・ミュージックコンサートチケット販売専門サイト
 git clone -b master https://github.com/internousdevwork/g-tickets
+# 某ゲーム・ミュージックコンサートチケット販売専門サイト
+git clone -b phase2 https://github.com/internousdevwork/g-tickets
+
 # 某映画館向け 映画鑑賞チケット販売サイト
 git clone -b master https://github.com/internousdevwork/movietickets
 # 某Tシャツ販売サイト
@@ -195,12 +212,12 @@ git clone -b master https://github.com/internousdevwork/mackeypark
 git clone -b master https://github.com/internousdevwork/kuruyama
 
 # -----------------------------------------------------------------------------
-# 201602
+# 201602 <201602月生>
 # -----------------------------------------------------------------------------
 # 一般消費者向け 舞台チケット予約サイト
 git clone -b master https://github.com/internousdevwork/gekidanroadshow
 
-#
+# 某着物レンタルサイト
 git clone -b phase2 https://github.com/internousdevwork/ichigoichie
 
 git clone -b master https://github.com/internousdevwork/visa
@@ -209,9 +226,39 @@ git clone -b master https://github.com/internousdevwork/internousdev
 git clone -b master https://github.com/internousdevwork/mira-mode
 git clone -b master https://github.com/internousdevwork/rewrite
 
+
+# -----------------------------------------------------------------------------
+# 201603 <201601月生及び201602月生>
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# 201604 <201602月生及び201603月生>
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# 201605 <201603月生及び201604月生>
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# 201606 <201604月生及び201605月生>
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# 201607 <201605月生及び201606月生>
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# 201608 <201606月生及び201607月生>
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# 201609 <201607月生及び201608月生>
+# -----------------------------------------------------------------------------
+
 # -----------------------------------------------------------------------------
 # 201610 <201608月生及び201609月生>
 # -----------------------------------------------------------------------------
+# 某一般消費者向け 温泉旅館予約サイト
 git clone -b master https://github.com/internousdevwork/nagomi
 
 # -----------------------------------------------------------------------------

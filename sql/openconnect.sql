@@ -120,23 +120,15 @@ insert into users()values
 ('12','student7','hoshi','tatsuya','星','ほし','達也','たつや','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','tatsuya.hoshi@gmail.com','09012345678','tatsuya.hoshi@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','08'),
 ('13','student8','iwamoto','koumei','岩本','いわもと','興明','こうめい','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','koumei.iwamoto@gmail.com','09012345678','koumei.iwamoto@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','08');
 
-/* サイト一覧情報 *
- * サイトID = site_id
- * サイト名 = site_name
- * サイトURL = site_url
- * サイト記事 = site_article
- * グループ = genre
- * 画像 = picture
- * バナー = banner
- */
+/* サイト一覧情報 */
 create table site(
 site_id int primary key not null auto_increment comment 'サイトID',
 site_name varchar(30) not null comment 'サイト名',
 site_url varchar(255) not null unique comment 'サイトURL',
 site_article text comment 'サイト記事',
-genre varchar(30) comment 'genre',
-picture varchar(255) comment 'picture',
-banner varchar(80) comment 'banner'
+genre varchar(30) comment 'ジャンル',
+picture varchar(255) comment '画像',
+banner varchar(80) comment 'バナー'
 )comment = 'サイト情報格納テーブル';
 
 /* サイト一覧 / サイト名/URL */
