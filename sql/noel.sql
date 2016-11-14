@@ -76,6 +76,7 @@ foreign key(item_id) references item(item_id)
  * 価格 = price
  * 合計金額 = amount
  * 備考 = note
+ * 画像001 = img_address001
  */
 
 create table cart(
@@ -86,6 +87,7 @@ order_count int not null,
 price int not null,
 amount int not null,
 note varchar(100),
+img_address001 text not null,
 foreign key(user_id) references openconnect.users(user_id) on delete cascade,
 foreign key(item_id) references item(item_id)
 );
