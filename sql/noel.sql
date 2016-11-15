@@ -22,23 +22,23 @@ use noel;
  * 店舗名 = store_name
  */
 create table item(
-item_id int not null primary key auto_increment comment "商品ID",
-item_name varchar(100) not null comment "商品名称"
-item_category varchar(50) not null comment "ジャンル",
-price int not null comment "価格",
-overview text not null comment "詳細文",
-size varchar(100) not null comment "サイズ",
-allergy varchar(100) not null comment "アレルギー",
-sales_period date not null comment "販売期間",
-img_address001 text not null comment "画像001",
-img_address002 text not null comment "画像002",
-img_address003 text not null comment "画像003",
-delete_flg boolean not null default false comment "削除フラグ",
-registration_date datetime not null comment "登録日",
-updated_date datetime not null comment "更新日",
-company_name varchar(100) not null comment "会社名",
-store_name varchar(100) not null "店舗名"
-) comment ="商品テーブル";
+item_id int not null primary key auto_increment comment '商品ID',
+item_name varchar(100) not null comment '商品名称',
+item_category varchar(50) not null comment 'ジャンル',
+price int not null comment '価格',
+overview text not null comment '詳細文',
+size varchar(100) not null comment 'サイズ',
+allergy varchar(100) not null comment 'アレルギー',
+sales_period date not null comment '販売期間',
+img_address001 text not null comment '画像001',
+img_address002 text not null comment '画像002',
+img_address003 text not null comment '画像003',
+delete_flg boolean not null default false comment '削除フラグ',
+registration_date datetime not null comment '登録日',
+updated_date datetime not null comment '更新日',
+company_name varchar(100) not null comment '会社名',
+store_name varchar(100) not null comment '店舗名'
+)comment = '商品テーブル';
 
 /*購入
  * 購入id = parchase_id
@@ -53,20 +53,20 @@ store_name varchar(100) not null "店舗名"
  * 更新日 = updated_date
  */
 
-create table parchase(
-parchase_id int not null comment "購入ID",
-user_id int not null comment "ユーザーID",
-item_id int not null comment "商品ID",
-item_name varchar(100) not null comment "商品名称",
-order_count int not null comment "注文数",
-amount int not null comment "合計金額",
-purchase_date date not null comment "購入日",
-payment_method int not null default "0" comment "支払い方法",
-registration_date datetime not null comment "登録日",
-updated_date datetime not null comment "更新日",
+create table purchase(
+parchase_id int not null comment '購入ID',
+user_id int not null comment 'ユーザーID',
+item_id int not null comment '商品ID',
+item_name varchar(100) not null comment '商品名称',
+order_count int not null comment '注文数',
+amount int not null comment '合計金額',
+purchase_date date not null comment '購入日',
+payment_method int not null default "0" comment '支払い方法',
+registration_date datetime not null comment '登録日',
+updated_date datetime not null comment '更新日',
 foreign key(user_id) references openconnect.users(user_id) on delete cascade,
 foreign key(item_id) references item(item_id)
-) commment="購入テーブル";
+)comment = '購入テーブル';
 
 /*カート
  * ユーザーID = user_id
@@ -132,6 +132,7 @@ spend int not null
  */
 
 create table work(
+user_id int not null,
 credit_name enum('visa','mastercard','americanexpress') not null comment "クレジットの種類",
 credit_number varchar(16) not null comment "クレジットカード番号",
 name_e varchar(50) not null comment "名義人",
@@ -141,7 +142,8 @@ corporation_name varchar(50) not null comment "ご利用店名",
 use_day date not null comment "ご利用日",
 division varchar(10) not null comment "支払い区分",
 split int comment "分割回数",
-spend int not null comment "ご利用金額"
+spend int not null comment "ご利用金額",
+foreign key(user_id) references openconnect.users(user_id) on delete cascade
 );
 
 /*商品の追加１５件

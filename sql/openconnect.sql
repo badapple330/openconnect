@@ -80,17 +80,17 @@ insert into user(user_id,password,name,name_f,postal,address,tel_number,email,se
  */
 create table users (
 user_id int primary key not null auto_increment comment 'ユーザーID',
-password varchar(255) not null comment 'パスワード',
-family_name varchar(50) not null comment '姓(英語)',
-given_name varchar(50) not null comment '名(英語)',
-family_name_kanji varchar(50) comment '姓(漢字)',
-family_name_kana varchar(50) comment '姓(ふりがな)',
-given_name_kanji varchar(50) comment '名(漢字)',
-given_name_kana varchar(50) comment '名(ふりがな)',
+password varchar(255)  comment 'パスワード',
+family_name varchar(50) not null default "" comment '姓(英語)',
+given_name varchar(50) not null default "" comment '名(英語)',
+family_name_kanji varchar(50) not null default "" comment '姓(漢字)',
+family_name_kana varchar(50) not null default "" comment '姓(ふりがな)',
+given_name_kanji varchar(50) not null default "" comment '名(漢字)',
+given_name_kana varchar(50) not null default "" comment '名(ふりがな)',
 postal varchar(255) default "" comment '郵便番号',
 address varchar(255) default "" comment '住所',
 phone_number varchar(255) default "" comment '電話番号',
-phone_email varchar(255) not null unique comment 'メールアドレス',
+phone_email varchar(255)  unique comment 'メールアドレス',
 mobile_number varchar(255) default "" comment '携帯電話番号',
 mobile_email varchar(255) unique comment '携帯メールアドレス',
 sex varchar(10) not null default "" comment '性別',
@@ -100,8 +100,11 @@ update_day datetime default 00000000000000 comment '更新日',
 userdel_flg boolean default FALSE comment '退会フラグ',
 login_flg boolean default TRUE comment 'ログインフラグ',
 user_flg int not null default 1 comment 'ユーザーフラグ',
-year varchar(4) not null comment '受講年',
-month varchar(2) not null comment '受講開始月'
+year varchar(4) comment '受講年',
+month varchar(2) comment '受講開始月',
+oauth_id varchar(255) comment 'OAuthID',
+oauth_name int comment 'OAuth名',
+oauth_account varchar(100) comment'OAuthアカウント'
 )comment = 'ユーザー情報格納テーブル';
 
 /* ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
