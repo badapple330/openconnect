@@ -54,7 +54,7 @@ store_name varchar(100) not null comment '店舗名'
  */
 
 create table purchase(
-parchase_id int auto_increment comment '購入ID',
+parchase_id int primary key auto_increment comment '購入ID',
 user_id int not null comment 'ユーザーID',
 item_id int not null comment '商品ID',
 item_name varchar(100) not null comment '商品名称',
@@ -81,7 +81,7 @@ foreign key(item_id) references item(item_id)
 
 create table cart(
 user_id int not null,
-item_id int not null default"0",
+item_id int not null,
 item_name varchar(100) not null,
 order_count int not null,
 price int not null,
