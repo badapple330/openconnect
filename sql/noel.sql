@@ -29,7 +29,7 @@ price int not null comment '価格',
 overview text not null comment '詳細文',
 size varchar(100) not null comment 'サイズ',
 allergy varchar(100) not null comment 'アレルギー',
-sales_period varchar(100) not null comment '販売期間',
+sales_period date not null comment '販売期間',
 img_address001 text not null comment '画像001',
 img_address002 text not null comment '画像002',
 img_address003 text not null comment '画像003',
@@ -54,14 +54,14 @@ store_name varchar(100) not null comment '店舗名'
  */
 
 create table purchase(
-parchase_id int not null comment '購入ID',
+parchase_id int auto_increment comment '購入ID',
 user_id int not null comment 'ユーザーID',
 item_id int not null comment '商品ID',
 item_name varchar(100) not null comment '商品名称',
 order_count int not null comment '注文数',
 amount int not null comment '合計金額',
 purchase_date date not null comment '購入日',
-payment_method int not null default "0" comment '支払い方法',
+payment_method int default "0" comment '支払い方法',
 registration_date datetime not null comment '登録日',
 updated_date datetime not null comment '更新日',
 foreign key(user_id) references openconnect.users(user_id) on delete cascade,
@@ -106,16 +106,16 @@ foreign key(item_id) references item(item_id)
  */
 
 create table credit(
-credit_name enum('visa','mastercard','americanexpress') not null,
-credit_number varchar(16) not null,
-name_e varchar(50) not null,
-security_code int(4) not null,
-expiration_day datetime not null,
-corporation_name varchar(50) not null,
-use_day date not null,
-division varchar(10) not null,
+credit_name enum('visa','mastercard','americanexpress'),
+credit_number varchar(16),
+name_e varchar(50),
+security_code int(4),
+expiration_day varchar(25),
+corporation_name varchar(50),
+use_day date,
+division varchar(10),
 split int,
-spend int not null
+spend int
 );
 
 /*一時保管
@@ -133,16 +133,16 @@ spend int not null
 
 create table work(
 user_id int not null,
-credit_name enum('visa','mastercard','americanexpress') not null comment "クレジットの種類",
-credit_number varchar(16) not null comment "クレジットカード番号",
-name_e varchar(50) not null comment "名義人",
-security_code int(4) not null comment "セキュリティコード",
-expiration_day varchar(50) not null comment "有効期限",
-corporation_name varchar(50) not null comment "ご利用店名",
-use_day date not null comment "ご利用日",
-division varchar(10) not null comment "支払い区分",
+credit_name enum('visa','mastercard','americanexpress') comment "クレジットの種類",
+credit_number varchar(16) comment "クレジットカード番号",
+name_e varchar(50) comment "名義人",
+security_code int(4) comment "セキュリティコード",
+expiration_day varchar(25)  comment "有効期限",
+corporation_name varchar(50) comment "ご利用店名",
+use_day date comment "ご利用日",
+division varchar(10) comment "支払い区分",
 split int comment "分割回数",
-spend int not null comment "ご利用金額",
+spend int comment "ご利用金額",
 foreign key(user_id) references openconnect.users(user_id) on delete cascade
 );
 
