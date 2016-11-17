@@ -212,39 +212,39 @@ false,"2016/11/08 16:29:00","2016/11/08 16:38:00","ジャンヌアルベル/Jean
 "montblanc.jpg","montblanc2.jpg","montblanc3.jpg",
 false,"2016/11/08 15:29:00","2016/11/08 15:38:00","アディドス/Adidos","アディドス/Adidos"
 ),(
-"カシスとミルクチョコレートのアイスケーキ/Cassis and milk chocolate ice cake","カシスとミルクチョコレートのアイスケーキ","Cassis and milk chocolate ice cake","おすすめケーキ/Recommendation Cake","4450",
+"カシスとミルクチョコレートのアイスケーキ/Cassis and milk chocolate ice cake","カシスとミルクチョコレートのアイスケーキ","Cassis and milk chocolate ice cake","おすすめケーキ/Recommendation Cake","4500",
 "さわやかな酸味のカシスムースの中にコクのあるミルクチョコのムースをいれました。
 /I put a mousse milk chocolate mousse in a crisp mousse with refreshing acidity.",
-"5号 15cm（お召し上がり目安3〜5名様）/No. 5 15 cm (3 to 5 persons per serving)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/10",
+"直径150mm/Diameter 150 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/10",
 "casischoco1.jpg","casischoco2.jpg","casischoco3.jpg",
 false,"2016/11/10 14:30:00","2016/11/10 14:33:00","菓子工房オカダ/Confectionery Factory Okada","菓子工房オカダ/Confectionery Factory Okada"
 ),(
-"生チョコフルーツデコレーション/Raw chocolate fruit decoration","生チョコフルーツデコレーション","Raw chocolate fruit decoration","おすすめケーキ/Recommendation Cake","5019",
+"生チョコフルーツデコレーション/Raw chocolate fruit decoration","生チョコフルーツデコレーション","Raw chocolate fruit decoration","おすすめケーキ/Recommendation Cake","5200",
 "自慢のココアスポンジ生地に、良質のチョコレートを混ぜ込んだ生クリームを使用しました。そして、飾りにはたっぷりのフルーツを乗せました。
 /We used fresh cream mixed with high quality chocolate in our cocoa sponge fabric. And I put plenty of fruit on the decoration.",
-"6号 直径18cm(お召し上がり目安4〜6名様）/No. 6 diameter 18 cm (for eating 4 to 6 people)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/11",
+"直径180mm/Diameter 180 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/11",
 "chocofruit1.jpg","chocofruit2.jpg","chocofruit3.jpg",
 false,"2016/11/11 14:30:00","2016/11/11 14:33:00","ケーキ工房　ミラベル/Cake Studio Mirabell","ケーキ工房　ミラベル/Cake Studio Mirabell"
 ),(
 "パーティ用ショートケーキ/Short cake for parties","パーティ用ショートケーキ","Short cake for parties","おすすめケーキ/Recommendation Cake","16000",
 "パーティ用で特大サイズのふわふわスポンジ、乳味ゆたかな生クリームと苺、それぞれのおいしさを引き立合うバランスで仕上げました。
 /Large size fluffy sponge for party use, milky cream and cream and strawberries, finished in balance that attracts each other's deliciousness.",
-"21×21×8cm（お召し上がり目安20名様前後)/21 × 21 × 8 cm (standard for taking around 20 people)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/12",
+"21×21×8cm/21 × 21 × 8 cm ","卵,牛乳.小麦粉/egg,milk,flour","2016/11/12",
 "party1.jpg","party2.jpg","party3.jpg",
 false,"2016/11/12 14:30:00","2016/11/12 14:33:00","有限会社 タカヤナイ/Takayanai limited company","有限会社 タカヤナイ/Takayanai limited company"
 ),(
-"チェリーのレアチーズケーキ/Cherry's rare cheesecake","チェリーのレアチーズケーキ","Cherry's rare cheesecake","おすすめケーキ/Recommendation Cake","4436",
+"チェリーのレアチーズケーキ/Cherry's rare cheesecake","チェリーのレアチーズケーキ","Cherry's rare cheesecake","おすすめケーキ/Recommendation Cake","4400",
 "北海道産のクリームチーズと純生クリームをたっぷり使用したレアチーズケーキです。チェリーの酸味がアクセント！濃厚なのに、後味さわやか！クリームチーズの味がしっかり楽しめ、ごちそうの後でもさっぱり召し上がれるケーキです。味に自信あり！
 /It is a rare cheesecake with plenty of Hokkaido cream cheese and purple cream. Acid of cherry accent! Even though it is rich, the aftertaste refreshing! You can enjoy the taste of cream cheese firmly, it is a cake that you can have after all a refreshing cake. I have confidence in the taste!",
-"4号 12cm（お召し上がり目安2〜3名様)/No. 4 12cm (2 to 3 persons per serving)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/11",
-"ccc.jpg","ccc2.jpg","ccc3.jpg",
+"直径140mm/Diameter 140 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/11",
+"ichigocheese1.jpg","ichigocheese2.jpg","ichigocheese3.jpg",
 false,"2016/11/11 14:33:00","2016/11/11 14:53:00","洋菓子カフェかしこ/Confectionary Cafe","洋菓子カフェかしこ/Confectionary Cafe"
 ),(
 "ベリー×ベリーケーキ/Berry × Berry cake","ベリー×ベリーケーキ","Berry × Berry cake","おすすめケーキ/Recommendation Cake","5500",
 "ラフィネクリーム（チーズベース）の上を６種類のたっぷりベリーで飾った甘酸っぱいベリータルトです。
 /It is a sweet and sour berry tart decorated with six kinds of plenty of berries on the top of the raffinate cream (cheese base).",
-"5号 15cm(お召し上がり目安3〜5名様)/No. 5 15cm (3 to 5 persons per serving)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/12",
-"casischoco1.jpg","casischoco2.jpg","casischoco3.jpg",
+"直径165mm/Diameter 165 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/12",
+"berryberry1.jpg","berryberry2.jpg","berryberry3.jpg",
 false,"2016/11/12 12:30:00","2016/11/13 11:33:00","パティスリー　アン・スリール/Patisserie Anne ・ Sriel","パティスリー　アン・スリール/Patisserie Anne ・ Sriel"
 ),(
 "ラズピスマス/raspberry×pistachio Christmascake","ラズピスマス","raspberry×pistachio Christmascake","季節のケーキ/Seasonal Cake","5200",
@@ -257,28 +257,28 @@ false,"2016/11/12 11:30:00","2016/11/12 17:33:00","Souvenir-スブニール-/-So
 "ノエル　クーヘン/Noel Kuchen","ノエル　クーヘン","Noel Kuchen","季節のケーキ/Seasonal Cake","3200",
 "バニラ風味のしっとりバームクーヘンをクリスマス飾りでにデコレーションしたかわいいケーキです☆
 /It is a cute cake decorated with moisturizing Vanilla flavored Balmucuchen with Christmas decorations ☆",
-"4号 12cm（お召し上がり目安3〜5名様)/No. 4 12cm(3 to 5 persons dining standard)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/13",
+"直径120mm/Diameter 120 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/13",
 "baumnoel1.jpg","baumnoel2.jpg","baumnoel3.jpg",
 false,"2016/11/13 11:30:00","2016/11/13 17:33:00","Souvenir-スブニール-/-Souvenir-","Souvenir-スブニール-/-Souvenir-"
 ),(
 "クリスマスプレミアムクラシックショコラ/Christmas premium classic chocolat","クリスマスプレミアムクラシックショコラ","Christmas premium classic chocolat","季節のケーキ/Seasonal Cake","4500",
 "スペイン産のチョコを使用したチョコ好きにおすすめのプレミアムクラシックショコラです。
 /It is a premium classic chocolate recommended for chocolate lovers who used chocolate from Spain.",
-"5号 15cm（お召し上がり目安3～5名様)/No. 5 15cm(3 to 5 persons dining standard)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/10",
+"直径150mm/Diameter 150 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/10",
 "chocoxmas1.jpg","chocoxmas2.jpg","chocoxmas3.jpg",
 false,"2016/11/10 10:30:00","2016/11/11 13:33:00","パティスリーテロワール/Patisserie terroir","パティスリーテロワール/Patisserie terroir"
 ),(
-"バニラとチョコの極上ブッシュ・ド・ノエル/Vanilla and chocolate finest bush de noel","バニラとチョコの極上ブッシュ・ド・ノエル","Vanilla and chocolate finest bush de noel","季節のケーキ/Seasonal Cake","4320",
+"バニラとチョコの極上ブッシュ・ド・ノエル/Vanilla and chocolate finest bush de noel","バニラとチョコの極上ブッシュ・ド・ノエル","Vanilla and chocolate finest bush de noel","季節のケーキ/Seasonal Cake","4500",
 "こだわりのいちご入り濃厚バニラクリーム♪自信作の2016年バージョン。
 /Sticking strawberry-enriched thick vanilla cream ♪ 2016 version of self-confidence.",
-"長さ18cm×9cm（お召し上がり目安4～6名様)/Length 18 cm × 9 cm(4 to 6 persons dining standard)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/12",
+"長さ18cm×9cm/Length 18 cm × 9 cm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/12",
 "vanilanoel1.jpg","vanilanoel2.jpg","vanilanoel3.jpg",
 false,"2016/11/12 12:30:00","2016/11/12 18:30:00","有限会社 タカヤナイ/Takayanai limited company","有限会社 タカヤナイ/Takayanai limited company"
 ),(
 "クリスマスモンブラン/Christmas Mont Blanc","クリスマスモンブラン","Christmas Mont Blanc","季節のケーキ/Seasonal Cake","3500",
 "京マロンとカスタードクリームたっぷりのコポーのクリスマスケーキはいかがでしょうか。
 /How about Christmas cake with Kyoto Maron and custard cream plenty of Kopoh?",
-"5号 15cm（お召し上がり目安3～5名様)/No. 5 15 cm (3 ~ 5 persons' standard)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/11",
+"直径150mm/Diameter 150 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/11",
 "montxmas1.jpg","montxmas2.jpg","montxmas3.jpg",
 false,"2016/11/11 10:20:00","2016/11/12 15:31:00","コポー洋菓子店/Kopoh bakery shop","コポー洋菓子店/Kopoh bakery shop"
 );
