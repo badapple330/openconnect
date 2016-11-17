@@ -244,7 +244,7 @@ false,"2016/11/11 14:33:00","2016/11/11 14:53:00","洋菓子カフェかしこ/C
 "ラフィネクリーム（チーズベース）の上を６種類のたっぷりベリーで飾った甘酸っぱいベリータルトです。
 /It is a sweet and sour berry tart decorated with six kinds of plenty of berries on the top of the raffinate cream (cheese base).",
 "直径165mm/Diameter 165 mm","卵,牛乳.小麦粉/egg,milk,flour","2016/11/12",
-"berryberry1.jpg","berryberry2.jpg","berryberry3.jpg",
+"berry1.jpg","berry2.jpg","berry3.jpg",
 false,"2016/11/12 12:30:00","2016/11/13 11:33:00","パティスリー　アン・スリール/Patisserie Anne ・ Sriel","パティスリー　アン・スリール/Patisserie Anne ・ Sriel"
 ),(
 "ラズピスマス/raspberry×pistachio Christmascake","ラズピスマス","raspberry×pistachio Christmascake","季節のケーキ/Seasonal Cake","5200",
