@@ -65,7 +65,7 @@ item_name varchar(100) not null comment '商品名称',
 order_count int not null comment '注文数',
 amount int not null comment '合計金額',
 purchase_date date not null comment '購入日',
-payment_method int default "0" comment '支払い方法',
+payment_method enum('銀行振込み','クレジット') comment '支払い方法',
 registration_date datetime not null comment '登録日',
 updated_date datetime not null comment '更新日',
 foreign key(user_id) references openconnect.users(user_id) on delete cascade,
@@ -137,7 +137,7 @@ spend int
 
 create table work(
 user_id int not null,
-payment_method varchar(50),
+payment_method enum('銀行振込み','クレジット'),
 credit_name enum('visa','mastercard','americanexpress') comment "クレジットの種類",
 credit_number varchar(16) comment "クレジットカード番号",
 name_e varchar(50) comment "名義人",
