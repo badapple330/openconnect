@@ -237,7 +237,7 @@ false,"2016/11/12 14:30:00","2016/11/12 14:33:00","有限会社 タカヤナイ/
 "北海道産のクリームチーズと純生クリームをたっぷり使用したレアチーズケーキです。チェリーの酸味がアクセント！濃厚なのに、後味さわやか！クリームチーズの味がしっかり楽しめ、ごちそうの後でもさっぱり召し上がれるケーキです。味に自信あり！
 /It is a rare cheesecake with plenty of Hokkaido cream cheese and purple cream. Acid of cherry accent! Even though it is rich, the aftertaste refreshing! You can enjoy the taste of cream cheese firmly, it is a cake that you can have after all a refreshing cake. I have confidence in the taste!",
 "4号 12cm（お召し上がり目安2〜3名様)/No. 4 12cm (2 to 3 persons per serving)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/11",
-"cherrycheese1.jpg","cherrycheese2.jpg","cherrycheese3.jpg",
+"ccc.jpg","ccc2.jpg","ccc3.jpg",
 false,"2016/11/11 14:33:00","2016/11/11 14:53:00","洋菓子カフェかしこ/Confectionary Cafe","洋菓子カフェかしこ/Confectionary Cafe"
 ),(
 "ベリー×ベリーケーキ/Berry × Berry cake","ベリー×ベリーケーキ","Berry × Berry cake","おすすめケーキ/Recommendation Cake","5500",
@@ -279,6 +279,6 @@ false,"2016/11/12 12:30:00","2016/11/12 18:30:00","有限会社 タカヤナイ/
 "京マロンとカスタードクリームたっぷりのコポーのクリスマスケーキはいかがでしょうか。
 /How about Christmas cake with Kyoto Maron and custard cream plenty of Kopoh?",
 "5号 15cm（お召し上がり目安3～5名様)/No. 5 15 cm (3 ~ 5 persons' standard)","卵,牛乳.小麦粉/egg,milk,flour","2016/11/11",
-"vanilanoel1.jpg","vanilanoel2.jpg","vanilanoel3.jpg",
+"montxmas1.jpg","montxmas2.jpg","montxmas3.jpg",
 false,"2016/11/11 10:20:00","2016/11/12 15:31:00","コポー洋菓子店/Kopoh bakery shop","コポー洋菓子店/Kopoh bakery shop"
 );
