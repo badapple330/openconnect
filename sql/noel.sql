@@ -133,6 +133,7 @@ spend int
 
 create table work(
 user_id int not null,
+payment_method varchar(50),
 credit_name enum('visa','mastercard','americanexpress') comment "クレジットの種類",
 credit_number varchar(16) comment "クレジットカード番号",
 name_e varchar(50) comment "名義人",
