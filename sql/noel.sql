@@ -66,8 +66,8 @@ order_count int not null comment '注文数',
 amount int not null comment '合計金額',
 purchase_date date not null comment '購入日',
 payment_method varchar(100) comment '支払い方法',
-registration_date datetime not null comment '登録日',
-updated_date datetime not null comment '更新日',
+registration_date datetime comment '登録日',
+updated_date datetime comment '更新日',
 foreign key(user_id) references openconnect.users(user_id) on delete cascade,
 foreign key(item_id) references item(item_id)
 )comment = '購入テーブル';
