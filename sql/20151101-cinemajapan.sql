@@ -5,6 +5,9 @@ use cinemajapan;
 
 -- user table
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 create table user(
 user_id int not null primary key auto_increment comment'ID',
 password varchar(255) comment'パスワード',
@@ -24,8 +27,10 @@ registration_date datetime not null comment'登録意',
 updated_date datetime not null comment'更新日'
 );
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 -- insert data user table
-
 insert into user values(1,"test",
                         "テストユーザー1",
                         "てすとゆーざーいち",

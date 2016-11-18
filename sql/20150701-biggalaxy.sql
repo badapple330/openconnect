@@ -4,7 +4,7 @@ create database biggalaxy;
 use biggalaxy;
 
 
-/* 
+/*
  * チケット情報テーブル
  */
 CREATE TABLE ticket_info (
@@ -67,6 +67,10 @@ CREATE TABLE tickets_stock
 	nightstock int(10) NOT NULL
 );
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 /* 会員情報 */
 /*
  * user_id 会員ID(自動)
@@ -139,6 +143,10 @@ CREATE TABLE sign_out_reason
 	other text
 );
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 /* テストユーザー登録 */
 insert into user_info(name,phonetic,e_mail,password,tel_num,postal,address)
 values("あいうえお","あいうえお","aaaaa@yahoo.co.jp","aaaa","00011112222","1112222","ちきゅう");

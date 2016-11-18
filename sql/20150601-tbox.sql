@@ -101,6 +101,9 @@ CREATE TABLE shopInfo
 );
 
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 CREATE TABLE userInfo
 (
 	userName varchar(20) NOT NULL,

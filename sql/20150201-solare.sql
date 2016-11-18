@@ -3,6 +3,9 @@ drop database if exists solare;
 create database solare;
 use solare;
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 create table customer_info(
 account_number int(10) primary key auto_increment comment "",
 customer_id varchar(30) unique comment "",

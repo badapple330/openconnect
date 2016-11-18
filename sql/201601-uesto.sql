@@ -101,6 +101,10 @@ insert into goods values
 ("体重計",100,1500,3),
 ("亜鉛風呂",100,1500,3);
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 create table customer (
 id INT(100) NOT NULL AUTO_INCREMENT comment '顧客ID',
 customer_name VARCHAR(255) NOT NULL comment '顧客名',
@@ -156,7 +160,9 @@ engine=MyISAM
 default charset=utf8
 comment='注文情報テーブル'
 ;
-
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 INSERT INTO CUSTOMER(CUSTOMER_NAME,USER_ID,PASS,MAILAD,POSTCODE,ADDRESS,TELNUMBER,credit_token
 )VALUES(
 "黒柳","totto","madogiwa","totto@gmail.com","1234567","東京都八王子市xxx","09012345678","ab8b31e064a7cf9ef187fd53a7a11b2df9d31b5c0da5fe7876a3092ceaaeade3");

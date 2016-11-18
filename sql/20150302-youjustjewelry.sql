@@ -12,6 +12,9 @@ create table ticket_info(
 	stock int(3)
 );
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 /* 顧客情報テーブル	*/
 drop table if exists customer_info;
 create table customer_info(

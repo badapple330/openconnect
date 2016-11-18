@@ -4,6 +4,10 @@ CREATE DATABASE pizza_seijin;
 
 use pizza_seijin
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 CREATE TABLE IF NOT EXISTS user(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 email varchar(100) NOT NULL,
@@ -126,6 +130,9 @@ created_at datetime NOT NULL,
 updated_at datetime NOT NULL
 );
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 INSERT INTO user(
   email,
   password,

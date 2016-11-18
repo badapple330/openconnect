@@ -3,18 +3,23 @@ drop database if exists bookmanager09;
 create database bookmanager09;
 use bookmanager09;
 
-create table if not exists categories(
+create table categories(
   bookid int(255) not null primary key auto_increment comment '書籍ID',
   booktitle varchar(255) not null comment '書籍名',
   numberofbooks int(255) not null comment '冊数',
   numberofstocks int (255) not null comment '在庫数'
 );
 
-create table if not exists user(
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
+create table user(
   userid varchar(255) not null primary key comment 'ユーザーID',
   password varchar(255) not null comment 'パスワード'
 );
-
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 insert into users(userid,password) values
 ("internous","internous01"),
 ("test","test"),

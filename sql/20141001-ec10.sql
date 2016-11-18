@@ -5,7 +5,7 @@ use ec;
 
 create table admin_table(
 -- 管理者id
-admin_id varchar(16) not null primary key comment '管理者id',
+admin_id varchar(16) not null primary key comment '管理者ID',
 admin_pass varchar(16) not null comment '管理者パスワード',
 admin_name varchar(50) not null comment '管理者名',
 );
@@ -20,8 +20,8 @@ item_stock int not null default "0" comment '在庫',
 item_img varchar(255) not null default "img/noimage.jpg" comment '画像パス'
 );
 
-insert into item_table (item_name, item_price, item_stock, item_img) 
-('獺祭', 2790, 27, 'img/liquor1.jpg'), 
+insert into item_table (item_name, item_price, item_stock, item_img)
+('獺祭', 2790, 27, 'img/liquor1.jpg'),
 ('鍋島', 2980, 12, 'img/liquor10.jpg'),
 ('久保田', 3900, 4, 'img/liquor2.jpg'),
 ('八海山', 2490, 39, 'img/liquor3.jpg'),
@@ -85,7 +85,7 @@ order_day datetime not null default current_timestamp comment '購入先'
 );
 
 -- 注文情報データの登録（10月生
-insert into order_table(item_id,order_count,order_customer,order_post,order_phone,order_mail,order_destination) 
+insert into order_table(item_id,order_count,order_customer,order_post,order_phone,order_mail,order_destination)
 values (1,2,"カービィ","1234567","00012345678","commando@ne.jp","愛知県"),
 values (2,4,"ジャクソン","1234567","00012345678","commando@ne.jp","静岡県"),
 values (3,6,"サリー","1234567","00012345678","commando@ne.jp","岐阜県"),

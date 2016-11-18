@@ -102,6 +102,9 @@ CREATE TABLE signoutreason
 );
 
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 CREATE TABLE userinfo
 (
 	userid int(8) NOT NULL AUTO_INCREMENT comment 'ユーザーID',

@@ -23,6 +23,9 @@ unit_price int(10),
 primary key(goods_id)
 );
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 create table if not exists customer_info(
 customer_id bigint(16) not null auto_increment,
 customer_name varchar(50) not null,

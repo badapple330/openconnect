@@ -3,8 +3,10 @@ drop database if exists chocotime;
 create database chocotime;
 use chocotime;
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 -- user table
-
 create table user(
 password varchar(255) comment'パスワード',
 name varchar(100) not null comment'会員名',
@@ -24,7 +26,9 @@ updated_date datetime not null comment'更新日',
 unique(name,email_address),
 index(name)
 );
-
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 -- insert date user
 insert into user values("test",
                         "テストユーザー1",

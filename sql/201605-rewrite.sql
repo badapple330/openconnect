@@ -3,6 +3,10 @@ drop database if exists rewrite;
 create database rewrite;
 use rewrite;
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 create table user (
 user_id int not null auto_increment comment 'ユーザーID',
 password varchar(255) not null  comment 'パスワード',
@@ -50,6 +54,10 @@ contact_text varchar(255) not null default "　" comment 'お問い合わせ内�
 
 /*以下テスト用データ*/
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 /* データ登録 */
 /* ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/ハンドルネーム/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
 insert into user(user_id,password,name,name_f,postal,address,tel_number,email,sex,birthday,handle_name,register_day,update_day,userdel_flg,login_flg,user_flg)values

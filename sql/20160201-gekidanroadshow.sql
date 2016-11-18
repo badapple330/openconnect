@@ -3,6 +3,10 @@ drop database if exists gekidanroadshow;
 create database gekidanroadshow;
 use gekidanroadshow;
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 create table user(
 id int not null auto_increment comment'',
 user_id varchar(25) unique comment'',

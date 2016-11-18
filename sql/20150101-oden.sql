@@ -3,6 +3,10 @@ drop database if exists oden;
 create database oden;
 use oden;
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 create table user_log(
 id int(99) primary key auto_increment comment '顧客ID',
 user_name varchar(255) unique not null comment '顧客名',

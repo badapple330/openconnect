@@ -3,8 +3,9 @@ drop database if exists ucycle;
 create database if not exists ucycle;
 use ucycle;
 
-
-
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 /*顧客情報入力（新規登録・customer_typeは１．月額会員２．一般会員３．SNS会員）(SNSログインはfamilynameにアカウント名,givennameにSNS名)*/
 create table if not exists customer comment'会員テーブル'(
 customer_type int (1) not  null comment'会員タイプ',

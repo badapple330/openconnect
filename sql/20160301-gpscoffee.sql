@@ -3,6 +3,9 @@ drop database if exists gpscoffee;
 create database gpscoffee default character set utf8;
 use gpscoffee;
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 /* プレミアム会員情報テーブル	*/
 drop table if exists premium_membership;
 create table premium_membership(

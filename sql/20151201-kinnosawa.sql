@@ -3,6 +3,10 @@ drop database if exists kinnosawa;
 create database kinnosawa;
 use kinnosawa;
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 /* テーブル作成 */
 	/* ユーザー */
 	create table user (  /* ユーザーのテーブルを作る */
@@ -94,6 +98,9 @@ insert into user value
 	(1,"kinnosawa100@docomo.ne.jp","kinnosawa100","田中仁","タナカヒトシ","08050732507","3360936","埼玉県さいたま市4-4-18","1234567891234567","","","","2016-01-28 22:00:00","2016-01-28 22:00:00"),
 */
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 /* データ登録 */
 /* ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
 insert into user(user_id,password,name,name_f,postal,address,tel_number,email,sex,birthday,handle_name,register_day,update_day,userdel_flg,login_flg,user_flg)values

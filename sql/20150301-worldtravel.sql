@@ -3,6 +3,10 @@ drop database if exists world_travel;
 create database world_travel DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 use world_travel;
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 create table user_info(
 id int(10) primary key auto_increment comment "",
 user_id varchar(20) unique not null comment "",
@@ -45,6 +49,9 @@ item_count int(4) comment "",
 total_amount int(10) comment ""
 );
 
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 insert into user_info(
 user_id,user_pass,last_name,first_name,sex,postal_code,prefecture,citytown,email,birthday,user_ip)
 values(

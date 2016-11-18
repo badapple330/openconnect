@@ -12,7 +12,9 @@ price int not null,
 stock int not null
 );
 
-
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 drop table if exists users;
 create table users(
 id int not null primary key auto_increment,

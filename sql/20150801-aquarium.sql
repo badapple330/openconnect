@@ -12,6 +12,10 @@ DROP TABLE IF EXISTS shop;
 DROP TABLE IF EXISTS administrator;
 /* Create Tables */
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 CREATE TABLE user
 (
 	user_id int NOT NULL AUTO_INCREMENT comment 'ユーザーID',
@@ -119,6 +123,10 @@ VALUES
 (1, "水族館チケット 大人", 2500),
 (2, "水族館チケット 子供", 1500);
 
+
+/***********************************************************
+* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
+***********************************************************/
 /* 会員情報　*/
 INSERT INTO user(login_id, password, user_name, user_name_kana, tel_number, postal_code, address)
 VALUES
