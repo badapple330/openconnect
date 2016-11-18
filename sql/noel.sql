@@ -117,7 +117,7 @@ security_code int(4),
 expiration_day varchar(25),
 corporation_name varchar(50),
 use_day int,
-use_year int
+use_year int,
 division varchar(10),
 split int,
 spend int
@@ -146,7 +146,7 @@ security_code int(4) comment "セキュリティコード",
 expiration_day varchar(25)  comment "有効期限",
 corporation_name varchar(50) comment "ご利用店名",
 use_day int comment "ご利用日",
-use_year int comment "ご利用年"
+use_year int comment "ご利用年",
 division varchar(10) comment "支払い区分",
 split int comment "分割回数",
 spend int comment "ご利用金額",
