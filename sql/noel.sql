@@ -101,9 +101,9 @@ foreign key(item_id) references item(item_id)
  * クレジット番号 = credit_number
  * 姓名（ローマ字） = name_e
  * セキュリティコード = security_code
- * 有効期限 = expiration_day
+ * 有効期限(年) = expiration_year
+ * 有効期限(月) = expiration_month
  * ご利用店名 = corporation_name
- * ご利用日 = use_day
  * 支払い区分 = division
  * 分割回数 = split
  * ご利用金額 = spend
@@ -114,10 +114,9 @@ credit_name enum('visa','mastercard','americanexpress'),
 credit_number varchar(16),
 name_e varchar(50),
 security_code int(4),
-expiration_day varchar(25),
+expiration_year int(4),
+expiration_month int(4),
 corporation_name varchar(50),
-use_day int,
-use_year int,
 division varchar(10),
 split int,
 spend int
@@ -143,7 +142,8 @@ credit_name enum('visa','mastercard','americanexpress') comment "クレジット
 credit_number varchar(16) comment "クレジットカード番号",
 name_e varchar(50) comment "名義人",
 security_code int(4) comment "セキュリティコード",
-expiration_day varchar(25)  comment "有効期限",
+expiration_year varchar(25)  comment "有効期限",
+expiration_month varchar(25)  comment "有効期限",
 corporation_name varchar(50) comment "ご利用店名",
 use_day int comment "ご利用日",
 use_year int comment "ご利用年",
