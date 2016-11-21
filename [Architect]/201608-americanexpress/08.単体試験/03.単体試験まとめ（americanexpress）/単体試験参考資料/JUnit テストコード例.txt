@@ -1,0 +1,61 @@
+・「com.internousdev.visa.dto.test」パッケージを作成する。
+・テスト用のファイル作成
+　-例）LoginDTOTest.java　名でクラスファイル作成
+・getter、setterひとつずつに対し値が取得できているかテストを行う。
+
+【int】
+    private int testInt0;
+    private int testInt9999999;
+    private int testInt1;
+【String】
+         testInt0 = 0;
+         testStringNull    = null;
+         testStringKara    = "";
+　　　　 testStringHSpace  = " ";
+         testStringZSpace  = "　";
+         testStringHankaku = "abc123";
+         testStringHankaku = "あいう１２３";
+	 testStringHankaku = "abc123あいう１２３";
+         testStringZenkaku = "ａｂｃ１２３あいう漢字";
+    }
+
+[ Stringの場合]
+	/**
+	 * {@link com.internousdev.visa.dto.PurchaseConfirmDTO#getEventName()} のためのテスト・メソッド。
+	 */
+ゲット
+	@Test
+	public void testGetEventName1() {
+        PurchaseConfirmDTO test = new PurchaseConfirmDTO();
+        String expected = testStringNull;
+
+        test.setEventName(expected);
+        String actual = test.getEventName();
+
+        assertEquals(expected, actual);
+	}
+
+セット
+	@Test
+	public void testSetAddress23() {
+		ModifyInformationDTO test = new ModifyInformationDTO();
+		String expected = " ";
+
+		test.setAddress2(expected);
+		String actual = test.getAddress2();
+
+		assertEquals(expected, actual);
+	}
+
+
+[ intの場合 ]
+
+@Test
+	public void testGetUserId2() {
+		ModifyInformationDTO test = new ModifyInformationDTO();
+		int expected = 0;
+
+		test.setUserId(expected);
+
+		assertEquals(expected, test.getUserId());
+	}
