@@ -10,17 +10,18 @@ mysql -u root -pmysql << EOF
 # ---
 # [201409] 
 # ---
+source ./../../sql/20140901-bookmanager.sql
 # ---
 # [201410] 
 # ---
-source ./../../sql/attendance.sql
 # ---
 # [201411] 
 # ---
+source ./../../sql/20141101-attendance.sql
 # ---
 # [201412] 
 # ---
-# source ./../../sql/chikezon.sql
+# source ./../../sql/20141202-chikezon.sql
 # ---
 # [201501]
 # ---
