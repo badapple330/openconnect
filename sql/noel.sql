@@ -58,7 +58,7 @@ store_name varchar(100) not null comment '店舗名'
  */
 
 create table purchase(
-purchase_id int primary key auto_increment comment '購入ID',
+purchase_id int not null primary key auto_increment comment '購入ID',
 user_id int not null comment 'ユーザーID',
 item_id int not null comment '商品ID',
 item_name varchar(100) not null comment '商品名称',
