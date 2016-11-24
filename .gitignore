@@ -1,6 +1,5 @@
 /build/*
-!build/build.xml
-/[SoftwareDesignSpecification]/
+/build/build.xml
 .classpath
 .DS_Store
-
+/.settings/
