@@ -11,12 +11,12 @@ import java.text.SimpleDateFormat;
 import com.internousdev.util.DBConnector;
 /**
  * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
- * @author internous
+ * @author TATSUYA HOSHI
  */
 public class BooksBorrow‎UpdateDAO {
 	/**
 	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
-	 */
+	 **/
 	public int update(int bookId , int borrowId){
 
 		int count = 0;
