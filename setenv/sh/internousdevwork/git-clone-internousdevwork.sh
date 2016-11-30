@@ -20,6 +20,7 @@ git clone -b master https://github.com/internousdevwork/prototype1606
 git clone -b master https://github.com/internousdevwork/prototype1607
 git clone -b master https://github.com/internousdevwork/prototype1608
 git clone -b master https://github.com/internousdevwork/prototype1610
+git clone -b master https://github.com/internousdevwork/prototype1611
 git clone -b master https://github.com/internousdevwork/releaseproject
 git clone -b master https://github.com/internousdevwork/java
 git clone -b master https://github.com/internousdevwork/mypage
@@ -306,7 +307,7 @@ git clone -b master https://github.com/internousdevwork/rewrite
 # -------------------------------------------------------------------------------------------------
 # 某一般消費者向け 温泉旅館予約サイト
 git clone -b master https://github.com/internousdevwork/nagomi
-
+ 
 # -------------------------------------------------------------------------------------------------
 # 201611 <201609月生及び201610月生>
 # -------------------------------------------------------------------------------------------------
@@ -314,3 +315,14 @@ git clone -b master https://github.com/internousdevwork/nagomi
 git clone -b master https://github.com/internousdevwork/noel
 # 某富裕層向け アルコール等販売サイト
 git clone -b master https://github.com/internousdevwork/lusso
+
+# -------------------------------------------------------------------------------------------------
+# 201612 <201610月生>
+# -------------------------------------------------------------------------------------------------
+
+
+# -------------------------------------------------------------------------------------------------
+# 201612 <201611月生>
+# -------------------------------------------------------------------------------------------------
+# 一般消費者向け 着物レンタル及び販売サイト
+git clone -b master https://github.com/internousdevwork/nadeshiko

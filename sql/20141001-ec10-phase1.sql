@@ -8,8 +8,7 @@ create table admin_table(
 admin_id varchar(16) not null primary key comment '管理者ID',
 admin_pass varchar(16) not null comment '管理者パスワード',
 admin_name varchar(50) not null comment '管理者名',
-);
--- 管理者データの登録（10月生）
+) comment="管理者テーブル";
 insert into admin_table(admin_id,admin_pass,admin_name) values ("12345678","commando","ジョンメイトリックス");
 
 create table item_table(
@@ -18,7 +17,7 @@ item_name varchar(255) not null comment '商品名',
 item_price int not null default "1" comment '価格',
 item_stock int not null default "0" comment '在庫',
 item_img varchar(255) not null default "img/noimage.jpg" comment '画像パス'
-);
+) comment="商品テーブル";
 
 insert into item_table (item_name, item_price, item_stock, item_img)
 ('獺祭', 2790, 27, 'img/liquor1.jpg'),
@@ -73,18 +72,17 @@ insert into item_table (item_name, item_price, item_stock, item_img)
 ('金剛', 2790, 13,'');
 
 create table order_table(
-order_id int not null primary key auto_increment comment '注文id',
-item_id int not null comment '商品id',
+order_id int not null primary key auto_increment comment '注文ID',
+item_id int not null comment '商品ID',
 order_count int not null default "0" comment '注文数',
 order_customer varchar(50) not null comment '購入者',
 order_post varchar(7) not null comment '郵便番号',
 order_phone varchar(11) not null comment '電話番号',
-order_mail varchar(255) not null comment 'eメールアドレス',
+order_mail varchar(255) not null comment 'Eメールアドレス',
 order_destination varchar(255) not null comment '届け先',
 order_day datetime not null default current_timestamp comment '購入先'
-);
+) comment="注文情報テーブル";
 
--- 注文情報データの登録（10月生
 insert into order_table(item_id,order_count,order_customer,order_post,order_phone,order_mail,order_destination)
 values (1,2,"カービィ","1234567","00012345678","commando@ne.jp","愛知県"),
 values (2,4,"ジャクソン","1234567","00012345678","commando@ne.jp","静岡県"),
