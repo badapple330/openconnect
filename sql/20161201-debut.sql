@@ -39,11 +39,6 @@ updated_date datetime not null comment '更新日'
  *商品説明013 = overview_013
  *商品説明014 = overview_014
  *商品説明015 = overview_015
- *商品説明016 = overview_016
- *商品説明017 = overview_017
- *商品説明018 = overview_018
- *商品説明019 = overview_019
- *商品説明020 = overview_020
  */
 
 create table overview(
@@ -62,12 +57,7 @@ overview_011 text comment '商品説明011',
 overview_012 text comment '商品説明012',
 overview_013 text comment '商品説明013',
 overview_014 text comment '商品説明014',
-overview_015 text comment '商品説明015',
-overview_016 text comment '商品説明016',
-overview_017 text comment '商品説明017',
-overview_018 text comment '商品説明018',
-overview_019 text comment '商品説明019',
-overview_020 text comment '商品説明020'
+overview_015 text comment '商品説明015'
 )comment = '商品説明テーブル';
 
 /*画像テーブル = image
@@ -87,11 +77,6 @@ overview_020 text comment '商品説明020'
  *画像013 = image_address013
  *画像014 = image_address014
  *画像015 = image_address015
- *画像016 = image_address016
- *画像017 = image_address017
- *画像018 = image_address018
- *画像019 = image_address019
- *画像020 = image_address020
  */
 
 create table image(
@@ -110,12 +95,7 @@ image_address011 text comment '画像011',
 image_address012 text comment '画像012',
 image_address013 text comment '画像013',
 image_address014 text comment '画像014',
-image_address015 text comment '画像015',
-image_address016 text comment '画像016',
-image_address017 text comment '画像017',
-image_address018 text comment '画像018',
-image_address019 text comment '画像019',
-image_address020 text comment '画像020'
+image_address015 text comment '画像015'
 )comment = '画像テーブル';
 
 /*購入テーブル = puchase
