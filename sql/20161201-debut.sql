@@ -23,6 +23,7 @@ updated_date datetime not null comment '更新日'
 )comment = '商品テーブル';
 
 /*商品説明テーブル = overview
+ *商品説明ジャンル = overview_genre
  *商品説明001 = overview_001
  *商品説明002 = overview_002
  *商品説明003 = overview_003
@@ -46,6 +47,7 @@ updated_date datetime not null comment '更新日'
  */
 
 create table overview(
+overview_genre varchar(50) comment '商品説明ジャンル',
 overview_001 text comment '商品説明001',
 overview_002 text comment '商品説明002',
 overview_003 text comment '商品説明003',
@@ -69,49 +71,51 @@ overview_020 text comment '商品説明020'
 )comment = '商品説明テーブル';
 
 /*画像テーブル = image
- *画像001 = img_address001
- *画像002 = img_address002
- *画像003 = img_address003
- *画像004 = img_address004
- *画像005 = img_address005
- *画像006 = img_address006
- *画像007 = img_address007
- *画像008 = img_address008
- *画像009 = img_address009
- *画像010 = img_address010
- *画像011 = img_address011
- *画像012 = img_address012
- *画像013 = img_address013
- *画像014 = img_address014
- *画像015 = img_address015
- *画像016 = img_address016
- *画像017 = img_address017
- *画像018 = img_address018
- *画像019 = img_address019
- *画像020 = img_address020
+ *画像ジャンル = image_genre
+ *画像001 = image_address001
+ *画像002 = image_address002
+ *画像003 = image_address003
+ *画像004 = image_address004
+ *画像005 = image_address005
+ *画像006 = image_address006
+ *画像007 = image_address007
+ *画像008 = image_address008
+ *画像009 = image_address009
+ *画像010 = image_address010
+ *画像011 = image_address011
+ *画像012 = image_address012
+ *画像013 = image_address013
+ *画像014 = image_address014
+ *画像015 = image_address015
+ *画像016 = image_address016
+ *画像017 = image_address017
+ *画像018 = image_address018
+ *画像019 = image_address019
+ *画像020 = image_address020
  */
 
 create table image(
-img_address001 text comment '画像001',
-img_address002 text comment '画像002',
-img_address003 text comment '画像003',
-img_address004 text comment '画像004',
-img_address005 text comment '画像005',
-img_address006 text comment '画像006',
-img_address007 text comment '画像007',
-img_address008 text comment '画像008',
-img_address009 text comment '画像009',
-img_address010 text comment '画像010',
-img_address011 text comment '画像011',
-img_address012 text comment '画像012',
-img_address013 text comment '画像013',
-img_address014 text comment '画像014',
-img_address015 text comment '画像015',
-img_address016 text comment '画像016',
-img_address017 text comment '画像017',
-img_address018 text comment '画像018',
-img_address019 text comment '画像019',
-img_address020 text comment '画像020'
+image_genre varchar(50) comment '画像ジャンル',
+image_address001 text comment '画像001',
+image_address002 text comment '画像002',
+image_address003 text comment '画像003',
+image_address004 text comment '画像004',
+image_address005 text comment '画像005',
+image_address006 text comment '画像006',
+image_address007 text comment '画像007',
+image_address008 text comment '画像008',
+image_address009 text comment '画像009',
+image_address010 text comment '画像010',
+image_address011 text comment '画像011',
+image_address012 text comment '画像012',
+image_address013 text comment '画像013',
+image_address014 text comment '画像014',
+image_address015 text comment '画像015',
+image_address016 text comment '画像016',
+image_address017 text comment '画像017',
+image_address018 text comment '画像018',
+image_address019 text comment '画像019',
+image_address020 text comment '画像020'
 )comment = '画像テーブル';
 
 /*購入テーブル = puchase
@@ -174,3 +178,6 @@ registration_date datetime comment '登録日',
 updated_date datetime comment '更新日',
 foreign key(credit_type) references credit_type(credit_num) on delete cascade
 )comment = 'クレジットテーブル';
+
+insert into item values(
+1,'ダーツ入門キット','indoor',3000,false,"2016/11/08 11:29:00","2016/11/08 11:29:00");
