@@ -24,40 +24,41 @@ updated_date datetime not null comment '更新日'
 
 /*商品説明テーブル = overview
  *商品説明ジャンル = overview_genre
- *商品説明001 = overview_001
- *商品説明002 = overview_002
- *商品説明003 = overview_003
- *商品説明004 = overview_004
- *商品説明005 = overview_005
- *商品説明006 = overview_006
- *商品説明007 = overview_007
- *商品説明008 = overview_008
- *商品説明009 = overview_009
- *商品説明010 = overview_010
- *商品説明011 = overview_011
- *商品説明012 = overview_012
- *商品説明013 = overview_013
- *商品説明014 = overview_014
- *商品説明015 = overview_015
+ *商品説明001 = overview001
+ *商品説明002 = overview002
+ *商品説明003 = overview003
+ *商品説明004 = overview004
+ *商品説明005 = overview005
+ *商品説明006 = overview006
+ *商品説明007 = overview007
+ *商品説明008 = overview008
+ *商品説明009 = overview009
+ *商品説明010 = overview010
+ *商品説明011 = overview011
+ *商品説明012 = overview012
+ *商品説明013 = overview013
+ *商品説明014 = overview014
+ *商品説明015 = overview015
  */
 
 create table overview(
 overview_genre varchar(50) comment '商品説明ジャンル',
-overview_001 text comment '商品説明001',
-overview_002 text comment '商品説明002',
-overview_003 text comment '商品説明003',
-overview_004 text comment '商品説明004',
-overview_005 text comment '商品説明005',
-overview_006 text comment '商品説明006',
-overview_007 text comment '商品説明007',
-overview_008 text comment '商品説明008',
-overview_009 text comment '商品説明009',
-overview_010 text comment '商品説明010',
-overview_011 text comment '商品説明011',
-overview_012 text comment '商品説明012',
-overview_013 text comment '商品説明013',
-overview_014 text comment '商品説明014',
-overview_015 text comment '商品説明015'
+overview001 text comment '商品説明001',
+overview002 text comment '商品説明002',
+overview003 text comment '商品説明003',
+overview004 text comment '商品説明004',
+overview005 text comment '商品説明005',
+overview006 text comment '商品説明006',
+overview007 text comment '商品説明007',
+overview008 text comment '商品説明008',
+overview009 text comment '商品説明009',
+overview010 text comment '商品説明010',
+overview011 text comment '商品説明011',
+overview012 text comment '商品説明012',
+overview013 text comment '商品説明013',
+overview014 text comment '商品説明014',
+overview015 text comment '商品説明015',
+delete_flg boolean not null default false comment '削除フラグ'
 )comment = '商品説明テーブル';
 
 /*画像テーブル = image
@@ -95,7 +96,8 @@ image_address011 text comment '画像011',
 image_address012 text comment '画像012',
 image_address013 text comment '画像013',
 image_address014 text comment '画像014',
-image_address015 text comment '画像015'
+image_address015 text comment '画像015',
+delete_flg boolean not null default false comment '削除フラグ'
 )comment = '画像テーブル';
 
 /*購入テーブル = puchase
@@ -160,4 +162,61 @@ foreign key(credit_type) references credit_type(credit_num) on delete cascade
 )comment = 'クレジットテーブル';
 
 insert into item values(
-1,'ダーツ入門キット','indoor',3000,false,"2016/11/08 11:29:00","2016/11/08 11:29:00");
+1,'aiueo','indoor',3000,false,"2016/11/08 11:29:00","2016/11/08 11:29:00");
+
+insert into image values(
+'indoor',
+'darts1.jpg',
+'darts_slide1.jpg',
+'3',
+'4',
+'darts5.jpg',
+'darts6.jpg',
+'darts7.jpg',
+'darts8.jpg',
+'darts9.jpg',
+'10',
+'11',
+'12',
+'13',
+'14',
+'15',
+false
+);
+
+insert into overview values(
+'indoor',
+'ダーツ入門の王道キット！',
+'これで友達に差をつけよう！',
+'ちょっと大人びた遊びのイメージがあるダーツ。\n
+未経験者には敷居が高いと思われがちですが、実はそんな事全然ないんです。\n
+最近ではネットカフェ等に併設されていることも多くお店側で道具も貸し出ししてくれるので、\n
+他の趣味に比べるとむしろ入りやすい分類と言えるでしょう。\n
+遊び方も一人でひたすらハイスコアを目指すものから、\n
+四人でチームを組んでポイントを競い合うものまで様々で、飽きにくいのも特徴です。\n
+しかしながらお店によって貸し出してくれるダーツの種類は違うので力加減や持ち方などが毎回変わってきてしまいます。\n
+それでは上達速度にも影響を及ぼしてしまうので、あまりオススメは出来ません。\n
+今回は最低限必要なアイテムだけを厳選したリーズナブルなキットをご紹介します！',
+'・DEBUT特製入門用ダーツ\n
+持ちやすさにとことん拘った初心者向けのダーツです。\n
+各部分は取外し可能なので自分好みにアレンジする事も可能となっています。',
+'・フライト\n
+ダーツ上部に付いた羽のようなパーツ。\n
+馴染みやすいライトグリーンのシンプルなデザインです。',
+'・シャフト\n
+ダーツ握る部分のバレルとフライトを繋ぐパーツ。\n
+長さによって投げた時の感覚が違いますので、一般的な4種類をお付け致しします。',
+'・チップ\n
+ダーツ下部のボードに刺さるパーツ。\n
+頻繁に取り替えるのが基本となりますので、9色50本お付け致します。',
+'・ダーツケース\n
+ダーツ本体や、予備パーツを収納するケースです。\n
+フックが付いていますのでズボンのベルト等に装着できます。',
+'肝心のお値段ですが、通常約8,000円のところ………、\n\n\n
+
+
+これだけセットでなんと3,000円です！\n\n\n
+
+
+在庫がなくなり次第販売終了となりますので、ご購入をお考えの方はお早めに！'
+,10,11,12,13,14,15,false);
