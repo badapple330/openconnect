@@ -4,29 +4,53 @@ git clone -b master https://github.com/internousdevwork/strutsdb
 git clone -b master https://github.com/internousdevwork/spring
 git clone -b master https://github.com/internousdevwork/openconnect
 git clone -b master https://github.com/internousdevwork/openconnect1505
+# プロトタイプ
 git clone -b master https://github.com/internousdevwork/prototype
+# プロトタイプ2014年11月
 git clone -b master https://github.com/internousdevwork/prototype_11
+# プロトタイプ2015年09月
 git clone -b master https://github.com/internousdevwork/prototype1509
+# プロトタイプ2015年11月
 git clone -b master https://github.com/internousdevwork/prototype1511
+# プロトタイプ2015年11月
 git clone -b master https://github.com/internousdevwork/prototype1511u2
+# プロトタイプ2015年12月
 git clone -b master https://github.com/internousdevwork/prototype1512
+# プロトタイプ2015年12月
 git clone -b master https://github.com/internousdevwork/prototype1512u2
+# プロトタイプ2016年01月
 git clone -b master https://github.com/internousdevwork/prototype1601
+# プロトタイプ2016年02月
 git clone -b master https://github.com/internousdevwork/prototype1602
+# プロトタイプ2016年03月
 git clone -b master https://github.com/internousdevwork/prototype1603
+# プロトタイプ2016年04月
 git clone -b master https://github.com/internousdevwork/prototype1604
+# プロトタイプ2016年05月
 git clone -b master https://github.com/internousdevwork/prototype1605
+# プロトタイプ2016年06月
 git clone -b master https://github.com/internousdevwork/prototype1606
+# プロトタイプ2016年07月
 git clone -b master https://github.com/internousdevwork/prototype1607
+# プロトタイプ2016年08月
 git clone -b master https://github.com/internousdevwork/prototype1608
+# プロトタイプ2016年10月
 git clone -b master https://github.com/internousdevwork/prototype1610
+# プロトタイプ2016年11月
 git clone -b master https://github.com/internousdevwork/prototype1611
+# リリースプロジェクト管理サイト
 git clone -b master https://github.com/internousdevwork/releaseproject
+# Javaプログラム練習用リポジトリ
 git clone -b master https://github.com/internousdevwork/java
+# Webサイト練習用リポジトリ
 git clone -b master https://github.com/internousdevwork/mypage
+# プロビジョニングシステム
 git clone -b master https://github.com/internousdevwork/provisioning
+# OAuth2 Facebook用認証サンプルサイト
 git clone -b master https://github.com/internousdevwork/fcblogin
+# 国際通貨レート確認
 git clone -b master https://github.com/internousdevwork/rate-exchanger
+# クレジットカード用アプリケーション
 git clone -b master https://github.com/internousdevwork/creditcard
 
 # -------------------------------------------------------------------------------------------------
@@ -65,9 +89,11 @@ git clone -b master https://github.com/internousdevwork/bookmanager09
 # 2014年11月作成
 # --- 某大手書店向けショッピングモールサイト[bookmanager]
 # <凍結?>
+git clone -b master https://github.com/internousdevwork/bookmanager
 
 # 2014年12月作成
 # --- 日本酒・地酒販売サイト[ec_10,ec_b_10]
+git clone -b master https://github.com/internousdevwork/ec_10
 git clone -b master https://github.com/internousdevwork/ec_b_10
 
 # -------------------------------------------------------------------------------------------------
@@ -109,6 +135,7 @@ git clone -b master https://github.com/internousdevwork/oden
 
 # 21015年03月作成
 # 某健康通信販売サイト［uesto］
+git clone -b master https://github.com/internousdevwork/uesto
 git clone -b phase2 https://github.com/internousdevwork/uesto
 
 # -------------------------------------------------------------------------------------------------
@@ -266,13 +293,14 @@ git clone -b master https://github.com/internousdevwork/gekidanroadshow
 # 2016年04月作成
 # 某着物レンタルサイト
 git clone -b phase2 https://github.com/internousdevwork/ichigoichie
-
+# クレジットカード会社 VISA
 git clone -b master https://github.com/internousdevwork/visa
-
+# オウンドメディアサイト INTERNOUSDEV
 git clone -b master https://github.com/internousdevwork/internousdev
+# 一般消費者向け ファッションキュレーション型ECサイト
 git clone -b master https://github.com/internousdevwork/mira-mode
+# 一般消費者向け 
 git clone -b master https://github.com/internousdevwork/rewrite
-
 
 # -------------------------------------------------------------------------------------------------
 # 201603 <201601月生及び201602月生>
@@ -292,7 +320,7 @@ git clone -b master https://github.com/internousdevwork/rewrite
 
 # -------------------------------------------------------------------------------------------------
 # 201607 <201605月生及び201606月生>
-# -------------------------------------------------------------------------------------------------
+# ------------------------------------------ -------------------------------------------------------
 
 # -------------------------------------------------------------------------------------------------
 # 201608 <201606月生及び201607月生>
@@ -301,7 +329,12 @@ git clone -b master https://github.com/internousdevwork/rewrite
 # -------------------------------------------------------------------------------------------------
 # 201609 <201607月生及び201608月生>
 # -------------------------------------------------------------------------------------------------
+# オウンドメディアサイト INTERNOUSDEV
+git clone -b master https://github.com/internousdevwork/internousdev
 
+git clone -b master https://github.com/internousdevwork/openconnect
+# クレジットカード会社 AMERICAN EXPRESS
+git clone -b master https://github.com/internousdevwork/americanexpress
 # -------------------------------------------------------------------------------------------------
 # 201610 <201608月生及び201609月生>
 # -------------------------------------------------------------------------------------------------
@@ -319,8 +352,8 @@ git clone -b master https://github.com/internousdevwork/lusso
 # -------------------------------------------------------------------------------------------------
 # 201612 <201610月生>
 # -------------------------------------------------------------------------------------------------
-
-
+# 一般消費者向け 商材販売サイト
+git clone -b master https://github.com/internousdevwork/debut 
 # -------------------------------------------------------------------------------------------------
 # 201612 <201611月生>
 # -------------------------------------------------------------------------------------------------
