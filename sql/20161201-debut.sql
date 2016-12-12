@@ -181,11 +181,44 @@ insert into item(
 item_name,
 item_genre,
 price,
-delete_flg,
 registration_date,
-updated_date
+updated_date,
+delete_flg
 )values(
-'aiueo','indoor',3000,false,"2016/11/08 11:29:00","2016/11/08 11:29:00");
+'ダーツ入門キット',
+'indoor',
+3000,
+"2016/11/08 11:29:00",
+"2016/11/08 11:29:00",
+false);
+
+insert into image(
+image_genre,
+image_top,
+image_slide01,
+image_slide02,
+image_slide03,
+image_kit01,
+image_kit02,
+image_kit03,
+image_kit04,
+image_kit05,
+image_kit06,
+delete_flg
+)values(
+'indoor',
+'darts01.jpg',
+'darts_slide01.jpg',
+'darts_slide02.jpg',
+'darts_slide03.jpg',
+'darts04.jpg',
+'darts05.jpg',
+'darts06.jpg',
+'darts07.jpg',
+'darts08.jpg',
+null,
+false);
+
 
 insert into overview(
 overview_genre,
