@@ -23,81 +23,79 @@ updated_date datetime not null comment '更新日'
 )comment = '商品テーブル';
 
 /*商品説明テーブル = overview
+ *商品説明ID = overview_id
  *商品説明ジャンル = overview_genre
- *商品説明001 = overview001
- *商品説明002 = overview002
- *商品説明003 = overview003
- *商品説明004 = overview004
- *商品説明005 = overview005
- *商品説明006 = overview006
- *商品説明007 = overview007
- *商品説明008 = overview008
- *商品説明009 = overview009
- *商品説明010 = overview010
- *商品説明011 = overview011
- *商品説明012 = overview012
- *商品説明013 = overview013
- *商品説明014 = overview014
- *商品説明015 = overview015
+ *商品説明トップ = overview_top
+ *商品説明キャッチ01 = overview_catch01
+ *商品説明キャッチ02 = overview_catch02
+ *商品説明詳細 = overview_ex
+ *商品説明キット01 = overview_kit01
+ *商品説明キット02 = overview_kit02
+ *商品説明キット03 = overview_kit03
+ *商品説明キット04 = overview_kit04
+ *商品説明キット05 = overview_kit05
+ *商品説明キット06 = overview_kit06
+ *商品説明売り文句01 = overview_slogan01
+ *商品説明売り文句02 = overview_slogan02
+ *商品説明売り文句03 = overview_slogan03
+ *商品説明売り文句04 = overview_slogan04
+ *商品説明売り文句05 = overview_slogan05
+ *デリートフラグ = delete_flg
  */
 
 create table overview(
+overview_id int comment '商品説明ID',
 overview_genre varchar(50) comment '商品説明ジャンル',
-overview001 text comment '商品説明001',
-overview002 text comment '商品説明002',
-overview003 text comment '商品説明003',
-overview004 text comment '商品説明004',
-overview005 text comment '商品説明005',
-overview006 text comment '商品説明006',
-overview007 text comment '商品説明007',
-overview008 text comment '商品説明008',
-overview009 text comment '商品説明009',
-overview010 text comment '商品説明010',
-overview011 text comment '商品説明011',
-overview012 text comment '商品説明012',
-overview013 text comment '商品説明013',
-overview014 text comment '商品説明014',
-overview015 text comment '商品説明015',
-delete_flg boolean not null default false comment '削除フラグ'
+overview_top text comment '商品説明トップ',
+overview_catch01 text comment '商品説明キャッチ01',
+overview_catch02 text comment '商品説明キャッチ02',
+overview_ex text comment '商品説明詳細',
+overview_kit01 text comment '商品説明キット01',
+overview_kit02 text comment '商品説明キット02',
+overview_kit03 text comment '商品説明キット03',
+overview_kit04 text comment '商品説明キット04',
+overview_kit05 text comment '商品説明キット05',
+overview_kit06 text comment '商品説明キット06',
+overview_slogan01 text comment '商品説明売り文句01',
+overview_slogan02 text comment '商品説明売り文句02',
+overview_slogan03 text comment '商品説明売り文句03',
+overview_slogan04 text comment '商品説明売り文句04',
+overview_slogan05 text comment '商品説明売り文句05',
+delete_flg boolean not null default false comment '削除フラグ',
+foreign key(overview_id)references item(item_id)
 )comment = '商品説明テーブル';
 
 /*画像テーブル = image
+ *画像ID = image_id
  *画像ジャンル = image_genre
- *画像001 = image_address001
- *画像002 = image_address002
- *画像003 = image_address003
- *画像004 = image_address004
- *画像005 = image_address005
- *画像006 = image_address006
- *画像007 = image_address007
- *画像008 = image_address008
- *画像009 = image_address009
- *画像010 = image_address010
- *画像011 = image_address011
- *画像012 = image_address012
- *画像013 = image_address013
- *画像014 = image_address014
- *画像015 = image_address015
+ *画像トップ = image_top
+ *画像スライド01 = image_slide01
+ *画像スライド02 = image_slide02
+ *画像スライド03 = image_slide03
+ *画像キット01 = image_kit01
+ *画像キット02 = image_kit02
+ *画像キット03 = image_kit03
+ *画像キット04 = image_kit04
+ *画像キット05 = image_kit05
+ *画像キット06 = image_kit06
+ *デリートフラグ = delete_flg
  */
 
 create table image(
+image_id int comment '画像ID',
 image_genre varchar(50) comment '画像ジャンル',
-image_address001 text comment '画像001',
-image_address002 text comment '画像002',
-image_address003 text comment '画像003',
-image_address004 text comment '画像004',
-image_address005 text comment '画像005',
-image_address006 text comment '画像006',
-image_address007 text comment '画像007',
-image_address008 text comment '画像008',
-image_address009 text comment '画像009',
-image_address010 text comment '画像010',
-image_address011 text comment '画像011',
-image_address012 text comment '画像012',
-image_address013 text comment '画像013',
-image_address014 text comment '画像014',
-image_address015 text comment '画像015',
-delete_flg boolean not null default false comment '削除フラグ'
+image_top text comment '画像トップ',
+image_slide01 text comment '画像スライド01',
+image_slide02 text comment '画像スライド02',
+image_slide03 text comment '画像スライド03',
+image_kit01 text comment '画像キット01',
+image_kit02 text comment '画像キット02',
+image_kit03 text comment '画像キット03',
+image_kit04 text comment '画像キット04',
+image_kit05 text comment '画像キット05',
+image_kit06 text comment '画像キット06',
+delete_flg boolean not null default false comment '削除フラグ',
+foreign key(image_id)references item(item_id)
 )comment = '画像テーブル';
 
 /*購入テーブル = puchase
@@ -161,30 +159,26 @@ updated_date datetime comment '更新日',
 foreign key(credit_type) references credit_type(credit_num) on delete cascade
 )comment = 'クレジットテーブル';
 
-insert into item values(
-1,'aiueo','indoor',3000,false,"2016/11/08 11:29:00","2016/11/08 11:29:00");
+/*セーブテーブル = save
+ *ユーザーフォーム = user_form
+ *お名前 = user_name
+ *メールアドレス = email_address
+ *パスワード = password
+ *郵便番号 = postal_code
+ *住所 = address
+ */
 
-insert into image values(
-'indoor',
-'darts1.jpg',
-'darts_slide1.jpg',
-'3',
-'4',
-'darts5.jpg',
-'darts6.jpg',
-'darts7.jpg',
-'darts8.jpg',
-'darts9.jpg',
-'10',
-'11',
-'12',
-'13',
-'14',
-'15',
-false
-);
+create table save(
+user_form int comment 'ユーザーフォーム',
+user_name varchar(100) comment 'お名前',
+email_address varchar(100) comment 'メールアドレス',
+password varchar(100) comment 'パスワード',
+postal_code varchar(100) comment '郵便番号',
+address varchar(100) comment '住所'
+)comment = 'セーブテーブル';
 
 insert into overview values(
+null,
 'indoor',
 '男女問わず人気の定番趣味！\n\n時間を気にせずみんなで盛り上がれる点もオススメ！',
 'ダーツ入門の王道キット！',
@@ -213,10 +207,10 @@ insert into overview values(
 '・ダーツケース\n
 ダーツ本体や、予備パーツを収納するケースです。\n
 フックが付いていますのでズボンのベルト等に装着できます。',
+null,
 '肝心のお値段ですが、通常約8,000円のところ………、\n\n\n',
 'これだけセットでなんと',
 '3,000',
 '円です！',
 '在庫がなくなり次第販売終了となりますので、ご購入をお考えの方はお早めに！',
-'15',
 false);
