@@ -177,8 +177,35 @@ postal_code varchar(100) comment '郵便番号',
 address varchar(100) comment '住所'
 )comment = 'セーブテーブル';
 
-insert into overview values(
-null,
+insert into item(
+item_name,
+item_genre,
+price,
+delete_flg,
+registration_date,
+updated_date
+)values(
+'aiueo','indoor',3000,false,"2016/11/08 11:29:00","2016/11/08 11:29:00");
+
+insert into overview(
+overview_genre,
+overview_top,
+overview_catch01,
+overview_catch02,
+overview_ex,
+overview_kit01,
+overview_kit02,
+overview_kit03,
+overview_kit04,
+overview_kit05,
+overview_kit06,
+overview_slogan01,
+overview_slogan02,
+overview_slogan03,
+overview_slogan04,
+overview_slogan05,
+delete_flg
+)values(
 'indoor',
 '男女問わず人気の定番趣味！\n\n時間を気にせずみんなで盛り上がれる点もオススメ！',
 'ダーツ入門の王道キット！',
