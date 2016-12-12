@@ -7,7 +7,7 @@ use debut;
  *商品名 = item_name
  *ジャンル = item_genre
  *価格 = price
- *デリートフラグ = delete_flg
+ *デリートフラグ = item_delete_flg
  *登録日 = registration_date
  *更新日 = update_date
  */
@@ -17,7 +17,7 @@ item_id int not null primary key auto_increment comment '商品ID',
 item_name varchar(100) not null comment '商品名',
 item_genre varchar(50) not null comment 'ジャンル',
 price decimal(7,3) not null comment '価格',
-delete_flg boolean not null default false comment '削除フラグ',
+item_delete_flg boolean not null default false comment '削除フラグ',
 registration_date datetime not null comment '登録日',
 updated_date datetime not null comment '更新日'
 )comment = '商品テーブル';
@@ -40,7 +40,7 @@ updated_date datetime not null comment '更新日'
  *商品説明売り文句03 = overview_slogan03
  *商品説明売り文句04 = overview_slogan04
  *商品説明売り文句05 = overview_slogan05
- *デリートフラグ = delete_flg
+ *デリートフラグ = overview_delete_flg
  */
 
 create table overview(
@@ -61,7 +61,7 @@ overview_slogan02 text comment '商品説明売り文句02',
 overview_slogan03 text comment '商品説明売り文句03',
 overview_slogan04 text comment '商品説明売り文句04',
 overview_slogan05 text comment '商品説明売り文句05',
-delete_flg boolean not null default false comment '削除フラグ',
+overview_delete_flg boolean not null default false comment '削除フラグ',
 foreign key(overview_id)references item(item_id)
 )comment = '商品説明テーブル';
 
@@ -78,7 +78,7 @@ foreign key(overview_id)references item(item_id)
  *画像キット04 = image_kit04
  *画像キット05 = image_kit05
  *画像キット06 = image_kit06
- *デリートフラグ = delete_flg
+ *デリートフラグ = image_delete_flg
  */
 
 create table image(
@@ -94,7 +94,7 @@ image_kit03 text comment '画像キット03',
 image_kit04 text comment '画像キット04',
 image_kit05 text comment '画像キット05',
 image_kit06 text comment '画像キット06',
-delete_flg boolean not null default false comment '削除フラグ',
+image_delete_flg boolean not null default false comment '削除フラグ',
 foreign key(image_id)references item(item_id)
 )comment = '画像テーブル';
 
@@ -181,7 +181,7 @@ insert into item(
 item_name,
 item_genre,
 price,
-delete_flg,
+item_delete_flg,
 registration_date,
 updated_date
 )values(
@@ -204,7 +204,7 @@ overview_slogan02,
 overview_slogan03,
 overview_slogan04,
 overview_slogan05,
-delete_flg
+overview_delete_flg
 )values(
 'indoor',
 '男女問わず人気の定番趣味！\n\n時間を気にせずみんなで盛り上がれる点もオススメ！',
