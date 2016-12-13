@@ -13,7 +13,7 @@ use debut;
  */
 
 create table item(
-item_id int not null primary key auto_increment comment '商品ID',
+item_id int primary key auto_increment comment '商品ID',
 item_name varchar(100) not null comment '商品名',
 item_genre varchar(50) not null comment 'ジャンル',
 price decimal(7,3) not null comment '価格',
@@ -207,15 +207,15 @@ image_kit06,
 delete_flg
 )values(
 'indoor',
-'darts01.jpg',
+'darts_top.jpg',
 'darts_slide01.jpg',
 'darts_slide02.jpg',
 'darts_slide03.jpg',
-'darts04.jpg',
-'darts05.jpg',
-'darts06.jpg',
-'darts07.jpg',
-'darts08.jpg',
+'darts_kit01.jpg',
+'darts_kit02.jpg',
+'darts_kit03.jpg',
+'darts_kit04.jpg',
+'darts_kit05.jpg',
 null,
 false);
 
@@ -271,6 +271,100 @@ null,
 '肝心のお値段ですが、通常約8,000円のところ………、\n\n\n',
 'これだけセットでなんと',
 '3,000',
+'円です！',
+'在庫がなくなり次第販売終了となりますので、ご購入をお考えの方はお早めに！',
+false);
+
+insert into item(
+item_name,
+item_genre,
+price,
+registration_date,
+updated_date,
+delete_flg
+)values(
+'山登り入門キット',
+'indoor',
+1500,
+"2016/11/08 11:29:00",
+"2016/11/08 11:29:00",
+false);
+
+insert into image(
+image_genre,
+image_top,
+image_slide01,
+image_slide02,
+image_slide03,
+image_kit01,
+image_kit02,
+image_kit03,
+image_kit04,
+image_kit05,
+image_kit06,
+delete_flg
+)values(
+'indoor',
+'yama_top.jpg',
+'yama_slide01.jpg',
+'yama_slide02.jpg',
+'yama_slide03.jpg',
+'yama_kit01.jpg',
+'yama_kit02.jpg',
+'yama_kit03.jpg',
+null,
+null,
+null,
+false);
+
+
+insert into overview(
+overview_genre,
+overview_top,
+overview_catch01,
+overview_catch02,
+overview_ex,
+overview_kit01,
+overview_kit02,
+overview_kit03,
+overview_kit04,
+overview_kit05,
+overview_kit06,
+overview_slogan01,
+overview_slogan02,
+overview_slogan03,
+overview_slogan04,
+overview_slogan05,
+delete_flg
+)values(
+'indoor',
+'男女問わず人気の定番趣味！\n\n時間を気にせずみんなで盛り上がれる点もオススメ！',
+'ダーツ入門の王道キット！',
+'これで友達に差をつけよう！',
+'ちょっと大人びた遊びのイメージがあるダーツ。\n
+未経験者には敷居が高いと思われがちですが、実はそんな事全然ないんです。\n
+最近ではネットカフェ等に併設されていることも多くお店側で道具も貸し出ししてくれるので、\n
+他の趣味に比べるとむしろ入りやすい分類と言えるでしょう。\n
+遊び方も一人でひたすらハイスコアを目指すものから、\n
+四人でチームを組んでポイントを競い合うものまで様々で、飽きにくいのも特徴です。\n
+しかしながらお店によって貸し出してくれるダーツの種類は違うので力加減や持ち方などが毎回変わってきてしまいます。\n
+それでは上達速度にも影響を及ぼしてしまうので、あまりオススメは出来ません。\n
+今回は最低限必要なアイテムだけを厳選したリーズナブルなキットをご紹介します！',
+'・DEBUT特製入門用ダーツ\n
+持ちやすさにとことん拘った初心者向けのダーツです。\n
+各部分は取外し可能なので自分好みにアレンジする事も可能となっています。',
+'・フライト\n
+ダーツ上部に付いた羽のようなパーツ。\n
+馴染みやすいライトグリーンのシンプルなデザインです。',
+'・シャフト\n
+ダーツ握る部分のバレルとフライトを繋ぐパーツ。\n
+長さによって投げた時の感覚が違いますので、一般的な4種類をお付け致しします。',
+null,
+null,
+null,
+'肝心のお値段ですが、通常約8,000円のところ………、\n\n\n',
+'これだけセットでなんと',
+'15,000',
 '円です！',
 '在庫がなくなり次第販売終了となりますので、ご購入をお考えの方はお早めに！',
 false);
