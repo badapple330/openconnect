@@ -44,7 +44,7 @@ updated_date datetime not null comment '更新日'
  */
 
 create table overview(
-overview_id int comment '商品説明ID',
+overview_id int primary key auto_increment comment '商品説明ID',
 overview_genre varchar(50) comment '商品説明ジャンル',
 overview_top text comment '商品説明トップ',
 overview_catch01 text comment '商品説明キャッチ01',
@@ -82,7 +82,7 @@ foreign key(overview_id)references item(item_id)
  */
 
 create table image(
-image_id int comment '画像ID',
+image_id int primary key auto_increment comment '画像ID',
 image_genre varchar(50) comment '画像ジャンル',
 image_top text comment '画像トップ',
 image_slide01 text comment '画像スライド01',
@@ -338,7 +338,7 @@ overview_slogan05,
 delete_flg
 )values(
 'indoor',
-'男女問わず人気の定番趣味！\n\n時間を気にせずみんなで盛り上がれる点もオススメ！',
+'男女問わず人気の定番趣味！\n時間を気にせずみんなで盛り上がれる点もオススメ！',
 'ダーツ入門の王道キット！',
 'これで友達に差をつけよう！',
 'ちょっと大人びた遊びのイメージがあるダーツ。\n
