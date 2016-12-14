@@ -159,7 +159,7 @@ updated_date datetime comment '更新日',
 foreign key(credit_type) references credit_type(credit_num) on delete cascade
 )comment = 'クレジットテーブル';
 
-/*セーブテーブル = save
+/*非会員情報テーブル = nonmember
  *ユーザーフォーム = user_form
  *お名前 = user_name
  *メールアドレス = email_address
@@ -168,14 +168,14 @@ foreign key(credit_type) references credit_type(credit_num) on delete cascade
  *住所 = address
  */
 
-create table save(
+create table nonmember(
 user_form int comment 'ユーザーフォーム',
 user_name varchar(100) comment 'お名前',
 email_address varchar(100) comment 'メールアドレス',
 password varchar(100) comment 'パスワード',
 postal_code varchar(100) comment '郵便番号',
 address varchar(100) comment '住所'
-)comment = 'セーブテーブル';
+)comment = '非会員情報テーブル';
 
 insert into item(
 item_name,
