@@ -113,21 +113,21 @@ mobile_number varchar(255) default '' comment '携帯電話番号',
 mobile_email varchar(255) unique comment '携帯メールアドレス',
 sex varchar(10) not null default '' comment '性別',
 birthday date default 00000000 comment '誕生日',
+register_day datetime default 00000000000000 comment '登録日',
+update_day datetime default 00000000000000 comment '更新日',
 userdel_flg boolean default FALSE comment '退会フラグ',
-login_flg boolean default TRUE comment 'ログインフラグ',
+login_flg boolean default FALSE comment 'ログインフラグ',
 user_flg int not null default 1 comment 'ユーザーフラグ',
 year varchar(4) comment '受講年',
 month varchar(2) comment '受講開始月',
 oauth_id varchar(255) comment 'OAuthID',
 oauth_name int default 0 comment 'OAuth名',
-oauth_account varchar(100) comment 'OAuthアカウント',
-register_day datetime default 00000000000000 comment '登録日',
-update_day datetime default 00000000000000 comment '更新日'
+oauth_account varchar(100) comment 'OAuthアカウント'
 )comment = 'ユーザー情報格納テーブル';
 
 insert into users values
-('1',	'testuser',		'test',		'user',	'テスト',	'てすと',	'ユーザー',	'ゆーざー',	'1130034',	'東京都文京区湯島3-2-12　御茶ノ水天神ビル',	'0123456789',	'user.test@gmail.com',	'09012345678',	'user.test@ne.jp',	'男',	'1993-12-24',	'2016-07-01 13:00:00',	'2016-07-01 13:00:00',	FALSE,	FALSE,	'1',	'2016',	'04',	'',	'0',	''),
-('2',	'internous01',	'inoue',	'takuma','井上','いのうえ','琢磨','たくま','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','takuma.inoue@gmail.com','09012345678','takuma.inoue@ne.jp','男','1990-09-25','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'3','2010','04','','0',''),
+('1','testuser','test','user','テスト','てすと','ユーザー','ゆーざー','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test@gmail.com','09012345678','user.test@ne.jp','男','1993-12-24','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','04','','0',''),
+('2','internous01',	'inoue','takuma','井上','いのうえ','琢磨','たくま','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','takuma.inoue@gmail.com','09012345678','takuma.inoue@ne.jp','男','1990-09-25','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'3','2010','04','','0',''),
 ('3','internous01','harada','miyuki','原田','はらだ','美友貴','みゆき','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','miyuki.harada@gmail.com','09012345678','miyuki.harada@ne.jp','女','1992-05-03','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'3','2010','04','','0',''),
 ('4','leader11','test','leader1','テスト','てすと','リーダー1','りーだー1','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','leader1.test@gmail.com','09012345678','leader1.test@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'2','2016','04','','0',''),
 ('5','leader22','test','leader2','テスト','てすと','リーダー2','りーだー2','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','leader2.test@gmail.com','09012345678','leader2.test@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'2','2016','04','','0',''),
