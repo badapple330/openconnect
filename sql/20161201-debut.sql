@@ -16,7 +16,7 @@ create table item(
 item_id int primary key auto_increment comment '商品ID',
 item_name varchar(100) not null comment '商品名',
 item_genre varchar(50) not null comment 'ジャンル',
-price decimal(7,3) not null comment '価格',
+price decimal(10,3) not null comment '価格',
 delete_flg boolean not null default false comment '削除フラグ',
 registration_date datetime not null comment '登録日',
 updated_date datetime not null comment '更新日'
@@ -117,7 +117,7 @@ user_id int not null comment 'ユーザーID',
 item_id int not null comment '商品ID',
 item_name varchar(100) not null comment '商品名',
 order_count int not null comment '注文数',
-amount decimal(7,3) not null comment '合計金額',
+amount decimal(10,3) not null comment '合計金額',
 purchase_date date not null comment '購入日',
 payment_method varchar(100) comment '支払い方法',
 registration_date datetime comment '登録日',
@@ -169,13 +169,12 @@ foreign key(credit_type) references credit_type(credit_num) on delete cascade
  */
 
 create table nonmember(
-user_form int comment 'ユーザーフォーム',
 user_name varchar(100) comment 'お名前',
 email_address varchar(100) comment 'メールアドレス',
-password varchar(100) comment 'パスワード',
+phone_number varchar(100) comment '電話番号',
 postal_code varchar(100) comment '郵便番号',
 address varchar(100) comment '住所'
-)comment = '非会員情報テーブル';
+)comment = 'お客様情報入力テーブル';
 
 insert into item(
 item_name,
@@ -285,7 +284,7 @@ delete_flg
 )values(
 '山登り入門キット',
 'indoor',
-1500,
+15000,
 "2016/11/08 11:29:00",
 "2016/11/08 11:29:00",
 false);
