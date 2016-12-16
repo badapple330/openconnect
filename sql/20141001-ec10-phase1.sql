@@ -4,7 +4,6 @@ create database ec;
 use ec;
 
 create table admin_table(
--- 管理者id
 admin_id varchar(16) not null primary key comment '管理者ID',
 admin_pass varchar(16) not null comment '管理者パスワード',
 admin_name varchar(50) not null comment '管理者名',

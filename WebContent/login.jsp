@@ -3,13 +3,13 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
 <head>
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href="img/oc.png">
-<link rel="apple-touch-icon" href="img/oc.png">
+<link rel="shortcut icon" href="logo/oc.png">
+<link rel="apple-touch-icon" href="logo/oc.png">
 <title>Open Connect -ログイン</title>
 <!-- css読み込み -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">

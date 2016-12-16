@@ -6,8 +6,8 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" href="img/oc.png">
-<link rel="apple-touch-icon" href="img/oc.png">
+<link rel="shortcut icon" href="logo/oc.png">
+<link rel="apple-touch-icon" href="logo/oc.png">
 <title>Open Connect</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <script src="js/bootstrap.js"></script>

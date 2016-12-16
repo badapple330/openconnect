@@ -8,8 +8,8 @@
 <title>プロジェクトリリース状況</title>
 <link rel="stylesheet" href="css/project_status.css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="img/oc.png">
-<link rel="apple-touch-icon" href="img/oc.png">
+<link rel="shortcut icon" href="logo/oc.png">
+<link rel="apple-touch-icon" href="logo/oc.png">
 </head>
 <body>
 	<header><jsp:include page="header.jsp" /></header>

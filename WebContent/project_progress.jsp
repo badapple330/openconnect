@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset=UTF-8>
-<link rel="shortcut icon" href="img/oc.png">
-<link rel="apple-touch-icon" href="img/oc.png">
+<link rel="shortcut icon" href="logo/oc.png">
+<link rel="apple-touch-icon" href="logo/oc.png">
 <title>プロジェクト進捗状況</title>
 <link rel="stylesheet" href="css/project_progress.css">
 <link rel="stylesheet" href="css/accordion.css">

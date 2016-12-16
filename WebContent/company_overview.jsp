@@ -15,7 +15,7 @@
 		<h1>会社概要</h1>
 		<br>
 
-		<div class="nakayose">
+		<div class="nakayose"> 
 			<table class="tbl">
 				<tr>
 					<th>会社名</th>

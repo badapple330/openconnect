@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href="img/oc.png">
-<link rel="apple-touch-icon" href="img/oc.png">
+<link rel="shortcut icon" href="logo/oc.png">
+<link rel="apple-touch-icon" href="logo/oc.png">
 <!-- css読み込み -->
 <link rel="stylesheet" href="css/register.css" type="text/css">
 <!-- js読み込み -->

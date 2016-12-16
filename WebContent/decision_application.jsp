@@ -7,8 +7,8 @@
 <LINK rel="stylesheet" type="text/css" href="css/style.css">
 <LINK rel="stylesheet" type="text/css" href="css/decision_application.css">
 <meta charset="UTF-8">
-<link rel="shortcut icon" href="img/oc.png">
-<link rel="apple-touch-icon" href="img/oc.png">
+<link rel="shortcut icon" href="logo/oc.png">
+<link rel="apple-touch-icon" href="logo/oc.png">
 <script src="js/jquery-3.0.0.min.js"></script>
 <script src="js/sendCheck.js"></script>
 <title>申請一覧</title>
