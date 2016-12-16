@@ -168,12 +168,13 @@ foreign key(credit_type) references credit_type(credit_num) on delete cascade
  *住所 = address
  */
 
-create table nonmember(
-user_name varchar(100) comment 'お名前',
-email_address varchar(100) comment 'メールアドレス',
-phone_number varchar(100) comment '電話番号',
-postal_code varchar(100) comment '郵便番号',
-address varchar(100) comment '住所'
+create table form(
+form_id int not null primary key auto_increment comment 'フォームID',
+form_name varchar(100) comment 'お名前',
+form_email_address varchar(100) comment 'メールアドレス',
+form_phone_number varchar(100) comment '電話番号',
+zip11 varchar(100) comment '郵便番号',
+addr11 varchar(100) comment '住所'
 )comment = 'お客様情報入力テーブル';
 
 insert into item(
