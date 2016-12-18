@@ -147,16 +147,26 @@ credit_name varchar(255) not null comment 'カード会社名'
  *更新日 = updated_date
  */
 
+create table form(
+form_id int not null primary key auto_increment comment 'フォームID',
+form_name varchar(100) comment 'お名前',
+form_email_address varchar(100) comment 'メールアドレス',
+form_phone_number varchar(100) comment '電話番号',
+zip11 varchar(100) comment '郵便番号',
+addr11 varchar(100) comment '住所'
+)comment = 'お客様情報入力テーブル';
+
 create table credit(
+credit_id int primary key auto_increment comment 'クレジットID',
 credit_type int not null comment 'クレジット種類',
 credit_number varchar(16) comment 'クレジット番号',
 name_e varchar(50) comment 'カード名義',
-security_code int(4) comment 'セキュリティコード',
+security_code varchar(4) comment 'セキュリティコード',
 expiration_month varchar(2) comment '有効期限(月)',
 expiration_year varchar(2) comment '有効期限(年)',
 registration_date datetime comment '登録日',
 updated_date datetime comment '更新日',
-foreign key(credit_type) references credit_type(credit_num) on delete cascade
+foreign key(credit_id)references form(form_id)
 )comment = 'クレジットテーブル';
 
 /*非会員情報テーブル = nonmember
@@ -168,14 +178,9 @@ foreign key(credit_type) references credit_type(credit_num) on delete cascade
  *住所 = address
  */
 
-create table form(
-form_id int not null primary key auto_increment comment 'フォームID',
-form_name varchar(100) comment 'お名前',
-form_email_address varchar(100) comment 'メールアドレス',
-form_phone_number varchar(100) comment '電話番号',
-zip11 varchar(100) comment '郵便番号',
-addr11 varchar(100) comment '住所'
-)comment = 'お客様情報入力テーブル';
+insert into credit_type(credit_num, credit_name) values(0, "visa");
+insert into credit_type(credit_num, credit_name) values(1, "master");
+insert into credit_type(credit_num, credit_name) values(2, "american express");
 
 insert into item(
 item_name,
