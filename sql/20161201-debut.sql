@@ -106,22 +106,15 @@ foreign key(image_id)references item(item_id)
  *注文数 = order_count
  *合計金額 = amount
  *購入日 = puchase_date
- *支払い方法 = payment_method
- *登録日 = registration_date
- *更新日 = updated_date
+ *購入方法 = purchase_method
  */
 
 create table purchase(
 purchase_id int not null primary key auto_increment comment '購入ID',
-user_id int not null comment 'ユーザーID',
-item_id int not null comment '商品ID',
-item_name varchar(100) not null comment '商品名',
-order_count int not null comment '注文数',
-amount decimal(10,3) not null comment '合計金額',
-purchase_date date not null comment '購入日',
-payment_method varchar(100) comment '支払い方法',
-registration_date datetime comment '登録日',
-updated_date datetime comment '更新日',
+user_id int null comment 'ユーザーID',
+item_name varchar(100)  comment '商品名',
+amount decimal(10,3)  comment '合計金額',
+purchase_date date  comment '購入日',
 foreign key(user_id) references openconnect.users(user_id) on delete cascade,
 foreign key(item_id) references item(item_id)
 )comment = '購入テーブル';
@@ -136,15 +129,12 @@ credit_num int not null primary key comment 'カード種類番号',
 credit_name varchar(255) not null comment 'カード会社名'
 )comment = 'クレジット種類テーブル';
 
-/*クレジットテーブル = credit
- *クレジット種類 = credit_type
- *クレジット番号 = credit_number
- *カード名義 = name_e
- *セキュリティコード = security_code
- *有効期限(月) = expiration_month
- *有効期限(年) = expiration_year
- *登録日 = registration_date
- *更新日 = updated_date
+/*非会員情報テーブル = form
+ *お名前 = form_name
+ *メールアドレス = form_email_address
+ *電話番号 = form_phone_number
+ *郵便番号 = zip11
+ *住所 = addr11
  */
 
 create table form(
@@ -155,6 +145,17 @@ form_phone_number varchar(100) comment '電話番号',
 zip11 varchar(100) comment '郵便番号',
 addr11 varchar(100) comment '住所'
 )comment = 'お客様情報入力テーブル';
+
+/*クレジットテーブル = credit
+ *クレジット種類 = credit_type
+ *クレジット番号 = credit_number
+ *カード名義 = name_e
+ *セキュリティコード = security_code
+ *有効期限(月) = expiration_month
+ *有効期限(年) = expiration_year
+ *登録日 = registration_date
+ *更新日 = updated_date
+ */
 
 create table credit(
 credit_id int primary key auto_increment comment 'クレジットID',
@@ -168,15 +169,6 @@ registration_date datetime comment '登録日',
 updated_date datetime comment '更新日',
 foreign key(credit_id)references form(form_id)
 )comment = 'クレジットテーブル';
-
-/*非会員情報テーブル = nonmember
- *ユーザーフォーム = user_form
- *お名前 = user_name
- *メールアドレス = email_address
- *パスワード = password
- *郵便番号 = postal_code
- *住所 = address
- */
 
 insert into credit_type(credit_num, credit_name) values(0, "visa");
 insert into credit_type(credit_num, credit_name) values(1, "master");
