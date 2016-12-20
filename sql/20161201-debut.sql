@@ -115,8 +115,7 @@ user_id int null comment 'ユーザーID',
 item_name varchar(100)  comment '商品名',
 amount decimal(10,3)  comment '合計金額',
 purchase_date date  comment '購入日',
-foreign key(user_id) references openconnect.users(user_id) on delete cascade,
-foreign key(item_id) references item(item_id)
+foreign key(user_id) references openconnect.users(user_id) on delete cascade/*,foreign key(item_id) references item(item_id)*/
 )comment = '購入テーブル';
 
 /*クレジット種類テーブル = credit_type
