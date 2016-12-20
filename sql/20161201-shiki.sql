@@ -1,4 +1,3 @@
-set names utf8;
 drop database if exists shiki;
 create database shiki;
 use shiki;
@@ -88,6 +87,7 @@ create table tour(
   amount int not null
 );
 
+
 create table detail(
   tour_id int not null,
   tour_name_ja varchar(100) not null,
@@ -116,7 +116,7 @@ insert into detail (tour_id,tour_name_ja,tour_name_en,tour_price,tour_category,
 tour_detail_1_ja,tour_detail_1_en,tour_detail_2_ja,tour_detail_2_en,tour_detail_3_ja,tour_detail_3_en,tour_detail_4_ja,tour_detail_4_en,tour_detail_5_ja,tour_detail_5_en,
 img_address001,img_address002,img_address003,img_address004,img_address005)
 
-values(0,"お一人様から楽しめる長野の春ツアー","new_line Spring tour of Nagano that you can enjoy from one person",50000,0,"善光寺の東に隣接する城山公園には約470本のソメイヨシノが植栽されており、
+values(0,"お一人様長野ツアー","Spring tour of Nagano",50000,0,"善光寺の東に隣接する城山公園には約470本のソメイヨシノが植栽されており、
 開花時には壮観な眺めになります。また、市内でも高台に位置しますので、
 夜桜と夜景を同時に楽しめます。花見シーズンには全国的にも珍しい花見茶屋が軒を連ね、
 暖かい小屋の中は多くの花見客で賑わいます。",
@@ -165,7 +165,7 @@ insert into detail (tour_id,tour_name_ja,tour_name_en,tour_price,tour_category,
 tour_detail_1_ja,tour_detail_1_en,tour_detail_2_ja,tour_detail_2_en,tour_detail_3_ja,tour_detail_3_en,tour_detail_4_ja,tour_detail_4_en,tour_detail_5_ja,tour_detail_5_en,
 img_address001,img_address002,img_address003,img_address004,img_address005)
 
-values(1,"お一人様から楽しめる沖縄の夏ツアー","Okinawa summer tour that you can enjoy from one person",50000,1,
+values(1,"お一人様沖縄ツアー","Okinawa summer tour",50000,1,
 "公園の北端にY字型の突き出したコーラルサンドのエメラルドビーチは「遊びの浜」「憩いの浜」「眺めの浜」と3区分された砂浜は、ゆうに3000人が遊べます。
 ビーチから徒歩一分の所にあるかき氷専門店「GOTO」には完熟マンゴーを贅沢に盛ったマンゴーかき氷や一般的なぜんざいとは一味違った「沖縄ぜんざい」をかき氷で楽しむことができます。
 山盛りのかき氷の下に隠れているあずきが特徴の沖縄ぜんざいはあっさりとシンプルな味わいです。",
@@ -213,7 +213,7 @@ insert into detail (tour_id,tour_name_ja,tour_name_en,tour_price,tour_category,
 tour_detail_1_ja,tour_detail_1_en,tour_detail_2_ja,tour_detail_2_en,tour_detail_3_ja,tour_detail_3_en,tour_detail_4_ja,tour_detail_4_en,tour_detail_5_ja,tour_detail_5_en,
 img_address001,img_address002,img_address003,img_address004,img_address005)
 
-values(2,"お一人様から楽しめる滋賀の秋ツアー","Shiga's autumn tour that you can enjoy from one person",50000,2,
+values(2,"お一人様滋賀ツアー","Shiga's autumn tour",50000,2,
 "彦根城の北東にある池泉回遊式庭園。延宝5年(1677)、彦根藩4代藩主の井伊直興が琵琶湖の水を引き、唐の瀟湘[しょうしょう]八景を近江八景に置き換えて造営されたと。言われます。島や入江を配し
 、鳳翔台では抹茶とお菓子で休憩しながら、その風景を楽しむことができます。
 園内では紅葉が紅い枝を広げ、天守の白壁や、その他の木の緑を背景に、鮮やかさを際立たせています。",
@@ -257,7 +257,7 @@ insert into detail (tour_id,tour_name_ja,tour_name_en,tour_price,tour_category,
 tour_detail_1_ja,tour_detail_1_en,tour_detail_2_ja,tour_detail_2_en,tour_detail_3_ja,tour_detail_3_en,tour_detail_4_ja,tour_detail_4_en,tour_detail_5_ja,tour_detail_5_en,
 img_address001,img_address002,img_address003,img_address004,img_address005)
 
-values(3,"お一人様から楽しめる秋田の冬ツアー","Akita's winter tour that you can enjoy from one person",50000,3,
+values(3,"お一人様秋田ツアー","Akita's winter tour",50000,3,
 "みちのく五大雪まつりのひとつ「なまはげ柴灯(せど)まつり」は、秋田県男鹿市北浦(おがし きたうら)の
 真山(しんざん)神社で行なわれる男鹿の冬を代表する冬祭りとして昭和39年に始まりました。この祭りは神事「柴灯祭(さいとうさい)」と民俗行事「なまはげ」を組み合わせた冬の観光行事です。
 真山神社境内に焚き上げられた柴灯火のもとで繰り広げられる勇壮で迫力あるナマハゲの乱舞は見る人を魅了します。
