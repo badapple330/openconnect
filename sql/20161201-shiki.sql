@@ -87,6 +87,16 @@ create table tour(
   amount int not null
 );
 
+create table purchase(
+  user_id int not null,
+  people int not null,
+  tour_name varchar(100) not null,
+  tour_date date not null,
+  tour_godate date not null,
+  tour_returndate date not null,
+  price int not null,
+  amount int not null
+);
 
 create table detail(
   tour_id int not null,
