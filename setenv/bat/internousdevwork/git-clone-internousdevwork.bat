@@ -5,7 +5,7 @@ cd %USERPROFILE%\git
 git clone -b master https://github.com/internousdevwork/strutsdb
 : Springフレームワーク練習用サンプルアプリケーション
 git clone -b master https://github.com/internousdevwork/spring
-: 
+:
 git clone -b master https://github.com/internousdevwork/openconnect
 : プロトタイプ
 git clone -b master https://github.com/internousdevwork/prototype
@@ -42,8 +42,17 @@ git clone -b master https://github.com/internousdevwork/prototype1608
 git clone -b master https://github.com/internousdevwork/prototype1610
 : プロトタイプ2016年11月
 git clone -b master https://github.com/internousdevwork/prototype1611
+: プロトタイプ2016年12月
+git clone -b master https://github.com/internousdevwork/prototype1612red
+git clone -b master https://github.com/internousdevwork/prototype1612blue
+
+
+
+
+
 git clone -b master https://github.com/internousdevwork/releaseproject
-git clone -b master https://github.com/internousdevwork/java
+
+: git clone -b master https://github.com/internousdevwork/java
 git clone -b master https://github.com/internousdevwork/mypage
 git clone -b master https://github.com/internousdevwork/provisioning
 git clone -b master https://github.com/internousdevwork/fcblogin
@@ -54,7 +63,7 @@ git clone -b master https://github.com/internousdevwork/creditcard
 : 201407 <201407月生>
 : -------------------------------------------------------------------------------------------------
 : 2014年08月作成
-: --- 某中小企業向け　書籍管理サイト[bookmanager07]
+: --- 某中小企業向け 書籍管理サイト[bookmanager07]
 git clone -b master https://github.com/internousdevwork/bookmanager07
 
 : 2014年09月作成
@@ -293,7 +302,7 @@ git clone -b master https://github.com/internousdevwork/visa
 git clone -b master https://github.com/internousdevwork/internousdev
 : 一般消費者向け ファッションキュレーション型ECサイト
 git clone -b master https://github.com/internousdevwork/mira-mode
-: 一般消費者向け 
+: 一般消費者向け
 git clone -b master https://github.com/internousdevwork/rewrite
 
 : -------------------------------------------------------------------------------------------------
@@ -326,6 +335,7 @@ git clone -b master https://github.com/internousdevwork/rewrite
 : オウンドメディアサイト INTERNOUSDEV
 git clone -b master https://github.com/internousdevwork/internousdev
 
+:プログラマカレッジ向け 統合認証基盤[openconnect]
 git clone -b master https://github.com/internousdevwork/openconnect
 
 : クレジットカード会社 AMERICAN EXPRESS
@@ -336,7 +346,7 @@ git clone -b master https://github.com/internousdevwork/americanexpress
 : -------------------------------------------------------------------------------------------------
 : 某一般消費者向け 温泉旅館予約サイト
 git clone -b master https://github.com/internousdevwork/nagomi
- 
+
 : -------------------------------------------------------------------------------------------------
 : 201611 <201609月生及び201610月生>
 : -------------------------------------------------------------------------------------------------
