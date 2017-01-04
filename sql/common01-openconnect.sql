@@ -1,75 +1,32 @@
 set names utf8;
 set foreign_key_checks=0;
 
+create database if not exists openconnect;
+use openconnect;
+
+drop table if exists attendance;
+drop table if exists books;
+drop table if exists books_borrow;
+drop table if exists decision;
+drop table if exists decision_detail;
+drop table if exists kesseki;
+drop table if exists mendan;
+drop table if exists projects;
+drop table if exists project_progress;
+drop table if exists  project_status;
+drop table if exists schedule;
+drop table if exists students;
+drop table if exists syusseki;
+drop table if exists tikoku;
+drop table if exists users;
+
+drop table if exists user;
+drop table if exists site;
+drop table if exists master;
 
 drop database if exists openconnect;
 create database openconnect;
 use openconnect;
-
-create table user (
-  user_id int(11) not null primary key auto_increment comment 'ユーザーID',
-  password varchar(255) not null comment 'パスワード',
-  name varchar(255) default null comment '名前',
-  name_f varchar(255) default null comment '名前(ふりがな)',
-  postal varchar(255) not null comment '郵便番号',
-  ddress varchar(255) not null comment '住所',
-  tel_number varchar(255) not null comment '電話番号',
-  email varchar(255) not null unique comment 'メールアドレス',
-  sex varchar(10) not null comment '性別',
-  birthday date not null default '0000-00-00' comment '誕生日',
-  handle_name varchar(16) default null comment 'ハンドルネーム',
-  register_day datetime not null default '0000-00-00 00:00:00' comment '登録日',
-  update_day datetime not null default '0000-00-00 00:00:00' comment '更新日',
-  userdel_flg tinyint(1) not null default '0' comment '退会フラグ',
-  login_flg tinyint(1) not null default '1' comment 'ログインフラグ',
-  user_flg int(11) not null default '1' comment 'ユーザーフラグ'
-)comment='ユーザー情報格納テーブル';
-
-
-create table users (
-user_id int primary key not null auto_increment comment 'ユーザーID',
-password varchar(255)  comment 'パスワード',
-family_name varchar(50) not null default '' comment '姓(英語)',
-given_name varchar(50) not null default '' comment '名(英語)',
-family_name_kanji varchar(50) not null default '' comment '姓(漢字)',
-family_name_kana varchar(50) not null default '' comment '姓(ふりがな)',
-given_name_kanji varchar(50) not null default '' comment '名(漢字)',
-given_name_kana varchar(50) not null default '' comment '名(ふりがな)',
-postal varchar(255) default '' comment '郵便番号',
-address varchar(255) default '' comment '住所',
-phone_number varchar(255) default '' comment '電話番号',
-phone_email varchar(255)  unique comment 'メールアドレス',
-mobile_number varchar(255) default '' comment '携帯電話番号',
-mobile_email varchar(255) unique comment '携帯メールアドレス',
-sex varchar(10) not null default '' comment '性別',
-birthday date default 00000000 comment '誕生日',
-register_day datetime default 00000000000000 comment '登録日',
-update_day datetime default 00000000000000 comment '更新日',
-userdel_flg boolean default FALSE comment '退会フラグ',
-login_flg boolean default FALSE comment 'ログインフラグ',
-user_flg int not null default 1 comment 'ユーザーフラグ',
-year varchar(4) comment '受講年',
-month varchar(2) comment '受講開始月',
-oauth_id varchar(255) comment 'OAuthID',
-oauth_name int default 0 comment 'OAuth名',
-oauth_account varchar(100) comment 'OAuthアカウント'
-)comment = 'ユーザー情報格納テーブル';
-
-insert into users values
-('1','testuser','test','user','テスト','てすと','ユーザー','ゆーざー','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test@gmail.com','09012345678','user.test@ne.jp','男','1993-12-24','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','04','','0',''),
-('2','internous01',	'inoue','takuma','井上','いのうえ','琢磨','たくま','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','takuma.inoue@gmail.com','09012345678','takuma.inoue@ne.jp','男','1990-09-25','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'3','2010','04','','0',''),
-('3','internous01','harada','miyuki','原田','はらだ','美友貴','みゆき','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','miyuki.harada@gmail.com','09012345678','miyuki.harada@ne.jp','女','1992-05-03','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'3','2010','04','','0',''),
-('4','leader11','test','leader1','テスト','てすと','リーダー1','りーだー1','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','leader1.test@gmail.com','09012345678','leader1.test@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'2','2016','04','','0',''),
-('5','leader22','test','leader2','テスト','てすと','リーダー2','りーだー2','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','leader2.test@gmail.com','09012345678','leader2.test@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'2','2016','04','','0',''),
-('6','student1','nitabaru','kouhei','仁田原','にたばる','耕平','こうへい','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','kouhei.nitabaru@gmail.com','09012345678','kouhei.nitabaru@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','07','','0',''),
-('7','student2','itou','tatsuhumi','伊藤','いとう','竜文','たつふみ','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','tatsuhumi.itou@gmail.com','09012345678','tatsuhumi.itou@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','07','','0',''),
-('8','student3','sunakawa','minori','砂川','すなかわ','みのり','みのり','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','minori.sunakawa@gmail.com','09012345678','minori.sunakawa@ne.jp','女','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','07','','0',''),
-('9','student4','keduka','masahiro','毛塚','けづか','正広','まさひろ','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','masahiro.keduka@gmail.com','09012345678','masahiro.keduka@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','08','','0',''),
-('10','student5','horiguchi','kennichi','堀口','ほりぐち','謙一','けんいち','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','kennichi.horiguchi@gmail.com','09012345678','kennichi.horiguchi@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','08','','0',''),
-('11','student6','kiryuu','youichi','霧生','きりゅう','雄一','ゆういち','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','yuuichi.kiryuu@gmail.com','09012345678','yuuichi.kiryuu@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','08','','0',''),
-('12','student7','hoshi','tatsuya','星','ほし','達也','たつや','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','tatsuya.hoshi@gmail.com','09012345678','tatsuya.hoshi@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','08','','0',''),
-('13','student8','iwamoto','koumei','岩本','いわもと','興明','こうめい','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','koumei.iwamoto@gmail.com','09012345678','koumei.iwamoto@ne.jp','男','1990-04-01','2016-07-01 13:00:00','2016-07-01 13:00:00',FALSE,FALSE,'1','2016','08','','0','');
-
 
 create table attendance(
 date DATE not null comment '日付',
@@ -78,18 +35,6 @@ attendance int default 0  comment '出欠状況',
 interview int default 2 comment '面談状況',
 foreign key(user_id) references users(user_id) on update cascade on delete cascade
 );
-
-
-create table site(
-site_id int primary key not null auto_increment comment 'サイトID',
-site_name varchar(255) not null comment 'サイト名',
-site_url varchar(255) not null unique comment 'サイトURL',
-site_article text comment 'サイト記事',
-genre varchar(50) comment 'ジャンル',
-picture varchar(255) comment '画像',
-banner varchar(80) comment 'バナー'
-) comment='サイト情報格納テーブル';
-
 
 /*サブプロジェクト / 書籍一覧 */
 create table books(
@@ -219,6 +164,16 @@ title varchar(100) not null comment '件名',
 content varchar(100) comment '内容'
 );
 
+/* サイト一覧情報 */
+create table site(
+site_id int primary key not null auto_increment comment 'サイトID',
+site_name varchar(100) not null comment 'サイト名',
+site_url varchar(255) not null unique comment 'サイトURL',
+site_article text comment 'サイト記事',
+genre varchar(50) comment 'ジャンル',
+picture varchar(255) comment '画像',
+banner varchar(80) comment 'バナー'
+) comment='サイト情報格納テーブル';
 
 /* カレッジ生名簿 *
  * 管理番号 = number
@@ -256,3 +211,53 @@ number varchar(5) comment '管理番号',
 name varchar(50) comment '名前',
 reason varchar(50) comment '遅刻理由'
 ) comment = '遅刻登録テーブル';
+
+CREATE TABLE user (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ユーザーID',
+  `password` varchar(255) NOT NULL COMMENT 'パスワード',
+  `name` varchar(255) DEFAULT NULL COMMENT '名前',
+  `name_f` varchar(255) DEFAULT NULL COMMENT '名前(ふりがな)',
+  `postal` varchar(255) NOT NULL COMMENT '郵便番号',
+  `address` varchar(255) NOT NULL COMMENT '住所',
+  `tel_number` varchar(255) NOT NULL COMMENT '電話番号',
+  `email` varchar(255) NOT NULL COMMENT 'メールアドレス',
+  `sex` varchar(10) NOT NULL COMMENT '性別',
+  `birthday` date NOT NULL DEFAULT '0000-00-00' COMMENT '誕生日',
+  `handle_name` varchar(16) DEFAULT NULL COMMENT 'ハンドルネーム',
+  `register_day` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '登録日',
+  `update_day` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '更新日',
+  `userdel_flg` tinyint(1) NOT NULL DEFAULT '0' COMMENT '退会フラグ',
+  `login_flg` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'ログインフラグ',
+  `user_flg` int(11) NOT NULL DEFAULT '1' COMMENT 'ユーザーフラグ',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email` (`email`)
+) COMMENT='ユーザー情報格納テーブル';
+
+create table users (
+user_id int primary key not null auto_increment comment 'ユーザーID',
+password varchar(255)  comment 'パスワード',
+family_name varchar(50) not null default '' comment '姓(英語)',
+given_name varchar(50) not null default '' comment '名(英語)',
+family_name_kanji varchar(50) not null default '' comment '姓(漢字)',
+family_name_kana varchar(50) not null default '' comment '姓(ふりがな)',
+given_name_kanji varchar(50) not null default '' comment '名(漢字)',
+given_name_kana varchar(50) not null default '' comment '名(ふりがな)',
+postal varchar(255) default '' comment '郵便番号',
+address varchar(255) default '' comment '住所',
+phone_number varchar(255) default '' comment '電話番号',
+phone_email varchar(255)  unique comment 'メールアドレス',
+mobile_number varchar(255) default '' comment '携帯電話番号',
+mobile_email varchar(255) unique comment '携帯メールアドレス',
+sex varchar(10) not null default '' comment '性別',
+birthday date default 00000000 comment '誕生日',
+userdel_flg boolean default FALSE comment '退会フラグ',
+login_flg boolean default FALSE comment 'ログインフラグ',
+user_flg int not null default 1 comment 'ユーザーフラグ',
+year varchar(4) comment '受講年',
+month varchar(2) comment '受講開始月',
+oauth_id varchar(255) comment 'OAuthID',
+oauth_name int default 0 comment 'OAuth名',
+oauth_account varchar(100) comment 'OAuthアカウント',
+register_day datetime default 00000000000000 comment '登録日',
+update_day datetime default 00000000000000 comment '更新日'
+)comment = 'ユーザー情報格納テーブル';
