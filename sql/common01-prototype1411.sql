@@ -1,6 +1,7 @@
-DROP DATABASE IF EXISTS prototype201411;
-CREATE DATABASE prototype201411;
-
+set name utf8;
+set foreign_key_checks=0;
+drop database if exists prototype201411;
+create database prototype201411;
 use prototype201411;
 
 drop table if exists ec_prototype;

@@ -1,4 +1,5 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists world_travel;
 create database world_travel DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 use world_travel;

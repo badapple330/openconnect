@@ -1,7 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists rakugo;
 create database rakugo;
 use rakugo;
+
 
 /***********************************************************
 * 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **

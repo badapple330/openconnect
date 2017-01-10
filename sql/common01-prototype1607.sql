@@ -1,6 +1,9 @@
+set name utf8;
+set foreign_key_checks=0;
 drop database if exists prototype1607;
 create database prototype1607;
 use prototype1607;
+
 create table user(
 id int auto_increment primary key,
 user_name varchar(255) ,

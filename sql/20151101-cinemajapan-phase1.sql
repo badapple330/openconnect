@@ -1,4 +1,5 @@
 set names utf8;
+set foreign_key_chhecks=0;
 drop database if exists cinemajapan;
 create database cinemajapan;
 use cinemajapan;

@@ -1,7 +1,7 @@
-#データベース作成
+set name utf8;
+set foreign_key_checks=0;
+drop database if exists prototype05;
 create database if not exists prototype05;
-
-#データベース指定
 use prototype05;
 
 #ユーザー情報テーブル作成

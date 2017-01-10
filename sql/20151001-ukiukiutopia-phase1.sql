@@ -1,6 +1,6 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists sports_gym;
-
 create database sports_gym;
 use sports_gym;
 

@@ -1,7 +1,8 @@
 set names utf8;
-DROP DATABASE IF Exists gtickets;
-CREATE DATABASE IF NOT Exists gtickets;
+drop database if exists gtickets;
+create database if not exists gtickets;
 use gtickets;
+set foreign_key_checks=0;
 
 DROP TABLE IF EXISTS Concert_Hall_info;
 DROP TABLE IF EXISTS user_info;

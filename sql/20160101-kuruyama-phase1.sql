@@ -1,11 +1,9 @@
 set names utf8;
-/***************************
- * ramenデータベース 1:商品情報 2:購入履歴 3:カート
- **************************/
-
+set foreign_key_checks=0;
+drop database if exists kuruyama;
 create database if not exists kuruyama;
-
 use kuruyama;
+
 
 drop table if exists ramen_items;
 create table ramen_items (
@@ -25,7 +23,9 @@ item_stock int not null,
 img_path varchar(255) not null
 );
 
-
+/***************************
+ * ramenデータベース 1:商品情報 2:購入履歴 3:カート
+ **************************/
 insert into ramen_items values(1,'しょうゆラーメン','醤油ベースのラーメン','ramen',500,10,'img/しょうゆラーメン.jpg');
 insert into ramen_items values(2,'塩ラーメン','塩ベースのラーメン','ramen',600,10,'img/塩ラーメン.jpg');
 insert into ramen_items values(3,'とんこつラーメン','とんこつベースのラーメン','ramen',700,10,'img/とんこつラーメン.jpg');

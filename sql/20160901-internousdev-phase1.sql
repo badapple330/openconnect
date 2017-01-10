@@ -1,9 +1,9 @@
 set names utf8;
-DROP DATABASE IF EXISTS internousdev;
+set foreign_key_checks=0;
+drop database if exists internousdev;
+create databse if not exists internousdev;
+use internousdev;
 
-CREATE DATABASE internousdev;
-
-USE internousdev;
 
 /* イベント情報
  * 記事ID = id

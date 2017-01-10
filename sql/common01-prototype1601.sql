@@ -1,3 +1,5 @@
+set name utf8;
+set foreign_key_checks=0;
 drop database if exists struts2;
 create database struts2;
 use struts2;

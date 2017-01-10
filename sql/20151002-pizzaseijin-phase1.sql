@@ -1,8 +1,8 @@
 set names utf8;
-DROP DATABASE IF EXISTS pizza_seijin;
-CREATE DATABASE pizza_seijin;
-
-use pizza_seijin
+set foreign_key_checks=0;
+drop database if EXISTS pizza_seijin;
+create database if not exists pizza_seijin;
+use pizza_seijin;
 
 
 /***********************************************************

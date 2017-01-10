@@ -1,7 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists bookmanager09;
 create database bookmanager09;
 use bookmanager09;
+
 
 create table categories(
   bookid int(255) not null primary key auto_increment comment '書籍ID',

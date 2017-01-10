@@ -1,15 +1,13 @@
 set names utf8;
+set foreign_key_checks=0;
+drop database if exists miramode;
+create database if not exists miramode;
+use miramode;
+
 /*@auhter
  * @since 2016/08/15
  * @virsion 1.0
  */
-
-DROP DATABASE if EXISTS miramode;	/*DB削除*/
-CREATE DATABASE miramode;	/*DB作成*/
-
-/*DBを一旦消して再度作成することでデータの重複を防ぐ*/
-
-use miramode;	/*DBを使う*/
 
 /*テーブル作成*/
 

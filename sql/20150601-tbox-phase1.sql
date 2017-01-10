@@ -1,11 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists tbox;
-
-create database tbox default character set utf8;
-
+create database if not exists tbox default character set utf8;
 use tbox;
 
-SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Drop Tables */
 

@@ -1,7 +1,10 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists nagomi;
-create database nagomi;
+create database if not exists nagomi;
 use nagomi;
+
+
 /*プラン
  * プラン種別 = plan_category
  * プラン番号 = plan_id

@@ -1,7 +1,7 @@
+set name utf8;
+set foreign_key_checks=0;
 drop database if exists prototype1608;
-
 create database prototype1608;
-
 use prototype1608;
 
 create table users(

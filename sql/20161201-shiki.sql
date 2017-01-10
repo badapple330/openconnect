@@ -1,6 +1,9 @@
+set name utf8;
+set foreign_key_checks=0;
 drop database if exists shiki;
 create database shiki;
 use shiki;
+
 
 create table card(
 	card_num int not null primary key,

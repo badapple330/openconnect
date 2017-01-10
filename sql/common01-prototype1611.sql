@@ -1,7 +1,7 @@
+set name utf8;
+set foreign_key_checks=0;
 drop database if exists openconnect;
-
 create database openconnect;
-
 use openconnect;
 
 create table users(

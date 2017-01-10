@@ -1,7 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists gpscoffee;
 create database gpscoffee default character set utf8;
 use gpscoffee;
+
 
 /***********************************************************
 * 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **

@@ -1,6 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
+drop database if exists kintai;
 create database if not exists kintai;
 use kintai;
+
 
 drop table if exists kintai.attendance_inoue;
 drop table if exists kintai.attendance_igarashi;

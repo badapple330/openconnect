@@ -1,8 +1,8 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists biggalaxy;
-create database biggalaxy;
+create database if not exists biggalaxy;
 use biggalaxy;
-
 
 /*
  * チケット情報テーブル

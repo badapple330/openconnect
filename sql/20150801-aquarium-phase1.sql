@@ -2,7 +2,8 @@ set names utf8;
 drop database if exists aquarium;
 create database aquarium;
 use aquarium;
-SET SESSION FOREIGN_KEY_CHECKS=0;
+set foreign_key_checks=0:
+
 /* Drop Tables */
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS ticket;

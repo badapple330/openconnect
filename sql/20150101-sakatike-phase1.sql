@@ -1,7 +1,9 @@
-
+set name utf8;
+set foreign_key_checks=0;
 drop database if exists ticket;
 create database if not exists ticket;
 use ticket;
+
 
 drop table if exists ticket_data;
 create table ticket_data(

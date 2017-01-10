@@ -1,29 +1,20 @@
 set names utf8;
+set foreign_key_checks=0;
+drop database if exists mackeypark;
 create database if not exists mackeypark;
-
 use mackeypark;
 
 drop table if exists ticket;
 create table ticket (
-
 item_id int primary key not null auto_increment comment'アイテムID',
-
 item_name varchar(100) not null comment'アイテムの名前',
-
 period varchar(100) not null comment'期間',
-
 division varchar(100) not null comment'部門',
-
 explanation varchar(255) not null comment'説明',
-
 design varchar(100) not null comment'デザイン',
-
 img_path varchar(100) not null comment'パスワード',
-
 price int not null comment'価格',
-
 registration_date datetime not null'登録日'
-
 );
 
 insert into ticket(item_name,period,division,explanation,design,img_path,price,registration_date)values("1日(大人)","1日","大人","20歳以上の方がお楽しみいただけます。","マッキー","./picture/マッキー.jpg",4000,now());

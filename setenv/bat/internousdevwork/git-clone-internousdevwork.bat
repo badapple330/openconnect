@@ -57,6 +57,7 @@ git clone -b master https://github.com/internousdevwork/mypage
 git clone -b master https://github.com/internousdevwork/provisioning
 git clone -b master https://github.com/internousdevwork/fcblogin
 git clone -b master https://github.com/internousdevwork/rate-exchanger
+
 git clone -b master https://github.com/internousdevwork/creditcard
 
 : -------------------------------------------------------------------------------------------------
@@ -192,7 +193,7 @@ git clone -b master https://github.com/internousdevwork/livetickets
 
 : 2015年06月作成
 : 某野球観戦チケット販売サイト
-git clone -b master https://github.com/internousdevwork/baseballticket
+:git clone -b master https://github.com/internousdevwork/baseballticket
 
 : 2015年07月作成
 : 某着物レンタルサイト
@@ -203,9 +204,8 @@ git clone -b master https://github.com/internousdevwork/ichigoichie
 : -------------------------------------------------------------------------------------------------
 : 2015年07月作成
 : 某ゲーム・ミュージックコンサートチケット販売専門サイト
-git clone -b master https://github.com/internousdevwork/g-tickets
-: 某ゲーム・ミュージックコンサートチケット販売専門サイト
-git clone -b phase2 https://github.com/internousdevwork/g-tickets
+:git clone -b master https://github.com/internousdevwork/g-tickets
+
 
 : 2015年07月作成
 : 某映画館向け 映画鑑賞チケット販売サイト
@@ -213,14 +213,14 @@ git clone -b master https://github.com/internousdevwork/movietickets
 
 : 2015年08月作成
 : 某Tシャツ販売サイト
-git clone -b master https://github.com/internousdevwork/tbox
+:git clone -b master https://github.com/internousdevwork/tbox
 
 : -------------------------------------------------------------------------------------------------
 : 201507 <201507月生>
 : -------------------------------------------------------------------------------------------------
 : 2015年08月作成
 : 某プラネタリウム向け上映プログラムチケット販売サイト
-git clone -b master https://github.com/internousdevwork/biggalaxy
+:git clone -b master https://github.com/internousdevwork/biggalaxy
 : 2015年09月作成
 : 某コテージレンタル予約サイト
 git clone -b master https://github.com/internousdevwork/k-home
@@ -230,8 +230,11 @@ git clone -b master https://github.com/internousdevwork/k-home
 : -------------------------------------------------------------------------------------------------
 : 2015年09月作成
 :  某水族館向けチケット販売サイト
-git clone -b master https://github.com/internousdevwork/aquarium
+:git clone -b master https://github.com/internousdevwork/aquarium
 
+: 2015年09月作成
+:  某水族館向けチケット販売サイト
+git clone -b master https://github.com/internousdevwork/aquarium
 : -------------------------------------------------------------------------------------------------
 : 201509 <201509月生>
 : -------------------------------------------------------------------------------------------------
@@ -263,6 +266,7 @@ git clone -b master https://github.com/internousdevwork/pizzaseijin
 : 2015年12月作成
 : 某一般消費者向け 総合映画チケット販売サイト
 git clone -b phase2 https://github.com/internousdevwork/cinemajapan
+
 : 2016年01月作成
 : 某一般消費者向け チョコレート販売サイト
 git clone -b master https://github.com/internousdevwork/chocotime
@@ -293,17 +297,13 @@ git clone -b master https://github.com/internousdevwork/kuruyama
 : 2016年03月作成
 : 一般消費者向け 舞台チケット予約サイト
 git clone -b master https://github.com/internousdevwork/gekidanroadshow
+
 : 2016年04月作成
 : 某着物レンタルサイト
 git clone -b phase2 https://github.com/internousdevwork/ichigoichie
+
 : クレジットカード会社 VISA
-git clone -b master https://github.com/internousdevwork/visa
-: オウンドメディアサイト INTERNOUSDEV
-git clone -b master https://github.com/internousdevwork/internousdev
-: 一般消費者向け ファッションキュレーション型ECサイト
-git clone -b master https://github.com/internousdevwork/mira-mode
-: 一般消費者向け
-git clone -b master https://github.com/internousdevwork/rewrite
+:git clone -b master https://github.com/internousdevwork/visa
 
 : -------------------------------------------------------------------------------------------------
 : 201603 <201601月生及び201602月生>
@@ -320,16 +320,46 @@ git clone -b master https://github.com/internousdevwork/rewrite
 : -------------------------------------------------------------------------------------------------
 : 201606 <201604月生及び201605月生>
 : -------------------------------------------------------------------------------------------------
+: 某ライブチケット販売サイト[liveticket]
+git clone -b phase2 https://github.com/internousdevwork/liveticket
+
+: 某野球観戦チケット販売サイト[baseballticket]
+git clone -b phase2 https://github.com/internousdevwork/baseballticket
+
+: 某着物レンタルサイト[ichigoichie]
+git clone -b phase3 https://github.com/internousdevwork/ichigoichie
+
+: 某Tシャツ販売サイト[tbox]
+git clone -b phase2 https://github.com/internousdevwork/tbox
+
+: 某プラネタリウム向け上映プログラムチケット販売サイト[biggalaxy]
+git clone -b phase2 https://github.com/internousdevwork/biggalaxy
+
+: 一般消費者向け 総合映画チケット販売サイト[cinemajapan]
+git clone -b phase2 https://github.com/internousdevwork/cinemajapan
 
 : -------------------------------------------------------------------------------------------------
 : 201607 <201605月生及び201606月生>
-: ------------------------------------------ -------------------------------------------------------
+: -------------------------------------------------------------------------------------------------
+: オウンドメディアサイト INTERNOUSDEV
+git clone -b master https://github.com/internousdevwork/internousdev
+: プログラマカレッジ向け 統合認証基盤[openconnect]
+:git clone -b master https://github.com/internousdevwork/openconnect
+: クレジットカード会社 VISA
+git clone -b phase2 https://github.com/internousdevwork/visa
 
 : -------------------------------------------------------------------------------------------------
 : 201608 <201606月生及び201607月生>
 : -------------------------------------------------------------------------------------------------
+: オウンドメディアサイト INTERNOUSDEV
+git clone -b master https://github.com/internousdevwork/internousdev
 
-: -------------------------------------------------------------------------------------------------
+: 一般消費者向け ファッションキュレーション型ECサイト
+git clone -b master https://github.com/internousdevwork/mira-mode
+
+: 一般消費者向け
+git clone -b master https://github.com/internousdevwork/rewrite
+ : -------------------------------------------------------------------------------------------------
 : 201609 <201607月生及び201608月生>
 : -------------------------------------------------------------------------------------------------
 : オウンドメディアサイト INTERNOUSDEV
@@ -360,6 +390,7 @@ git clone -b master https://github.com/internousdevwork/lusso
 : -------------------------------------------------------------------------------------------------
 : 一般消費者向け キュレーション型ECサイト
 git clone -b master https://github.com/internousdevwork/shiki
+
 : 一般消費者向け 商材販売サイト
 git clone -b master https://github.com/internousdevwork/debut
 
@@ -368,6 +399,25 @@ git clone -b master https://github.com/internousdevwork/debut
 : -------------------------------------------------------------------------------------------------
 : 一般消費者向け 着物レンタル及び販売サイト
 git clone -b master https://github.com/internousdevwork/nadeshiko
+
+: -------------------------------------------------------------------------------------------------
+: 201701 <201611月生>
+: -------------------------------------------------------------------------------------------------
+: 一般消費者向け バレンタイン商品販売サイト
+git clone -b master https://github.com/internousdevwork/cadeau
+
+
+git clone -b master https://github.com/internousdevwork/kamakura
+
+: -------------------------------------------------------------------------------------------------
+: 201701 <201612月生>
+: -------------------------------------------------------------------------------------------------
+: 一般消費者向け 東京マラソン商品販売サイト
+git clone -b master https://github.com/internousdevwork/tokyorunner
+
+: 一般消費者向け バレンタイン商品販売サイト
+git clone -b master https://github.com/internousdevwork/valentine
+
 
 
 PAUSE

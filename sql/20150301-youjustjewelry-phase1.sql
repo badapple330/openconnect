@@ -1,7 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists youjustjewelry;
 create database youjustjewelry default character set utf8;
-use youJustJewelry;
+use youjustjewelry;
+
 
 /* 商品情報テーブル */
 drop table if exists ticket_info;

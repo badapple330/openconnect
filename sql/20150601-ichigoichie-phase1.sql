@@ -1,11 +1,8 @@
 set names utf8;
-create database if not exists Ichigoichie;
-
-use Ichigoichie;
-
 set foreign_key_checks=0;
-
-
+drop database if exists ichigoichie;
+create database if not exists ichigoichie;
+use ichigoichie;
 
 
 /* テーブル作成 */

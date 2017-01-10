@@ -1,13 +1,10 @@
 set names utf8;
-DROP DATABASE IF EXISTS releaseproject;
+set foreign_key_checks=0;
+drop database if exists releaseproject;
+create database if not exists releaseproject;
+use releaseproject;
 
-CREATE DATABASE IF NOT EXISTS releaseproject;
-
-SET SESSION FOREIGN_KEY_CHECKS=0;
-
-USE releaseproject;
 /* Drop Tables */
-
 DROP TABLE IF EXISTS releaseproject;
 
 /* Create Tables */

@@ -1,6 +1,7 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists rewrite;
-create database rewrite;
+create database if not exists rewrite;
 use rewrite;
 
 

@@ -1,7 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists ec;
 create database ec;
 use ec;
+
 
 create table admin_table(
 admin_id varchar(16) not null primary key comment '管理者ID',

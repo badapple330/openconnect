@@ -1,13 +1,14 @@
-/*@auhter HIDEYA SATO
- * @since 2016/11/15
- * @virsion 1.0
- */
-
+set name utf8;
+set foreign_key_checks=0;
 /*"lusso"データベース作成*/
 drop database if exists lusso;
 create database lusso;
 use lusso;
 
+/*@auhter HIDEYA SATO
+ * @since 2016/11/15
+ * @virsion 1.0
+ */
 
 /*アルコールカテゴリテーブル作成*/
 create table alcohol_category(
@@ -65,7 +66,7 @@ insert into alcohol_category(master_id,category)
 values(1,"beer"),
 (2,"whisky"),
 (3,"sake");
- 
+
 
 /*メニューへ値挿入*/
 insert into menu(menu_id,master_id,alcohol_name,alcohol_img_address,alcohol_content,food_name,food_img_address,food_content) values

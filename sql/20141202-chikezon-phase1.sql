@@ -1,8 +1,9 @@
 set names utf8;
--- chikezon データベースを作成
+set foreign_key_checks=0;
 drop database if exists chikezon;
 create database if not Exists chikezon;
 use chikezon;
+
 
 -- goodsテーブル作成
 create table goods(
@@ -13,7 +14,7 @@ index(goods_id)
 );
 
 -- goods テーブルサンプル挿入 --
-insert into goods(goods_id,goods_name,price) values 
+insert into goods(goods_id,goods_name,price) values
 (1,"肩たたきチケット",1500),
 (2,"某ねずみの国片道チケット",5000),
 (3,"後楽園で僕と握手チケット",3000),

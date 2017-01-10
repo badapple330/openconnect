@@ -1,7 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists footprinter;
-create database footprinter;
+create database if not exists footprinter;
 use footprinter;
+
 
 drop table if exists user;
 drop table if exists event;

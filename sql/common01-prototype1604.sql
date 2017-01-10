@@ -1,3 +1,5 @@
+set name utf8;
+set foreign_key_checks=0;
 drop database if exists prototype1604;
 create database prototype1604;
 use prototype1604;

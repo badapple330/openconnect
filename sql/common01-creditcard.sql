@@ -1,7 +1,7 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists creditcard_manager;
 create database creditcard_manager;
-
 use creditcard_manager;
 
 DROP TABLE IF EXISTS m_creditcard_type;
@@ -39,7 +39,7 @@ INDEX (token),
 FOREIGN KEY (type_id) REFERENCES m_creditcard_type (id)
 );
 
-INSERT INTO `m_creditcard_type` VALUES 
+INSERT INTO `m_creditcard_type` VALUES
 (1,'000069','atre CARD','2015-10-19 12:57:46',NULL,NULL),
 (2,'001530','京王パスポートカード','2015-10-19 12:57:46',NULL,NULL),
 (3,'012901','VIEW','2015-10-19 12:57:46',NULL,NULL),
@@ -422,7 +422,7 @@ INSERT INTO `m_creditcard_type` VALUES
 (380,'454166','SAISON Microsoft VISA','2015-10-19 12:57:46',NULL,NULL);
 
 
-INSERT INTO `m_creditcard_type` VALUES 
+INSERT INTO `m_creditcard_type` VALUES
 (381,'454166','SAISON VISA L.L.Bean Club','2015-10-19 12:57:46',NULL,NULL),
 (382,'454167','SAISON WOWOW-VISA','2015-10-19 12:57:46',NULL,NULL),
 (383,'454171','SAISON 郵貯VISA','2015-10-19 12:57:46',NULL,NULL),
@@ -838,7 +838,7 @@ INSERT INTO `m_creditcard_type` VALUES
 /*****************************
 テスト用クレジットカード番号（正常系）
 *****************************/
-INSERT INTO `m_creditcard_type` VALUES 
+INSERT INTO `m_creditcard_type` VALUES
 (793,'411111','Visa','2015-10-19 12:57:46',NULL,NULL),
 (794,'424242','Visa','2015-10-19 12:57:46',NULL,NULL),
 (795,'401288','Visa','2015-10-19 12:57:46',NULL,NULL),
@@ -853,5 +853,5 @@ INSERT INTO `m_creditcard_type` VALUES
 /*****************************
 テスト用クレジットカード番号（異常系）
 *****************************/
-INSERT INTO `m_creditcard_type` VALUES 
+INSERT INTO `m_creditcard_type` VALUES
 (804,'400000','N.A.','2015-10-19 12:57:46',NULL,NULL);

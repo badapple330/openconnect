@@ -1,7 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists oden;
 create database oden;
 use oden;
+
 
 
 /***********************************************************
@@ -16,11 +18,13 @@ insert into user_log(id,user_name,password)value(1,"test","pass");
 
 drop table if exists item;
 create table item(
-gazou varchar(255) PRIMARY KEY ,
-Item_name varchar(255) UNIQUE not null comment '商品名',
+gazou varchar(255) primary key,
+Item_name varchar(255) unique not null comment '商品名',
 price int(255) not null comment '単価',
 setumei varchar(255) not null
 );
+
+load data infile "20150101-oden-phase1-a-item.csv" into table item fields terminated by ',' enclosed by '"';
 
 insert into item(gazou,Item_name,Price,Setumei)value
 ("img/motikin.png","餅巾着",1600,"出汁がしみた巾着と餅のハーモニーは最高！！");

@@ -1,7 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists lapoupee;
-create database lapoupee;
+create database if not exists lapoupee;
 use lapoupee;
+
 
 create table temp(
 temp_id int primary key auto_increment,

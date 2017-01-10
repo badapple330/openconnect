@@ -1,8 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists uesto;
-
 create database if not exists uesto;
 use uesto;
+
 
 drop table if exists goods;
 drop table if exists customer;

@@ -1,7 +1,7 @@
 set names utf8;
-DROP DATABASE if EXISTS samurai;
-CREATE DATABASE samurai;
-
+set foreign_key_checks=0;
+DROP database if EXISTS samurai;
+CREATE database if not exists samurai;
 use samurai;
 
 

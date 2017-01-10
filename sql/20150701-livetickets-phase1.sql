@@ -2,6 +2,7 @@ set names utf8;
 drop database if exists live;
 create database if not exists live;
 use live;
+set foreign_key_checks=0;
 
 drop table if exists ticket;
 create table ticket (

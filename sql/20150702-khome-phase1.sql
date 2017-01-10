@@ -1,11 +1,9 @@
 set names utf8;
+set foreign_key_checks=0;
 drop database if exists khome;
-
-create database khome;
-
+create database if not exists khome;
 use khome;
 
-SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Drop Tables */
 
