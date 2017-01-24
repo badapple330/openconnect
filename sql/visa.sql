@@ -45,7 +45,7 @@ use visa;
  * */
 create table user(
 login_id varchar(10) not null primary key,
-password varchar(10) not null,
+password varchar(15) not null,
 last_name varchar(10) not null,
 last_name_f varchar(20) not null,
 first_name varchar(10) not null,
@@ -77,13 +77,14 @@ income int,
 income_f int,
 spend int,
 id_number varchar(4) not null,
-judge_flg varchar(3) default "保留",
-register_day datetime not null,
-update_day datetime not null,
+judge_flg varchar(10) default "保留",
+register_day datetime not null default current_timestamp,
+update_day datetime not null default current_timestamp,
 delete_flg boolean default false
 );
 
 /* 購入お支払履歴
+ * ヒストリーID = history_id
  * ログインID = login_id
  * 姓名（漢字） = last_name
  * 名前（漢字） = first_name
@@ -98,18 +99,20 @@ delete_flg boolean default false
  * 削除フラグ = delete_flg
  * */
 create table user_history(
-login_id varchar(10) not null primary key,
+history_id int not null auto_increment,
+login_id varchar(10) not null,
 last_name varchar(10) not null,
 first_name varchar(10) not null,
 office_name varchar(20) not null,
 use_day date not null,
-division varchar(10) not null,
-split int not null,
+division varchar(10) not null default '一括',
+split int not null default '0',
 payment_day date not null,
 spend int not null,
 payment int not null,
-commission int not null,
+commission int not null default '0',
 delete_flg boolean default false,
+PRIMARY KEY (history_id),
 foreign key(login_id) references user(login_id)
 );
 
@@ -174,8 +177,8 @@ employee int not null,
 established varchar(3) not null,
 hp_url varchar(100),
 judge_flg boolean default false,
-register_day datetime not null,
-update_day datetime not null,
+register_day datetime not null default current_timestamp,
+update_day datetime not null default current_timestamp,
 delete_flg boolean default false
 );
 
@@ -206,12 +209,36 @@ insert into user(login_id,password,last_name,last_name_f,first_name,first_name_f
 ("sasamin","ikemen","石鉢","いしのはち","ささみん","ささみん","1116622","東京都台東区上野1-1-1","sasamin@gmail.com","0313331234","09012341234","1990-10-15","男","プログラマー","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","クドゥ銀行","127","クヂュ","9394567",null,"5000000","1000000000","無","ホモアプリ課金","10","50","5000000","5555", "不承認","2016-06-15 13:25:59","2016-06-15 13:26:00",false),
 ("aporo","aporo","冨澤","とみざわ","アポロ","あぽろ","1234567","23系銀河太陽系月の上","aporo@ginga.com","1232345122","08098721230","4896-10-10","無","宇宙調査隊","宇宙","熱式宇宙アポロ","アポロ言語伝達所","銀河太陽系地球","1231234000","2","アポロ銀行","456","アポロ","1122567",null,"5123123","12300", "有","宇宙旅行","10000000","500000","50","4885", "承認","2012-06-15 13:25:59","2020-06-15 13:48:53",false);
 
+
+replace into user(login_id,password,last_name,last_name_f,first_name,first_name_f,postal,address,email,tel_number,mobile,birthday,sex,normal_account,deposit_account,id_number)values
+('1','testuser','テスト','てすと','ユーザー','ゆーざー','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','user.test@gmail.com','0123456789','09012345678','1993-12-24','男','1098765','1098761','5555'),
+('2','internous01','井上','いのうえ','琢磨','たくま','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','takuma.inoue@gmail.com','0123456789','09012345678','1990-09-25','男','2109876','2109872','5555'),
+('3','internous01','原田','はらだ','美友貴','みゆき','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','miyuki.harada@gmail.com','0123456789','09012345678','1992-05-03','女','3210987','3210983','5555'),
+('4','leader11','テスト','てすと','リーダー1','りーだー1','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','leader1.test@gmail.com','0123456789','09012345678','1990-04-01','男','4321098','4321094','5555'),
+('5','leader22','テスト','てすと','リーダー2','りーだー2','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','kouhei.nitabaru@gmail.com','0123456789','09012345678','1990-04-01','男','6543210','6543216','5555'),
+('6','student1','仁田','にたばる','耕平','こうへい','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','tatsuhumi.itou@gmail.com','0123456789','09012345678','1990-04-01','男','7654321','7654327','5555'),
+('7','student2','伊藤','いとう','竜文','たつふみ','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','leader2.test@gmail.com','0123456789','09012345678','1990-04-01','男','5432109','5432105','5555'),
+('8','student3','砂川','すなかわ','みのり','みのり','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','minori.sunakawa@gmail.com','0123456789','09012345678','1990-04-01','女','8765432','8765438','5555'),
+('9','student4','毛塚','けづか','正広','まさひろ','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','masahiro.keduka@gmail.com','0123456789','09012345678','1990-04-01','男','9876543','9876549','5555'),
+('10','student5','堀口','ほりぐち','謙一','けんいち','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','kennichi.horiguchi@gmail.com','0123456789','09012345678','1990-04-01','男','0987654','0987650','5555'),
+('11','student6','霧生','きりゅう','雄一','ゆういち','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','yuuichi.kiryuu@gmail.com','0123456789','09012345678','1990-04-01','男','1987654','1987651','5555'),
+('12','student7','星','ほし','達也','たつや','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','tatsuya.hoshi@gmail.com','0123456789','09012345678','1990-04-01','男','2987654','2987652','5555'),
+('13','student8','岩本','いわもと','興明','こうめい','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','koumei.iwamoto@gmail.com','0123456789','09012345678','1990-04-01','男','3987654','3987653','5555');
+
+
+
+
 /**
  * 購入お支払い履歴
  */
 insert into user_history(login_id,last_name,first_name,office_name,use_day,division,split,payment_day,spend,payment,commission,delete_flg)values
 ("hidekisama","工藤","秀樹","testOffice","2016-06-17","一括","1","2016-06-30","100000000","10","1000",false),
 ("aporo","冨澤","アポロ","Officeアポロ","2205-06-18","分割","50","2230-12-30","100000","1054","10010",false);
+
+
+insert into user_history(login_id,last_name,first_name,office_name,use_day,payment_day,spend,payment)values
+('8','砂川','みのり','インターノウス','2017-01-27','2017-02-27','10000','10000');
+
 
 /**
  * クレジットカード情報
