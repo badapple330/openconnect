@@ -1,7 +1,7 @@
 set names utf8;
-drop database if exists americanexpress;
-create database americanexpress;
-use americanexpress;
+DROP DATABASE if EXISTS mastercard;
+CREATE DATABASE mastercard;
+use mastercard;
 
 
 /* ユーザー情報登録申請  *
@@ -64,7 +64,6 @@ office_years int,
 bank_code VARCHAR(4) default '9999',
 bank_name VARCHAR(10),
 bank_number VARCHAR(3),
-branch_name VARCHAR(10),
 account_type VARCHAR(5),
 normal_account VARCHAR(7) UNIQUE,
 deposit_account VARCHAR(7) UNIQUE,
@@ -79,8 +78,7 @@ id_number VARCHAR(4) NOT NULL,
 judge_flg VARCHAR(3) default "保留",
 register_day datetime not null default current_timestamp,
 update_day datetime not null default current_timestamp,
-delete_flg boolean default false,
-notes VARCHAR(200)
+delete_flg boolean default false
 );
 
 /* 購入お支払履歴
@@ -183,8 +181,7 @@ hp_url VARCHAR(100),
 judge_flg VARCHAR(3) default "保留",
 register_day datetime NOT NULL,
 update_day datetime NOT NULL,
-delete_flg boolean default false,
-notes VARCHAR(200)
+delete_flg boolean default false
 );
 
 
@@ -193,14 +190,19 @@ notes VARCHAR(200)
  * 管理者ログインパスワード = admin_password
  * */
 CREATE TABLE admin(
-admin_id VARCHAR(10) NOT NULL,
+login_id VARCHAR(10) NOT NULL,
 password VARCHAR(10) NOT NULL
 );
 
-insert into user(login_id,password,name,name_e,postal,address,email,tel_number,mobile,birthday,gender,industry_type,job,corporation_name,office_name,office_address,office_tel,office_years,bank_code,bank_name,bank_number,branch_name,account_type,normal_account,deposit_account,savings,debt,spouse,use_card,income,income_f,spend,id_number,judge_flg,register_day,update_day,delete_flg,notes)values
-("hidekisama","ikemen","工藤　秀樹","KUDO HIDEKI","1112222","東京都台東区上野1-1-1","hidekisama@gmail.com","0312341234","09012341234","1992-05-31","男","3","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","0001","クドゥ銀行","001","本店","1","1234567",null,"5000000","1000000000", "有", "パチンコ","10","50","5000000","5555", "承認","2016-06-15 13:25:59","2016-06-15 13:26:00",false,"天才"),
-("test","ikemen","テスト","TEST","1112222","東京都台東区上野1-1-1","test@gmail.com","0312341234","09012341234","1992-05-31","男","3","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","1234","クドゥ銀行","001","本店","1","1234123",null,"5000000","1000000000", "有", "パチンコ","10","50","5000000","5555", "不承認","2016-06-15 13:25:59","2016-06-15 13:26:00",false,"天才"),
-("hase","ikemen","長谷川　啓子","HASEGAWA KEIKO","1000014","東京都千代田区1-1-1","hase@gmail.com","0312341234","09012341234","1992-05-31","女","3","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","0001","クドゥ銀行","001","本店","1","7654567",null,"5000000","1000000000", "有", "カジノ","10","50","5000000","5555", "保留","2016-06-15 13:25:59","2016-06-15 13:26:00",false,"天才");
+insert into user(login_id,password,name,name_e,postal,address,email,tel_number,mobile,birthday,gender,industry_type,job,corporation_name,office_name,office_address,office_tel,office_years,bank_code,bank_number,account_type,normal_account,deposit_account,savings,debt,spouse,use_card,income,income_f,spend,id_number,judge_flg,register_day,update_day,delete_flg)values
+("hidekisama","ikemen","工藤秀樹","KUDOHIDEKI","1112222","東京都台東区上野1-1-1","hidekisama@gmail.com","0312341234","09012341234","1992-05-31","男","3","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","0001","004","1","1234567",null,"5000000","1000000000", "有", "パチンコ","10","50","5000000","5555", "承認","2016-06-15 13:25:59","2016-06-15 13:26:00",false),
+("kudo","ikemen","工藤秀樹","KUDOHIDEKI","1112222","東京都台東区上野1-1-1","hidekisam@gmail.com","0312341234","09012341234","1992-05-31","男","4","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","0001","015","1","1234568",null,"5000000","1000000000", "無", "パチンコ","10","50","5000000","5555", "承認","2016-06-15 13:25:59","2016-06-15 13:26:00",false),
+("mura","megane","村上俊一","MURAKAMIJUNICHI","1112222","東京都台東区上野1-1-1","mura@gmail.com","0313331234","09012341234","2016-06-17","男","5","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","0001","024","2",null,"6264997","5000000","1000000000", "無","マック食べたい","10","50","5000000","5555","保留","2016-06-15 13:25:59","2016-06-15 13:26:00",false),
+("morita","mask","森田直美","MORITANAOMI","1112222","東京都台東区上野1-1-1","morita@gmail.com","0313331234","09012341234","1990-11-16","女","6","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","0001","453","2",null,"6774567","5000000","1000000000","無","スロット","10","50","5000000","5555","不承認","2016-06-15 13:25:59","2016-06-15 13:26:00",false),
+("shogo","ikemen","中村匠吾","NAKAMURASHOGO","1116622","東京都台東区上野1-1-1","shogo@gmail.com","0313331234","09012341234","1995-07-18","男","7","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","0001","481","1","6994567",null,"5000000","1000000000", "無","イケメン講義","10","50","5000000","5555", "保留","2016-06-15 13:25:59","2016-06-15 13:26:00",false),
+("kura","kawaii","倉地祥吾","KUTACHISHOGO","1116622","東京都台東区上野1-1-1","kura@gmail.com","0313331234","09012341234","1995-07-18","男","8","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","0001","723","2",null,"9994567","5000000","1000000000","無","天才になるため","10","50","5000000","5555", "保留","2016-06-15 13:25:59","2016-06-15 13:26:00",false),
+("sasamin","ikemen","石鉢ささみん","ISHIBACHISASAMIN","1116622","東京都台東区上野1-1-1","sasamin@gmail.com","0313331234","09012341234","1990-10-15","男","9","クドゥー開発者","株式会社クドゥー","クドゥー言語研究所","東京都","0355558888","1","0001","813","1","9394567",null,"5000000","1000000000","無","ホモアプリ課金","10","50","5000000","5555", "保留","2016-06-15 13:25:59","2016-06-15 13:26:00",false),
+("aporo","aporo","冨澤アポロ","TOMIZAWAAPORO","1234567","23系銀河太陽系月の上","aporo@ginga.com","1232345122","08098721230","4896-10-10","女","10","宇宙","熱式宇宙アポロ","アポロ言語伝達所","銀河太陽系地球","1231234000","2","0001","760","2",null,"1122567","5123123","12300", "有","宇宙旅行","10000000","500000","50","4885", "承認","2012-06-15 13:25:59","2020-06-15 13:48:53",false);
 
 
 insert into user(login_id,password,name,name_e,postal,address,email,tel_number,mobile,birthday,gender,normal_account,deposit_account,id_number)values
@@ -219,11 +221,10 @@ insert into user(login_id,password,name,name_e,postal,address,email,tel_number,m
 ('13','student8','岩本興明','iwamotokoumei','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','koumei.iwamoto@gmail.com','0123456789','09012345678','1990-04-01','男','3987654','3987653','5555');
 
 
-
 /**
  * 購入お支払い履歴
  */
- insert into user_history(login_id,name_e,corporation_name,use_day,payment_day,spend,payment)values
+insert into user_history(login_id,name_e,corporation_name,use_day,payment_day,spend,payment)values
 ('8','砂川みのり','インターノウス','2017-01-01','2017-02-01','10000','10000');
 
 
@@ -231,16 +232,18 @@ insert into user(login_id,password,name,name_e,postal,address,email,tel_number,m
  * クレジットカード情報
  */
 insert into credit_card(login_id,name_e,credit_number,security_code,id_number,credit_limit,register_day,update_day,delete_flg,expiration_day,spend)values
-("hidekisama","KUDO HIDEKI","123456789123456","1234","1234","100000","2016-06-17 13:16:00","2018-06-17 13:25:00",false,"2019-06","10");
-
+("hidekisama","KUDOHIDEKI","1234567891234567","1234","1234","100000","2016-06-17 13:16:00","2018-06-17 13:25:00",false,"2019-06","10"),
+("kudo","IKEMENKUDO","5569855665877458","4567","4567","456430","2202-08-17 15:16:00","2016-06-17 12:25:00",false,"2017-06","20000"),
+("aporo","TOMIZAWAAPORO","2569855665877453","1478","1478","456419","2202-08-27 15:16:00","2016-06-27 12:25:00",false,"2017-06","20000");
 
 /* 法人データ */
-insert into corporation(login_id,password,corporation_name,postal,address,capital,rep_name,charge,email,tel_number,employee,established,hp_url,judge_flg,register_day,update_day,delete_flg,notes)values
-("kudo","ikemen","株式会社工藤","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","kudo@gmail.com","0311112222","800","50","kudouhideki@gmail.com","保留",20160617,20160617,false,null),
-("test","ikemen","株式会社テスト","1119898","東京都台東区上野1-1-1","50000000","テスト次郎","テストタロウ","kudo@gmail.com","0311112222","800","50","kudouhideki@gmail.com","不承認",20160617,20160617,false,null),
-("uematsu","ikemen","株式会社植松","1119898","東京都台東区上野1-1-1","50000000","田中タロウ","植松次郎","ue@gmail.com","0311112222","800","50","kudouhideki@gmail.com","承認",20160617,20160617,false,null);
-
+insert into corporation(login_id,password,corporation_name,postal,address,capital,rep_name,charge,email,tel_number,employee,established,hp_url,judge_flg,register_day,update_day,delete_flg)values
+("kudo","ikemen","株式会社工藤","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","kudo@gmail.com","0311112222","800","50","kudouhideki@gmail.com","承認",20160617,20160617,false),
+("hideki","ikemen","tbox","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","hideki@gmail.com","0311112222","800","50","tbox@gmail.com","保留",20160617,20160617,false),
+("yugo","ikemen","kinnosawa","1119898","東京都台東区上野1-1-1","50000000","丸井優吾","丸井優吾","yugoi@gmail.com","0311112222","800","50","tbox@gmail.com","不承認",20160617,20160617,false),
+("asa","ikemen","ichigoichie","1119898","東京都台東区上野1-1-1","50000000","あさまさき","あさまさき","asamasaki@gmail.com","0311112222","800","50","asamasaki@gmail.com","保留",20160617,20160617,false),
+("morita","ikemen","gekidanroadshow","1119898","東京都台東区上野1-1-1","50000000","森田","直美","morita@gmail.com","0311112222","800","50","moritai@gmail.com","保留",20160617,20160617,false);
 /**
  *管理人情報
  */
-insert into admin(admin_id,password) values("admin","123");
+insert into admin(login_id,password) values("admin","123");
