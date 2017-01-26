@@ -47,7 +47,6 @@ create table item(
 	delete_flg boolean not null default false,
 	company_name varchar(100) not null default "",
 	store_name varchar(100) not null default "",
-	stock_number int not null,
 	registration_date timestamp not null default current_timestamp,
 	updated_date timestamp not null default current_timestamp on update current_timestamp,
     index(item_id)
@@ -56,7 +55,7 @@ create table item(
 
 insert into item(item_name,item_category,purchase_price,rental_price,size,
 				overview,img_address001,img_address002,img_address003,company_name,
-				store_name,stock_number,delete_flg)
+				store_name,delete_flg)
 				values (
 				"浴衣01/Yukata01",
 				"浴衣/Yukata",
@@ -70,7 +69,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,
 				"",
 				"Amazon川/Amazon River",
 				"Amazon下請け会社/Amazon Subcontractor",
-				15,
 				false),(
 				"浴衣02/Yukata02",
 				"浴衣/Yukata",
@@ -84,7 +82,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,
 				"",
 				"Amazon川/Amazon River",
 				"Amazon下請け会社/Amazon Subcontractor",
-				15,
 				false
 				),(
 				"浴衣03/Yukata03",
@@ -99,7 +96,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,
 				,""
 				,"Amazon川/Amazon River",
 				"Amazon下請け会社/Amazon Subcontractor",
-				15,
 				false
 				),(
 				"浴衣04/Yukata04",
@@ -114,7 +110,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,
 				,""
 				,"Amazon川/Amazon River",
 				"Amazon下請け会社/Amazon Subcontractor",
-				15,
 				false
 				),(
 				"浴衣05/Yukata05",
@@ -129,7 +124,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,
 				,""
 				,"HelloJapan",
 				"KimonoPro",
-				15,
 				false
 				),(
 				"浴衣06/Yukata06",
@@ -144,7 +138,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,
 				,""
 				,"HelloJapan",
 				"Fake",
-				15,
 				false
 				),(
 				"浴衣07/Yukata07",
@@ -159,7 +152,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,
 				,""
 				,"HelloJapan",
 				"NihonOtaku",
-				15,
 				false
 				),(
 				"浴衣08/Yukata08",
@@ -174,7 +166,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,
 				,""
 				,"HelloJapan",
 				"KimonoPro",
-				15,
 				false
 				),(
 				"浴衣09/Yukata09",
@@ -189,12 +180,11 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,
 				,""
 				,"HelloJapan",
 				"KimonoAoi",
-				15,
 				false
 				);
 
 insert into item(item_name,item_category,purchase_price,rental_price,size,overview,img_address001,
-				img_address002,img_address003,company_name,store_name,stock_number,delete_flg)
+				img_address002,img_address003,company_name,store_name,delete_flg)
 				values (
 				"袴01/Hakama01",
 				"袴/Hakama"
@@ -207,7 +197,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				"",
 				"アマゾン鈴/AmazonBell",
 				"アマゾン/Amazon",
-				99,
 				false
 				),(
 				"袴02/Hakama02",
@@ -221,7 +210,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				"",
 				"ロンドンベル/LondonBell",
 				"ビックベン/BigBen",
-				17,
 				false
 				),(
 				"袴03/Hakama03",
@@ -235,7 +223,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				"",
 				"着物凛/KimonoRin",
 				"袴専門店/HakamaSpecialtyShop",
-				99,
 				false
 				), (
 				"袴04/Hakama04",
@@ -249,7 +236,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				"",
 				"アマゾン鈴/AmazonBell",
 				"アマゾン/Amazon",
-				99,
 				false
 				),(
 				"袴05/Hakama05",
@@ -263,7 +249,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				"",
 				"アマゾン鈴/AmazonBell",
 				"アマゾン/Amazon",
-				99,
 				false
 				),(
 				"袴06/Hakama06",
@@ -277,7 +262,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				"",
 				"着物凛/KimonoRin",
 				"袴専門店/HakamaSpecialtyShop",
-				99,
 				false
 				), (
 				"袴07/Hakama07",
@@ -291,7 +275,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				"",
 				"着物凛/KimonoRin",
 				"袴専門店/HakamaSpecialtyShop",
-				99,
 				false
 				), (
 				"袴08/Hakama08",
@@ -305,7 +288,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				"",
 				"アマゾン鈴/AmazonBell",
 				"アマゾン/Amazon",
-				99,
 				false
 				), (
 				"袴09/Hakama09",
@@ -319,12 +301,11 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				"",
 				"ロンドンベル/LondonBell",
 				"ビックベン/BigBen",
-				99,
 				false
 				);
 
 insert into item(item_name,item_category,purchase_price,rental_price,size,overview,img_address001,
-				img_address002,img_address003,company_name,store_name,stock_number,delete_flg)
+				img_address002,img_address003,company_name,store_name,delete_flg)
 				values(
 				"髪飾り01/Accessory01",
 				"髪飾り/Acs"
@@ -338,7 +319,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				,""
 				,"紫式部/Murasaki Shikibu",
 				"源氏の会社/Genji's company",
-				15,
 				false
 				),(
 				"髪飾り02/Accessory02",
@@ -353,7 +333,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				,""
 				,"紫式部/Murasaki Shikibu",
 				"源氏の会社/Genji's company",
-				15,
 				false
 				),(
 				"髪飾り03/Accessory03",
@@ -368,7 +347,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				,""
 				,"紫式部/Murasaki Shikibu",
 				"源氏の会社/Genji's company",
-				15,
 				false
 				),(
 				"髪飾り04/Accessory04",
@@ -383,7 +361,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				,""
 				,"PopUp",
 				"Virtue",
-				15,
 				false
 				),(
 				"髪飾り05/Accessory05",
@@ -398,7 +375,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				,""
 				,"PopUp",
 				"Virtue",
-				15,
 				false
 				),(
 				"髪飾り06/Accessory06",
@@ -413,7 +389,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				,""
 				,"PopUp",
 				"Virtue",
-				15,
 				false
 				),(
 				"髪飾り07/Accessory07",
@@ -428,7 +403,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				,""
 				,"PopUp",
 				"Virtue",
-				15,
 				false
 				),(
 				"髪飾り08/Accessory08",
@@ -443,7 +417,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				,""
 				,"PopUp",
 				"Virtue",
-				15,
 				false
 				),(
 				"髪飾り09/Accessory09",
@@ -458,7 +431,6 @@ insert into item(item_name,item_category,purchase_price,rental_price,size,overvi
 				,""
 				,"PopUp",
 				"Virtue",
-				15,
 				false
 				);
 
