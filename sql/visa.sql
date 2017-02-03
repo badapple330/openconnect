@@ -132,7 +132,7 @@ create table credit_card(
 login_id varchar(10) not null primary key,
 last_name varchar(10) not null,
 first_name varchar(10) not null,
-credit_number int(16) not null unique auto_increment,
+credit_number varchar(16) not null unique,
 security_code int(4) not null,
 id_number varchar(4) not null,
 credit_limit int not null,
@@ -244,8 +244,7 @@ insert into user_history(login_id,last_name,first_name,office_name,use_day,payme
  * クレジットカード情報
  */
 insert into credit_card(login_id,last_name,first_name,credit_number,security_code,id_number,credit_limit,register_day,update_day,delete_flg)values
-("hidekisama","工藤","秀樹","1","1234","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false),
-("aporo","冨澤","アポロ","2","4567","4567","456430","2202-08-17 15:16:00","2356-06-17 12:25:00",false);
+("1","テスト","ユーザー","402855111111111","1234","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false);
 
 /* 法人データ */
 insert into corporation(login_id,password,corporation_name,postal,address,capital,rep_name,charge,email,tel_number,employee,established,hp_url,judge_flg,register_day,update_day,delete_flg)values
