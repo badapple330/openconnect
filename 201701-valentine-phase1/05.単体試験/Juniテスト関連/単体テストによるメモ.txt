@@ -1,0 +1,367 @@
+・ストリングの定数に対してのgetter、setterあわせて16メソッドを準備する。
+
+・イントの定数に対してのgetter、setterあわせて10メソッドを準備する。
+
+《 例 》
+
+■テスト対象クラス
+
+public class 《テスト対象クラス名》 {
+
+	private String password;
+
+	private int userId;
+}
+
+
+
+■テスト実装クラス
+
+public class 《テスト対象クラス名Test》 {
+
+	// ----- 「ここからインと型のメソッドのテストメソッド１6個」 -------
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getPassword()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetPassword1() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = null;
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getPassword()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetPassword2() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getPassword()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetPassword3() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = " ";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getPassword()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetPassword4() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "　";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getPassword()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetPassword5() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "abc123";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getPassword()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetPassword6() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "あいう１２３";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getPassword()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetPassword7() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "abc123あいう１２３";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getPassword()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetPassword8() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "ａｂｃ１２３あいう漢字";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#setPassword(java.lang.String)} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetPassword1() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = null;
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#setPassword(java.lang.String)} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetPassword2() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#setPassword(java.lang.String)} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetPassword3() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = " ";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#setPassword(java.lang.String)} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetPassword4() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "　";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#setPassword(java.lang.String)} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetPassword5() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "abc123";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#setPassword(java.lang.String)} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetPassword6() {
+		CadeauDTO test = new CadeauDTO();
+		String expected = "あいう１２３";
+
+		test.setPassword(expected);
+		String actual = test.getPassword();
+
+		assertEquals(expected, actual);
+	}
+
+
+	// ----- 「ここからインと型のメソッドのテストメソッド１０個」 -------
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetUserId1() {
+		CadeauDTO test = new CadeauDTO();
+		int expected = 0;
+
+		test.setUserId(expected);
+
+		assertEquals(expected, test.getUserId());
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetUserId2() {
+		CadeauDTO test = new CadeauDTO();
+		int expected = 2147483647;
+
+		test.setUserId(expected);
+
+		assertEquals(expected, test.getUserId());
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetUserId3() {
+		CadeauDTO test = new CadeauDTO();
+		int expected = -2147483648;
+
+		test.setUserId(expected);
+
+		assertEquals(expected, test.getUserId());
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetUserId4() {
+		CadeauDTO test = new CadeauDTO();
+		try {
+			int UserIdMin = Integer.parseInt("2147483648");
+			test.setUserId(UserIdMin);
+
+		} catch (RuntimeException e) {
+			assertEquals(e.getMessage(), "For input string: \"2147483648\"");
+		}
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testGetUserId5() {
+		CadeauDTO test = new CadeauDTO();
+		try {
+			int UserIdMin = Integer.parseInt("-2147483649");
+			test.setUserId(UserIdMin);
+
+		} catch (RuntimeException e) {
+			assertEquals(e.getMessage(), "For input string: \"-2147483649\"");
+		}
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetUserId1() {
+		CadeauDTO test = new CadeauDTO();
+		int expected = 0;
+
+		test.setUserId(expected);
+		int actual = test.getUserId();
+
+		assertEquals(expected, actual);
+	}
+
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetUserId2() {
+		CadeauDTO test = new CadeauDTO();
+		int expected = 2147483647;
+
+		test.setUserId(expected);
+		int actual = test.getUserId();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetUserId3() {
+		CadeauDTO test = new CadeauDTO();
+		int expected = -2147483648;
+
+		test.setUserId(expected);
+		int actual = test.getUserId();
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetUserId4() {
+		CadeauDTO test = new CadeauDTO();
+		try {
+			int UserIdMax = Integer.parseInt("2147483648");
+			test.setUserId(UserIdMax);
+
+		} catch (RuntimeException e) {
+			assertEquals(e.getMessage(), "For input string: \"2147483648\"");
+		}
+	}
+
+	/**
+	 * {@link com.internousdev.cadeau.dto.CadeauDTO#getUserId()} のためのテスト・メソッド。
+	 */
+	@Test
+	public void testSetUserId5() {
+		CadeauDTO test = new CadeauDTO();
+		try {
+			int UserIdMax = Integer.parseInt("-2147483649");
+			test.setUserId(UserIdMax);
+
+		} catch (RuntimeException e) {
+			assertEquals(e.getMessage(), "For input string: \"-2147483649\"");
+		}
+	}
+
+	
+
+}
+

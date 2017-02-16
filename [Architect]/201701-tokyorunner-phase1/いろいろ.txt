@@ -1,0 +1,20 @@
+●openconnectのdetabaseを使う
+↓
+use openconnect;
+
+●openconnectのusersのデータを確認(全部)
+↓
+select * from users\G;
+
+●openconnectのusersのデータを確認(user_idの2だけ)
+↓
+select * from users where user_id = 2\G;
+
+●openconnectのusersのuser_idが2の人をログアウトさせる
+↓
+update users set login_flg = false where user_id = 2\G;
+
+●買い物
+MasterCard
+518691----------(残りは好きな数字10桁入れる)
+
