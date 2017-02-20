@@ -249,7 +249,7 @@ phone_email varchar(255)  unique comment 'メールアドレス',
 mobile_number varchar(255) default '' comment '携帯電話番号',
 mobile_email varchar(255) unique comment '携帯メールアドレス',
 sex varchar(10) not null default '' comment '性別',
-birthday date default 00000000 comment '誕生日',
+birthday date default 0 comment '誕生日',
 userdel_flg boolean default FALSE comment '退会フラグ',
 login_flg boolean default FALSE comment 'ログインフラグ',
 user_flg int not null default 1 comment 'ユーザーフラグ',
@@ -258,6 +258,6 @@ month varchar(2) comment '受講開始月',
 oauth_id varchar(255) comment 'OAuthID',
 oauth_name int default 0 comment 'OAuth名',
 oauth_account varchar(100) comment 'OAuthアカウント',
-register_day datetime default 00000000000000 comment '登録日',
-update_day datetime default 00000000000000 comment '更新日'
+register_day datetime default 0 comment '登録日',
+update_day datetime default 0 comment '更新日'
 )comment = 'ユーザー情報格納テーブル';
