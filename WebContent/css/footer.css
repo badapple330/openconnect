@@ -81,4 +81,8 @@
 	width:200px;
 }
 
-
+/* Google Maps API */
+#map-canvas {
+	width: 550px ;
+	height: 550px ;
+}

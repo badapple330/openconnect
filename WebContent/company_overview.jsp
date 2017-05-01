@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="css/footer.css">
 <meta charset="UTF-8">
 <title>会社概要</title>
+<!--Google Maps JavaScript API読み込み-->
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDwO1ogGQACH-yaUFnV2MvEzGOUppR83aU&libraries=places,geometry"></script>
 </head>
 <body>
 
@@ -15,7 +17,7 @@
 		<h1>会社概要</h1>
 		<br>
 
-		<div class="nakayose"> 
+		<div class="nakayose">
 			<table class="tbl">
 				<tr>
 					<th>会社名</th>
@@ -23,7 +25,10 @@
 				</tr>
 				<tr>
 					<th>住所</th>
-					<td>〒113-0034<br> 東京都文京区湯島3-2-12 御茶ノ水天神ビル２F
+					<td>
+						〒113-0034<br> 東京都文京区湯島3-2-12 御茶ノ水天神ビル２F
+						<!-- 地図が描画されるキャンパス -->
+						<div id="map-canvas"></div>
 					</td>
 					</tr>
 
@@ -49,5 +54,6 @@
 		</div>
 
 	</div>
+	<script src="js/map.js"></script>
 </body>
 </html>
