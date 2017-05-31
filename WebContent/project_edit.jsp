@@ -38,7 +38,7 @@
 
    <div class="form-group">
       <label for="InputPrice">管理者ID（リーダー）</label><span class="required label label-default" style="margin-left:10px; background-color:lightcoral; color:black">必須</span><BR>
-      <input type="number" name="price" class="form-control" id="InputPrice" value="<s:property value="managerID" />" required="required" />
+      <input type="number" name="price" class="form-control" id="InputPrice" value="<s:property value="managerId" />" required="required" />
     </div>
 
     <div class="form-group">
