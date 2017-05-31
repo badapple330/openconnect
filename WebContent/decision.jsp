@@ -45,41 +45,36 @@
 		<s:property value="resultSelect" />
 		<br>
 		<s:form action="DecisionUpdateAction">
-			<table border="1">
+			<table border="1"width="150%" style="table-layout: auto;">
 				<tr>
 					<!-- 一覧 -->
-					<td></td>
-					<td>
+					
+					
+					<td bgcolor="#66FF33">登録日</td>
+
+                    <td>ユーザーID </td>
+
+					<td bgcolor="#66FF33">
+						
+							<Strong>   姓   </Strong>
+						
+
+					<td bgcolor="#66FF33">
 						<h5>
-							<STRONG>登録日</STRONG>
+							<Strong>   名   </Strong>
 						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>ユーザーID</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>姓</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>名</Strong>
-						</h5>
-					</td>
-					<td>
+
+					<td bgcolor="#66FF33>
 						<h5>
 							<Strong>プロジェクトID</Strong>
 						</h5>
-					</td>
-					<td>
+					
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>プロジェクト名</Strong>
 						</h5>
 					</td>
-					<td>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>案件番号</Strong>
 						</h5>

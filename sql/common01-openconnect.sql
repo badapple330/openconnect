@@ -164,6 +164,7 @@ title varchar(100) not null comment '件名',
 content varchar(100) comment '内容'
 );
 
+
 /* サイト一覧情報 */
 create table site(
 site_id int primary key not null auto_increment comment 'サイトID',
@@ -172,7 +173,8 @@ site_url varchar(255) not null unique comment 'サイトURL',
 site_article text comment 'サイト記事',
 genre varchar(50) comment 'ジャンル',
 picture varchar(255) comment '画像',
-banner varchar(80) comment 'バナー'
+banner varchar(80) comment 'バナー',
+year int comment '作成年度'
 ) comment='サイト情報格納テーブル';
 
 /* カレッジ生名簿 *
