@@ -3,18 +3,19 @@
 @CHARSET "UTF-8";
 
 table, td, th{
-	height: 20px;
+
+	height: 30px;
 	table-layout: fixed;
 }
 
 td{
-	text-align:center;
+	text-align: center;
 }
 
 input[type="text"] {
 /* 	text-align: center; */
-	width:100%;
-	text-align:center;
+margin:10px 10px;
+	text-align: center;
 }
 
 #searchText{
