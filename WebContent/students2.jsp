@@ -20,20 +20,61 @@
 
 		<h1>受講生一覧</h1>
 
-		<s:if test="%{#session.userFlg >= 1}">
+
 
 
               <s:form action="StudentsSelectAction">
-                <select name ="someone">
-                <option value= "">
+                <select name ="">
+                <option value= "">選択してください</option>
+                <option value= "">2017年4月生</option>
+                <option value= "">2017年5月生</option>
+                <option value= "">2017年6月生</option>
+                <option value= "">2017年7月生</option>
+                <option value= "">2017年8月生</option>
+                <option value= "">2017年9月生</option>
+                <option value= "">2017年10月生</option>
+                <option value= "">2017年11月生</option>
+                <option value= "">2017年12月生</option>
+                <option value= "">2018年1月生</option>
+                <option value= "">2018年2月生</option>
+                <option value= "">2018年3月生</option>
+                <option value= "">2018年4月生</option>
+                </select>
 				<input class="button" type="submit" value="表示">
-			</s:form>
+			  </s:form>
+
+         <ol>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         <li>田中太郎</li>
+         </ol>
 
 
 
 
 
-		</s:if>
+
+
+
 </div>
 
 
