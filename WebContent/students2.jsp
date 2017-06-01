@@ -16,6 +16,8 @@
 
  <jsp:include page="header.jsp" />
 
+ <!-- 最終的にログイン状態じゃないと見えないようにする -->
+
  <div class="container">
 
 		<h1>受講生一覧</h1>
