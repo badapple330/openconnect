@@ -51,7 +51,7 @@ values
 ( 37,'REWRITE','http://www.internousdev.com/rewrite/','rewrite.png',2016),
 ( 38,'SAMURAI','http://www.internousdev.com/samurai/','samurai.png',2016),
 ( 39,'INTERNOUSDEV','http://www.internousdev.com/internousdev/','internousdev.png',2016),
-( 40,'NAGOMI','http://www.internousdev.com/nagomi/','/nagomi.png',2016),
+( 40,'NAGOMI','http://www.internousdev.com/nagomi/','nagomi.png',2016),
 ( 41,'NOEL','http://www.internousdev.com/noell/','noell.png',2016),
 ( 42,'LUSSO','http://www.internousdev.com/lusso/','lusso.png',2016),
 ( 43,'DEBUT','http://www.internousdev.com/debut/','debut.png',2017),

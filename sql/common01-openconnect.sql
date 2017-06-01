@@ -33,6 +33,7 @@ date DATE not null comment '日付',
 user_id int not null comment '生徒ID',
 attendance int default 0  comment '出欠状況',
 interview int default 2 comment '面談状況',
+reason text comment'備考',
 foreign key(user_id) references users(user_id) on update cascade on delete cascade
 );
 
