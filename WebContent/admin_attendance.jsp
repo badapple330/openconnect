@@ -25,12 +25,12 @@
 
 
     <!-- 検索窓 -->
-  <s:form action="AdminAttendanceAction" value="" method="get">
+  <s:form action="AdminAttendanceAction" value="date" method="get">
   <div class="input-group">
-  <input type="date" name="date" placeholder="2017-07-01"/>
+  <input type="date" name="date" placeholder="2017-07-01">
   <span class="input-group-btn">
   <button class="btn btn-default" type="submit">
-  <i class="glyphicon glyphicon-search"></i>
+<i class="glyphicon glyphicon-search"></i>
   </button>
   </span>
   </div>
