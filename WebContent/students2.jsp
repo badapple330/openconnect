@@ -27,7 +27,7 @@
 
               <s:form action="StudentsSelectAction">
                 <select name ="">
-                <option value= "">選択してください</option>
+                <option value= "">-選択してください-</option>
                 <option value= "">2017年4月生</option>
                 <option value= "">2017年5月生</option>
                 <option value= "">2017年6月生</option>
