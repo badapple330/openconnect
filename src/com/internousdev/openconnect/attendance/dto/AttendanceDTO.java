@@ -59,7 +59,11 @@ public class AttendanceDTO {
 	 * 面談文字
 	 */
 	private String interviewString;
-
+	/**
+	 * 備考
+	 */
+    private String reason;
+    
 	/**
 	* 取得メソッド 日付を取得
 	* @author MINORI SUNAGAWA
@@ -253,6 +257,22 @@ public class AttendanceDTO {
 	*/
 	public void setInterviewString(String interviewString) {
 		this.interviewString = interviewString;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return reason
+	*/
+	public String getReason() {
+		return reason;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param reason
+	*/
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 
 }
