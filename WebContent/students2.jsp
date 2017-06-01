@@ -10,7 +10,32 @@
 <title>受講生一覧</title>
 <link rel="stylesheet" href="css/students2.css">
 </head>
+
+
 <body>
+
+ <jsp:include page="header.jsp" />
+
+ <div class="container">
+
+		<h1>受講生一覧</h1>
+
+		<s:if test="%{#session.userFlg >= 1}">
+
+
+              <s:form action="StudentsSelectAction">
+                <select name ="someone">
+                <option value= "">
+				<input class="button" type="submit" value="表示">
+			</s:form>
+
+
+
+
+
+		</s:if>
+</div>
+
 
 </body>
 </html>
