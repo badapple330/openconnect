@@ -1,4 +1,15 @@
 use openconnect;
+drop table if exists site;
+create table site(
+site_id int primary key not null auto_increment comment 'サイトID',
+site_name varchar(100) not null comment 'サイト名',
+site_url varchar(255) not null unique comment 'サイトURL',
+site_article text comment 'サイト記事',
+genre varchar(50) comment 'ジャンル',
+picture varchar(255) comment '画像',
+banner varchar(80) comment 'バナー',
+year int comment '作成年度'
+) comment='サイト情報格納テーブル';
 insert into site(site_id,site_name,site_url,picture,year)
 values
 (  1,'BOOK MANAGER 1409','http://www.internousdev.com/bookmanager09/','bookmanager1409.png',2014),
@@ -46,4 +57,11 @@ values
 ( 43,'DEBUT','http://www.internousdev.com/debut/','debut.png',2017),
 ( 44,'NADESHIKO','http://www.internousdev.com/nadeshiko/','nadeshiko.png',2015),
 ( 45,'SHIKI','http://www.internousdev.com/shiki/','shiki.png',2015),
-( 46,'TOKYO RUNNER','http://www.internousdev.com/tokyorunner/','tokyorunner.png',2017);
+( 46,'TOKYO RUNNER','http://www.internousdev.com/tokyorunner/','tokyorunner.png',2017),
+( 47,'CATSNDOGS','http://www.internousdev.com/catsndogs/','catsndogs.png',2017),
+( 48,'HAPPYBRIDAL','http://www.internousdev.com/happybridal/','happybridal.png',2017),
+( 49,'HAPPYGIFT','http://www.internousdev.com/happygift/','happygift.png',2017),
+( 50,'JUNEBRELLA','http://www.internousdev.com/junebrella','junebrella.png',2017),
+( 51,'LEGMINA','http://www.internousdev.com/legmina/','legmina.png',2017),
+( 52,'OUTDOOR','http://www.internousdev.com/outdoor/','outdoor.png',2017),
+( 53,'UMARI','http://www.internousdev.com/umari/','umari.png',2017);
