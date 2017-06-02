@@ -43,9 +43,9 @@
 </tr>
 <tr>
 	<td>開始日:</td>
-	<td><input class = "textcalendar" type="text" name = "start" align= "right"></td>
+	<td><input class = "textcalendar" type="text" name = "start"></td>
 	<td>終了日:</td>
-	<td><input class = "textcalendar" type="text" name = "end" align = "left"></td>
+	<td><input class = "textcalendar" type="text" name = "end"></td>
 </tr>
 </table>
 <input type ="button" id ="btn1" value="送信">
