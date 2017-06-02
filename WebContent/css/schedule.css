@@ -1,10 +1,18 @@
 #calendar{
-	height:200px;
-	width:800px;
+	height:100px;
+	width:500px;
 
 	display:block;
-	margin-top:100px;
+	margin-top:50px;
+	margin-left:0px;
+}
 
-	margin-right:auto;
-	margin-left:auto;
+#memo{
+	margin-top:400px;
+}
+
+#a{
+	position:absolute;
+	right:100px;
+	top:250px
 }
