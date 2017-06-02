@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="css/attendance.css">
 </head>
 <body>
+
+<!-- 最終的にif else でログイン時のみに変更 -->
+
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
 
@@ -40,7 +43,7 @@
 	<textarea name="" class="" rows="10" cols="50" maxlength="500"
 			placeholder="例）病気のため欠席、電車遅延のため10分遅刻など">
 	</textarea>
-	<s:submit class="" value="送信"/>
+	<input type="submit" class="" value="送信"/>
 
 
 	</s:form>
