@@ -1,4 +1,15 @@
 $(document).ready(function(){
+
+	var start1 = $(':text[name="start"]').val();
+
+	var end1 = $(':text[name="end"]').val();
+
+
+	var start = '2017-06-07';
+	var end = '2017-06-10';
+
+	$('#memo').hide();
+
 	$('#calendar').fullCalendar({
 		// 週を月曜日からにする(０→日、１→月、２→火、３→水、４→木、５→金、６→土)
 		firstDay: 1,
@@ -13,19 +24,26 @@ $(document).ready(function(){
         // 曜日略称
         dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
 
-	events:[
-	        {
-	        	title: '実装',
-				start: '2017-06-07',
-				end:	'2017-06-10'
-				},
 
-				{
-		        	title: '実装2',
-					start: '2017-06-09',
-					end:	'2017-06-12'
-					}
-		]
+        	events:[
+        	        {
+        	        	title:	'実装',
+        	        	start:	start,
+        	        	end:	end
+        	        },
+
+        	        {
+        	        	title: '実装2',
+        	        	start: '2017-06-09',
+        	        	end:	'2017-06-12'
+        	        }
+        	        ]
+
 	});
+});
+
+$(function() {
+	$.datepicker.setDefaults($.datepicker.regional['ja']);
+    $('.textcalendar').datepicker({ dateFormat: 'yy-mm-dd' });;
 });
 

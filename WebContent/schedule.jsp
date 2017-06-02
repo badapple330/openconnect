@@ -8,6 +8,7 @@
 	<!-- ヘッダーここまで -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<link href='css/schedule.css' rel='stylesheet' />
         <link href='css/fullcalendar.min.css' rel='stylesheet' />
         <script src="js/calendar/calendar.js"></script>
@@ -22,7 +23,32 @@
 </head>
 <body>
 <h1>Cat'n dogsさんのスケジュール</h1>
-<div id ="calendar" align="center"></div>
 
+<div id ="calendar"></div>
+
+<div id = "memo">
+<ul>
+	<li>今日の予定<br></li>
+	<li>テキストフィールドを作る<br></li>
+	<li>ページのレイアウト<br></li>
+	<li>早ければaction,dao,dtoをつくる</li>
+</ul>
+</div>
+
+<div id = "a">
+<table id="textfirld">
+<tr>
+	<td>内容:</td>
+	<td><input id = "schedule" type="text" name = "text1"></td>
+</tr>
+<tr>
+	<td>開始日:</td>
+	<td><input class = "textcalendar" type="text" name = "start" align= "right"></td>
+	<td>終了日:</td>
+	<td><input class = "textcalendar" type="text" name = "end" align = "left"></td>
+</tr>
+</table>
+<input type ="button" id ="btn1" value="送信">
+</div>
 </body>
 </html>
