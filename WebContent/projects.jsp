@@ -55,12 +55,12 @@
 							<td></td>
 							<td>ID</td>
 							<td>プロジェクト名</td>
-							<td>管理者ID<br>（リーダー）
+							<td>管理者ID<br>(リーダー)
 							</td>
-							<td><div class="largetext">管理者（リーダー）</div></td>
-							<td>管理者ID<br>（サブ）
+							<td><div class="largetext">管理者(リーダー)</div></td>
+							<td>管理者ID<br>(サブ)
 							</td>
-							<td><div class="largetext">管理者（サブ）</div></td>
+							<td><div class="largetext">管理者（サブ)</div></td>
 							<td><div class="middletext">開始日（yyyy/MM/dd）</div></td>
 							<td><div class="middletext">終了日（yyyy/MM/dd）</div></td>
 							<td>備考</td>
@@ -134,10 +134,9 @@
 						<tr>
 
 							<td>プロジェクト名</td>
-							<td>管理者（リーダー）</td>
-							<td>管理者（サブリーダー）</td>
-							<td>開始日（yyyy/MM/dd）</td>
-
+							<td>管理者(リーダー)</td>
+							<td>管理者(サブリーダー)</td>
+							<td>開始日(yyyy/MM/dd)</td>
 						</tr>
 
 						<tr>
@@ -192,8 +191,9 @@
 
 			<div id="modal-main">
 				<!-- #contents START -->
-				<div id="modal-style">
+				<div id="modal-style" align="center">
 					<table class="modal_border">
+					<BR>
 
 						<tr>
 							<td>プロジェクト名
