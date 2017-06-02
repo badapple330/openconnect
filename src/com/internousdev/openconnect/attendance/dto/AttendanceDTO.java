@@ -14,7 +14,7 @@ public class AttendanceDTO {
 	/**
 	 * 日付
 	 */
-	private String date;
+	private String atDate;
 	/**
 	 * ユーザーID
 	 */
@@ -63,22 +63,22 @@ public class AttendanceDTO {
 	 * 備考
 	 */
     private String reason;
-    
+
 	/**
 	* 取得メソッド 日付を取得
 	* @author MINORI SUNAGAWA
 	* @return date
 	*/
-	public String getDate() {
-		return date;
+	public String getAtDate() {
+		return atDate;
 	}
 	/**
 	* 設定メソッド 日付を設定
 	* @author MINORI SUNAGAWA
 	* @param date
 	*/
-	public void setDate(String date) {
-		this.date = date;
+	public void setAtDate(String atDate) {
+		this.atDate = atDate;
 	}
 
 	/**

@@ -20,7 +20,7 @@ public class AdminAttendanceDAO {
 	 *            顧客番号
 	 * @return searchList
 	 */
-	public ArrayList<AttendanceDTO> select(String date) {
+	public ArrayList<AttendanceDTO> select(String atDate) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
@@ -29,18 +29,18 @@ public class AdminAttendanceDAO {
 		int ck=1;
 
 		// ユーザーID検索
-		if (date !="null") {
-			sql = "select * from attendance left join users on attendance.user_id = users.user_id where attendance.date = ?";
+		if (atDate !="null") {
+			sql = "select * from attendance left join users on attendance.user_id = users.user_id where attendance.at_date = ?";
 			ck = 1;
 			// 空で検索
-		} else if (date == "null") {
+		} else if (atDate == "null") {
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id";
 		}
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			switch (ck) {
 			case 1:
-				ps.setString(1, date);
+				ps.setString(1, atDate);
 				break;
 			}
 
@@ -48,7 +48,7 @@ public class AdminAttendanceDAO {
 
 			while (rs.next()) {
 				AttendanceDTO dto = new AttendanceDTO();
-				dto.setDate(rs.getString("date"));
+				dto.setAtDate(rs.getString("at_date"));
 				dto.setMonth(rs.getString("month"));
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
 				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
