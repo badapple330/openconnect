@@ -30,3 +30,67 @@ input {
 .bigWidth{
 	width: 500px;
 }
+table.type01 {
+
+    border-collapse: collapse;
+
+    text-align: left;
+
+    line-height: 1.5;
+
+    border: 1px solid #ccc;
+
+}
+
+table.type01 thead {
+8
+    border-right: 1px solid #ccc;
+9
+    border-left: 1px solid #ccc;
+10
+    background: #04162e;
+11
+}
+12
+table.type01 thead td {
+13
+    padding: 10px;
+14
+    font-weight: bold;
+15
+    vertical-align: top;
+16
+    color: #fff;
+17
+}
+18
+table.type01 tbody th {
+19
+    width: 150px;
+20
+    padding: 10px;
+21
+    font-weight: bold;
+22
+    vertical-align: top;
+23
+    border-bottom: 1px solid #ccc;
+24
+    background: #efefef;
+25
+}
+26
+table.type01 todody td {
+27
+    width: 350px;
+28
+    padding: 10px;
+29
+    vertical-align: top;
+30
+    border-bottom: 1px solid #ccc;
+31
+}
+
+
+
