@@ -21,8 +21,17 @@
 	<header><jsp:include page="header.jsp" /></header>
 
 	<!-- 一覧表示 -->
-	<div class="container">
-		<h1 class="page-header">プロジェクト一覧</h1>
+	<!--<div class="container"> -->
+
+
+		<h1 class="page-header" align ="center">プロジェクト一覧</h1><BR><BR>
+
+
+		<!-- userflg1以下(未ログイン状態)の場合非表示 -->
+		<!-- userflg1以上(ログイン状態)の場合表示 -->
+		<!-- userflg50のみ編集・削除・追加が可能（仕様）-->
+
+
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{siteUrl}">
@@ -33,23 +42,32 @@
 		</s:iterator>
 		<s:property value="notLoginMsg" />
 
-		<s:if test="%{#session.userFlg < 1}">
-			ログイン後に表示します。
+<!-- flg判定 -->		<s:if test="%{#session.userFlg < 1}">
+			<h1 align="center">ログイン後に表示されます。</h1>
+			<BR><BR><BR>
 		</s:if>
-		<s:if test="%{#session.userFlg >= 1}">
+
+<!-- flg判定 -->		<s:if test="%{#session.userFlg >= 1}">
 			<s:form action="ProjectsSelectAction">
-				プロジェクト名を入力<br>
+			<div align="center">
+             --- プロジェクト名を入力 ---<br>
 				<input type="text" maxlength="100" name="search"
 					placeholder="例：rewrite">
-				<input type="submit" value="検索する">
+				<input type="submit" value="検索">
+				</div>
 			</s:form>
-			<br>
+			<br><BR>
+			<div align="center">
+			<font color="red">
 			<s:property value="%{resultString}" />
 			<s:property value="resultSelect" />
-			<br>
+			</font>
+			</div>
+			<br><BR>
+
 			<s:form action="ProjectsUpdateAction">
 
-				<table border="1">
+				<table border="1" align ="center">
 					<tbody id="list_body">
 						<tr>
 							<td></td>
@@ -122,14 +140,18 @@
 						</s:iterator>
 					</tbody>
 				</table>
-				<s:if test="%{#session.userFlg == 3}">
-					<input class="button" type="submit" value="編集">
+				<BR>
+
+<!-- flg判定 -->	<s:if test="%{#session.userFlg == 50}">
+        <div align="center">
+      	<input class="button" type="submit" value="編集完了">
+      	</div><BR><BR>
 				</s:if>
 			</s:form>
 			<br>
-			<s:if test="%{#session.userFlg >= 50}">
+<!-- flg判定 -->	<s:if test="%{#session.userFlg == 50}">
 				<s:form action="ProjectsInsertAction">
-					<table border="1">
+					<table border="1" align ="center">
 
 						<tr>
 
@@ -157,11 +179,17 @@
 								placeholder="例：2016/08/30" maxlength="10" required></td>
 						</tr>
 					</table>
-
-					<input class="button" type="submit" value="追加">
+					<BR>
+                    <div align="center">
+					<input class="button" type="submit" value="追加する">
+					</div>
 				</s:form>
 				<br>
-				<input type="button" value="＋受講生一覧を開く" id="listButton">
+
+
+				<div class="container">
+
+				<input type="button" value="＋受講生一覧表示" id="listButton">
 				<div id="studentsElement">
 					<table border="1">
 						<tr>
@@ -186,6 +214,7 @@
 						</s:iterator>
 					</table>
 				</div>
+				</div>
 			</s:if>
 
 
@@ -193,7 +222,7 @@
 				<!-- #contents START -->
 				<div id="modal-style" align="center">
 					<table class="modal_border">
-					<BR>
+
 
 						<tr>
 							<td>プロジェクト名
@@ -257,10 +286,13 @@
 		</s:if>
 
 		<s:form action="GetAddressAction">
+		<div align="center">
 			<input type="submit" class="button" value="戻る">
+			</div>
 		</s:form>
+		<BR>
 
 
-	</div>
+
 </body>
 </html>

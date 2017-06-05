@@ -20,25 +20,42 @@
 	<div class="center">
 		<br>
 
-		<h1>プロジェクト進捗報告</h1>
+		<h1 class="page-header" align ="center">プロジェクト進捗報告</h1><BR><BR>
 
-		<s:if test="%{#session.userFlg < 10}">
-			ログイン後に表示します。
+
+
+
+
+		<!-- userflg10以下は表示不可 -->
+		<!-- userflg50のみ編集と削除可能・そのほかは追加のみ -->
+
+
+
+
+
+<!-- flg判定 -->  <s:if test="%{#session.userFlg <= 10}">
+			<h1 align="center">ログイン後に表示されます。</h1>
+			<BR><BR><BR>
 		</s:if>
 	</div>
-	<s:if test="%{#session.userFlg >= 10}">
+<!-- flg判定 -->	<s:if test="%{#session.userFlg >10}">
+	 <div align ="center">
 		<s:form action="ProjectProgressSelectAction">
-		プロジェクト名を入力<br>
+		--- プロジェクト名を入力 ---<br>
 			<input type="text" name="search" placeholder="例：rewrite"
 				maxlength="20">
 			<input type="submit" value="検索" class="button">
 		</s:form>
-		<br>
+
+		<br><BR>
+		<font color="red">
 		<s:property value="%{resultString}" />
 		<s:property value="%{resultSelect}" />
-
+		</font>
+        </div><BR><BR>
 		<s:form action="ProjectProgressUpdateAction">
-			<table border=1>
+
+			<table border=1 align = "center">
 				<tbody id="list_body">
 					<tr>
 						<th></th>
@@ -87,21 +104,25 @@
 							<td><s:property value="startDate" /></td>
 							<td><s:property value="endDate" /></td>
 							<td><s:property value="note" /></td>
-							<td><s:if test="%{#session.userFlg == 3}">
-									<input type="button" class="button modal-open" value="削除" />
+							<td><s:if test="%{#session.userFlg == 50}">
+<!-- flg判定 -->					<input type="button" class="button modal-open" value="削除" />
 								</s:if></td>
 						</tr>
 					</s:iterator>
 
 				</tbody>
+
 			</table>
-			<s:if test="%{#session.userFlg == 3}">
-				<input type="submit" class="button" value="編集" />
+
+<!-- flg判定 -->			<s:if test="%{#session.userFlg == 50}"><BR>
+			<div align="center">
+				<input type="submit" class="button" value="編集完了" />
+			</div>
 			</s:if>
 		</s:form>
 		<br>
-		<s:form action="ProjectProgressInsertAction">
-			<table border="1">
+		<s:form action="ProjectProgressInsertAction"><BR><BR>
+			<table border="1" align ="center">
 				<tr>
 					<th>プロジェクトID</th>
 					<th>進捗予定</th>
@@ -119,12 +140,16 @@
 						maxlength="50"></td>
 				</tr>
 			</table>
-			<input type="submit" class="button" value="追加">
+			<div align ="center"><br>
+			<input type="submit" class="button" value="追加する">
+			</div>
 		</s:form>
 
 		<br>
 
-		<div id="btna">＋ プロジェクト一覧を表示</div>
+
+        <div class="container">
+		<div id="btna">＋ プロジェクト一覧表示</div>
 
 		<div id="menua">
 			<table border="1">
@@ -140,9 +165,11 @@
 				</s:iterator>
 			</table>
 		</div>
+		</div>
 
 		<br>
-		<div id="modal-main">
+		<div id="modal-main"  align ="center">
+			<BR><BR>
 			<table border="1">
 				<tr>
 					<td>プロジェクトID</td>
@@ -173,7 +200,7 @@
 			<input type="button" class="delete-true button" value="削除"> <input
 				type="button" class="modal-close button" value="閉じる">
 
-			<div class="delete-prepare">
+			<div class="delete-prepare" align ="center">
 				本当に削除しますか？
 				<s:form action="ProjectProgressDeleteAction">
 					<input type="hidden" name="progressId" value="" id="true-delete">
@@ -210,8 +237,11 @@
 		<br>
 	</s:if>
 	<s:form action="GetAddressAction">
+	<div align="center">
 		<button type="submit" class="button">戻る</button>
+		</div>
 	</s:form>
+	<BR><BR>
 
 </body>
 </html>

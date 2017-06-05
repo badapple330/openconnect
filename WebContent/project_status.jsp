@@ -13,28 +13,47 @@
 </head>
 <body>
 	<header><jsp:include page="header.jsp" /></header>
-	<div class="container">
 
-		<div class="center">
+
+		<div class="center" align="center">
 			<br>
-			<h1>プロジェクトリリース状況</h1>
+			<h1 class="page-header" align ="center">プロジェクトリリース状況</h1><BR><BR>
 		</div>
-		<s:if test="%{#session.userFlg < 1}">
-			ログイン後に表示します。
+
+
+		<!-- userflg1以下(未ログイン状態)の場合非表示 -->
+		<!-- userflg1以上(ログイン状態)の場合表示 -->
+		<!-- userflg50のみ編集可能（仕様）-->
+
+
+<!-- flg判定 -->	<s:if test="%{#session.userFlg < 1}">
+			<h1 align="center">ログイン後に表示されます。</h1>
+			<BR><BR><BR>
 		</s:if>
-		<s:if test="%{#session.userFlg >= 1}">
+
+
+<!-- flg判定 -->	<s:if test="%{#session.userFlg >= 1}">
 			<br>
+
 			<s:form action="ProjectStatusSelectAction">
+             <div align="center">
+             --- プロジェクト名を入力 ---<br>
 				<input type="text" name="searchString" placeholder="プロジェクト名"
 					id="searchText" maxlength="100">
 				<input type="submit" value="検索" class="button">
+          </div>
 			</s:form>
-			<br>
+			<br><BR>
+			<div align="center">
+			<font color="red">
 			<s:property value="%{resultSelect}" />
 			<s:property value="%{resultString}" />
-			<br>
+			</font>
+			</div>
+			<br><br>
+
 			<s:form action="ProjectStatusUpdateAction">
-				<table border=1>
+				<table border=1 align ="center">
 					<tr>
 						<th><div class="largetext">プロジェクトID</div></th>
 						<th><div class="largetext">プロジェクト名</div></th>
@@ -88,17 +107,24 @@
 
 				</table>
 				<br>
-				<s:if test="%{#session.userFlg >= 50}">
-					<input type="submit" class="button" value="編集" />
+
+
+<!-- flg判定 -->	<s:if test="%{#session.userFlg == 50}"><BR>
+				<div align="center">
+					<input type="submit" class="button" value="編集完了" />
+					</div>
 				</s:if>
+
 			</s:form>
 			<br>
 			<br>
 		</s:if>
 		<s:form action="GetAddressAction">
+		<div align="center">
 			<button type="submit" class="button">戻る</button>
+			</div>
 		</s:form>
 		<br>
-	</div>
+
 </body>
 </html>
