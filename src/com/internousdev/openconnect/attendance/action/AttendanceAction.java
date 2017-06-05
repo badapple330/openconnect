@@ -62,9 +62,6 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 		    if(con > 0){
 		      result = SUCCESS;
 				}
-		  }else{
-
-			  result = LOGIN;
 		  }
 		  return result;
 	}

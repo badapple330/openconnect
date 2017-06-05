@@ -29,7 +29,7 @@
 
 	<label>
 	出欠確認：<br>
-	<select name="attendance" class="" required="required">
+	<select name="attendance" required="required">
 
 	<option value="">以下から選択</option>
 	<option value="1">出席</option>
@@ -41,10 +41,10 @@
 
 <br>
 	<label>備考：<br>
-	<textarea name="reason" class="" rows="10" cols="50" maxlength="500" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
+	<textarea name="reason"  rows="10" cols="50" maxlength="500" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
 	</label>
 <br><br>
-	<input type="submit" class="" value="送信"/>
+	<input type="submit"  value="送信"/>
 
 
 
