@@ -21,11 +21,12 @@
 		<br> <br>
 
 
-		<s:if test="%{#session.userFlg >= 10}">
+		<s:if test="%{#session.userFlg >= 1}">
 
 			<s:property value="%{resultSelect}" />
 			<br>
-			<table border="1">
+			<table class="type01">
+				<thead>
 				<tr>
 					<td>id</td>
 					<td><div class="bigWidth">タイトル</div></td>
@@ -33,11 +34,13 @@
 					<td><div class="middleWidth">日付</div></td>
 					<td><div class="middleWidth">ユ ーザー名</div></td>
 				</tr>
+				</thead>
+				<tbody>
 				<s:iterator value="bookList">
 					<tr>
-						<td><s:property value="bookId" /><input type="hidden"
+						<th><s:property value="bookId" /><input type="hidden"
 							name="bookIdList" value="<s:property  value="bookId" />"
-							class="bookId"></td>
+							class="bookId"></th>
 						<td><s:property value="title" /><input type="hidden"
 							name="title" value="<s:property value="title" />" class="title"></td>
 						<td><s:property value="borrowStatus" /><input type="hidden"
@@ -52,6 +55,7 @@
 
 					</tr>
 				</s:iterator>
+				</tbody>
 			</table>
 			<br>
 
