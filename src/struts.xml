@@ -225,26 +225,6 @@
 			<result name="error">attendance.jsp</result>
 		</action>
 
-		<action name="AttendanceSelectAction"
-			class="com.internousdev.openconnect.attendance.action.AttendanceSelectAction"
-			method="execute">
-			<result name="success">attendance.jsp</result>
-			<result name="error">attendance.jsp</result>
-		</action>
-
-		<action name="AttendanceUpdateAction"
-			class="com.internousdev.openconnect.attendance.action.AttendanceUpdateAction"
-			method="execute">
-			<result name="success">attendance.jsp</result>
-			<result name="error">attendance.jsp</result>
-		</action>
-
-		<action name="AttendanceInsertAction"
-			class="com.internousdev.openconnect.attendance.action.AttendanceInsertAction"
-			method="execute">
-			<result name="success">attendance.jsp</result>
-			<result name="error">attendance.jsp</result>
-		</action>
 
 		<!-- 決済状況一覧画面への遷移 -->
 		<action name="DecisionSelectAction"

@@ -56,11 +56,10 @@ public class AdminAttendanceDAO {
 			          ps.setString('1', atDate); //?への値のセット。第1引数には?のインデックスナンバーを指定する。第2引数にはセットする値を指定する。
 			}
 
-			ResultSet rs = ps.executeQuery();
+			ResultSet rs = ps.executeQuery(); //SQL文の実行インターフェース。
 
 			while (rs.next()) {
 				AttendanceDTO dto = new AttendanceDTO();
-
 				dto.setAtDate(rs.getString("at_date"));
 				dto.setMonth(rs.getString("month"));
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
@@ -84,7 +83,7 @@ public class AdminAttendanceDAO {
 		return searchList;
 	}
 
-	}
+}
 
 
 
