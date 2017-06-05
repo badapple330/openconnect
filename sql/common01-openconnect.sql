@@ -165,6 +165,10 @@ title varchar(100) not null comment '件名',
 content varchar(100) comment '内容'
 );
 
+insert into schedule(id,start_day,end_day,title,content) values
+(1,"2017-06-15","2017-06-20","実装","実装"),
+(2,"2017-06-18","2017-06-25","実装2","実装2");
+
 
 /* サイト一覧情報 */
 create table site(

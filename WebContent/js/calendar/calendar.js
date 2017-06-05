@@ -11,6 +11,17 @@ $(document).ready(function(){
 	$('#memo').hide();
 
 	$('#calendar').fullCalendar({
+
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,listYear'
+		},
+
+		//タイトルと日別リストの日付のフォーマット
+		titleFormat:'MMMM',
+		listDayFormat:'MMMM D日',
+
 		// 週を月曜日からにする(０→日、１→月、２→火、３→水、４→木、５→金、６→土)
 		firstDay: 1,
 
@@ -24,6 +35,26 @@ $(document).ready(function(){
         // 曜日略称
         dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
 
+        allDaySlot: false,
+
+        // 日本の祝日を表示
+        events:'http://www.google.com/calendar/feeds/ja.japanese%23holiday%40group.v.calendar.google.com/public/full/',
+
+        // ボタン文字列
+        buttonText: {
+            prev:     '先月',
+            next:     '来月',
+            today:    '今日',
+            month:    '月',
+            week:     '週',
+            day:      '日',
+            listYear: '日別'
+        },
+
+        dayClick: function() {
+            alert('a day has been clicked!');
+        },
+
 
         	events:[
         	        {
@@ -36,14 +67,24 @@ $(document).ready(function(){
         	        	title: '実装2',
         	        	start: '2017-06-09',
         	        	end:	'2017-06-12'
+        	        },
+        	        {
+        	        	title: '実装2',
+        	        	start: '2017-06-15',
+        	        	end:	'2017-06-22'
         	        }
         	        ]
 
 	});
+
+	$('#calendar').addTouch();
 });
 
+// フォーム下に表示されるカレンダーの処理
 $(function() {
-	$.datepicker.setDefaults($.datepicker.regional['ja']);
+	//日本語化
+	 $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+
+	//日付を押すと年-月-日の形でフォームに出力されるようにする
     $('.textcalendar').datepicker({ dateFormat: 'yy-mm-dd' });;
 });
-

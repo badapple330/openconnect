@@ -11,13 +11,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<link href='css/schedule.css' rel='stylesheet' />
         <link href='css/fullcalendar.min.css' rel='stylesheet' />
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/start/jquery-ui.css">
         <script src="js/calendar/calendar.js"></script>
         <script src="js/calendar/jquery.min.js"></script>
         <script src="js/calendar/jquery-ui.min.js"></script>
         <script src="js/calendar/moment.min.js"></script>
+        <script src='js/calendar/gcal.js'></script>
+        <script src='js/calendar/gcal.min.js'></script>
+        <script src="js/calendar/datepicker-ja.js"></script>
         <script src="js/calendar/fullcalendar.js"></script>
         <script src="js/calendar/fullcalendar.min.js"></script>
-
 
 <title>スケジュール一覧</title>
 </head>
@@ -35,6 +38,7 @@
 </ul>
 </div>
 
+
 <div id = "a">
 <table id="textfirld">
 <tr>
@@ -44,6 +48,8 @@
 <tr>
 	<td>開始日:</td>
 	<td><input class = "textcalendar" type="text" name = "start"></td>
+</tr>
+<tr>
 	<td>終了日:</td>
 	<td><input class = "textcalendar" type="text" name = "end"></td>
 </tr>

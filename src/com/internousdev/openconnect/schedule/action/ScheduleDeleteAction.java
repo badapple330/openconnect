@@ -17,10 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * シリアル番号
-	 */
-	private static final long serialVersionUID = 7068183435588051155L;
+
 
 
 	/**
@@ -143,16 +140,6 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	*/
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
-	}
-
-
-	/**
-	* 取得メソッド シリアルIDを取得
-	* @author
-	* @return serialVersionUID
-	*/
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }
