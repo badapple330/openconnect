@@ -54,11 +54,11 @@
   </thead>
 
   <tbody>
-<!-- ここからinterator、繰り返し処理 -->
+
 <s:iterator value="searchList">
 <tr>
   <td>
-  <s:property value="atDate"/>
+    <s:property value="atDate"/>
   </td>
   <td>
     <s:property value="month"/>
@@ -76,7 +76,8 @@
     <s:property value="reason" />
   </td>
 </tr>
-</s:iterator>
+ </s:iterator>
+
 
 </tbody>
 
