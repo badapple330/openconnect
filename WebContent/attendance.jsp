@@ -25,25 +25,27 @@
 	<h1>勤怠更新</h1>
 	<br>
 
-	<s:form action="">
+	<s:form action="AttendanceAction">
 
-	<h3>出欠確認</h3>
-	<select name="" class="" required="required">
+	<label>
+	出欠確認：<br>
+	<select name="attendance" class="" required="required">
 
 	<option value="">以下から選択</option>
-	<option value="出席">出席</option>
-	<option value="">欠席</option>
-	<option value="">遅刻</option>
-	<option value="">早退</option>
+	<option value="1">出席</option>
+	<option value="2">欠席</option>
+	<option value="3">遅刻</option>
+	<option value="4">早退</option>
 
-	</select>
+	</select></label>
 
 <br>
-	<h3>備考</h3>
-	<textarea name="" class="" rows="10" cols="50" maxlength="500"
-			placeholder="例）病気のため欠席、電車遅延のため10分遅刻など">
-	</textarea>
+	<label>備考：<br>
+	<textarea name="reason" class="" rows="10" cols="50" maxlength="500" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
+	</label>
+<br><br>
 	<input type="submit" class="" value="送信"/>
+
 
 
 	</s:form>
