@@ -28,6 +28,27 @@
 	出欠：	<br>
 	備考：	<br>
 
+	<table>
+                    <tr>
+                        <th>報告日時</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>名前</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>出欠</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>備考</th>
+                        <td></td>
+
+                    </tr>
+
+                </table>
+
 <br>
 	<div>
 	<a href="index.jsp" class="openConnect">Topに戻る</a>

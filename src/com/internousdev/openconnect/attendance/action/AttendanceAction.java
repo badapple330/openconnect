@@ -46,7 +46,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	/**
-	 * 実行メソッド　出欠状況の送信処理をする
+	 * 実行メソッド 出欠状況の送信処理をする
 	 * @author Teppei Matsumoto
 	 * @since 2017/06/02
 	 * @return SUCCESS/ERROR
@@ -59,12 +59,12 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 			  int userId=(int)session.get("user_id");
 
 		    int con = dao.insert(userId,attendance,reason);
+		    
 		    if(con > 0){
 		      result = SUCCESS;
 				}
-		  }else{
-			  result = LOGIN;
 		  }
+
 		  return result;
 	}
 
