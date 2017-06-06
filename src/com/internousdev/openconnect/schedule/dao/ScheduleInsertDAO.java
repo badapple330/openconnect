@@ -2,7 +2,6 @@ package com.internousdev.openconnect.schedule.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 import com.mysql.jdbc.Connection;
@@ -19,25 +18,24 @@ public class ScheduleInsertDAO {
 	 * スケジュール一覧より入力された情報をDBに追加するメソッド。
 	 * @author MASAHIRO KEDSUKA
 	 * @param startday
+	 * @param endday
 	 * @param title
 	 * @param content
 	 * @return count
 	 */
-	public int insert (String startDay, String title, String content){
+	public int insert (String startDay, String endDay,String title, String content){
 
 		int count=0;
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn= (Connection) db.getConnection();
-		String sql="INSERT INTO schedule(start_day, title, content) VALUES (?,?,?)";
-
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
-		startDay = sdf.format(System.currentTimeMillis());
+		String sql="INSERT INTO schedule(start_day, end_day,title, content) VALUES (?,?,?,?)";
 
 		try{
 			PreparedStatement ps=conn.prepareStatement(sql);
 			ps.setString(1,startDay);
-			ps.setString(2,title);
-			ps.setString(3,content);
+			ps.setString(2,endDay);
+			ps.setString(3,title);
+			ps.setString(4,content);
 			count=ps.executeUpdate();
 
 		} catch (SQLException e){

@@ -39,7 +39,7 @@ public class ScheduleSelectDAO {
 		String sql = "select * from schedule where id LIKE '%" + search + "%' OR title LIKE '%" + search + "%'"
 				+ " OR content LIKE '%" + search + "%'";
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 
 		try {
