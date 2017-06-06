@@ -44,7 +44,7 @@ public class AdminAttendanceDAO {
 		String sql;
 
         //SQL文の分岐。何も入力しなければ全件表示、入力するればそれに一致するものを表示
-		if(atDate == "null"){
+		if((atDate).equals("")){
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id";
 		}else{
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id where attendance.at_date = ?";
@@ -53,7 +53,7 @@ public class AdminAttendanceDAO {
 		try {
 			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
 			if(k == 1){
-			          ps.setString('1', atDate); //?への値のセット。第1引数には?のインデックスナンバーを指定する。第2引数にはセットする値を指定する。
+			          ps.setString(1, atDate); //?への値のセット。第1引数には?のインデックスナンバーを指定する。第2引数にはセットする値を指定する。
 			}
 
 			ResultSet rs = ps.executeQuery(); //SQL文の実行インターフェース。

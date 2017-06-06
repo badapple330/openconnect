@@ -18,7 +18,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	/**
 	 * 受講開始月
 	 */
-	private String month;
+	private String month;	
 	/**
 	 * 漢字姓
 	 */
