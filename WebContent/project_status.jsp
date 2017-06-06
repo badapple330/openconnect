@@ -7,10 +7,12 @@
 <meta charset=UTF-8>
 <title>プロジェクトリリース状況</title>
 <link rel="stylesheet" href="css/project_status.css">
+<link rel="stylesheet" href="css/pagenation.css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
-<script src="js/project_progress.js"></script>
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/pagenation.js"></script>
 
 </head>
 <body>
@@ -123,7 +125,8 @@
 
 
 			<!-- pagenation -->
-			<br><BR>
+	<br>
+		<br>
 		<div id="pager">
 			<div id="page_ctrl">
 				<ul id="page_before">
@@ -136,7 +139,7 @@
 			</div>
 		</div>
 		<br>
-		<BR>
+		<br>
 		</s:if>
 
 

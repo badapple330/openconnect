@@ -11,6 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>プロジェクト一覧編集画面</title>
+<link rel="stylesheet" href="css/pagenation.css">
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/pagenation.js"></script>
+
 
 
 </head>
@@ -72,6 +76,28 @@
 
 
   </s:form>
+
+
+
+
+
+
+  			<!-- pagenation -->
+	<br>
+		<br>
+		<div id="pager">
+			<div id="page_ctrl">
+				<ul id="page_before">
+					<li id="page_prev">prev</li>
+				</ul>
+				<ul id="page_number"></ul>
+				<ul id="page_after">
+					<li id="page_next">next</li>
+				</ul>
+			</div>
+		</div>
+		<br>
+		<br>
 
 <p style="text-align:center">
   <a href="">TOPへ戻る</a>

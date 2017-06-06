@@ -11,7 +11,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/projects.js"></script>
-<script src="js/project_progress.js"></script>
+<script src="js/pagenation.js"></script>
 
 
 <title>プロジェクト一覧</title>
