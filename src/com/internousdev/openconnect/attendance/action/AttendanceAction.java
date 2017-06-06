@@ -68,7 +68,6 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 		  return result;
 	}
 
-
 	/**
 	* 取得メソッド を取得
 	* @author Teppei Matsumoto

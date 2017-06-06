@@ -3,7 +3,7 @@ package com.internousdev.openconnect.attendance.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.SQLException; //public class SQLException extends Exception implements Iterable<Throwable>APIのクラス
 import java.util.ArrayList;
 
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
@@ -12,8 +12,8 @@ import com.internousdev.util.DBConnector;
 /**
  * 管理者販売履歴の表示に関するメソッド
  *
- * @author kota.miyazato
- * @since 2017/05/12
+ * @author Atsushi Suzuki
+ * @since 2017/06/01
  * @version 1.0
  */
 public class AdminAttendanceDAO {
@@ -51,7 +51,7 @@ public class AdminAttendanceDAO {
 		k=1;
 		}
 		try {
-			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス
+			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
 			if(k == 1){
 			          ps.setString('1', atDate); //?への値のセット。第1引数には?のインデックスナンバーを指定する。第2引数にはセットする値を指定する。
 			}
