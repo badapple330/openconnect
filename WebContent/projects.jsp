@@ -132,7 +132,9 @@
 									maxlength="100" value="<s:property value="note"/>"
 									class="projectNotelist"></td>
 
-								<td><s:if test="%{#session.userFlg >= 50}">
+
+
+<!-- flg判定 -->			<td><s:if test="%{#session.userFlg >= 50}">
 										<input type="button" value="削除" class="modal-open">
 									</s:if></td>
 
@@ -222,6 +224,7 @@
 			<div id="modal-main">
 				<!-- #contents START -->
 				<div id="modal-style" align="center">
+				<br>
 					<table class="modal_border">
 
 
