@@ -58,6 +58,7 @@
 
 			<s:form action="ProjectStatusUpdateAction">
 				<table border=1 align ="center">
+				<tbody id="list_body">
 					<tr>
 						<th><div class="largetext">プロジェクトID</div></th>
 						<th><div class="largetext">プロジェクト名</div></th>
@@ -108,6 +109,7 @@
 						<input type="hidden" name="statusIdList"
 							value="<s:property value="statusId"/>">
 					</s:iterator>
+					</tbody>
 
 				</table>
 				<br>
