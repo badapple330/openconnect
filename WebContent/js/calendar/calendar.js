@@ -1,9 +1,5 @@
 $(document).ready(function(){
 
-	var start1 = $(':text[name="start"]').val();
-
-	var end1 = $(':text[name="end"]').val();
-
 
 	var start = '2017-06-07';
 	var end = '2017-06-10';
@@ -59,19 +55,8 @@ $(document).ready(function(){
         	events:[
         	        {
         	        	title:	'実装',
-        	        	start:	start,
-        	        	end:	end
-        	        },
-
-        	        {
-        	        	title: '実装2',
-        	        	start: '2017-06-09',
-        	        	end:	'2017-06-12'
-        	        },
-        	        {
-        	        	title: '実装2',
-        	        	start: '2017-06-15',
-        	        	end:	'2017-06-22'
+        	        	start:start,
+        	        	end:end
         	        }
         	        ]
 
@@ -80,7 +65,7 @@ $(document).ready(function(){
 	$('#calendar').addTouch();
 });
 
-// フォーム下に表示されるカレンダーの処理
+// フォームに表示されるカレンダーの処理
 $(function() {
 	//日本語化
 	 $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );

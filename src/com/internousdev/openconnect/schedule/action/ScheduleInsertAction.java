@@ -26,6 +26,11 @@ public class ScheduleInsertAction extends ActionSupport{
 	private String startDay;
 
 	/**
+	 * 終了日
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String endDay;
+	/**
 	 * 件名
 	 * @author MASAHIRO KEDSUKA
 	 */
@@ -70,7 +75,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 			ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-			k = dao.insert(startDay,title,content);
+			k = dao.insert(startDay,endDay,title,content);
 
 			if (k>0) {
 				successMsg=(getText("追加しました。"));
@@ -102,6 +107,24 @@ public class ScheduleInsertAction extends ActionSupport{
 		this.startDay = startDay;
 	}
 
+
+
+	/**
+	 * endDayを取得します。
+	 * @return endDay
+	 */
+	public String getEndDay() {
+	    return endDay;
+	}
+
+
+	/**
+	 * endDayを設定します。
+	 * @param endDay endDay
+	 */
+	public void setEndDay(String endDay) {
+	    this.endDay = endDay;
+	}
 
 
 	/**

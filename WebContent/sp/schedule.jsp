@@ -67,13 +67,13 @@
 								<td><input type="text" name="scheduleStartdayList"
 									value="<s:property value="startDay" />"
 									class="scheduleStartdayList" type="date"
-									pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-									title="yyyy/MM/ddで入力してください。" placeholder="開始日を入力" required></td>
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
+									title="yyyy-MM-ddで入力してください。" placeholder="開始日を入力" required></td>
 								<td><input type="text" name="scheduleEnddayList"
 									value="<s:property value="endDay" />"
 									class="scheduleEnddayList"
-									pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-									title="yyyy/MM/ddで入力してください。" placeholder="終了日を入力"></td>
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
+									title="yyyy-MM-ddで入力してください。" placeholder="終了日を入力"></td>
 								<td><input type="text" name="scheduleTitleList"
 									value="<s:property value="title" />" class="scheduleTitleList"
 									placeholder="件名を入力" maxlength=100 required></td>
