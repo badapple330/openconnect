@@ -11,6 +11,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/projects.js"></script>
+<script src="js/project_progress.js"></script>
 
 
 <title>プロジェクト一覧</title>
@@ -277,13 +278,25 @@
 
 			<br>
 			<br>
-			<br>
-			<br>
 
-			<br>
-			<br>
-			<br>
+		<!-- pagenation -->
+	<br>
+		<br>
+		<div id="pager">
+			<div id="page_ctrl">
+				<ul id="page_before">
+					<li id="page_prev">prev</li>
+				</ul>
+				<ul id="page_number"></ul>
+				<ul id="page_after">
+					<li id="page_next">next</li>
+				</ul>
+			</div>
+		</div>
+		<br>
+		<br>
 		</s:if>
+
 
 		<s:form action="GetAddressAction">
 		<div align="center">

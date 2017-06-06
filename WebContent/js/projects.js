@@ -1,5 +1,3 @@
-
-
 $(function() {
 	$(".delete-true").click(function(){
 		$(".delete-prepare").fadeIn();

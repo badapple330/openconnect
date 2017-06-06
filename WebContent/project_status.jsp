@@ -10,6 +10,8 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
+<script src="js/project_progress.js"></script>
+
 </head>
 <body>
 	<header><jsp:include page="header.jsp" /></header>
@@ -117,8 +119,28 @@
 
 			</s:form>
 			<br>
-			<br>
+
+
+
+			<!-- pagenation -->
+			<br><BR>
+		<div id="pager">
+			<div id="page_ctrl">
+				<ul id="page_before">
+					<li id="page_prev">prev</li>
+				</ul>
+				<ul id="page_number"></ul>
+				<ul id="page_after">
+					<li id="page_next">next</li>
+				</ul>
+			</div>
+		</div>
+		<br>
+		<BR>
 		</s:if>
+
+
+
 		<s:form action="GetAddressAction">
 		<div align="center">
 			<button type="submit" class="button">戻る</button>
