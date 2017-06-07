@@ -64,7 +64,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 
 
 		AdminAttendanceDAO dao = new AdminAttendanceDAO();
-		searchList = dao.select(atYear,atMonth,atDay);
+		searchList = dao.select(atYear,atMonth,atDay,familyNameKanji,givenNameKanji);
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}
