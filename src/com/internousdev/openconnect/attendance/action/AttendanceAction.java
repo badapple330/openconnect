@@ -46,6 +46,21 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	/**
+	 * 報告年
+	 */
+	private int atYear;
+
+	/**
+	 * 報告月
+	 */
+	private int atMonth;
+
+	/**
+	 * 報告日
+	 */
+	private int atDay;
+
+	/**
 	 * 実行メソッド 出欠状況の送信処理をする
 	 * @author Teppei Matsumoto
 	 * @since 2017/06/02
@@ -58,7 +73,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 			int userId = (int) session.get("userId");
 			  AttendanceDAO dao=new AttendanceDAO();
 
-		    if(dao.insert(userId,attendance,reason) > 0){
+		    if(dao.insert(userId,atYear,atMonth,atDay,attendance,reason) > 0){
 		      result = SUCCESS;
 				}
 		}
@@ -117,6 +132,60 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	*/
 	public void setReason(String reason) {
 		this.reason = reason;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author  Teppei Matsumoto
+	* @return atYear
+	*/
+	public int getAtYear() {
+		return atYear;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author  Teppei Matsumoto
+	* @param atYear
+	*/
+	public void setAtYear(int atYear) {
+		this.atYear = atYear;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author  Teppei Matsumoto
+	* @return atMonth
+	*/
+	public int getAtMonth() {
+		return atMonth;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author  Teppei Matsumoto
+	* @param atMonth
+	*/
+	public void setAtMonth(int atMonth) {
+		this.atMonth = atMonth;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author  Teppei Matsumoto
+	* @return atDay
+	*/
+	public int getAtDay() {
+		return atDay;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author  Teppei Matsumoto
+	* @param atDay
+	*/
+	public void setAtDay(int atDay) {
+		this.atDay = atDay;
 	}
 
 	/**
