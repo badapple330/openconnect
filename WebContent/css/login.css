@@ -7,6 +7,31 @@
 }
 
 
+/*タイトルロゴ--------------------------------*/
+
+.square_btn35{
+    display: inline-block;
+    position: relative;
+    padding: 0.5em 1em;
+    font-size: 40px;
+    text-decoration: none;
+    color: #3595db;
+    transition: .5s;
+}
+.square_btn35:hover {
+    color:#ffffff;
+}
+.square_btn35:before,.square_btn35:after{
+  position: absolute;
+  top: 0;
+  content:'';
+  width: 8px;
+  height: 100%;
+  display: inline-block;
+}
+
+/*タイトルロゴここまで-------------------------*/
+
 .stringWidth{
 	width: 100px;
     margin: auto;
