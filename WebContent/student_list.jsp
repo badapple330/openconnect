@@ -24,7 +24,7 @@
 
 
 
-              <div class= "sf">
+              <div class= "search-feild">
 
               <s:form method= "" action= "">
               <select name= "year">
