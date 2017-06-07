@@ -37,10 +37,6 @@
                 <option value= "">2017年10月生</option>
                 <option value= "">2017年11月生</option>
                 <option value= "">2017年12月生</option>
-                <option value= "">2018年1月生</option>
-                <option value= "">2018年2月生</option>
-                <option value= "">2018年3月生</option>
-                <option value= "">2018年4月生</option>
                 </select>
 				<input class="button" type="submit" value="表示">
 			  </s:form>
