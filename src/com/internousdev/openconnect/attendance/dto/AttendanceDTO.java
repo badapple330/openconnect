@@ -11,6 +11,9 @@ package com.internousdev.openconnect.attendance.dto;
  */
 public class AttendanceDTO {
 
+	/*
+	 * 手入力の報告
+	 */
 	/**
 	 * 日付
 	 */
