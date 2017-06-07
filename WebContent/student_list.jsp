@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>受講生一覧</title>
-<link rel="stylesheet" href="css/students2.css">
+<link rel="stylesheet" href="css/student_list.css">
 </head>
 
 
@@ -16,30 +16,58 @@
 
  <header><s:include value="header.jsp" /></header>
 
- <!-- 最終的にログイン状態じゃないと見えないようにする -->
+ <!-- 最終的にログイン状態じゃないと見れないようにする -->
 
- <div class="container">
+ <div class= "main">
 
 		<h1>受講生一覧</h1>
 
 
+          <div class= "search_field">
+
+              <s:form method= "" action= "">
+              <select name= "year">
+              <option value= "">-選択してください-</option>
+              <option value= "yaer">2017</option>
+              <option value= "year" >2018</option>
+              <option value= "year">2019</option>
+              </select>
+              </s:form>年
+
+              <s:form method="" action= "">
+              <select name="month">
+              <option value= "">-選択してください-</option>
+              <option value= "jan">1</option>
+              <option value= "feb">2</option>
+              <option value= "mar">3</option>
+              <option value= "apr">4</option>
+              <option value= "may">5</option>
+              <option value= "jun">6</option>
+              <option value= "jul">7</option>
+              <option value= "aug">8</option>
+              <option value= "sep">9</option>
+              <option value= "oct">10</option>
+              <option value= "nob">11</option>
+              <option value= "dec">12</option>
+              </select>
+              </s:form>月生
+              <input type= "submit" value= "表示">
 
 
-              <s:form action="StudentsSelectAction">
-                <select name ="">
-                <option value= "">-選択してください-</option>
-                <option value= "">2017年4月生</option>
-                <option value= "">2017年5月生</option>
-                <option value= "">2017年6月生</option>
-                <option value= "">2017年7月生</option>
-                <option value= "">2017年8月生</option>
-                <option value= "">2017年9月生</option>
-                <option value= "">2017年10月生</option>
-                <option value= "">2017年11月生</option>
-                <option value= "">2017年12月生</option>
-                </select>
-				<input class="button" type="submit" value="表示">
-			  </s:form>
+
+          </div>
+
+
+<s:iterator value="" >
+
+
+
+
+
+
+
+</s:iterator>
+
 
          <ol>
          <li>田中太郎</li>
