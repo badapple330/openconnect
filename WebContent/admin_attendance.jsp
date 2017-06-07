@@ -11,8 +11,8 @@
 <title>勤怠確認</title>
 
 <script src="js/jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="js/attendance.js"></script>
 <link rel="stylesheet" href="css/attendance.css">
+<script type="text/javascript" src="js/attendance.js"></script>
 </head>
 
 <body>
@@ -27,17 +27,15 @@
     <!-- 検索窓 -->
   <s:form action="AdminAttendanceAction" method="post">
 
-  <select name="atYear" id="id_year"></select>
-  <select name="atMonth" id="id_month"></select>
-  <select name="atDay" id="id_day"></select>
+  <select name="atYear" id="id_year" data-choice="year"></select>
+  <select name="atMonth" id="id_month" data-choice="month"></select>
+  <select name="atDay" id="id_day" data-choice="day"></select>
 <span class="input-group-btn">
   <button class="btn btn-default" type="submit">
 <i class="glyphicon glyphicon-search"></i>
   </button>
 </span>
   </s:form>
-
-
 
 
 
