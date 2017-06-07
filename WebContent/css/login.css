@@ -1,5 +1,12 @@
 @CHARSET "UTF-8";
 
+.navbar-header{
+    background-position: left top;
+	height: 130px;
+	width: 100%;
+}
+
+
 .stringWidth{
 	width: 100px;
     margin: auto;
@@ -11,6 +18,12 @@
     margin: auto;
     display: inline-block;
 }
+
+.box {
+ background: rgba(255,255,255,0.3);
+ filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#33ffffff', endColorstr='#33ffffff');
+}
+
 
 /* body { */
 /* 	background-image: url("../img/space.png"); */
