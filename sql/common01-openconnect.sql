@@ -28,14 +28,14 @@ drop database if exists openconnect;
 create database openconnect;
 use openconnect;
 
+/* 年月日をnot nullに戻す */
 create table attendance(
-at_year int not null comment '手入力の報告年',
-at_month int not null comment '手入力の報告月',
-at_day int not null comment '手入力の報告日',
+at_year int  comment '手入力の報告年',
+at_month int comment '手入力の報告月',
+at_day int  comment '手入力の報告日',
 at_date timestamp not null default current_timestamp comment '日付',
 user_id int not null comment '生徒ID',
 attendance int default 0  comment '出欠状況',
-interview int default 2 comment '面談状況',
 reason text comment'備考',
 foreign key(user_id) references users(user_id) on update cascade on delete cascade
 );
