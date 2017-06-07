@@ -14,7 +14,7 @@
 
 <body>
 
- <jsp:include page="header.jsp" />
+ <header><s:include value="header.jsp" /></header>
 
  <!-- 最終的にログイン状態じゃないと見えないようにする -->
 
@@ -78,6 +78,9 @@
 
 
 </div>
+
+
+ <footer><s:include value="footer.jsp" /></footer>
 
 
 </body>
