@@ -29,6 +29,9 @@ create database openconnect;
 use openconnect;
 
 create table attendance(
+at_year int not null comment '手入力の報告年',
+at_month int not null comment '手入力の報告月',
+at_day int not null comment '手入力の報告日',
 at_date timestamp not null default current_timestamp comment '日付',
 user_id int not null comment '生徒ID',
 attendance int default 0  comment '出欠状況',
