@@ -26,14 +26,21 @@
 
     <!-- 検索窓 -->
   <s:form action="AdminAttendanceAction" method="post">
-  <div class="input-group">
-  <input type="date" name="atDate" placeholder="">
-  <span class="input-group-btn">
-  <button class="btn btn-default" type="submit">
-<i class="glyphicon glyphicon-search"></i>
-  </button>
-  </span>
-  </div>
+
+  <select name="atYear">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  </select>
   </s:form>
 
 
