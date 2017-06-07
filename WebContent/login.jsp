@@ -42,10 +42,10 @@
 
 
 
-<h1 align ="center">
-<BR>
-<a href="index.jsp">Open Connect</a>
-</h1><br><br><br><br><br>
+					<h1 align="center">
+						<a href="index.jsp" class="square_btn35">Open Connect</a>
+					</h1>
+<br><br><br><br><br>
 
 	<!------------------    ユーザーログイン    ------------------->
 
