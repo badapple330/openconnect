@@ -23,7 +23,8 @@
 		<h1>受講生一覧</h1>
 
 
-          <div class= "search_field">
+
+              <div class= "sf">
 
               <s:form method= "" action= "">
               <select name= "year">
@@ -32,9 +33,7 @@
               <option value= "year" >2018</option>
               <option value= "year">2019</option>
               </select>
-              </s:form>年
-
-              <s:form method="" action= "">
+              年
               <select name="month">
               <option value= "">-選択してください-</option>
               <option value= "jan">1</option>
@@ -50,15 +49,18 @@
               <option value= "nob">11</option>
               <option value= "dec">12</option>
               </select>
-              </s:form>月生
+              月生
               <input type= "submit" value= "表示">
+              </s:form>
+
+              </div>
 
 
 
-          </div>
 
 
-<s:iterator value="" >
+
+<s:iterator value= "studentsList">
 
 
 
@@ -69,30 +71,6 @@
 </s:iterator>
 
 
-         <ol>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         <li>田中太郎</li>
-         </ol>
 
 
 
