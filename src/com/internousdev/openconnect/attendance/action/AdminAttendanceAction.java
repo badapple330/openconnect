@@ -11,6 +11,18 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class AdminAttendanceAction extends ActionSupport implements SessionAware{
 
+	/*
+	 * 手動入力の年
+	 */
+	private int atYear;
+	/*
+	 * 手動入力の月
+	 */
+	private int atMonth;
+	/*
+	 * 手動入力の日
+	 */
+	private int atDay;
 	/**
 	 * 日付
 	 */
@@ -62,19 +74,23 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 
 
 	/**
+	 * searchListを取得します。
 	 * @return searchList
 	 */
 	public ArrayList<AttendanceDTO> getSearchList() {
 		return searchList;
 	}
 
+
+
 	/**
-	 * @param searchList
-	 *            セットする searchList
+	 * searchListを設定します。
+	 * @param searchList searchList
 	 */
 	public void setSearchList(ArrayList<AttendanceDTO> searchList) {
 		this.searchList = searchList;
 	}
+
 
 
 	@Override
@@ -84,102 +100,179 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	}
 
 	/**
-	* 取得メソッド 日付を取得
-	* @author MINORI SUNAGAWA
-	* @return date
-	*/
+	 * atYearを取得します。
+	 * @return atYear
+	 */
+	public int getAtYear() {
+	    return atYear;
+	}
+
+
+
+	/**
+	 * atYearを設定します。
+	 * @param atYear atYear
+	 */
+	public void setAtYear(int atYear) {
+	    this.atYear = atYear;
+	}
+
+
+
+	/**
+	 * atMonthを取得します。
+	 * @return atMonth
+	 */
+	public int getAtMonth() {
+	    return atMonth;
+	}
+
+
+
+	/**
+	 * atMonthを設定します。
+	 * @param atMonth atMonth
+	 */
+	public void setAtMonth(int atMonth) {
+	    this.atMonth = atMonth;
+	}
+
+
+
+	/**
+	 * atDayを取得します。
+	 * @return atDay
+	 */
+	public int getAtDay() {
+	    return atDay;
+	}
+
+
+
+	/**
+	 * atDayを設定します。
+	 * @param atDay atDay
+	 */
+	public void setAtDay(int atDay) {
+	    this.atDay = atDay;
+	}
+
+
+
+	/**
+	 * 日付を取得します。
+	 * @return 日付
+	 */
 	public String getAtDate() {
 		return atDate;
 	}
-	/**
-	* 設定メソッド 日付を設定
-	* @author MINORI SUNAGAWA
-	* @param date
-	*/
-	public void setAtDate(String atDate) {
-		this.atDate = atDate;
-    }
+
+
 
 	/**
-	* 取得メソッド 受講開始月を取得
-	* @author MINORI SUNAGAWA
-	* @return month
-	*/
+	 * 日付を設定します。
+	 * @param atDate 日付
+	 */
+	public void setAtDate(String atDate) {
+		this.atDate = atDate;
+	}
+
+
+
+	/**
+	 * 受講開始月を取得します。
+	 * @return 受講開始月
+	 */
 	public String getMonth() {
 		return month;
 	}
+
+
+
 	/**
-	* 設定メソッド 受講開始月を設定
-	* @author MINORI SUNAGAWA
-	* @param month
-	*/
+	 * 受講開始月を設定します。
+	 * @param month 受講開始月
+	 */
 	public void setMonth(String month) {
 		this.month = month;
 	}
 
+
+
 	/**
-	* 取得メソッド 漢字姓を取得
-	* @author MINORI SUNAGAWA
-	* @return familyNameKanji
-	*/
+	 * 漢字姓を取得します。
+	 * @return 漢字姓
+	 */
 	public String getFamilyNameKanji() {
 		return familyNameKanji;
 	}
+
+
+
 	/**
-	* 設定メソッド 漢字姓を設定
-	* @author MINORI SUNAGAWA
-	* @param familyNameKanji
-	*/
+	 * 漢字姓を設定します。
+	 * @param familyNameKanji 漢字姓
+	 */
 	public void setFamilyNameKanji(String familyNameKanji) {
 		this.familyNameKanji = familyNameKanji;
 	}
+
+
+
 	/**
-	* 取得メソッド 漢字名を取得
-	* @author MINORI SUNAGAWA
-	* @return givenNameKanji
-	*/
+	 * 漢字名を取得します。
+	 * @return 漢字名
+	 */
 	public String getGivenNameKanji() {
 		return givenNameKanji;
 	}
+
+
+
 	/**
-	* 設定メソッド 漢字名を設定
-	* @author MINORI SUNAGAWA
-	* @param givenNameKanji
-	*/
+	 * 漢字名を設定します。
+	 * @param givenNameKanji 漢字名
+	 */
 	public void setGivenNameKanji(String givenNameKanji) {
 		this.givenNameKanji = givenNameKanji;
 	}
 
+
+
 	/**
-	* 取得メソッド 勤怠を取得
-	* @author MINORI SUNAGAWA
-	* @return attendance
-	*/
+	 * 勤怠を取得します。
+	 * @return 勤怠
+	 */
 	public int getAttendance() {
 		return attendance;
 	}
+
+
+
 	/**
-	* 設定メソッド 勤怠を設定
-	* @author MINORI SUNAGAWA
-	* @param attendance
-	*/
+	 * 勤怠を設定します。
+	 * @param attendance 勤怠
+	 */
 	public void setAttendance(int attendance) {
 		this.attendance = attendance;
 	}
 
+
+
 	/**
-	* 取得メソッド を取得
-	* @author KOHEI NITABARU
-	* @return reason
-	*/
+	 * 備考を取得します。
+	 * @return 備考
+	 */
 	public String getReason() {
 		return reason;
 	}
+
+
+
 	/**
-	* 設定メソッド を設定
-	* @author KOHEI NITABARU
-	* @param reason
-	*/
+	 * 備考を設定します。
+	 * @param reason 備考
+	 */
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
