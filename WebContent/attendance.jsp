@@ -28,6 +28,18 @@
 	<s:form action="AttendanceAction">
 
 	<label>
+	日時：<br>
+	<select style="width: 80px;" name="atYear" id="id_year" data-choice="year" required="required"></select>
+	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">年</span>
+
+	<select style="width: 50px;" name="atMonth" id="id_month" data-choice="month" required="required"></select>
+	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">月</span>
+
+	<select style="width: 50px;" name="atDay" id="id_day" data-choice="day" required="required"></select>
+	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
+	</label><br>
+
+	<label>
 	出欠確認：<br>
 	<select name="attendance" required="required">
 
@@ -49,9 +61,17 @@
 
 
 	</s:form>
+</div>
 
-
-
-	</div>
+<script src="js/jquery.ymdpulldown.js"></script>
+<script>
+$(function() {
+  $("#id_year").ymdpulldown({
+                startyear:2016,
+              });
+  $("#id_month").ymdpulldown();
+  $("#id_day").ymdpulldown();
+});
+</script>
 </body>
 </html>
