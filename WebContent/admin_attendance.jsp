@@ -24,22 +24,21 @@
 <h3 style="border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 1px 0 rgba(255,255,255,1);">勤怠確認</h3>
 
 
-    <!-- 検索窓 -->
-  <s:form action="AdminAttendanceAction" method="post">
-
-  <select name="atYear" id="id_year" data-choice="year"></select>
-  <select name="atMonth" id="id_month" data-choice="month"></select>
-  <select name="atDay" id="id_day" data-choice="day"></select>
+<!-- 日付、名前検索 -->
+<s:form action="AdminAttendanceAction" method="post">
+<select name="atYear" id="id_year" data-choice="year"></select>
+<select name="atMonth" id="id_month" data-choice="month"></select>
+<select name="atDay" id="id_day" data-choice="day"></select>
+<input type="text" name="familyNameKanji" placeholder="姓名">
+<input type="text" name="givenNameKanji" placeholder="名前">
 <span class="input-group-btn">
   <button class="btn btn-default" type="submit">
 <i class="glyphicon glyphicon-search"></i>
   </button>
 </span>
-  </s:form>
+</s:form>
 
-
-
-<!-- 顧客一覧 -->
+<!-- 一覧表示 -->
 <table class="table table-striped table-borderd">
   <thead>
     <tr>
