@@ -74,22 +74,24 @@
 							<th></th>
 						</tr>
 
+						<!-- scheduleListに格納した情報をテーブルで表示 -->
+						<!-- カレンダーに渡すだけの情報は<div class="hidden">で囲ってcssで表示させないようにする -->
 						<s:iterator value="scheduleList">
 							<tr>
 								<td><s:property value="id" /></td>
 								<td><input type="text" name="scheduleStartdayList"
 									value="<s:property value="startDay" />"
 									class="scheduleStartdayList" type="date"
-									pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-									title="yyyy/MM/ddで入力してください。" placeholder="開始日を入力" required></td>
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
+									title="yyyy-MM-ddで入力してください。" placeholder="開始日を入力" required><div class="hidden"><s:property value="startDay" /></div></td>
 								<td><input type="text" name="scheduleEnddayList"
 									value="<s:property value="endDay" />"
 									class="scheduleEnddayList"
-									pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-									title="yyyy/MM/ddで入力してください。" placeholder="終了日を入力"></td>
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
+									title="yyyy-MM-ddで入力してください。" placeholder="終了日を入力"><div class="hidden"><s:property value="endDay" /></div></td>
 								<td><input type="text" name="scheduleTitleList"
 									value="<s:property value="title" />" class="scheduleTitleList"
-									placeholder="件名を入力" maxlength=100 required></td>
+									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
 								<td><input type="text" name="scheduleContentList"
 									value="<s:property value="content" />"
 									class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
@@ -113,9 +115,9 @@
 				<table border=1 style="">
 					<tbody>
 						<tr>
-							<td class = "textcalendar"><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"
+							<td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"
 								maxlength=100 required></td>
-							<td class = "textcalendar"><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力"
+							<td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力"
 								maxlength=100 required></td>
 							<td></td>
 							<td><input type="text" name="title" placeholder="件名を入力"
@@ -181,7 +183,6 @@
 		<s:form action="GetAddressAction">
 			<button type="submit" class="button">戻る</button>
 		</s:form>
-	</div>
-
+</div>
 </body>
 </html>

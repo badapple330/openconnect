@@ -1,9 +1,6 @@
 $(document).ready(function(){
 
 
-	var start = '2017-06-07';
-	var end = '2017-06-10';
-
 	$('#memo').hide();
 
 	$('#calendar').fullCalendar({
@@ -34,7 +31,9 @@ $(document).ready(function(){
         allDaySlot: false,
 
         // 日本の祝日を表示
-        events:'http://www.google.com/calendar/feeds/ja.japanese%23holiday%40group.v.calendar.google.com/public/full/',
+        events: {
+    		url: 'http://www.google.com/calendar/feeds/ja.japanese%23holiday%40group.v.calendar.google.com/public/full/',
+    	},
 
         // ボタン文字列
         buttonText: {
@@ -47,23 +46,35 @@ $(document).ready(function(){
             listYear: '日別'
         },
 
-        dayClick: function() {
-            alert('a day has been clicked!');
-        },
 
-
-        	events:[
-        	        {
-        	        	title:	'実装',
-        	        	start:start,
-        	        	end:end
-        	        }
-        	        ]
-
+        events:[
+    	        {
+    	        	start:data[2][1],
+    	        	end:data[2][2],
+    	        	title:	data[2][3]
+    	        }
+    	        ]
 	});
+        $('#calendar').addTouch();
+	});
+/*
+$('#calendar').fullCalendar( 'addEventSource',
+	    function(start, end, callback) {
+	        for (a = 0,i = 1;
+	             a = data[i].length;
+	             a++,i++) {
 
-	$('#calendar').addTouch();
-});
+	                events.push({
+	                    title: data[i][3],
+	                    start: data[i][1],
+	                    end: data[i][2],
+
+	                });
+	            }
+	        callback( events );
+	    }
+	);
+*/
 
 // フォームに表示されるカレンダーの処理
 $(function() {
