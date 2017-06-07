@@ -10,6 +10,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
+
+<!-- 背景画像 -->
+<style type="text/css">
+<!--body {background: url(img/sity.jpg) center center / cover no-repeat fixed;}-->
+</style>
+<!-- ここまで -->
+
 <title>Open Connect -ログイン</title>
 <!-- css読み込み -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -19,10 +26,10 @@
 </head>
 <body>
 
-	<!-- ヘッダー -->
+	<!-- ヘッダー
 	<header>
 		<nav class="navbar navbar-default navbar-static-top">
-			<div class="container">
+			<div class="left">
 				<div class="navbar-header">
 					<h1>
 						<a href="index.jsp">Open Connect</a>
@@ -33,17 +40,30 @@
 	</header>
 	<!-- ヘッダーはここまで -->
 
+
+
+<h1 align ="center">
+<BR>
+<a href="index.jsp">Open Connect</a>
+</h1><br><br><br><br><br>
+
 	<!------------------    ユーザーログイン    ------------------->
 
-	<div class="container">
+	<div class="box" align ="center">
+	<table width="400" height="300">
+<tr align="center">
+<td>
+
+
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
 				<s:property value="%{resultString}" />
 
 				<s:form theme="simple" id="inner" class="form-horizontal"
 					action="LoginAction" autocomplete="off">
+
 					<!------------------    メールアドレス    ------------------->
-						<div class="stringWidth">メールアドレス</div>
+						<BR><div class="stringWidth">メールアドレス</div>
 						<s:textfield class="textWidth" name="email"  value="" placeholder="example@example.com" />
 						<br>
 						<br>
@@ -63,6 +83,12 @@
 				</s:form>
 			</div>
 		</div>
-	</div>
+
+
+</td>
+	</tr>
+</table>
+</div>
+
 </body>
 </html>

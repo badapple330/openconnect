@@ -1,7 +1,7 @@
 .headerSpace{
-	height: 80px;
+	height: 78px;
 	width: 100%;
-    background: #cef;
+    background: #caf2fd;
     position: absolute;
 }
 
@@ -23,7 +23,7 @@
 .menu{
 	display: inline;
 	width: 150px;
-	height: 80px;
+	height: 75px;
 	text-align: center;
 }
 
@@ -36,7 +36,7 @@
 
 #menuBer{
 	text-align: left;
-    background: #cef;
+    background: #80ff80;
     width: 150px;
     height: 40px;
     line-height: 50px;
@@ -45,7 +45,7 @@
 }
 
 #menuElementGroup{
-	background: #cef;
+	background: #80ff80;
 	display: none;
     border: #195dbe 1px solid;
     width: 150px;
@@ -60,13 +60,13 @@
 }
 
 #location{
-	width: 150px;
-	height: 80px;
+	width: 140px;
+	height: 75px;
 }
 
 #selectBer{
-	width: 250px;
-	height: 80px;
+	width: 230px;
+	height: 75px;
 	font-size: 20px;
 	font-weight:bold;
 }

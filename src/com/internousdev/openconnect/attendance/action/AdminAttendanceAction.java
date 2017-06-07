@@ -18,7 +18,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	/**
 	 * 受講開始月
 	 */
-	private String month;	
+	private String month;
 	/**
 	 * 漢字姓
 	 */
@@ -52,7 +52,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 
 
 		AdminAttendanceDAO dao = new AdminAttendanceDAO();
-		searchList = dao.select(atDate);
+		searchList = dao.select(atYear,atMonth,atDay);
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}

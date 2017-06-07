@@ -10,10 +10,18 @@ package com.internousdev.openconnect.attendance.dto;
  * @version 1.0
  */
 public class AttendanceDTO {
-
 	/*
-	 * 手入力の報告
+	 * 手入力の報告年
 	 */
+	private int atYear;
+    /*
+     * 手入力の報告月
+     */
+	private int atMonth;
+	/*
+	 * 手入力の報告日
+	 */
+	private int atDay;
 	/**
 	 * 日付
 	 */
@@ -276,6 +284,55 @@ public class AttendanceDTO {
 	*/
 	public void setReason(String reason) {
 		this.reason = reason;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return atYear
+	*/
+	public int getAtYear() {
+		return atYear;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param atYear
+	*/
+	public void setAtYear(int atYear) {
+		this.atYear = atYear;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return atMonth
+	*/
+	public int getAtMonth() {
+		return atMonth;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param atMonth
+	*/
+	public void setAtMonth(int atMonth) {
+		this.atMonth = atMonth;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return atDay
+	*/
+	public int getAtDay() {
+		return atDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param atDay
+	*/
+	public void setAtDay(int atDay) {
+		this.atDay = atDay;
 	}
 
 }

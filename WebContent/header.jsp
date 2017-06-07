@@ -10,6 +10,12 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
+<!-- 背景画像 -->
+<style type="text/css">
+<!--body {background: url(img/water.jpg) center center / cover no-repeat fixed;}-->
+</style>
+<!-- ここまで -->
+
 
 <title>Insert title here</title>
 <!-- css読み込み  -->
@@ -22,18 +28,13 @@
 <body>
 
 	<!-- ヘッダー -->
-<!-- 	<header> -->
-<!-- 		<nav class="navbar navbar-default navbar-static-top"> -->
-<!-- 			<div class="container"> -->
-<!-- 				<div class="navbar-header"> -->
+
 					<div class="headerSpace">
 					<h1 class="logo">
 						<a href="index.jsp" class="openConnect">Open Connect</a>
 					</h1>
 
-<!-- 				</div> -->
-<!-- 				<div class="collapse navbar-collapse"> -->
-<!-- 					<ul class="nav navbar-nav navbar-right"> -->
+
 						<div class="menuGroup">
 						<s:if test="%{#session.userFlg == null}">
 							<form action="GoLoginAction" class="formButton">
@@ -55,9 +56,8 @@
 								<input type="submit" class="menu" value="新規登録">
 							</form>
 						</s:if>
-<!-- 					</ul> -->
-<!-- 				</div> -->
-<br>
+
+
 <s:if test="%{#session.userFlg >= 1}">
 					<select name="pulldown2" id="selectBer">
 						<option value="">移動先を選択</option>
@@ -96,9 +96,7 @@
 				<!-- 				</dl> -->
 
 					</div>
-<!-- 			</div> -->
-<!-- 		</nav> -->
-<!-- 	</header> -->
+
 	<!-- ヘッダーはここまで -->
 <br>
 <br>
