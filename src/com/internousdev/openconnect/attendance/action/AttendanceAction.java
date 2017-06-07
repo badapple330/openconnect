@@ -61,6 +61,16 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	private int atDay;
 
 	/**
+	 * 漢字姓
+	 */
+	private String familyNameKanji;
+
+	/**
+	 * 漢字名
+	 */
+	private String givenNameKanji;
+
+	/**
 	 * 実行メソッド 出欠状況の送信処理をする
 	 * @author Teppei Matsumoto
 	 * @since 2017/06/02
@@ -186,6 +196,42 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	*/
 	public void setAtDay(int atDay) {
 		this.atDay = atDay;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author Teppei Matsumoto
+	* @return familyNameKanji
+	*/
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author Teppei Matsumoto
+	* @param familyNameKanji
+	*/
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author Teppei Matsumoto
+	* @return givenNameKanji
+	*/
+	public String getGivenNameKanji() {
+		return givenNameKanji;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author Teppei Matsumoto
+	* @param givenNameKanji
+	*/
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
 	}
 
 	/**
