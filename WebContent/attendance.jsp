@@ -26,18 +26,7 @@
 	<br>
 
 	<s:form action="AttendanceAction">
-
-	<label>
-	日時：<br>
-	<select style="width: 80px;" name="atYear" id="id_year" data-choice="year" required="required"></select>
-	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">年</span>
-
-	<select style="width: 50px;" name="atMonth" id="id_month" data-choice="month" required="required"></select>
-	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">月</span>
-
-	<select style="width: 50px;" name="atDay" id="id_day" data-choice="day" required="required"></select>
-	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
-	</label><br>
+<!-- 日時項目を戻す -->
 
 	<label>
 	出欠確認：<br>
@@ -53,7 +42,7 @@
 
 <br>
 	<label>備考：<br>
-	<textarea name="reason"  rows="10" cols="50" maxlength="500" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
+	<textarea name="reason"  rows="10" cols="50" maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
 	</label>
 <br><br>
 	<input type="submit"  value="送信"/>

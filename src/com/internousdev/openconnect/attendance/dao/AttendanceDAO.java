@@ -38,18 +38,18 @@ public class AttendanceDAO {
 	            ps.setInt(1, userId);
 	            ps.setInt(2, attendance);
 	            ps.setString(3, reason);
+
 	            ret = ps.executeUpdate();
+
 	        }catch (SQLException e){
 	            e.printStackTrace();
 	        }finally{
-	            if(con != null){
 	                try{
 	                    con.close();
 	                }catch (SQLException e){
 	                    e.printStackTrace();
 	                }
 	            }
-	        }
 		return ret;
 	}
 }

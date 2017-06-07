@@ -28,7 +28,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	 * ユーザーID
 	 * joinでuser_nameを引っ張って来たい
 	 */
-	private int user_id;
+	private int userId;
 
 	/**
 	 * 出欠状況
@@ -54,17 +54,14 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	public String execute(){
 		String result =ERROR;
 
-		AttendanceDAO dao=new AttendanceDAO();
-		  if(session.get("user_id")!=null){
-			  int userId=(int)session.get("user_id");
+		if(session.get("userId") != null){
+			int userId = (int) session.get("userId");
+			  AttendanceDAO dao=new AttendanceDAO();
 
-		    int con = dao.insert(userId,attendance,reason);
-		    
-		    if(con > 0){
+		    if(dao.insert(userId,attendance,reason) > 0){
 		      result = SUCCESS;
 				}
-		  }
-
+		}
 		  return result;
 	}
 
@@ -74,7 +71,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	* @return user_id
 	*/
 	public int getUserId() {
-		return user_id;
+		return userId;
 	}
 
 	/**
@@ -82,8 +79,8 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	* @author Teppei Matsumoto
 	* @param user_id
 	*/
-	public void setUserId(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	/**
