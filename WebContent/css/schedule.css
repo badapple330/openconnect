@@ -15,7 +15,13 @@
 }
 
 #operation{
+	height:100px;
+	width:700px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
 	margin-top:500px;
+	margin-bottom:100px
 }
 
 /* モーダル コンテンツエリア */
@@ -71,7 +77,8 @@
 	width:700px;
 	display:block;
 	margin-top:50px;
-	margin-left:0px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 #memo{
@@ -89,10 +96,9 @@
 }
 
 .fc-sun {
-	color: #FF0000;
+	color: #ff0000;
 }
 
-body{
-	height:1000px;
+.hidden {
+	visibility: hidden;
 }
-
