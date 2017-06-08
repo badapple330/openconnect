@@ -27,21 +27,23 @@ public class AttendanceDAO {
 	 * @return
 	 */
 	public int select(String familyNameKanji,String givenNameKanji) {
-		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		Connection con =db.getConnection();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
+		Connection con = db.getConnection();
+
+		String sql =  "select * from attendance left join users on attendance.user_id = users.user_id where family_name_kanji=? AND given_name_kanji=?";
 
 		try {
-			String sql = "select * from attendance left join users on attendance.user_id = users.user_id=?";
-			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1,familyNameKanji);
-			ps.setString(2,givenNameKanji);
+			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
 
-			ResultSet rs = ps.executeQuery();
+				      ps.setString(1, familyNameKanji);
+		              ps.setString(2, givenNameKanji);
+
+			ResultSet rs = ps.executeQuery(); //SQL文の実行インターフェース。
 
 			while (rs.next()) {
-				return rs.getInt("book_id");/*????????????明日ここら辺から*/
-				}
+				return rs.getInt("user_id");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -53,6 +55,8 @@ public class AttendanceDAO {
 		}
 		return 0;
 	}
+
+
 
 	/**
 	 * 勤怠の入力内容をDBに追加するメソッド

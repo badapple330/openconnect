@@ -30,8 +30,12 @@
 	<s:form action="AttendanceAction">
 
 	<label>
-	氏名：<s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/>
+	氏名：<br>
+	<s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/>
 	</label>
+
+	<br>
+
 	<label>
 	日時：<br>
 	<select style="width: 80px;" name="atYear" id="id_year" data-choice="year" required="required"></select>
@@ -42,7 +46,9 @@
 
 	<select style="width: 50px;" name="atDay" id="id_day" data-choice="day" required="required"></select>
 	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
-	</label><br>
+	</label>
+
+	<br>
 
 	<label>
 	出欠確認：<br>
@@ -54,14 +60,20 @@
 	<option value="3">遅刻</option>
 	<option value="4">早退</option>
 
-	</select></label>
+	</select>
+	</label>
 
-<br>
-	<label>備考：<br>
+	<br>
+
+
+	<label>
+	備考：<br>
 	<textarea name="reason"  rows="10" cols="50" maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
 	</label>
+
 <br><br>
 	<input type="submit"  value="送信"/>
+
 
 	</s:form>
 
