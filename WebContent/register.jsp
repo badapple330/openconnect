@@ -55,62 +55,7 @@
 						name="givenNameKana" value="" placeholder="なまえ" maxlength="25"
 						required /></td>
 				</tr>
-				<!------------------    名前(英語)    ------------------->
-				<tr>
-					<th>名前（英語）</th>
-					<td><input type="text" name="familyName" value=""
-						placeholder="Family Name" maxlength="24" required /> <input
-						type="text" name="givenName" value="" placeholder="Given Name"
-						maxlength="25" required /></td>
-				</tr>
 
-				<!------------------    郵便番号    ------------------->
-				<tr>
-					<th>郵便番号</th>
-					<td><input type="text" name="zip" size="10" maxlength="7"
-						placeholder="1000000"
-						onKeyUp="AjaxZip3.zip2addr(this,'','address','address');">
-						<!-- 					<input type="text" name="postal" id="postcode1" --> <!-- 						placeholder="半角数字で入力してください" maxlength=3 required -->
-						<!-- 						title="半角数字で入力してください"> -<input type="text" name="postal" -->
-						<!-- 						id="postcode2" placeholder="半角数字で入力してください" maxlength=4 required -->
-						<!-- 						title="半角数字で入力してください"> --></td>
-				</tr>
-
-				<!------------------    住所    ------------------->
-				<tr>
-					<th>住所</th>
-					<td><input type="text" name="address" id="address1"
-						maxlength="60" required placeholder="住所" size="60"> <!-- 						 <input -->
-						<!-- 						type="text" name="municipality" id="address2" maxlength="15" required -->
-						<!-- 						placeholder="市区町村"> <input type="text" name="address" id="address3" -->
-						<!-- 						maxlength="15" required placeholder="番地" /> <input type="text" -->
-						<!-- 						name="address" maxlength="20" placeholder="建物名等" /> -->
-					</td>
-				</tr>
-
-				<!------------------    電話番号    ------------------->
-				<tr>
-					<th>電話番号</th>
-					<td><input type="text" name="telNumber" value="" size="20"
-						maxlength=11 pattern="^[0-9]+$" required title="半角数字で入力してください"
-						placeholder="0312345678" /> <!-- 						- --> <!-- 						<input type="text" name="telNumber" value="" size="4" maxlength=4 -->
-						<!-- 						pattern="^[0-9]+$" required title="半角数字で入力してください" />- <input -->
-						<!-- 						type="text" name="telNumber" value="" size="4" maxlength=4 -->
-						<!-- 						pattern="^[0-9]+$" required title="半角数字で入力してください" /> -->
-					</td>
-				</tr>
-
-				<!------------------    携帯電話番号    ------------------->
-				<tr>
-					<th>携帯電話番号</th>
-					<td><input type="text" name="mobileNumber" value="" size="20"
-						maxlength=11 pattern="^[0-9]+$" required title="半角数字で入力してください"
-						placeholder="09012345678" /> <!-- 						- --> <!-- 						<input type="text" name="mobileNumber" value="" size="4" maxlength=4 -->
-						<!-- 						pattern="^[0-9]+$" required title="半角数字で入力してください" />- <input -->
-						<!-- 						type="text" name="mobileNumber" value="" size="4" maxlength=4 -->
-						<!-- 						pattern="^[0-9]+$" required title="半角数字で入力してください" /> -->
-					</td>
-				</tr>
 
 				<!------------------    メールアドレス    ------------------->
 				<tr>
@@ -120,28 +65,6 @@
 						required title="example@gmail.com" placeholder="example@gmail.com" /></td>
 				</tr>
 
-				<!------------------    携帯メールアドレス    ------------------->
-				<tr>
-					<th>携帯メールアドレス</th>
-					<td><input type="text" name="mobileEmail"
-						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
-						required title="example@ezweb.ne.jp"
-						placeholder="example@ezweb.ne.jp" /></td>
-				</tr>
-
-				<!------------------    性別    ------------------->
-				<tr>
-					<th>性別</th>
-					<td><input type="radio" name="sex" value="male" checked />男性
-						<input type="radio" name="sex" value="female" />女性</td>
-				</tr>
-
-				<!------------------    生年月日    ------------------->
-				<tr>
-					<th>生年月日</th>
-					<td><input type="date" name="birthday" pattern="^[0-9]{8,8}"
-						title="例(1997年8月23日生まれの場合)：19970823" required placeholder="生年月日" />
-				</tr>
 
 				<!------------------    受講年    ------------------->
 				<tr>
