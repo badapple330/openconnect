@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.internousdev.util.DBConnector;
 
 
@@ -28,27 +27,23 @@ public class AttendanceDAO {
 	 * @return
 	 */
 	public int select(String familyNameKanji,String givenNameKanji) {
-		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		Connection con =db.getConnection();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
+		Connection con = db.getConnection();
+
+		String sql =  "select * from attendance left join users on attendance.user_id = users.user_id where family_name_kanji=? AND given_name_kanji=?";
 
 		try {
-			String sql = "select * from attendance left join users on attendance.user_id = users.user_id where family_name_kanji=? AND given_name_kanji=?";
 
-			PreparedStatement ps = con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
 
-			ps.setString(1,familyNameKanji);
-			ps.setString(2,givenNameKanji);
+				      ps.setString(1, familyNameKanji);
+		              ps.setString(2, givenNameKanji);
 
-			ResultSet rs = ps.executeQuery();
+			ResultSet rs = ps.executeQuery(); //SQL文の実行インターフェース。
 
-			while (rs.next()){
-				AttendanceDTO dto = new AttendanceDTO();
-				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
-				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
+			while (rs.next()) {
+				return rs.getInt("user_id");
 			}
-			rs.close();
-			ps.close();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -60,6 +55,7 @@ public class AttendanceDAO {
 		}
 		return 0;
 	}
+
 
 
 	/**

@@ -3,11 +3,13 @@
  */
 package com.internousdev.openconnect.attendance.action;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.attendance.dao.AttendanceDAO;
+import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -69,6 +71,11 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	 * 漢字名
 	 */
 	private String givenNameKanji;
+
+	/**
+	 * ユーザー名リスト
+	 */
+	private ArrayList<AttendanceDTO> atNameList = new ArrayList<AttendanceDTO>();
 
 	/**
 	 * 実行メソッド 出欠状況の送信処理をする
@@ -232,6 +239,24 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	*/
 	public void setGivenNameKanji(String givenNameKanji) {
 		this.givenNameKanji = givenNameKanji;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author Teppei Matsumoto
+	* @return atNameList
+	*/
+	public ArrayList<AttendanceDTO> getAtNameList() {
+		return atNameList;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author Teppei Matsumoto
+	* @param atNameList
+	*/
+	public void setAtNameList(ArrayList<AttendanceDTO> atNameList) {
+		this.atNameList = atNameList;
 	}
 
 	/**
