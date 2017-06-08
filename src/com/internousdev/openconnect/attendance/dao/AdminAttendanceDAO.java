@@ -40,23 +40,25 @@ public class AdminAttendanceDAO {
 
 		ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
-		int k = 0;
+		int k;
 		String sql;
-
+        //日時だけで検索
 		if(atYear!=0 || atMonth!=0 || atDay!=0 || (familyNameKanji).equals("") || (givenNameKanji).equals("")){
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=?";
 			k=1;
+		//名前だけで検索
 		}else if(atYear==0 || atMonth==0 || atDay==0 || !((familyNameKanji).equals("")) || !((givenNameKanji).equals(""))){
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id where family_name_kanji=? AND given_name_kanji=?";
 		    k=2;
 		}
-		else{sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? family_name_kanji=? AND given_name_kanji=?";}
+		//日時と名前両方で検索
+		else{sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? family_name_kanji=? AND given_name_kanji=?";
              k=3;
-
+	    }
 		try {
 			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
 			if(k == 1){
-			          ps.setInt(1, atYear); //?への値のセット。第1引数には?のインデックスナンバーを指定する。第2引数にはセットする値を指定する。
+			          ps.setInt(1, atYear); //ps内の?への値のセット。第1引数には?のインデックスナンバーを指定する。第2引数にはセットする値を指定する。
 			          ps.setInt(2, atMonth);
 			          ps.setInt(3, atDay);
 			}else if(k == 2){
