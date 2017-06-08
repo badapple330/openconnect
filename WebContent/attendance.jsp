@@ -30,8 +30,9 @@
 	<s:form action="AttendanceAction">
 
 	<label>
-	氏名：<s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/>
+	氏名：<s:property value="userId"/><s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/>
 	</label>
+	<br>
 	<label>
 	日時：<br>
 	<select style="width: 80px;" name="atYear" id="id_year" data-choice="year" required="required"></select>

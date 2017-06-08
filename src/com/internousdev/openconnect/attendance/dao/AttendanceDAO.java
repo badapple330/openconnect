@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.internousdev.util.DBConnector;
 
 
@@ -31,7 +32,8 @@ public class AttendanceDAO {
 		Connection con =db.getConnection();
 
 		try {
-			String sql = "select * from attendance left join users on attendance.user_id = users.user_id=?";
+			String sql = "select * from attendance left join users on attendance.user_id = users.user_id where family_name_kanji=? AND given_name_kanji=?";
+
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1,familyNameKanji);
@@ -39,9 +41,14 @@ public class AttendanceDAO {
 
 			ResultSet rs = ps.executeQuery();
 
-			while (rs.next()) {
-				return rs.getInt("book_id");/*????????????明日ここら辺から*/
-				}
+			while (rs.next()){
+				AttendanceDTO dto = new AttendanceDTO();
+				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
+				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
+			}
+			rs.close();
+			ps.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -53,6 +60,7 @@ public class AttendanceDAO {
 		}
 		return 0;
 	}
+
 
 	/**
 	 * 勤怠の入力内容をDBに追加するメソッド
