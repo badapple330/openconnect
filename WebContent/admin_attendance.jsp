@@ -25,17 +25,18 @@
 
 
 <!-- 日付、名前検索 -->
-<s:form action="AdminAttendanceAction" method="post">
+<s:form action="AdminAttendanceAction" method="get">
+<!-- 年 -->
 <select name="atYear" id="id_year" data-choice="year"></select>
+<!-- 月 -->
 <select name="atMonth" id="id_month" data-choice="month"></select>
+<!-- 日 -->
 <select name="atDay" id="id_day" data-choice="day"></select>
-<input type="text" name="familyNameKanji" placeholder="姓名">
-<input type="text" name="givenNameKanji" placeholder="名前">
-<span class="input-group-btn">
-  <button class="btn btn-default" type="submit">
-<i class="glyphicon glyphicon-search"></i>
-  </button>
-</span>
+<!-- 性 -->
+<s:textfield name="familyNameKanji" placeholder="苗字" />
+<!-- 名 -->
+<s:textfield name="givenNameKanji" placeholder="名前" />
+<s:submit value="検索" class="search-btn" />
 </s:form>
 
 <!-- 一覧表示 -->
