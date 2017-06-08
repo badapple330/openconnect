@@ -35,7 +35,7 @@ at_month int comment '手入力の報告月',
 at_day int  comment '手入力の報告日',
 at_date timestamp not null default current_timestamp comment '日付',
 user_id int not null comment '生徒ID',
-attendance int default 0  comment '出欠状況',
+attendance varchar(50) comment '出欠状況',
 reason text comment'備考',
 foreign key(user_id) references users(user_id) on update cascade on delete cascade
 );

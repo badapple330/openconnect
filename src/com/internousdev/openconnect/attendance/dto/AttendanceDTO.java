@@ -57,7 +57,7 @@ public class AttendanceDTO {
 	/**
 	 * 勤怠
 	 */
-	private int attendance;
+	private String attendance;
 	/**
 	 * 勤怠文字
 	 */
@@ -210,7 +210,7 @@ public class AttendanceDTO {
 	* @author MINORI SUNAGAWA
 	* @return attendance
 	*/
-	public int getAttendance() {
+	public String getAttendance() {
 		return attendance;
 	}
 	/**
@@ -218,7 +218,7 @@ public class AttendanceDTO {
 	* @author MINORI SUNAGAWA
 	* @param attendance
 	*/
-	public void setAttendance(int attendance) {
+	public void setAttendance(String attendance) {
 		this.attendance = attendance;
 	}
 	/**

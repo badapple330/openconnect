@@ -78,7 +78,7 @@ public class AttendanceDAO {
 	 *@param atDate		日時
 	 *@return ret
 	 */
-	public int insert(int userId,int atYear,int atMonth, int atDay, int attendance, String reason){
+	public int insert(int userId,int atYear,int atMonth, int atDay, String attendance, String reason){
 
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con =db.getConnection();
@@ -92,7 +92,7 @@ public class AttendanceDAO {
 	            ps.setInt(2,atYear);
 	            ps.setInt(3,atMonth);
 	            ps.setInt(4,atDay);
-	            ps.setInt(5, attendance);
+	            ps.setString(5, attendance);
 	            ps.setString(6, reason);
 
 	            ret = ps.executeUpdate();

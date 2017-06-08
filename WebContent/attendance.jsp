@@ -57,10 +57,10 @@
 	<select name="attendance" required="required">
 
 	<option value="">以下から選択</option>
-	<option value="1">出席</option>
-	<option value="2">欠席</option>
-	<option value="3">遅刻</option>
-	<option value="4">早退</option>
+	<option value="出席">出席</option>
+	<option value="欠席">欠席</option>
+	<option value="遅刻">遅刻</option>
+	<option value="早退">早退</option>
 
 	</select>
 	</label>

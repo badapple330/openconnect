@@ -35,7 +35,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	/**
 	 * 出欠状況
 	 */
-	private int attendance;
+	private String attendance;
 
 	/**
 	 * 備考欄
@@ -121,7 +121,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	* @author Teppei Matsumoto
 	* @return attendance
 	*/
-	public int getAttendance() {
+	public String getAttendance() {
 		return attendance;
 	}
 
@@ -130,7 +130,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	* @author Teppei Matsumoto
 	* @param attendance
 	*/
-	public void setAttendance(int attendance) {
+	public void setAttendance(String attendance) {
 		this.attendance = attendance;
 	}
 
