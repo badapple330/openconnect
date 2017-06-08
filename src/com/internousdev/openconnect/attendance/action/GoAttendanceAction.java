@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.openconnect.attendance.dao.GoAttendanceDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -57,7 +58,7 @@ public class GoAttendanceAction extends ActionSupport implements SessionAware{
 			int userId = (int) session.get("userId");
 
 			GoAttendanceDAO dao = new GoAttendanceDAO();
-		atUserList = dao.select(familyNameKanji,givenNameKanji);
+		atUserList = dao.select(userId);
 
 		if(atUserList.size() > 0){
 			result=SUCCESS;

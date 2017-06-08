@@ -30,8 +30,10 @@
 	<s:form action="AttendanceAction">
 
 	<label>
+	<s:iterator value="atUserList">
 	氏名：<br>
 	<s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/>
+	</s:iterator>
 	</label>
 
 	<br>

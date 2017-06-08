@@ -227,6 +227,7 @@
 			class="com.internousdev.openconnect.attendance.action.GoAttendanceAction"
 			method="execute">
 			<result name="success">attendance.jsp</result>
+			<result name="error">attendance.jsp</result>
 		</action>
 
 		<action name="AttendanceAction"
