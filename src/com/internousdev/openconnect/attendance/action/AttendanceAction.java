@@ -73,9 +73,9 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	private String givenNameKanji;
 
 	/**
-	 * ユーザー名リスト
+	 * ユーザーリスト
 	 */
-	private ArrayList<AttendanceDTO> atNameList = new ArrayList<AttendanceDTO>();
+	private ArrayList<AttendanceDTO> atUserList = new ArrayList<AttendanceDTO>();
 
 	/**
 	 * 実行メソッド 出欠状況の送信処理をする
@@ -89,8 +89,9 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 		if(session.get("userId") != null){
 			int userId = (int) session.get("userId");
 			  AttendanceDAO dao=new AttendanceDAO();
+			  atUserList = dao.select(userId);
 
-		    if(dao.insert(userId,atYear,atMonth,atDay,attendance,reason) > 0){
+		    if(dao.insert(userId,atYear,atMonth,atDay,attendance,reason) > 0 && atUserList.size() > 0){
 		      result = SUCCESS;
 				}
 		}
@@ -244,19 +245,19 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	/**
 	* 取得メソッド を取得
 	* @author Teppei Matsumoto
-	* @return atNameList
+	* @return atUserList
 	*/
-	public ArrayList<AttendanceDTO> getAtNameList() {
-		return atNameList;
+	public ArrayList<AttendanceDTO> getAtUserList() {
+		return atUserList;
 	}
 
 	/**
 	* 設定メソッド を設定
-	* @author Teppei Matsumoto
-	* @param atNameList
+	* @author KOHEI NITABARU
+	* @param Teppei Matsumoto
 	*/
-	public void setAtNameList(ArrayList<AttendanceDTO> atNameList) {
-		this.atNameList = atNameList;
+	public void setAtUserList(ArrayList<AttendanceDTO> atUserList) {
+		this.atUserList = atUserList;
 	}
 
 	/**
