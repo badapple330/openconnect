@@ -42,7 +42,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	/**
 	 * 勤怠
 	 */
-	private int attendance;
+	private String attendance;
 	/**
 	 * 備考
 	 */
@@ -243,7 +243,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * 勤怠を取得します。
 	 * @return 勤怠
 	 */
-	public int getAttendance() {
+	public String getAttendance() {
 		return attendance;
 	}
 
@@ -253,7 +253,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * 勤怠を設定します。
 	 * @param attendance 勤怠
 	 */
-	public void setAttendance(int attendance) {
+	public void setAttendance(String attendance) {
 		this.attendance = attendance;
 	}
 

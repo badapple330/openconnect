@@ -40,20 +40,17 @@ public class AdminAttendanceDAO {
 
 		ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
-		int k;
-		String sql;
-        //日時だけで検索
+		int k = 0;
+		String sql = null;
 		if(atYear!=0 || atMonth!=0 || atDay!=0 || (familyNameKanji).equals("") || (givenNameKanji).equals("")){
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=?";
 			k=1;
-		//名前だけで検索
 		}else if(atYear==0 || atMonth==0 || atDay==0 || !((familyNameKanji).equals("")) || !((givenNameKanji).equals(""))){
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id where family_name_kanji=? AND given_name_kanji=?";
 		    k=2;
 		}
-		//日時と名前両方で検索
-		else{sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? family_name_kanji=? AND given_name_kanji=?";
-             k=3;
+	    else if(atYear!=0 || atMonth!=0 || atDay!=0 || !((familyNameKanji).equals("")) || !((givenNameKanji).equals(""))){sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? AND family_name_kanji=? AND given_name_kanji=?";
+	          k=3;
 	    }
 		try {
 			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
@@ -80,7 +77,7 @@ public class AdminAttendanceDAO {
 				dto.setMonth(rs.getString("month"));
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
 				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
-				dto.setAttendance(rs.getInt("attendance"));
+				dto.setAttendance(rs.getString("attendance"));
 				dto.setReason(rs.getString("reason"));
 				searchList.add(dto);
 			}

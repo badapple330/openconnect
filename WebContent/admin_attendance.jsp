@@ -26,16 +26,11 @@
 
 <!-- 日付、名前検索 -->
 <s:form action="AdminAttendanceAction" method="get">
-<!-- 年 -->
-<select name="atYear" id="id_year" data-choice="year"></select>
-<!-- 月 -->
-<select name="atMonth" id="id_month" data-choice="month"></select>
-<!-- 日 -->
-<select name="atDay" id="id_day" data-choice="day"></select>
-<!-- 性 -->
-<s:textfield name="familyNameKanji" placeholder="苗字" />
-<!-- 名 -->
-<s:textfield name="givenNameKanji" placeholder="名前" />
+<select name="atYear" id="id_year" data-choice="year"><option value="">----</option></select>
+<select name="atMonth" id="id_month" data-choice="month"><option value="">----</option></select>
+<select name="atDay" id="id_day" data-choice="day"><option value="">----</option></select>
+<s:textfield name="familyNameKanji"/>
+<s:textfield name="givenNameKanji"/>
 <s:submit value="検索" class="search-btn" />
 </s:form>
 
@@ -69,7 +64,7 @@
     <s:property value="givenNameKanji"/>
   </td>
   <td>
-    <s:property value="attendance" />
+    <s:property value="attendance"/>
   </td>
   <td>
     <s:property value="reason" />
