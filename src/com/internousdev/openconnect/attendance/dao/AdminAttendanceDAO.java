@@ -43,33 +43,35 @@ public class AdminAttendanceDAO {
 
 		int k = 0;
 		String sql = null;
-		if(atYear!=0 || atMonth!=0 || atDay!=0 || !((familyNameKanji).equals("")) || !((givenNameKanji).equals(""))){
-			sql="select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? AND family_name_kanji=? AND given_name_kanji=?";
+		if(atYear!=0 && atMonth!=0 && atDay!=0 && (familyNameKanji).equals("") && (givenNameKanji).equals("")){
+			sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=?";
 			k=1;
-		}else if(atYear==0 || atMonth==0 || atDay==0 || !((familyNameKanji).equals("")) || !((givenNameKanji).equals(""))){
+		}else if(atYear==0 && atMonth==0 && atDay==0 && !((familyNameKanji).equals("")) && !((givenNameKanji).equals(""))){
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id where family_name_kanji=? AND given_name_kanji=?";
 		    k=2;
 		}
-	    else if(atYear!=0 || atMonth!=0 || atDay!=0 || (familyNameKanji).equals("") || (givenNameKanji).equals("")){
-	    	  sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=?";
+	    else if(atYear!=0 && atMonth!=0 && atDay!=0 && !((familyNameKanji).equals("")) && !((givenNameKanji).equals(""))){
+	    	  sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? AND family_name_kanji=? AND given_name_kanji=?";
 	          k=3;
 	    }
+
 		try {
 			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
-			if(k == 3){
+			if(k == 1){
 			          ps.setInt(1, atYear); //ps内の?への値のセット。第1引数には?のインデックスナンバーを指定する。第2引数にはセットする値を指定する。
 			          ps.setInt(2, atMonth);
 			          ps.setInt(3, atDay);
 			}else if(k == 2){
 				      ps.setString(1, familyNameKanji);
 		              ps.setString(2, givenNameKanji);
-			}else if(k == 1){
+			}else if(k == 3){
 				      ps.setInt(1, atYear);
 		              ps.setInt(2, atMonth);
 		              ps.setInt(3, atDay);
 		              ps.setString(4, familyNameKanji);
 		              ps.setString(5, givenNameKanji);
 			}
+
 
 			ResultSet rs = ps.executeQuery(); //SQL文の実行インターフェース。
 
