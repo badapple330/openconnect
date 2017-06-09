@@ -14,6 +14,8 @@
 		<link href='css/schedule.css' rel='stylesheet' />
         <link href='css/fullcalendar.min.css' rel='stylesheet' />
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/start/jquery-ui.css">
+        <link href='js/calendar/fullcalendar.min.css' rel='stylesheet' />
+        <link href='js/calendar/fullcalendar.print.min.css' rel='stylesheet' media='print' />
         <script src="js/calendar/calendar.js"></script>
         <script src="js/schedule.js"></script>
         <script src="js/calendar/jquery.min.js"></script>
@@ -111,7 +113,7 @@
 
 			</s:form>
 
-			<br> 開始日は今日の日付が自動で入力されます。
+			<br>予定を登録
 		<s:form action="ScheduleInsertAction">
 				<table border=1 style="">
 					<tbody>

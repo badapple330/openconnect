@@ -18,6 +18,8 @@ $(document).ready(function(){
 
 	$('#calendar').fullCalendar({
 
+		theme: true,
+
 		header: {
 			left: 'prev,next today',
 			center: 'title',
@@ -30,6 +32,8 @@ $(document).ready(function(){
 
 		// 週を月曜日からにする(０→日、１→月、２→火、３→水、４→木、５→金、６→土)
 		firstDay: 1,
+
+
 
 		// 日本語化
 		// 月名称
@@ -66,8 +70,11 @@ $(document).ready(function(){
     	        	end:data[2][2],
     	        	title:	data[2][3]
     	        }
-    	        ]
+    	        ],
+
 	});
+
+
         $('#calendar').addTouch();
 	});
 /*
@@ -97,3 +104,5 @@ $(function() {
 	//日付を押すと年-月-日の形でフォームに出力されるようにする
     $('.textcalendar').datepicker({ dateFormat: 'yy-mm-dd' });;
 });
+
+
