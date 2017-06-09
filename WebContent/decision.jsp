@@ -84,37 +84,37 @@
 							<Strong>案件名</Strong>
 						</h5>
 					</td>
-					<td>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>詳細</Strong>
 						</h5>
 					</td>
-					<td>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>実施起案番号</Strong>
 						</h5>
 					</td>
-					<td>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>実施決裁番号</Strong>
 						</h5>
 					</td>
-					<td>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>契約起案番号</Strong>
 						</h5>
 					</td>
-					<td>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>契約決番号</Strong>
 						</h5>
 					</td>
-					<td>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>実施兼契約起案番号</Strong>
 						</h5>
 					</td>
-					<td>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>実施兼契約番号</Strong>
 						</h5>
