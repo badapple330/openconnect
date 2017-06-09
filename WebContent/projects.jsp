@@ -25,7 +25,7 @@
 	<!--<div class="container"> -->
 
 
-		<h1 class="page-header" align ="center">プロジェクト一覧</h1><BR><BR>
+		<h1 class="page-header" align ="center">プロジェクト一覧</h1>
 
 
 		<!-- userflg1以下(未ログイン状態)の場合非表示 -->
@@ -176,10 +176,9 @@
 							<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
 								name="subManagerId" placeholder="半角数字で入力" maxlength="10"
 								required></td>
-							<td><input type="text"
+							<td><input type="date"
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-								title="（yyyy/MM/dd）で入力して下さい" name="startDate"
-								placeholder="例：2016/08/30" maxlength="10" required></td>
+								name="startDate" required></td>
 						</tr>
 					</table>
 					<BR>

@@ -20,7 +20,7 @@
 	<div class="center">
 		<br>
 
-		<h1 class="page-header" align ="center">プロジェクト進捗報告</h1><BR><BR>
+		<h1 class="page-header" align ="center">プロジェクト進捗報告</h1>
 
 
 

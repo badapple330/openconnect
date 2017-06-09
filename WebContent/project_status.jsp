@@ -21,7 +21,7 @@
 
 		<div class="center" align="center">
 			<br>
-			<h1 class="page-header" align ="center">プロジェクトリリース状況</h1><BR><BR>
+			<h1 class="page-header" align ="center">プロジェクトリリース状況</h1>
 		</div>
 
 
