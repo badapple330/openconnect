@@ -1,19 +1,45 @@
 .headerSpace{
 	height: 78px;
 	width: 100%;
-    background: #caf2fd;
+    background: url('');
+    background-size: cover;
     position: absolute;
 }
 
-.logo{
-	display: inline;
-	position: absolute;
-}
+/*タイトルロゴ--------------------------------*/
+
 
 .openConnect{
-	width: 200px;
-	position: relative;
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1em;
+  font-size: 30px;
+  text-decoration: none;
+  color: #3595db;
+  transition: .5s;
 }
+.openConnect:hover {
+    color:#ffffff;
+}
+
+.openConnect:before,.square_btn35:after{
+  position: absolute;
+  top: 0;
+  content:'';
+  width: 8px;
+  height: 100%;
+  display: inline-block;
+}
+.openConnect:before{
+  border-left: solid 10px #0080c0;
+  border-right: solid 10px #82bcf7;
+  border-top: solid 100px #82bcf7;
+  border-bottom: solid 1px #82bcf7;
+  left: 0;
+}
+
+
+/*タイトルロゴここまで-------------------------*/
 
 .menuGroup{
 	width: 100%;
@@ -55,18 +81,37 @@
 .menuElement{
 }
 
-.formButton{
-	display: inline;
+
+/*ボタンデザイン--------------------------------*/
+
+.part_line{
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.5em 0.8em;
+    text-decoration: none;
+    border-bottom: solid 2px #668ad8;
+    border-left: solid 2px #668ad8;
+    color: #668ad8;
+    transition: .4s;
+    }
+
+.part_line:hover {
+    padding-left: 0.9em;
+    padding-right: 0.3em;
 }
 
+/*ボタンデザインここまで-------------------------*/
+
 #location{
-	width: 140px;
-	height: 75px;
+	width: 50px;
+	height: 40px;
 }
 
 #selectBer{
-	width: 230px;
-	height: 75px;
-	font-size: 20px;
-	font-weight:bold;
+	width: 240px;
+	height: 40px;
+	font-size: 15px;
+	font-weight: bold;
+	align: center;
 }

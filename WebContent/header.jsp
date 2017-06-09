@@ -29,34 +29,28 @@
 
 	<!-- ヘッダー -->
 
-					<div class="headerSpace">
-					<h1 class="logo">
+					<div id="headerSpace">
+					<h1 class="container">
 						<a href="index.jsp" class="openConnect">Open Connect</a>
 					</h1>
 
 
 						<div class="menuGroup">
+						<div class="container">
 						<s:if test="%{#session.userFlg == null}">
-							<form action="GoLoginAction" class="formButton">
-								<input type="submit" class="menu" value="ログイン">
-							</form>
+						<a href="GoLoginAction" class="part_line">■ Login</a>
 						</s:if>
+						</div>
 
 						<s:if test="%{#session.userFlg != null}">
-							<form action="GoLogoutAction" class="formButton">
-								<input type="submit" class="menu" value="ログアウト">
-							</form>
+						<a href="GoLogoutAction" class="part_line">■ Logout</a>
+ 						</s:if>
 
-						</s:if>
 						<s:if test="%{#session.userFlg == 3}">
-							<form action="GoAdminAction" class="formButton">
-								<input type="submit" class="menu" value="管理者画面">
-							</form>
-							<form action="GoRegisterAction" class="formButton">
-								<input type="submit" class="menu" value="新規登録">
-							</form>
-						</s:if>
+					    <a href="GoAdminAction" class="part_line">■ 管理者 </a>
 
+					    <a href="GoRegisterAction" class="part_line">■ 新規登録</a>
+						</s:if>
 
 <s:if test="%{#session.userFlg >= 1}">
 					<select name="pulldown2" id="selectBer">
@@ -77,7 +71,6 @@
 					</select>
 					<input type="button" id="location" value="移動">
 				</s:if>
-
 						</div>
 				<!-- 				<dl id="menuElementGroup"> -->
 				<!-- 				<dd><a href="ProjectsSelectAction" class="menuElement">プロジェクト一覧</a></dd> -->
@@ -94,9 +87,7 @@
 				<!-- 				<dd><a href="BooksBorrowSelectAction" class="menuElement">書籍貸し出し</a></dd> -->
 				<!-- 				<dd><a href="ScheduleSelectAction" class="menuElement">スケジュール一覧</a></dd> -->
 				<!-- 				</dl> -->
-
 					</div>
-
 	<!-- ヘッダーはここまで -->
 <br>
 <br>
