@@ -1,39 +1,20 @@
-@CHARSET "UTF-8";
-
-body {
-	background-image: url("../img/umi.jpg");
-	background-size: 100% 150%;
-	color: #ccffcc;
+#slideshow {
+   position: relative;
+   width:  640px; /* 画像の横幅に合わせて記述 */
+   height: 270px; /* 画像の高さに合わせて記述 */
 }
-
-.midashi {
-	text-align: center;
-	font-size: 500%;
+#slideshow img {
+   position: absolute;
+   top: 0;
+   left:0;
+   z-index: 8;
+   opacity: 0.0;
 }
-
-.list {
-	text-align: center;
-	color: #FFFFFF;
-	font-size: 300%;
+#slideshow img.active {
+   z-index: 10;
+   opacity: 1.0;
 }
-
-#in {
-	position: relative;
-	width: 100%;
-	height: 30px;
-	margin: 10 auto;
-	text-align: center;
-}
-
-#in .logout {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	margin: -1.5em 0 0 -50%;
-}
-
-#in input[type="submit"] {
-	font-size: 200%
+#slideshow img.last-active {
+   z-index: 9;
 }
 
