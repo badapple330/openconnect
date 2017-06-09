@@ -18,8 +18,10 @@
 
 </head>
 <body>
-<!--
+
 <jsp:include page="header.jsp" />
+
+  <!--
     <div class="container">
       <h1 class="page-header">アプリ一覧</h1>
 	  <s:iterator value="siteInfoList">
@@ -34,7 +36,7 @@
 
 
 <!-- 画像スライドショー -->
-<div align="center">
+<div class="container">
 <table border>
 <tr>
 <td>
