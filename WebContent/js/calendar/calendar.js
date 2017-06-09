@@ -3,6 +3,19 @@ $(document).ready(function(){
 
 	$('#memo').hide();
 
+	var data = [];
+	var tr = $("#schedule tr");//テーブルの全行を取得
+	for( var i=0,l=tr.length;i<l;i++ ){
+	 var cells = tr.eq(i).children();//1行目から順番に列を取得(th、td)
+	 for( var j=0,m=cells.length;j<m;j++ ){
+	 if( typeof data[i] == "undefined" )
+	 data[i] = [];
+	 data[i][j] = cells.eq(j).text();//i行目j列の文字列を取得
+	 }
+	}
+
+
+
 	$('#calendar').fullCalendar({
 
 		header: {

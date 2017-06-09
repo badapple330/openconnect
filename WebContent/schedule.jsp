@@ -15,6 +15,7 @@
         <link href='css/fullcalendar.min.css' rel='stylesheet' />
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/start/jquery-ui.css">
         <script src="js/calendar/calendar.js"></script>
+        <script src="js/schedule.js"></script>
         <script src="js/calendar/jquery.min.js"></script>
         <script src="js/calendar/jquery-ui.min.js"></script>
         <script src="js/calendar/moment.min.js"></script>
@@ -181,7 +182,7 @@
 		</s:if>
 		<br>
 		<s:form action="GetAddressAction">
-			<button type="submit" class="button">戻る</button>
+			<button type="submit" class="button">トップへ戻る</button>
 		</s:form>
 </div>
 </body>
