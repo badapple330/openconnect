@@ -16,10 +16,10 @@
   font-size: 30px;
   text-decoration: none;
   color: #3595db;
-  transition: .5s;
+  transition: .6s;
 }
 .openConnect:hover {
-    color:#ffffff;
+    color:#ff8080;
 }
 
 .openConnect:before,.square_btn35:after{

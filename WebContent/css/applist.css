@@ -1,20 +1,13 @@
-#slideshow {
-   position: relative;
-   width:  640px; /* 画像の横幅に合わせて記述 */
-   height: 270px; /* 画像の高さに合わせて記述 */
+/*逕ｻ蜒上せ繝ｩ繧､繝峨す繝ｧ繝ｼ------------------------*/
+
+.fadeout{
+opacity: 0;
+transition: 3s ease-in-out;
+-webkit-transition: 3s ease-in-out;
 }
-#slideshow img {
-   position: absolute;
-   top: 0;
-   left:0;
-   z-index: 8;
-   opacity: 0.0;
-}
-#slideshow img.active {
-   z-index: 10;
-   opacity: 1.0;
-}
-#slideshow img.last-active {
-   z-index: 9;
+.fadein{
+opacity: 1;
+transition: 3s ease-in-out;
+-webkit-transition: 3s ease-in-out;
 }
 
