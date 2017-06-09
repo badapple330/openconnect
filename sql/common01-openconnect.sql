@@ -46,16 +46,6 @@ book_id int primary key not null auto_increment comment 'ブックID',
 title varchar(100) not null unique comment 'タイトル'
 );
 
-
-create table books_borrow(
-book_id int not null comment 'ブックID',
-borrow_status varchar(10) comment '貸出状況',
-borrow_day date comment '貸出日',
-borrow_id int comment '貸し出しID',
-foreign key(book_id) references books(book_id) on update cascade on delete cascade,
-foreign key(borrow_id) references users(user_id) on update cascade on delete cascade
-);
-
 create table decision(
 registration date comment '登録日',
 user_id int comment 'ユーザーID',
