@@ -66,9 +66,9 @@ $(document).ready(function(){
 
         events:[
     	        {
-    	        	start:data[2][1],
-    	        	end:data[2][2],
-    	        	title:	data[2][3]
+    	        	start:data[1][1],
+    	        	end:data[1][2],
+    	        	title:	data[1][3]
     	        }
     	        ],
 
