@@ -66,7 +66,6 @@
 							<option value="DecisionApplicationSelectAction">決済手続き申請一覧</option>
 						</s:if>
 						<option value="BooksSelectAction">書籍一覧</option>
-						<option value="BooksBorrowSelectAction">書籍貸し出し</option>
 						<option value="ScheduleSelectAction">スケジュール一覧</option>
 					</select>
 					<input type="button" id="location" value="移動">
