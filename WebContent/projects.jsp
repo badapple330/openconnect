@@ -30,7 +30,7 @@
 
 		<!-- userflg1以下(未ログイン状態)の場合非表示 -->
 		<!-- userflg1以上(ログイン状態)の場合表示 -->
-		<!-- userflg50のみ編集・削除・追加が可能（仕様）-->
+		<!-- userflg3のみ編集・削除・追加が可能（仕様）-->
 
 
 		<s:iterator value="siteInfoList">
@@ -134,7 +134,7 @@
 
 
 
-<!-- flg判定 -->			<td><s:if test="%{#session.userFlg >= 50}">
+<!-- flg判定 -->			<td><s:if test="%{#session.userFlg == 3}">
 										<input type="button" value="削除" class="modal-open">
 									</s:if></td>
 
@@ -145,14 +145,14 @@
 				</table>
 				<BR>
 
-<!-- flg判定 -->	<s:if test="%{#session.userFlg == 50}">
+<!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
         <div align="center">
       	<input class="button" type="submit" value="編集完了">
       	</div><BR><BR>
 				</s:if>
 			</s:form>
 			<br>
-<!-- flg判定 -->	<s:if test="%{#session.userFlg == 50}">
+<!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
 				<s:form action="ProjectsInsertAction">
 					<table border="1" align ="center">
 

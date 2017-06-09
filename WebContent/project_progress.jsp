@@ -24,18 +24,18 @@
 
 
 
-		<!-- userflg10以下は表示不可 -->
-		<!-- userflg11以上50未満は追加のみ可能 -->
+		<!-- userflg1以下は表示不可 -->
+		<!-- userflg1以上は追加のみ可能 -->
 		<!-- userflg50のみ追加・編集・削除可能 -->
 
 
 
-<!-- flg判定 -->  <s:if test="%{#session.userFlg <= 10}">
+<!-- flg判定 -->  <s:if test="%{#session.userFlg < 1}">
 			<h1 align="center">ログイン後に表示されます。</h1>
 			<BR><BR><BR>
 		</s:if>
 	</div>
-<!-- flg判定 -->	<s:if test="%{#session.userFlg >10}">
+<!-- flg判定 -->	<s:if test="%{#session.userFlg >= 1}">
 	 <div align ="center">
 		<s:form action="ProjectProgressSelectAction">
 		--- プロジェクト名を入力 ---<br>
@@ -101,7 +101,7 @@
 							<td><s:property value="startDate" /></td>
 							<td><s:property value="endDate" /></td>
 							<td><s:property value="note" /></td>
-							<td><s:if test="%{#session.userFlg == 50}">
+							<td><s:if test="%{#session.userFlg == 3}">
 <!-- flg判定 -->					<input type="button" class="button modal-open" value="削除" />
 								</s:if></td>
 						</tr>
@@ -111,7 +111,7 @@
 
 			</table>
 
-<!-- flg判定 -->			<s:if test="%{#session.userFlg == 50}"><BR>
+<!-- flg判定 -->			<s:if test="%{#session.userFlg == 3}"><BR>
 			<div align="center">
 				<input type="submit" class="button" value="編集完了" />
 			</div>
