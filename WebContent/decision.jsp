@@ -48,27 +48,27 @@
 			<table border="1"width="150%" style="table-layout: auto;">
 				<tr>
 					<!-- 一覧 -->
-					
-					
+
+
 					<td bgcolor="#66FF33">登録日</td>
 
                     <td>ユーザーID </td>
 
 					<td bgcolor="#66FF33">
-						
+
 							<Strong>   姓   </Strong>
-						
+
 
 					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>   名   </Strong>
 						</h5>
 
-					<td bgcolor="#66FF33>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>プロジェクトID</Strong>
 						</h5>
-					
+
 					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>プロジェクト名</Strong>
@@ -79,7 +79,7 @@
 							<Strong>案件番号</Strong>
 						</h5>
 					</td>
-					<td>
+					<td bgcolor="#66FF33">
 						<h5>
 							<Strong>案件名</Strong>
 						</h5>
