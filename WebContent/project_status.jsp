@@ -27,7 +27,7 @@
 
 		<!-- userflg1以下(未ログイン状態)の場合非表示 -->
 		<!-- userflg1以上(ログイン状態)の場合表示 -->
-		<!-- userflg50のみ編集可能（仕様）-->
+		<!-- userflg3のみ編集可能（仕様）-->
 
 
 <!-- flg判定 -->	<s:if test="%{#session.userFlg < 1}">
@@ -115,7 +115,7 @@
 				<br>
 
 
-<!-- flg判定 -->	<s:if test="%{#session.userFlg == 50}"><BR>
+<!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}"><BR>
 				<div align="center">
 					<input type="submit" class="button" value="編集完了" />
 					</div>
