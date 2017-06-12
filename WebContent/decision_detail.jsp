@@ -23,24 +23,40 @@
 			<br>
 			<!-- 一覧表示 -->
 			<h1>決裁手続き一覧</h1>
-			ログイン中ユーザー：<s:property value="#session.user" /><br><br>
+			ログイン中ユーザー：<s:property value="#session.user" /><br>ID:<s:property value="#session.userId" /><br>
 
 
 			<s:form action="DecisionDetailSelectAction">
 				プロジェクト検索
 				<input type="text" placeholder="例：rewrite" name="searchString"
 					maxlength=30>
+
 				<s:submit value="検索" />
 			</s:form>
 
 			<br><font color="red">
 			<s:property value="%{resultString}" />
-			<s:property value="%{resultSelect}" /></font>
+			<s:property value="%{resultSelect1}" />
+			<s:property value="%{resultSelect2}" /></font>
+
+<s:iterator value="decisionBeginList">
+<s:property value="projectName" /><s:property value="managerId" /><s:property value="subManagerId" />
+</s:iterator>
 
 
 
 
-	<!-- 	決済リスト表示 -->
+
+
+
+
+
+	<!-- リーダー自プロジェクト表示用 -->
+		<s:if test="%{#session.userFlg == 2}">
+
+			<s:if test="{decisionDetailList2.size > 0}">
+			<s:iterator value="decisionDetailList2">
+
 		<table border="1">
 				<tr>
 					<th>決済ID</th>
@@ -78,11 +94,6 @@
 
                 </tr>
 
-
-
-		<!-- リーダー自プロジェクト表示用 -->
-			<s:if test="%{#session.userFlg == 2}">
-				<s:iterator value="decisionDetailList2">
 				<tr>
 				<!-- 決済ID -->
 						<td class="decision_id">
@@ -174,10 +185,12 @@
 									<input type="submit" value="申請">
 							</s:form>
 							</s:if>
-							<s:if test="%{decisionStatus1 == 1 || decisionStatus2 == 1}">
+							<s:elseif test="%{decisionStatus1 == 1 || decisionStatus2 == 1}">
 								承認待ち
-							</s:if>
+							</s:elseif>
+							<s:else>
 								承認済み
+							</s:else>
 						</td>
 
 
@@ -199,13 +212,87 @@
 
 				    </tr>
 
-				</s:iterator>
+			</table>
+
+			</s:iterator>
 			</s:if>
+
+			<s:else>
+    	<div class="pad">
+            <s:form action="DecisionDetailInsertAction">
+					案件の追加<br>あなたのプロジェクトは...
+			<table>
+				<tr>
+					<td>プロジェクト名：</td>
+					<td><s:property value="projectName" /></td>
+				</tr>
+				<tr>
+					<td>リーダーID：</td>
+					<td><s:property value="managerId" /></td>
+				</tr>
+				<tr>
+					<td>サブリーダーID：</td>
+					<td><s:property value="subManagerId" /></td>
+				</tr>
+				<tr>
+					<td>実施兼契約決裁で<br>行う場合のみチェック<br>
+						<input type="checkbox" name="decisionType" value="実施兼契約">
+					</td>
+					<td><input type="hidden" name="projectId" value="<s:property value="projectId" />">
+						<input type="submit" value="追加(決済資料を作る)">
+					</td>
+				</tr>
+
+			</table>
+
+			</s:form>
+    	</div>
+
+			</s:else>
+	</s:if>
 
 
 
 
 		<!-- 通常表示用 -->
+		<s:if test="{#session.userFlg == 2 && #session.userId != managerId && #session.userId != subManagerId}">
+			<table border="1">
+				<tr>
+					<th>決済ID</th>
+
+                    <th>プロジェクトID</th>
+					<th>案件名</th>
+					<th>プロジェクト名</th>
+
+					<th>決裁種類</th>
+                    <th>決済状況</th>
+
+					<th>
+						<s:if test="%{#session.userFlg == 2}">
+						編集/プレビューボタン
+						</s:if>
+						<s:else>
+						プレビューボタン
+						</s:else>
+					</th>
+
+				<s:if test="%{#session.userFlg >= 2}">
+					<th>申請ボタン</th>
+
+					<th>承認ボタン</th>
+					<th>差し戻しボタン</th>
+					<th>
+						<s:if test="%{#session.userFlg == 3}">
+						却下ボタン
+						</s:if>
+						<s:else>
+						変更ボタン
+						</s:else>
+					</th>
+				</s:if>
+
+                </tr>
+
 				<s:iterator value="decisionDetailList1">
 					<tr>
 				<!-- 決済ID -->
@@ -248,8 +335,6 @@
 									変更中
 								</s:elseif>
 
-
-           				<!-- <s:property value="decisionStatus1" /> -->
                         	</s:if>
                        		<s:else>
                        			<s:if test="decisionStatus2 == 0">
@@ -265,8 +350,6 @@
 									変更中
 								</s:elseif>
 
-
-            			<!-- <s:property value="decisionStatus2" /> -->
                         	</s:else>
                         </td>
 
@@ -290,13 +373,20 @@
 				<!-- 承認ボタン -->
 						<td>
 
+							<s:if test="%{#session.userId != managerId && #session.userId != subManagerId}">
+							<a href=".jsp"><input type="button" value="承認" /></a>
+
+							</s:if>
+							<s:else>
+							dammy
+							</s:else>
 
 
 
 
 
 
-                            <a href=".jsp"><input type="button" value="承認" /></a>
+
                         </td>
 				<!-- 差し戻しボタン -->
 						<td>
@@ -319,34 +409,15 @@
 				</s:iterator>
 
 		</table>
-
-
-
+	</s:if>
 
 <br><br>
 
-
-
-<s:if test="%{#session.userFlg >= 2}">
-    <div class="pad">
-            <s:form action="DecisionDetailInsertAction">
-					案件の追加<br>
-						<input type="text" name="projectName" placeholder="プロジェクト名" required>
-						実施兼契約決裁で行う場合のみチェック
-						<input type="checkbox" name="decisionType" value="実施兼契約決裁"><br>
-						<input type="submit" value="追加">
-			</s:form>
-    </div>
 </s:if>
 
-
-
-
-</s:if>
-
-	<s:else>
-			ログイン後に表示します。
-	</s:else>
+<s:else>
+	ログイン後に表示します。
+</s:else>
 
 	<!-- 	戻る -->
 	<s:form action="GetAddressAction">

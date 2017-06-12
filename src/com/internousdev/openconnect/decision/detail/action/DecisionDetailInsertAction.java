@@ -28,9 +28,9 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	 */
 	private int projectId;
 	/**
-	 * パスワード
+	 * 決済種類
 	 */
-	private String password;
+	private String decisionType;
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -45,7 +45,7 @@ public class DecisionDetailInsertAction extends ActionSupport{
 		String result=ERROR;
 		DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();
 		int count = 0;
-		count = dao.insert(projectId,password);
+		count = dao.insert(projectId, decisionType);
 		if (count > 0) {
 			result = SUCCESS;
 			resultString = "追加できました。";
@@ -71,21 +71,21 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	}
 
 	/**
-	* 取得メソッド パスワードを取得
-	* @author TATUHUMI ITOU
-	* @return password
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return decisionType
 	*/
-	public String getPassword() {
-		return password;
+	public String getDecisionType() {
+		return decisionType;
 	}
 
 	/**
-	* 設定メソッド パスワードを設定
-	* @author TATUHUMI ITOU
-	* @param password
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param decisionType
 	*/
-	public void setPassword(String password) {
-		this.password = password;
+	public void setDecisionType(String decisionType) {
+		this.decisionType = decisionType;
 	}
 
 	/**

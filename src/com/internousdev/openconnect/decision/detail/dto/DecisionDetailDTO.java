@@ -35,6 +35,10 @@ public class DecisionDetailDTO {
 	 */
 	private int userId;
 	/**
+	 *  ユーザーID1
+	 */
+	private int userId1;
+	/**
 	 *  リーダーID
 	 */
 	private int managerId;
@@ -395,6 +399,22 @@ public class DecisionDetailDTO {
 	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return userId1
+	*/
+	public int getUserId1() {
+		return userId1;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param userId1
+	*/
+	public void setUserId1(int userId1) {
+		this.userId1 = userId1;
 	}
 	/**
 	 * 取得メソッド 概要を取得

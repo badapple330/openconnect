@@ -50,8 +50,8 @@
 
     </s:if>
 
-	<div class="page_content_base_msg2">
-		<div class="pad f_left msg">
+
+		<div class="pad f_left">
 			<s:form action="BooksSelectAction">
 			未入力で全件表示<br>
 				<input type="text" name="search" maxlength="50"
@@ -61,26 +61,23 @@
 		</div>
 
 
-		<div class="pad f_left srch">
-			イニシャルサーチ
+		<div class="pad f_left">
+			<div class="center">イニシャルサーチ</div>
 			<s:iterator value="searchList">
 				[<a href="#<s:property value="initial" />"><s:property value="initial" /></a>]
-			</s:iterator><br>
-			イニシャルサーチ
-				<script>eigo(); kana();</script>
-
+			</s:iterator>
 		</div>
-
+<br><br><br>
 
 
 	<!-- メッセージ表示箇所 -->
 		<div class="search_report">
-
+			<div class="center">
 				<p><b><font color="red">
 					<s:property value="%{resultString}" /><br>
 					<s:property value="%{resultSelect}" />
 				</font></b></p>
-
+			</div>
 			<div class="f_left">
 				検索結果【<s:property value="bookList.size()"/>】<span>　　</span>
 				検索ワード「<s:property value="search"/>」
@@ -88,8 +85,7 @@
 			<div class="f_right">
 				ページ【<s:property value="currentPage+1"/>/<s:property value="pageCount"/>】
 			</div>
-		</div>
-	</div><br>
+		</div><br>
 
 
 <div class="page_content_frame">
