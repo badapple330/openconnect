@@ -48,6 +48,14 @@
 			<result name="error">admin_attendance.jsp</result>
 		</action>
 
+		<action name="GoAdminAttendanceAction"
+			class="com.internousdev.openconnect.attendance.action.GoAdminAttendanceAction"
+			method="execute">
+			<result name="success">admin_attendance.jsp</result>
+			<result name="error">admin_attendance.jsp</result>
+		</action>
+
+
 		<action name="TwitterLogin"
 			class="com.internousdev.openconnect.action.GoTwitterAction" method="execute">
 			<result name="success">/applist.jsp</result>

@@ -90,5 +90,12 @@
 </table>
 </div>
 
+<!-- 新規登録ボタン -->
+<BR><BR><BR><BR>
+<div align="center">
+<a href="GoRegisterAction" class="square_btn">新規登録はこちら</a>
+</div>
+
+
 </body>
 </html>

@@ -41,8 +41,8 @@
 <tr>
 <td>
 <div align="center">
-<img id="idshow1" class="fadeout" style="position:absolute;" src="img/top.jpg" width="800" height="500">
-<img id="idshow2" class="fadein" src="img/sity.jpg" width="800" height="500">
+<img id="idshow1" class="fadeout" style="position:absolute;" src="img/top.jpg" width="700" height="500">
+<img id="idshow2" class="fadein" src="img/sity.jpg" width="700" height="500">
 
 <script type="text/javascript"><!--
 myChange();
@@ -64,8 +64,10 @@ myChange();
 </td>
 </tr>
 </table>
-</div><BR><BR>
+<BR>
 
+
+</div><BR><BR>
 
 
 </body>

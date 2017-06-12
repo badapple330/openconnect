@@ -32,11 +32,16 @@
 					<div id="headerSpace">
 					<h1 class="container">
 						<a href="index.jsp" class="openConnect">Open Connect</a>
+
+			   <!-- internousdevのロゴ -->
+               <TABLE border="1" bordercolor="grey" align="right">
+               <tr><td>
+               <a href=""><img src="img/hd_logo.jpg"></a>
+               </td></tr></table>
+
 					</h1>
-
-
+                        <div class="container" align="right">
 						<div class="menuGroup">
-						<div class="container">
 						<s:if test="%{#session.userFlg == null}">
 						<a href="GoLoginAction" class="part_line">■ Login</a>
 						</s:if>
@@ -49,10 +54,10 @@
 						<s:if test="%{#session.userFlg == 3}">
 					    <a href="GoAdminAction" class="part_line">■ 管理者 </a>
 
-					    <a href="GoRegisterAction" class="part_line">■ 新規登録</a>
 						</s:if>
 
 <s:if test="%{#session.userFlg >= 1}">
+
 					<select name="pulldown2" id="selectBer">
 						<option value="">移動先を選択</option>
 						<option value="ProjectsSelectAction">プロジェクト一覧</option>
@@ -60,15 +65,19 @@
 						<option value="ProjectProgressSelectAction">プロジェクト進捗報告</option>
 						<option value="StudentsSelectAction">受講生一覧</option>
 						<option value="GoAttendanceAction">勤怠更新</option>
+						<s:if test="%{#session.userFlg  >= 3}">
+						<option value="GoAdminAttendanceAction">勤怠確認</option>
+						</s:if>
 						<option value="DecisionSelectAction">決裁一覧状況</option>
 						<option value="DecisionDetailSelectAction">決裁手続き</option>
-						<s:if test="%{#session.userFlg  >= 50}">
+						<s:if test="%{#session.userFlg  >= 3}">
 							<option value="DecisionApplicationSelectAction">決済手続き申請一覧</option>
 						</s:if>
 						<option value="BooksSelectAction">書籍一覧</option>
 						<option value="ScheduleSelectAction">スケジュール一覧</option>
 					</select>
 					<input type="button" id="location" value="移動">
+
 				</s:if>
 						</div>
 				<!-- 				<dl id="menuElementGroup"> -->
