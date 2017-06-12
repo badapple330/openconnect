@@ -54,7 +54,7 @@ public class AdminAttendanceDAO {
 	    	  sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? AND family_name_kanji=? AND given_name_kanji=?";
 	          k=3;
 	    }
-
+		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
 			if(k == 1){
