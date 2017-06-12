@@ -4,6 +4,8 @@
 package com.internousdev.openconnect.decision.detail.action;
 
 
+import java.util.Map;
+
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
@@ -28,7 +30,11 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	/**
 	 * パスワード
 	 */
-private String password;
+	private String password;
+	/**
+	 * 管理者権限メソッド
+	 */
+	public Map<String, Object> session;
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -98,6 +104,24 @@ private String password;
 	*/
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 

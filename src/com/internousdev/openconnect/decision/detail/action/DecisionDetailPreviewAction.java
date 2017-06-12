@@ -3,6 +3,7 @@ package com.internousdev.openconnect.decision.detail.action;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailPreviewDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
@@ -32,6 +33,11 @@ public class DecisionDetailPreviewAction extends ActionSupport {
 	 * シリアルバージョンID
 	 */
 	private static final long serialVersionUID = -7586577377473680450L;
+	/**
+	 * 管理者権限メソッド
+	 */
+	public Map<String, Object> session;
+
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -132,6 +138,22 @@ public class DecisionDetailPreviewAction extends ActionSupport {
 	*/
 	public void setDownloadList(List<DecisionDetailDownloadDTO> downloadList) {
 		this.downloadList = downloadList;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 }

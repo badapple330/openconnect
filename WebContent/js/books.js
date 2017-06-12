@@ -3,18 +3,6 @@
  */
 
 
-$(function() {
-	$(".delete-true").click(function(){
-		$(".delete-prepare").fadeIn();
-	});
-});
-
-$(function() {
-	$(".modal-close").click(function(){
-		$(".delete-prepare").fadeOut();
-	});
-});
-
 
 $(function(){
 	  //テキストリンクをクリックしたら
@@ -64,4 +52,34 @@ $(function(){
 	        }
 	    });
 	});
+
+
+
+
+//イニシャルサーチ項目リンクの生成
+//アスキーコードからアルファベット抽出
+function eigo() {
+    document.write('<div><table class="center"><tr>');
+  for(var i = 65; i<=90; i++) {
+
+      var str1 = String.fromCharCode(i);
+      document.write('<td><a href="#' + str1 + '">' + str1 + "</a></td>");
+      if(i == 12 + 65) {
+          document.write("</tr><tr>");
+      }
+
+  }
+    document.write("</tr>");
+}
+//カナ
+  function kana() {
+      document.write("<tr>");
+  for(var i = 0; i<=9; i++) {
+      var str2 = new Array("ア","カ","サ","タ","ナ","ハ","マ","ヤ","ラ","ワ");
+
+      document.write('<td><a href="#' + str2[i] + '">' + str2[i] + "</a></td>");
+
+  }
+  document.write('<td colspan="3"><a href="#その他">その他</a></td></tr></div>');
+}
 

@@ -19,21 +19,34 @@ public class DecisionDetailDTO {
 	 */
 	private String day;
 	/**
-	 *  決裁分類
+	 *  決裁種類
 	 */
 	private String decisionType;
 	/**
-	 *  決裁状況
+	 *  実施決裁状況
 	 */
-	private String decisionStatus;
+	private int decisionStatus1;
+	/**
+	 *  契約/実施兼契約決裁状況
+	 */
+	private int decisionStatus2;
 	/**
 	 *  ユーザーID
 	 */
 	private int userId;
 	/**
+	 *  リーダーID
+	 */
+	private int managerId;
+
+	/**
+	 *  サブリーダーID
+	 */
+	private int subManagerId;
+	/**
 	 *  案件名
 	 */
-	private String itemName;
+	private String decisionName;
 	/**
 	 *  概要
 	 */
@@ -109,6 +122,54 @@ public class DecisionDetailDTO {
 
 
 
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return decisionName
+	*/
+	public String getDecisionName() {
+		return decisionName;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param decisionName
+	*/
+	public void setDecisionName(String decisionName) {
+		this.decisionName = decisionName;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return managerId
+	*/
+	public int getManagerId() {
+		return managerId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param managerId
+	*/
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return subManagerId
+	*/
+	public int getSubManagerId() {
+		return subManagerId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param subManagerId
+	*/
+	public void setSubManagerId(int subManagerId) {
+		this.subManagerId = subManagerId;
+	}
 
 	/**
 	* 取得メソッド
@@ -288,20 +349,36 @@ public class DecisionDetailDTO {
 		this.decisionType = decisionType;
 	}
 	/**
-	 * 取得メソッド 決裁状況を取得
-	 * @author TATUHUMI ITOU
-	 * @return decisionStatus
-	 */
-	public String getDecisionStatus() {
-		return decisionStatus;
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return decisionStatus1
+	*/
+	public int getDecisionStatus1() {
+		return decisionStatus1;
 	}
 	/**
-	 * 設定メソッド 決裁状況を設定
-	 * @author TATUHUMI ITOU
-	 * @param decisionStatus
-	 */
-	public void setDecisionStatus(String decisionStatus) {
-		this.decisionStatus = decisionStatus;
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param decisionStatus1
+	*/
+	public void setDecisionStatus1(int decisionStatus1) {
+		this.decisionStatus1 = decisionStatus1;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return decisionStatus2
+	*/
+	public int getDecisionStatus2() {
+		return decisionStatus2;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param decisionStatus2
+	*/
+	public void setDecisionStatus2(int decisionStatus2) {
+		this.decisionStatus2 = decisionStatus2;
 	}
 	/**
 	 * 取得メソッド ユーザーIDを取得
@@ -318,22 +395,6 @@ public class DecisionDetailDTO {
 	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-	/**
-	 * 取得メソッド 案件名を取得
-	 * @author TATUHUMI ITOU
-	 * @return itemName
-	 */
-	public String getItemName() {
-		return itemName;
-	}
-	/**
-	 * 設定メソッド 案件名を設定
-	 * @author TATUHUMI ITOU
-	 * @param itemName
-	 */
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
 	}
 	/**
 	 * 取得メソッド 概要を取得

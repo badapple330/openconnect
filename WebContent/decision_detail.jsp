@@ -17,203 +17,344 @@
 		<!-- 	ヘッダー読み込み -->
 		<jsp:include page="header.jsp" />
 
-<s:if test="%{#session.userFlg < 10}">
-			ログイン後に表示します。
-		</s:if>
-<s:if test="%{#session.userFlg >= 10}">
-		<div class="container">
+<div class="container">
+<s:if test="%{#session.userFlg >= 1}">
+
 			<br>
 			<!-- 一覧表示 -->
 			<h1>決裁手続き一覧</h1>
-			<br>
+			ログイン中ユーザー：<s:property value="#session.user" /><br><br>
 
 
 			<s:form action="DecisionDetailSelectAction">
-	プロジェクト検索<input type="text" placeholder="例：rewrite" name="searchString"
+				プロジェクト検索
+				<input type="text" placeholder="例：rewrite" name="searchString"
 					maxlength=30>
 				<s:submit value="検索" />
 			</s:form>
-			<br>
+
+			<br><font color="red">
 			<s:property value="%{resultString}" />
-			<s:property value="%{resultSelect}" />
-			<!-- 	リスト表示 -->
-			<table border="1">
+			<s:property value="%{resultSelect}" /></font>
+
+
+
+
+	<!-- 	決済リスト表示 -->
+		<table border="1">
 				<tr>
-					<th>ID</th>
-					<th><div class="smallWidth">プロジェクトID</div></th>
-					<th></th>
-					<th><div class="middleWidth">案件番号</div></th>
-					<th><div class="bigWidth">プロジェクト名</div></th>
-					<th><div class="middleWidth">決裁分類</div></th>
-					<th><div class="bigWidth">申請・承認状況</div></th>
-					<th><s:if test="%{#session.userFlg  >= 50}">編集</s:if></th>
-					<th><s:if test="%{#session.userFlg  >= 50}">申請</s:if></th>
-					<th><s:if test="%{#session.userFlg  >= 50}">削除</s:if></th>
-					<th><div class="middleWidth">プレビュー</div></th>
-				</tr>
+					<th>決済ID</th>
 
-				<s:iterator value="decisionDetailList">
-					<tr>
+                    <th>プロジェクトID</th>
+					<th>案件名</th>
+					<th>プロジェクト名</th>
 
-						<td class="decision_detail_id"><s:property
-								value="decisionDetailId" /></td>
-						<td><s:property value="projectId" /></td>
-						<td><input type="hidden"
-							value="<s:property value="decisionId" />" class="decision_id" /></td>
-						<td><s:property value="decisionIdNumber" /></td>
-						<td class="decision_name"><s:property value="projectName" /></td>
-						<td class="decision_type"><s:property value="decisionType" /></td>
-						<td class="decision_status"><s:property
-								value="decisionStatus" /></td>
-						<td><s:if test="%{#session.userFlg  >= 50}">
-								<input type="button" value="編集" class="modal-edit-open">
-							</s:if></td>
-						<td><s:if test="%{#session.userFlg  >= 50}">
-								<s:if test="%{decisionStatus=='承認'}">
-									<input type="button" value="申請" />
+					<th>決裁種類</th>
+                    <th>決済状況</th>
+
+					<th>
+						<s:if test="%{#session.userFlg == 2}">
+						編集/プレビューボタン
+						</s:if>
+						<s:else>
+						プレビューボタン
+						</s:else>
+					</th>
+
+				<s:if test="%{#session.userFlg >= 2}">
+					<th>申請ボタン</th>
+
+					<th>承認ボタン</th>
+					<th>差し戻しボタン</th>
+					<th>
+						<s:if test="%{#session.userFlg == 3}">
+						却下ボタン
+						</s:if>
+						<s:else>
+						変更ボタン
+						</s:else>
+					</th>
+				</s:if>
+
+                </tr>
+
+
+
+		<!-- リーダー自プロジェクト表示用 -->
+			<s:if test="%{#session.userFlg == 2}">
+				<s:iterator value="decisionDetailList2">
+				<tr>
+				<!-- 決済ID -->
+						<td class="decision_id">
+							<s:property value="decisionId" />
+						</td>
+
+
+				<!-- プロジェクトID -->
+						<td class="project_id">
+							<s:property value="projectId" />
+						</td>
+				<!-- 案件名 -->
+						<td>
+							<s:property value="decisionName" />
+						</td>
+				<!-- プロジェクト名 -->
+						<td class="project_name">
+							<s:property value="projectName" />
+						</td>
+
+
+				<!-- 決済種類 -->
+						<td class="decision_type">
+                            <s:property value="decisionType" />
+                        </td>
+				<!-- 決済状況 -->
+						<td class="decision_status">
+							<s:if test="%{decisionType == '実施')}">
+						 		<s:if test="decisionStatus1 == 0">
+									作成中
 								</s:if>
-								<s:else>
-									<s:form action="DecisionDetailApplicationAction">
-										<input type="hidden" name="decisionDetailId"
-											value="<s:property value="decisionDetailId" />">
-										<input type="hidden" name="decisionStatus" value="承認待">
+								<s:elseif test="decisionStatus1 == 1">
+									申請中/承認待ち
+								</s:elseif>
+								<s:elseif test="decisionStatus1 == 2">
+									承認済み
+								</s:elseif>
+								<s:elseif test="decisionStatus1 == 3">
+									変更中
+								</s:elseif>
 
-										<s:submit value="申請" />
-									</s:form>
+
+           				<!-- <s:property value="decisionStatus1" /> -->
+                        	</s:if>
+                       		<s:else>
+                       			<s:if test="decisionStatus2 == 0">
+									作成中
+								</s:if>
+								<s:elseif test="decisionStatus2 == 1">
+									申請中/承認待ち
+								</s:elseif>
+								<s:elseif test="decisionStatus2 == 2">
+									承認済み
+								</s:elseif>
+								<s:elseif test="decisionStatus2 == 3">
+									変更中
+								</s:elseif>
+
+
+            			<!-- <s:property value="decisionStatus2" /> -->
+                        	</s:else>
+                        </td>
+
+
+                <!-- 編集/プレビューボタン -->
+						<td>
+							<s:if test="%{decisionStatus1 == 0 || decisionStatus2 == 0}">
+				            	<a href=".jsp"><input type="button" value="編集" /></a>
+				            </s:if>
+				            <s:else>
+				            	<s:form action="DecisionDetailPreviewAction">
+									<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+									<s:submit value="プレビュー" />
+								</s:form>
+				            </s:else>
+                        </td>
+				<!-- 申請ボタン -->
+						<td>
+						<!-- フォームに行って印を押す -->
+							<s:if test="%{decisionStatus1 == 0 || decisionStatus2 == 0 || decisionStatus1 == 3 || decisionStatus2 == 3}">
+							<s:form action="DecisionDetailApplicationAction">
+								<s:if test="%{decisionType == '実施'}">
+                            		<input type="hidden" name="decisionStatus1" value=1>
+                         		</s:if>
+                         		<s:else>
+									<input type="hidden" name="decisionStatus2" value=1>
 								</s:else>
-							</s:if></td>
-						<td><s:if test="%{#session.userFlg  >= 50}">
-								<input type="button" value="削除" class="modal-open">
-							</s:if></td>
+									<input type="hidden" name="decisionlId" value="<s:property value="decisionId" />">
+									<input type="submit" value="申請">
+							</s:form>
+							</s:if>
+							<s:if test="%{decisionStatus1 == 1 || decisionStatus2 == 1}">
+								承認待ち
+							</s:if>
+								承認済み
+						</td>
 
-						<td><s:form action="DecisionDetailPreviewAction">
-								<input type="hidden" name="decisionDetailId"
-									value="<s:property value="decisionDetailId" />">
-								<s:submit value="プレビュー" />
-							</s:form></td>
-					</tr>
+
+				<!-- 承認ボタン -->
+						<td>
+                           ダミーボタン
+                        </td>
+				<!-- 差し戻しボタン -->
+						<td>
+                           ダミーボタン
+                        </td>
+                <!-- 変更ボタン -->
+						<td>
+							<s:if test="%{decisionStatus1 == 3 || decisionStatus2 == 3}">
+				            	<a href=".jsp"><input type="button" value="変更" /></a>
+				            </s:if>
+				           ダミーボタン
+                        </td>
+
+				    </tr>
+
 				</s:iterator>
-
-			</table>
-			<s:if test="%{#session.userFlg  >= 50}">
-				<br>
-	存在するプロジェクトのIDを入力してください。<br>
-				<s:form action="DecisionDetailInsertAction">
-					<table border="1">
-
-						<tr>
-							<th>プロジェクトID</th>
-							<th>パスワード</th>
-						</tr>
-						<tr>
-							<td><input type="text" name="projectId" pattern="^[0-9]+$"
-								placeholder="半角数字のみ" maxlength=5 required></td>
-							<td><input type="text" name="password"
-								pattern="^[0-9A-Za-z]+$" placeholder="半角英数字のみ" maxlength=20
-								required></td>
-						</tr>
-					</table>
-					<input type="submit" value="追加">
-				</s:form>
-
-				<br>
-				<input type="button" value="＋プロジェクト一覧を開く" id="listButton">
-				<div class="projectElement">
-					<table border="1" class="element">
-						<tr>
-							<th>プロジェクトID</th>
-							<th>プロジェクト名</th>
-						</tr>
-						<s:iterator value="projectsList">
-							<tr>
-								<td><s:property value="projectId" /></td>
-								<td><s:property value="projectName" /></td>
-							</tr>
-						</s:iterator>
-					</table>
-				</div>
 			</s:if>
 
-			<div id="modal-edit-main">
-				以下の内容を編集しますか？
-				<table border="1">
-					<tr>
-						<td>案件番号</td>
-						<td><span id="edit-projectid"></span></td>
-					</tr>
-					<tr>
-						<td>プロジェクト名</td>
-						<td><span id="edit-projectname"></span></td>
-					</tr>
-					<tr>
-						<td>決裁分類</td>
-						<td><span id="edit-classify"></span></td>
-					</tr>
-					<tr>
-						<td>申請・承認状況</td>
-						<td><span id="edit-status"> </span></td>
-					</tr>
-				</table>
-				<input type="button" class="delete-true button" value="はい">
-				<input type="button" class="modal-close button" value="いいえ">
 
-				<div class="delete-prepare">
-					パスワードを入力してください
-					<s:form action="DecisionDetailUpdateAction">
-						<input type="text" name="password" pattern="^[0-9A-Za-z]+$"
-							placeholder="半角英数字のみ">
-						<input type="hidden" name="decisionDetailId" value=""
-							id="edit-delete">
-						<input type="submit" class="delete-true button" value="編集">
-					</s:form>
-					<input type="button" class="modal-close button" value="閉じる">
-				</div>
-			</div>
 
-			<div id="modal-main">
-				以下の内容を削除しますか？
-				<table border="1">
-					<tr>
-						<td>案件番号</td>
-						<td><span id="delete-projectid"></span></td>
-					</tr>
-					<tr>
-						<td>プロジェクト名</td>
-						<td><span id="delete-projectname"></span></td>
-					</tr>
-					<tr>
-						<td>決裁分類</td>
-						<td><span id="delete-classify"></span></td>
-					</tr>
-					<tr>
-						<td>申請・承認状況</td>
-						<td><span id="delete-status"> </span></td>
-					</tr>
-				</table>
-				<input type="button" class="delete-true button" value="削除">
-				<input type="button" class="modal-close button" value="閉じる">
 
-				<div class="delete-prepare">
-					パスワードを入力してください
-					<s:form action="DecisionDetailDeleteAction">
-						<input type="text" name="password" pattern="^[0-9A-Za-z]+$"
-							placeholder="半角英数字のみ">
-						<input type="hidden" name="decisionDetailId" value=""
-							id="true-delete">
-						<input type="submit" class="delete-true button" value="削除">
-					</s:form>
-					<input type="button" class="modal-close button" value="閉じる">
-				</div>
-			</div>
-			<br> <br>
-		</div>
-		<!-- 	戻る -->
-	</s:if>
+		<!-- 通常表示用 -->
+				<s:iterator value="decisionDetailList1">
+					<tr>
+				<!-- 決済ID -->
+						<td class="decision_id">
+							<s:property value="decisionId" />
+						</td>
+
+
+				<!-- プロジェクトID -->
+						<td class="project_id">
+							<s:property value="projectId" />
+						</td>
+				<!-- 案件名 -->
+						<td>
+							<s:property value="decisionName" />
+						</td>
+				<!-- プロジェクト名 -->
+						<td class="project_name">
+							<s:property value="projectName" />
+						</td>
+
+
+				<!-- 決済種類 -->
+						<td class="decision_type">
+                            <s:property value="decisionType" />
+                        </td>
+				<!-- 決済状況 -->
+						<td class="decision_status">
+						 	<s:if test="%{decisionType == '実施')}">
+						 		<s:if test="decisionStatus1 == 0">
+									作成中
+								</s:if>
+								<s:elseif test="decisionStatus1 == 1">
+									申請中/承認待ち
+								</s:elseif>
+								<s:elseif test="decisionStatus1 == 2">
+									承認済み
+								</s:elseif>
+								<s:elseif test="decisionStatus1 == 3">
+									変更中
+								</s:elseif>
+
+
+           				<!-- <s:property value="decisionStatus1" /> -->
+                        	</s:if>
+                       		<s:else>
+                       			<s:if test="decisionStatus2 == 0">
+									作成中
+								</s:if>
+								<s:elseif test="decisionStatus2 == 1">
+									申請中/承認待ち
+								</s:elseif>
+								<s:elseif test="decisionStatus2 == 2">
+									承認済み
+								</s:elseif>
+								<s:elseif test="decisionStatus2 == 3">
+									変更中
+								</s:elseif>
+
+
+            			<!-- <s:property value="decisionStatus2" /> -->
+                        	</s:else>
+                        </td>
+
+
+                <!-- プレビューボタン -->
+						<td>
+							<s:form action="DecisionDetailPreviewAction">
+								<input type="hidden" name="decisionId"
+									value="<s:property value="decisionId" />">
+								<s:submit value="プレビュー" />
+							</s:form>
+                        </td>
+
+			<s:if test="%{#session.userFlg >= 2}">
+				<!-- 申請ボタン -->
+						<td>
+				            ダミーボタン
+						</td>
+
+
+				<!-- 承認ボタン -->
+						<td>
+
+
+
+
+
+
+
+                            <a href=".jsp"><input type="button" value="承認" /></a>
+                        </td>
+				<!-- 差し戻しボタン -->
+						<td>
+							<s:if test="%{#session.userFlg == 3}">
+                            	<a href=".jsp"><input type="button" value="差し戻し" /></a>
+                            </s:if>
+                            ダミーボタン
+                        </td>
+                <!-- 却下/変更ボタン -->
+						<td>
+                            <s:if test="%{#session.userFlg == 3}">
+                            	<a href=".jsp"><input type="button" value="却下" /></a>
+                            </s:if>
+                            ダミーボタン(変更)
+                        </td>
+			</s:if>
+
+				    </tr>
+
+				</s:iterator>
+
+		</table>
+
+
+
+
+<br><br>
+
+
+
+<s:if test="%{#session.userFlg >= 2}">
+    <div class="pad">
+            <s:form action="DecisionDetailInsertAction">
+					案件の追加<br>
+						<input type="text" name="projectName" placeholder="プロジェクト名" required>
+						実施兼契約決裁で行う場合のみチェック
+						<input type="checkbox" name="decisionType" value="実施兼契約決裁"><br>
+						<input type="submit" value="追加">
+			</s:form>
+    </div>
+</s:if>
+
+
+
+
+</s:if>
+
+	<s:else>
+			ログイン後に表示します。
+	</s:else>
+
+	<!-- 	戻る -->
 	<s:form action="GetAddressAction">
-		<s:submit value="戻る" />
+		<input type="submit" class="button" value="戻る">
 	</s:form>
 
-
+</div>
 
 </body>
+
 </html>

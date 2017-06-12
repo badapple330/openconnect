@@ -26,33 +26,33 @@ public class DecisionDetailPreviewDAO {
 	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
 	 * @author TATUHUMI ITOU
 	 */
-	public List<DecisionDetailDTO> select(int decisionDetailId) {
+	public List<DecisionDetailDTO> select(int decisionId) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
 
 
 
 		try {
-			String sql = "select*from decision_detail inner join projects on decision_detail.project_id = projects.project_id "
-					+ "inner join users on decision_detail.user_id = users.user_id where decision_detail_id =?";
+			String sql = "select*from decision inner join projects on decision.project_id = projects.project_id "
+					+ "inner join users on decision.user_id = users.user_id where decision_id =?";
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, decisionDetailId);
+			ps.setInt(1, decisionId);
 
 			ResultSet rs = ps.executeQuery();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
 			while (rs.next()) {
 				DecisionDetailDTO dto = new DecisionDetailDTO();
-				dto.setDecisionDetailId(rs.getInt("decision_detail_id"));
-				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionId(rs.getInt("decision_id"));
+				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionType(rs.getString("decision_type"));
-				dto.setDecisionStatus(rs.getString("decision_status"));
+				dto.setDecisionStatus1(rs.getInt("decision_status1"));
+				dto.setDecisionStatus2(rs.getInt("decision_status2"));
 				dto.setProjectId(rs.getInt("project_id"));
 				try { dto.setDay(sdf.format(rs.getDate("day")).toString()); }catch(Exception e){}
 				dto.setUserId(rs.getInt("user_id"));
-				dto.setItemName(rs.getString("item_name"));
+				dto.setDecisionName(rs.getString("decision_name"));
 				dto.setSummary(rs.getString("summary"));
 				dto.setCause(rs.getString("cause"));
 				try { dto.setStartDay(sdf.format(rs.getDate("start_day")).toString()); }catch(Exception e){}

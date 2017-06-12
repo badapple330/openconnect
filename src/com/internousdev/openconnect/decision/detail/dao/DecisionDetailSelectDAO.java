@@ -25,13 +25,13 @@ public class DecisionDetailSelectDAO {
 	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
 	 * @author TATUHUMI ITOU
 	 */
-	public List<DecisionDetailDTO> select( String searchString ){
+/*	public List<DecisionDetailDTO> select1( String searchString ){
 
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
-		String sql = "select * from decision_detail inner join projects on decision_detail.project_id = projects.project_id where project_name LIKE '%" + searchString + "%'";
+		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id where decision_status2 != 2 and project_name LIKE '%" + searchString + "%'";
 
-		List<DecisionDetailDTO> decisionDetailList  = new ArrayList<DecisionDetailDTO>();
+		List<DecisionDetailDTO> decisionDetailList1 = new ArrayList<DecisionDetailDTO>();
 
 		try{
 
@@ -42,16 +42,19 @@ public class DecisionDetailSelectDAO {
 			while( rs.next() ){
 
 				DecisionDetailDTO dto = new DecisionDetailDTO();
-				dto.setDecisionDetailId(rs.getInt("decision_detail_id"));
-				dto.setProjectName(rs.getString("project_name"));
+				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setProjectId(rs.getInt("project_Id"));
-				dto.setDecisionId(rs.getInt("decision_id"));
+				dto.setDecisionName(rs.getString("decision_name"));
+				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionIdNumber(String.format("%04d", rs.getInt("decision_id")));
-				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setDecisionType(rs.getString("decision_type"));
-				dto.setDecisionStatus(rs.getString("decision_status"));
+				dto.setDecisionStatus1(rs.getInt("decision_status1"));
+				dto.setDecisionStatus2(rs.getInt("decision_status2"));
+				dto.setUserId(rs.getInt("user_id"));
+				dto.setManagerId(rs.getInt("manager_id"));
+				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 
-				decisionDetailList .add( dto );
+				decisionDetailList1.add( dto );
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -63,15 +66,69 @@ public class DecisionDetailSelectDAO {
 			}
 		}
 
-		return decisionDetailList ;
+		return decisionDetailList1 ;
 	}
+*/
 
-	public List<DecisionDetailDTO> select( int decisionDetailId ){
+	/**
+	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
+	 * ログインユーザーの自プロジェクトを呼び出す専用
+	 * @author TATUHUMI ITOU
+	 */
+	public List<DecisionDetailDTO> select2( String searchString, int userId){
+
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
-		String sql = "select decision_detail.day, decision_detail.summary, projects.project_name , "
-				+"projects.manager_id, projects.project_id from decision_detail "
-				+"inner join projects on decision_detail.project_id = projects.project_id where decision_detail_id LIKE '%" + decisionDetailId + "%'";
+		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id where decision_status2 != 2 and ( manager_id = ? or sub_manager_id = ? ) and project_name LIKE '%" + searchString + "%'";
+
+		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
+
+		try{
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, userId);
+			ps.setInt(2, userId);
+			ResultSet rs = ps.executeQuery();
+
+			if( rs.next() ){
+
+				DecisionDetailDTO dto = new DecisionDetailDTO();
+				dto.setDecisionId(rs.getInt("decision_id"));
+				dto.setProjectId(rs.getInt("project_Id"));
+				dto.setDecisionName(rs.getString("decision_name"));
+				dto.setProjectName(rs.getString("project_name"));
+				dto.setDecisionIdNumber(String.format("%04d", rs.getInt("decision_id")));
+				dto.setDecisionType(rs.getString("decision_type"));
+				dto.setDecisionStatus1(rs.getInt("decision_status1"));
+				dto.setDecisionStatus2(rs.getInt("decision_status2"));
+				dto.setUserId(rs.getInt("user_id"));
+				dto.setManagerId(rs.getInt("manager_id"));
+				dto.setSubManagerId(rs.getInt("sub_manager_id"));
+
+				decisionDetailList2.add( dto );
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try{
+				conn.close();
+			}catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
+
+		return decisionDetailList2;
+	}
+
+
+
+	public List<DecisionDetailDTO> select( int decisionId ){
+		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
+
+		String sql = "select decision.day, decision.summary, projects.project_name , "
+				+"projects.manager_id, projects.project_id from decision "
+				+"inner join projects on decision.project_id = projects.project_id where decision_id LIKE '%" + decisionId + "%'";
 
 		List<DecisionDetailDTO> decisionDetailInsList  = new ArrayList<DecisionDetailDTO>();
 
@@ -104,5 +161,6 @@ public class DecisionDetailSelectDAO {
 
 		return decisionDetailInsList ;
 	}
+
 
 }

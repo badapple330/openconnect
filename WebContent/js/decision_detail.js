@@ -2,14 +2,6 @@
  *
  */
 $(function() {
-	$(".delete-true").click(function(){
-		$(".delete-prepare").fadeIn();
-	});
-
-	$(".modal-close").click(function(){
-		$(".delete-prepare").fadeOut();
-	});
-
 	//テキストリンクをクリックしたら
 	$(".modal-edit-open").click(function(){
 		//body内の最後に<div id="modal-bg"></div>を挿入
@@ -74,15 +66,15 @@ $(function(){
 		var index = $('.modal-open').index($(this));
 
 
-		$('#delete-projectid').text($('.decision_id').eq(index).val());
+		$('#delete-projectId').text($('.project_id').eq(index).text());
 
-		$('#delete-projectname').text($('.decision_name').eq(index).text());
+		$('#delete-projectName').text($('.project_name').eq(index).text());
 
-		$('#delete-classify').text($('.decision_type').eq(index).text());
+		$('#delete-type').text($('.decision_type').eq(index).text());
 
 		$('#delete-status').text($('.decision_status').eq(index).text());
 
-		$('#true-delete').val($('.decision_detail_id').eq(index).text());
+		$('#true-delete').val($('.decision_id').eq(index).text());
 
 		$(".modal-close").click(function(){
 			$("#modal-main,#modal-bg").fadeOut("slow",function(){

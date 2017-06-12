@@ -2,6 +2,7 @@ package com.internousdev.openconnect.decision.detail.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.internousdev.openconnect.decision.dao.DecisionDAO;
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailApplicationDAO;
@@ -57,6 +58,10 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 	 *  概要
 	 */
 	private String summary;
+	/**
+	 * 管理者権限メソッド
+	 */
+	public Map<String, Object> session;
 
 	/**
 	 * 実行メソッド DAOのメソッドにデータを渡して、その結果が１つでもあればSUCCESSを返す
@@ -74,7 +79,7 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 
 		if(decisionStatus.equals("承認")){
 			DecisionDetailSelectDAO daos = new DecisionDetailSelectDAO();
-			decisionDetailInsList = daos.select( decisionDetailId );
+			decisionDetailInsList = daos.select( decisionId );
 
 			day = decisionDetailInsList.get(0).getDay();
 			projectName = decisionDetailInsList.get(0).getProjectName();
@@ -237,6 +242,22 @@ public class DecisionDetailApplicationAction  extends ActionSupport{
 	 */
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 }

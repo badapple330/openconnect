@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -41,6 +42,11 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 	 * ストリーム
 	 */
 	private InputStream inputStream;
+	/**
+	 * 管理者権限メソッド
+	 */
+	public Map<String, Object> session;
+
 	/**
 	 * 実行メソッド ファイルダウンロード
 	 * @author KOHEI NITABARU
@@ -171,6 +177,22 @@ public class DecisionDetailDownloadAction extends ActionSupport {
 	*/
 	public void setInputStream(InputStream inputStream) {
 		this.inputStream = inputStream;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 }
