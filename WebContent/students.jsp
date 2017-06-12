@@ -40,8 +40,7 @@
 						<th><div class="smallWidth">ID</div></th>
 						<th><div class="smallWidth">受講年</div></th>
 						<th><div class="bigWidth">受講開始月</div></th>
-						<th><div class="smallWidth">姓(英語)</div></th>
-						<th><div class="smallWidth">名(英語)</div></th>
+
 						<th><div class="smallWidth">姓(漢字)</div></th>
 						<th><div class="bigWidth">姓(ふりがな)</div></th>
 						<th><div class="smallWidth">名(漢字)</div></th>
@@ -78,14 +77,7 @@
 								value="<s:property value="month" />" placeholder="例：08"
 								class="month maxText" pattern="[0-1][0-9]" title="半角数字2桁"
 								maxlength="2" required></td>
-							<td><input type="text" name="familyNameList"
-								value="<s:property value="familyName" />"
-								class="familyName maxText" pattern="^[0-9A-Za-z]+$"
-								title="半角英数字20文字以内" maxlength="20" required></td>
-							<td><input type="text" name="givenNameList"
-								value="<s:property value="givenName" />"
-								class="givenName maxText" pattern="^[0-9A-Za-z]+$"
-								title="半角英数字20文字以内" maxlength="20" required></td>
+
 							<td><input type="text" name="familyNameKanjiList"
 								value="<s:property value="familyNameKanji" />"
 								class="familyNameKanji maxText" maxlength="20" required></td>

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.internousdev.util.DBConnector;
@@ -24,18 +23,22 @@ public class StudentsSelectDAO {
      * @param search
      * @return searchList
      */
-    public List<StudentsDTO> select(String search) {
+    public ArrayList<StudentsDTO> select(int user_id) {
         DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
                 "mysql");
         Connection con = db.getConnection();
 
-        List<StudentsDTO> searchList = new ArrayList<StudentsDTO>();
+        ArrayList<StudentsDTO> searchList = new ArrayList<StudentsDTO>();
+
+        String sql;
+
+        sql="select * from users";
 
         try {
-            String sql = "SELECT * FROM users WHERE family_name LIKE '%" + search + "%' or given_name LIKE '%" + search
-                    + "%'";
+
 
             PreparedStatement ps = con.prepareStatement(sql);
+
             ResultSet rs = ps.executeQuery();
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -45,8 +48,7 @@ public class StudentsSelectDAO {
                 StudentsDTO dto = new StudentsDTO();
                 dto.setUserId(rs.getInt("user_id"));
                 dto.setPassword(rs.getString("password"));
-                dto.setFamilyName(rs.getString("family_name"));
-                dto.setGivenName(rs.getString("given_name"));
+
                 dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
                 dto.setFamilyNameKana(rs.getString("family_name_kana"));
                 dto.setGivenNameKanji(rs.getString("given_name_kanji"));
