@@ -65,12 +65,12 @@
 						<option value="ProjectProgressSelectAction">プロジェクト進捗報告</option>
 						<option value="StudentsSelectAction">受講生一覧</option>
 						<option value="GoAttendanceAction">勤怠更新</option>
-						<s:if test="%{#session.userFlg  >= 3}">
+						<s:if test="%{#session.userFlg == 3}">
 						<option value="GoAdminAttendanceAction">勤怠確認</option>
 						</s:if>
 						<option value="DecisionSelectAction">決裁一覧状況</option>
 						<option value="DecisionDetailSelectAction">決裁手続き</option>
-						<s:if test="%{#session.userFlg  >= 3}">
+						<s:if test="%{#session.userFlg == 3}">
 							<option value="DecisionApplicationSelectAction">決済手続き申請一覧</option>
 						</s:if>
 						<option value="BooksSelectAction">書籍一覧</option>

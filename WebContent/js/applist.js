@@ -2,10 +2,10 @@
 /*画像スライドショー----------------------------------------------------*/
 
 myImage = new Array(	// 画像ファイル名の設定
-"img/sity.jpg",		//街
+"img/social.jpg",		//街
 "img/sky.jpg",		//気球と空
 "img/drink.jpg",		//ビール
-"img/social.jpg",		//すまほ
+"img/sity.jpg",		//すまほ
 "img/sunset.jpg",		//夕日
 "img/candy.jpg"		//宇宙
 );
