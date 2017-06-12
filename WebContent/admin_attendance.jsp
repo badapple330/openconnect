@@ -12,7 +12,22 @@
 
 <script src="js/jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="css/attendance.css">
-<script type="text/javascript" src="js/attendance.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $('.presentradio').bind('change', function() {
+      if ($('.presentradio:checked').val() == 'else') {
+        $('.elserequired').removeAttr('disabled');
+        $('.elsemark').show();
+      } else {
+        $('.elserequired').attr('disabled', 'disabled');
+        $('.elsemark').hide();
+      }
+    });
+    $('.presentradio').trigger('change');
+  });
+</script>
+
 </head>
 
 <body>
