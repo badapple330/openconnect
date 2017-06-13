@@ -1,2 +1,0 @@
-セッションの中身が存在するとき下記はtrueとなる
-session.containsKey("");

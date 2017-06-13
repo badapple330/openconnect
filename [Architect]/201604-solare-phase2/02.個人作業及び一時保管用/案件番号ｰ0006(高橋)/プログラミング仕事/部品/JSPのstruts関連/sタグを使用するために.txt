@@ -1,2 +1,0 @@
-sタグを使用可能にする一行
-<%@ taglib prefix="s" uri="/struts-tags"%>

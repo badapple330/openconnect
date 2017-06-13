@@ -1,2 +1,0 @@
-body“à‚ÅˆÈ‰º‚É‘Š‘ÎƒpƒX‚Å“ü—Í‚Å‰Â”\
-<jsp:include page="/header.jsp" />

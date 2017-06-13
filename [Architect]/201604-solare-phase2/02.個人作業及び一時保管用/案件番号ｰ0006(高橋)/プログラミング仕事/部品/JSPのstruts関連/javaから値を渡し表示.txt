@@ -1,3 +1,0 @@
-java内のフィールドのidを
-jspに下記で渡し表示
-<s:property value="id"/>
