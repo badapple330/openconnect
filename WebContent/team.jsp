@@ -9,7 +9,8 @@
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>チーム情報</title>
 
-<script src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+
 <link rel="stylesheet" href="css/team.css">
 
 </head>
@@ -21,23 +22,26 @@
 	<h1>チーム情報</h1><hr>
 	<br>
 
+
+
 	<table class="teaminfo">
 	<tr>
-	<td>ユーザー名：</td><td>プロパティユーザー名</td>
+	<th>ユーザー名：</th><td>プロパティユーザー名</td>
 	</tr>
 
 	<tr>
-	<td>チーム：</td><td>プロパティチーム名</td>
+	<th>チーム：</th><td>プロパティチーム名</td>
 	<tr>
 
 	<tr>
-	<td>役職：</td><td>プロパティ役職</td>
+	<th>役職：</th><td>プロパティ役職</td>
 	</table>
-	</div>
+
 
 	<br>
 	<div align="center">
 	<a href="team_edit.jsp">編集ページ</a>
+	</div>
 	</div>
 
 </body>

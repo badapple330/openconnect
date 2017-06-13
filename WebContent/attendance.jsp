@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>勤怠更新</title>
 
-<script src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="js/attendance.js"></script>
 <link rel="stylesheet" href="css/attendance.css">
 </head>
