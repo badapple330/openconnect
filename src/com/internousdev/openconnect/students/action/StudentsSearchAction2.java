@@ -115,7 +115,7 @@ public class StudentsSearchAction2 extends ActionSupport {
 
 		String result = ERROR;
 		StudentsSearchDAO2 dao = new StudentsSearchDAO2();
-		studentsList = dao.select(month);
+		studentsList = dao.select2(month);
 
 		if (studentsList.size() > 0) {
 

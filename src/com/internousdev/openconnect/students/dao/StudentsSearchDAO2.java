@@ -27,7 +27,7 @@ public class StudentsSearchDAO2 {
 	* @since 2017/06/15
 	* @version 1.0
 	*/
-	public ArrayList<StudentsDTO> select(String month) {
+	public ArrayList<StudentsDTO> select2(String month) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
