@@ -31,7 +31,7 @@
 
 					<div id="headerSpace">
 					<h1 class="container">
-						<a href="index.jsp" class="openConnect">Open Connect</a>
+						<a href="applist.jsp" class="openConnect">Open Connect</a>
 
 			   <!-- internousdevのロゴ -->
                <TABLE border="1" bordercolor="grey" align="right">
