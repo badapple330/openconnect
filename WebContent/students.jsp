@@ -22,12 +22,17 @@
 
 		<s:if test="%{#session.userFlg >= 1}">
 
-			<s:form action="StudentsSelectAction">
-	英語で姓か名を入力<br>
-				<input type="text" name="searchString" pattern="[A-Za-z]*"
-					maxlength="30" title="半角英語のみ" placeholder="例：taro">
-				<input class="button" type="submit" value="検索">
-			</s:form>
+			<h3>受講開始年月から検索</h3>
+		<s:form action="StudentsSearchAction">
+			<h4>受講年</h4>
+			<s:textfield name="year" size="50" placeholder="2016" type="text" maxlength="4" pattern="([1-2]][0-9]{3})"/>
+			<s:submit value="Search"></s:submit>
+		</s:form><br><br>
+		<s:form action="StudentsSearchAction2">
+			<h4>受講開始月</h4>
+			<s:textfield name="month" size="50" placeholder="04" type="text" maxlength="2" pattern="([0-1][0-9])"/>
+			<s:submit value="Search"></s:submit>
+		</s:form>
 			<br>
 			<s:property value="%{resultString}" />
 			<s:property value="%{resultSelect}" />
