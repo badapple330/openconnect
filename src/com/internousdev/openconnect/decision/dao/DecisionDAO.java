@@ -1,196 +1,207 @@
+/**
+ *
+ */
 package com.internousdev.openconnect.decision.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
-import com.mysql.jdbc.Connection;
+
 /**
- * 決裁状況一覧をActionから受け取った検索文で検索するクラス
- * @author KENICHI HORIGUCHI
- * @author KOUHEI NIRABARU
- * @since 2016/09/14
- * @version 1.0
+ *
+ * @author KOTA MIYAZATO
+ *
  */
+
 public class DecisionDAO {
+
 	/**
-	 * 決裁状況一覧情報を格納するリスト
-	 * @author  KENICHI HORIGUCHI
+	 * 決裁手続きの情報をリスト化
+	 *
 	 */
-	private ArrayList<DecisionDTO> list = new ArrayList<DecisionDTO>();
+	public ArrayList<DecisionDTO> decisionList = new ArrayList<DecisionDTO>();
+
+	public ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
+
 	/**
-	 * 表示メソッド ログインした際にDBからサイト情報をリスト化して抽出し、DTOに格納する
-	 * @author KENICHI HORIGUCHI
-	 * @author KOUMEI IWAMOTO
-	 * @return  searchString
+	 * 情報を引き出すメソッド
+	 *
+	 * @param
+	 * @return Decision
 	 */
-	public boolean select(String searchString ) {
-		boolean result = false;
+	public ArrayList<DecisionDTO> select() {
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection conn = (Connection) db.getConnection();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection con = db.getConnection();
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		ArrayList<DecisionDTO> decisionList = new ArrayList<DecisionDTO>();
 
-		String sql = "select * from decision inner join users on decision.user_id = users.user_id inner join projects on decision.project_id = projects.project_id where decision_name like'%" + searchString + "%'";
+		String sql = "select * from decision";
 
 		try {
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
+
 			ResultSet rs = ps.executeQuery();
 
-			while(rs.next()) {
+			while (rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
-				dto.setRegistration(sdf.format( rs.getDate("registration") ).toString());
-				dto.setUserId(rs.getInt("user_id"));
-				dto.setProjectId(rs.getInt("project_id"));
-				dto.setDecisionId(rs.getInt("decision_id"));
-				dto.setDecisionIdNumber(String.format("%04d", rs.getInt("decision_id")));
-				dto.setDecisionName(rs.getString("decision_name"));
-				dto.setDetail(rs.getString("detail"));
-				dto.setIDraftingId(rs.getString("i_drafting_id"));
-				dto.setIApprovalId(rs.getString("i_approval_id"));
-				dto.setADraftingId(rs.getString("a_drafting_id"));
-				dto.setCdId(rs.getString("cd_id"));
-				dto.setIADId(rs.getString("i_a_d_id"));
-				dto.setIAId(rs.getString("i_a_id"));
-				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
-				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
-				dto.setProjectName(rs.getString("project_name"));
 
-				list.add(dto);
-				result = true;
+				dto.setUserId(rs.getInt("user_id")); // ユーザーID
+
+				dto.setDecisionName(rs.getString("decision_name")); // 案件名
+
+				dto.setIDraftingId(rs.getString("i_drafting_id")); // 実施起案番号
+
+				dto.setIApprovalId(rs.getString("i_approval_id")); // 実施決裁番号
+
+				dto.setADraftingId(rs.getString("a_drafting_id")); // 契約起案番号
+
+				dto.setCdId(rs.getString("cd_id")); // 契約決裁番号
+
+				dto.setIADId(rs.getString("i_a_d_id")); // 実施兼契約起案番号
+
+				dto.setIAId(rs.getString("i_a_id")); // 実施兼契約番号
+
+				dto.setHead(rs.getString("head")); // 頭紙文章
+
+				dto.setSummary(rs.getString("summary")); // 概要
+
+				dto.setCause(rs.getString("cause")); // 理由・目的
+
+				dto.setStartDay(rs.getString("start_day")); // 開始日
+
+				dto.setEndDay(rs.getString("end_day")); // 終了日
+
+				dto.setAmountAll(rs.getFloat("amount_all")); // 合計金額
+
+				dto.setBenefit(rs.getFloat("benefit")); // 損益費用
+
+				dto.setBildCost(rs.getFloat("bild_cost")); // 建設費用
+
+				dto.setProve(rs.getInt("prove")); // 開発端末料
+
+				dto.setRe(rs.getFloat("re")); // リリース環境使用量
+
+				dto.setLine(rs.getInt("line")); // 回線使用料
+
+				dto.setRoom(rs.getFloat("room")); // 施設使用料
+
+				dto.setHuman(rs.getInt("human")); // 開発要員
+
+				dto.setEtc(rs.getFloat("etc")); // 雑費
+
+				decisionList.add(dto);
+
 			}
-		}catch (SQLException e) {
+
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
-			try{
-				conn.close();
-			}catch (SQLException e){
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		return result;
+		return decisionList;
+
 	}
 
 	/**
-	 * 更新メソッド  画面で受け取った更新情報を、DBへ転送し、更新する為のメソッド
-	 * @author KENICHI HORIGUCHI
-	 * @author KOUHEI NITABARU
-     * @author MASAHIRO KEDSUKA
+	 * ユーザーIDから名前を引き出すメソッド
+	 *
+	 * @param userId
+	 * @param
+	 * @return Decision
 	 */
-	public int insert(
-			String day, int userId, int projectId, String projectName, String summary){
+	public ArrayList<DecisionDTO> selectByUserId(int userId) {
+		DecisionDTO dto = new DecisionDTO();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
+				"openconnect", "root", "mysql");
+		Connection con = db.getConnection();
+		ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
+		String sql = "select * from users";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				dto.setUserId(rs.getInt("user_id")); // ユーザーID
+				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
+				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
+				nameList.add(dto);
+			}
 
-		int count = 0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return nameList;
+	}
 
+	/**
+	 * 表示メソッド 表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+	 *
+	 * @author TATUHUMI ITOU
+	 * @param etc
+	 * @param human
+	 * @param room
+	 * @param line
+	 * @param re
+	 * @param prove
+	 * @return projectList 抽出に成功したらSUCCESS、失敗したらERROR
+	 */
+
+	public int update(int userId, String decisionName, String iDraftingId, String summary, String cause,
+			String startDay, String endDay, String iApprovalId, String aDraftingId, String cdId, String iADId,
+			String iAId, String head, float amountAll, float benefit, float bildCost, int prove, float re, int line,
+			float room, int human, float etc) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
+		Connection con = db.getConnection();
+		int count = 0;
+		String sql = "UPDATE decision SET user_id=?,dicision_name=?,i_drafting_id=?,summary=?,cause=?,start_day=?,end_day=? ,"
+				+ "i_approve_id,=? ,a_drafting_id=?,cd_id=? ,i_a_d_id=?,i_a_id=?, head=?, amount_all=?,benefit=?, bild_cost=? ";
 
-		Connection con = (Connection)db.getConnection();
-
-		String sql = "insert into decision(registration, user_id, project_id, decision_name, detail, i_drafting_id, i_approval_id, a_drafting_id, cd_id, i_a_d_id, i_a_id)values(?,?,?,?,?,?,?,?,?,?,?)";
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
-		day = sdf.format(System.currentTimeMillis());
-
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,day);
-			ps.setInt(2,userId);
-			ps.setInt(3,projectId);
-			ps.setString(4,projectName);
-			ps.setString(5,summary);
-			ps.setString(6,"-");
-			ps.setString(7,"-");
-			ps.setString(8,"-");
-			ps.setString(9,"-");
-			ps.setString(10,"-");
-			ps.setString(11,"-");
+			ps.setInt(1, userId);
+			ps.setString(2, decisionName);
+			ps.setString(3, iDraftingId);
+			ps.setString(4, summary);
+			ps.setString(5, cause);
+			ps.setString(6, startDay);
+			ps.setString(7, endDay);
+			ps.setString(8, iApprovalId);
+			ps.setString(9, aDraftingId);
+			ps.setString(10, cdId);
+			ps.setString(11, iADId);
+			ps.setString(12, head);
+			ps.setFloat(13, amountAll);
+			ps.setFloat(14, benefit);
+			ps.setFloat(15, bildCost);
+
 			count = ps.executeUpdate();
 
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
-			try{
+		} finally {
+			try {
 				con.close();
-			}catch (SQLException e){
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 		return count;
 	}
-
-	/**
-	 * 更新メソッド  画面で受け取った更新情報を、DBへ転送し、更新する為のメソッド
-	 * @author KENICHI HORIGUCHI
-	 * @author KOUHEI NITABARU
-	 */
-	public int update(
-			String registration, int userId, int projectId, int decisionId,
-			String decisionName, String  detail, String iDraftingId,
-			String iApprovalId, String aDraftingId, String cdId, String iADId, String iAId ){
-
-		int count = 0;
-
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
-				"mysql");
-
-		Connection con = (Connection)db.getConnection();
-
-		String sql = " UPDATE decision SET "
-				+ "registration=?, user_id=?, project_id=?, decision_id =?, decision_name=?, "
-				+ "detail=?, i_drafting_id=?, i_approval_id=?, a_drafting_id=?, "
-				+ "cd_id=?, i_a_d_id=?, i_a_id =? where  decision_id =?";
-
-		try{
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,registration);
-			ps.setInt(2,userId);
-			ps.setInt(3,projectId);
-			ps.setInt(4,decisionId);
-			ps.setString(5,decisionName);
-			ps.setString(6,detail);
-			ps.setString(7,iDraftingId);
-			ps.setString(8,iApprovalId);
-			ps.setString(9,aDraftingId);
-			ps.setString(10,cdId);
-			ps.setString(11,iADId);
-			ps.setString(12,iAId);
-			ps.setInt(13, decisionId);
-
-			count = ps.executeUpdate();
-
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally{
-			try{
-				con.close();
-			}catch (SQLException e){
-				e.printStackTrace();
-			}
-		}
-		return count;
-	}
-
-	/**
-	 * 取得メソッド リスト
-	 * @author KENICHI HORIGUCHI
-	 * @return list
-	 */
-	public ArrayList <DecisionDTO> getList() {
-		return list;
-	}
-
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param list
-	 */
-	public void setList( ArrayList <DecisionDTO> list ) {
-		this.list = list;
-	}
-
 }

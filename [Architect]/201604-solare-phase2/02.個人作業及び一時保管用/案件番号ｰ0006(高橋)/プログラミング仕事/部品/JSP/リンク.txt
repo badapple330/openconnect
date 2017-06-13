@@ -1,2 +1,0 @@
-相対パスなどでアドレスを入れる
-<a href="mysql.jsp">mysql</a>

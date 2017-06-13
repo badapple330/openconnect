@@ -1,6 +1,0 @@
-strutsタグ（<s:○○>)のcss属性、style属性について
-
-cssはcssClass
-styleはcssStyleを使う。
-
-サーバー上に上げた際にエラーになる。

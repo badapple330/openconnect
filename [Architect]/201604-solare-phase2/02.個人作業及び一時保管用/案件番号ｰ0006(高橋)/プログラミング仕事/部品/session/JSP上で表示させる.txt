@@ -1,4 +1,0 @@
-jsp‚É‰º‹L‚Ì“ñ‚Â‚Ì“à‚Ç‚¿‚ç‚ğ‘‚«‚Ş(id‚ª•\¦‚³‚ê‚é)
-<%= session.getAttribute( "id" ) %>
-
-<s:property value="#session.id" />
