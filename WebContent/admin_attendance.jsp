@@ -18,7 +18,9 @@ $(function(){
 $("#searchButtun").click(function(){
 if(!($("#familyForm").val() == "") && !($("#GivenForm").val() == "")){
 $("#search").submit();
-}else{alert('姓と名の両方を入力してください');}
+}else{
+alert('姓と名の両方を入力してください');
+}
 });
 });
 </script>
@@ -39,8 +41,8 @@ $("#search").submit();
 <select name="atYear" id="id_year" data-choice="year"><option value="">----</option></select>
 <select name="atMonth" id="id_month" data-choice="month"><option value="">----</option></select>
 <select name="atDay" id="id_day" data-choice="day"><option value="">----</option></select>
-<s:textfield name="familyNameKanji" id="familyForm"/>
-<s:textfield name="givenNameKanji" id="GivenForm"/>
+<s:textfield name="familyNameKanji" id="familyForm" placeholder="名字" title="名字"/>
+<s:textfield name="givenNameKanji" id="GivenForm" placeholder="名前" title="名前"/>
 <s:submit value="検索" class="search-btn" id="searchButtun"/>
 </s:form>
 
