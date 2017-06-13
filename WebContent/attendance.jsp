@@ -20,15 +20,18 @@
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
 
-	<div class="container">
+	<div  class="container">
 
-	<h1>勤怠更新</h1>
+	<h1 align="center">勤怠更新</h1>
 		<s:if test="%{#session.userFlg >= 1}">
+		<hr>
 
 	<br>
 
+
 	<s:form action="AttendanceAction">
 
+	<div class=attend>
 	<label>
 	<s:iterator value="atUserList">
 	氏名：<br>
@@ -72,9 +75,10 @@
 	備考：<br>
 	<textarea name="reason"  rows="10" cols="50" maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
 	</label>
+	</div>
 
 <br><br>
-	<input type="submit"  value="送信"/>
+	<input type="submit"  value="送信" class="button" onClick="javascript:double(this)"/>
 
 
 	</s:form>
@@ -95,6 +99,7 @@ $(function() {
   $("#id_month").ymdpulldown();
   $("#id_day").ymdpulldown();
 });
+
 </script>
 </body>
 </html>

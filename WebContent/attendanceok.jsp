@@ -23,21 +23,24 @@
 	<br>
 	<h3>以下の内容で勤怠の送信を完了しました。</h3>
 
-	<table>
-           <tr>
-               <th>日時:</th><td><s:property value="atYear"/>年<s:property value="atMonth"/>月<s:property value="atDay"/>日</td>
-           </tr>
-           <tr>
-               <th>名前:</th>
-               <td><s:iterator  value="atUserList"><s:property value="familyNameKanji"/>　<s:property value="givenNameKanji"/></s:iterator></td>
-           </tr>
-           <tr>
-               <th>出欠:</th><td><s:property value="attendance"/></td>
-           </tr>
-           <tr>
-               <th>備考:</th><td><s:property value="reason"/></td>
-           </tr>
-    </table>
+	<label>
+	日時:
+	<s:property value="atYear"/>年<s:property value="atMonth"/>月<s:property value="atDay"/>日
+    </label><br>
+           <label>
+               名前:
+               <s:iterator  value="atUserList"><s:property value="familyNameKanji"/>　<s:property value="givenNameKanji"/></s:iterator>
+           </label><br>
+
+           <label>
+               出欠:<s:property value="attendance"/>
+           </label><br>
+
+           <label>
+               備考:<s:property value="reason"/>
+           </label><br>
+
+
 
 <br>
 	<div>

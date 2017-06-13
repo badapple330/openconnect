@@ -12,6 +12,14 @@ $(function(){
 //		document.getElementById("result").innerHTML = str;
 //	}
 
+	//通信が遅いときに二重送信を防止
+	$(function () {
+		  $('form').submit(function () {
+		    $(this).find(':submit').attr('disabled', 'disabled');
+		  });
+		});
+
+
 	//テキストリンクをクリックしたら
 	$(".modal-open").click(function(){
 
