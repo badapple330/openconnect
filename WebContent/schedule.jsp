@@ -51,10 +51,9 @@
 <div id ="calendar"></div>
 
 <div id="operation">
-		<s:if test="%{#session.userFlg < 1}">
-			ログイン後に表示します。
-		</s:if>
-		<s:if test="%{#session.userFlg >= 1}">
+
+
+
 			<s:form action="ScheduleSelectAction">
 				<input type="text" name="search" placeholder="検索文字を入力" maxlength=100 />
 				<s:submit value="検索"></s:submit>
@@ -82,6 +81,8 @@
 
 						<!-- scheduleListに格納した情報をテーブルで表示 -->
 						<!-- カレンダーに渡すだけの情報は<div class="hidden">で囲ってcssで表示させないようにする -->
+						<!-- jsファイルに渡す情報としてstart,end,titleが必要なのでこのような記述となっている -->
+						<h5>start→開始日　end→終了日　title→作業内容</h5>
 						<s:iterator value="scheduleList">
 							<tr>
 								<!--<td><s:property value="id" /></td>-->
@@ -182,7 +183,7 @@
 					</div>
 				</div>
 			</div>
-		</s:if>
+
 		<br>
 		<s:form action="GetAddressAction">
 			<button type="submit" class="button">トップへ戻る</button>
