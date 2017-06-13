@@ -37,6 +37,10 @@
 			<s:property value="%{resultString}" />
 			<s:property value="%{resultSelect}" />
 			<br>
+			<s:form action="StudentsSelectAction">
+			<!-- 全員表示 -->
+				<s:submit value="全員表示" name="submit" />
+			</s:form>
 			<s:if test="%{studentsList.size() > 0}">
 
 				<table border="1">
