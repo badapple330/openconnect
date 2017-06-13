@@ -21,12 +21,6 @@ $(document).ready(function(){
 
 		//jqueryのuiが適用されるようにする
 		theme: true,
-		//編集を可能にする
-		editable:true,
-		//ドロップ操作の有効化
-		droppable: true,
-
-
 
 	    // ボタン文字列
         buttonText: {
