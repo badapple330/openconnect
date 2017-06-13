@@ -24,6 +24,8 @@
         <script src="js/calendar/gcal.js"></script>
         <script src="js/calendar/gcal.min.js"></script>
         <script src="js/calendar/datepicker-ja.js"></script>
+        <script src="js/calendar/jquery.tabletojson.js"></script>
+        <script src="js/calendar/jquery.tabletojson.min.js"></script>
         <script src="js/calendar/fullcalendar.js"></script>
         <script src="js/calendar/fullcalendar.min.js"></script>
 
@@ -45,6 +47,7 @@
 		<s:property value="notLoginMsg" />
 	</div>
 
+
 <div id ="calendar"></div>
 
 <div id="operation">
@@ -64,16 +67,16 @@
 			<s:property value="selectSuccessMsg" />
 			<s:property value="selectErrorMsg" />
 
-<s:property value="startDay" />
+
 			<s:form action="ScheduleUpdateAction">
 				<table id = "schedule" border=1 style="">
 					<tbody>
 						<tr>
-							<th>ID</th>
-							<th>開始日（年-月-日）</th>
-							<th>終了日（年-月-日）</th>
-							<th>件名</th>
-							<th>内容</th>
+							<!--<th>ID</th>-->
+							<th>start</th>
+							<th>end</th>
+							<th>title</th>
+							<!--<th>内容</th>-->
 							<th></th>
 						</tr>
 
@@ -81,7 +84,7 @@
 						<!-- カレンダーに渡すだけの情報は<div class="hidden">で囲ってcssで表示させないようにする -->
 						<s:iterator value="scheduleList">
 							<tr>
-								<td><s:property value="id" /></td>
+								<!--<td><s:property value="id" /></td>-->
 								<td><input type="text" name="scheduleStartdayList"
 									value="<s:property value="startDay" />"
 									class="scheduleStartdayList" type="date"
@@ -95,9 +98,9 @@
 								<td><input type="text" name="scheduleTitleList"
 									value="<s:property value="title" />" class="scheduleTitleList"
 									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
-								<td><input type="text" name="scheduleContentList"
-									value="<s:property value="content" />"
-									class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
+
+								<!--<td><input type="text" name="scheduleContentList"value="<s:property value="content" />"class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>-->
+
 								<td>
 										<input type="button" class="button modal-open" value="削除" />
 								</td>
@@ -143,7 +146,6 @@
 				<!-- #contents START -->
 				<div id="modal-style">
 					<table class="modal_border">
-
 						<tr>
 							<td>開始日
 								<div class="delete-startday modalDelete"></div>
@@ -177,7 +179,6 @@
 							<input type="submit" class="delete-true button" value="はい">
 							<input type="button" class="modal-close button" value="いいえ">
 						</s:form>
-
 					</div>
 				</div>
 			</div>
