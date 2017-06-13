@@ -64,8 +64,7 @@ public class LoginDAO {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, email);
-			preparedStatement.setString(2, email);
-			preparedStatement.setString(3, password);
+			preparedStatement.setString(2, password);
 			ResultSet rs = preparedStatement.executeQuery();
 
 			if (rs.next()) {

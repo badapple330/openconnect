@@ -24,7 +24,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * セッションマップ
 	 */
-	public Map<String, Object> session;
+	private Map<String, Object> session;
 	/**
 	 * メールアドレス
 	 */
@@ -60,7 +60,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("user", password);
 			session.put("user", email);
 			session.put("userId", loginDao.getUserId());
-		} else {
+		}else {
 			resultString = "メールアドレスまたはパスワードが正しく入力されていません";
 		}
 
