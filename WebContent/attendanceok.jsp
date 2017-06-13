@@ -17,7 +17,7 @@
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
 
-	<div class="container">
+	<div  class="container">
 
 	<h1>勤怠確認完了</h1>
 	<br>
@@ -44,7 +44,7 @@
 
 <br>
 	<div>
-	<a href="index.jsp" class="openConnect">Topに戻る</a>
+	<a href="applist.jsp" >Topに戻る</a>
 	</div>
 </div>
 </body>
