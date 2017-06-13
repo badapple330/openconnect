@@ -15,7 +15,6 @@
 </head>
 <body>
 
-<!-- 最終的にif else でログイン時のみに変更 -->
 
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
