@@ -14,18 +14,11 @@
 <link rel="stylesheet" href="css/attendance.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-  $(function() {
-    $('.presentradio').bind('change', function() {
-      if ($('.presentradio:checked').val() == 'else') {
-        $('.elserequired').removeAttr('disabled');
-        $('.elsemark').show();
-      } else {
-        $('.elserequired').attr('disabled', 'disabled');
-        $('.elsemark').hide();
-      }
-    });
-    $('.presentradio').trigger('change');
-  });
+$(function(){
+if($("").val() == 0 && $("").val() == 0){
+
+}
+});
 </script>
 
 </head>
