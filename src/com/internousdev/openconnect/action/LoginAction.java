@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.dao.LoginDAO;
+import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -28,7 +29,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * メールアドレス
 	 */
-	private String email;
+	private String phoneEmail;
 	/**
 	 * パスワード
 	 */
@@ -48,22 +49,36 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 
-		String sql = "SELECT user_id, userdel_flg, user_flg, login_flg FROM users WHERE phone_email = ? OR "
-				+ "mobile_email = ? AND password = ?";
+		LoginDAO dao = new LoginDAO();
+	    StudentsDTO dto = new StudentsDTO();
+		dto = dao.select(phoneEmail,password);
 
-		LoginDAO loginDao = new LoginDAO();
-		if (loginDao.select(email, password, sql)) {
+
+
+
+		if(phoneEmail.equals(dto.getPhoneEmail())){
+
+			if(password.equals(dto.getPassword())){
+
+				if(dto.isLoginFlg() == false){
+
+				if(dao.Update(dto.getPhoneEmail(), dto.getPassword()) > 0){
+
+					dto = dao.select(dto.getPhoneEmail(), dto.getPassword());
+
 			result = SUCCESS;
 			resultString = "";
-			session.clear();
-			session.put("userFlg", loginDao.getFlg());
-			session.put("user", password);
-			session.put("user", email);
-			session.put("userId", loginDao.getUserId());
+			session.put("userId", dto.getUserId());
+			session.put("loginFlg",dto.isLoginFlg());
+			session.put("userFlg",dto.getUserFlg());
 		}else {
 			resultString = "メールアドレスまたはパスワードが正しく入力されていません";
 		}
 
+
+	   }
+      }
+     }
 		return result;
 	}
 
@@ -92,21 +107,21 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * メールアドレスを取得するためのメソッド
 	 *
-	 * @author MAIKI OKANO0 0 * @return email 取得するメールアドレス
+	 * @author MAIKI OKANO0 0 * @return phoneEmail 取得するメールアドレス
 	 */
-	public String getEmail() {
-		return email;
+	public String getPhoneEmail() {
+		return phoneEmail;
 	}
 
 	/**
 	 * メールアドレスを格納するためのメソッド
 	 *
 	 * @author MAIKI OKANO
-	 * @param email
+	 * @param phoneEmail
 	 *            格納するメールアドレス
 	 */
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPhoneEmail(String phoneEmail) {
+		this.phoneEmail = phoneEmail;
 	}
 
 	/**

@@ -64,7 +64,7 @@
 
 					<!------------------    メールアドレス    ------------------->
 						<BR><div class="stringWidth">メールアドレス</div>
-						<s:textfield class="textWidth" name="email"  value="" placeholder="example@example.com" />
+						<s:textfield class="textWidth" name="phoneEmail"  value="" placeholder="example@example.com" />
 						<br>
 						<br>
 
