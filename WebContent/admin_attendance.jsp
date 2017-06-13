@@ -15,9 +15,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
-if($("").val() == 0 && $("").val() == 0){
-
-}
+$("#searchButtun").click(function(){
+if(!($("#familyForm").val() == "") && !($("#GivenForm").val() == "")){
+$("#search").submit();
+}else{alert('姓と名の両方を入力してください');}
+});
 });
 </script>
 
@@ -33,13 +35,13 @@ if($("").val() == 0 && $("").val() == 0){
 
 
 <!-- 日付、名前検索 -->
-<s:form action="AdminAttendanceAction" method="get">
+<s:form action="AdminAttendanceAction" method="get" id="search">
 <select name="atYear" id="id_year" data-choice="year"><option value="">----</option></select>
 <select name="atMonth" id="id_month" data-choice="month"><option value="">----</option></select>
 <select name="atDay" id="id_day" data-choice="day"><option value="">----</option></select>
-<s:textfield name="familyNameKanji"/>
-<s:textfield name="givenNameKanji"/>
-<s:submit value="検索" class="search-btn" />
+<s:textfield name="familyNameKanji" id="familyForm"/>
+<s:textfield name="givenNameKanji" id="GivenForm"/>
+<s:submit value="検索" class="search-btn" id="searchButtun"/>
 </s:form>
 
 <!-- 一覧表示 -->
