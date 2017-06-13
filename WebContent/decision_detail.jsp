@@ -34,14 +34,19 @@
 				<s:submit value="検索" />
 			</s:form>
 
-			<br><font color="red">
+			<br>
+			<font color="red">
 			<s:property value="%{resultString}" />
 			<s:property value="%{resultSelect1}" />
-			<s:property value="%{resultSelect2}" /></font>
+			<s:property value="%{resultSelect2}" />
+			</font>
 
-<s:iterator value="decisionBeginList">
-<s:property value="projectName" /><s:property value="managerId" /><s:property value="subManagerId" />
-</s:iterator>
+
+
+
+
+<p>自のlist内：<s:property value="decisionDetailList2.size()" />個</p>
+<p>全のlist内：<s:property value="decisionDetailList1.size()" />個</p>
 
 
 
@@ -215,13 +220,19 @@
 			</table>
 
 			</s:iterator>
-			</s:if>
 
-			<s:else>
-    	<div class="pad">
+		</s:if>
+
+		<s:if test="{decisionDetailList2.size == 0}">
+
+			<s:if test="%{#session.userId = managerId or #session.userId = subManagerId}">
+			<s:iterator value="decisionBeginList">
+    			<div class="pad">
+
             <s:form action="DecisionDetailInsertAction">
 					案件の追加<br>あなたのプロジェクトは...
-			<table>
+
+			<table border="1">
 				<tr>
 					<td>プロジェクト名：</td>
 					<td><s:property value="projectName" /></td>
@@ -242,20 +253,22 @@
 						<input type="submit" value="追加(決済資料を作る)">
 					</td>
 				</tr>
-
 			</table>
 
 			</s:form>
-    	</div>
+    			</div>
+    		</s:iterator>
+    		</s:if>
 
-			</s:else>
+		</s:if>
+
 	</s:if>
 
 
 
 
-		<!-- 通常表示用 -->
-		<s:if test="{#session.userFlg == 2 && #session.userId != managerId && #session.userId != subManagerId}">
+		<!-- 一般、他リーダー、先生表示用 -->
+
 			<table border="1">
 				<tr>
 					<th>決済ID</th>
@@ -393,14 +406,18 @@
 							<s:if test="%{#session.userFlg == 3}">
                             	<a href=".jsp"><input type="button" value="差し戻し" /></a>
                             </s:if>
-                            ダミーボタン
+                            <s:else>
+                            	ダミーボタン
+                            </s:else>
                         </td>
                 <!-- 却下/変更ボタン -->
 						<td>
                             <s:if test="%{#session.userFlg == 3}">
                             	<a href=".jsp"><input type="button" value="却下" /></a>
                             </s:if>
-                            ダミーボタン(変更)
+                            <s:else>
+                            	ダミーボタン(変更)
+                            </s:else>
                         </td>
 			</s:if>
 
@@ -409,7 +426,7 @@
 				</s:iterator>
 
 		</table>
-	</s:if>
+
 
 <br><br>
 

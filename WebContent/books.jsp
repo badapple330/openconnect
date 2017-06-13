@@ -33,8 +33,8 @@
 
 
 
-
 		<h2>書籍一覧</h2>
+
 <s:if test="%{#session.userFlg >= 1}">
 
 
@@ -51,41 +51,44 @@
     </s:if>
 
 
-		<div class="pad f_left">
+		<div class="initial_search center">
+        	イニシャルサーチ<br>
+			<s:iterator value="searchList">
+				[<a href="#<s:property value="initial" />"><s:property value="initial" /></a>]
+			</s:iterator>
+    	</div>
+
+    	<div class="search_bar">
 			<s:form action="BooksSelectAction">
-			未入力で全件表示<br>
+				未入力で全件表示<br>
 				<input type="text" name="search" maxlength="50"
 					placeholder="タイトルを入力(部分一致)">
 				<input class="button" type="submit" value="検索">
 			</s:form>
 		</div>
 
-
-		<div class="pad f_left">
-			<div class="center">イニシャルサーチ</div>
-			<s:iterator value="searchList">
-				[<a href="#<s:property value="initial" />"><s:property value="initial" /></a>]
-			</s:iterator>
-		</div>
-<br><br><br>
-
-
 	<!-- メッセージ表示箇所 -->
-		<div class="search_report">
-			<div class="center">
-				<p><b><font color="red">
-					<s:property value="%{resultString}" /><br>
-					<s:property value="%{resultSelect}" />
-				</font></b></p>
-			</div>
-			<div class="f_left">
-				検索結果【<s:property value="bookList.size()"/>】<span>　　</span>
-				検索ワード「<s:property value="search"/>」
-			</div>
-			<div class="f_right">
-				ページ【<s:property value="currentPage+1"/>/<s:property value="pageCount"/>】
-			</div>
-		</div><br>
+		<div class="search_msg">
+
+			<span class="f_left" style="float: right;">
+			<b><font color="red">
+				<s:property value="%{resultString}" />
+					<span>　</span>
+				<s:property value="%{resultSelect}" />
+			</font></b>
+					<span>　</span>
+			ページ【<s:property value="currentPage+1"/>/<s:property value="pageCount"/>】
+			</span>
+
+			検索結果【<s:property value="bookList.size()"/>】
+				<span>　</span>
+			検索ワード「<s:property value="search"/>」
+				<span>　</span>
+
+		</div>
+
+
+
 
 
 <div class="page_content_frame">
@@ -249,7 +252,7 @@
 </div><br>
 
 <s:if test="%{#session.userFlg >= 3}">
-		<div class="page_content_frame"><div class="pad">
+		<div class="page_content_frame"><div class="insert_table pad">
 		<s:form action="BooksInsertAction">
 				<h3 class="center">書籍の追加</h3>
 			<table class="insert-table">
@@ -275,7 +278,7 @@
                         	イニシャル：<input type="text" name="initial"  required maxlength="5" placeholder="例:ア,カ,サ/A,B,C/その他">
                         </td>
                     	<td>
-                        	出版日：<input type="text" name="pubDay"  required maxlength="10">
+                        	出版日：<input type="text" name="pubDay" required maxlength="10" placeholder="例：2017.06">
                         </td>
                     </tr>
 			</table>

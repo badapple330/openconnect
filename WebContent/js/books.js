@@ -36,20 +36,20 @@ $(function(){
 	            });
 	        });
 
-	    //画面の左上からmodal-mainの横幅・高さを引き、その値を2で割ると画面中央の位置が計算できます
-	        $(window).resize(modalResize);
-	        function modalResize(){
-	            var w = $(window).width();
-	            var h = $(window).height();
-	            var cw = $("#modal-main").outerWidth();
-	            var ch = $("#modal-main").outerHeight();
+	      //画面の左上からmodal-mainの横幅・高さを引き、その値を2で割ると画面中央の位置が計算できます
+			$(window).resize(modalResize);
+			function modalResize(){
+				var w = $(window).width();
+				var h = $(window).height();
+				var cw = $("#modal-main").outerWidth();
+				var ch = $("#modal-main").outerHeight();
 
-	            //取得した値をcssに追加する
-	                $("#modal-main").css({
-	                    "left": ((w - cw)/2) + "px",
-	                    "top": ((h - ch)/2) + "px"
-	            });
-	        }
+				//取得した値をcssに追加する
+				$("#modal-main").css({
+					"left": ((w - cw)/2) + "px",
+					"top": ((h - ch)/2) + "px"
+				});
+			}
 	    });
 	});
 

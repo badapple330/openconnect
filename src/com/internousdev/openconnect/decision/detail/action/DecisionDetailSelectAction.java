@@ -11,7 +11,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
-import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -20,7 +19,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2016/09/04
  * @version 1.0
  */
-public class DecisionDetailSelectAction extends ActionSupport implements SessionAware{
+public class DecisionDetailSelectAction extends ActionSupport implements SessionAware {
 
 
 
@@ -41,10 +40,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 */
 	private List<DecisionDetailDTO> decisionBeginList = new ArrayList<DecisionDetailDTO>();
 	/**
-	 * プロジェクトリスト
-	 */
-	private List<ProjectsSelectDTO> projectsList = new ArrayList<ProjectsSelectDTO>();
-	/**
 	 * 検索文字
 	 */
 	private String searchString = "";
@@ -53,13 +48,9 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 */
 	private int userId;
 	/**
-	 * ユーザーID1
-	 */
-	private int userId1 = userId;
-	/**
 	 * 管理者権限メソッド
 	 */
-	public Map<String, Object> session;
+	private Map<String, Object> session;
 	/**
 	 * エラー文字1
 	 */
@@ -71,7 +62,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 
 
-
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @author TATUHUMI ITOU
@@ -79,29 +69,28 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 */
 	public String execute(){
 
-		userId = (int) session.get("userId");
+		//userId = (int) session.get("userId");
+
 
 		DecisionDetailSelectDAO dao1 = new DecisionDetailSelectDAO();
 		DecisionDetailSelectDAO dao2 = new DecisionDetailSelectDAO();
 		DecisionDetailSelectDAO dao3 = new DecisionDetailSelectDAO();
 
-		DecisionDetailDTO dto1 = new DecisionDetailDTO();
-		DecisionDetailDTO dto2 = new DecisionDetailDTO();
-		DecisionDetailDTO dto3 = new DecisionDetailDTO();
-		decisionDetailList1.add(dto1);
-		decisionDetailList2.add(dto2);
-		decisionBeginList.add(dto3);
+
+
+		int userIdM1 = (int) session.get("userId");
+		int userIdS1 = userIdM1;
+		int userIdM2 = userIdM1;
+		int userIdS2 = userIdM1;
+		int userIdM3 = userIdM1;
+		int userIdS3 = userIdM1;
 
 
 
+		decisionDetailList1 = dao1.selectAnotherD( searchString, userIdM1, userIdS1 );
+		decisionDetailList2 = dao2.selectMyD( userIdM2, userIdS2);
+		decisionBeginList = dao3.selectP( userIdM3, userIdS3);
 
-
-
-		decisionDetailList1 = dao1.select1( searchString );
-		decisionDetailList2 = dao2.select2( userId );
-		decisionBeginList = dao3.select3();
-
-		//projectsList = projectsDao.select("");
 
 		if( decisionDetailList1.size() == 0){
 			resultSelect1 = "該当する情報はありません";
@@ -178,24 +167,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 
 	/**
-	* 取得メソッド プロジェクトリストを取得
-	* @author KOHEI NITABARU
-	* @return projectsList
-	*/
-	public List<ProjectsSelectDTO> getProjectsList() {
-		return projectsList;
-	}
-
-	/**
-	* 設定メソッド  プロジェクトリストを設定
-	* @author KOHEI NITABARU
-	* @param projectsList
-	*/
-	public void setProjectsList(List<ProjectsSelectDTO> projectsList) {
-		this.projectsList = projectsList;
-	}
-
-	/**
 	* 取得メソッド シリアル番号を取得
 	* @author KOHEI NITABARU
 	* @return serialVersionUID
@@ -242,28 +213,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @author KOHEI NITABARU
-	* @return userId1
-	*/
-	public int getUserId1() {
-		return userId1;
-	}
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @author KOHEI NITABARU
-	* @param userId1
-	*/
-	public void setUserId1(int userId1) {
-		this.userId1 = userId1;
 	}
 
 
