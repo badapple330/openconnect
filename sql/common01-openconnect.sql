@@ -259,6 +259,5 @@ oauth_id varchar(255) comment 'OAuthID',
 oauth_name int default 0 comment 'OAuth名',
 oauth_account varchar(100) comment 'OAuthアカウント',
 register_day datetime comment '登録日',
-update_day datetime comment '更新日',
-team_name varchar(255) default '1ヶ月目生'
+update_day datetime comment '更新日'
 )comment = 'ユーザー情報格納テーブル';
