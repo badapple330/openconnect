@@ -21,6 +21,8 @@ $(document).ready(function(){
 
 		//jqueryのuiが適用されるようにする
 		theme: true,
+		allDaySlot: false,
+
 
 	    // ボタン文字列
         buttonText: {
@@ -58,6 +60,7 @@ $(document).ready(function(){
         dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
         //終日表示をなくす
         allDayText: '',
+        nextDayThreshold:"00:00:00",
 
         //jqueryプラグインのtable-to-jsonでテーブルの情報を取得
         events:$('#schedule').tableToJSON(),

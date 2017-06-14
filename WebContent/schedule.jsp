@@ -52,8 +52,6 @@
 
 <div id="operation">
 
-
-
 			<s:form action="ScheduleSelectAction">
 				<input type="text" name="search" placeholder="検索文字を入力" maxlength=100 />
 				<s:submit value="検索"></s:submit>
@@ -71,7 +69,7 @@
 				<table id = "schedule" border=1 style="">
 					<tbody>
 						<tr>
-							<!--<th>ID</th>-->
+							<th>ID</th>
 							<th>start</th>
 							<th>end</th>
 							<th>title</th>
@@ -85,7 +83,7 @@
 						<h5>start→開始日　end→終了日　title→作業内容</h5>
 						<s:iterator value="scheduleList">
 							<tr>
-								<!--<td><s:property value="id" /></td>-->
+								<td><s:property value="id" /></td>
 								<td><input type="text" name="scheduleStartdayList"
 									value="<s:property value="startDay" />"
 									class="scheduleStartdayList" type="date"
@@ -124,13 +122,18 @@
 						<tr>
 							<td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"
 								maxlength=100 required></td>
+						</tr>
+						<tr>
 							<td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力"
 								maxlength=100 required></td>
-							<td></td>
+						</tr>
 							<td><input type="text" name="title" placeholder="件名を入力"
 								maxlength=100 required></td>
+						</tr>
+						<tr>
 							<td><input type="text" name="content" placeholder="内容を入力"
 								maxlength=100></td>
+						</tr>
 							<!-- tokenタグ -->
 
 								<s:token />
