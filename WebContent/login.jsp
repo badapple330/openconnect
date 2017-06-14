@@ -43,7 +43,7 @@
 
 
 					<h1 align="center">
-						<a href="index.jsp" class="square_btn35">Open Connect</a>
+						<a href="applist.jsp" class="square_btn35">Open Connect</a>
 					</h1>
 <br><br><br><br><br>
 
