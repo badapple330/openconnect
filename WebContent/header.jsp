@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 
 <script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!-- 背景画像 -->
 <style type="text/css">

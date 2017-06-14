@@ -48,6 +48,10 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 */
 	private int userId;
 	/**
+	 * ユーザーID
+	 */
+	private int userId1;
+	/**
 	 * 管理者権限メソッド
 	 */
 	private Map<String, Object> session;
@@ -69,27 +73,15 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 */
 	public String execute(){
 
-		//userId = (int) session.get("userId");
+		int userId = (int) session.get("userId");
+		int userId1 = (int) session.get("userId");
 
 
-		DecisionDetailSelectDAO dao1 = new DecisionDetailSelectDAO();
-		DecisionDetailSelectDAO dao2 = new DecisionDetailSelectDAO();
-		DecisionDetailSelectDAO dao3 = new DecisionDetailSelectDAO();
+		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
 
-
-
-		int userIdM1 = (int) session.get("userId");
-		int userIdS1 = userIdM1;
-		int userIdM2 = userIdM1;
-		int userIdS2 = userIdM1;
-		int userIdM3 = userIdM1;
-		int userIdS3 = userIdM1;
-
-
-
-		decisionDetailList1 = dao1.selectAnotherD( searchString, userIdM1, userIdS1 );
-		decisionDetailList2 = dao2.selectMyD( userIdM2, userIdS2);
-		decisionBeginList = dao3.selectP( userIdM3, userIdS3);
+		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
+		decisionDetailList2 = dao.selectMyD( userId, userId1);
+		decisionBeginList = dao.selectP( userId, userId1);
 
 
 		if( decisionDetailList1.size() == 0){
@@ -213,6 +205,28 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return userId1
+	*/
+	public int getUserId1() {
+		return userId1;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param userId1
+	*/
+	public void setUserId1(int userId) {
+		this.userId1 = userId;
 	}
 
 

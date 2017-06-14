@@ -57,12 +57,13 @@
 
 
 	<!-- リーダー自プロジェクト表示用 -->
-		<s:if test="%{#session.userFlg == 2}">
+	<s:if test="%{#session.userFlg == 2}">
 
-			<s:if test="{decisionDetailList2.size > 0}">
-			<s:iterator value="decisionDetailList2">
+		<s:if test="{decisionDetailList2.size > 0}">
+		<s:iterator value="decisionDetailList2">
 
-		<table border="1">
+			<table border="1">
+
 				<tr>
 					<th>決済ID</th>
 
@@ -73,61 +74,40 @@
 					<th>決裁種類</th>
                     <th>決済状況</th>
 
-					<th>
-						<s:if test="%{#session.userFlg == 2}">
-						編集/プレビューボタン
-						</s:if>
-						<s:else>
-						プレビューボタン
-						</s:else>
-					</th>
-
-				<s:if test="%{#session.userFlg >= 2}">
+					<th>編集/プレビューボタン</th>
 					<th>申請ボタン</th>
-
-					<th>承認ボタン</th>
-					<th>差し戻しボタン</th>
-					<th>
-						<s:if test="%{#session.userFlg == 3}">
-						却下ボタン
-						</s:if>
-						<s:else>
-						変更ボタン
-						</s:else>
-					</th>
-				</s:if>
-
+					<th>変更ボタン</th>
                 </tr>
 
 				<tr>
 				<!-- 決済ID -->
-						<td class="decision_id">
-							<s:property value="decisionId" />
-						</td>
+					<td class="decision_id">
+						<s:property value="decisionId" />
+					</td>
 
 
 				<!-- プロジェクトID -->
-						<td class="project_id">
-							<s:property value="projectId" />
-						</td>
+					<td class="project_id">
+						<s:property value="projectId" />
+					</td>
 				<!-- 案件名 -->
-						<td>
-							<s:property value="decisionName" />
-						</td>
+					<td>
+						<s:property value="decisionName" />
+					</td>
 				<!-- プロジェクト名 -->
-						<td class="project_name">
-							<s:property value="projectName" />
-						</td>
+					<td class="project_name">
+						<s:property value="projectName" />
+					</td>
 
 
 				<!-- 決済種類 -->
-						<td class="decision_type">
-                            <s:property value="decisionType" />
-                        </td>
+					<td class="decision_type">
+						<s:property value="decisionType" />
+					</td>
 				<!-- 決済状況 -->
-						<td class="decision_status">
-							<s:if test="%{decisionType == '実施')}">
-						 		<s:if test="decisionStatus1 == 0">
+					<td class="decision_status">
+						<s:if test="%{decisionType == '実施')}">
+					 			<s:if test="decisionStatus1 == 0">
 									作成中
 								</s:if>
 								<s:elseif test="decisionStatus1 == 1">
@@ -139,12 +119,10 @@
 								<s:elseif test="decisionStatus1 == 3">
 									変更中
 								</s:elseif>
+						</s:if>
 
-
-           				<!-- <s:property value="decisionStatus1" /> -->
-                        	</s:if>
-                       		<s:else>
-                       			<s:if test="decisionStatus2 == 0">
+						<s:else>
+								<s:if test="decisionStatus2 == 0">
 									作成中
 								</s:if>
 								<s:elseif test="decisionStatus2 == 1">
@@ -156,76 +134,68 @@
 								<s:elseif test="decisionStatus2 == 3">
 									変更中
 								</s:elseif>
-
-
-            			<!-- <s:property value="decisionStatus2" /> -->
-                        	</s:else>
-                        </td>
+						</s:else>
+					</td>
 
 
                 <!-- 編集/プレビューボタン -->
-						<td>
-							<s:if test="%{decisionStatus1 == 0 || decisionStatus2 == 0}">
-
-				            	<s:form action="DecisionSelectAction">
-				            		<input type="submit" value="編集">
-				            	</s:form>
-
-				            </s:if>
-				            <s:else>
-				            	<s:form action="DecisionDetailPreviewAction">
-									<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-									<s:submit value="プレビュー" />
+					<td>
+						<s:if test="%{decisionStatus1 == 0 || decisionStatus2 == 0}">
+								<s:form action="DecisionSelectAction">
+									<input type="submit" value="編集">
 								</s:form>
-				            </s:else>
-                        </td>
+						</s:if>
+
+						<s:else>
+								<s:form action="">
+									<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+									<input type="submit" value="プレビュー" />
+								</s:form>
+						</s:else>
+					</td>
+
+
 				<!-- 申請ボタン -->
-						<td>
+					<td>
 						<!-- フォームに行って印を押す -->
-							<s:if test="%{decisionStatus1 == 0 || decisionStatus2 == 0 || decisionStatus1 == 3 || decisionStatus2 == 3}">
+						<s:if test="%{decisionStatus1 == 0 || decisionStatus2 == 0 || decisionStatus1 == 3 || decisionStatus2 == 3}">
 							<s:form action="DecisionDetailApplicationAction">
 								<s:if test="%{decisionType == '実施'}">
-                            		<input type="hidden" name="decisionStatus1" value=1>
-                         		</s:if>
-                         		<s:else>
+									<input type="hidden" name="decisionStatus1" value=1>
+								</s:if>
+								<s:else>
 									<input type="hidden" name="decisionStatus2" value=1>
 								</s:else>
 									<input type="hidden" name="decisionlId" value="<s:property value="decisionId" />">
 									<input type="submit" value="申請">
 							</s:form>
-							</s:if>
-							<s:elseif test="%{decisionStatus1 == 1 || decisionStatus2 == 1}">
+						</s:if>
+						<s:elseif test="%{decisionStatus1 == 1 || decisionStatus2 == 1}">
 								承認待ち
-							</s:elseif>
-							<s:else>
+						</s:elseif>
+						<s:else>
 								承認済み
-							</s:else>
-						</td>
+						</s:else>
+					</td>
 
 
-				<!-- 承認ボタン -->
-						<td>
-                           ダミーボタン
-                        </td>
-				<!-- 差し戻しボタン -->
-						<td>
-                           ダミーボタン
-                        </td>
-                <!-- 変更ボタン -->
-						<td>
-							<s:if test="%{decisionStatus1 == 3 || decisionStatus2 == 3}">
-				            	<a href=".jsp"><input type="button" value="変更" /></a>
-				            </s:if>
-				           ダミーボタン
-                        </td>
-
-				    </tr>
+				<!-- 変更ボタン -->
+					<td>
+						<s:if test="%{decisionStatus1 == 3 || decisionStatus2 == 3}">
+								<a href=".jsp"><input type="button" value="変更" /></a>
+						</s:if>
+						<s:else>
+								ダミーボタン
+						</s:else>
+					</td>
+				</tr>
 
 			</table>
 
-			</s:iterator>
-
+		</s:iterator>
 		</s:if>
+
+
 
 		<s:if test="{decisionDetailList2.size == 0}">
 
@@ -284,28 +254,15 @@
 					<th>決裁種類</th>
                     <th>決済状況</th>
 
-					<th>
-						<s:if test="%{#session.userFlg == 2}">
-						編集/プレビューボタン
-						</s:if>
-						<s:else>
-						プレビューボタン
-						</s:else>
-					</th>
+					<th>プレビューボタン</th>
 
 				<s:if test="%{#session.userFlg >= 2}">
-					<th>申請ボタン</th>
-
 					<th>承認ボタン</th>
-					<th>差し戻しボタン</th>
-					<th>
-						<s:if test="%{#session.userFlg == 3}">
-						却下ボタン
-						</s:if>
-						<s:else>
-						変更ボタン
-						</s:else>
-					</th>
+
+					<s:if test="%{#session.userFlg == 3}">
+						<th>差し戻しボタン</th>
+						<th>却下ボタン</th>
+					</s:if>
 				</s:if>
 
                 </tr>
@@ -373,7 +330,7 @@
 
                 <!-- プレビューボタン -->
 						<td>
-							<s:form action="DecisionDetailPreviewAction">
+							<s:form action="">
 								<input type="hidden" name="decisionId"
 									value="<s:property value="decisionId" />">
 								<s:submit value="プレビュー" />
@@ -381,11 +338,6 @@
                         </td>
 
 			<s:if test="%{#session.userFlg >= 2}">
-				<!-- 申請ボタン -->
-						<td>
-				            ダミーボタン
-						</td>
-
 
 				<!-- 承認ボタン -->
 						<td>
@@ -405,25 +357,19 @@
 
 
                         </td>
+
+
+				<s:if test="%{#session.userFlg == 3}">
 				<!-- 差し戻しボタン -->
 						<td>
-							<s:if test="%{#session.userFlg == 3}">
-                            	<a href=".jsp"><input type="button" value="差し戻し" /></a>
-                            </s:if>
-                            <s:else>
-                            	ダミーボタン
-                            </s:else>
+								<a href=".jsp"><input type="button" value="差し戻し" /></a>
                         </td>
-                <!-- 却下/変更ボタン -->
+                <!-- 却下ボタン -->
 						<td>
-                            <s:if test="%{#session.userFlg == 3}">
-                            	<a href=".jsp"><input type="button" value="却下" /></a>
-                            </s:if>
-                            <s:else>
-                            	ダミーボタン(変更)
-                            </s:else>
-                        </td>
-			</s:if>
+								<a href=".jsp"><input type="button" value="却下" /></a>
+						</td>
+				</s:if>
+		</s:if>
 
 				    </tr>
 

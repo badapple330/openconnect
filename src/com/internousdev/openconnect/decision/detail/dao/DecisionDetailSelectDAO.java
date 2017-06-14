@@ -25,7 +25,7 @@ public class DecisionDetailSelectDAO {
 	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
 	 * @author TATUHUMI ITOU
 	 */
-	public List<DecisionDetailDTO> selectAnotherD( String searchString, int userIdM1, int userIdS1 ){
+	public List<DecisionDetailDTO> selectAnotherD( String searchString, int userId, int userId1 ){
 
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
@@ -38,13 +38,10 @@ public class DecisionDetailSelectDAO {
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 
-			ps.setInt(1, userIdM1);
-			ps.setInt(2, userIdS1);
+			ps.setInt(1, userId);
+			ps.setInt(2, userId1);
 
 			ResultSet rs = ps.executeQuery();
-
-
-
 
 
 			while( rs.next() ){
@@ -83,12 +80,12 @@ public class DecisionDetailSelectDAO {
 	 * ログインユーザーの自プロジェクトを呼び出す専用
 	 * @author TATUHUMI ITOU
 	 */
-	public List<DecisionDetailDTO> selectMyD( int userIdM2, int userIdS2 ){
+	public List<DecisionDetailDTO> selectMyD( int userId, int userId1 ){
 
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 2 and ( manager_id = ? or sub_manager_id = ? )";
+				+"where decision_status2 != 2 and ( sub_manager_id = ? or manager_id = ? )";
 
 		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
 
@@ -98,8 +95,8 @@ public class DecisionDetailSelectDAO {
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 
-			ps.setInt(1, userIdM2);
-			ps.setInt(2, userIdS2);
+			ps.setInt(1, userId);
+			ps.setInt(2, userId1);
 
 			ResultSet rs = ps.executeQuery();
 
@@ -135,7 +132,7 @@ public class DecisionDetailSelectDAO {
 
 
 
- 	public List<DecisionDetailDTO> selectP(int userIdM3, int userIdS3){
+ 	public List<DecisionDetailDTO> selectP(int userId, int userId1){
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select project_id, project_name, manager_id, sub_manager_id from projects where ( manager_id = ? or sub_manager_id = ? )";
@@ -146,8 +143,8 @@ public class DecisionDetailSelectDAO {
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 
-			ps.setInt(1, userIdM3);
-			ps.setInt(2, userIdS3);
+			ps.setInt(1, userId);
+			ps.setInt(2, userId1);
 
 			ResultSet rs = ps.executeQuery();
 

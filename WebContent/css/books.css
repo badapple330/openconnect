@@ -145,19 +145,6 @@
 	margin: 10px;
 }
 
-/* モーダル コンテンツエリア */
-#modal-main {
-	display: none;
-	position: absolute;
-	width: 30%;
-	height: 20%;
-	margin: 5px;
-	padding: 10px;
-	background-color: #ffffff;
-	color: #666666;
-	border-radius: 4px;
-	z-index: 2;
-}
 /* モーダル 背景エリア */
 #modal-bg {
 	display: none;
@@ -169,7 +156,47 @@
 	left: 0;
 	z-index: 1;
 }
+/* モーダル コンテンツエリア */
+#modal-main {
+	display: none;
+	width: 400px;
+	margin: 5px;
+	padding: 10px;
+	background-color: #ffffff;
+	color: #666666;
+	position: fixed;
+	top: 25%;
+	border-radius: 4px;
+	z-index: 2;
+}
 
+@media (max-width: 768px) {
+	#modal-main {
+		display: none;
+		width: 200px;
+		margin: 5px;
+		padding: 10px;
+		background-color: #ffffff;
+		color: #666666;
+		position: fixed;
+		top: 25%;
+		border-radius: 4px;
+		z-index: 2;
+	}
+
+	.page-top {
+    position: fixed;
+    bottom: 15%;
+    right: 25px;
+    background-color: rgb(0, 27, 65);
+    color: #ffffff;
+	padding: 10px 20px;
+	display: block;
+	border-radius: 3px;
+	text-decoration: none;
+	font-size: 200%;
+	}
+}
 @media (min-width: 768px) {
 .page-top {
     position: fixed;
@@ -183,4 +210,6 @@
 	text-decoration: none;
 	font-size: 200%;
 }
+
+
 }

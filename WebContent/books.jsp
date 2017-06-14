@@ -11,10 +11,8 @@
 <link rel="apple-touch-icon" href="logo/oc.png">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/books.css">
-<script src="js/jquery-3.1.0.min.js"></script>
-
-<script type="text/javascript" src="js/books.js"></script>
-<script type="text/javascript" src="js/books-page-top.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 <title>書籍一覧</title>
@@ -27,7 +25,6 @@
 
 
 
-			<a href="#" class="page-top">↑</a>
 
 <div class="container">
 
@@ -170,10 +167,10 @@
 		</s:form>
 
 
-		<div id="modal-main">
+		<div id="modal-main" >
 				<!-- #contents START -->
 				<p>本当に一覧から削除しますか？<br>
-				<br>ID：<span id="book_id"></span>
+				<br>ブックID：<span id="book_id"></span>
 				<br>タイトル：『<span id="title"></span>』
 				</p>
 
@@ -308,9 +305,12 @@
 </div>
 
 
+<a href="#" class="page-top">↑</a>
 
 <!-- Javascripts
     ================================================== -->
+<script type="text/javascript" src="js/books.js"></script>
+<script type="text/javascript" src="js/books-page-top.js"></script>
 
 </body>
 </html>
