@@ -41,7 +41,7 @@ oauth_name int default 0 comment 'OAuth名',
 oauth_account varchar(100) comment 'OAuthアカウント',
 register_day datetime comment '登録日',
 update_day datetime comment '更新日',
-team_name varchar(255) default '1stMonth' comment 'チーム名'
+team_name varchar(255) not null default '1stmonth' comment 'チーム名'
 )comment = 'ユーザー情報格納テーブル';
 
 set names utf8;
