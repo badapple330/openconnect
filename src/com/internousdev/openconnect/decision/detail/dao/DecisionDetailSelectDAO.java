@@ -176,4 +176,46 @@ public class DecisionDetailSelectDAO {
 	}
 
 
+
+
+ 	public List<DecisionDetailDTO> select( int decisionId ){
+		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
+
+		String sql = "select decision.day, decision.summary, projects.project_name , "
+				+"projects.manager_id, projects.project_id from decision "
+				+"inner join projects on decision.project_id = projects.project_id where decision_id LIKE '%" + decisionId + "%'";
+
+		List<DecisionDetailDTO> decisionDetailInsList  = new ArrayList<DecisionDetailDTO>();
+
+		try{
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ResultSet rs = ps.executeQuery();
+
+			while( rs.next() ){
+
+				DecisionDetailDTO dto = new DecisionDetailDTO();
+				dto.setDay(rs.getString("day"));
+				dto.setUserId(rs.getInt("manager_id"));
+				dto.setProjectId(rs.getInt("project_id"));
+				dto.setProjectName(rs.getString("project_name"));
+				dto.setSummary(rs.getString("summary"));
+
+				decisionDetailInsList .add( dto );
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try{
+				conn.close();
+			}catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
+
+		return decisionDetailInsList ;
+	}
+
+
 }

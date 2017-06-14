@@ -47,11 +47,11 @@ public class DecisionEditSelectDAO {
 					dto.setProjectName(rs.getString("project_name"));
 					dto.setDecisionId(rs.getInt("decision_id"));
 					dto.setDecisionType(rs.getString("decision_type"));
-					dto.setDecisionStatus(rs.getString("decision_status"));
+					dto.setDecisionStatus1(rs.getInt("decision_status1"));
 					dto.setProjectId(rs.getInt("project_id"));
 					try {dto.setDay(sdf.format(rs.getDate("day")).toString());}catch(Exception e){}
 					dto.setUserId(rs.getInt("user_id"));
-					dto.setItemName(rs.getString("item_name"));
+
 					dto.setSummary(rs.getString("summary"));
 					dto.setCause(rs.getString("cause"));
 					try {dto.setStartDay(sdf.format(rs.getDate("start_day")).toString());}catch(Exception e){}
