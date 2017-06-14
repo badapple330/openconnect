@@ -81,6 +81,14 @@ body {
     color: white;
 }
 
+@media screen and (max-width: 380px){
+/* スマートフォンだけ以下を適用 */
+
+body {
+ 		  margin:0px;
+ 		  width:100%;
+  	}
+  }
 
 
 
