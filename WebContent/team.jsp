@@ -23,20 +23,22 @@
 	<br>
 
 
-
+<s:iterator value="teamUserList">
 	<table class="teaminfo">
 	<tr>
-	<th>ユーザー名：</th><td>プロパティユーザー名</td>
+	<th>ユーザー名：</th><td><s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/></td>
 	</tr>
 
 
 	<tr>
-	<th>チーム：</th><td>プロパティチーム名</td>
+	<th>チーム：</th><td><s:property value="teamName"/></td>
+
 	<tr>
 
 	<tr>
-	<th>役職：</th><td>プロパティ役職</td>
+	<th>役職：</th><td><s:property value="userFlg"/></td>
 	</table>
+	</s:iterator>
 
 
 	<br>

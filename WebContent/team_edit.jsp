@@ -21,11 +21,9 @@
 	<h1 >チーム情報編集</h1><hr>
 	<br>
 
+	変更内容を以下に記入してください
 	<s:form action="TeamEditAction">
 	<table class="teamedit">
-	<tr>
-		<td>ユーザー名：</td><td>プロパティユーザー</td>
-	</tr>
 	<tr>
 		<td>チーム名：</td>
 		<td><input type="text" name=teamName  size="30" pattern="^[0-9A-Za-z]+$" placeholder="半角英数で入力してください" title="半角英数で入力してください"/></td>
