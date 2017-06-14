@@ -85,10 +85,10 @@ body {
 /* スマートフォンだけ以下を適用 */
 
 body {
- 		  margin:0px;
- 		  width:100%;
-  	}
-  }
+	margin:0px;
+    width:100%;
+    }
+}
 
 
 
