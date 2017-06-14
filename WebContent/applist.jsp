@@ -6,6 +6,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.5, user-scalable=no" >
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <link rel="stylesheet" href="css/applist.css">
