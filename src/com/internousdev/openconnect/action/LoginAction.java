@@ -96,8 +96,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	 * セッションを格納するためのメソッド
 	 *
 	 * @author MAIKI OKANO
-	 * @param session
-	 *            格納するセッション
+	 * @param session 格納するセッション
 	 */
 	@Override
 	public void setSession(Map<String, Object> session) {
