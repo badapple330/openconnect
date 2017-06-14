@@ -109,7 +109,7 @@ public class StudentsSearchAction extends ActionSupport {
 	/**
 	 * 実行メソッド
 	 * 処理内容と順番
-	 * 1：useridを入力することでuserへ登録された顧客情報を表示する。
+	 * 1：受講開始年月を入力することでusersテーブルへ登録された顧客情報を表示する。
 	 */
 	public String execute() {
 

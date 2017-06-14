@@ -11,7 +11,7 @@ import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.internousdev.util.DBConnector;
 
 /**
- * 顧客情報に関するクラス
+ * 受講生情報に関するクラス
  * @author Tatsuhiro Saito
  * @since 2017/06/12
  * @version 1.0
@@ -22,7 +22,7 @@ public class StudentsSearchDAO {
 	/**
 	* 顧客情報を取得しリストに格納する
 	* @param userId ユーザーID
-	* @return itemList 顧客情報
+	* @return studentsList 受講生情報
 	* @author Tatsuhiro Saito
 	* @since 2017/06/15
 	* @version 1.0

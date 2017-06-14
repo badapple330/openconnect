@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  * @author YUKI MAEDA
  * @author MASAHIRO KEDSUKA
+ * @author TATSUHIRO SAITO
  * @since 2016/10/05
  */
 public class RegisterAction extends ActionSupport  {

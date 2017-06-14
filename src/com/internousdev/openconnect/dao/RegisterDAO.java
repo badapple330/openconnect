@@ -12,6 +12,7 @@ import com.internousdev.util.DBConnector;
  * 新規登録情報を格納するためのDAO
  *
  * @author YUKI MAEDA
+ * @author TATSUHIRO SAITO
  * @since 2016/07/11
  */
 public class RegisterDAO {
@@ -20,6 +21,7 @@ public class RegisterDAO {
 	 * 挿入メソッド 指定された情報をDBに接続して挿入するメソッド
 	 *
 	 * @author YUKI MAEDA
+	 * @author TATSUHIRO SAITO
 	 * @param userID
 	 *            ユーザーID
 	 * @param password
@@ -82,10 +84,10 @@ public class RegisterDAO {
 
 	/**
 	 *
-	 * 指定されたユーザーＩＤが存在するかＤＢに接続して調べるメソッド
-	 *
+	 * 指定されたユーザーメールアドレスが存在するかＤＢに接続して調べるメソッド
+	 *@author TATSUHIRO SAITO
 	 * @author YUKI MAEDA
-	 * @param userId
+	 * @param email
 	 *            ユーザーID
 	 * @return 存在したらtrue、存在しなければfalse
 	 */
