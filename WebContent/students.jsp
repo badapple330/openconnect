@@ -24,23 +24,25 @@
 
 			<h3>受講開始年月から検索</h3>
 		<s:form action="StudentsSearchAction">
-			<h4>受講年</h4>
-			<s:textfield name="year" size="50" placeholder="2016" type="text" maxlength="4" pattern="([1-2]][0-9]{3})"/>
-			<s:submit value="Search"></s:submit>
-		</s:form><br><br>
-		<s:form action="StudentsSearchAction2">
-			<h4>受講開始月</h4>
-			<s:textfield name="month" size="50" placeholder="04" type="text" maxlength="2" pattern="([0-1][0-9])"/>
-			<s:submit value="Search"></s:submit>
+			<tr>
+					<th>受講年</th>
+					<td><input type="text" name="year" pattern="([1-2][0-9]{3})"
+						maxlength="4" required title="2016" placeholder="2016" /></td>
+				</tr>
+
+
+				<tr>
+					<th>受講開始月</th>
+					<td><input type="text" name="month" pattern="([0-1][0-9])"
+						maxlength="2" required title="08" placeholder="08" /></td>
+				</tr>
+				<td><input id="postBtn" type="submit" value="検索"></td>
 		</s:form>
 			<br>
 			<s:property value="%{resultString}" />
 			<s:property value="%{resultSelect}" />
 			<br>
-			<s:form action="StudentsSelectAction">
-			<!-- 全員表示 -->
-				<s:submit value="全員表示" name="submit" />
-			</s:form>
+
 			<s:if test="%{studentsList.size() > 0}">
 
 				<table border="1">

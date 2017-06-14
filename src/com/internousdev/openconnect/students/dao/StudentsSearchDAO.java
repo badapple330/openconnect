@@ -27,7 +27,7 @@ public class StudentsSearchDAO {
 	* @since 2017/06/15
 	* @version 1.0
 	*/
-	public ArrayList<StudentsDTO> select(String year) {
+	public ArrayList<StudentsDTO> select(String year, String month) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
@@ -36,7 +36,7 @@ public class StudentsSearchDAO {
 			String sql=null;
 
 
-			sql="select * from users  where year=? ";
+			sql="select * from users  where year=? and month=? ";
 
 
 
@@ -44,6 +44,8 @@ public class StudentsSearchDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 				ps.setString(1, year);
+				ps.setString(2, month);
+
 
 
 
