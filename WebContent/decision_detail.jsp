@@ -166,7 +166,11 @@
                 <!-- 編集/プレビューボタン -->
 						<td>
 							<s:if test="%{decisionStatus1 == 0 || decisionStatus2 == 0}">
-				            	<a href=".jsp"><input type="button" value="編集" /></a>
+
+				            	<s:form action="DecisionSelectAction">
+				            		<input type="submit" value="編集">
+				            	</s:form>
+
 				            </s:if>
 				            <s:else>
 				            	<s:form action="DecisionDetailPreviewAction">
