@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.6, user-scalable=no" >
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <link rel="stylesheet" href="css/applist.css">
@@ -37,19 +37,16 @@
 
 
 <!-- 画像スライドショー -->
-<div class="container">
-<table border>
-<tr>
-<td>
-<div align="center">
-<img id="idshow1" class="fadeout" style="position:absolute;" src="img/top.jpg" width="700" height="500">
-<img id="idshow2" class="fadein" src="img/sity.jpg" width="700" height="500">
+<div class="container" align="center">
+
+<img id="idshow1" class="fadeout" style="position:absolute;" src="img/top.jpg" width= "700px" height= "500px">
+<img id="idshow2" class="fadein" src="img/sity.jpg" width= "700px" height= "500px">
 
 <script type="text/javascript"><!--
 myChange();
 // --></script>
 
-</div>
+
 
 <!-- 天気予報  -->
 <div align="center">
@@ -62,9 +59,7 @@ myChange();
 </table>
 </div>
 
-</td>
-</tr>
-</table>
+
 <BR>
 
 
