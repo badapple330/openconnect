@@ -21,7 +21,7 @@
 		<h1 style="text-align: center;">管理画面</h1>
 	</div>
 
-<div align= "center" class= "main">
+<div align= "center">
 	<s:if test="%{#session.userFlg >= 1}">
 	<p class="caution">数字入力は半角のみ、 アプリID欄にはアプリIDのみ記入可能、
 		値の確認は下のアプリ一覧情報取得から行ってください。 テンキー入力不可。</p>
@@ -34,17 +34,19 @@
 		</p>
 	</s:if>
 	<s:form action="AddAppAction">
-		<table class="wwFormTable">
+		<table id="wwFormTable1">
 			<tbody>
 				<tr>
-					<td>アプリ名：<input type="text" name="siteName" maxlength="20"
-						required>
+					<td>アプリ名</td>
+					<td><input type="text" name="siteName" maxlength="20"
+					    required>
 					</td>
-					<td>URL：<input type="text" name="siteUrl"
-						style="ime-mode: disabled" size="20" required>
+					<td>URL</td>
+					<td><input type="text" name="siteUrl" style="ime-mode: disabled"
+					    size="20" required>
 					</td>
-					<td>グループ： <select name="genre" style="ime-mode: disabled"
-						required>
+					<td>グループ</td>
+					<td><select name="genre" style="ime-mode: disabled" required>
 							<option value="" selected>グループ</option>
 							<option value="観る">観る</option>
 							<option value="読む">読む</option>
@@ -72,10 +74,11 @@
 		</p>
 	</s:if>
 	<s:form action="DeleteAppAction">
-		<table class="wwFormTable">
+		<table id="wwFormTable2">
 			<tbody>
 				<tr>
-					<td>アプリID : <input type="text" name="siteId" maxlength="20"
+					<td>アプリID</td>
+					<td><input type="text" name="siteId" maxlength="20"
 						onkeyDown="return numOnly()" pattern="[0-9]{1,10}"
 						title="半角数字で入力してください" required>
 					</td>
@@ -92,22 +95,26 @@
 		</p>
 	</s:if>
 	<s:form action="UpdateAppAction">
-		<table class="wwFormTable">
+		<table id="wwFormTable3">
 			<tbody>
 				<tr>
-					<td>アプリID : <input type="text" name="siteId" maxlength="20"
+					<td>アプリID</td>
+					<td><input type="text" name="siteId" maxlength="20"
 						onkeyDown="return numOnly()" pattern="[0-9]{1,10}"
 						title="半角数字で入力してください" required>
 					</td>
 
-					<td>アプリ名：<input type="text" name="siteName" maxlength="20"
+					<td>アプリ名</td>
+					<td><input type="text" name="siteName" maxlength="20"
 						required>
 					</td>
 
-					<td>URL：<input type="text" name="siteUrl"
+					<td>URL</td>
+					<td><input type="text" name="siteUrl"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<td>グループ：<select name="genre" style="ime-mode: disabled"
+					<td>グループ</td>
+					<td><select name="genre" style="ime-mode: disabled"
 						required>
 							<option value="" selected>グループ</option>
 							<option value="観る">観る</option>
