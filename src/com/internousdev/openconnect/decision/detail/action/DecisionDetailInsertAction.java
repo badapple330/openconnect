@@ -52,7 +52,7 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 		if (count > 0 ) {
 			result = SUCCESS;
-			resultString = "追加できました!";
+			resultString = "追加できました! 1度検索ボタンを押してください。";
 		}
 		return result;
 	}

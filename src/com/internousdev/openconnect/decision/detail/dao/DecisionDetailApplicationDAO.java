@@ -19,7 +19,7 @@ public class DecisionDetailApplicationDAO{
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE decision SET  decision_status=? where decision_id=?";
+		String sql = "UPDATE decision SET decision_status = ? where decision_id = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

@@ -325,9 +325,8 @@
                 <!-- プレビューボタン -->
 						<td>
 							<s:form action="">
-								<input type="hidden" name="decisionId"
-									value="<s:property value="decisionId" />">
-								<s:submit value="プレビュー" />
+								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+								<input type="submit" value="プレビュー">
 							</s:form>
                         </td>
 
@@ -335,6 +334,20 @@
 
 				<!-- 承認ボタン -->
 						<td>
+
+							<s:if test="decisionStatus1 == 1 && decisionType == '実施' ">
+								<s:form action="">
+									<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+									<input type="submit" value="実施承認">
+								</s:form>
+							</s:if>
+							<s:elseif test="decisionStatus2 == 1 && (decisionType == '契約' || decisionType == '実施兼契約')">
+								<s:form action="">
+									<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+									<input type="submit" value="契約/実施兼契約承認">
+								</s:form>
+							</s:elseif>
+
 
 							<s:if test="%{#session.userId != managerId && #session.userId != subManagerId}">
 							<a href=".jsp"><input type="button" value="承認" /></a>
