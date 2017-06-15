@@ -2,46 +2,52 @@ package com.internousdev.openconnect.schedule.dto;
 
 /**
  * スケジュール一覧から検索したデータを溜め込むクラス。
- * @author MASAHIRO KEDSUKA
+ * @author WATARU AMEMIYA
  * @since 2016/09/07
  */
 public class ScheduleDTO {
 
 	/**
 	 * id
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 */
 	private int id;
 
 	/**
 	 * 開始日
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 */
 	private String startDay;
 
 	/**
 	 * 終了日
-	 *@author MASAHIRO KEDSUKA
+	 *@author WATARU AMEMIYA
 	 */
 	private String endDay;
 
 	/**
 	 * 件名
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 */
 	private String title;
 
 	/**
 	 * 内容
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 */
 	private String content;
+
+	/**
+	 * チーム
+	 * @author WATARU AMEMIYA
+	 */
+	private String teamName;
 
 
 
 	/**
 	 * 取得メソッド IDを取得
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @return id
 	 */
 	public int getId() {
@@ -50,7 +56,7 @@ public class ScheduleDTO {
 
 	/**
 	 * 設定メソッド IDを設定
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @param id
 	 */
 	public void setId(int id) {
@@ -59,7 +65,7 @@ public class ScheduleDTO {
 
 	/**
 	 * 取得メソッド 開始日を取得
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @return startDay
 	 */
 	public String getStartDay() {
@@ -68,7 +74,7 @@ public class ScheduleDTO {
 
 	/**
 	 * 設定メソッド 開始日を設定
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @param startDay
 	 */
 	public void setStartDay(String startDay) {
@@ -77,7 +83,7 @@ public class ScheduleDTO {
 
 	/**
 	 * 取得メソッド 終了日を取得
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @return endDay
 	 */
 	public String getEndDay() {
@@ -86,7 +92,7 @@ public class ScheduleDTO {
 
 	/**
 	 * 設定メソッド 終了日を設定
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @param endDay
 	 */
 	public void setEndDay(String endDay) {
@@ -95,7 +101,7 @@ public class ScheduleDTO {
 
 	/**
 	 * 取得メソッド 件名を取得
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @return title
 	 */
 	public String getTitle() {
@@ -104,7 +110,7 @@ public class ScheduleDTO {
 
 	/**
 	 * 設定メソッド 件名を設定
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @param title
 	 */
 	public void setTitle(String title) {
@@ -113,7 +119,7 @@ public class ScheduleDTO {
 
 	/**
 	 * 取得メソッド 内容を取得
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @return content
 	 */
 	public String getContent() {
@@ -122,11 +128,27 @@ public class ScheduleDTO {
 
 	/**
 	 * 設定メソッド 内容を設定
-	 * @author MASAHIRO KEDSUKA
+	 * @author WATARU AMEMIYA
 	 * @param content
 	 */
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	/**
+	 * teamNameを取得します。
+	 * @return teamName
+	 */
+	public String getTeamName() {
+	    return teamName;
+	}
+
+	/**
+	 * teamNameを設定します。
+	 * @param teamName teamName
+	 */
+	public void setTeamName(String teamName) {
+	    this.teamName = teamName;
 	}
 
 }

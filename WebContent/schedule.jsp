@@ -74,7 +74,7 @@
 							<th>start</th>
 							<th>end</th>
 							<th>title</th>
-							<th>内容</th>
+							<th>チーム名</th>
 							<th></th>
 						</tr>
 
@@ -99,7 +99,7 @@
 									value="<s:property value="title" />" class="scheduleTitleList"
 									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
 								<td>
-									<input type="text" name="scheduleContentList"value="<s:property value="content" />"class="scheduleContentList" placeholder="内容を入力">
+									<input type="text" name="scheduleContentList"value="<s:property value="teamName" />"class="scheduleContentList" disabled>
 								</td>
 								<td>
 										<input type="button" class="button modal-open" value="削除" />

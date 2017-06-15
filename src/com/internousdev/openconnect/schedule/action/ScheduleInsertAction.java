@@ -43,6 +43,12 @@ public class ScheduleInsertAction extends ActionSupport{
 	private String content;
 
 	/**
+	 * チーム名
+	 * @author MASAHIRO KEDSUKA
+	 */
+	private String teamName;
+
+	/**
 	 *エラー
 	 * @author MASAHIRO KEDSUKA
 	 */
@@ -75,7 +81,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 			ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-			k = dao.insert(startDay,endDay,title,content);
+			k = dao.insert(startDay,endDay,title,teamName);
 
 			if (k>0) {
 				successMsg=(getText("追加しました。"));
@@ -164,6 +170,24 @@ public class ScheduleInsertAction extends ActionSupport{
 	 */
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+
+	/**
+	 * チーム名を取得します。
+	 * @return チーム名
+	 */
+	public String getTeamName() {
+	    return teamName;
+	}
+
+
+	/**
+	 * チーム名を設定します。
+	 * @param teamName チーム名
+	 */
+	public void setTeamName(String teamName) {
+	    this.teamName = teamName;
 	}
 
 
