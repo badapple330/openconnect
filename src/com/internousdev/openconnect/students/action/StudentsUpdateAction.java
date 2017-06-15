@@ -126,9 +126,9 @@ public class StudentsUpdateAction extends ActionSupport {
         StudentsUpdateDAO dao = new StudentsUpdateDAO();
         int count = 0;
         count = dao.update(
-                userId, password, familyName, givenName, familyNameKanji, familyNameKana,
-                givenNameKanji, givenNameKana, postal, address, phoneNumber, phoneEmail,
-                mobileNumber, mobileEmail, sex, birthday, userdelFlg.equals("TRUE"),
+                userId, password,familyNameKanji, familyNameKana,
+                givenNameKanji, givenNameKana,  phoneEmail,
+                 userdelFlg.equals("TRUE"),
                 loginFlg.equals("TRUE"), userFlg, year, month);
 
         if (count > 0) {

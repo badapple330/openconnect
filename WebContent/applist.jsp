@@ -49,7 +49,7 @@ myChange();
 
 
 <!-- 天気予報  -->
-<div align="center">
+<div id="table-scroll">
 <table>
 <tr>
 <td><div class="mamewaza_weather"><div><div class="mamewaza_weather_exp"><span class="mamewaza_assembled"></span></div></div></div><script type="text/javascript" src="https://mamewaza.net/weather.js?151209"></script>

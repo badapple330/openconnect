@@ -73,6 +73,10 @@ public class StudentsSearchDAO {
 
 				dto.setPhoneEmail(rs.getString("phone_email"));
 
+				dto.setMobileNumber(rs.getString("mobile_number"));
+
+				dto.setMobileEmail(rs.getString("mobile_email"));
+
 				dto.setPostal(rs.getString("postal"));
 
 				dto.setAddress(rs.getString("address"));
@@ -82,6 +86,11 @@ public class StudentsSearchDAO {
 				dto.setSex(rs.getString("sex"));
 
 				dto.setRegisterDay(rs.getString("register_day"));
+				dto.setUpdateDay(rs.getString("update_day"));
+				dto.setLoginFlg(rs.getBoolean("login_flg"));
+				dto.setUserFlg(rs.getInt("user_flg"));
+
+
 
 				studentsList.add(dto);
 			}

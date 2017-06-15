@@ -33,6 +33,7 @@
 </head>
 <body>
 
+
 <!-- アプリ一覧表示 -->
 	<div class="container">
 		<h1 class="page-header">スケジュール一覧</h1>
@@ -53,8 +54,13 @@
 <div id="operation">
 
 			<s:form action="ScheduleSelectAction">
-			<h5>【titleで検索】(空欄で全件表示)</h5>
-				<input type="text" name="search" placeholder="検索文字を入力" maxlength=100 />
+			<h5>【チーム名で検索】</h5>
+				<select name="search" required="required">
+								<option value="">以下から選択</option>
+								<s:iterator value="scheduleList">
+									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
+								</s:iterator>
+							</select>
 				<s:submit value="検索"></s:submit>
 			</s:form>
 			<br>
@@ -99,7 +105,7 @@
 									value="<s:property value="title" />" class="scheduleTitleList"
 									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
 								<td>
-									<input type="text" name="scheduleContentList"value="<s:property value="teamName" />"class="scheduleContentList" disabled>
+									<input type="text" name="scheduleTeamNameList"value="<s:property value="teamName" />"class="scheduleTeamNameList" disabled>
 								</td>
 								<td>
 										<input type="button" class="button modal-open" value="削除" />
@@ -132,7 +138,12 @@
 								maxlength=100 required></td>
 						</tr>
 						<tr>
-							<td><textarea name="content" placeholder="内容を入力" rows="5" cols="50"></textarea></td>
+							<select name="teamName" required="required">
+								<option value="">以下から選択</option>
+								<s:iterator value="scheduleList">
+									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
+								</s:iterator>
+							</select>
 						</tr>
 							<!-- tokenタグ -->
 
