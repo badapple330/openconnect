@@ -28,7 +28,7 @@ public class ScheduleInsertDAO {
 		int count=0;
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn= (Connection) db.getConnection();
-		String sql="INSERT INTO schedule(start_day, end_day,title, teamName) VALUES (?,?,?,?)";
+		String sql="INSERT INTO schedule(start_day, end_day,title, team_name) VALUES (?,?,?,?)";
 
 		try{
 			PreparedStatement ps=conn.prepareStatement(sql);

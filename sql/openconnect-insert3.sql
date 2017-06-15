@@ -7,6 +7,7 @@ use openconnect;
 
 drop table if exists users;
 drop table if exists attendance;
+drop table if exists schedule;
 
 drop database if exists openconnect;
 create database openconnect;
@@ -62,3 +63,17 @@ delete from users;
 insert into users values
 (40,'testuser','test','user','テスト','てすと','ユーザー17','ゆーざー17','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test17@gmail.com','09012345678','user.test17@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam'),
 (41,'internous01','kazami','akira','風見','かざみ','顕','あきら','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','kazami@internous.co.jp','09012345678','kazami@internous.co.jp','男','2001-09-25',FALSE,FALSE,'3','2010','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','AdminTeam');
+
+
+create table schedule(
+id int primary key auto_increment comment 'スケジュールID',
+start_day date not null comment '開始日',
+end_day date comment '終了日',
+title varchar(100) not null comment '件名',
+content varchar(100) comment '内容',
+team_name varchar(255) not null default '1stmonth' comment 'チーム名'
+);
+
+insert into schedule(id,start_day,end_day,title,content,team_name) values
+(1,"2017-06-15","2017-06-20","実装","実装","TestTeam"),
+(2,"2017-06-18","2017-06-25","実装2","実装2","AdminTeam");

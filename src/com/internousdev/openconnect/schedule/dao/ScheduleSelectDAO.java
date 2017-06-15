@@ -37,7 +37,7 @@ public class ScheduleSelectDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 		String sql = "select * from schedule where id LIKE '%" + search + "%' OR title LIKE '%" + search + "%'"
-				+ " OR content LIKE '%" + search + "%'";
+				+ " OR team_name LIKE '%" + search + "%'";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -52,7 +52,7 @@ public class ScheduleSelectDAO {
 				try { dto.setStartDay(sdf.format(rs.getDate("start_day")).toString()); }catch(Exception e){}
 				try { dto.setEndDay(sdf.format(rs.getDate("end_day")).toString()); }catch(Exception e){}
 				dto.setTitle(rs.getString("title"));
-				dto.setContent(rs.getString("content"));
+				dto.setTeamName(rs.getString("team_name"));
 				scheduleList.add(dto);
 
 			}
