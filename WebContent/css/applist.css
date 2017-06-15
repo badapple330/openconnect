@@ -12,3 +12,13 @@ transition: 3s ease-in-out;
 }
 
 
+@media only screen and (max-device-width : 380px) {
+
+#idshow1 {
+ 		  width:30px;
+  	}
+#idshow2.fadein {
+ 		  width:30px;
+  	}
+  }
+
