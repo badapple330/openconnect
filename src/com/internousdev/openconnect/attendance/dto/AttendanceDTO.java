@@ -39,6 +39,10 @@ public class AttendanceDTO {
 	 */
 	private String month;
 	/**
+	 * チーム名
+	 */
+	private String teamName;
+	/**
 	 * 漢字姓
 	 */
 	private String familyNameKanji;
@@ -333,6 +337,22 @@ public class AttendanceDTO {
 	*/
 	public void setAtDay(int atDay) {
 		this.atDay = atDay;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author TEPPEI MATSUMOTO
+	* @return teamName
+	*/
+	public String getTeamName() {
+		return teamName;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author TEPPEI MATSUMOTO
+	* @param teamName
+	*/
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
 }

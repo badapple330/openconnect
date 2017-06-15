@@ -16,10 +16,12 @@
 <script type="text/javascript">
 $(function(){
 $("#searchButtun").click(function(){
-if(!($("#familyForm").val() == "") && !($("#GivenForm").val() == "")){
-$("#search").submit();
+if(($("#teamForm").val() != "") && (($("#familyForm").val() != "") || ($("#GivenForm").val() != ""))){
+alert('チーム名、性、名を同時に検索できません');
+}else if((($("#familyForm").val() != "" && $("#GivenForm").val() == "")) || (($("#familyForm").val() == "") && ($("#GivenForm").val() != ""))){
+	alert('姓と名の両方を入力してください');
 }else{
-alert('姓と名の両方を入力してください');
+$("#search").submit();
 }
 });
 });
@@ -43,7 +45,7 @@ alert('姓と名の両方を入力してください');
 <select name="atDay" id="id_day" data-choice="day"><option value="">----</option></select>
 <s:textfield name="familyNameKanji" id="familyForm" placeholder="名字" title="名字"/>
 <s:textfield name="givenNameKanji" id="GivenForm" placeholder="名前" title="名前"/>
-<s:textfield name="teamName" placeholder="チーム名" title="チーム名"/>
+<s:textfield name="teamName" placeholder="チーム名" id="teamForm" title="チーム名"/>
 <s:submit value="検索" class="search-btn" id="searchButtun"/>
 </s:form>
 

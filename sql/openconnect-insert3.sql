@@ -6,13 +6,22 @@ use openconnect;
 
 
 drop table if exists users;
-
+drop table if exists attendance;
 
 drop database if exists openconnect;
 create database openconnect;
 use openconnect;
 
-
+create table attendance(
+at_year int  comment '手入力の報告年',
+at_month int comment '手入力の報告月',
+at_day int  comment '手入力の報告日',
+at_date timestamp not null default current_timestamp comment '日付',
+user_id int not null comment '生徒ID',
+attendance varchar(50) comment '出欠状況',
+reason text comment'備考',
+foreign key(user_id) references users(user_id) on update cascade on delete cascade
+);
 
 create table users (
 user_id int primary key not null auto_increment comment 'ユーザーID',
@@ -44,6 +53,8 @@ update_day datetime comment '更新日',
 team_name varchar(255) not null default '1stmonth' comment 'チーム名'
 )comment = 'ユーザー情報格納テーブル';
 
+
+
 set names utf8;
 set foreign_key_checks=0;
 use openconnect;
@@ -51,4 +62,3 @@ delete from users;
 insert into users values
 (40,'testuser','test','user','テスト','てすと','ユーザー17','ゆーざー17','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test17@gmail.com','09012345678','user.test17@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam'),
 (41,'internous01','kazami','akira','風見','かざみ','顕','あきら','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','kazami@internous.co.jp','09012345678','kazami@internous.co.jp','男','2001-09-25',FALSE,FALSE,'3','2010','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','AdminTeam');
-

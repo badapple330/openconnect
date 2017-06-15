@@ -40,6 +40,10 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 */
 	private String givenNameKanji;
 	/**
+	 * チーム名
+	 */
+    private String teamName;
+	/**
 	 * 勤怠
 	 */
 	private String attendance;
@@ -64,7 +68,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 
 
 		AdminAttendanceDAO dao = new AdminAttendanceDAO();
-		searchList = dao.select(atYear,atMonth,atDay,familyNameKanji,givenNameKanji);
+		searchList = dao.select(atYear,atMonth,atDay,familyNameKanji,givenNameKanji,teamName);
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}
@@ -267,8 +271,6 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 		return reason;
 	}
 
-
-
 	/**
 	 * 備考を設定します。
 	 * @param reason 備考
@@ -276,5 +278,24 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
+	/**
+	* 取得メソッド を取得
+	* @author TEPPEI MATSUMOTO
+	* @return teamName
+	*/
+	public String getTeamName() {
+		return teamName;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author TEPPEI MATSUMOTO
+	* @param teamName
+	*/
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+
+
+
 
 }

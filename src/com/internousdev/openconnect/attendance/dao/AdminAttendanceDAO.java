@@ -35,7 +35,7 @@ public class AdminAttendanceDAO {
 	 * @since 2017/05/12
 	 * @version 1.0
 	 */
-	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String familyNameKanji,String givenNameKanji) {
+	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String familyNameKanji,String givenNameKanji,String teamName) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 
@@ -43,6 +43,8 @@ public class AdminAttendanceDAO {
 
 		int k = 0;
 		String sql = null;
+		
+		
 		if(atYear!=0 && atMonth!=0 && atDay!=0 && (familyNameKanji).equals("") && (givenNameKanji).equals("")){
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=?";
 			k=1;
@@ -51,9 +53,13 @@ public class AdminAttendanceDAO {
 		    k=2;
 		}
 	    else if(atYear!=0 && atMonth!=0 && atDay!=0 && !((familyNameKanji).equals("")) && !((givenNameKanji).equals(""))){
-	    	  sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? AND family_name_kanji=? AND given_name_kanji=?";
-	          k=3;
+	    	sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? AND family_name_kanji=? AND given_name_kanji=?";
+	        k=3;
+	    }else if(atYear!=0 && atMonth!=0 && atDay!=0 && (familyNameKanji).equals("") && (givenNameKanji).equals("") && !((teamName).equals(""))){
+	    	sql = "select * from attendance left join users on attendance.user_id = users.user_id where atYear = ? AND atMonth = ? AND atDay = ? AND teamName = ?";
+	    	k=4;
 	    }
+		
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
@@ -70,6 +76,11 @@ public class AdminAttendanceDAO {
 		              ps.setInt(3, atDay);
 		              ps.setString(4, familyNameKanji);
 		              ps.setString(5, givenNameKanji);
+			}else if(k == 4){
+				      ps.setInt(1, atYear);
+	                  ps.setInt(2, atMonth);
+	                  ps.setInt(3, atDay);
+			          ps.setString(4, teamName);
 			}
 
 
@@ -81,6 +92,7 @@ public class AdminAttendanceDAO {
 				dto.setMonth(rs.getString("month"));
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
 				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
+				dto.setTeamName(rs.getString("team_name"));
 				dto.setAttendance(rs.getString("attendance"));
 				dto.setReason(rs.getString("reason"));
 				searchList.add(dto);
