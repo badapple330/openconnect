@@ -101,50 +101,54 @@
 				<!-- 決済状況 -->
 					<td class="decision_status">
 						<s:if test="%{decisionType == '実施')}">
-					 			<s:if test="decisionStatus1 == 0">
-									作成中
-								</s:if>
-								<s:elseif test="decisionStatus1 == 1">
-									申請中/承認待ち
-								</s:elseif>
-								<s:elseif test="decisionStatus1 == 2">
-									承認済み
-								</s:elseif>
-								<s:elseif test="decisionStatus1 == 3">
-									変更中
-								</s:elseif>
+				 			<s:if test="decisionStatus1 == 0">
+								作成中
+							</s:if>
+							<s:elseif test="decisionStatus1 == 1">
+								申請中/承認待ち
+							</s:elseif>
+							<s:elseif test="decisionStatus1 == 2">
+								承認済み
+							</s:elseif>
+							<s:elseif test="decisionStatus1 == 3">
+								変更中
+							</s:elseif>
 						</s:if>
-
 						<s:else>
-								<s:if test="decisionStatus2 == 0">
-									作成中
-								</s:if>
-								<s:elseif test="decisionStatus2 == 1">
-									申請中/承認待ち
-								</s:elseif>
-								<s:elseif test="decisionStatus2 == 2">
-									承認済み
-								</s:elseif>
-								<s:elseif test="decisionStatus2 == 3">
-									変更中
-								</s:elseif>
+							<s:if test="decisionStatus2 == 0">
+								作成中
+							</s:if>
+							<s:elseif test="decisionStatus2 == 1">
+								申請中/承認待ち
+							</s:elseif>
+							<s:elseif test="decisionStatus2 == 2">
+								承認済み
+							</s:elseif>
+							<s:elseif test="decisionStatus2 == 3">
+								変更中
+							</s:elseif>
 						</s:else>
 					</td>
 
 
                 <!-- 編集/プレビューボタン -->
 					<td>
-						<s:if test="%{decisionStatus1 == 0 || decisionStatus2 == 0}">
-								<s:form action="DecisionSelectAction">
-									<input type="submit" value="編集">
-								</s:form>
+						<s:if test="%{decisionStatus1 == 0 && decisionStatus2 == 0}">
+							<s:form action="DecisionSelectAction">
+								<input type="submit" value="実施編集">
+							</s:form>
 						</s:if>
+						<s:elseif test="%{decisionStatus2 == 0 && decisionStatus1 == 2}">
+							<s:form action="DecisionSelectAction">
+								<input type="submit" value="契約/実施兼契約編集">
+							</s:form>
+						</s:elseif>
 
 						<s:else>
-								<s:form action="">
-									<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-									<input type="submit" value="プレビュー" />
-								</s:form>
+							<s:form action="">
+								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+								<input type="submit" value="プレビュー" />
+							</s:form>
 						</s:else>
 					</td>
 
@@ -193,7 +197,6 @@
 
 		<s:if test="{decisionDetailList2.size() == 0 && decisionBeginList.size() != 0}">
 
-
 			<s:iterator value="decisionBeginList">
     			<div class="pad">
 
@@ -215,20 +218,25 @@
 				</tr>
 				<tr>
 					<td>実施兼契約決裁で<br>行う場合のみチェック<br>
-						<input type="checkbox" name="decisionType" value="実施兼契約">
+
+						<input type="checkbox" name="decisionType" value="実施兼契約" onclick="changeCheckBox('chk1');">
+						<input type="checkbox" name="decisionStatus1" value="2" id="chk1">
+
 					</td>
-					<td><input type="hidden" name="projectId" value="<s:property value="projectId" />">
+					<td>
+						<input type="hidden" name="projectId" value="<s:property value="projectId" />">
 						<input type="submit" value="追加(決済資料を作る)">
 					</td>
 				</tr>
 			</table>
 
 			</s:form>
-    			</div>
-    		</s:iterator>
 
+				</div>
+			</s:iterator>
 
 		</s:if>
+
 
 	</s:if>
 
@@ -258,127 +266,154 @@
 						<th>却下ボタン</th>
 					</s:if>
 				</s:if>
+				</tr>
 
-                </tr>
 
 				<s:iterator value="decisionDetailList1">
-					<tr>
-				<!-- 決済ID -->
-						<td class="decision_id">
-							<s:property value="decisionId" />
-						</td>
+
+				<tr>
+			<!-- 決済ID -->
+					<td class="decision_id">
+						<s:property value="decisionId" />
+					</td>
 
 
-				<!-- プロジェクトID -->
-						<td class="project_id">
-							<s:property value="projectId" />
-						</td>
-				<!-- 案件名 -->
-						<td>
-							<s:property value="decisionName" />
-						</td>
-				<!-- プロジェクト名 -->
-						<td class="project_name">
-							<s:property value="projectName" />
-						</td>
+			<!-- プロジェクトID -->
+					<td class="project_id">
+						<s:property value="projectId" />
+					</td>
+			<!-- 案件名 -->
+					<td>
+						<s:property value="decisionName" />
+					</td>
+			<!-- プロジェクト名 -->
+					<td class="project_name">
+						<s:property value="projectName" />
+					</td>
 
 
-				<!-- 決済種類 -->
-						<td class="decision_type">
-                            <s:property value="decisionType" />
-                        </td>
-				<!-- 決済状況 -->
-						<td class="decision_status">
-						 	<s:if test="%{decisionType == '実施')}">
-						 		<s:if test="decisionStatus1 == 0">
-									作成中
-								</s:if>
-								<s:elseif test="decisionStatus1 == 1">
-									申請中/承認待ち
-								</s:elseif>
-								<s:elseif test="decisionStatus1 == 2">
-									承認済み
-								</s:elseif>
-								<s:elseif test="decisionStatus1 == 3">
-									変更中
-								</s:elseif>
-
-                        	</s:if>
-                       		<s:else>
-                       			<s:if test="decisionStatus2 == 0">
-									作成中
-								</s:if>
-								<s:elseif test="decisionStatus2 == 1">
-									申請中/承認待ち
-								</s:elseif>
-								<s:elseif test="decisionStatus2 == 2">
-									承認済み
-								</s:elseif>
-								<s:elseif test="decisionStatus2 == 3">
-									変更中
-								</s:elseif>
-
-                        	</s:else>
-                        </td>
-
-
-                <!-- プレビューボタン -->
-						<td>
-							<s:form action="">
-								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-								<input type="submit" value="プレビュー">
-							</s:form>
-                        </td>
-
-			<s:if test="%{#session.userFlg >= 2}">
-
-				<!-- 承認ボタン -->
-						<td>
-
-							<s:if test="decisionStatus1 == 1 && decisionType == '実施' ">
-								<s:form action="">
-									<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-									<input type="submit" value="実施承認">
-								</s:form>
+			<!-- 決済種類 -->
+					<td class="decision_type">
+						<s:property value="decisionType" />
+					</td>
+			<!-- 決済状況 -->
+					<td class="decision_status">
+					 	<s:if test="%{decisionType == '実施')}">
+					 		<s:if test="decisionStatus1 == 0">
+								作成中
 							</s:if>
-							<s:elseif test="decisionStatus2 == 1 && (decisionType == '契約' || decisionType == '実施兼契約')">
-								<s:form action="">
-									<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-									<input type="submit" value="契約/実施兼契約承認">
-								</s:form>
+							<s:elseif test="decisionStatus1 == 1">
+								申請中/承認待ち
+							</s:elseif>
+							<s:elseif test="decisionStatus1 == 2">
+								承認済み
+							</s:elseif>
+							<s:elseif test="decisionStatus1 == 3">
+								変更中
+							</s:elseif>
+						</s:if>
+						<s:else>
+							<s:if test="decisionStatus2 == 0">
+								作成中
+							</s:if>
+							<s:elseif test="decisionStatus2 == 1">
+								申請中/承認待ち
+							</s:elseif>
+							<s:elseif test="decisionStatus2 == 2">
+								承認済み
+							</s:elseif>
+							<s:elseif test="decisionStatus2 == 3">
+								変更中
 							</s:elseif>
 
-
-							<s:if test="%{#session.userId != managerId && #session.userId != subManagerId}">
-							<a href=".jsp"><input type="button" value="承認" /></a>
-
-							</s:if>
-							<s:else>
-							dammy
-							</s:else>
-
-
-
+						</s:else>
+					</td>
+			<!-- プレビューボタン -->
+					<td>
+						<s:form action="">
+							<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+							<input type="submit" value="プレビュー">
+						</s:form>
+					</td>
 
 
+		<s:if test="%{#session.userFlg >= 2}">
+
+			<!-- 承認ボタン -->
+					<td>
+					<s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
+						<s:if test="%{decisionType == '実施'}">
+							<s:form action="">
+								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+								<input type="hidden" name="decisionStatus1" value="2">
+								<input type="submit" value="実施承認">
+							</s:form>
+						</s:if>
+						<s:else>
+							<s:form action="">
+								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+								<input type="hidden" name="decisionStatus2" value="2">
+								<input type="submit" value="契約/実施兼契約承認">
+							</s:form>
+						</s:else>
+					</s:if>
+					<s:else>
+						現在申請なし
+					</s:else>
+					</td>
 
 
-                        </td>
+			<s:if test="%{#session.userFlg == 3}">
 
+			<!-- 差し戻しボタン -->
+					<td>
+					<s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
+						<s:if test="%{decisionType == '実施'}">
+							<s:form action="">
+								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+								<input type="hidden" name="decisionStatus1" value="0">
+								<input type="submit" value="差し戻し" />
+							</s:form>
+						</s:if>
+						<s:else>
+							<s:form action="">
+								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+								<input type="hidden" name="decisionStatus2" value="0">
+								<input type="submit" value="差し戻し" />
+							</s:form>
+						</s:else>
+					</s:if>
+					<s:else>
+						現在申請なし
+					</s:else>
+					</td>
 
-				<s:if test="%{#session.userFlg == 3}">
-				<!-- 差し戻しボタン -->
-						<td>
-								<a href=".jsp"><input type="button" value="差し戻し" /></a>
-                        </td>
-                <!-- 却下ボタン -->
-						<td>
-								<a href=".jsp"><input type="button" value="却下" /></a>
-						</td>
-				</s:if>
+			<!-- 却下ボタン -->
+					<td>
+					<s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
+						<s:if test="%{decisionType == '実施'}">
+							<s:form action="">
+								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+								<input type="hidden" name="decisionStatus1" value="3">
+								<input type="submit" value="却下" />
+							</s:form>
+						</s:if>
+						<s:else>
+							<s:form action="">
+								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+								<input type="hidden" name="decisionStatus2" value="3">
+								<input type="submit" value="却下" />
+							</s:form>
+						</s:else>
+					</s:if>
+					<s:else>
+						現在申請なし
+					</s:else>
+					</td>
+			</s:if>
 		</s:if>
 
-				    </tr>
+				</tr>
 
 				</s:iterator>
 

@@ -32,6 +32,10 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	 */
 	private String decisionType = "実施";
 	/**
+	 * [実施]決裁状況
+	 */
+	private int decisionStatus1 = 0;
+	/**
 	 * 管理者権限メソッド
 	 */
 	public Map<String, Object> session;
@@ -47,7 +51,7 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 		int count = 0;
 
-			count = dao.insert( projectId, decisionType );
+			count = dao.insert( projectId, decisionType, decisionStatus1 );
 
 
 		if (count > 0 ) {
@@ -99,6 +103,24 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	*/
 	public String getResultString() {
 		return resultString;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author TEPPEI MATSUMOTO
+	* @return decisionStatus1
+	*/
+	public int getDecisionStatus1() {
+		return decisionStatus1;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author TEPPEI MATSUMOTO
+	* @param decisionStatus1
+	*/
+	public void setDecisionStatus1(int decisionStatus1) {
+		this.decisionStatus1 = decisionStatus1;
 	}
 
 	/**
