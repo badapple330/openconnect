@@ -44,14 +44,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 */
 	private String searchString = "";
 	/**
-	 * ユーザーID
-	 */
-	private int userId;
-	/**
-	 * ユーザーID
-	 */
-	private int userId1;
-	/**
 	 * 管理者権限メソッド
 	 */
 	private Map<String, Object> session;
@@ -81,7 +73,7 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
 		decisionDetailList2 = dao.selectMyD( userId, userId1);
-		decisionBeginList = dao.selectP( userId, userId1);
+		decisionBeginList = dao.selectP( userId, userId1 );
 
 
 		if( decisionDetailList1.size() == 0){
@@ -183,50 +175,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	*/
 	public void setSearchString(String searchString) {
 		this.searchString = searchString;
-	}
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @author KOHEI NITABARU
-	* @return userId
-	*/
-	public int getUserId() {
-		return userId;
-	}
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @author KOHEI NITABARU
-	* @param userId
-	*/
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @author KOHEI NITABARU
-	* @return userId1
-	*/
-	public int getUserId1() {
-		return userId1;
-	}
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @author KOHEI NITABARU
-	* @param userId1
-	*/
-	public void setUserId1(int userId) {
-		this.userId1 = userId;
 	}
 
 

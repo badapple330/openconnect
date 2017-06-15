@@ -14,20 +14,12 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
 <title>書籍一覧</title>
 </head>
 <body>
-
-
-<header><jsp:include page="header.jsp" /></header>
-
-
-
-
+<jsp:include page="header.jsp" />
 
 <div class="container">
-
 
 
 		<h2>書籍一覧</h2>

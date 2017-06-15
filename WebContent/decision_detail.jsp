@@ -28,10 +28,10 @@
 
 			<s:form action="DecisionDetailSelectAction">
 				プロジェクト検索
-				<input type="text" placeholder="例：rewrite" name="searchString"
+				<input type="text" placeholder="例：legmina" name="searchString"
 					maxlength=30>
 
-				<s:submit value="検索" />
+				<input type="submit" value="検索" />
 			</s:form>
 
 			<br>
@@ -47,19 +47,13 @@
 
 <p>自のlist内：<s:property value="decisionDetailList2.size()" />個</p>
 <p>全のlist内：<s:property value="decisionDetailList1.size()" />個</p>
-
-
-
-
-
-
-
+<p>決済未作成のlist内：<s:property value="decisionBeginList.size()" />個</p>
 
 
 	<!-- リーダー自プロジェクト表示用 -->
 	<s:if test="%{#session.userFlg == 2}">
 
-		<s:if test="{decisionDetailList2.size > 0}">
+		<s:if test="{decisionDetailList2.size() != 0}">
 		<s:iterator value="decisionDetailList2">
 
 			<table border="1">
@@ -197,9 +191,9 @@
 
 
 
-		<s:if test="{decisionDetailList2.size == 0}">
+		<s:if test="{decisionDetailList2.size() == 0 && decisionBeginList.size() != 0}">
 
-			<s:if test="%{#session.userId = managerId or #session.userId = subManagerId}">
+
 			<s:iterator value="decisionBeginList">
     			<div class="pad">
 
@@ -232,7 +226,7 @@
 			</s:form>
     			</div>
     		</s:iterator>
-    		</s:if>
+
 
 		</s:if>
 

@@ -85,7 +85,7 @@ public class DecisionDetailSelectDAO {
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 2 and ( sub_manager_id = ? or manager_id = ? )";
+				+"where decision_status2 != 2 and ( manager_id = ? or sub_manager_id = ? )";
 
 		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
 
@@ -135,7 +135,10 @@ public class DecisionDetailSelectDAO {
  	public List<DecisionDetailDTO> selectP(int userId, int userId1){
 		Connection conn = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
-		String sql = "select project_id, project_name, manager_id, sub_manager_id from projects where ( manager_id = ? or sub_manager_id = ? )";
+		String sql = "select * from projects left outer join decision on projects.project_id = decision.project_id "
+				+"where decision_id is null and ( manager_id = ? or sub_manager_id = ? )";
+
+
 
 		List<DecisionDetailDTO> decisionBeginList = new ArrayList<DecisionDetailDTO>();
 
@@ -145,6 +148,7 @@ public class DecisionDetailSelectDAO {
 
 			ps.setInt(1, userId);
 			ps.setInt(2, userId1);
+;
 
 			ResultSet rs = ps.executeQuery();
 
@@ -156,6 +160,7 @@ public class DecisionDetailSelectDAO {
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
+				dto.setDecisionId(rs.getInt("decision_id"));
 
 				decisionBeginList.add( dto );
 			}
