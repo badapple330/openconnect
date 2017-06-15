@@ -54,8 +54,8 @@
 <div id="operation">
 
 			<s:form action="ScheduleSelectAction">
-			<h5>【titleで検索】(空欄で全件表示)</h5>
-				<select name="teamName" required="required">
+			<h5>【チーム名で検索】</h5>
+				<select name="search" required="required">
 								<option value="">以下から選択</option>
 								<s:iterator value="scheduleList">
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>

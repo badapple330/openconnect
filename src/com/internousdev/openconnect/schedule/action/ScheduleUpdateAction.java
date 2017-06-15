@@ -72,7 +72,6 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 		ScheduleUpdateDAO dao = new ScheduleUpdateDAO();
 		int count = 0;
-		int count2 = 0;
 
 		for(int i = 0 ; i < scheduleIdList.size() ;++i){
 			count = dao.update(
@@ -81,12 +80,8 @@ public class ScheduleUpdateAction extends ActionSupport {
 					scheduleEnddayList.get(i),
 					scheduleTitleList.get(i)
 					);
-			count2 = i;
-
 		}
-
-
-		if ( count2 > 0) {
+		if ( count > 0) {
 			successMsg=(getText("更新しました。"));
 			ret = SUCCESS;
 		} else {

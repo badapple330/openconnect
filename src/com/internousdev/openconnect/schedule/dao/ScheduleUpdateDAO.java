@@ -34,7 +34,7 @@ public class ScheduleUpdateDAO {
 			endDay = "0000-00-00";
 		}
 
-		String sql = "UPDATE schedule SET start_day=?, end_day=?, title=?, team_name=? WHERE id=?";
+		String sql = "UPDATE schedule SET start_day=?, end_day=?, title=? WHERE id=?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
