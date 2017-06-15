@@ -1,9 +1,12 @@
 @CHARSET "UTF-8";
 
 body {
+	height: 100%;
     animation: fadeIn 2s ease 0s 1 normal;
     -webkit-animation: fadeIn 2s ease 0s 1 normal;
 }
+
+
 
 @keyframes fadeIn {
     0% {opacity: 0}
@@ -25,7 +28,7 @@ body {
 /*タイトルロゴ--------------------------------*/
 
 .square_btn35{
-    display: inline-block;
+
     position: relative;
     padding: 0.5em 1em;
     font-size: 40px;
@@ -42,32 +45,23 @@ body {
   content:'';
   width: 8px;
   height: 100%;
-  display: inline-block;
+
 }
 
 /*タイトルロゴここまで-------------------------*/
 
-.stringWidth{
-	width: 100px;
-    margin: auto;
-    display: inline-block;
-}
 
-.textWidth{
-	width: 150px;
-    margin: auto;
-    display: inline-block;
-}
 
 /*透過部分--------------------------------------*/
 .box {
- background: rgba(255,255,255,0.3);
- filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#33ffffff', endColorstr='#33ffffff');
+	height:300px;
+    background: rgba(255,255,255,0.3);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#33ffffff', endColorstr='#33ffffff');
 }
 
 /*新規登録ボタン--------------------------------*/
 .square_btn {
-    display: inline-block;
+
     padding: 1em 2em;
     text-decoration: none;
     color: #ffffff;
@@ -81,13 +75,13 @@ body {
     color: white;
 }
 
-@media screen and (max-width: 380px){
-/* スマートフォンだけ以下を適用 */
+#main td{
+	display: block;
+	margin: 25px;
 
-body {
-	margin:0px;
-    width:100%;
-    }
+}
+
+
 }
 
 

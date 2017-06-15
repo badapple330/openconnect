@@ -51,39 +51,39 @@
 	<!------------------    ユーザーログイン    ------------------->
 
 	<div class="box" align ="center">
-	<table width="400" height="300">
+	<table id= "main">
 <tr align="center">
 <td>
 
 
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
+
+
 				<s:property value="%{resultString}" />
 
 				<s:form theme="simple" id="inner" class="form-horizontal"
 					action="LoginAction" autocomplete="off">
 
+
 					<!------------------    メールアドレス    ------------------->
-						<BR><div class="stringWidth">メールアドレス</div>
-						<s:textfield class="textWidth" name="phoneEmail"  value="" placeholder="example@example.com" />
-						<br>
-						<br>
+						<td><h3>メールアドレス</h3></td>
+						<td><s:textfield name="phoneEmail"  value=""
+						    placeholder="example@example.com" />
+                        </td>
 
 					<!------------------    パスワード    ------------------->
-						<div class="stringWidth">パスワード</div>
-						<s:password class="textWidth" name="password" value="" />
+						<td><h3>パスワード</h3></td>
+						<td><s:password  name="password" value="" />
+						    <s:textfield type="hidden" name="userFlg" value="userFlg" />
+                        </td>
 
-						<s:textfield type="hidden" name="userFlg" value="userFlg" />
-						<br>
-						<br>
+
 					<!------------------    ログイン情報を送信    ------------------->
-						<div>
-							<s:submit type="submit" value="ログイン" />
 
-						</div>
+							<td><s:submit type="submit" value="ログイン" /></td>
+
+
 				</s:form>
-			</div>
-		</div>
+
 
 
 </td>
