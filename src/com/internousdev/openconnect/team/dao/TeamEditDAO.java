@@ -21,12 +21,12 @@ public class TeamEditDAO {
 	 * @param userId ユーザーID
 	 * @return count
 	 */
-	public int update(String teamName,int userFlg,int userId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","catsndogs","root","mysql");
+	public int update(String teamName,int userFlg,int userId) throws SQLException{
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = null;
 		con = db.getConnection();
 		int count = 0;
-		String sql = ("update users set team_name=?,user_flg=?,user_id=?");
+		String sql = "update users set team_name=?,user_flg=?,user_id=?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, teamName);

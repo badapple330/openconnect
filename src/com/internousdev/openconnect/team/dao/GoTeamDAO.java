@@ -13,12 +13,11 @@ import com.internousdev.openconnect.team.dto.TeamDTO;
 import com.internousdev.util.DBConnector;
 
 /**
- * @author internousdev
+ * @author TEPPEI MATSUMOTO
  * チーム情報を表示するためのメソッド
  * @author Teppei Matsumoto
  * @since 2017/06/14
  * @version 1.0
-
  */
 public class GoTeamDAO {
 

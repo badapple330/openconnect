@@ -21,6 +21,10 @@
 	<h1 >チーム情報編集</h1><hr>
 	<br>
 
+	<font color="red">
+	<s:property value="%{teamMes}"/>
+	 </font><br>
+
 	変更内容を以下に記入してください
 	<s:form action="TeamEditAction">
 	<table class="teamedit">

@@ -43,7 +43,7 @@
 
 	<br>
 	<div align="center">
-	<a href="team_edit.jsp">編集ページ</a>
+	<a href="GoTeamEditAction">編集ページ</a>
 	</div>
 	</div>
 
