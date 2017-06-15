@@ -23,19 +23,19 @@ public class ScheduleInsertDAO {
 	 * @param content
 	 * @return count
 	 */
-	public int insert (String startDay, String endDay,String title, String content){
+	public int insert (String startDay, String endDay,String title, String teamName){
 
 		int count=0;
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn= (Connection) db.getConnection();
-		String sql="INSERT INTO schedule(start_day, end_day,title, content) VALUES (?,?,?,?)";
+		String sql="INSERT INTO schedule(start_day, end_day,title, teamName) VALUES (?,?,?,?)";
 
 		try{
 			PreparedStatement ps=conn.prepareStatement(sql);
 			ps.setString(1,startDay);
 			ps.setString(2,endDay);
 			ps.setString(3,title);
-			ps.setString(4,content);
+			ps.setString(4,teamName);
 			count=ps.executeUpdate();
 
 		} catch (SQLException e){
