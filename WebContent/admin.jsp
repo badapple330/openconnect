@@ -6,6 +6,7 @@
 <head>
 <link href="css/admin.css" rel="stylesheet" type="text/css">
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>管理者画面</title>
@@ -20,13 +21,12 @@
 		<h1 style="text-align: center;">管理画面</h1>
 	</div>
 
+<div align= "center" class= "main">
 	<s:if test="%{#session.userFlg >= 1}">
 	<p class="caution">数字入力は半角のみ、 アプリID欄にはアプリIDのみ記入可能、
 		値の確認は下のアプリ一覧情報取得から行ってください。 テンキー入力不可。</p>
 	<br>
-	<div align="center">
-		<font size="2" color="red"> </font>
-	</div>
+
 	<h2>アプリ追加</h2>
 	<s:if test="messageAdd != null">
 		<p class="msg">
@@ -161,11 +161,15 @@
 		<a href="#wrap">PAGE TOP</a>
 	</div>
 	</s:if>
+	</div>
+    <br>	<br>	<br>	<br>
+	<div align= "center">
 	<s:else>
 	ログイン後に表示します。
 	</s:else>
 	<s:form action="GetAddressAction">
 		<s:submit align="center" cssClass="Button" value="戻る" />
 	</s:form>
+	</div>
 </body>
 </html>

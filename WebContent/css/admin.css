@@ -22,3 +22,10 @@
 	color: red;
 	font-weight: 700;
 }
+
+@media screen and (max-width: 380px) {
+    /* セルをブロックとして表示 */
+    wwFormTable td {
+        display: block;
+        }
+}
