@@ -26,7 +26,7 @@ public class LogoutDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setBoolean(1, loginFlg);
+			ps.setBoolean(1, false);
 			ps.setInt(2, userId);
 			count = ps.executeUpdate();
 			return count;

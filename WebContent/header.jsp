@@ -43,12 +43,11 @@
                         <div class="container" align="right">
 						<div class="menuGroup">
 						<s:if test="%{#session.userFlg == null}">
-						<a href="GoLoginAction" class="part_line">■ Login</a>
+						<a href="JustGoAction" class="part_line">■ Login</a>
 						</s:if>
 						</div>
 
 						<s:if test="%{#session.userFlg != null}">
-						<a href="GoLogoutAction" class="part_line">■ Logout</a>
  						</s:if>
 
 						<s:if test="%{#session.userFlg == 3}">
