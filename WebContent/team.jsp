@@ -31,12 +31,17 @@
 
 
 	<tr>
-	<th>チーム：</th><td><s:property value="teamName"/></td>
+	<th> チ ー ム ：</th><td><s:property value="teamName"/></td>
 
 	<tr>
 
 	<tr>
-	<th>役職：</th><td><s:property value="userFlg"/></td>
+	<th>  役  職  ：</th>
+		<td>
+			<s:if test="%{#session.userFlg == 1}">メンバー</s:if>
+			<s:if test="%{#session.userFlg == 2}">リーダー</s:if>
+			<s:if test="%{#session.userFlg >= 3}">管理者</s:if>
+		</td>
 	</table>
 	</s:iterator>
 
