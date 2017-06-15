@@ -26,7 +26,7 @@ public class TeamEditDAO {
 		Connection con = null;
 		con = db.getConnection();
 		int count = 0;
-		String sql = "update users set team_name=?,user_flg=?,user_id=?";
+		String sql = "update users set team_name=?,user_flg=? where user_id=?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, teamName);

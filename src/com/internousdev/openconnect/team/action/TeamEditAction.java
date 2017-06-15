@@ -49,6 +49,9 @@ public class TeamEditAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 		String result = ERROR;
+
+		if(session.get("userId")!=null){
+			int userId = (int) session.get("userId");
 		TeamEditDAO dao = new TeamEditDAO();
 
 		int count = dao.update(teamName,userFlg,userId);
@@ -56,6 +59,7 @@ public class TeamEditAction extends ActionSupport implements SessionAware{
 			result = SUCCESS;
 		}else{
 			teamMes = "変更に失敗しました";
+		}
 		}
 		return result;
 	}

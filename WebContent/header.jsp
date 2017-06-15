@@ -43,11 +43,12 @@
                         <div class="container" align="right">
 						<div class="menuGroup">
 						<s:if test="%{#session.userFlg == null}">
-						<a href="JustGoAction" class="part_line">■ Login</a>
+						<a href="GoLoginAction" class="part_line">■ Login</a>
 						</s:if>
 						</div>
 
 						<s:if test="%{#session.userFlg != null}">
+						<a href="GoLogoutAction" class="part_line">■ Logout</a>
  						</s:if>
 
 						<s:if test="%{#session.userFlg == 3}">
@@ -63,7 +64,7 @@
 						<option value="ProjectStatusSelectAction">プロジェクトリリース状況</option>
 						<option value="ProjectProgressSelectAction">プロジェクト進捗報告</option>
 						<option value="StudentsSelectAction">受講生一覧</option>
-						<option value="GoTeamAction">チーム確認</option>
+						<option value="GoTeamAction">チーム情報</option>
 						<option value="GoAttendanceAction">勤怠更新</option>
 						<s:if test="%{#session.userFlg >= 2}">
 						<option value="GoAdminAttendanceAction">勤怠確認</option>
