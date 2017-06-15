@@ -17,7 +17,19 @@ $(document).ready(function(){
 
 
 
+
 	$('#calendar').fullCalendar({
+
+		/*多少強引な方法を取っているがendの日にちが一日少ない問題の処理
+		 * nextDayThreshold:'00:00:00',→翌日になる時間を指定(デフォルトは09:00:00)
+		 * timeFormat: "H:mm",→必要ないかもしれないが時間の表記を5:00や17:00となるように変更
+		 * allDayText:"",→デフォルトでalldayと表示されるテキストの表示を空欄にする
+		 * displayEventTime :false,→表示されるイベントの時間をなくす*/
+		nextDayThreshold:'00:00:00',
+		timeFormat: "H:mm",
+		allDayText:"",
+		displayEventTime :false,
+		/*end問題処理ここまで*/
 
 		//jqueryのuiが適用されるようにする
 		theme: true,
@@ -56,15 +68,9 @@ $(document).ready(function(){
         dayNames: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
         // 曜日略称
         dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
-        //終日表示をなくす
-
-
 
         //jqueryプラグインのtable-to-jsonでテーブルの情報を取得
-
         	events:$('#schedule').tableToJSON(),
-
-
     });
 
 });

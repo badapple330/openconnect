@@ -53,6 +53,7 @@
 <div id="operation">
 
 			<s:form action="ScheduleSelectAction">
+			<h5>【titleで検索】(空欄で全件表示)</h5>
 				<input type="text" name="search" placeholder="検索文字を入力" maxlength=100 />
 				<s:submit value="検索"></s:submit>
 			</s:form>
@@ -88,18 +89,18 @@
 									value="<s:property value="startDay" />"
 									class="scheduleStartdayList" type="date"
 									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
-									title="yyyy-MM-ddで入力してください。" placeholder="開始日を入力" required><div class="hidden"><s:property value="startDay" /></div></td>
+									title="年-月-日で入力してください。" placeholder="開始日を入力" required><div class="hidden"><s:property value="startDay" /></div></td>
 								<td><input type="text" name="scheduleEnddayList"
 									value="<s:property value="endDay" />"
 									class="scheduleEnddayList"
 									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
-									title="yyyy-MM-ddで入力してください。" placeholder="終了日を入力"><div class="hidden"><s:property value="endDay" /></div></td>
+									title="年-月-日で入力してください。" placeholder="終了日を入力"><div class="hidden"><s:property value="endDay" />T00:01:00</div></td>
 								<td><input type="text" name="scheduleTitleList"
 									value="<s:property value="title" />" class="scheduleTitleList"
 									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
-
-								<td><input type="text" name="scheduleContentList"value="<s:property value="content" />"class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
-
+								<td>
+									<input type="text" name="scheduleContentList"value="<s:property value="content" />"class="scheduleContentList" placeholder="内容を入力">
+								</td>
 								<td>
 										<input type="button" class="button modal-open" value="削除" />
 								</td>
@@ -115,9 +116,9 @@
 
 			</s:form>
 
-			<br>予定を登録
+			<br>【予定を登録】
 		<s:form action="ScheduleInsertAction">
-				<table border=1 style="">
+				<table border="0" style="">
 					<tbody>
 						<tr>
 							<td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"
@@ -131,8 +132,7 @@
 								maxlength=100 required></td>
 						</tr>
 						<tr>
-							<td><input type="text" name="content" placeholder="内容を入力"
-								maxlength=100></td>
+							<td><textarea name="content" placeholder="内容を入力" rows="5" cols="50"></textarea></td>
 						</tr>
 							<!-- tokenタグ -->
 
