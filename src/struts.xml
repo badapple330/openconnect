@@ -299,8 +299,7 @@
 		<action name="DecisionDetailInsertAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailInsertAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction
-			</result>
+			<result name="success">decision_detail.jsp</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 

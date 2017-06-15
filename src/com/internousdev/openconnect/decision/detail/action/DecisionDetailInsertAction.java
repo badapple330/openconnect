@@ -30,7 +30,7 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	/**
 	 * 決済種類
 	 */
-	private String decisionType;
+	private String decisionType = "実施";
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -44,11 +44,15 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 		String result=ERROR;
 		DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();
+
 		int count = 0;
-		count = dao.insert(projectId, decisionType);
-		if (count > 0) {
+
+			count = dao.insert( projectId, decisionType );
+
+
+		if (count > 0 ) {
 			result = SUCCESS;
-			resultString = "追加できました。";
+			resultString = "追加できました!";
 		}
 		return result;
 	}

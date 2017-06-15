@@ -19,7 +19,7 @@ public class DecisionDetailInsertDAO {
      * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
      * @author TATUHUMI ITOU
      */
-	public int insert(int projectId,String decisionType){
+	public int insert(int projectId, String decisionType){
 
 		int count = 0;
 
@@ -45,5 +45,6 @@ public class DecisionDetailInsertDAO {
 		return count;
 
 	}
+
 
 }
