@@ -242,6 +242,18 @@
 			<result name="error">team.jsp</result>
 		</action>
 
+		<action name="GoTeamEditAction" class="com.internousdev.openconnect.team.action.GoTeamEditAction" method="execute">
+			<result name="success">team_edit.jsp</result>
+			<result name="error">team.jsp</result>
+		</action>
+
+
+		<action name="TeamEditAction" class="com.internousdev.openconnect.team.action.TeamEditAction" method="execute">
+			<result name="success">team.jsp</result>
+			<result name="error">team_edit.jsp</result>
+		</action>
+
+
 
 		<!-- 勤怠一覧を表示するためのアクション -->
 		<action name="GoAttendanceAction"
