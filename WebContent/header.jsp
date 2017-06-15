@@ -8,15 +8,13 @@
 <meta charset="UTF-8">
 
 <script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
 <!-- 背景画像 -->
 <style type="text/css">
 <!--body {background: url(img/water.jpg) center center / cover no-repeat fixed;}-->
 </style>
 <!-- ここまで -->
-
-
 <title>Insert title here</title>
 <!-- css読み込み  -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -26,45 +24,36 @@
 <script src="js/header.js"></script>
 </head>
 <body>
-
 	<!-- ヘッダー -->
-
 					<div id="headerSpace">
 					<h1 class="container">
 						<a href="applist.jsp" class="openConnect">Open Connect</a>
-
 			   <!-- internousdevのロゴ -->
                <TABLE border="1" bordercolor="grey" align="right">
                <tr><td>
                <a href=""><img src="img/hd_logo.jpg"></a>
                </td></tr></table>
-
 					</h1>
                         <div class="container" align="right">
 						<div class="menuGroup">
 						<s:if test="%{#session.userFlg == null}">
-						<a href="GoLoginAction" class="part_line">■ Login</a>
+						<a href="JustGoAction" class="part_line">■ Login</a>
 						</s:if>
 						</div>
-
 						<s:if test="%{#session.userFlg != null}">
-						<a href="GoLogoutAction" class="part_line">■ Logout</a>
+						<a href="LogoutAction" class="part_line">■ Logout</a>
  						</s:if>
-
 						<s:if test="%{#session.userFlg == 3}">
 					    <a href="GoAdminAction" class="part_line">■ 管理者 </a>
-
 						</s:if>
-
 <s:if test="%{#session.userFlg >= 1}">
-
 					<select name="pulldown2" id="selectBer">
 						<option value="">移動先を選択</option>
 						<option value="ProjectsSelectAction">プロジェクト一覧</option>
 						<option value="ProjectStatusSelectAction">プロジェクトリリース状況</option>
 						<option value="ProjectProgressSelectAction">プロジェクト進捗報告</option>
 						<option value="StudentsSelectAction">受講生一覧</option>
-						<option value="GoTeamAction">チーム情報</option>
+						<option value="GoTeamAction">チーム確認</option>
 						<option value="GoAttendanceAction">勤怠更新</option>
 						<s:if test="%{#session.userFlg >= 2}">
 						<option value="GoAdminAttendanceAction">勤怠確認</option>
@@ -78,7 +67,6 @@
 						<option value="ScheduleSelectAction">スケジュール一覧</option>
 					</select>
 					<input type="button" id="location" value="移動">
-
 				</s:if>
 						</div>
 				<!-- 				<dl id="menuElementGroup"> -->
