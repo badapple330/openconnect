@@ -43,6 +43,7 @@ alert('姓と名の両方を入力してください');
 <select name="atDay" id="id_day" data-choice="day"><option value="">----</option></select>
 <s:textfield name="familyNameKanji" id="familyForm" placeholder="名字" title="名字"/>
 <s:textfield name="givenNameKanji" id="GivenForm" placeholder="名前" title="名前"/>
+<s:textfield name="teamName" placeholder="チーム名" title="チーム名"/>
 <s:submit value="検索" class="search-btn" id="searchButtun"/>
 </s:form>
 
@@ -52,6 +53,7 @@ alert('姓と名の両方を入力してください');
     <tr>
       <th>報告日時</th>
       <th>受講開始月</th>
+      <th>チーム</th>
       <th>性</th>
       <th>名</th>
       <th>出欠状況</th>
@@ -68,6 +70,9 @@ alert('姓と名の両方を入力してください');
   </td>
   <td>
     <s:property value="month"/>
+  </td>
+  <td>
+    <s:property value="teamName"/>
   </td>
   <td>
     <s:property value="familyNameKanji"/>

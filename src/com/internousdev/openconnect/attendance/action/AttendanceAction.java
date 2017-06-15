@@ -1,3 +1,4 @@
+
 /**
  *
  */
@@ -61,7 +62,11 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	 * 報告日
 	 */
 	private int atDay;
-
+	
+	/**
+	 * チーム名
+	 */
+    private String teamName;
 	/**
 	 * 漢字姓
 	 */
@@ -267,13 +272,29 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 		return session;
 	}
 
-
 	/**
 	 * @param session セットする session
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+	
+	/**
+	* 取得メソッド を取得
+	* @author TEPPEI MATSUMOTO
+	* @return teamName
+	*/
+	public String getTeamName() {
+		return teamName;
+	}
 
+	/**
+	* 設定メソッド を設定
+	* @author TEPPEI MATSUMOTO
+	* @param teamName
+	*/
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
 
 }
