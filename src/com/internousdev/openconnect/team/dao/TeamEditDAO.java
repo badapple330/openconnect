@@ -19,6 +19,8 @@ public class TeamEditDAO {
 	/**
 	 * データベースのチーム情報を更新するメソッド
 	 * @param userId ユーザーID
+	 * @param teamName
+	 * @param userFlg
 	 * @return count
 	 */
 	public int update(String teamName,int userFlg,int userId) throws SQLException{
