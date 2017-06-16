@@ -53,7 +53,7 @@
 						<option value="ProjectStatusSelectAction">プロジェクトリリース状況</option>
 						<option value="ProjectProgressSelectAction">プロジェクト進捗報告</option>
 						<option value="StudentsSelectAction">受講生一覧</option>
-						<option value="GoTeamAction">チーム確認</option>
+						<option value="GoTeamAction">チーム情報</option>
 						<option value="GoAttendanceAction">勤怠更新</option>
 						<s:if test="%{#session.userFlg >= 2}">
 						<option value="GoAdminAttendanceAction">勤怠確認</option>

@@ -19,18 +19,21 @@
 
 	<div align="center" class="team">
 	<h1 >チーム情報編集</h1><hr>
-	<br>
 
-	<font color="red">
+
+<h4><font color="red">
 	<s:property value="%{teamMes}"/>
-	 </font><br>
+	 </font></h4>
 
-	変更内容を以下に記入してください
+<h4>変更内容を以下に記入してください</h4>
+
+
 	<s:form action="TeamEditAction">
+	<s:iterator value="teamUserList">
 	<table class="teamedit">
 	<tr>
 		<td>チーム名：</td>
-		<td><input type="text" name=teamName  size="30" pattern="^[0-9A-Za-z]+$" required="required" placeholder="半角英数で入力してください" title="半角英数で入力してください"/></td>
+		<td><input type="text" name=teamName  size="30" pattern="^[0-9A-Za-z]+$" required="required" value="<s:property value="teamName"/>" placeholder="半角英数で入力してください" title="半角英数で入力してください"/></td>
 	</tr>
 	<tr>
 		<td>役職：</td>
@@ -43,6 +46,7 @@
 		</td>
 	</tr>
 	</table>
+</s:iterator>
 
 <br>
 	<input type="submit"  value="編集を確定" class="button"/>

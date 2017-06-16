@@ -21,7 +21,7 @@
 
 	<div class="team" align="center">
 	<h1>チーム情報</h1><hr>
-	<br>
+
 
 
 <s:iterator value="teamUserList">
