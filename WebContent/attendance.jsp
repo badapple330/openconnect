@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>勤怠更新</title>
@@ -27,34 +28,34 @@
 
 	<br>
 
-
+<div align= "center">
 	<s:form action="AttendanceAction">
 
-	<div class=attend>
-	<label>
-	<s:iterator value="atUserList">
-	氏名：<br>
-	<s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/>
-	</s:iterator>
-	</label>
+	<div>
+	    <label>
+	      <s:iterator value="atUserList">
+	        氏名：<br>
+	          <s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/>
+	          </s:iterator>
+	     </label>
 
 	<br>
 
-	<label>
-	日時：<br>
-	<select style="width: 80px;" name="atYear" id="id_year" data-choice="year" required="required"></select>
-	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">年</span>
+	     <label>
+	        日時：<br>
+	        <select style="width: 80px;" name="atYear" id="id_year" data-choice="year" required="required"></select>
+	        <span style="margin-left: 3px; margin-right: 5px; display: inline-block;">年</span>
 
-	<select style="width: 50px;" name="atMonth" id="id_month" data-choice="month" required="required"></select>
-	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">月</span>
+	        <select style="width: 50px;" name="atMonth" id="id_month" data-choice="month" required="required"></select>
+	        <span style="margin-left: 3px; margin-right: 5px; display: inline-block;">月</span>
 
-	<select style="width: 50px;" name="atDay" id="id_day" data-choice="day" required="required"></select>
-	<span style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
-	</label>
+	        <select style="width: 50px;" name="atDay" id="id_day" data-choice="day" required="required"></select>
+	        <span style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
+	     </label>
 
 	<br>
 
-	<label>
+	    <label>
 	出欠確認：<br>
 	<select name="attendance" required="required">
 
@@ -81,6 +82,7 @@
 
 
 	</s:form>
+	</div>
 
 	</s:if>
 	<s:else>
