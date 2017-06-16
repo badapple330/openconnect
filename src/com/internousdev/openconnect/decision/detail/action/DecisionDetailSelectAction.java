@@ -15,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * DBの情報を画面に表示する為のクラス
- * @author TATUHUMI ITOU
+ * @author TATUHUMI ITOU, SOSHI AZUMA
  * @since 2016/09/04
  * @version 1.0
  */
@@ -28,15 +28,15 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 */
 	private static final long serialVersionUID = -7677481694269615816L;
 	/**
-	 * 決裁手続きリスト
+	 * 自以外決裁手続きリスト
 	 */
 	private List<DecisionDetailDTO> decisionDetailList1 = new ArrayList<DecisionDetailDTO>();
 	/**
-	 * 決裁手続きリスト
+	 * 自決裁手続きリスト
 	 */
 	private List<DecisionDetailDTO> decisionDetailList2 = new ArrayList<DecisionDetailDTO>();
 	/**
-	 * 決裁手続きリスト
+	 * 決裁未手続きリスト
 	 */
 	private List<DecisionDetailDTO> decisionBeginList = new ArrayList<DecisionDetailDTO>();
 	/**
@@ -60,7 +60,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 * @author TATUHUMI ITOU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute(){
@@ -90,7 +89,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド 決裁手続きリストを取得
-	* @author TATUHUMI ITOU
 	* @return decisionDetailList1
 	*/
 	public List<DecisionDetailDTO> getDecisionDetailList1() {
@@ -101,7 +99,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 設定メソッド 決裁手続きリストを設定
-	* @author TATUHUMI ITOU
 	* @param decisionDetailList1
 	*/
 	public void setDecisionDetailList1(List<DecisionDetailDTO> decisionDetailList1) {
@@ -110,7 +107,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド 決裁手続きリストを取得
-	* @author TATUHUMI ITOU
 	* @return decisionDetailList2
 	*/
 	public List<DecisionDetailDTO> getDecisionDetailList2() {
@@ -121,7 +117,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 設定メソッド 決裁手続きリストを設定
-	* @author TATUHUMI ITOU
 	* @param decisionDetailList2
 	*/
 	public void setDecisionDetailList2(List<DecisionDetailDTO> decisionDetailList2) {
@@ -130,7 +125,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド を取得
-	* @author KOHEI NITABARU
 	* @return decisionBeginList
 	*/
 	public List<DecisionDetailDTO> getDecisionBeginList() {
@@ -141,7 +135,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 設定メソッド を設定
-	* @author KOHEI NITABARU
 	* @param decisionBeginList
 	*/
 	public void setDecisionBeginList(List<DecisionDetailDTO> decisionBeginList) {
@@ -152,7 +145,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド シリアル番号を取得
-	* @author KOHEI NITABARU
 	* @return serialVersionUID
 	*/
 	public static long getSerialversionuid() {
@@ -161,7 +153,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド 検索文を取得
-	* @author TATUHUMI ITOU
 	* @return searchString
 	*/
 	public String getSearchString() {
@@ -170,7 +161,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 設定メソッド 検索文を設定
-	* @author TATUHUMI ITOU
 	* @param searchString
 	*/
 	public void setSearchString(String searchString) {
@@ -181,7 +171,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド を取得
-	* @author KOHEI NITABARU
 	* @return session
 	*/
 	public Map<String, Object> getSession() {
@@ -192,7 +181,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 設定メソッド を設定
-	* @author KOHEI NITABARU
 	* @param session
 	*/
 	public void setSession(Map<String, Object> session) {
@@ -203,7 +191,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド
-	* @author TATUHUMI ITOU
 	* @return resultSelect1
 	*/
 	public String getResultSelect1() {
@@ -214,7 +201,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 設定メソッド
-	* @author TATUHUMI ITOU
 	* @param resultSelect1
 	*/
 	public void setResultSelect1(String resultSelect1) {
@@ -223,7 +209,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド
-	* @author TATUHUMI ITOU
 	* @return resultSelect1
 	*/
 	public String getResultSelect2() {
@@ -234,7 +219,6 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 	/**
 	* 設定メソッド
-	* @author TATUHUMI ITOU
 	* @param resultSelect2
 	*/
 	public void setResultSelect2(String resultSelect2) {

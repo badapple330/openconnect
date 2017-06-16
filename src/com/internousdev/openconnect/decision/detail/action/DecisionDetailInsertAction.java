@@ -10,7 +10,7 @@ import com.internousdev.openconnect.decision.detail.dao.DecisionDetailInsertDAO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 決裁手続き画面で新規に追加した情報を、DBに追加する為のクラス
- * @author TATUHUMI ITOU
+ * @author TATUHUMI ITOU, SOSHI AZUMA
  * @since 2016/09/04
  * @version 1.0
  */
@@ -37,7 +37,6 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	public Map<String, Object> session;
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 * @author TATUHUMI ITOU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() {
@@ -59,7 +58,6 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 	/**
 	* 取得メソッド プロジェクトIDを取得
-	* @author TATUHUMI ITOU
 	* @return projectId
 	*/
 	public int getProjectId() {
@@ -67,7 +65,6 @@ public class DecisionDetailInsertAction extends ActionSupport{
 	}
 	/**
 	* 設定メソッド プロジェクトIDを設定
-	* @author TATUHUMI ITOU
 	* @param projectId
 	*/
 	public void setProjectId(int projectId) {
@@ -76,7 +73,6 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 	/**
 	* 取得メソッド を取得
-	* @author KOHEI NITABARU
 	* @return decisionType
 	*/
 	public String getDecisionType() {
@@ -85,7 +81,6 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 	/**
 	* 設定メソッド を設定
-	* @author KOHEI NITABARU
 	* @param decisionType
 	*/
 	public void setDecisionType(String decisionType) {
@@ -94,7 +89,6 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 	/**
 	* 取得メソッド 結果を取得
-	* @author TATUHUMI ITOU
 	* @return resultString
 	*/
 	public String getResultString() {
@@ -103,7 +97,6 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 	/**
 	* 設定メソッド 結果を設定
-	* @author TATUHUMI ITOU
 	* @param resultString
 	*/
 	public void setResultString(String resultString) {
@@ -112,7 +105,6 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 	/**
 	* 取得メソッド を取得
-	* @author KOHEI NITABARU
 	* @return session
 	*/
 	public Map<String, Object> getSession() {
@@ -121,7 +113,6 @@ public class DecisionDetailInsertAction extends ActionSupport{
 
 	/**
 	* 設定メソッド を設定
-	* @author KOHEI NITABARU
 	* @param session
 	*/
 	public void setSession(Map<String, Object> session) {
