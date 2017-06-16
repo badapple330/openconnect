@@ -57,6 +57,7 @@ public class TeamEditAction extends ActionSupport implements SessionAware{
 		int count = dao.update(teamName,userFlg,userId);
 		if(count > 0){
 			result = SUCCESS;
+			session.put("userFlg",userFlg);
 		}else{
 			teamMes = "変更に失敗しました";
 		}

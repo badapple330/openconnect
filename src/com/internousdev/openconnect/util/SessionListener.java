@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSessionListener;
 import com.internousdev.openconnect.dao.LogoutDAO;
 
 /**
+ * セッションタイムアウトを監視し、usersテーブルのlogin_flgをfalseに変更するためのリスナークラス
  * @author TEPPEI MATSUMOTO
  * @since 2017/06/15
  * @version 1.0
