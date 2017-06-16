@@ -12,6 +12,10 @@
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 
+<s:if test="%{#session.userFlg != null}">
+<meta http-equiv="refresh"content="0;url=applist.jsp">
+</s:if>
+
 <!-- 背景画像 -->
 <style type="text/css">
 <!--body {background: url(img/sity.jpg) center center / cover no-repeat fixed;}-->
@@ -49,7 +53,7 @@
 <br><br><br><br><br>
 
 	<!------------------    ユーザーログイン    ------------------->
-
+<s:if test="%{#session.userFlg == null}">
 	<div class="box" align ="center">
 	<table id= "main">
 <tr align="center">
@@ -96,7 +100,7 @@
 <div align="center">
 <a href="GoRegisterAction" class="square_btn">新規登録はこちら</a>
 </div>
-
+</s:if>
 
 </body>
 </html>
