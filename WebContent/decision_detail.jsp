@@ -219,8 +219,7 @@
 				<tr>
 					<td>実施兼契約決裁で<br>行う場合のみチェック<br>
 
-						<input type="checkbox" name="decisionType" value="実施兼契約" onclick="changeCheckBox('chk1');">
-						<input type="checkbox" name="decisionStatus1" value="2" id="chk1">
+						<input type="checkbox" name="decisionType" value="実施兼契約">
 
 					</td>
 					<td>

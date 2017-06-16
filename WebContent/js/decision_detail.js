@@ -120,8 +120,3 @@ $(function(){
 });
 
 
-
-function changeCheckBox(idname) {
-	var obj = document.getElementById(idname);
-	obj.checked = !obj.checked;
-}

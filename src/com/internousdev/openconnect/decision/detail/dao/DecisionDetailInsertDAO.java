@@ -22,6 +22,9 @@ public class DecisionDetailInsertDAO {
 	public int insert(int projectId, String decisionType, int decisionStatus1){
 
 		int count = 0;
+		if(decisionType.equals("実施兼契約")) {
+			decisionStatus1 = 2;
+		}
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
