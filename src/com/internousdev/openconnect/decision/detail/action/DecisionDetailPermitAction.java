@@ -57,6 +57,13 @@ public class DecisionDetailPermitAction extends ActionSupport{
 
 			count = dao.update1( permitStatus, decisionStatus1, decisionStatus2, decisionType, permitUserId1, decisionId );
 
+		if(permitUserId1 != null) {
+			count = dao.update1( permitStatus, decisionStatus1, decisionStatus2, decisionType, permitUserId2, decisionId );
+		}
+		if(permitUserId1 != null && permitUserId2 != null) {
+			count = dao.update1( permitStatus, decisionStatus1, decisionStatus2, decisionType, permitUserId3, decisionId );
+		}
+
 		if (count > 0 ) {
 			result = SUCCESS;
 			resultString = "承認できました! ";
