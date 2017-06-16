@@ -21,17 +21,19 @@
         <script src="js/calendar/jquery.min.js"></script>
         <script src="js/calendar/jquery-ui.min.js"></script>
         <script src="js/calendar/moment.min.js"></script>
-        <script src="js/calendar/gcal.js"></script>
-        <script src="js/calendar/gcal.min.js"></script>
         <script src="js/calendar/datepicker-ja.js"></script>
         <script src="js/calendar/jquery.tabletojson.js"></script>
         <script src="js/calendar/jquery.tabletojson.min.js"></script>
         <script src="js/calendar/fullcalendar.js"></script>
         <script src="js/calendar/fullcalendar.min.js"></script>
+        <script src="js/calendar/gcal.js"></script>
+        <script src="js/calendar/gcal.min.js"></script>
 
 <title>スケジュール一覧</title>
 </head>
 <body>
+
+alert();
 
 
 <!-- アプリ一覧表示 -->
@@ -50,14 +52,13 @@
 
 
 <div id ="calendar"></div>
-
 <div id="operation">
 
 			<s:form action="ScheduleSelectAction">
 			<h5>【チーム名で検索】</h5>
 				<select name="search" required="required">
 								<option value="">以下から選択</option>
-								<s:iterator value="scheduleList">
+								<s:iterator value="teamList">
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
 								</s:iterator>
 							</select>
@@ -105,7 +106,8 @@
 									value="<s:property value="title" />" class="scheduleTitleList"
 									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
 								<td>
-									<input type="text" name="scheduleTeamNameList"value="<s:property value="teamName" />"class="scheduleTeamNameList" disabled>
+
+								<input type="text" name="teamList"value="<s:property value="teamName" />"class="teamList" disabled>
 								</td>
 								<td>
 										<input type="button" class="button modal-open" value="削除" />
@@ -140,7 +142,7 @@
 						<tr>
 							<select name="teamName" required="required">
 								<option value="">以下から選択</option>
-								<s:iterator value="scheduleList">
+								<s:iterator value="teamList">
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
 								</s:iterator>
 							</select>

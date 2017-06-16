@@ -53,7 +53,7 @@ $(document).ready(function(){
 		},
 
 		//タイトルと日別リストの日付のフォーマット
-		titleFormat:'MMMM',
+		titleFormat:'MMMM' ,
 		listDayFormat:'MMMM D日',
 
 		// 週を月曜日からにする(０→日、１→月、２→火、３→水、４→木、５→金、６→土)
@@ -69,8 +69,26 @@ $(document).ready(function(){
         // 曜日略称
         dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
 
+       /*
+                       {
+            // 日本の祝日
+            url: 'https://www.google.com/calendar/feeds/japanese__ja%40holiday.calendar.google.com/public/basic',
+            // タイムゾーン
+            currentTimezone: 'Asia/Tokyo',
+            // 背景色とボーダー色
+            color: '#000000',
+            // 背景色(colorより優先)
+            backgroundColor: '#F19824',
+            // ボーダー色(colorより優先)
+            borderColor: '#F15A24',
+            // 文字色
+            textColor: '#EEEEEE'
+                       },
+                       */
         //jqueryプラグインのtable-to-jsonでテーブルの情報を取得
         	events:$('#schedule').tableToJSON(),
+
+
     });
 
 });

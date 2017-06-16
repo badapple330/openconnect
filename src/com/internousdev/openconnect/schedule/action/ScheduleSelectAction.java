@@ -27,11 +27,15 @@ public class ScheduleSelectAction extends ActionSupport {
 	 */
 	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
 
+	private List<ScheduleDTO> teamList = new ArrayList<ScheduleDTO>();
+
 	/**
 	 * 検索文
 	 * @author MASAHIRO KEDSUKA
 	 */
 	private String search = "";
+
+	private String team = "";
 	/**
 	 *成功メッセージ
 	 * @author MASAHIRO KEDSUKA
@@ -50,8 +54,9 @@ public class ScheduleSelectAction extends ActionSupport {
 	public String execute() {
 		String result = ERROR;
 		ScheduleSelectDAO dao = new ScheduleSelectDAO();
-
+		ScheduleSelectDAO dao2 = new ScheduleSelectDAO();
 		scheduleList = dao.select(search);
+		setTeamList(dao2.select2(team));
 		if (scheduleList.size() != 0) {
 			if(search.equals("")){
 				selectSuccessMsg ="すべてを表示しました。";
@@ -154,6 +159,16 @@ public class ScheduleSelectAction extends ActionSupport {
 	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+	public List<ScheduleDTO> getTeamList() {
+		return teamList;
+	}
+
+
+	public void setTeamList(List<ScheduleDTO> teamList) {
+		this.teamList = teamList;
 	}
 
 }
