@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.9, user-scalable=no" >
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>チーム情報編集</title>
@@ -29,6 +30,7 @@
 
 
 	<s:form action="TeamEditAction">
+	<p>
 	<s:iterator value="teamUserList">
 	<table class="teamedit">
 	<tr>
@@ -47,10 +49,11 @@
 	</tr>
 	</table>
 </s:iterator>
+</p>
 
-<br>
-	<input type="submit"  value="編集を確定" class="button"/>
-
+<div  class="button">
+	<input type="submit" value="編集を確定"/>
+</div>
 	</s:form>
 	</div>
 

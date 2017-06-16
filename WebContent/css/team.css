@@ -23,3 +23,14 @@
 	top: 3px;
 	box-shadow: none;
 }
+
+.team .button{
+     width:15%;
+     margin:30px 0 0 42.5%;
+     padding:5px 0 5px 0;
+     border:none;
+     font-weight:bold;
+     background-color:#0080ff;
+     font-family:meiryo; font-size:120%; color:#ffffff;
+     cursor:pointer;
+     }

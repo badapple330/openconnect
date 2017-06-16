@@ -23,7 +23,7 @@
 	<h1>チーム情報</h1><hr>
 
 
-
+<p>
 <s:iterator value="teamUserList">
 	<table class="teaminfo">
 	<tr>
@@ -45,11 +45,11 @@
 		</td>
 	</table>
 	</s:iterator>
-
-
-	<br>
+</p>
 	<div align="center">
+	<p>
 	<a href="GoTeamEditAction">編集ページ</a>
+	</p>
 	</div>
 	</div>
 
