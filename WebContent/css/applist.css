@@ -1,24 +1,32 @@
 
 
 .fadeout{
-opacity: 0;
-transition: 3s ease-in-out;
--webkit-transition: 3s ease-in-out;
+
+    opacity: 0;
+    transition: 3s ease-in-out;
+    -webkit-transition: 3s ease-in-out;
+    width: 640px;
+    height: 360px;
 }
+
 .fadein{
-opacity: 1;
-transition: 3s ease-in-out;
--webkit-transition: 3s ease-in-out;
+    opacity: 1;
+    transition: 3s ease-in-out;
+    -webkit-transition: 3s ease-in-out;
+    width: 640px;
+    height: 360px;
 }
 
 
 @media only screen and (max-device-width : 380px) {
     #idshow1 {
-              width:30px;
+              width: 100%;
              }
-    #idshow2.fadein {
- 		      width:30px;
+    #idshow2 {
+ 		      width: 100%;
   	         }
-
-  }
+  	#table-scroll {
+              overflow-x: scroll;
+    }
+}
 
