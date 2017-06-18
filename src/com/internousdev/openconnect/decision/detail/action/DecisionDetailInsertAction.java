@@ -14,11 +14,13 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2016/09/04
  * @version 1.0
  */
-public class DecisionDetailInsertAction extends ActionSupport{
+public class DecisionDetailInsertAction extends ActionSupport {
+
+
 	/**
-	 * シリアルバージョンID
+	 * シリアルID
 	 */
-	private static final long serialVersionUID = -7584789844350L;
+	private static final long serialVersionUID = 4142536908215440601L;
 	/**
 	 * エラーメッセージ
 	 */

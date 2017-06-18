@@ -17,6 +17,12 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 public class DecisionDetailPreviewAction extends ActionSupport {
+
+
+	/**
+	 * シリアルID
+	 */
+	private static final long serialVersionUID = 8927986540334872783L;
 	/**
 	 * ID
 	 */
@@ -29,10 +35,6 @@ public class DecisionDetailPreviewAction extends ActionSupport {
 	 * ダウンロードリスト
 	 */
 	private List<DecisionDetailDownloadDTO> downloadList = new ArrayList<DecisionDetailDownloadDTO>();
-	/**
-	 * シリアルバージョンID
-	 */
-	private static final long serialVersionUID = -7586577377473680450L;
 	/**
 	 * 管理者権限メソッド
 	 */

@@ -15,29 +15,26 @@ import com.internousdev.util.DBConnector;
  * @version 1.0
  */
 public class DecisionDetailPermitDAO {
-	 /**
-     * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
-     * @author SOHI AZUMA
+
+
+	/**
+     * 実施決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
      */
-	public int update1(int permitStatus, int decisionStatus1, int decisionStatus2, String decisionType, int permitUserId1, int decisionId) {
+	public int updateJ( String iApprovalId, int permitUserId3, int decisionId ) {
 
 		int count = 0;
-		if(decisionStatus1 == 2) {
-			decisionType = "契約";
-		}
-
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "update decision set permit_status = ?, decision_status1 = ?, decision_status2 = ?, decision_type = ?, permit_user_id1 = ? where decision_id = ?";
+		String sql = "update decision set decision_type = '契約', decision_status1 = 2, permit_status = 0, i_approval_id = ?, permit_user_id3 = ? where decision_id = ?";
+
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1,permitStatus);
-			ps.setInt(2,decisionStatus1);
-			ps.setInt(3,decisionStatus2);
-			ps.setString(4,decisionType);
-			ps.setInt(5,permitUserId1);
-			ps.setInt(6,decisionId);
+
+			ps.setString(1, iApprovalId);
+			ps.setInt(2, permitUserId3);
+			ps.setInt(3, decisionId);
+
 			count = ps.executeUpdate();
 
 
@@ -56,28 +53,23 @@ public class DecisionDetailPermitDAO {
 
 
 	/**
-     * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
-     * @author SOHI AZUMA
+     * 契約決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
      */
-	public int updateP2(int permitStatus, int decisionStatus1, int decisionStatus2, String decisionType, int permitUserId2, int decisionId) {
+	public int updateK( String cdId, int permitUserId3, int decisionId ) {
 
 		int count = 0;
-		if(decisionStatus1 == 2) {
-			decisionType = "契約";
-		}
-
-
+		//updateK( cdId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "update decision set permit_status = ?, decision_status1 = ?, decision_status2 = ?, decision_type = ?, permit_user_id2 = ? where decision_id = ?";
+		String sql = "update decision set decision_status2 = 2, permit_status = 0, cd_id = ?, permit_user_id3 = ? where decision_id = ?";
+
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1,permitStatus);
-			ps.setInt(2,decisionStatus1);
-			ps.setInt(3,decisionStatus2);
-			ps.setString(4,decisionType);
-			ps.setInt(5,permitUserId2);
-			ps.setInt(6,decisionId);
+
+			ps.setString(1, cdId);
+			ps.setInt(2, permitUserId3);
+			ps.setInt(3, decisionId);
+
 			count = ps.executeUpdate();
 
 
@@ -96,28 +88,23 @@ public class DecisionDetailPermitDAO {
 
 
 	/**
-     * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
-     * @author SOHI AZUMA
+     * 契約決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
      */
-	public int updateP3(int permitStatus, int decisionStatus1, int decisionStatus2, String decisionType, int permitUserId3, int decisionId) {
+	public int updateJK( String iAId, int permitUserId3, int decisionId ) {
 
 		int count = 0;
-		if(decisionStatus1 == 2) {
-			decisionType = "契約";
-		}
-
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "update decision set permit_status = ?, decision_status1 = ?, decision_status2 = ?, decision_type = ?, permit_user_id3 = ? where decision_id = ?";
+		String sql = "update decision set decision_status2 = 2, permit_status = 0, i_a_id = ?, permit_user_id3 = ? where decision_id = ?";
+
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1,permitStatus);
-			ps.setInt(2,decisionStatus1);
-			ps.setInt(3,decisionStatus2);
-			ps.setString(4,decisionType);
-			ps.setInt(5,permitUserId3);
-			ps.setInt(6,decisionId);
+
+			ps.setString(1, iAId);
+			ps.setInt(2, permitUserId3);
+			ps.setInt(3, decisionId);
+
 			count = ps.executeUpdate();
 
 
@@ -133,5 +120,42 @@ public class DecisionDetailPermitDAO {
 		return count;
 
 	}
+
+
+	/**
+     * リーダー承認時メソッド  承認による値の更新と承認者ID1及び2の登録をする為のメソッド
+     */
+	public int update( int permitStatus, int permitUserId1, int permitUserId2, int decisionId ) {
+
+		int count = 0;
+//update(permitStatus, permitUserId1, permitUserId2, decisionId);
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
+		Connection conn = db.getConnection();
+		String sql = "update decision set permit_status = ?, permit_user_id1 = ?, permit_user_id2 = ? where decision_id = ?";
+
+		try{
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, permitStatus);
+			ps.setInt(2, permitUserId1);
+			ps.setInt(3, permitUserId2);
+			ps.setInt(4, decisionId);
+
+			count = ps.executeUpdate();
+
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			try{
+				conn.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return count;
+
+	}
+
 
 }

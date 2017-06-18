@@ -4,9 +4,18 @@
 package com.internousdev.openconnect.decision.detail.action;
 
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.openconnect.decision.detail.dao.DecisionDetailApplicationDAO;
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailPermitDAO;
+import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 決裁手続き画面で新規に追加した情報を、DBに追加する為のクラス
@@ -14,15 +23,13 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2017/06/16
  * @version 1.0
  */
-public class DecisionDetailPermitAction extends ActionSupport{
+public class DecisionDetailPermitAction extends ActionSupport implements SessionAware {
+
+
 	/**
-	 * シリアルバージョンID
+	 * シリアルID
 	 */
-	private static final long serialVersionUID = -7584789844350L;
-	/**
-	 * エラーメッセージ
-	 */
-	private String resultString = "承認できませんでした。";
+	private static final long serialVersionUID = -3834616624579202920L;
 	/**
 	 * 決裁ID
 	 */
@@ -30,19 +37,26 @@ public class DecisionDetailPermitAction extends ActionSupport{
 	/**
 	 * 承認状況
 	 */
-	private int permitStatus = 0;
+	private int permitStatus;
 	/**
-	 * 実施決裁状況
+	 * 決裁種類
 	 */
-	private int decisionStatus1;
+	private String decisionType;
 	/**
-	 * 契約/実施兼契約決裁状況
+	 * エラーメッセージ
 	 */
-	private int decisionStatus2;
+	private String resultString = "承認できませんでした。";
 	/**
 	 * 管理者権限メソッド
 	 */
 	public Map<String, Object> session;
+	/**
+	 * ID番号振り分けリスト
+	 */
+	private List<DecisionDetailDTO> idNumList = new ArrayList<DecisionDetailDTO>();
+
+
+
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
@@ -50,19 +64,110 @@ public class DecisionDetailPermitAction extends ActionSupport{
 	public String execute() {
 
 		String result=ERROR;
-		DecisionDetailPermitDAO dao = new DecisionDetailPermitDAO();
 
+		//現在日時を取得する
+        Calendar c = Calendar.getInstance();
+        //フォーマットパターンを指定して表示する
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String num = sdf.format( c.getTime() );
+
+		//決裁番号の生成
+		String iApprovalId = "J-" + num + "-";
+		String cdId = "K-" + num + "-";
+		String iAId = "JK-" + num + "-";//????
+
+		//番号末尾を100桁表示に変換
+		DecimalFormat dformat = new DecimalFormat("000");
+
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+		DecisionDetailPermitDAO daoPer = new DecisionDetailPermitDAO();
+		DecisionDetailApplicationDAO daoApp = new DecisionDetailApplicationDAO();
+
+		//TypeとpermitStatusをjspからもらえればいい
+
+		//jspのformで送らなくてもこれでもたぶんOK
+		int permitUserId1 = (int)dto.getPermitUserId1();
+		int permitUserId2 = (int)dto.getPermitUserId2();
+		int permitUserId3 = (int)dto.getPermitUserId3();
+
+
+		String idNum = "";
 		int count = 0;
-		String decisionType = "実施";
 
-			count = dao.update1( permitStatus, decisionStatus1, decisionStatus2, decisionType, permitUserId1, decisionId );
 
-		if(permitUserId1 != null) {
-			count = dao.update1( permitStatus, decisionStatus1, decisionStatus2, decisionType, permitUserId2, decisionId );
+		//リーダーの承認
+		 if(permitStatus >= 1) {
+			if(permitUserId1 > 0) {
+				permitUserId2 = (int) session.get("userId");
+			}
+			else {
+				permitUserId1 = (int) session.get("userId");
+			}
+			count = daoPer.update(permitStatus, permitUserId1, permitUserId2, decisionId);
 		}
-		if(permitUserId1 != null && permitUserId2 != null) {
-			count = dao.update1( permitStatus, decisionStatus1, decisionStatus2, decisionType, permitUserId3, decisionId );
+
+
+
+		//先生の承認
+		if(permitStatus == 0) {
+			permitUserId3 = (int) session.get("userId");
+
+			//実施決裁の承認
+			if(decisionType.equals("実施")) {
+
+				idNum = iApprovalId;
+				idNumList = daoApp.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					iApprovalId = iApprovalId + b;
+				}
+				else {
+					iApprovalId = iApprovalId + "001";
+				}
+				count = daoPer.updateJ( iApprovalId, permitUserId3, decisionId );//DAOでTypeを契約にする＋permitStatusを０にする＋decisionStatus1を２にする
+			}
+
+
+			//契約決裁の承認
+			else if(decisionType.equals("契約")) {
+
+				idNum = cdId;
+				idNumList = daoApp.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					cdId = cdId + b;
+				}
+				else {
+					cdId = cdId + "001";
+				}
+				count = daoPer.updateK( cdId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
+			}
+
+
+			//実施兼契約決裁の承認
+			else  {
+
+				idNum = iAId;
+				idNumList = daoApp.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					iAId = iAId + b;
+				}
+				else {
+					iAId = iAId + "001";
+				}
+				count = daoPer.updateJK( iAId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
+			}
+
 		}
+
+
+
+
+
 
 		if (count > 0 ) {
 			result = SUCCESS;
@@ -113,42 +218,14 @@ public class DecisionDetailPermitAction extends ActionSupport{
 
 
 
-	/**
-	* 取得メソッド を取得
-	* @return decisionStatus1
-	*/
-	public int getDecisionStatus1() {
-		return decisionStatus1;
+	public String getDecisionType() {
+		return decisionType;
 	}
 
 
 
-	/**
-	* 設定メソッド を設定
-	* @param decisionStatus1
-	*/
-	public void setDecisionStatus1(int decisionStatus1) {
-		this.decisionStatus1 = decisionStatus1;
-	}
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @return decisionStatus2
-	*/
-	public int getDecisionStatus2() {
-		return decisionStatus2;
-	}
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param decisionStatus2
-	*/
-	public void setDecisionStatus2(int decisionStatus2) {
-		this.decisionStatus2 = decisionStatus2;
+	public void setDecisionType(String decisionType) {
+		this.decisionType = decisionType;
 	}
 
 
@@ -183,6 +260,18 @@ public class DecisionDetailPermitAction extends ActionSupport{
 	*/
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+
+
+	public List<DecisionDetailDTO> getIdNumList() {
+		return idNumList;
+	}
+
+
+
+	public void setIdNumList(List<DecisionDetailDTO> idNumList) {
+		this.idNumList = idNumList;
 	}
 
 

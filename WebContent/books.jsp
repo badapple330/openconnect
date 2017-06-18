@@ -51,7 +51,7 @@
 			<s:form action="BooksSelectAction">
 				未入力で全件表示<br>
 				<input type="text" name="search" maxlength="50"
-					placeholder="タイトルを入力(部分一致)">
+					placeholder="タイトル">
 				<input class="button" type="submit" value="検索">
 			</s:form>
 		</div>
@@ -86,22 +86,26 @@
 		<s:form action="BooksUpdateAction">
 				<table class="list">
 					<tr>
-						<th class="w05 nwrap" scope="col">ID</th>
+						<th class="w04 nwrap" scope="col">番<br>号</th>
+						<th class="w03 nwrap id_font" scope="col">ID</th>
     					<th class="w40" scope="col">タイトル<br>サブタイトル</th>
  						<th class="w30" scope="col">著者</th>
 						<th class="w15" scope="col">出版社<br>出版日</th>
 					<s:if test="%{#session.userFlg >= 3}">
-						<th class="w05" scope="col">状態</th>
-						<th class="w05 nwrap" scope="col">削<br>除</th>
+						<th class="w04" scope="col">状<br>態</th>
+						<th class="w04 nwrap" scope="col">削<br>除</th>
 					</s:if>
 					</tr>
 
 			<s:iterator value="searchList">
 
 						<tr id="<s:property value="initial" />">
-							<td class="bookId center nwrap">
-								<input type="hidden" name="bookIdList" value="<s:property value="bookId" />">
-								<s:property value="bookId" />
+							<td class="center nwrap">
+								<s:property value="no" />
+							</td>
+							<td class="bookId center nwrap id_font">
+									<input type="hidden" name="bookIdList" value="<s:property value="bookId" />">
+									<s:property value="bookId" />
 							</td>
 							<td>
 								<s:if test="%{#session.userFlg >= 3}">

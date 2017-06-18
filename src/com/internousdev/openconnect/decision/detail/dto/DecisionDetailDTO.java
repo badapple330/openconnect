@@ -35,10 +35,6 @@ public class DecisionDetailDTO {
 	 */
 	private int userId;
 	/**
-	 *  ユーザーID1
-	 */
-	private int userId1;
-	/**
 	 *  リーダーID
 	 */
 	private int managerId;
@@ -84,10 +80,6 @@ public class DecisionDetailDTO {
 	 */
 	private int decisionId;
 	/**
-	 *  決裁手続きID
-	 */
-	private int decisionDetailId;
-	/**
 	 *  プロジェクト名
 	 */
 	private String projectName;
@@ -123,6 +115,27 @@ public class DecisionDetailDTO {
 	 *  数値を００００に直す
 	 */
 	private String decisionIdNumber;
+	/**
+	 * 承認状況
+	 */
+	private int permitStatus;
+	/**
+	 * 承認ユーザーID1
+	 */
+	private int permitUserId1;
+	/**
+	 * 承認ユーザーID2
+	 */
+	private int permitUserId2;
+	/**
+	 * 承認ユーザーID3
+	 */
+	private int permitUserId3;
+	/**
+	 * ID番号要素数
+	 */
+	private String idNumAmount;
+
 
 
 
@@ -190,6 +203,40 @@ public class DecisionDetailDTO {
 	*/
 	public void setDecisionIdNumber(String decisionIdNumber) {
 		this.decisionIdNumber = decisionIdNumber;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author TEPPEI MATSUMOTO
+	* @return permitStatus
+	*/
+	public int getPermitStatus() {
+		return permitStatus;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author TEPPEI MATSUMOTO
+	* @param permitStatus
+	*/
+	public void setPermitStatus(int permitStatus) {
+		this.permitStatus = permitStatus;
+	}
+	public int getPermitUserId1() {
+		return permitUserId1;
+	}
+	public void setPermitUserId1(int permitUserId1) {
+		this.permitUserId1 = permitUserId1;
+	}
+	public int getPermitUserId2() {
+		return permitUserId2;
+	}
+	public void setPermitUserId2(int permitUserId2) {
+		this.permitUserId2 = permitUserId2;
+	}
+	public int getPermitUserId3() {
+		return permitUserId3;
+	}
+	public void setPermitUserId3(int permitUserId3) {
+		this.permitUserId3 = permitUserId3;
 	}
 	/**
 	 * 取得メソッド 姓の漢字を取得
@@ -401,22 +448,6 @@ public class DecisionDetailDTO {
 		this.userId = userId;
 	}
 	/**
-	* 取得メソッド を取得
-	* @author KOHEI NITABARU
-	* @return userId1
-	*/
-	public int getUserId1() {
-		return userId1;
-	}
-	/**
-	* 設定メソッド を設定
-	* @author KOHEI NITABARU
-	* @param userId1
-	*/
-	public void setUserId1(int userId1) {
-		this.userId1 = userId1;
-	}
-	/**
 	 * 取得メソッド 概要を取得
 	 * @author TATUHUMI ITOU
 	 * @return summary
@@ -551,22 +582,6 @@ public class DecisionDetailDTO {
 		this.decisionId = decisionId;
 	}
 	/**
-	 * 取得メソッド 決裁手続きIDを取得
-	 * @author TATUHUMI ITOU
-	 * @return decisionDetailId
-	 */
-	public int getDecisionDetailId() {
-		return decisionDetailId;
-	}
-	/**
-	 * 設定メソッド 決裁手続きIDを設定
-	 * @author TATUHUMI ITOU
-	 * @param decisionDetailId
-	 */
-	public void setDecisionDetailId(int decisionDetailId) {
-		this.decisionDetailId = decisionDetailId;
-	}
-	/**
 	 * 取得メソッド プロジェクト名を取得
 	 * @author TATUHUMI ITOU
 	 * @return projectName
@@ -581,6 +596,20 @@ public class DecisionDetailDTO {
 	 */
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return idNumAmount
+	*/
+	public String getIdNumAmount() {
+		return idNumAmount;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param idNumAmount
+	*/
+	public void setIdNumAmount(String idNumAmount) {
+		this.idNumAmount = idNumAmount;
 	}
 
 

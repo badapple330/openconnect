@@ -62,6 +62,16 @@ public class BooksDTO {
 	private String updDay;
 
 	/**
+	 * 通し番号
+	 */
+	private int no;
+
+
+
+
+
+
+	/**
 	* を取得するメソッド
 	* @return bookId
 	*/
@@ -219,6 +229,24 @@ public class BooksDTO {
 	*/
 	public void setUpdDay(String updDay) {
 		this.updDay = updDay;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author TEPPEI MATSUMOTO
+	* @return no
+	*/
+	public int getNo() {
+		return no;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author TEPPEI MATSUMOTO
+	* @param no
+	*/
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 

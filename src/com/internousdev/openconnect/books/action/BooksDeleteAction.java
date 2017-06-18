@@ -2,16 +2,19 @@ package com.internousdev.openconnect.books.action;
 
 import java.util.Map;
 
-import org.apache.struts2.interceptor.SessionAware;
-
 import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 画面で受け取ったIDを元にして、DBの情報のID,タイトル、削除を削除する為のクラス
+ * 画面で受け取ったIDを元にしてDBの状態フラグを更新し、表示画面から削除する為のクラス
  * @author TATSUYA HOSHI, SOSHI AZUMA
  */
-public class BooksDeleteAction extends ActionSupport implements SessionAware{
+public class BooksDeleteAction extends ActionSupport {
+
+	/**
+	 * シリアルID
+	 */
+	private static final long serialVersionUID = -1382871800294980617L;
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -20,11 +23,6 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	 * ブックID
 	 */
 	private int bookId;
-
-	/**
-	 * シリアルバージョンID
-	 */
-	private static final long serialVersionUID = -7586577377473680450L;
 	/**
 	 * エラーメッセージ
 	 */
@@ -34,10 +32,14 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute(){
-		BooksDAO dao = new BooksDAO();
+
 		String result = ERROR;
+
+		BooksDAO dao = new BooksDAO();
+
 		int count = 0;
 		count = dao.delete(bookId);
+
 		if(count > 0){
 			result = SUCCESS;
 			resultString = "削除に成功しました！";
@@ -59,14 +61,6 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	*/
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
-	}
-
-	/**
-	* シリアルバージョン取得メソッド
-	* @return serialversion
-	*/
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	/**

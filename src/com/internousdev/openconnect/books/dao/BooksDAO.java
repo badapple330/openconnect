@@ -33,7 +33,7 @@ public class BooksDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = null;
 		con = db.getConnection();
-		String sql = "select * from books where status_flg!=1";
+		String sql = "select @num :=@num + 1 as no, books.* from (select @num := 0) as no, books where status_flg!=1";
 		if (!search.equals("")) {
 			sql = sql + " " + "and title like \"%" + search + "%\"";
 		}
@@ -58,6 +58,7 @@ public class BooksDAO {
 				dto.setStatusFlg(rs.getInt("status_flg"));
 				dto.setRegDay(rs.getString("regist_day"));
 				dto.setUpdDay(rs.getString("updated_day"));
+				dto.setNo(rs.getInt("no"));
 
 
 				bookList.add(dto);

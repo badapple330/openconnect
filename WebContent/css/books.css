@@ -95,8 +95,12 @@
 	white-space: nowrap;
 }
 
-.w05 {
-	width: 5%;
+.w03 {
+	width: 3%;
+}
+
+.w04 {
+	width: 4%;
 }
 
 .w10 {
@@ -113,6 +117,11 @@
 
 .w40 {
 	width: 40%;
+}
+
+.id_font {
+	font-size: 95%;
+	color: rgba(40, 96, 144, 0.64);
 }
 
 .bookTitle, .bookSubTitle, .bookAuthor, .bookPublisher, .bookPubDay, .bookStatusFlg {

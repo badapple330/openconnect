@@ -22,17 +22,16 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DecisionDetailSelectAction extends ActionSupport implements SessionAware {
 
 
-
 	/**
-	 * シリアル番号
+	 * シリアルID
 	 */
-	private static final long serialVersionUID = -7677481694269615816L;
+	private static final long serialVersionUID = -7766297666062379491L;
 	/**
-	 * 自以外決裁手続きリスト
+	 * 自プロジェクト以外の決裁手続きリスト
 	 */
 	private List<DecisionDetailDTO> decisionDetailList1 = new ArrayList<DecisionDetailDTO>();
 	/**
-	 * 自決裁手続きリスト
+	 * 自プロジェクトの決裁手続きリスト
 	 */
 	private List<DecisionDetailDTO> decisionDetailList2 = new ArrayList<DecisionDetailDTO>();
 	/**
@@ -57,18 +56,19 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	private String resultSelect2 = "自プロジェクト検索結果を表示しました";
 
 
-
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-	public String execute(){
+	public String execute() throws Exception {
+		String result=ERROR;
 
+		//int userFlg = (int) session.get("userFlg");
 		int userId = (int) session.get("userId");
-		int userId1 = (int) session.get("userId");
-
+		int userId1 = userId;
 
 		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
+
 
 		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
 		decisionDetailList2 = dao.selectMyD( userId, userId1);
@@ -81,8 +81,9 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 		if( decisionDetailList2.size() == 0){
 			resultSelect2 = "自プロジェクトはありません";
 		}
+		result = SUCCESS;
 
-		return SUCCESS;
+		return result;
 	}
 
 

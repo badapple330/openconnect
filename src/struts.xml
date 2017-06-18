@@ -272,6 +272,7 @@
 		</action>
 
 
+
 		<!-- 決済状況一覧画面への遷移 -->
 		<action name="DecisionSelectAction"
 			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
@@ -287,6 +288,7 @@
 			<result name="error" type="chain">DecisionSelectAction</result>
 		</action>
 
+
 		<!-- 決済手続き電子化画面への遷移 -->
 		<action name="DecisionDetailSelectAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailSelectAction"
@@ -295,7 +297,6 @@
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
-
 		<action name="DecisionDetailInsertAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailInsertAction"
 			method="execute">
@@ -303,12 +304,22 @@
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
-
 		<action name="DecisionDetailPermitAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailPermitAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction</result>
-			<result name="error" type="chain">DecisionDetailSelectAction</result>
+			<result name="success">decision_detail.jsp</result>
+			<result name="error">decision_detail.jsp</result>
+			<!-- <result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="error" type="chain">DecisionDetailSelectAction</result> -->
+		</action>
+
+		<action name="DecisionDetailApplicationAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailApplicationAction"
+			method="execute">
+			<result name="success">decision_detail.jsp</result>
+			<result name="error">decision_detail.jsp</result>
+			<!-- <result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="error" type="chain">DecisionDetailSelectAction</result> -->
 		</action>
 
 
@@ -332,7 +343,7 @@
 			class="com.internousdev.openconnect.books.action.BooksDeleteAction"
 			method="execute">
 			<result name="success" type="chain">BooksSelectAction</result>
-			<result name="error" type="chain">BooksSelectAction</result>
+			<result name="error" >BooksSelectAction</result>
 		</action>
 
 		<action name="BooksUpdateAction"
