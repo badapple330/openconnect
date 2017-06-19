@@ -21,6 +21,7 @@
 
 	<div class="team" align="center">
 	<h1>チーム情報</h1><hr>
+	<s:if test="%{#session.userFlg >= 1}">
 
 
 <p>
@@ -51,6 +52,11 @@
 	<a href="GoTeamEditAction">編集ページ</a>
 	</p>
 	</div>
+	</s:if>
+	<s:else>
+	ログイン後に表示します。
+	</s:else>
+
 	</div>
 
 </body>
