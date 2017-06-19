@@ -7,7 +7,7 @@
 <meta charset=UTF-8>
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.9, user-scalable=no" >
 <title>受講生一覧</title>
 <link rel="stylesheet" href="css/students.css">
 <script src="js/jquery-3.1.0.min.js"></script>
