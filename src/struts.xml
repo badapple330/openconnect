@@ -220,8 +220,8 @@
 		<action name="StudentsUpdateAction"
 			class="com.internousdev.openconnect.students.action.StudentsUpdateAction"
 			method="execute">
-			<result name="success" type="chain">StudentsUpdateAction</result>
-			<result name="error" type="chain">StudentsUpdateAction</result>
+			<result name="success" type="chain">StudentsSelectAction</result>
+			<result name="error" type="chain">StudentsSelectAction</result>
 		</action>
 
 		<action name="StudentsDeleteAction"
