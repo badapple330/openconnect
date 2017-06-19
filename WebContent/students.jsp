@@ -19,7 +19,8 @@
 
 
 <div class="container">
-		<h1>受講生一覧</h1><br><br><br><br>
+	<div class="title">
+		<h1>受講生一覧</h1></div><br><br><br><br>
 
 		<%-- <s:if test="%{#session.userFlg >= 1}"> --%>
 
@@ -34,7 +35,7 @@
 					<th>受講年</th>
 					<td><input type="text" name="year" pattern="([1-2][0-9]{3})"
 						maxlength="4" required title="2016" placeholder="2016" /></td>
-				</tr>
+			</tr>
 
 
 				<tr>
@@ -44,6 +45,7 @@
 				</tr>
 				<td><input id="postBtn" type="submit" value="検索"></td>
 		</s:form>
+
 		</div>
 
 <br><br><br><br><br><br><br><br><br>
