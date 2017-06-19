@@ -61,12 +61,6 @@ public class DecisionDTO {
 	 */
 	public String cause;
 
-
-	/**
-	 * 	頭紙文章
-	 */
-	private String head;
-
 	/**
 	 * 建設費用
 	 */
@@ -97,6 +91,11 @@ public class DecisionDTO {
 	 */
 	public String endDay;
 
+	/**
+	 * 人数
+	 */
+	public int person;
+
 
 	/**
 	 * 開発端末料
@@ -104,15 +103,29 @@ public class DecisionDTO {
 	public int prove;
 
 	/**
+	 * 合計開発端末料
+	 */
+	public int totalProve;
+
+	/**
 	 * リリース環境使用料
 	 */
 	public float re;
+
+	/**
+	 * 合計リリース環境使用料
+	 */
+	public float totalRe;
 
 	/**
 	 *回線使用料
 	 */
 	public int line;
 
+	/**
+	 *合計回線使用料
+	 */
+	public int totalLine;
 
 	/**
 	 *施設使用料
@@ -120,16 +133,142 @@ public class DecisionDTO {
 	public float room;
 
 	/**
+	 *合計施設使用料
+	 */
+	public float totalRoom;
+
+	/**
 	 *開発要員
 	 */
 	public int human;
+
+	/**
+	 *合計開発要員
+	 */
+	public int totalHuman;
 
 	/**
 	 *雑費
 	 */
 	public float etc;
 
+	/**
+	 *合計雑費
+	 */
+	public float totalEtc;
 
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return totalProve
+	*/
+	public int getTotalProve() {
+		return totalProve;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param totalProve
+	*/
+	public void setTotalProve(int totalProve) {
+		this.totalProve = totalProve;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return totalRe
+	*/
+	public float getTotalRe() {
+		return totalRe;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param totalRe
+	*/
+	public void setTotalRe(float totalRe) {
+		this.totalRe = totalRe;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return totalLine
+	*/
+	public int getTotalLine() {
+		return totalLine;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param totalLine
+	*/
+	public void setTotalLine(int totalLine) {
+		this.totalLine = totalLine;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return totalRoom
+	*/
+	public float getTotalRoom() {
+		return totalRoom;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param totalRoom
+	*/
+	public void setTotalRoom(float totalRoom) {
+		this.totalRoom = totalRoom;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return totalHuman
+	*/
+	public int getTotalHuman() {
+		return totalHuman;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param totalHuman
+	*/
+	public void setTotalHuman(int totalHuman) {
+		this.totalHuman = totalHuman;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return totalEtc
+	*/
+	public float getTotalEtc() {
+		return totalEtc;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param totalEtc
+	*/
+	public void setTotalEtc(float totalEtc) {
+		this.totalEtc = totalEtc;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return persons
+	*/
+	public int getPersons() {
+		return persons;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param persons
+	*/
+	public void setPersons(int persons) {
+		this.persons = persons;
+	}
 	/**
 	 *姓（漢字）
 	 */
@@ -140,6 +279,12 @@ public class DecisionDTO {
 	 *名（漢字）
 	 */
 	public String givenNameKanji;
+
+	/**
+	 *人数
+	 */
+	public int persons;
+
 
 
 
@@ -423,15 +568,7 @@ public class DecisionDTO {
 	/**
 	 * @return head
 	 */
-	public String getHead() {
-		return head;
-	}
-	/**
-	 * @param head セットする head
-	 */
-	public void setHead(String head) {
-		this.head = head;
-	}
+
 	/**
 	 * @return bildcost
 	 */

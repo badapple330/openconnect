@@ -79,11 +79,6 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 	頭紙文章
-	 */
-	private String head;
-
-	/**
 	 * 建設費用
 	 */
 	private float bildCost;
@@ -144,6 +139,15 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 */
 	public float etc;
 
+	/**
+	 *姓（漢字）
+	 */
+	public String familyNameKanji;
+
+	/**
+	 *名（漢字）
+	 */
+	public String givenNameKanji;
 
 
 	/*
@@ -166,9 +170,9 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * エラーメッセージ
+	 * サクセスメッセージ
 	 */
-	private String resultString = "削除できませんでした。";
+	private String resultString = "更新できました。";
 
 
 	/**
@@ -180,21 +184,19 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 	public String execute() {
 		String result =ERROR;
-		int updated=0;
+         DecisionDAO dao= new DecisionDAO();
+         int count=0;
 
-		DecisionDAO dao= new DecisionDAO();
+         count=dao.update(decisionName);
 
-			updated=dao.update(userId,decisionName,iDraftingId,
-					summary,cause,startDay,endDay,iApprovalId,aDraftingId,cdId,
-					iADId,iAId,head,amountAll,benefit,bildCost,prove,re,line,room,human,etc);
-
-			if(updated>0){
+			if(count>0){
 				result = SUCCESS;
 				resultString = "更新しました。";
 			}
 
 
-		return result;
+
+			return result;
 }
 
 
@@ -327,19 +329,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 		this.adminNum = adminNum;
 	}
 
-	/**
-	 * @return head
-	 */
-	public String getHead() {
-		return head;
-	}
 
-	/**
-	 * @param head セットする head
-	 */
-	public void setHead(String head) {
-		this.head = head;
-	}
 
 	/**
 	 * @return bildCost
