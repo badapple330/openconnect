@@ -68,8 +68,6 @@ public class DecisionDAO {
 
 				dto.setIAId(rs.getString("i_a_id")); // 実施兼契約番号
 
-				dto.setHead(rs.getString("head")); // 頭紙文章
-
 				dto.setSummary(rs.getString("summary")); // 概要
 
 				dto.setCause(rs.getString("cause")); // 理由・目的
@@ -96,8 +94,21 @@ public class DecisionDAO {
 
 				dto.setEtc(rs.getFloat("etc")); // 雑費
 
-				decisionList.add(dto);
+				dto.setPersons(rs.getInt("persons")); // 人数
 
+				dto.setTotalProve(rs.getInt("total_prove")); // 合計開発端末料
+
+				dto.setTotalRe(rs.getFloat("total_re")); // 合計リリース環境使用料
+
+				dto.setTotalLine(rs.getInt("total_line")); // 合計回線使用料
+
+				dto.setTotalRoom(rs.getFloat("total_room")); // 合計施設使用料
+
+				dto.setTotalHuman(rs.getInt("human")); // 合計開発要員
+
+				dto.setTotalEtc(rs.getFloat("etc")); // 合計雑費
+
+				decisionList.add(dto);
 			}
 
 		} catch (SQLException e) {
@@ -162,36 +173,24 @@ public class DecisionDAO {
 	 * @return projectList 抽出に成功したらSUCCESS、失敗したらERROR
 	 */
 
-	public int update(int userId, String decisionName, String iDraftingId, String summary, String cause,
-			String startDay, String endDay, String iApprovalId, String aDraftingId, String cdId, String iADId,
-			String iAId, String head, float amountAll, float benefit, float bildCost, int prove, float re, int line,
-			float room, int human, float etc) {
+	/**
+	 * 決裁手続きの情報をリスト化
+	 *
+	 */
+
+	public int update(String decisionName) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
 		int count = 0;
-		String sql = "UPDATE decision SET user_id=?,dicision_name=?,i_drafting_id=?,summary=?,cause=?,start_day=?,end_day=? ,"
-				+ "i_approve_id,=? ,a_drafting_id=?,cd_id=? ,i_a_d_id=?,i_a_id=?, head=?, amount_all=?,benefit=?, bild_cost=? ";
+		String sql = "UPDATE decision SET decision_name=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, userId);
-			ps.setString(2, decisionName);
-			ps.setString(3, iDraftingId);
-			ps.setString(4, summary);
-			ps.setString(5, cause);
-			ps.setString(6, startDay);
-			ps.setString(7, endDay);
-			ps.setString(8, iApprovalId);
-			ps.setString(9, aDraftingId);
-			ps.setString(10, cdId);
-			ps.setString(11, iADId);
-			ps.setString(12, head);
-			ps.setFloat(13, amountAll);
-			ps.setFloat(14, benefit);
-			ps.setFloat(15, bildCost);
 
-			count = ps.executeUpdate();
+			ps.setString(1, decisionName);
+
+            count = ps.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
