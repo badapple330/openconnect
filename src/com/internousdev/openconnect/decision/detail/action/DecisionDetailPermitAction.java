@@ -74,7 +74,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		//決裁番号の生成
 		String iApprovalId = "J-" + num + "-";
 		String cdId = "K-" + num + "-";
-		String iAId = "JK-" + num + "-";//????
+		String iAId = "JK-" + num + "-";
 
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
@@ -83,14 +83,9 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		DecisionDetailPermitDAO daoPer = new DecisionDetailPermitDAO();
 		DecisionDetailApplicationDAO daoApp = new DecisionDetailApplicationDAO();
 
-		//TypeとpermitStatusをjspからもらえればいい
 
-		//jspのformで送らなくてもこれでもたぶんOK
-		//int permitUserId1 = (int)dto.getPermitUserId1();
-		//int permitUserId2;
+
 		int permitUserId3;
-
-
 		String idNum = "";
 		int count = 0;
 
@@ -100,10 +95,6 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 			int userId = (int) session.get("userId");
 			count = daoPer.updateP(permitStatus, userId, decisionId);
 		}
-
-
-
-
 
 
 		//先生の承認
@@ -161,10 +152,6 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 			}
 
 		}
-
-
-
-
 
 
 		if (count > 0 ) {

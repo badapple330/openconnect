@@ -278,11 +278,9 @@
 					<s:if test="%{#session.userFlg >= 2}">
 					<th>承認ボタン</th>
 
-							<s:if test="%{#session.userFlg == 3}">
-							<th>差し戻しボタン</th>
-							<th>却下ボタン</th>
-							</s:if>
 
+					<th>差し戻しボタン</th>
+					<th>却下ボタン</th>
 					</s:if>
 
 				</tr>
@@ -458,21 +456,19 @@
 					</td>
 
 
-			<s:if test="%{#session.userFlg == 3}">
+
 
 			<!-- 差し戻しボタン -->
 					<td>
 					<!-- 申請中の時 -->
 					<s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
-						<!-- リーダー2人承認済み時 -->
-						<s:if test="permitStatus == 2">
 
 					<!-- 実施の差し戻し -->
 						<s:if test="%{decisionType == '実施'}">
 							<s:form action="DecisionDetailPermitAction">
 								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 								<input type="hidden" name="decisionStatus1" value="0">
-								<input type="hidden" name="permitStatus" value="0">
+								<input type="hidden" name="permitStatus" value="<s:property value="permitStatus" />">
 										<input type="submit" value="実施差し戻し" /><!-- submit統一 -->
 							</s:form>
 						</s:if>
@@ -481,7 +477,7 @@
 							<s:form action="DecisionDetailPermitAction">
 								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 								<input type="hidden" name="decisionStatus2" value="0">
-								<input type="hidden" name="permitStatus" value="0">
+								<input type="hidden" name="permitStatus" value="<s:property value="permitStatus" />">
 								<s:if test="%{decisionType == '契約'}">
 										<input type="submit" value="契約差し戻し" /><!-- submit統一 -->
 								</s:if>
@@ -492,10 +488,6 @@
 							</s:form>
 						</s:else>
 
-						</s:if>
-						<s:else>
-							リーダー承認中
-						</s:else>
 					</s:if>
 					<!-- 申請中の時以外 -->
 					<s:else>
@@ -507,8 +499,6 @@
 					<td>
 					<!-- 申請中の時 -->
 					<s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
-						<!-- リーダー2人承認済み時 -->
-						<s:if test="permitStatus == 2">
 
 						<s:form action="DecisionDetailPermitAction">
 							<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
@@ -533,10 +523,6 @@
 
 						</s:form>
 
-						</s:if>
-						<s:else>
-							リーダー承認中
-						</s:else>
 					</s:if>
 
 					<!-- 申請中の時以外 -->
@@ -545,7 +531,7 @@
 					</s:else>
 					</td>
 
-			</s:if>
+
 
 		</s:if>
 
