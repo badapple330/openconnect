@@ -78,24 +78,16 @@
 	margin-right:auto;
 }
 
-#memo{
-	margin-top:400px;
-}
-
-#a{
-	position:absolute;
-	right:200px;
-	top:250px
-}
-
+/*土曜日と日曜日の色を変更*/
 .fc-sat {
 	color: #0080ff;
 }
-
 .fc-sun {
 	color: #ff0000;
 }
 
+
+/*html上表示する必要のない情報を隠す*/
 .hidden {
 	visibility: hidden;
 }

@@ -75,7 +75,7 @@ public class ScheduleSelectDAO {
 
 		DBConnector db2 = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn2 = db2.getConnection();
-		String sql = "SELECT DISTINCT team_name FROM users ORDER BY team_name asc";
+		String sql = "SELECT DISTINCT team_name FROM users ORDER BY team_name ASC";
 
 		try {
 			PreparedStatement ps2 = conn2.prepareStatement(sql);

@@ -33,8 +33,6 @@
 </head>
 <body>
 
-alert();
-
 
 <!-- アプリ一覧表示 -->
 	<div class="container">
