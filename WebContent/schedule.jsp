@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>スケジュール一覧</title>
 <!-- ヘッダー読み込み -->
 	<jsp:include page="header.jsp" />
 	<!-- ヘッダーここまで -->
@@ -29,11 +30,9 @@
         <script src="js/calendar/gcal.js"></script>
         <script src="js/calendar/gcal.min.js"></script>
 
-<title>スケジュール一覧</title>
+
 </head>
 <body>
-
-
 <!-- アプリ一覧表示 -->
 	<div class="container">
 		<h1 class="page-header">スケジュール一覧</h1>
