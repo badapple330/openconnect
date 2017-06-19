@@ -15,6 +15,7 @@ th {
 
 td {
 	text-align: center;
+
 }
 
 .delete {
@@ -29,9 +30,9 @@ modalDelete {
 	display: inline;
 }
 
-body {
+/*body {
 	background-color: #808080;
-}
+}*/
 
 p {
 	width: 100%;
@@ -155,3 +156,18 @@ input {
 	z-index: 0;
 	font-size: 16px;
 }
+
+/* ページヘッダーを中央寄せ */
+.experiment {
+  color: red;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.centered{
+	margin-right: auto;
+  	margin-left: auto;
+  	text-align: center;
+}
+

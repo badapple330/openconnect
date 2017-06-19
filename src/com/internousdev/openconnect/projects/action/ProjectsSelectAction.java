@@ -72,9 +72,9 @@ public class ProjectsSelectAction extends ActionSupport {
 			}
 		}
 
-		int user_id = Integer.parseInt(search);
+
 		StudentsSelectDAO selectDao = new StudentsSelectDAO();
-		studentsList = selectDao.select(user_id);
+		studentsList = selectDao.select(search);
 
 		return result;
 	}

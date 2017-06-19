@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
-<link rel="stylesheet" href="css/projects.css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/projects.css" type="text/css">
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/projects.js"></script>
 <script src="js/pagenation.js"></script>
@@ -25,7 +25,9 @@
 	<!--<div class="container"> -->
 
 
-		<h1 class="page-header" align ="center">プロジェクト一覧</h1>
+
+		<!--<jsp:include page="cssloader.jsp" />-->
+		<h1 class="centered">プロジェクト一覧</h1><!--  class="page-header" align ="center" -->
 
 
 		<!-- userflg1以下(未ログイン状態)の場合非表示 -->
@@ -44,13 +46,13 @@
 		<s:property value="notLoginMsg" />
 
 <!-- flg判定 -->		<s:if test="%{#session.userFlg < 1}">
-			<h1 align="center">ログイン後に表示されます。</h1>
+			<h1 class="centered">ログイン後に表示されます。</h1>
 			<BR><BR><BR>
 		</s:if>
 
 <!-- flg判定 -->		<s:if test="%{#session.userFlg >= 1}">
 			<s:form action="ProjectsSelectAction">
-			<div align="center">
+			<div class="centered">
              --- プロジェクト名を入力 ---<br>
 				<input type="text" maxlength="100" name="search"
 					placeholder="例：rewrite">
@@ -58,7 +60,7 @@
 				</div>
 			</s:form>
 			<br><BR>
-			<div align="center">
+			<div class="centered">
 			<font color="red">
 			<s:property value="%{resultString}" />
 			<s:property value="resultSelect" />
@@ -68,7 +70,7 @@
 
 			<s:form action="ProjectsUpdateAction">
 
-				<table border="1" align ="center">
+				<table border="1" class="centered">
 					<tbody id="list_body">
 						<tr>
 							<td></td>
@@ -146,7 +148,7 @@
 				<BR>
 
 <!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
-        <div align="center">
+        <div class="centered">
       	<input class="button" type="submit" value="編集完了">
       	</div><BR><BR>
 				</s:if>
@@ -154,7 +156,7 @@
 			<br>
 <!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
 				<s:form action="ProjectsInsertAction">
-					<table border="1" align ="center">
+					<table border="1" class="centered">
 
 						<tr>
 
@@ -182,7 +184,7 @@
 						</tr>
 					</table>
 					<BR>
-                    <div align="center">
+                    <div class="centered">
 					<input class="button" type="submit" value="追加する">
 					</div>
 				</s:form>
@@ -222,7 +224,7 @@
 
 			<div id="modal-main">
 				<!-- #contents START -->
-				<div id="modal-style" align="center">
+				<div id="modal-style" class="centered">
 				<br>
 					<table class="modal_border">
 
@@ -301,7 +303,7 @@
 
 
 		<s:form action="GetAddressAction">
-		<div align="center">
+		<div class="centered">
 			<input type="submit" class="button" value="戻る">
 			</div>
 		</s:form>

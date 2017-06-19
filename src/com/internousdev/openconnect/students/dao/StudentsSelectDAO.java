@@ -23,7 +23,7 @@ public class StudentsSelectDAO {
      * @param search
      * @return searchList
      */
-    public ArrayList<StudentsDTO> select(int user_id) {
+    public ArrayList<StudentsDTO> select(String search) {
         DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
                 "mysql");
         Connection con = db.getConnection();
