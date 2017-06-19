@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.9, user-scalable=no" >
 <title>勤怠報告完了</title>
 
 <script src="js/jquery-3.1.0.min.js"></script>
@@ -19,31 +20,45 @@
 
 	<div  class="container">
 
-	<h1>勤怠確認完了</h1>
+	<h1 align="center">勤怠確認完了</h1><hr>
 	<br>
-	<h3>以下の内容で勤怠の送信を完了しました。</h3>
+	<h4 align="center">以下の内容で勤怠の送信を完了しました。</h4>
 
-	<label>
-	日時:
-	<s:property value="atYear"/>年<s:property value="atMonth"/>月<s:property value="atDay"/>日
-    </label><br>
-           <label>
-               名前:
-               <s:iterator  value="atUserList"><s:property value="familyNameKanji"/>　<s:property value="givenNameKanji"/></s:iterator>
-           </label><br>
+<div class="atok" align="center">
+	<table  style="table-layout:fixed;width:50%;"> <!--  -->
+	<colgroup>
+        <col style="width:25%;">
+        <col style="width:75%;">
+    </colgroup>
+	<tr>
+	<th>日時:</th>
+	<td><s:property value="atYear"/>年<s:property value="atMonth"/>月<s:property value="atDay"/>日</td>
+    </tr>
 
-           <label>
-               出欠:<s:property value="attendance"/>
-           </label><br>
+    <tr>
+    <th>名前:</th>
+    <td><s:iterator  value="atUserList"><s:property value="familyNameKanji"/>　<s:property value="givenNameKanji"/></s:iterator></td>
+    </tr>
 
-           <label>
-               備考:<s:property value="reason"/>
-           </label><br>
+    <tr>
+    <th>出欠:</th>
+    <td><s:property value="attendance"/></td>
+    </tr>
+
+    <tr>
+    <th>備考:</th>
+    <td style="word-wrap:break-word;"><s:property value="reason"/></td>
+    </tr>
+
+    </table>
+           </div>
+           <br>
+
 
 
 
 <br>
-	<div>
+	<div align="center" style="font-weight: bold; font-size: 20px;">
 	<a href="applist.jsp" >Topに戻る</a>
 	</div>
 </div>
