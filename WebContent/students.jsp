@@ -71,8 +71,8 @@
 
 							<th><div class="bigWidth">ユーザー種別</div></th>
 
-							<th><div class="smallWidth">編集</div></th>
-							<th><div class="smallWidth">削除</div></th>
+							<th><div class="verysmallWidth">編集</div></th>
+							<th><div class="verysmallWidth">削除</div></th>
 					<!--  	</s:if>-->
 					</tr>
 
