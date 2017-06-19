@@ -4,6 +4,7 @@
     background: url('');
     background-size: cover;
     position: absolute;
+    z-index: auto;
 }
 
 .logo {
@@ -55,6 +56,8 @@
 	width: 150px;
 	height: 75px;
 	text-align: center;
+	position:relative;
+	z-index: 10;
 }
 
 .goButton{
@@ -113,9 +116,36 @@
 }
 
 #selectBer{
-	width: 240px;
+	width: 245px;
 	height: 40px;
 	font-size: 15px;
 	font-weight: bold;
 	align: center;
+	float: right;
+}
+
+.pulldown2, .menu{
+list-style: none;
+}
+.pulldown2{
+width: 220px;
+}
+.category{
+	position:relative;
+color: white;
+margin-top: 0px;
+height: 40px;
+line-height: 40px;
+background-color: #6699FF;
+cursor: pointer;
+text-align: center;
+}
+
+.menu a{
+background-color:white;
+display: block;
+height: 35px;
+line-height: 35px;
+color: black;
+text-align: center;
 }

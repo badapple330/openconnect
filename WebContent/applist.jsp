@@ -15,7 +15,8 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/applist.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -38,9 +39,11 @@
 
 <!-- 画像スライドショー -->
 <div class="container" align="center">
+<div class="topslide">
 
-<img id="idshow1" class="fadeout" style="position:absolute;" src="img/top.jpg">
+
 <img id="idshow2" class="fadein" src="img/sity.jpg">
+</div>
 
 <script type="text/javascript"><!--
 myChange();

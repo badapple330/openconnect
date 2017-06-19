@@ -1,4 +1,7 @@
 
+.topslide{
+	z-index: -1
+}
 
 .fadeout{
     opacity: 0;
@@ -6,6 +9,7 @@
     -webkit-transition: 3s ease-in-out;
     width: 640px;
     height: 360px;
+    z-index: -1
 }
 
 .fadein{
@@ -14,6 +18,7 @@
     -webkit-transition: 3s ease-in-out;
     width: 640px;
     height: 360px;
+    z-index: -1
 }
 
 

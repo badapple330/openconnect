@@ -14,6 +14,10 @@ myflg = 0;		// どっちを表示して、どっちを消すかのフラグ
 function myChange(){	// スライドショーメイン関数
 	myNowCnt = (myNowCnt<myImage.length-1) ? myNowCnt+1 : 0;		// 次の配列番号
 	myflg = (myflg==0) ? 1 : 0;						// 表示・非表示フラグ反転
+
+	var windowWidth = $(window).width();
+	var windowSm = 640;
+
 	if (myflg == 0){
 		document.getElementById("idshow1").src = myImage[myNowCnt];		// 次の画像をセットする
 		document.getElementById("idshow1").className = "fadein";		// フェードイン
