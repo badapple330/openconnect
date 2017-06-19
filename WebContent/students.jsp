@@ -54,23 +54,18 @@
 
 			<s:if test="%{studentsList.size() >0}">
 
-				<table border="1">
+				<table border="1"class="demo3">
 					<tr>
 
-						<th><div class="smallWidth">ID</div></th>
-						<th><div class="smallWidth">受講年</div></th>
-						<th><div class="bigWidth">受講開始月</div></th>
+						<th><div class="verysmallWidth">ID</div></th>
 
 						<th><div class="smallWidth">姓(漢字)</div></th>
-						<th><div class="bigWidth">姓(ふりがな)</div></th>
+
 						<th><div class="smallWidth">名(漢字)</div></th>
-						<th><div class="bigWidth">名(ふりがな)</div></th>
+
 					<!-- 	<s:if test="%{#session.userFlg == 3}">-->
 
-							<th><div class="bigWidth">メールアドレス</div></th>
 
-							<th><div class="largeWidth">登録日</div></th>
-							<th><div class="largeWidth">更新日</div></th>
 
 							<th><div class="bigWidth">ユーザー種別</div></th>
 
@@ -82,40 +77,23 @@
 					<s:iterator value="studentsList">
 
 						<tr>
-							<td><s:property value="userId" /></td>
-							<td><input type="text" name="yearList"
-								value="<s:property value="year" />" placeholder="例：2016"
-								class="year maxText" pattern="[0-3]([0-9]{3})" title="半角数字4桁"
-								maxlength="4" required></td>
-							<td><input type="text" name="monthList"
-								value="<s:property value="month" />" placeholder="例：08"
-								class="month maxText" pattern="[0-1][0-9]" title="半角数字2桁"
-								maxlength="2" required></td>
+							<td><div class="verysmallWidth"><s:property value="userId" /></div></td>
 
-							<td><input type="text" name="familyNameKanjiList"
+
+							<td><div class="smallWidth"><input type="text" name="familyNameKanjiList"
 								value="<s:property value="familyNameKanji" />"
-								class="familyNameKanji maxText" maxlength="20" required></td>
-							<td><input type="text" name="familyNameKanaList"
-								value="<s:property value="familyNameKana" />"
-								class="familyNameKana maxText" maxlength="20"></td>
-							<td><input type="text" name="givenNameKanjiList"
+								class="familyNameKanji maxText" maxlength="20" required></div></td>
+
+							<td><div class="smallWidth"><input type="text" name="givenNameKanjiList"
 								value="<s:property value="givenNameKanji" />"
-								class="givenNameKanji maxText" maxlength="20" required></td>
-							<td><input type="text" name="givenNameKanaList"
-								value="<s:property value="givenNameKana" />"
-								class="givenNameKana maxText" maxlength="20"></td>
+								class="givenNameKanji maxText" maxlength="20" required></div></td>
+
 						<!-- 	<s:if test="%{#session.userFlg == 3}">-->
 
-								<td><input type="text" name="phoneEmailList"
-									value="<s:property value="phoneEmail" />"
-									placeholder="例：example@gmail.com" class="phoneEmail maxText"
-									pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-									title="example@gmail.comなど" maxlength="100" required></td>
 
 
 
-								<td><s:property value="registerDay" /></td>
-								<td><s:property value="updateDay" /></td>
+
 
 
 
@@ -195,16 +173,13 @@
 
 					<input type="hidden" name="familyNameKanji"
 						class="updateFamilyNameKanji" value="">
-					<input type="hidden" name="familyNameKana"
-						class="updateFamilyNameKana" value="">
+
 					<input type="hidden" name="givenNameKanji"
 						class="updateGivenNameKanji" value="">
-					<input type="hidden" name="givenNameKana"
-						class="updateGivenNameKana" value="">
 
 
-					<input type="hidden" name="phoneEmail" class="updatePhoneEmail"
-						value="">
+
+
 
 					<input type="hidden" name="userdelFlg" class="updateUserdelFlg"
 						value="">
