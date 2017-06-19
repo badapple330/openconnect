@@ -21,8 +21,12 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 
 	private String attendance;	//勤怠
 
+
+
+
+
 	/*ユーザーリスト*/
-	private ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
+	private ArrayList<AttendanceDTO> searchList= new ArrayList<AttendanceDTO>();
 
 	public String execute(){
 
@@ -47,6 +51,8 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 
 
 
+
+
 	/**
 	 * searchListを設定します。
 	 * @param searchList searchList
@@ -62,6 +68,13 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 	public String getAttendance() {
 		return attendance;
 
+	}
+	/**
+	* 設定メソッド を設定
+	* @param attendance
+	*/
+	public void setAttendance(String attendance) {
+		this.attendance = attendance;
 	}
 
 

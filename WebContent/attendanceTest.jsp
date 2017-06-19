@@ -13,7 +13,7 @@
 
 <s:form action="attendanceACTION">
 <select name="attendance">
-<option value="">---</option>
+<option value="">出欠状況</option>
 <option value="出席">出席</option>
 <option value="欠席">欠席</option>
 <option value="遅刻">遅刻</option>
@@ -25,6 +25,7 @@
 <table class="table table-striped table-borderd">
 	<thead>
 		<tr>
+		<th>名前</th>
 		<th>出欠状況</th>
 		</tr>
 	</thead>
@@ -34,7 +35,11 @@
 		<tr>
 			<td>
 				<s:property value="attendance"/>
+
 			</td>
+			<td>
+				<s:property value="familyNameKanji"/>
+				</td>
 		</tr>
 	</s:iterator>
 
