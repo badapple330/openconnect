@@ -58,7 +58,7 @@ public class AttendanceDao {
 				AttendanceDTO dto = new AttendanceDTO();
 
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
-				dto.setAttendance(rs.getString("attendace"));
+				dto.setAttendance(rs.getString("attendance"));
 				searchList.add(dto);
 			}
 			rs.close();
