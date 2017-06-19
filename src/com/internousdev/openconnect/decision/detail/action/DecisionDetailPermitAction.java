@@ -79,16 +79,16 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
 
-		DecisionDetailDTO dto = new DecisionDetailDTO();
+		//DecisionDetailDTO dto = new DecisionDetailDTO();
 		DecisionDetailPermitDAO daoPer = new DecisionDetailPermitDAO();
 		DecisionDetailApplicationDAO daoApp = new DecisionDetailApplicationDAO();
 
 		//TypeとpermitStatusをjspからもらえればいい
 
 		//jspのformで送らなくてもこれでもたぶんOK
-		int permitUserId1 = (int)dto.getPermitUserId1();
-		int permitUserId2 = (int)dto.getPermitUserId2();
-		int permitUserId3 = (int)dto.getPermitUserId3();
+		//int permitUserId1 = (int)dto.getPermitUserId1();
+		//int permitUserId2;
+		int permitUserId3;
 
 
 		String idNum = "";
@@ -96,15 +96,13 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 
 		//リーダーの承認
-		 if(permitStatus >= 1) {
-			if(permitUserId1 > 0) {
-				permitUserId2 = (int) session.get("userId");
-			}
-			else {
-				permitUserId1 = (int) session.get("userId");
-			}
-			count = daoPer.update(permitStatus, permitUserId1, permitUserId2, decisionId);
+		if(permitStatus == 1 || permitStatus == 2) {
+			int userId = (int) session.get("userId");
+			count = daoPer.updateP(permitStatus, userId, decisionId);
 		}
+
+
+
 
 
 
@@ -125,7 +123,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 				else {
 					iApprovalId = iApprovalId + "001";
 				}
-				count = daoPer.updateJ( iApprovalId, permitUserId3, decisionId );//DAOでTypeを契約にする＋permitStatusを０にする＋decisionStatus1を２にする
+				count = daoPer.updatePJ( iApprovalId, permitUserId3, decisionId );//DAOでTypeを契約にする＋permitStatusを０にする＋decisionStatus1を２にする
 			}
 
 
@@ -142,7 +140,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 				else {
 					cdId = cdId + "001";
 				}
-				count = daoPer.updateK( cdId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
+				count = daoPer.updatePK( cdId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
 			}
 
 
@@ -159,7 +157,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 				else {
 					iAId = iAId + "001";
 				}
-				count = daoPer.updateJK( iAId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
+				count = daoPer.updatePJK( iAId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
 			}
 
 		}

@@ -148,7 +148,7 @@
 						</s:elseif>
 					<!-- プレビュー -->
 						<s:else>
-							<s:form action="DecisionPreviwAction">
+							<s:form action="DecisionPreviewAction">
 								<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 								<input type="submit" value="プレビュー" >
@@ -350,7 +350,7 @@
 					</td>
 			<!-- プレビューボタン -->
 					<td>
-						<s:form action="DecisionSelectAction">
+						<s:form action="DecisionPreviewAction">
 							<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 							<input type="submit" value="プレビュー">
 						</s:form>

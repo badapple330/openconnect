@@ -20,7 +20,7 @@ public class DecisionDetailPermitDAO {
 	/**
      * 実施決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
      */
-	public int updateJ( String iApprovalId, int permitUserId3, int decisionId ) {
+	public int updatePJ( String iApprovalId, int permitUserId3, int decisionId ) {
 
 		int count = 0;
 
@@ -55,7 +55,7 @@ public class DecisionDetailPermitDAO {
 	/**
      * 契約決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
      */
-	public int updateK( String cdId, int permitUserId3, int decisionId ) {
+	public int updatePK( String cdId, int permitUserId3, int decisionId ) {
 
 		int count = 0;
 		//updateK( cdId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
@@ -88,9 +88,9 @@ public class DecisionDetailPermitDAO {
 
 
 	/**
-     * 契約決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
+     * 実施兼契約決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
      */
-	public int updateJK( String iAId, int permitUserId3, int decisionId ) {
+	public int updatePJK( String iAId, int permitUserId3, int decisionId ) {
 
 		int count = 0;
 
@@ -122,24 +122,40 @@ public class DecisionDetailPermitDAO {
 	}
 
 
+
+
+
 	/**
-     * リーダー承認時メソッド  承認による値の更新と承認者ID1及び2の登録をする為のメソッド
+     * リーダー承認時メソッド  承認による値の更新と承認者IDの登録をする為のメソッド
      */
-	public int update( int permitStatus, int permitUserId1, int permitUserId2, int decisionId ) {
+	public int updateP( int permitStatus, int userId, int decisionId ) {
 
 		int count = 0;
-//update(permitStatus, permitUserId1, permitUserId2, decisionId);
+
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection conn = db.getConnection();
-		String sql = "update decision set permit_status = ?, permit_user_id1 = ?, permit_user_id2 = ? where decision_id = ?";
+		Connection con = db.getConnection();
+		String sql = "update decision set permit_status = ?";
+
+		if(permitStatus == 1) {
+			sql = sql + ", permit_user_id1 = ? where decision_id = ?";
+		}
+		if(permitStatus == 2) {
+			sql = sql + ", permit_user_id2 = ? where decision_id = ?";
+		}
 
 		try{
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setInt(1, permitStatus);
-			ps.setInt(2, permitUserId1);
-			ps.setInt(3, permitUserId2);
-			ps.setInt(4, decisionId);
+			if(permitStatus == 1) {
+				int permitUserId1 = userId;
+				ps.setInt(2, permitUserId1);
+			}
+			if(permitStatus == 2) {
+				int permitUserId2 = userId;
+				ps.setInt(2, permitUserId2);
+			}
+			ps.setInt(3, decisionId);
 
 			count = ps.executeUpdate();
 
@@ -148,7 +164,7 @@ public class DecisionDetailPermitDAO {
 			e.printStackTrace();
 		}finally {
 			try{
-				conn.close();
+				con.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
