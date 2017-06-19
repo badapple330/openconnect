@@ -146,6 +146,10 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 
 
 
+
+
+
+
 	/*
 	 * decisionList コレクションクラスのオブジェクト宣言
 	 * @author kota.miyazato
@@ -158,7 +162,10 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	 */
 	private ArrayList<DecisionDTO> decisionList = new  ArrayList<DecisionDTO>();
 
-
+	/**
+	 * 起案者の情報のリスト
+	 */
+	private ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
 
 	/**
 	 * セッション情報
@@ -178,10 +185,22 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		String result = ERROR;
 		DecisionDAO dao = new DecisionDAO();
+		System.out.println(userId);
 		try {
 		decisionList=dao.select();
 		} catch (UnknownException e) {
 		e.printStackTrace();
+		}
+
+		if(decisionList!=null){
+			System.out.println(userId);
+			DecisionDAO decisionDAO = new DecisionDAO();
+			try {
+				nameList = decisionDAO.selectByUserId(userId);
+			} catch (UnknownException e) {
+				e.printStackTrace();
+			}
+
 		}
 
 		result=SUCCESS;
@@ -404,6 +423,24 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 
 
 
+
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return nameList
+	*/
+	public ArrayList<DecisionDTO> getNameList() {
+		return nameList;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param nameList
+	*/
+	public void setNameList(ArrayList<DecisionDTO> nameList) {
+		this.nameList = nameList;
+	}
 
 	/**
 	 * @return cause
