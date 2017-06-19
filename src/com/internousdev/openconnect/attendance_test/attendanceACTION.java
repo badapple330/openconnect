@@ -20,6 +20,10 @@ import com.opensymphony.xwork2.ActionSupport;
 public class attendanceACTION extends ActionSupport implements SessionAware{
 
 	private String attendance;	//勤怠
+	private String familyNameKanji;
+
+
+
 
 
 
@@ -33,7 +37,7 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 		String result = ERROR;
 
 		AttendanceDao dao = new AttendanceDao();
-		searchList = dao.select(attendance);
+		searchList = dao.select(attendance,familyNameKanji);
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}
@@ -75,6 +79,23 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 	*/
 	public void setAttendance(String attendance) {
 		this.attendance = attendance;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return familyNameKanji
+	*/
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param familyNameKanji
+	*/
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
 	}
 
 

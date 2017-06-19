@@ -31,7 +31,7 @@
 	</thead>
 
 	<tbody>
-	<s:iterator value="seachList">
+	<s:iterator value="searchList">
 		<tr>
 			<td>
 				<s:property value="attendance"/>

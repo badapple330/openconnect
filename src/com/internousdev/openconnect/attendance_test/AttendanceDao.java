@@ -30,7 +30,7 @@ public class AttendanceDao {
 	 * @param attendance 勤怠
 	 * @return adminhistorylist 勤怠登録履歴
 	 */
-	public ArrayList<AttendanceDTO> select(String attendance) {
+	public ArrayList<AttendanceDTO> select(String attendance,String familyNameKanji) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 
