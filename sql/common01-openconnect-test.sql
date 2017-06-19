@@ -155,12 +155,13 @@ id int primary key auto_increment comment 'スケジュールID',
 start_day date not null comment '開始日',
 end_day date comment '終了日',
 title varchar(100) not null comment '件名',
-content varchar(100) comment '内容'
+content varchar(100) comment '内容',
+team_name varchar(255) not null default '1stmonth' comment 'チーム名'
 );
 
-insert into schedule(id,start_day,end_day,title,content) values
-(1,"2017-06-15","2017-06-20","実装","実装"),
-(2,"2017-06-18","2017-06-25","実装2","実装2");
+insert into schedule(id,start_day,end_day,title,content,team_name) values
+(1,"2017-06-15","2017-06-20","実装","実装","TestTeam"),
+(2,"2017-06-18","2017-06-25","実装2","実装2","AdminTeam");
 
 
 /* サイト一覧情報 */
