@@ -288,6 +288,13 @@
 			<result name="error" type="chain">DecisionSelectAction</result>
 		</action>
 
+		<action name="DecisionPreviewAction"
+			class="com.internousdev.openconnect.decision.action.DecisionPreviewAction"
+			method="execute">
+			<result name="success" >decision_preview.jsp</result>
+			<result name="error">decision_detail.jsp</result>
+		</action>
+
 
 		<!-- 決済手続き電子化画面への遷移 -->
 		<action name="DecisionDetailSelectAction"
