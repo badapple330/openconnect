@@ -209,7 +209,7 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 		String result = ERROR;
 
 		AttendanceDao dao = new AttendanceDao();
-		displayList = dao.select(attendance,familyNameKanji,atYear,atMonth,atDay);
+		displayList = dao.select(atYear,atMonth,atDay,attendance,familyNameKanji);
 		if(displayList.size() > 0){
 			result=SUCCESS;
 		}
