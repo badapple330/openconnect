@@ -30,7 +30,6 @@
         <script src="js/calendar/gcal.js"></script>
         <script src="js/calendar/gcal.min.js"></script>
 
-
 </head>
 <body>
 <!-- アプリ一覧表示 -->

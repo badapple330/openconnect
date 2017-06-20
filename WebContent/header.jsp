@@ -53,7 +53,7 @@
 							<li><a href="DecisionApplicationSelectAction">決済手続き申請一覧</a></li>
 						</s:if>
 						<li><a href="BooksSelectAction">書籍一覧</a></li>
-						<li><a href="ScheduleSelectAction">スケジュール一覧</a></li>
+						<li><a href="GoScheduleSelectAction">スケジュール一覧</a></li>
 						</ul>
 						</li></ul>
 

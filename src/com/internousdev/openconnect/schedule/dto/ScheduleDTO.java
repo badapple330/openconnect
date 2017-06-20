@@ -13,6 +13,8 @@ public class ScheduleDTO {
 	 */
 	private int id;
 
+	private int userid;
+
 	/**
 	 * 開始日
 	 * @author WATARU AMEMIYA
@@ -61,6 +63,22 @@ public class ScheduleDTO {
 	 */
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	/**
+	 * useridを取得します。
+	 * @return userid
+	 */
+	public int getUserid() {
+	    return userid;
+	}
+
+	/**
+	 * useridを設定します。
+	 * @param userid userid
+	 */
+	public void setUserid(int userid) {
+	    this.userid = userid;
 	}
 
 	/**

@@ -366,6 +366,13 @@
 		</action>
 
 		<!-- スケジュール画面で検索 -->
+		<action name="GoScheduleSelectAction"
+			class="com.internousdev.openconnect.schedule.action.GoScheduleSelectAction"
+			method="execute">
+			<result name="success">schedule.jsp</result>
+			<result name="error">schedule.jsp</result>
+		</action>
+
 		<action name="ScheduleSelectAction"
 			class="com.internousdev.openconnect.schedule.action.ScheduleSelectAction"
 			method="execute">
