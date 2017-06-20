@@ -169,3 +169,29 @@ input {
     margin:10px;
     text-align:left;
 }
+
+
+/* 中央寄せ */
+.centered{
+	margin-right: auto;
+  	margin-left: auto;
+  	text-align: center;
+  	align: center;
+  	}
+
+@media only screen and (max-device-width: 900px){
+	.centered{
+	  	margin-left: auto;
+	  	text-align: left;
+	}
+	.add{
+		text-align: left;
+		margin-left: 0px;
+	}
+	.table-scroll{
+		overflow-x: scroll;
+	}
+	.fixedButton{
+		position: absolute;
+	}
+}

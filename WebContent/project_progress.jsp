@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset=UTF-8>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>プロジェクト進捗状況</title>
 <link rel="stylesheet" href="css/project_progress.css">
-<link rel="stylesheet" href="css/accordion.css">
 
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/project_progress.js"></script>
@@ -17,10 +17,10 @@
 <body>
 
 	<header><jsp:include page="header.jsp" /></header>
-	<div class="center">
+	<div class="centered">
 		<br>
 
-		<h1 class="page-header" align ="center">プロジェクト進捗報告</h1>
+		<h1 class="page-header centered">プロジェクト進捗報告</h1>
 
 
 
@@ -31,12 +31,12 @@
 
 
 <!-- flg判定 -->  <s:if test="%{#session.userFlg < 1}">
-			<h1 align="center">ログイン後に表示されます。</h1>
+			<h1 class="centered">ログイン後に表示されます。</h1>
 			<BR><BR><BR>
 		</s:if>
 	</div>
 <!-- flg判定 -->	<s:if test="%{#session.userFlg >= 1}">
-	 <div align ="center">
+	 <div class="centered">
 		<s:form action="ProjectProgressSelectAction">
 		--- プロジェクト名を入力 ---<br>
 			<input type="text" name="search" placeholder="例：rewrite"
@@ -50,9 +50,10 @@
 		<s:property value="%{resultSelect}" />
 		</font>
         </div><BR><BR>
+        <div class="table-scroll">
 		<s:form action="ProjectProgressUpdateAction">
 
-			<table border=1 align = "center">
+			<table border=1 class="centered">
 				<tbody id="list_body">
 					<tr>
 						<th></th>
@@ -60,10 +61,10 @@
 						<th><div class="smallWidth">日付</div></th>
 						<th><div class="middleWidth">プロジェクト名</div></th>
 						<th><div class="middleWidth">進捗予定</div></th>
+
 						<th><div class="middleWidth">進捗結果</div></th>
 						<th><div class="middleWidth">その他報告</div></th>
-						<th><div class="middleWidth">リーダーID</div></th>
-						<th><div class="middleWidth">サブリーダーID</div></th>
+
 						<th><div class="smallWidth">開始日</div></th>
 						<th><div class="smallWidth">終了日</div></th>
 						<th><div class="smallWidth">メモ</div></th>
@@ -96,8 +97,7 @@
 								value="<s:property value="other" />" class="otherlist"
 								maxlength="100"></td>
 
-							<td><s:property value="managerId" /></td>
-							<td><s:property value="subManagerId" /></td>
+
 							<td><s:property value="startDate" /></td>
 							<td><s:property value="endDate" /></td>
 							<td><s:property value="note" /></td>
@@ -111,15 +111,31 @@
 
 			</table>
 
+			<br>
+			<div id="pager" class="centered fixedButton">
+				<div id="page_ctrl">
+					<ul id="page_before">
+						<li id="page_prev">prev</li>
+					</ul>
+					<ul id="page_number"></ul>
+					<ul id="page_after">
+						<li id="page_next">next</li>
+					</ul>
+				</div>
+			</div>
+			<br>
+
 <!-- flg判定 -->			<s:if test="%{#session.userFlg == 3}"><BR>
-			<div align="center">
-				<input type="submit" class="button" value="編集完了" />
+			<div class="centered">
+				<input type="submit" class="button fixedButton" value="編集完了" />
 			</div>
 			</s:if>
 		</s:form>
+		</div>
 		<br>
+		<div class="table-scroll">
 		<s:form action="ProjectProgressInsertAction"><BR><BR>
-			<table border="1" align ="center">
+			<table border="1" class="centered">
 				<tr>
 					<th>プロジェクトID</th>
 					<th>進捗予定</th>
@@ -137,10 +153,11 @@
 						maxlength="50"></td>
 				</tr>
 			</table>
-			<div align ="center"><br>
+			<div class="centered fixedButton"><br>
 			<input type="submit" class="button" value="追加する">
 			</div>
 		</s:form>
+		</div>
 
 		<br>
 
@@ -217,20 +234,7 @@
 		<br>
 		<br>
 		<br>
-		<br>
-		<div id="pager">
-			<div id="page_ctrl">
-				<ul id="page_before">
-					<li id="page_prev">prev</li>
-				</ul>
-				<ul id="page_number"></ul>
-				<ul id="page_after">
-					<li id="page_next">next</li>
-				</ul>
-			</div>
-		</div>
-		<br>
-		<br>
+
 		<br>
 	</s:if>
 	<s:form action="GetAddressAction">
