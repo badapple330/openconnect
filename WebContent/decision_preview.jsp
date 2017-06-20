@@ -44,9 +44,10 @@
 										<br>
 										起案者
 										<br>
+										<s:iterator value="nameList">
 										氏名<s:property value="familyNameKanji" />
 										<s:property value="givenNameKanji" />
-										<br>
+										<br></s:iterator>
 										<br>
 										案件名：<s:property value="decisionName" />
 										<br>
@@ -89,9 +90,9 @@
 												<td><div class="width4">実施決裁番号：<s:property value="iApprovalId" /><br><br></div></td>
 											</tr>
 											<tr>
-												<td><div class="width4">承認者：<br> <br>日付：</div></td>
-												<td><div class="width4">承認者：<br> <br>日付：</div></td>
-												<td><div class="width4">承認者：<br> <br>日付：</div></td>
+												<td><div class="width4">承認者：<br> <br>日付：<s:property value="day" /></div></td>
+												<td><div class="width4">承認者：<br> <br>日付：<s:property value="day" /></div></td>
+												<td><div class="width4">承認者：<br> <br>日付：<s:property value="day" /></div></td>
 											</tr>
 										</table>
 										<br>
@@ -137,6 +138,9 @@
 							</table>
 							<br>
 							<br>
+							<form>
+								<input class="center-block" type="button" value="戻る" onclick="history.back()">
+							</form>
 						</div>
 					</div>
 				</div>
@@ -144,8 +148,5 @@
 		</s:iterator>
 	</s:if>
 
-			<form>
-	<input type="button" value="戻る" onclick="history.back()">
-	</form>
 </body>
 </html>

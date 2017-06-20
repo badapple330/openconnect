@@ -27,7 +27,7 @@ public class DecisionPreviewAction extends ActionSupport {
 	private int decisionId;
 
 	/**
-	 * ユーザーID
+	 * 起案者ユーザーID
 	 *
 	 */
 	private int draftUserId;
@@ -125,6 +125,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	 *雑費
 	 */
 	public float etc;
+
+	/**
+	 *姓（漢字）
+	 */
+	public String familyNameKanji;
+
+	/**
+	 *名（漢字）
+	 */
+	public String givenNameKanji;
+
 
 	/**
 	 * 決裁手続きの情報をリスト化
@@ -541,6 +552,42 @@ public class DecisionPreviewAction extends ActionSupport {
 	 */
 	public void setEtc(float etc) {
 		this.etc = etc;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return familyNameKanji
+	*/
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param familyNameKanji
+	*/
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return givenNameKanji
+	*/
+	public String getGivenNameKanji() {
+		return givenNameKanji;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param givenNameKanji
+	*/
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
 	}
 
 

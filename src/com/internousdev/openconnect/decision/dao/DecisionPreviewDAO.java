@@ -114,13 +114,13 @@ public class DecisionPreviewDAO {
 				"openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 		ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
-		String sql = "select * users from  where draft_user_id=?";
+		String sql = "select * users from  where user_id=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,draftUserId);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				dto.setDraftUserId(rs.getInt("draft_user_id")); // ユーザーID
+				dto.setDraftUserId(rs.getInt("user_id")); // ユーザーID
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
 				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
 				nameList.add(dto);
