@@ -78,7 +78,10 @@ public class AttendanceDTO {
 	 * 備考
 	 */
     private String reason;
-
+    /**
+     * テストカウント
+     */
+    private int testCount;
 	/**
 	* 取得メソッド 日付を取得
 	* @author MINORI SUNAGAWA
@@ -353,6 +356,20 @@ public class AttendanceDTO {
 	*/
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
+	}
+	/**
+	 * テストカウントを取得します。
+	 * @return テストカウント
+	 */
+	public int getTestCount() {
+	    return testCount;
+	}
+	/**
+	 * テストカウントを設定します。
+	 * @param testCount テストカウント
+	 */
+	public void setTestCount(int testCount) {
+	    this.testCount = testCount;
 	}
 
 }
