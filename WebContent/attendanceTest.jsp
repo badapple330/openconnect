@@ -1,7 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,7 +9,9 @@
 </head>
 <body>
 
-
+<select name="atYear" id="id_year" data-choice="year"><option value="">----</option></select>
+<select name="atMonth" id="id_month" data-choice="month"><option value="">----</option></select>
+<select name="atDay" id="id_day" data-choice="day"><option value="">----</option></select>
 
 <s:form action="attendanceACTION">
 <select name="attendance">
@@ -25,23 +27,42 @@
 <table class="table table-striped table-borderd">
 	<thead>
 		<tr>
-		<th>名前</th>
-		<th>出欠状況</th>
+		<th>報告日時</th>
+      <th>受講開始月</th>
+      <th>チーム</th>
+      <th>性</th>
+      <th>名</th>
+      <th>出欠状況</th>
+      <th>備考</th>
 		</tr>
 	</thead>
 
 	<tbody>
-	<s:iterator value="searchList">
-		<tr>
-			<td>
-				<s:property value="attendance"/>
-
-			</td>
-			<td>
-				<s:property value="familyNameKanji"/>
-				</td>
-		</tr>
-	</s:iterator>
+	<s:iterator value="displayList">
+<tr>
+  <td>
+    <s:property value="atDate"/>
+  </td>
+  <td>
+    <s:property value="month"/>
+  </td>
+  <td>
+    <s:property value="teamName"/>
+  </td>
+  <td>
+    <s:property value="familyNameKanji"/>
+  </td>
+  <td>
+    <s:property value="givenNameKanji"/>
+  </td>
+  <td>
+    <s:property value="attendance"/>
+  </td>
+  <td>
+    <s:property value="reason" />
+  </td>
+</tr>
+ </s:iterator>
 
 	</tbody>
 
