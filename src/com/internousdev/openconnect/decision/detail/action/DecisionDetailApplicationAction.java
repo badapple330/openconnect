@@ -32,6 +32,10 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 	 */
 	private String decisionType;
 	/**
+	 * 文字列番号
+	 */
+	private String StringId;
+	/**
 	 * 管理者権限メソッド
 	 */
 	public Map<String, Object> session;
@@ -78,15 +82,21 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		//実施決裁の申請
 		if(decisionType.equals("実施")) {
 
-			idNum = iDraftingId;
-			idNumList = dao.select(decisionType, idNum);
-			if(idNumList.size() > 0) {
-				int a = idNumList.size() + 1;
-				String b = dformat.format(a);
-				iDraftingId = iDraftingId + b;
+			if(StringId == null) {
+
+				idNum = iDraftingId;
+				idNumList = dao.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					iDraftingId = iDraftingId + b;
+				}
+				else {
+					iDraftingId = iDraftingId + "001";
+				}
 			}
 			else {
-				iDraftingId = iDraftingId + "001";
+				iDraftingId = StringId;
 			}
 			count = dao.updateAJ( iDraftingId, decisionId );
 		}
@@ -94,15 +104,20 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		//契約決裁の申請
 		else if(decisionType.equals("契約")) {
 
-			idNum = aDraftingId;
-			idNumList = dao.select(decisionType, idNum);
-			if(idNumList.size() > 0) {
-				int a = idNumList.size() + 1;
-				String b = dformat.format(a);
-				aDraftingId = aDraftingId + b;
+			if(StringId == null) {
+				idNum = aDraftingId;
+				idNumList = dao.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					aDraftingId = aDraftingId + b;
+				}
+				else {
+					aDraftingId = aDraftingId + "001";
+				}
 			}
 			else {
-				aDraftingId = aDraftingId + "001";
+				aDraftingId = StringId;
 			}
 			count = dao.updateAK( aDraftingId, decisionId );
 		}
@@ -110,15 +125,20 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		//実施兼契約決裁の申請
 		else {
 
-			idNum = iADId;
-			idNumList = dao.select(decisionType, idNum);
-			if(idNumList.size() > 0) {
-				int a = idNumList.size() + 1;
-				String b = dformat.format(a);
-				iADId = iADId + b;
+			if(StringId == null) {
+				idNum = iADId;
+				idNumList = dao.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					iADId = iADId + b;
+				}
+				else {
+					iADId = iADId + "001";
+				}
 			}
 			else {
-				iADId = iADId + "001";
+				iADId = StringId;
 			}
 			count = dao.updateAJK( iADId, decisionId );
 		}
@@ -157,6 +177,26 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 
 	public void setDecisionType(String decisionType) {
 		this.decisionType = decisionType;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return StringId
+	*/
+	public String getStringId() {
+		return StringId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param StringId
+	*/
+	public void setStringId(String stringId) {
+		StringId = stringId;
 	}
 
 

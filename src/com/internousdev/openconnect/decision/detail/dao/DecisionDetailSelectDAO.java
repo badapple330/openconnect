@@ -113,6 +113,9 @@ public class DecisionDetailSelectDAO {
 
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
+				dto.setIDraftingId(rs.getString("i_drafting_id"));
+				dto.setADraftingId(rs.getString("a_drafting_id"));
+				dto.setIADId(rs.getString("i_a_d_id"));
 
 				decisionDetailList2.add( dto );
 			}

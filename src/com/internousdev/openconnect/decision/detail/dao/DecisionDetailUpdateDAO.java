@@ -1,44 +1,47 @@
+/**
+ *
+ */
 package com.internousdev.openconnect.decision.detail.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.internousdev.util.DBConnector;
+
+
 /**
- * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
- * @author TATUHUMI ITOU
- * @since 2016/09/04
+ * 画面で追加した一覧情報をDBへ転送する為のクラス
+ * @author SOSHI AZUMA
+ * @since 2017/06/16
  * @version 1.0
  */
 public class DecisionDetailUpdateDAO {
 
+
 	/**
-	 * 決裁手続きリスト
-	 */
-	private List<DecisionDetailDTO> decisionDetailList=new ArrayList<DecisionDetailDTO>();
-	 /**
-     * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
-     * @author TATUHUMI ITOU
+     * 差し戻しボタン押下時メソッド  差し戻しによる値の更新する為のメソッド
      */
-	public int insert(int projectId, String decisionType, int decisionStatus1){
+	public int remand( String decisionType, int permitStatus, int decisionId ) {
 
 		int count = 0;
-		if(decisionType.equals("実施兼契約")) {
-			decisionStatus1 = 2;
-		}
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection conn = db.getConnection();
-		String sql = "INSERT INTO decision(project_id, decision_type, decision_status1)VALUES(?, ?, ?)";
+		Connection con = db.getConnection();
+		String sql = "update decision set permit_status = ?";
+
+		if(decisionType.equals("実施")) {
+			sql = sql + ", decision_status1 = 0 where decision_id = ?";
+		}
+		else {
+			sql = sql + ", decision_status2 = 0 where decision_id = ?";
+		}
+
 		try{
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1,projectId);
-			ps.setString(2,decisionType);
-			ps.setInt(3,decisionStatus1);
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, permitStatus);
+			ps.setInt(2, decisionId);
 
 			count = ps.executeUpdate();
 
@@ -47,7 +50,48 @@ public class DecisionDetailUpdateDAO {
 			e.printStackTrace();
 		}finally {
 			try{
-				conn.close();
+				con.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return count;
+
+	}
+
+
+
+	/**
+     * 却下ボタン押下時メソッド  却下による値の更新する為のメソッド
+     */
+	public int reject( String decisionType, int decisionId ) {
+
+		int count = 0;
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
+		Connection con = db.getConnection();
+		String sql = "update decision set permit_status = 0";
+
+		if(decisionType.equals("実施")) {
+			sql = sql + ", decision_status1 = 3 where decision_id = ?";
+		}
+		else {
+			sql = sql + ", decision_status2 = 3 where decision_id = ?";
+		}
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, decisionId);
+
+			count = ps.executeUpdate();
+
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			try{
+				con.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}

@@ -135,6 +135,18 @@ public class DecisionDetailDTO {
 	 * ID番号要素数
 	 */
 	private String idNumAmount;
+	/**
+	 * 実施起案番号
+	 */
+	private String iDraftingId;
+	/**
+	 * 契約起案番号
+	 */
+	private String aDraftingId;
+	/**
+	 * 実施兼契約起案番号
+	 */
+	private String iADId;
 
 
 
@@ -610,6 +622,48 @@ public class DecisionDetailDTO {
 	*/
 	public void setIdNumAmount(String idNumAmount) {
 		this.idNumAmount = idNumAmount;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return iDraftingId
+	*/
+	public String getIDraftingId() {
+		return iDraftingId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param iDraftingId
+	*/
+	public void setIDraftingId(String iDraftingId) {
+		this.iDraftingId = iDraftingId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return aDraftingId
+	*/
+	public String getADraftingId() {
+		return aDraftingId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param aDraftingId
+	*/
+	public void setADraftingId(String aDraftingId) {
+		this.aDraftingId = aDraftingId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return iADId
+	*/
+	public String getIADId() {
+		return iADId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param iADId
+	*/
+	public void setIADId(String iADId) {
+		this.iADId = iADId;
 	}
 
 
