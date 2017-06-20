@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+#decisionTitle{
+	text-align:center;
+}
+
 .textInline{
 	display: inline;
 }
@@ -58,4 +62,39 @@ tr, td{
 }
 .width6{
 	width: 200px;
+}
+
+@media screen and (max-width: 768px) {
+/* 768pxまでの幅の場合に適応される */
+
+     table{
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid;
+}
+
+     .saveText{
+	width: 100%;
+}
+
+	#tableApproval{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid;
+}
+
+.textApproval{
+	width: 100%;
+}
+
+.tableCost{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid;
+}
+
+
 }

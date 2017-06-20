@@ -30,7 +30,7 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * ユーザーID
 	 *
 	 */
-	private int userId;
+	private int draftUserId;
 
 	/**
 	 * 案件名
@@ -153,9 +153,9 @@ public class DecisionPreviewAction extends ActionSupport {
 		}
 
 		if(decisionPreviewList!=null){
-			System.out.println(userId);
+			System.out.println(draftUserId);
 			try {
-				nameList = dao.selectByUserId(userId);
+				nameList = dao.selectByDraftUserId(draftUserId);
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
@@ -183,15 +183,15 @@ public class DecisionPreviewAction extends ActionSupport {
 	/**
 	 * @return userId
 	 */
-	public int getUserId() {
-		return userId;
+	public int getDraftUserId() {
+		return draftUserId;
 	}
 
 	/**
 	 * @param userId セットする userId
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setDraftUserId(int draftUserId) {
+		this.draftUserId = draftUserId;
 	}
 
 	/**

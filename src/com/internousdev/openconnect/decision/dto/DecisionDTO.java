@@ -8,10 +8,10 @@ package com.internousdev.openconnect.decision.dto;
 public class DecisionDTO {
 
 	/**
-	 * ユーザーID
+	 * 起案者ユーザーID
 	 *
 	 */
-	private int userId;
+	private int draftUserId;
 
 	/**
 	 * 案件名
@@ -433,16 +433,16 @@ public class DecisionDTO {
 	* @author KOTA MIYAZATO
 	* @return
 	*/
-	public int getUserId() {
-		return userId;
+	public int getDraftUserId() {
+		return draftUserId;
 	}
 	/**
 	* 設定メソッド
 	* @author KOTA MIYAZATO
 	* @param
 	*/
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setDraftUserId(int draftUserId) {
+		this.draftUserId = draftUserId;
 	}
 
 	/**
