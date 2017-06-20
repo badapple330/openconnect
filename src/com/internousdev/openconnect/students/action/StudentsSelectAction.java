@@ -66,6 +66,10 @@ public class StudentsSelectAction extends ActionSupport {
 	 */
 	private String email;
 
+	/**
+	 * チーム名
+	 */
+	private String TeamName;
 
 	/**
 	 * 受講年
@@ -377,6 +381,25 @@ public class StudentsSelectAction extends ActionSupport {
 		this.email = email;
 	}
 
+	/**
+	 * チーム名を取得するためのメソッド
+	 *
+	 * @author TATSUHIRO SAITO
+	 * @return team_namel 取得するメールアドレス
+	 */
+	public String getTeamName() {
+		return TeamName;
+	}
+
+	/**
+	 * チーム名を格納するためのメソッド
+	 *
+	 * @author TATSUHIRO SAITO
+	 * @param team_name 格納するチーム名
+	 */
+	public void setTeamName(String TeamName) {
+		this.TeamName = TeamName;
+	}
 
 
 }

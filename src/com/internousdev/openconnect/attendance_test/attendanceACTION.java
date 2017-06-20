@@ -22,168 +22,6 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 
 	private int atYear;
 	private int atMonth;
-	/**
-	* 取得メソッド を取得
-	* @return atYear
-	*/
-	public int getAtYear() {
-		return atYear;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param atYear
-	*/
-	public void setAtYear(int atYear) {
-		this.atYear = atYear;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return atMonth
-	*/
-	public int getAtMonth() {
-		return atMonth;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param atMonth
-	*/
-	public void setAtMonth(int atMonth) {
-		this.atMonth = atMonth;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return atDay
-	*/
-	public int getAtDay() {
-		return atDay;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param atDay
-	*/
-	public void setAtDay(int atDay) {
-		this.atDay = atDay;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return atDate
-	*/
-	public String getAtDate() {
-		return atDate;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param atDate
-	*/
-	public void setAtDate(String atDate) {
-		this.atDate = atDate;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return month
-	*/
-	public String getMonth() {
-		return month;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param month
-	*/
-	public void setMonth(String month) {
-		this.month = month;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return givenNameKanji
-	*/
-	public String getGivenNameKanji() {
-		return givenNameKanji;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param givenNameKanji
-	*/
-	public void setGivenNameKanji(String givenNameKanji) {
-		this.givenNameKanji = givenNameKanji;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return teamName
-	*/
-	public String getTeamName() {
-		return teamName;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param teamName
-	*/
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return reason
-	*/
-	public String getReason() {
-		return reason;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param reason
-	*/
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return displayList
-	*/
-	public ArrayList<AttendanceDTO> getDisplayList() {
-		return displayList;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param displayList
-	*/
-	public void setDisplayList(ArrayList<AttendanceDTO> displayList) {
-		this.displayList = displayList;
-	}
-
-
 	private int atDay;
 	private String atDate;
 	private String month;
@@ -194,81 +32,181 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 	private String reason;
 
 
-
-
-
-
-
-
-
 	/*ユーザーリスト*/
-	private ArrayList<AttendanceDTO> displayList = new ArrayList<AttendanceDTO>();
+	private ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
 	public String execute(){
 
 		String result = ERROR;
 
 		AttendanceDao dao = new AttendanceDao();
-		displayList = dao.select(atYear,atMonth,atDay,attendance,familyNameKanji);
-		if(displayList.size() > 0){
+		searchList = dao.select(atYear,atMonth,atDay,attendance);
+		if(searchList.size() > 0){
 			result=SUCCESS;
 		}
 		return result;
 	}
 
-
 	/**
-	 * displayListを取得します。
-	 * @return displayList
+	 * atYearを取得します。
+	 * @return atYear
 	 */
-	public ArrayList<AttendanceDTO> getdisplayList() {
-		return displayList;
-	}
-
-
-
-
-
-	/**
-	 * displayListを設定します。
-	 * @param displayList displayList
-	 */
-	public void setdisplayList(ArrayList<AttendanceDTO> displayList) {
-		this.displayList = displayList;
+	public int getAtYear() {
+	    return atYear;
 	}
 
 	/**
-	 * 勤怠を取得します。
-	 * @return attendance 勤怠
+	 * atYearを設定します。
+	 * @param atYear atYear
+	 */
+	public void setAtYear(int atYear) {
+	    this.atYear = atYear;
+	}
+
+	/**
+	 * atMonthを取得します。
+	 * @return atMonth
+	 */
+	public int getAtMonth() {
+	    return atMonth;
+	}
+
+	/**
+	 * atMonthを設定します。
+	 * @param atMonth atMonth
+	 */
+	public void setAtMonth(int atMonth) {
+	    this.atMonth = atMonth;
+	}
+
+	/**
+	 * atDayを取得します。
+	 * @return atDay
+	 */
+	public int getAtDay() {
+	    return atDay;
+	}
+
+	/**
+	 * atDayを設定します。
+	 * @param atDay atDay
+	 */
+	public void setAtDay(int atDay) {
+	    this.atDay = atDay;
+	}
+
+	/**
+	 * atDateを取得します。
+	 * @return atDate
+	 */
+	public String getAtDate() {
+	    return atDate;
+	}
+
+	/**
+	 * atDateを設定します。
+	 * @param atDate atDate
+	 */
+	public void setAtDate(String atDate) {
+	    this.atDate = atDate;
+	}
+
+	/**
+	 * monthを取得します。
+	 * @return month
+	 */
+	public String getMonth() {
+	    return month;
+	}
+
+	/**
+	 * monthを設定します。
+	 * @param month month
+	 */
+	public void setMonth(String month) {
+	    this.month = month;
+	}
+
+	/**
+	 * familyNameKanjiを取得します。
+	 * @return familyNameKanji
+	 */
+	public String getFamilyNameKanji() {
+	    return familyNameKanji;
+	}
+
+	/**
+	 * familyNameKanjiを設定します。
+	 * @param familyNameKanji familyNameKanji
+	 */
+	public void setFamilyNameKanji(String familyNameKanji) {
+	    this.familyNameKanji = familyNameKanji;
+	}
+
+	/**
+	 * givenNameKanjiを取得します。
+	 * @return givenNameKanji
+	 */
+	public String getGivenNameKanji() {
+	    return givenNameKanji;
+	}
+
+	/**
+	 * givenNameKanjiを設定します。
+	 * @param givenNameKanji givenNameKanji
+	 */
+	public void setGivenNameKanji(String givenNameKanji) {
+	    this.givenNameKanji = givenNameKanji;
+	}
+
+	/**
+	 * teamNameを取得します。
+	 * @return teamName
+	 */
+	public String getTeamName() {
+	    return teamName;
+	}
+
+	/**
+	 * teamNameを設定します。
+	 * @param teamName teamName
+	 */
+	public void setTeamName(String teamName) {
+	    this.teamName = teamName;
+	}
+
+	/**
+	 * attendanceを取得します。
+	 * @return attendance
 	 */
 	public String getAttendance() {
-		return attendance;
-
+	    return attendance;
 	}
+
 	/**
-	* 設定メソッド を設定
-	* @param attendance
-	*/
+	 * attendanceを設定します。
+	 * @param attendance attendance
+	 */
 	public void setAttendance(String attendance) {
-		this.attendance = attendance;
+	    this.attendance = attendance;
 	}
 
 	/**
-	* 取得メソッド を取得
-	* @return familyNameKanji
-	*/
-	public String getFamilyNameKanji() {
-		return familyNameKanji;
+	 * reasonを取得します。
+	 * @return reason
+	 */
+	public String getReason() {
+	    return reason;
 	}
-
 
 	/**
-	* 設定メソッド を設定
-	* @param familyNameKanji
-	*/
-	public void setFamilyNameKanji(String familyNameKanji) {
-		this.familyNameKanji = familyNameKanji;
+	 * reasonを設定します。
+	 * @param reason reason
+	 */
+	public void setReason(String reason) {
+	    this.reason = reason;
 	}
+
 
 
 	/* (非 Javadoc)

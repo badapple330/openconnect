@@ -21,11 +21,11 @@
 		<h1>決裁プレビュー画面</h1>
 		<br>
 		<br>
-		<s:if test="decisionDetailList.size() == 0">
+		<s:if test="decisionPreviewList.size() == 0">
 		まだ何も編集されていません。
 	</s:if>
 	<s:property value="%{resultString}" /><br>
-		<s:iterator value="decisionDetailList">
+		<s:iterator value="decisionPreviewList">
 			<table>
 				<tr>
 					<td>
@@ -42,7 +42,7 @@
 						<s:property value="givenNameKanji" />
 						<br>
 						<br>
-						案件名：<s:property value="itemName" />
+						案件名：<s:property value="decisionName" />
 						<br>
 						<br>
 						概要：
@@ -61,11 +61,11 @@
 						<br>
 						２）費用
 						<br>
-						建設費用<s:property value="developmentPersonnelSum" /> 万円
+						建設費用<s:property value="bildCost" /> 万円
 						<br>
-						損益費用：<s:property value="profitAndLossCost" /> 万円
+						損益費用：<s:property value="benefit" /> 万円
 						<br>
-						合計費用：<s:property value="sum" />万円
+						合計費用：<s:property value="amountAll" />万円
 						<br>
 						<br>
 						３）実施時期・実施期間
@@ -79,8 +79,8 @@
 						<table id="tableApproval">
 							<tr>
 								<td><div class="width4">―：<br><br></div></td>
-								<td><div class="width4">起案番号：<br><br></div></td>
-								<td><div class="width4">実施決裁番号：<br><br></div></td>
+								<td><div class="width4">起案番号：<s:property value="iDraftingId" /><br><br></div></td>
+								<td><div class="width4">実施決裁番号：<s:property value="iApprovalId" /><br><br></div></td>
 							</tr>
 							<tr>
 								<td><div class="width4">承認者：<br> <br>日付：</div></td>
@@ -125,101 +125,7 @@
 			</table>
 			<br>
 			<br>
-			<table>
-				<tr>
-					<td>
-						<h2 class="center">見積書</h2> <br>・以下は、建設費用と損益費用の表である。 <br>
-						・建設費用と損益費用それぞれの小計を出し合計費用を求める。 <br>・小数点以下が発生する金額に関しては小計にて切り上げて表示する。
-						<br> <br>
 
-						<div class="center">建設費用表</div>
-						<table class="tableCost">
-							<tr>
-								<td><b>建設費用</b></td>
-								<td>1単位当たりの金額（万円）</td>
-								<td>個数</td>
-								<td>小計（万円）</td>
-							</tr>
-							<tr>
-								<td>開発端末</td>
-								<td>8.0</td>
-								<td><s:property value="persons" /></td>
-								<td><s:property value="developmentTerminal" /></td>
-							</tr>
-							<tr>
-								<td>リリース環境使用料</td>
-								<td>0.6</td>
-								<td>1</td>
-								<td>1.0</td>
-							</tr>
-							<tr>
-								<td>回線使用料</td>
-								<td>1.0</td>
-								<td>1</td>
-								<td>1.0</td>
-							</tr>
-							<tr>
-								<td>施設使用料</td>
-								<td>55.5</td>
-								<td>1</td>
-								<td>56.0</td>
-							</tr>
-							<tr>
-								<td>建設費用（万円）</td>
-								<td></td>
-								<td></td>
-								<td><s:property value="developmentPersonnelSum" /></td>
-							</tr>
-						</table> <br> <br>
-
-						<div class="center">損益費用表</div>
-						<table class="tableCost">
-							<tr>
-								<td><b>損益費用</b></td>
-								<td>1単位当たりの金額（万円）</td>
-								<td>個数</td>
-								<td>小計（万円）</td>
-							</tr>
-							<tr>
-								<td>開発要員</td>
-								<td>100.0</td>
-								<td><s:property value="persons" /></td>
-								<td><s:property value="developmentPersonnel" /></td>
-							</tr>
-							<tr>
-								<td>雑費</td>
-								<td>0.5</td>
-								<td>1</td>
-								<td>1.0</td>
-							</tr>
-							<tr>
-								<td>損益費用（万円）</td>
-								<td></td>
-								<td></td>
-								<td><s:property value="profitAndLossCost" /></td>
-							</tr>
-						</table>
-						<br>
-						<br>
-						<div class="center">合計費用</div>
-						<table class="tableCost">
-							<tr>
-								<td>建設費用（万円）</td>
-								<td><s:property value="developmentPersonnelSum" /></td>
-							</tr>
-							<tr>
-								<td>損益費用（万円）</td>
-								<td><s:property value="profitAndLossCost" /></td>
-							</tr>
-							<tr>
-								<td>合計費用（万円）</td>
-								<td><s:property value="sum" /></td>
-							</tr>
-						</table>
-
-					</td>
-				</tr>
-			</table>
 		</s:iterator>
 	</s:if>
 

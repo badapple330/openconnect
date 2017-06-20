@@ -64,6 +64,8 @@
 						<th><div class="smallWidth">姓(漢字)</div></th>
 
 						<th><div class="smallWidth">名(漢字)</div></th>
+						<th><div class="smallWidth">チーム名</div></th>
+
 
 					<!-- 	<s:if test="%{#session.userFlg == 3}">-->
 
@@ -90,6 +92,11 @@
 								value="<s:property value="givenNameKanji" />"
 								class="givenNameKanji maxText" maxlength="20" required></div></td>
 
+							<td><div class="smallWidth"><input type="text" name="team_name"
+								value="<s:property value="TeamName" />"
+								class="team_name maxText" maxlength="20" required></div></td>
+
+
 						<!-- 	<s:if test="%{#session.userFlg == 3}">-->
 
 
@@ -102,21 +109,21 @@
 
 								<td><s:if test="%{userFlg==1}">
 										<select name="userFlg" class="userFlg maxText">
-											<option value="1" selected>生徒</option>
+											<option value="1" selected>メンバー</option>
 											<option value="2">リーダー</option>
-											<option value="3">講師</option>
+											<option value="3">管理者</option>
 										</select>
 									</s:if> <s:elseif test="%{userFlg==2}">
 										<select name="userFlg" class="userFlg maxText">
-											<option value="1">生徒</option>
+											<option value="1">メンバー</option>
 											<option value="2" selected>リーダー</option>
-											<option value="3">講師</option>
+											<option value="3">管理者</option>
 										</select>
 									</s:elseif> <s:else>
 										<select name="userFlg" class="userFlg maxText">
-											<option value="1">生徒</option>
+											<option value="1">メンバー</option>
 											<option value="2">リーダー</option>
-											<option value="3" selected>講師</option>
+											<option value="3" selected>管理者</option>
 										</select>
 									</s:else></td>
 
@@ -170,26 +177,22 @@
 				<br> <br> 上記の受講生の編集を行います。
 				<s:form action="StudentsUpdateAction">
 					<input type="hidden" name="userId" class="updateUserId" value="">
-					<input type="hidden" name="year" class="updateYear" value="">
-					<input type="hidden" name="month" class="updateMonth" value="">
 
 					<input type="hidden" name="familyNameKanji"
 						class="updateFamilyNameKanji" value="">
 
 					<input type="hidden" name="givenNameKanji"
 						class="updateGivenNameKanji" value="">
+					<input type="hidden" name="team_name"
+						class="updateTeamName" value="">
 
 
 
 
 
-					<input type="hidden" name="userdelFlg" class="updateUserdelFlg"
-						value="">
-					<input type="hidden" name="loginFlg" class="updateLoginFlg"
-						value="">
+
 					<input type="hidden" name="userFlg" class="updateUserFlg" value="">
-					<input type="hidden" name="password" class="updatePassword"
-						value="">
+
 
 					<input type="submit" class="delete-true button" value="編集">
 				</s:form>

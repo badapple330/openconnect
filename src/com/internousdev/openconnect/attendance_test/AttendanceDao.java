@@ -23,36 +23,41 @@ public class AttendanceDao {
 	/**
 	 * 勤怠履歴を格納する
 	 */
-	public ArrayList<AttendanceDTO> displayList = new ArrayList<AttendanceDTO>();
+	public ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
 	/**
 	 * 勤怠状況で名前を取得するメソッド
 	 * @param attendance 勤怠
 	 * @return adminhistorylist 勤怠登録履歴
 	 */
-	public ArrayList<AttendanceDTO> select(int atYear, int atMonth, int atDay, String attendance,String familyNameKanji) {
+	public ArrayList<AttendanceDTO> select(int atYear, int atMonth, int atDay, String attendance) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 
 		ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
-		int k=0;
+		int k = 0;
 		String sql = null;
 
 
-		if(atYear != 0 && atDay != 0 && atDay != 0 && !((attendance).equals(""))){
-			sql ="select * from attendance left join users on attendance.user_id=users.user_id where at_year=? AND at_month=? AND at_day=? AND attendance=?";
-			k=1;
+		if(atYear != 0 && atMonth != 0 && atDay != 0){
+			sql ="select * from attendance left join users on attendance.user_id=users.user_id where at_year=? AND at_month=? AND at_day=?";
+			k = 1;
+		}else if( !((attendance).equals(""))){
+			sql ="select * from attendance left join users on attendance.user_id=users.user_id where attendance=?";
+			k = 2;
 		}
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
 
-			if(k==1){
+			if(k == 1){
 				ps.setInt(1,atYear);
 				ps.setInt(2,atMonth);
 				ps.setInt(3,atDay);
-				ps.setString(4, attendance);
+
+			}else if(k == 2){
+				ps.setString(1, attendance);
 
 			}
 
@@ -84,11 +89,5 @@ public class AttendanceDao {
 		}
 		return searchList;
 	}
-
-	/**
-	 * @param attendance
-	 * @return
-	 */
-
 
 }

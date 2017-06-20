@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  *
  */
-public class DecisionPreviewAction extends ActionSupport{
+public class DecisionPreviewAction extends ActionSupport {
 
 	/**
 	 * 決裁ID
@@ -48,28 +48,6 @@ public class DecisionPreviewAction extends ActionSupport{
 	 *
 	 */
 	private String iApprovalId;
-	/**
-	 * 契約起案番号
-	 *
-	 */
-	private String aDraftingId;
-	/**
-	 * 契約決裁番号
-	 *
-	 */
-	private String cdId;
-	/**
-	 * 実施兼契約起案番号
-	 *
-	 */
-	private String iADId;
-	/**
-	 * 実施兼契約番号
-	 *
-	 */
-
-	private String iAId;
-
 	/**
 	 * 承認番号
 	 */
@@ -190,14 +168,14 @@ public class DecisionPreviewAction extends ActionSupport{
 
 
 	/**
-	 * @return userId
+	 * @return decisionId
 	 */
 	public int getDecisionId() {
 		return decisionId;
 	}
 
 	/**
-	 * @param userId セットする userId
+	 * @param decisionId セットする userId
 	 */
 	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
@@ -257,63 +235,6 @@ public class DecisionPreviewAction extends ActionSupport{
 	public void setiApprovalId(String iApprovalId) {
 		this.iApprovalId = iApprovalId;
 	}
-
-	/**
-	 * @return aDraftingId
-	 */
-	public String getaDraftingId() {
-		return aDraftingId;
-	}
-
-	/**
-	 * @param aDraftingId セットする aDraftingId
-	 */
-	public void setaDraftingId(String aDraftingId) {
-		this.aDraftingId = aDraftingId;
-	}
-
-	/**
-	 * @return cdId
-	 */
-	public String getCdId() {
-		return cdId;
-	}
-
-	/**
-	 * @param cdId セットする cdId
-	 */
-	public void setCdId(String cdId) {
-		this.cdId = cdId;
-	}
-
-	/**
-	 * @return iADId
-	 */
-	public String getiADId() {
-		return iADId;
-	}
-
-	/**
-	 * @param iADId セットする iADId
-	 */
-	public void setiADId(String iADId) {
-		this.iADId = iADId;
-	}
-
-	/**
-	 * @return iAId
-	 */
-	public String getiAId() {
-		return iAId;
-	}
-
-	/**
-	 * @param iAId セットする iAId
-	 */
-	public void setiAId(String iAId) {
-		this.iAId = iAId;
-	}
-
 	/**
 	 * @return adminNum
 	 */
@@ -401,14 +322,14 @@ public class DecisionPreviewAction extends ActionSupport{
 	/**
 	 * @return decisionPreviewList
 	 */
-	public ArrayList<DecisionDTO> getdecisionPreviewList() {
+	public ArrayList<DecisionDTO> getDecisionPreviewList() {
 		return decisionPreviewList;
 	}
 
 	/**
 	 * @param decisionPreviewList セットする decisionPreviewList
 	 */
-	public void setdecisionPreviewList(ArrayList<DecisionDTO> decisionPreviewList) {
+	public void setDecisionPreviewList(ArrayList<DecisionDTO> decisionPreviewList) {
 		this.decisionPreviewList = decisionPreviewList;
 	}
 
@@ -621,6 +542,8 @@ public class DecisionPreviewAction extends ActionSupport{
 	public void setEtc(float etc) {
 		this.etc = etc;
 	}
+
+
 
 
 }

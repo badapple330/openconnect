@@ -43,8 +43,8 @@ public class AdminAttendanceDAO {
 
 		int k = 0;
 		String sql = null;
-		
-		
+
+
 		if(atYear!=0 && atMonth!=0 && atDay!=0 && (familyNameKanji).equals("") && (givenNameKanji).equals("")){
 			sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=?";
 			k=1;
@@ -59,8 +59,8 @@ public class AdminAttendanceDAO {
 	    	sql = "select * from attendance left join users on attendance.user_id = users.user_id where atYear = ? AND atMonth = ? AND atDay = ? AND teamName = ?";
 	    	k=4;
 	    }
-		
-		
+
+
 		try {
 			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
 			if(k == 1){

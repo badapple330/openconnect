@@ -11,15 +11,14 @@
 
 </head>
 <body>
-
-	<select name="atYear" id="id_year" data-choice="year"><option
-			value="">----</option></select>
-	<select name="atMonth" id="id_month" data-choice="month"><option
-			value="">----</option></select>
-	<select name="atDay" id="id_day" data-choice="day"><option
-			value="">----</option></select>
-
 	<s:form action="attendanceACTION">
+		<select name="atYear" id="id_year" data-choice="year"><option
+				value="">----</option></select>
+		<select name="atMonth" id="id_month" data-choice="month"><option
+				value="">----</option></select>
+		<select name="atDay" id="id_day" data-choice="day"><option
+				value="">----</option></select>
+
 		<select name="attendance">
 			<option value="">出欠状況</option>
 			<option value="出席">出席</option>
@@ -44,7 +43,7 @@
 		</thead>
 
 		<tbody>
-			<s:iterator value="displayList">
+			<s:iterator value="searchList">
 				<tr>
 					<td><s:property value="atDate" /></td>
 					<td><s:property value="month" /></td>

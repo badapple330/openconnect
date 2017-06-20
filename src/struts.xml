@@ -217,7 +217,7 @@
 			<result name="error" type="chain">StudentsSelectAction</result>
 		</action>
 
-    	<action name="StudentsUpdateAction"
+		<action name="StudentsUpdateAction"
 			class="com.internousdev.openconnect.students.action.StudentsUpdateAction"
 			method="execute">
 			<result name="success" type="chain">StudentsSelectAction</result>
@@ -238,18 +238,23 @@
 		</action>
 
 		<!-- チーム確認のためのアクション -->
-		<action name="GoTeamAction" class="com.internousdev.openconnect.team.action.GoTeamAction" method="execute">
+		<action name="GoTeamAction"
+			class="com.internousdev.openconnect.team.action.GoTeamAction" method="execute">
 			<result name="success">team.jsp</result>
 			<result name="error">team.jsp</result>
 		</action>
 
-		<action name="GoTeamEditAction" class="com.internousdev.openconnect.team.action.GoTeamEditAction" method="execute">
+		<action name="GoTeamEditAction"
+			class="com.internousdev.openconnect.team.action.GoTeamEditAction"
+			method="execute">
 			<result name="success">team_edit.jsp</result>
 			<result name="error">team.jsp</result>
 		</action>
 
 
-		<action name="TeamEditAction" class="com.internousdev.openconnect.team.action.TeamEditAction" method="execute">
+		<action name="TeamEditAction"
+			class="com.internousdev.openconnect.team.action.TeamEditAction"
+			method="execute">
 			<result name="success" type="chain">GoTeamAction</result>
 			<result name="error">team_edit.jsp</result>
 		</action>
@@ -291,7 +296,7 @@
 		<action name="DecisionPreviewAction"
 			class="com.internousdev.openconnect.decision.action.DecisionPreviewAction"
 			method="execute">
-			<result name="success" >decision_preview.jsp</result>
+			<result name="success">decision_preview.jsp</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
@@ -317,7 +322,7 @@
 			<result name="success">decision_detail.jsp</result>
 			<result name="error">decision_detail.jsp</result>
 			<!-- <result name="success" type="chain">DecisionDetailSelectAction</result>
-			<result name="error" type="chain">DecisionDetailSelectAction</result> -->
+				<result name="error" type="chain">DecisionDetailSelectAction</result> -->
 		</action>
 
 		<action name="DecisionDetailApplicationAction"
@@ -326,7 +331,7 @@
 			<result name="success">decision_detail.jsp</result>
 			<result name="error">decision_detail.jsp</result>
 			<!-- <result name="success" type="chain">DecisionDetailSelectAction</result>
-			<result name="error" type="chain">DecisionDetailSelectAction</result> -->
+				<result name="error" type="chain">DecisionDetailSelectAction</result> -->
 		</action>
 
 
@@ -350,7 +355,7 @@
 			class="com.internousdev.openconnect.books.action.BooksDeleteAction"
 			method="execute">
 			<result name="success" type="chain">BooksSelectAction</result>
-			<result name="error" >BooksSelectAction</result>
+			<result name="error">BooksSelectAction</result>
 		</action>
 
 		<action name="BooksUpdateAction"
@@ -391,12 +396,12 @@
 			class="com.internousdev.openconnect.schedule.action.ScheduleDeleteAction"
 			method="execute">
 			<!-- デフォルトinterceptor -->
-			<interceptor-ref name="defaultStack" />
-			<!-- tokenのinterceptor -->
-			<interceptor-ref name="token" />
-			<result name="invalid.token" type="chain">ScheduleSelectAction
-			</result>
-			<result type="chain">ScheduleSelectAction</result>
+	<interceptor-ref name="defaultStack" />
+	<!-- tokenのinterceptor -->
+	<interceptor-ref name="token" />
+	<result name="invalid.token" type="chain">ScheduleSelectAction
+	</result>
+	<result type="chain">ScheduleSelectAction</result>
 		</action>
 
 		<action name="BackGoAction" class="com.internousdev.openconnect.action.JustGoAction"
@@ -405,6 +410,14 @@
 			<result name="error">project_progress.jsp</result>
 		</action>
 
+		<action name="attendanceACTION" method="execute"
+			class="com.internousdev.openconnect.attendance_test.attendanceACTION">
+
+			<result name="success">attendanceTest.jsp</result>
+
+			<result name="error">attendance.jsp</result>
+
+		</action>
 
 
 	</package>

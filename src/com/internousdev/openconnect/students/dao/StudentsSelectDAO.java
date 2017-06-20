@@ -23,7 +23,7 @@ public class StudentsSelectDAO {
      * @param search
      * @return searchList
      */
-    public ArrayList<StudentsDTO> select(String search) {
+    public ArrayList<StudentsDTO> select(int user_id) {
         DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
                 "mysql");
         Connection con = db.getConnection();
@@ -32,7 +32,7 @@ public class StudentsSelectDAO {
 
         String sql;
 
-        sql="select * from users";
+        sql="select * from users order by user_flg desc";
 
         try {
 
@@ -53,6 +53,8 @@ public class StudentsSelectDAO {
                 dto.setFamilyNameKana(rs.getString("family_name_kana"));
                 dto.setGivenNameKanji(rs.getString("given_name_kanji"));
                 dto.setGivenNameKana(rs.getString("given_name_kana"));
+                dto.setTeamName(rs.getString("team_name"));
+
                 dto.setPostal(rs.getString("postal"));
                 dto.setAddress(rs.getString("address"));
                 dto.setPhoneNumber(rs.getString("phone_number"));
@@ -79,6 +81,7 @@ public class StudentsSelectDAO {
                 dto.setUserFlg(rs.getInt("user_flg"));
                 dto.setYear(rs.getString("year"));
                 dto.setMonth(rs.getString("month"));
+
 
                 searchList.add(dto);
             }

@@ -94,6 +94,12 @@ public class StudentsDTO {
      * 受講開始月
      */
     private String month;
+    /**
+     * チーム名
+     */
+    private String team_name;
+
+
 
     /**
     * 取得メソッド ユーザーIDを取得
@@ -508,5 +514,24 @@ public class StudentsDTO {
     public void setMonth(String month) {
         this.month = month;
     }
+
+    /**
+    * 取得メソッド チーム名を取得
+    * @author TATSUHIRO SAITO
+    * @return team_name
+    */
+    public String getTeamName() {
+        return team_name;
+    }
+
+    /**
+    * 設定メソッド 受講開始月を設定
+    * @author KOHEI NITABARU
+    * @param month
+    */
+    public void setTeamName(String team_name) {
+        this.team_name = team_name;
+    }
+
 
 }
