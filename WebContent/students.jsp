@@ -184,8 +184,7 @@
 					<input type="hidden" name="givenNameKanji"
 						class="updateGivenNameKanji" value="">
 					<input type="hidden" name="team_name"
-						class="updateTeamName" value="">
-
+ 						class="updateTeamName" value="">
 
 
 

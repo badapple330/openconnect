@@ -32,7 +32,7 @@ public class StudentsSelectDAO {
 
         String sql;
 
-        sql="select * from users order by user_flg desc";
+        sql="select * from users order by user_flg ";
 
         try {
 

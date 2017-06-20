@@ -33,6 +33,8 @@ public class StudentsUpdateAction extends ActionSupport {
      */
     private String givenNameKanji;
 
+
+
     /**
      * ユーザーフラグ
      */
@@ -58,7 +60,7 @@ public class StudentsUpdateAction extends ActionSupport {
         count = dao.update(
         		familyNameKanji,
                 givenNameKanji,
-                userFlg,userId);
+                userFlg, userId);
         if (count != 0) {
             result = SUCCESS;
             resultString = "更新に成功しました。";
@@ -130,6 +132,7 @@ public class StudentsUpdateAction extends ActionSupport {
     }
 
 
+
     /**
      * 取得メソッド ユーザーフラグを取得
      * @author KOHEI NITABARU
@@ -167,6 +170,7 @@ public class StudentsUpdateAction extends ActionSupport {
     public void setResultString(String resultString) {
         this.resultString = resultString;
     }
+
 
     /**
      * 取得メソッド シリアル番号を取得

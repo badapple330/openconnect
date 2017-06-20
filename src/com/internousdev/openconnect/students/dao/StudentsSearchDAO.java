@@ -36,7 +36,7 @@ public class StudentsSearchDAO {
 			String sql=null;
 
 
-			sql="select * from users  where year=? and month=? order by user_flg";
+			sql="select * from users  where year=? and month=? order by user_flg ";
 
 
 
