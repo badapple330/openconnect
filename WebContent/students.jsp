@@ -64,6 +64,8 @@
 						<th><div class="smallWidth">姓(漢字)</div></th>
 
 						<th><div class="smallWidth">名(漢字)</div></th>
+						<th><div class="smallWidth">チーム名</div></th>
+
 
 					<!-- 	<s:if test="%{#session.userFlg == 3}">-->
 
@@ -89,6 +91,11 @@
 							<td><div class="smallWidth"><input type="text" name="givenNameKanjiList"
 								value="<s:property value="givenNameKanji" />"
 								class="givenNameKanji maxText" maxlength="20" required></div></td>
+
+							<td><div class="smallWidth"><input type="text" name="team_name"
+								value="<s:property value="TeamName" />"
+								class="team_name maxText" maxlength="20" required></div></td>
+
 
 						<!-- 	<s:if test="%{#session.userFlg == 3}">-->
 
@@ -176,6 +183,8 @@
 
 					<input type="hidden" name="givenNameKanji"
 						class="updateGivenNameKanji" value="">
+					<input type="hidden" name="team_name"
+						class="updateTeamName" value="">
 
 
 
