@@ -18,7 +18,7 @@ public class GoScheduleSelectDAO{
 
 	private int teamName;
 
-	public List<ScheduleDTO> select(String teamName){
+	public List<ScheduleDTO> select(int userId){
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost","openconnect","root","mysql");
 		Connection con = db.getConnection();
@@ -26,11 +26,11 @@ public class GoScheduleSelectDAO{
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-		String sql = "SELECT * FROM schedule WHERE team_name = ?";
+		String sql = "SELECT * FROM users INNER JOIN schedule ON users.team_name = schedule.team_name WHERE users.user_id = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,teamName);
+			ps.setInt(1,userId);
 
 			ResultSet rs = ps.executeQuery();
 

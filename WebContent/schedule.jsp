@@ -35,7 +35,9 @@
 <body>
 <!-- アプリ一覧表示 -->
 	<div class="container">
-		<h1 class="page-header">スケジュール一覧</h1>
+		<s:iterator value = "scheduleList">
+		<h1 class="page-header"><s:property value ="teamName" /></h1>
+		</s:iterator>
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{siteUrl}">

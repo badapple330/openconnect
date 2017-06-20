@@ -23,10 +23,10 @@ public class GoScheduleSelectAction extends ActionSupport implements SessionAwar
 
 	public String execute(){
 		String result = ERROR;
-		String teamName = (String) session.get("teamName");
+		int userId = (int) session.get("userId");
 		GoScheduleSelectDAO dao = new GoScheduleSelectDAO();
 		GoScheduleSelectDAO dao2 = new GoScheduleSelectDAO();
-		scheduleList = dao.select(teamName);
+		scheduleList = dao.select(userId);
 		teamList = dao2.select2();
 		result = SUCCESS;
 
