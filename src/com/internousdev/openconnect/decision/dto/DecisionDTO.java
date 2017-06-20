@@ -20,6 +20,11 @@ public class DecisionDTO {
 	private String decisionName;
 
 	/**
+	 * 決裁種類
+	 *
+	 */
+	private String decisionType;
+	/**
 	 * 実施起案番号
 	 *
 	 */
@@ -457,6 +462,20 @@ public class DecisionDTO {
 		this.decisionName = decisionName;
 	}
 
+	/**
+	* 取得メソッド を取得
+	* @return decisionType
+	*/
+	public String getDecisionType() {
+		return decisionType;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param decisionType
+	*/
+	public void setDecisionType(String decisionType) {
+		this.decisionType = decisionType;
+	}
 	/**
 	* 取得メソッド
 	* @author KOTA MIYAZATO
