@@ -218,7 +218,6 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @author TEPPEI MATSUMOTO
 	* @return permitStatus
 	*/
 	public int getPermitStatus() {
@@ -226,7 +225,6 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 設定メソッド を設定
-	* @author TEPPEI MATSUMOTO
 	* @param permitStatus
 	*/
 	public void setPermitStatus(int permitStatus) {
