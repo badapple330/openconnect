@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -12,8 +13,6 @@
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/projects.js"></script>
 <script src="js/pagenation.js"></script>
-<link type="text/css" media="screen" rel="stylesheet" href="responsive-tables.css" />
-<script type="text/javascript" src="responsive-tables.js"></script>
 
 <title>プロジェクト一覧</title>
 </head>
@@ -69,9 +68,11 @@
 			</div>
 			<br><BR>
 
+			<div class="table-scroll">
 			<s:form action="ProjectsUpdateAction">
 
-				<table border="1" class="centered responsive">
+
+				<table border="1" class="centered responsive table-scroll">
 					<tbody id="list_body">
 						<tr>
 							<td></td>
@@ -146,12 +147,13 @@
 						</s:iterator>
 					</tbody>
 				</table>
+
 				<BR>
 
 						<!-- pagenation -->
 	<br>
 		<br>
-		<div id="pager" class="centered">
+		<div id="pager" class="centered  fixedButton">
 			<div id="page_ctrl">
 				<ul id="page_before">
 					<li id="page_prev">prev</li>
@@ -166,14 +168,17 @@
 		<br>
 
 <!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
-        <div class="centered">
+        <div class="centered  fixedButton">
       	<input class="button" type="submit" value="編集完了">
       	</div><BR><BR>
 				</s:if>
 			</s:form>
+			</div>
 			<br>
 <!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
+				<div class="table-scroll">
 				<s:form action="ProjectsInsertAction">
+
 					<table border="1" class="centered add"><!-- class="centered responsive" -->
 
 						<tr>
@@ -201,11 +206,17 @@
 								name="startDate" required></td>
 						</tr>
 					</table>
+
 					<BR>
-                    <div class="centered">
+                    <div class="centered fixedButton">
 					<input class="button" type="submit" value="追加する">
 					</div>
+					<br>
+					<br>
+
 				</s:form>
+				</div>
+
 				<br>
 
 
