@@ -93,9 +93,9 @@
 }
 
 
-@media only screen and (max-device-width : 380px) {
+@media only screen and (max-device-width : 380px){
 	.fc-view-container{
-	 width: 100%;
+     width: 100%;
 
         }
 
