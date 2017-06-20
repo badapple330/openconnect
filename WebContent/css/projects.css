@@ -157,19 +157,13 @@ input {
 	font-size: 16px;
 }
 
-/* ページヘッダーを中央寄せ */
-.experiment {
-  color: red;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-}
-
+/* 中央寄せ */
 .centered{
 	margin-right: auto;
   	margin-left: auto;
   	text-align: center;
-  	align: center;}
+  	align: center;
+  	}
 
 @media only screen and (max-device-width: 900px){
 	.centered{

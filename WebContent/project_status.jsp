@@ -4,11 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset=UTF-8>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>プロジェクトリリース状況</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/project_status.css">
 <link rel="stylesheet" href="css/pagenation.css">
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <script src="js/jquery-3.1.0.min.js"></script>
@@ -19,7 +21,7 @@
 	<header><jsp:include page="header.jsp" /></header>
 
 
-		<div class="center" align="center">
+		<div class="centered">
 			<br>
 			<h1 class="page-header" align ="center">プロジェクトリリース状況</h1>
 		</div>
@@ -31,7 +33,7 @@
 
 
 <!-- flg判定 -->	<s:if test="%{#session.userFlg < 1}">
-			<h1 align="center">ログイン後に表示されます。</h1>
+			<h1 class="centered">ログイン後に表示されます。</h1>
 			<BR><BR><BR>
 		</s:if>
 
@@ -40,7 +42,7 @@
 			<br>
 
 			<s:form action="ProjectStatusSelectAction">
-             <div align="center">
+             <div  class="centered">
              --- プロジェクト名を入力 ---<br>
 				<input type="text" name="searchString" placeholder="プロジェクト名"
 					id="searchText" maxlength="100">
@@ -48,7 +50,7 @@
           </div>
 			</s:form>
 			<br><BR>
-			<div align="center">
+			<div class="centered">
 			<font color="red">
 			<s:property value="%{resultSelect}" />
 			<s:property value="%{resultString}" />
@@ -56,8 +58,10 @@
 			</div>
 			<br><br>
 
+			<div class="table-scroll">
 			<s:form action="ProjectStatusUpdateAction">
-				<table border=1 align ="center">
+
+				<table border=1  class="centered ">
 				<tbody id="list_body">
 					<tr>
 						<th><div class="largetext">プロジェクトID</div></th>
@@ -112,42 +116,45 @@
 					</tbody>
 
 				</table>
+
+				<br>
+				<!-- pagenation -->
+				<div id="pager" class="centered fixedButton">
+					<div id="page_ctrl">
+						<ul id="page_before">
+							<li id="page_prev">prev</li>
+						</ul>
+						<ul id="page_number"></ul>
+						<ul id="page_after">
+							<li id="page_next">next</li>
+						</ul>
+					</div>
+				</div>
 				<br>
 
 
 <!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}"><BR>
-				<div align="center">
+				<div  class="centered add fixedButton">
 					<input type="submit" class="button" value="編集完了" />
 					</div>
 				</s:if>
 
 			</s:form>
+			</div>
 			<br>
 
 
 
-			<!-- pagenation -->
-	<br>
-		<br>
-		<div id="pager">
-			<div id="page_ctrl">
-				<ul id="page_before">
-					<li id="page_prev">prev</li>
-				</ul>
-				<ul id="page_number"></ul>
-				<ul id="page_after">
-					<li id="page_next">next</li>
-				</ul>
-			</div>
-		</div>
-		<br>
-		<br>
+
 		</s:if>
+
+		<br>
+		<br>
 
 
 
 		<s:form action="GetAddressAction">
-		<div align="center">
+		<div class="centered">
 			<button type="submit" class="button">戻る</button>
 			</div>
 		</s:form>
