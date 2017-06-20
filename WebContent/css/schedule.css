@@ -91,3 +91,13 @@
 .hidden {
 	visibility: hidden;
 }
+
+
+@media only screen and (max-device-width : 380px) {
+	#calendar{
+		width: 380px;
+
+
+        }
+
+}
