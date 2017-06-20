@@ -77,7 +77,7 @@ public class DecisionDetailApplicationDAO {
 	/**
      * 実施決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateJ( String iDraftingId, int decisionId ) {
+	public int updateAJ( String iDraftingId, int decisionId ) {
 
 		int count = 0;
 
@@ -119,7 +119,7 @@ public class DecisionDetailApplicationDAO {
 	/**
      * 契約決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateK( String aDraftingId, int decisionId ) {
+	public int updateAK( String aDraftingId, int decisionId ) {
 
 		int count = 0;
 
@@ -161,7 +161,7 @@ public class DecisionDetailApplicationDAO {
 	/**
      * 実施兼契約決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateJK( String iADId, int decisionId ) {
+	public int updateAJK( String iADId, int decisionId ) {
 
 		int count = 0;
 

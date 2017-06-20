@@ -67,7 +67,7 @@ public class RegisterDAO {
 			ps.setString(9, month);
 			ps.setString(10,registerDay);
 			ps.setBoolean(11, false);
-			ps.setInt(12, user_flg);
+			ps.setInt(12, 1);
 			result = ps.executeUpdate();
 
 		} catch (Exception e) {

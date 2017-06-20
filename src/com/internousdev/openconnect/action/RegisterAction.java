@@ -84,7 +84,7 @@ public class RegisterAction extends ActionSupport  {
 	/**
 	 * ユーザーフラグ
 	 */
-	private int user_flg=1 ;
+	private int user_flg ;
 
 
 	/**

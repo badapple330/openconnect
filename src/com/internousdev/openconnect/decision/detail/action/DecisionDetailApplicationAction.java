@@ -62,13 +62,14 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 
 		//起案番号の生成
 		String iDraftingId = "KN-" + num + "-";
-		String aDraftingId = "KKN-" + num + "-";
-		String iADId = "JKN-" + num + "-";//??????
+		String aDraftingId = "K-KN-" + num + "-";
+		String iADId = "KN-" + num + "-";
 
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
 
 		DecisionDetailApplicationDAO dao = new DecisionDetailApplicationDAO();
+
 
 		String idNum = "";
 		int count = 0;
@@ -87,7 +88,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 			else {
 				iDraftingId = iDraftingId + "001";
 			}
-			count = dao.updateJ( iDraftingId, decisionId );
+			count = dao.updateAJ( iDraftingId, decisionId );
 		}
 
 		//契約決裁の申請
@@ -103,11 +104,11 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 			else {
 				aDraftingId = aDraftingId + "001";
 			}
-			count = dao.updateK( aDraftingId, decisionId );
+			count = dao.updateAK( aDraftingId, decisionId );
 		}
 
 		//実施兼契約決裁の申請
-		else  {
+		else {
 
 			idNum = iADId;
 			idNumList = dao.select(decisionType, idNum);
@@ -119,7 +120,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 			else {
 				iADId = iADId + "001";
 			}
-			count = dao.updateJK( iADId, decisionId );
+			count = dao.updateAJK( iADId, decisionId );
 		}
 
 

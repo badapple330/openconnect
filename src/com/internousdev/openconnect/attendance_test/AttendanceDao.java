@@ -23,30 +23,51 @@ public class AttendanceDao {
 	/**
 	 * 勤怠履歴を格納する
 	 */
-	public ArrayList<AttendanceDTO> searchList  = new ArrayList<AttendanceDTO>();
+	public ArrayList<AttendanceDTO> displayList = new ArrayList<AttendanceDTO>();
 
 	/**
 	 * 勤怠状況で名前を取得するメソッド
 	 * @param attendance 勤怠
 	 * @return adminhistorylist 勤怠登録履歴
 	 */
-	public ArrayList<AttendanceDTO> select1(String attendance) {
+	public ArrayList<AttendanceDTO> select(int atYear, int atMonth, int atDay, String attendance,String familyNameKanji) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 
 		ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
+		int k=0;
 		String sql = null;
+
+
+		if(atYear != 0 && atDay != 0 && atDay != 0 && !((attendance).equals(""))){
+			sql ="select * from attendance left join users on attendance.user_id=users.user_id where at_year=? AND at_month=? AND at_day=? AND attendance=?";
+			k=1;
+		}
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
+
+			if(k==1){
+				ps.setInt(1,atYear);
+				ps.setInt(2,atMonth);
+				ps.setInt(3,atDay);
+				ps.setString(4, attendance);
+
+			}
 
 			ResultSet rs = ps.executeQuery(); //SQL文の実行インターフェース。
 
 			while (rs.next()) {
 				AttendanceDTO dto = new AttendanceDTO();
+
+				dto.setAtDate(rs.getString("at_date"));
+				dto.setMonth(rs.getString("month"));
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
 				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
+				dto.setTeamName(rs.getString("team_name"));
+				dto.setAttendance(rs.getString("attendance"));
+				dto.setReason(rs.getString("reason"));
 				searchList.add(dto);
 			}
 			rs.close();
@@ -68,9 +89,6 @@ public class AttendanceDao {
 	 * @param attendance
 	 * @return
 	 */
-	public ArrayList<AttendanceDTO> select(String attendance) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
+
 
 }

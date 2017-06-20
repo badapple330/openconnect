@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- 背景画像 -->
 <style type="text/css">
@@ -18,7 +17,9 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/header.css" rel="stylesheet">
 <!-- js読み込み -->
+
 <%-- <script src="js/bootstrap.js"></script> --%>
+
 </head>
 <body>
 	<!-- ヘッダー -->
@@ -33,10 +34,10 @@
 					</h1>
                         <div class="container" align="right">
 
-                        <s:if test="%{#session.userFlg >= 1}">
+                          <s:if test="%{#session.userFlg >= 1}">
 					<ul class="pulldown2" id="selectBer">
-					<li><div class="category">CATEGORY</div>
-					<ul class="menu">
+<li><div class="category">CATEGORY</div>
+				<ul class="menu">
 						<li><a href="ProjectsSelectAction">プロジェクト一覧</a></li>
 						<li><a href="ProjectStatusSelectAction">プロジェクトリリース状況</a></li>
 						<li><a href="ProjectProgressSelectAction">プロジェクト進捗報告</a></li>
@@ -54,10 +55,12 @@
 						<li><a href="BooksSelectAction">書籍一覧</a></li>
 						<li><a href="ScheduleSelectAction">スケジュール一覧</a></li>
 						</ul>
-						</li>
-					</ul>
+						</li></ul>
+
 
 				</s:if>
+
+
 
 						<div class="menuGroup">
 
@@ -71,6 +74,8 @@
 						<s:if test="%{#session.userFlg == 3}">
 					    <a href="GoAdminAction" class="part_line">■ 管理者 </a>
 						</s:if>
+
+
 
 						</div>
 				<!-- 				<dl id="menuElementGroup"> -->
