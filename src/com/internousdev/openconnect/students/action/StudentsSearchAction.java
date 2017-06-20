@@ -57,6 +57,11 @@ public class StudentsSearchAction extends ActionSupport {
 	 * 受講開始月
 	 */
 	private String month;
+	/**
+	 * チーム名
+	 */
+	private String team_name;
+
 
 
 	/**
@@ -385,6 +390,22 @@ public class StudentsSearchAction extends ActionSupport {
 		public void setRegisterDay(String registerDay) {
 			this.registerDay = registerDay;
 		}
+		/**
+		 * チーム名を取得するメソッド
+		 * @return registerDay　登録日
+		 */
+		public String getTeamName() {
+			return team_name;
+		}
+
+		/**
+		 * チーム名を格納するメソッド
+		 * @param registerDay　セットする registerDay
+		 */
+		public void setTeamName(String team_name) {
+			this.team_name = team_name;
+		}
+
 
 
 }
