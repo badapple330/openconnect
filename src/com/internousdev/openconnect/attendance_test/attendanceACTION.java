@@ -40,7 +40,7 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 		String result = ERROR;
 
 		AttendanceDao dao = new AttendanceDao();
-		searchList = dao.select(atYear,atMonth,atDay,attendance,familyNameKanji);
+		searchList = dao.select(atYear,atMonth,atDay,attendance);
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}
