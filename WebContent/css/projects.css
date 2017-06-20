@@ -148,9 +148,9 @@ input {
 	font-weight: bold !important;
 }
 
-#pager {
+/*#pager {
 	text-align: center;
-}
+}*/
 
 #contents {
 	z-index: 0;
@@ -169,5 +169,15 @@ input {
 	margin-right: auto;
   	margin-left: auto;
   	text-align: center;
-}
+  	align: center;}
 
+@media only screen and (max-width: 1000px){
+	.centered{
+	  	margin-left: auto;
+	  	text-align: left;
+	}
+	.add{
+		text-align: left;
+		margin-left: 0px;
+	}
+}

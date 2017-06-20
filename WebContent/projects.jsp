@@ -12,7 +12,8 @@
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/projects.js"></script>
 <script src="js/pagenation.js"></script>
-
+<link type="text/css" media="screen" rel="stylesheet" href="responsive-tables.css" />
+<script type="text/javascript" src="responsive-tables.js"></script>
 
 <title>プロジェクト一覧</title>
 </head>
@@ -26,7 +27,7 @@
 
 
 
-		<!--<jsp:include page="cssloader.jsp" />-->
+
 		<h1 class="centered">プロジェクト一覧</h1><!--  class="page-header" align ="center" -->
 
 
@@ -70,7 +71,7 @@
 
 			<s:form action="ProjectsUpdateAction">
 
-				<table border="1" class="centered">
+				<table border="1" class="centered responsive">
 					<tbody id="list_body">
 						<tr>
 							<td></td>
@@ -147,6 +148,23 @@
 				</table>
 				<BR>
 
+						<!-- pagenation -->
+	<br>
+		<br>
+		<div id="pager" class="centered">
+			<div id="page_ctrl">
+				<ul id="page_before">
+					<li id="page_prev">prev</li>
+				</ul>
+				<ul id="page_number"></ul>
+				<ul id="page_after">
+					<li id="page_next">next</li>
+				</ul>
+			</div>
+		</div>
+		<br>
+		<br>
+
 <!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
         <div class="centered">
       	<input class="button" type="submit" value="編集完了">
@@ -156,7 +174,7 @@
 			<br>
 <!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
 				<s:form action="ProjectsInsertAction">
-					<table border="1" class="centered">
+					<table border="1" class="centered add"><!-- class="centered responsive" -->
 
 						<tr>
 
@@ -226,7 +244,7 @@
 				<!-- #contents START -->
 				<div id="modal-style" class="centered">
 				<br>
-					<table class="modal_border">
+					<table class="modal_border responsive">
 
 
 						<tr>
@@ -283,22 +301,7 @@
 			<br>
 			<br>
 
-		<!-- pagenation -->
-	<br>
-		<br>
-		<div id="pager">
-			<div id="page_ctrl">
-				<ul id="page_before">
-					<li id="page_prev">prev</li>
-				</ul>
-				<ul id="page_number"></ul>
-				<ul id="page_after">
-					<li id="page_next">next</li>
-				</ul>
-			</div>
-		</div>
-		<br>
-		<br>
+
 		</s:if>
 
 
