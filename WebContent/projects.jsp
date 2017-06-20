@@ -211,7 +211,7 @@
 				<br>
 
 
-				<div class="container">
+				<!-- <div class="container">
 
 				<input type="button" value="＋受講生一覧表示" id="listButton">
 				<div id="studentsElement">
@@ -238,7 +238,7 @@
 						</s:iterator>
 					</table>
 				</div>
-				</div>
+				</div> -->
 			</s:if>
 
 
