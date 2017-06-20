@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
 import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
-import com.internousdev.openconnect.students.dao.StudentsSelectDAO;
 import com.internousdev.openconnect.students.dto.StudentsDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,10 +26,28 @@ public class ProjectsSelectAction extends ActionSupport {
 	 */
 	private String search = "";
 
+	private int user_id = 1;
+
 	/**
 	 * 検索結果文字
 	 */
 	private String resultSelect = "該当する情報は存在しません";
+
+	/**
+	* 取得メソッド を取得
+	* @return user_id
+	*/
+	public int getUser_id() {
+		return user_id;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param user_id
+	*/
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 
 	/**
 	 * 検索リスト
@@ -73,8 +90,8 @@ public class ProjectsSelectAction extends ActionSupport {
 		}
 
 
-		StudentsSelectDAO selectDao = new StudentsSelectDAO();
-		studentsList = selectDao.select(search);
+
+		studentsList = dao.search(search);
 
 		return result;
 	}

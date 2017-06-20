@@ -78,11 +78,10 @@
 							<td></td>
 							<td>ID</td>
 							<td>プロジェクト名</td>
-							<td>管理者ID<br>(リーダー)
-							</td>
+
+
 							<td><div class="largetext">管理者(リーダー)</div></td>
-							<td>管理者ID<br>(サブ)
-							</td>
+
 							<td><div class="largetext">管理者（サブ)</div></td>
 							<td><div class="middletext">開始日（yyyy/MM/dd）</div></td>
 							<td><div class="middletext">終了日（yyyy/MM/dd）</div></td>
@@ -101,20 +100,12 @@
 									maxlength="100" value="<s:property value="projectName"/>"
 									class="projectNamelist" placeholder="例：rewrite"></td>
 
-								<td><input type="text" name="projectManagerIdList"
-									maxlength="10" value="<s:property value="managerId"/>"
-									class="projectManagerIdlist" pattern="[1-9][0-9]*"
-									placeholder="半角数字で入力" title="半角数字を入力してください。" required
-									size="7px"></td>
+
 
 								<td><s:property value="managerFamilyNameKanji" /> <s:property
 										value="managerGivenNameKanji" /></td>
 
-								<td><input type="text" name="projectSubManagerIdList"
-									maxlength="10" value="<s:property value="subManagerId"/>"
-									class="projectSubManagerIdlist" pattern="[1-9][0-9]*"
-									placeholder="半角数字で入力" title="半角数字を入力してください。" required
-									size="7px"></td>
+
 
 								<td><s:property value="subManagerFamilyNameKanji" /> <s:property
 										value="subManagerGivenNameKanji" /></td>
