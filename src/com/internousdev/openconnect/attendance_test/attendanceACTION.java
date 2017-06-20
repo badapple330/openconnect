@@ -19,8 +19,180 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class attendanceACTION extends ActionSupport implements SessionAware{
 
-	private String attendance;	//勤怠
+
+	private int atYear;
+	private int atMonth;
+	/**
+	* 取得メソッド を取得
+	* @return atYear
+	*/
+	public int getAtYear() {
+		return atYear;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param atYear
+	*/
+	public void setAtYear(int atYear) {
+		this.atYear = atYear;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return atMonth
+	*/
+	public int getAtMonth() {
+		return atMonth;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param atMonth
+	*/
+	public void setAtMonth(int atMonth) {
+		this.atMonth = atMonth;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return atDay
+	*/
+	public int getAtDay() {
+		return atDay;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param atDay
+	*/
+	public void setAtDay(int atDay) {
+		this.atDay = atDay;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return atDate
+	*/
+	public String getAtDate() {
+		return atDate;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param atDate
+	*/
+	public void setAtDate(String atDate) {
+		this.atDate = atDate;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return month
+	*/
+	public String getMonth() {
+		return month;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param month
+	*/
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return givenNameKanji
+	*/
+	public String getGivenNameKanji() {
+		return givenNameKanji;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param givenNameKanji
+	*/
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return teamName
+	*/
+	public String getTeamName() {
+		return teamName;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param teamName
+	*/
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return reason
+	*/
+	public String getReason() {
+		return reason;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param reason
+	*/
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return displayList
+	*/
+	public ArrayList<AttendanceDTO> getDisplayList() {
+		return displayList;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param displayList
+	*/
+	public void setDisplayList(ArrayList<AttendanceDTO> displayList) {
+		this.displayList = displayList;
+	}
+
+
+	private int atDay;
+	private String atDate;
+	private String month;
 	private String familyNameKanji;
+	private String givenNameKanji;
+	private String teamName;
+	private String attendance;	//勤怠
+	private String reason;
+
 
 
 
@@ -37,7 +209,7 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 		String result = ERROR;
 
 		AttendanceDao dao = new AttendanceDao();
-		displayList = dao.select(attendance,familyNameKanji);
+		displayList = dao.select(attendance,familyNameKanji,atYear,atMonth,atDay);
 		if(displayList.size() > 0){
 			result=SUCCESS;
 		}
