@@ -102,21 +102,21 @@
 
 								<td><s:if test="%{userFlg==1}">
 										<select name="userFlg" class="userFlg maxText">
-											<option value="1" selected>生徒</option>
+											<option value="1" selected>メンバー</option>
 											<option value="2">リーダー</option>
-											<option value="3">講師</option>
+											<option value="3">管理者</option>
 										</select>
 									</s:if> <s:elseif test="%{userFlg==2}">
 										<select name="userFlg" class="userFlg maxText">
-											<option value="1">生徒</option>
+											<option value="1">メンバー</option>
 											<option value="2" selected>リーダー</option>
-											<option value="3">講師</option>
+											<option value="3">管理者</option>
 										</select>
 									</s:elseif> <s:else>
 										<select name="userFlg" class="userFlg maxText">
-											<option value="1">生徒</option>
+											<option value="1">メンバー</option>
 											<option value="2">リーダー</option>
-											<option value="3" selected>講師</option>
+											<option value="3" selected>管理者</option>
 										</select>
 									</s:else></td>
 
@@ -170,8 +170,6 @@
 				<br> <br> 上記の受講生の編集を行います。
 				<s:form action="StudentsUpdateAction">
 					<input type="hidden" name="userId" class="updateUserId" value="">
-					<input type="hidden" name="year" class="updateYear" value="">
-					<input type="hidden" name="month" class="updateMonth" value="">
 
 					<input type="hidden" name="familyNameKanji"
 						class="updateFamilyNameKanji" value="">
@@ -183,13 +181,9 @@
 
 
 
-					<input type="hidden" name="userdelFlg" class="updateUserdelFlg"
-						value="">
-					<input type="hidden" name="loginFlg" class="updateLoginFlg"
-						value="">
+
 					<input type="hidden" name="userFlg" class="updateUserFlg" value="">
-					<input type="hidden" name="password" class="updatePassword"
-						value="">
+
 
 					<input type="submit" class="delete-true button" value="編集">
 				</s:form>
