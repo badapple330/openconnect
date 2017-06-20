@@ -36,7 +36,7 @@ public class StudentsSearchDAO {
 			String sql=null;
 
 
-			sql="select * from users  where year=? and month=? ";
+			sql="select * from users  where year=? and month=? order by user_flg";
 
 
 
@@ -45,6 +45,7 @@ public class StudentsSearchDAO {
 
 				ps.setString(1, year);
 				ps.setString(2, month);
+
 
 
 
@@ -89,6 +90,8 @@ public class StudentsSearchDAO {
 				dto.setUpdateDay(rs.getString("update_day"));
 				dto.setLoginFlg(rs.getBoolean("login_flg"));
 				dto.setUserFlg(rs.getInt("user_flg"));
+				dto.setTeamName(rs.getString("team_name"));
+
 
 
 
