@@ -30,15 +30,15 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 
 
 	/*ユーザーリスト*/
-	private ArrayList<AttendanceDTO> searchList= new ArrayList<AttendanceDTO>();
+	private ArrayList<AttendanceDTO> displayList = new ArrayList<AttendanceDTO>();
 
 	public String execute(){
 
 		String result = ERROR;
 
 		AttendanceDao dao = new AttendanceDao();
-		searchList = dao.select(attendance,familyNameKanji);
-		if(searchList.size() > 0){
+		displayList = dao.select(attendance,familyNameKanji);
+		if(displayList.size() > 0){
 			result=SUCCESS;
 		}
 		return result;
@@ -46,11 +46,11 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * searchListを取得します。
-	 * @return searchList
+	 * displayListを取得します。
+	 * @return displayList
 	 */
-	public ArrayList<AttendanceDTO> getSearchList() {
-		return searchList;
+	public ArrayList<AttendanceDTO> getdisplayList() {
+		return displayList;
 	}
 
 
@@ -58,11 +58,11 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * searchListを設定します。
-	 * @param searchList searchList
+	 * displayListを設定します。
+	 * @param displayList displayList
 	 */
-	public void setSearchList(ArrayList<AttendanceDTO> searchList) {
-		this.searchList = searchList;
+	public void setdisplayList(ArrayList<AttendanceDTO> displayList) {
+		this.displayList = displayList;
 	}
 
 	/**

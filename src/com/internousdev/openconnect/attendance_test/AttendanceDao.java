@@ -23,7 +23,7 @@ public class AttendanceDao {
 	/**
 	 * 勤怠履歴を格納する
 	 */
-	public ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
+	public ArrayList<AttendanceDTO> displayList = new ArrayList<AttendanceDTO>();
 
 	/**
 	 * 勤怠状況で名前を取得するメソッド
