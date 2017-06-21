@@ -20,16 +20,18 @@ if(($("#teamForm").val() != "") && (($("#familyForm").val() != "") || ($("#Given
 alert('チーム名、性、名を同時に検索できません');
 }else if((($("#familyForm").val() != "" && $("#GivenForm").val() == "")) || (($("#familyForm").val() == "") && ($("#GivenForm").val() != ""))){
 	alert('姓と名の両方を入力してください');
-}else if(($("#id_year").val() !="") && (($("#id_month").val() !="")) && ($("#id_day").val() =="") ||
-		($("#id_year").val() !="") && (($("#id_month").val() =="")) && ($("#id_day").val() =="") ||
-		($("#id_year").val() =="") && (($("#id_month").val() !="")) && ($("#id_day").val() !="") ||
-		($("#id_year").val() =="") && (($("#id_month").val() !="")) && ($("#id_day").val() =="") ||
-		($("#id_year").val() =="") && (($("#id_month").val() !="")) && ($("#id_day").val() !="") ||
-		($("#id_year").val() =="") && (($("#id_month").val() !="")) && ($("#id_day").val() =="")){
+}else if(($("#id_year").val() !="") && ($("#id_month").val() !="") && ($("#id_day").val() =="") ||
+		($("#id_year").val() !="") && ($("#id_month").val() =="") && ($("#id_day").val() =="") ||
+		($("#id_year").val() =="") && ($("#id_month").val() !="") && ($("#id_day").val() !="") ||
+		($("#id_year").val() =="") && ($("#id_month").val() !="") && ($("#id_day").val() =="") ||
+		($("#id_year").val() =="") && ($("#id_month").val() !="") && ($("#id_day").val() !="") ||
+		($("#id_year").val() =="") && ($("#id_month").val() !="") && ($("#id_day").val() =="") ||
+		($("#id_year").val() !="") && ($("#id_month").val() =="") && ($("#id_day").val() !=""))
+		{
 	alert('日付をすべて選択してください');
-}else if(($("#id_year").val() =="") && (($("#id_month").val() =="")) && ($("#id_day").val() =="") &&
-		(($("#familyForm").val() =="")) && (($("#givenForm").val() =="")) && (($("#teamForm").val() =="")) &&
-		(($("#id_attendance").val !=""))){
+}else if(($("#id_year").val() =="") && ($("#id_month").val() =="") && ($("#id_day").val() =="") &&
+		(($("#familyForm").val() =="")) && ($("#givenForm").val() =="") && (($("#teamForm").val() =="")) &&
+		($("#id_attendance").val !="")){
 	alert('出欠の他に入力してください');
 }else{
 $("#search").submit();
@@ -106,9 +108,6 @@ $("#search").submit();
   </td>
   <td>
     <s:property value="month"/>
-  </td>
-  <td>
-  	<s:property value="attendance"/>
   </td>
   <td>
     <s:property value="teamName"/>
