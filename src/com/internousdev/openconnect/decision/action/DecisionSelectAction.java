@@ -64,21 +64,13 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 
 	private String iAId;
 
-	/**
-	 * 承認番号
-	 */
-	private String adminNum;
+
 
 	/**
 	 * 理由・目的
 	 */
 	public String cause;
 
-
-	/**
-	 * 	頭紙文章
-	 */
-	private String head;
 
 	/**
 	 * 建設費用
@@ -117,10 +109,19 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public int prove;
 
 	/**
+	 * 合計開発端末料
+	 */
+	public int totalProve;
+
+	/**
 	 * リリース環境使用料
 	 */
 	public float re;
 
+	/**
+	 * 合計リリース環境使用料
+	 */
+	public float totalRe;
 
 
 
@@ -130,9 +131,19 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public int line;
 
 	/**
+	 *合計回線使用料
+	 */
+	public int totalLine;
+
+	/**
 	 *施設使用料
 	 */
 	public float room;
+
+	/**
+	 *合計施設使用料
+	 */
+	public float totalRoom;
 
 	/**
 	 *開発要員
@@ -140,11 +151,24 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public int human;
 
 	/**
+	 *合計開発要員
+	 */
+	public int totalHuman;
+
+	/**
 	 *雑費
 	 */
 	public float etc;
 
+	/**
+	 *合計雑費
+	 */
+	public float totalEtc;
 
+    /**
+     * 人数
+     */
+    public int persons;
 
 
 
@@ -185,7 +209,7 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		String result = ERROR;
 		DecisionDAO dao = new DecisionDAO();
-		System.out.println(userId);
+
 		try {
 		decisionList=dao.select();
 		} catch (UnknownException e) {
@@ -193,7 +217,7 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 		}
 
 		if(decisionList!=null){
-			System.out.println(userId);
+
 			DecisionDAO decisionDAO = new DecisionDAO();
 			try {
 				nameList = decisionDAO.selectByUserId(userId);
@@ -323,33 +347,8 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 		this.iAId = iAId;
 	}
 
-	/**
-	 * @return adminNum
-	 */
-	public String getAdminNum() {
-		return adminNum;
-	}
 
-	/**
-	 * @param adminNum セットする adminNum
-	 */
-	public void setAdminNum(String adminNum) {
-		this.adminNum = adminNum;
-	}
 
-	/**
-	 * @return head
-	 */
-	public String getHead() {
-		return head;
-	}
-
-	/**
-	 * @param head セットする head
-	 */
-	public void setHead(String head) {
-		this.head = head;
-	}
 
 	/**
 	 * @return bildCost
@@ -630,6 +629,119 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public void setEtc(float etc) {
 		this.etc = etc;
 	}
+
+	/**
+	* 取得メソッド を取得
+	* @return persons
+	*/
+	public int getPersons() {
+		return persons;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param persons
+	*/
+	public void setPersons(int persons) {
+		this.persons = persons;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return totalProve
+	*/
+	public int getTotalProve() {
+		return totalProve;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param totalProve
+	*/
+	public void setTotalProve(int totalProve) {
+		this.totalProve = totalProve;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return totalRe
+	*/
+	public float getTotalRe() {
+		return totalRe;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param totalRe
+	*/
+	public void setTotalRe(float totalRe) {
+		this.totalRe = totalRe;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return totalLine
+	*/
+	public int getTotalLine() {
+		return totalLine;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param totalLine
+	*/
+	public void setTotalLine(int totalLine) {
+		this.totalLine = totalLine;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return totalRoom
+	*/
+	public float getTotalRoom() {
+		return totalRoom;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param totalRoom
+	*/
+	public void setTotalRoom(float totalRoom) {
+		this.totalRoom = totalRoom;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return totalHuman
+	*/
+	public int getTotalHuman() {
+		return totalHuman;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param totalHuman
+	*/
+	public void setTotalHuman(int totalHuman) {
+		this.totalHuman = totalHuman;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return totalEtc
+	*/
+	public float getTotalEtc() {
+		return totalEtc;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param totalEtc
+	*/
+	public void setTotalEtc(float totalEtc) {
+		this.totalEtc = totalEtc;
+	}
+
 
 
 
