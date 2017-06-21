@@ -5,16 +5,22 @@
     background-size: cover;
     position: absolute;
     z-index: auto;
+    margin: 2px 2%;
 }
 
 .logo {
 	text-align: right;
 }
 
+.dissappear{
+	margin: 10px 2%;
+	float: right;
+}
 /*タイトルロゴ--------------------------------*/
 
 
 .openConnect{
+  margin: 2px 2%;
   display: inline-block;
   position: relative;
   padding: 0.5em 1em;
@@ -34,6 +40,7 @@
   width: auto;
   height: auto;
   display: inline-block;
+  margin: 2px 2%;
 }
 .upperHeader:before{
   border-left: solid 10px #0080c0;
@@ -155,7 +162,7 @@ text-align: center;
 /* navバー導入 */
 #primary_nav_wrap
 {
-	margin-top: auto;
+	margin: 2px 2%;
 }
 
 #primary_nav_wrap ul
@@ -227,7 +234,7 @@ text-align: center;
 }
 
 
-@media only screen and (max-device-width: 462px){
+@media only screen and (max-device-width: 500px){
 	.dissappear{
 		width: 0px;
 		height: 0px;
