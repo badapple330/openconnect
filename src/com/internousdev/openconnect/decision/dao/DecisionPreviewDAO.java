@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
 
@@ -114,13 +116,14 @@ public class DecisionPreviewDAO {
 				"openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 		ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
-		String sql = "select * users from  where user_id=?";
+		String sql = "select * from users where user_id=?";
+		Logger log = Logger.getLogger(DecisionPreviewDAO.class.getName());
+		log.error(draftUserId);
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,draftUserId);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				dto.setDraftUserId(rs.getInt("user_id")); // ユーザーID
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
 				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
 				nameList.add(dto);
@@ -135,6 +138,7 @@ public class DecisionPreviewDAO {
 				e.printStackTrace();
 			}
 		}
+		log.error(nameList);
 		return nameList;
 	}
 

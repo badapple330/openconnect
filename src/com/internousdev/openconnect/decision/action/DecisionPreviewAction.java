@@ -6,6 +6,7 @@ package com.internousdev.openconnect.decision.action;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.omg.CORBA.portable.UnknownException;
 
 import com.internousdev.openconnect.decision.dao.DecisionPreviewDAO;
@@ -31,6 +32,11 @@ public class DecisionPreviewAction extends ActionSupport {
 	 *
 	 */
 	private int draftUserId;
+
+	/**
+	 * ユーザーID
+	 */
+	private int userId;
 
 	/**
 	 * 案件名
@@ -165,7 +171,10 @@ public class DecisionPreviewAction extends ActionSupport {
 
 		if(decisionPreviewList!=null){
 			System.out.println(draftUserId);
+			Logger log = Logger.getLogger(DecisionPreviewAction.class.getName());
+			log.error(decisionPreviewList);
 			try {
+				draftUserId = decisionPreviewList.get(0).getDraftUserId();
 				nameList = dao.selectByDraftUserId(draftUserId);
 			} catch (UnknownException e) {
 				e.printStackTrace();
@@ -206,6 +215,24 @@ public class DecisionPreviewAction extends ActionSupport {
 	}
 
 	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+
+	/**
 	 * @return decisionName
 	 */
 	public String getDecisionName() {
@@ -222,28 +249,28 @@ public class DecisionPreviewAction extends ActionSupport {
 	/**
 	 * @return iDraftingId
 	 */
-	public String getiDraftingId() {
+	public String getIDraftingId() {
 		return iDraftingId;
 	}
 
 	/**
 	 * @param iDraftingId セットする iDraftingId
 	 */
-	public void setiDraftingId(String iDraftingId) {
+	public void setIDraftingId(String iDraftingId) {
 		this.iDraftingId = iDraftingId;
 	}
 
 	/**
 	 * @return iApprovalId
 	 */
-	public String getiApprovalId() {
+	public String getIApprovalId() {
 		return iApprovalId;
 	}
 
 	/**
 	 * @param iApprovalId セットする iApprovalId
 	 */
-	public void setiApprovalId(String iApprovalId) {
+	public void setIApprovalId(String iApprovalId) {
 		this.iApprovalId = iApprovalId;
 	}
 	/**

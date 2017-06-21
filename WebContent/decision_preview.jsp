@@ -31,8 +31,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-xs-12">
-						<div class="well">
-							<table>
+							<table class="table-responsive">
 								<tr>
 									<td>
 										<div align="right">
@@ -47,7 +46,7 @@
 										<s:iterator value="nameList">
 										氏名<s:property value="familyNameKanji" />
 										<s:property value="givenNameKanji" />
-										<br></s:iterator>
+										</s:iterator>
 										<br>
 										案件名：<s:property value="decisionName" />
 										<br>
@@ -100,14 +99,12 @@
 								</tr>
 							</table>
 						</div>
-					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12 col-xs-12">
-						<div class="well">
 							<br>
 							<br>
-							<table>
+							<table class="table-responsive">
 								<tr>
 									<td>
 										<h2>実施計画</h2>
@@ -141,7 +138,6 @@
 							<form>
 								<input class="center-block" type="button" value="戻る" onclick="history.back()">
 							</form>
-						</div>
 					</div>
 				</div>
 			</div>
