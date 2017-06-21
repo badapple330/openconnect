@@ -56,7 +56,7 @@
 				<select name="search" required="required">
 								<option value="">以下から選択</option>
 								<s:iterator value="teamList">
-									<option value="<s:property value="teamName[]" />"><s:property value="teamName" /></option>
+									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
 								</s:iterator>
 							</select>
 				<s:submit value="検索"></s:submit>
@@ -78,7 +78,7 @@
 							<th>start</th>
 							<th>end</th>
 							<th>title</th>
-							<th>チーム名</th>
+							<th>チーム名(編集不可)</th>
 							<th></th>
 						</tr>
 
