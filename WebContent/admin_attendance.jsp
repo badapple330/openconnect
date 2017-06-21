@@ -48,6 +48,18 @@ $("#search").submit();
 <s:textfield name="teamName" placeholder="チーム名" id="teamForm" title="チーム名"/>
 <s:submit value="検索" class="search-btn" id="searchButtun"/>
 </s:form>
+<table>
+<tr>
+<td>出席</td>
+<td>欠席</td>
+</tr>
+<tr>
+<td><s:property value="syusseki" /></td>
+<td><s:property value="kesseki" /></td>
+</tr>
+</table>
+
+
 
 <!-- 一覧表示 -->
 <table class="table table-striped table-borderd">

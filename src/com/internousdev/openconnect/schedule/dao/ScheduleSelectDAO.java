@@ -38,8 +38,12 @@ public class ScheduleSelectDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "select * from schedule where id LIKE '%" + search + "%' OR title LIKE '%" + search + "%'"
-				+ " OR team_name LIKE '%" + search + "%'";
+		/*id名やtitleも含めて検索したい場合はこっち
+		 * String sql = "select * from schedule where id LIKE '%" + search + "%' OR title LIKE '%" + search + "%'"
+				+ " OR team_name LIKE '%" + search + "%'";*/
+
+		/*チーム名のみで検索*/
+		String sql = "SELECT * FROM schedule WHERE team_name LIKE '%" + search + "%'";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -71,7 +75,7 @@ public class ScheduleSelectDAO {
 
 	}
 
-	public List<ScheduleDTO> select2(String team){
+	public List<ScheduleDTO> select2(){
 
 		DBConnector db2 = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn2 = db2.getConnection();
