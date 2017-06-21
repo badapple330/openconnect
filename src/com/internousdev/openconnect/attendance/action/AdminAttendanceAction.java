@@ -51,12 +51,23 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * 備考
 	 */
     private String reason;
-
-    private int syusseki = 0;
-	private int kesseki = 0;
-
-
-	/*
+    /**
+     * 出席数
+     */
+    private int present = 0;
+	/**
+	 * 欠席数
+	 */
+    private int absent = 0;
+    /**
+     * 遅刻数
+     */
+    private int late = 0;
+    /**
+     * 早退数
+     */
+    private int early = 0;
+	/**
 	 * ユーザーリスト
 	 */
 	private ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
@@ -74,18 +85,18 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 		AdminAttendanceDAO dao = new AdminAttendanceDAO();
 		searchList = dao.select(atYear,atMonth,atDay,familyNameKanji,givenNameKanji,teamName);
 
-		for(int i = 0;i < searchList.size();i++){
+		for(int i = 0; i<searchList.size(); i++){
 			String attend = searchList.get(i).getAttendance();
-
-
 			if(attend.equals("出席")){
-				syusseki = syusseki + 1;
+				present = present + 1;
 			} else if(attend.equals("欠席")){
-				kesseki = kesseki + 1;
-			}
-
+				absent = absent + 1;
+			} else if(attend.equals("遅刻")){
+                late = late + 1;
+		    } else if(attend.equals("早退")){
+		    	early = early + 1;
+		    }
 		}
-
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}
@@ -95,41 +106,81 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 
 
 	/**
-	 * syussekiを取得します。
-	 * @return syusseki
+	 * presentを取得します。
+	 * @return present
 	 */
-	public int getSyusseki() {
-	    return syusseki;
+	public int getPresent() {
+	    return present;
 	}
 
 
 
 	/**
-	 * syussekiを設定します。
-	 * @param syusseki syusseki
+	 * presentを設定します。
+	 * @param present present
 	 */
-	public void setSyusseki(int syusseki) {
-	    this.syusseki = syusseki;
+	public void setPresent(int present) {
+	    this.present = present;
 	}
 
 
 
 	/**
-	 * kessekiを取得します。
-	 * @return kesseki
+	 * absentを取得します。
+	 * @return absent
 	 */
-	public int getKesseki() {
-	    return kesseki;
+	public int getAbsent() {
+	    return absent;
 	}
 
 
 
 	/**
-	 * kessekiを設定します。
-	 * @param kesseki kesseki
+	 * absentを設定します。
+	 * @param absent absent
 	 */
-	public void setKesseki(int kesseki) {
-	    this.kesseki = kesseki;
+	public void setAbsent(int absent) {
+	    this.absent = absent;
+	}
+
+
+
+	/**
+	 * 遅刻数を取得します。
+	 * @return 遅刻数
+	 */
+	public int getLate() {
+	    return late;
+	}
+
+
+
+	/**
+	 * 遅刻数を設定します。
+	 * @param late 遅刻数
+	 */
+	public void setLate(int late) {
+	    this.late = late;
+	}
+
+
+
+	/**
+	 * 早退数を取得します。
+	 * @return 早退数
+	 */
+	public int getEarly() {
+	    return early;
+	}
+
+
+
+	/**
+	 * 早退数を設定します。
+	 * @param early 早退数
+	 */
+	public void setEarly(int early) {
+	    this.early = early;
 	}
 
 

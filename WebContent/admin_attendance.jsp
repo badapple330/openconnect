@@ -52,10 +52,14 @@ $("#search").submit();
 <tr>
 <td>出席</td>
 <td>欠席</td>
+<td>遅刻</td>
+<td>早退</td>
 </tr>
 <tr>
-<td><s:property value="syusseki" /></td>
-<td><s:property value="kesseki" /></td>
+<td><s:property value="present" /></td>
+<td><s:property value="absent" /></td>
+<td><s:property value="late" /></td>
+<td><s:property value="early" /></td>
 </tr>
 </table>
 
