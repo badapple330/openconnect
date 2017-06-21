@@ -82,7 +82,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		//実施決裁の申請
 		if(decisionType.equals("実施")) {
 
-			if(StringId == null) {
+			if(StringId == null || StringId.equals("")) {
 
 				idNum = iDraftingId;
 				idNumList = dao.select(decisionType, idNum);
@@ -104,7 +104,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		//契約決裁の申請
 		else if(decisionType.equals("契約")) {
 
-			if(StringId == null) {
+			if(StringId == null || StringId.equals("")) {
 				idNum = aDraftingId;
 				idNumList = dao.select(decisionType, idNum);
 				if(idNumList.size() > 0) {
@@ -125,7 +125,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		//実施兼契約決裁の申請
 		else {
 
-			if(StringId == null) {
+			if(StringId == null || StringId.equals("")) {
 				idNum = iADId;
 				idNumList = dao.select(decisionType, idNum);
 				if(idNumList.size() > 0) {
