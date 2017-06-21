@@ -66,12 +66,11 @@
 									</li>
 								  </s:if>
 
-								  <s:if test="%{#session.userFlg == 3}">
+								  <s:if test="%{#session.userFlg >= 1}">
 								  	 <li><a href="#">決裁</a>
 								      	<ul>
-								      	<li><a href="DecisionSelectAction">決裁一覧状況</a></li>
-									  	<li><a href="DecisionDetailSelectAction">決裁手続き</a></li>
-									  	<li><a href="DecisionApplicationSelectAction">決裁手続き申請一覧</a></li>
+								      	<li><a href="DecisionDetailSelectAction">決裁手続き</a></li>
+									  	<li><a href="DecisionArchiveAction">完了済み決裁</a></li>
 								      </ul>
 								     </li>
 								  </s:if>

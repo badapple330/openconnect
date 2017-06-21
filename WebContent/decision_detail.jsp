@@ -57,19 +57,18 @@
 					<th>決裁ID</th>
 
                     <th>プロジェクトID</th>
-					<th>案件名</th>
 					<th>プロジェクト名</th>
 
 					<th>決裁種類</th>
                     <th>決裁状況</th>
 
 					<th>
-					<s:if test="(decisionStatus1 == 0 || decisionStatus2 == 0) && ">
+					<s:if test="%{decisionType == '実施' && decisionStatus1 == 0}">
 						編集
 					</s:if>
-					<s:if test="decisionStatus1 == 3 || decisionStatus2 == 3">
+					<s:elseif test="(decisionStatus1 == 3 && decisionStatus2 == 0) || (decisionStatus1 == 2 && decisionStatus2 == 3)">
 						変更へ
-					</s:if>
+					</s:elseif>
 					<s:else>
 						プレビュー
 					</s:else>
@@ -105,10 +104,6 @@
 				<!-- プロジェクトID -->
 					<td class="project_id">
 						<s:property value="projectId" />
-					</td>
-				<!-- 案件名 -->
-					<td>
-						<s:property value="decisionName" />
 					</td>
 				<!-- プロジェクト名 -->
 					<td class="project_name">
@@ -253,21 +248,21 @@
 
 				</tr>
 
-			</table>
+			</table><br>
 
 		</s:if>
-		</s:iterator><br>
+		</s:iterator>
 
 
 
 
 		<s:iterator value="decisionBeginList">
 
-			<s:if test="%{decisionDetailList2.size() == 0 && decisionBeginList.size() > 0}">
-    			<div class="pad">
+			<s:if test="%{decisionBeginList.size() > 0}">
+    			<div class="pad"><br>
 
             <s:form action="DecisionDetailInsertAction">
-					案件の追加<br>あなたのプロジェクトは...
+					決裁手続きを始める<br>あなたのプロジェクトは...
 			<table border="1">
 				<tr>
 					<td>プロジェクト名：</td>
@@ -299,7 +294,9 @@
 		</s:iterator>
 
 
-	</s:if><br>
+	</s:if>
+
+<br>
 
 
 
@@ -311,7 +308,6 @@
 					<th>決裁ID</th>
 
                     <th>プロジェクトID</th>
-					<th>案件名</th>
 					<th>プロジェクト名</th>
 
 					<th>決裁種類</th>
@@ -342,10 +338,6 @@
 			<!-- プロジェクトID -->
 					<td class="project_id">
 						<s:property value="projectId" />
-					</td>
-			<!-- 案件名 -->
-					<td>
-						<s:property value="decisionName" />
 					</td>
 			<!-- プロジェクト名 -->
 					<td class="project_name">
@@ -618,7 +610,7 @@
 					<!-- 申請中の時以外 -->
 					<s:else>
 						<s:if test="decisionStatus1 == 3 || decisionStatus2 == 3">
-							却下済み
+							却下済み/変更中
 						</s:if>
 						<s:else>
 							現在申請なし
