@@ -82,6 +82,9 @@ public class AttendanceDTO {
      * テストカウント
      */
     private int testCount;
+
+    private int syusseki;
+	private int kesseki;
 	/**
 	* 取得メソッド 日付を取得
 	* @author MINORI SUNAGAWA
@@ -370,6 +373,34 @@ public class AttendanceDTO {
 	 */
 	public void setTestCount(int testCount) {
 	    this.testCount = testCount;
+	}
+	/**
+	 * syussekiを取得します。
+	 * @return syusseki
+	 */
+	public int getSyusseki() {
+	    return syusseki;
+	}
+	/**
+	 * syussekiを設定します。
+	 * @param syusseki syusseki
+	 */
+	public void setSyusseki(int syusseki) {
+	    this.syusseki = syusseki;
+	}
+	/**
+	 * kessekiを取得します。
+	 * @return kesseki
+	 */
+	public int getKesseki() {
+	    return kesseki;
+	}
+	/**
+	 * kessekiを設定します。
+	 * @param kesseki kesseki
+	 */
+	public void setKesseki(int kesseki) {
+	    this.kesseki = kesseki;
 	}
 
 }

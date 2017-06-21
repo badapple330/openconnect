@@ -52,6 +52,9 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 */
     private String reason;
 
+    private int syusseki = 0;
+	private int kesseki = 0;
+
 
 	/*
 	 * ユーザーリスト
@@ -59,6 +62,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	private ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 	/**
 	 * ページネーション用リスト
+	 * @param s
 	 */
 
 
@@ -70,10 +74,62 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 		AdminAttendanceDAO dao = new AdminAttendanceDAO();
 		searchList = dao.select(atYear,atMonth,atDay,familyNameKanji,givenNameKanji,teamName);
 
+		for(int i = 0;i < searchList.size();i++){
+			String attend = searchList.get(i).getAttendance();
+
+
+			if(attend.equals("出席")){
+				syusseki = syusseki + 1;
+			} else if(attend.equals("欠席")){
+				kesseki = kesseki + 1;
+			}
+
+		}
+
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}
 	return result;
+	}
+
+
+
+	/**
+	 * syussekiを取得します。
+	 * @return syusseki
+	 */
+	public int getSyusseki() {
+	    return syusseki;
+	}
+
+
+
+	/**
+	 * syussekiを設定します。
+	 * @param syusseki syusseki
+	 */
+	public void setSyusseki(int syusseki) {
+	    this.syusseki = syusseki;
+	}
+
+
+
+	/**
+	 * kessekiを取得します。
+	 * @return kesseki
+	 */
+	public int getKesseki() {
+	    return kesseki;
+	}
+
+
+
+	/**
+	 * kessekiを設定します。
+	 * @param kesseki kesseki
+	 */
+	public void setKesseki(int kesseki) {
+	    this.kesseki = kesseki;
 	}
 
 

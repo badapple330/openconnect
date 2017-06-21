@@ -35,9 +35,7 @@
 <body>
 <!-- アプリ一覧表示 -->
 	<div class="container">
-		<s:iterator value = "scheduleList">
-		<h1 class="page-header"><s:property value ="teamName" /></h1>
-		</s:iterator>
+		<h1 class="page-header"><s:property value ="scheduleList[0].teamName" />さんのスケジュール</h1>
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{siteUrl}">
@@ -58,7 +56,7 @@
 				<select name="search" required="required">
 								<option value="">以下から選択</option>
 								<s:iterator value="teamList">
-									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
+									<option value="<s:property value="teamName[]" />"><s:property value="teamName" /></option>
 								</s:iterator>
 							</select>
 				<s:submit value="検索"></s:submit>
@@ -139,7 +137,7 @@
 								maxlength=100 required></td>
 						</tr>
 						<tr>
-							<select name="teamName" required="required">
+							<select name="search" required="required">
 								<option value="">以下から選択</option>
 								<s:iterator value="teamList">
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
