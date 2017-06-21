@@ -59,17 +59,10 @@ public class AdminAttendanceDAO {
 			whereState += "at_year="+atYear +" AND at_month="+atMonth +" AND at_day="+atDay;
 		}
 
-		/* 姓が定義されたとき */
-		if(!((familyNameKanji).equals(""))){
+		/* 姓と名が定義されたとき */
+		if(!((familyNameKanji).equals("") && (givenNameKanji).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-			whereState += "family_name_kanji='"+familyNameKanji+"'";
-
-		}
-
-		/* 名が定義されたとき */
-		if(!((givenNameKanji).equals(""))){
-			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-			whereState += "given_name_kanji='"+givenNameKanji+"'";
+			whereState += "family_name_kanji='"+familyNameKanji+"'" + " AND " +"given_name_kanji='"+givenNameKanji+"'";
 		}
 
 		/* チーム名が定義されたとき */
@@ -77,17 +70,15 @@ public class AdminAttendanceDAO {
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
 			whereState += "team_name='"+teamName+"'";
 		}
+
 		/* 勤怠状況定義時 */
-		if(!((attendance).equals(""))){
-			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+		if(!(whereState).equals("") && !((attendance).equals(""))){
+			whereState += whereState.equals("") + " AND "; //条件文字列にANDを追加する。
 			whereState += "attendance='"+attendance+"'";
 		}
 
 		/* sql文定義 */
 		if(whereState.equals("")){
-			/*条件完全未定義時、任意の勤怠状況データを得る。 */
-			sql = "select * from attendance left join users on attendance.user_id=users.user_id;";
-		} else {
 			/* Where節 定義時 */
 			sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + ";";
 		}
