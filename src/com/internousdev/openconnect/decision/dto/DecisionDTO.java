@@ -163,6 +163,19 @@ public class DecisionDTO {
 	public float totalEtc;
 
 	/**
+	 * 承認ユーザーID1
+	 */
+	private int permitUserId1;
+	/**
+	 * 承認ユーザーID2
+	 */
+	private int permitUserId2;
+	/**
+	 * 承認ユーザーID3
+	 */
+	private int permitUserId3;
+
+	/**
 	* 取得メソッド を取得
 	* @author KOHEI NITABARU
 	* @return totalProve
@@ -705,6 +718,39 @@ public class DecisionDTO {
 		*/
 		public void setGivenNameKanji(String givenNameKanji) {
 			this.givenNameKanji = givenNameKanji;
+		}
+
+		/**
+		* 設定メソッド を設定
+		* @param premitUserId1
+		*/
+		public int getPermitUserId1() {
+			return permitUserId1;
+		}
+		public void setPermitUserId1(int permitUserId1) {
+			this.permitUserId1 = permitUserId1;
+		}
+
+		/**
+		* 設定メソッド を設定
+		* @param premitUserId2
+		*/
+		public int getPermitUserId2() {
+			return permitUserId2;
+		}
+		public void setPermitUserId2(int permitUserId2) {
+			this.permitUserId2 = permitUserId2;
+		}
+
+		/**
+		* 設定メソッド を設定
+		* @param premitUserId3
+		*/
+		public int getPermitUserId3() {
+			return permitUserId3;
+		}
+		public void setPermitUserId3(int permitUserId3) {
+			this.permitUserId3 = permitUserId3;
 		}
 
 }
