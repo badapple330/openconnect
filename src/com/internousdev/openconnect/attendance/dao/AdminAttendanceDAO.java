@@ -1,9 +1,9 @@
 package com.internousdev.openconnect.attendance.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException; //public class SQLException extends Exception implements Iterable<Throwable>APIのクラス
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
@@ -27,64 +27,74 @@ public class AdminAttendanceDAO {
 	public ArrayList<AttendanceDTO> searchList  = new ArrayList<AttendanceDTO>();
 
 	/**
-	 * 商品IDで販売履歴を取得しリストに格納するメソッド
-	 * @param itemId 商品ID
-	 * @return adminhistorylist 販売履歴
+	 * 諸条件コンテキストを引数にとり、勤怠状況をデータベースより取得するメソッド。
+	 * 諸コンテキストには、未定義を許容する。
+	 * int型について、未定義時は値0。String型について、未定義時には空文字列。
+	 * @author Kawamura
+	 * @sinces 2017/6/21
 	 *
-	 * @author kota.miyazato
-	 * @since 2017/05/12
-	 * @version 1.0
+	 * @param atYear
+	 * @param atMonth
+	 * @param atDay
+	 * @param familyNameKanji
+	 * @param givenNameKanji
+	 * @param attendance
+	 * @param teamName
+	 * @return
 	 */
-	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String familyNameKanji,String givenNameKanji,String teamName) {
+	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String familyNameKanji,String givenNameKanji,String attendance, String teamName) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
+		Statement statement = null;
 
+		/* 検索結果格納DTO */
 		ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
-		int k = 0;
 		String sql = null;
+		/* sql文生成に用いるWhere節文字列 */
+		String whereState = "";
 
-
-		if(atYear!=0 && atMonth!=0 && atDay!=0 && (familyNameKanji).equals("") && (givenNameKanji).equals("")){
-			sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=?";
-			k=1;
-		}else if(atYear==0 && atMonth==0 && atDay==0 && !((familyNameKanji).equals("")) && !((givenNameKanji).equals(""))){
-			sql = "select * from attendance left join users on attendance.user_id = users.user_id where family_name_kanji=? AND given_name_kanji=?";
-		    k=2;
+		/* 日付が定義されたとき */
+		if(atYear != 0 && atMonth != 0 && atDay != 0){
+			whereState += "at_year="+atYear +" AND at_month="+atMonth +" AND at_day="+atDay;
 		}
-	    else if(atYear!=0 && atMonth!=0 && atDay!=0 && !((familyNameKanji).equals("")) && !((givenNameKanji).equals(""))){
-	    	sql = "select * from attendance left join users on attendance.user_id = users.user_id where at_year = ? AND at_month=? AND at_day=? AND family_name_kanji=? AND given_name_kanji=?";
-	        k=3;
-	    }else if(atYear!=0 && atMonth!=0 && atDay!=0 && (familyNameKanji).equals("") && (givenNameKanji).equals("") && !((teamName).equals(""))){
-	    	sql = "select * from attendance left join users on attendance.user_id = users.user_id where atYear = ? AND atMonth = ? AND atDay = ? AND teamName = ?";
-	    	k=4;
-	    }
 
+		/* 姓が定義されたとき */
+		if(!((familyNameKanji).equals(""))){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "family_name_kanji='"+familyNameKanji+"'";
+
+		}
+
+		/* 名が定義されたとき */
+		if(!((givenNameKanji).equals(""))){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "given_name_kanji='"+givenNameKanji+"'";
+		}
+
+		/* チーム名が定義されたとき */
+		if(!((teamName).equals(""))){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "team_name='"+teamName+"'";
+		}
+		/* 勤怠状況定義時 */
+		if(!((attendance).equals(""))){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "attendance="+attendance+"'";
+		}
+
+		/* sql文定義 */
+		if(whereState.equals("")){
+			/*条件完全未定義時、任意の勤怠状況データを得る。 */
+			sql = "select * from attendance left join users on attendance.user_id=users.user_id;";
+		} else {
+			/* Where節 定義時 */
+			sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + ";";
+		}
 
 		try {
-			PreparedStatement ps = con.prepareStatement(sql); //「?」のパラメーターを持つSQLを実行するためのインターフェイス。SQLコンテナ
-			if(k == 1){
-			          ps.setInt(1, atYear); //ps内の?への値のセット。第1引数には?のインデックスナンバーを指定する。第2引数にはセットする値を指定する。
-			          ps.setInt(2, atMonth);
-			          ps.setInt(3, atDay);
-			}else if(k == 2){
-				      ps.setString(1, familyNameKanji);
-		              ps.setString(2, givenNameKanji);
-			}else if(k == 3){
-				      ps.setInt(1, atYear);
-		              ps.setInt(2, atMonth);
-		              ps.setInt(3, atDay);
-		              ps.setString(4, familyNameKanji);
-		              ps.setString(5, givenNameKanji);
-			}else if(k == 4){
-				      ps.setInt(1, atYear);
-	                  ps.setInt(2, atMonth);
-	                  ps.setInt(3, atDay);
-			          ps.setString(4, teamName);
-			}
-
-
-			ResultSet rs = ps.executeQuery(); //SQL文の実行インターフェース。
+			statement = con.createStatement();
+			ResultSet rs = statement.executeQuery(sql); //SQL文の実行インターフェース。
 
 			while (rs.next()) {
 				AttendanceDTO dto = new AttendanceDTO();
@@ -97,14 +107,14 @@ public class AdminAttendanceDAO {
 				dto.setReason(rs.getString("reason"));
 				searchList.add(dto);
 			}
-			rs.close();
-			ps.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
+				/* Close Resouces */
 				con.close();
+				statement.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
