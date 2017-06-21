@@ -15,6 +15,7 @@ th {
 
 td {
 	text-align: center;
+
 }
 
 .delete {
@@ -29,9 +30,9 @@ modalDelete {
 	display: inline;
 }
 
-body {
+/*body {
 	background-color: #808080;
-}
+}*/
 
 p {
 	width: 100%;
@@ -147,11 +148,36 @@ input {
 	font-weight: bold !important;
 }
 
-#pager {
+/*#pager {
 	text-align: center;
-}
+}*/
 
 #contents {
 	z-index: 0;
 	font-size: 16px;
+}
+
+/* 中央寄せ */
+.centered{
+	margin-right: auto;
+  	margin-left: auto;
+  	text-align: center;
+  	align: center;
+  	}
+
+@media only screen and (max-device-width: 900px){
+	.centered{
+	  	margin-left: auto;
+	  	text-align: left;
+	}
+	.add{
+		text-align: left;
+		margin-left: 0px;
+	}
+	.table-scroll{
+		overflow-x: scroll;
+	}
+	.fixedButton{
+		position: absolute;
+	}
 }

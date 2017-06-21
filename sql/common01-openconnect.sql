@@ -28,14 +28,14 @@ drop database if exists openconnect;
 create database openconnect;
 use openconnect;
 
+/* 年月日をnot nullに戻す */
 create table attendance(
-at_year int not null comment '手入力の報告年',
-at_month int not null comment '手入力の報告月',
-at_day int not null comment '手入力の報告日',
+at_year int  comment '手入力の報告年',
+at_month int comment '手入力の報告月',
+at_day int  comment '手入力の報告日',
 at_date timestamp not null default current_timestamp comment '日付',
 user_id int not null comment '生徒ID',
-attendance int default 0  comment '出欠状況',
-interview int default 2 comment '面談状況',
+attendance varchar(50) comment '出欠状況',
 reason text comment'備考',
 foreign key(user_id) references users(user_id) on update cascade on delete cascade
 );
@@ -44,16 +44,6 @@ foreign key(user_id) references users(user_id) on update cascade on delete casca
 create table books(
 book_id int primary key not null auto_increment comment 'ブックID',
 title varchar(100) not null unique comment 'タイトル'
-);
-
-
-create table books_borrow(
-book_id int not null comment 'ブックID',
-borrow_status varchar(10) comment '貸出状況',
-borrow_day date comment '貸出日',
-borrow_id int comment '貸し出しID',
-foreign key(book_id) references books(book_id) on update cascade on delete cascade,
-foreign key(borrow_id) references users(user_id) on update cascade on delete cascade
 );
 
 create table decision(
@@ -249,22 +239,22 @@ password varchar(255) not null comment 'パスワード',
 family_name varchar(50)  comment '姓(英語)',
 given_name varchar(50)  comment '名(英語)',
 family_name_kanji varchar(50) not null comment '姓(漢字)',
-family_name_kana varchar(50)  comment '姓(ふりがな)',
+family_name_kana varchar(50) not null comment '姓(ふりがな)',
 given_name_kanji varchar(50) not null comment '名(漢字)',
-given_name_kana varchar(50)  comment '名(ふりがな)',
+given_name_kana varchar(50)  not null comment '名(ふりがな)',
 postal varchar(255) comment '郵便番号',
 address varchar(255) comment '住所',
 phone_number varchar(255) comment '電話番号',
-phone_email varchar(255) unique comment 'メールアドレス',
+phone_email varchar(255) not null comment 'メールアドレス',
 mobile_number varchar(255) comment '携帯電話番号',
-mobile_email varchar(255) primary key comment '携帯メールアドレス',
-sex varchar(10) not null comment '性別',
+mobile_email varchar(255) unique comment '携帯メールアドレス',
+sex varchar(10)  comment '性別',
 birthday date comment '誕生日',
 userdel_flg boolean default FALSE comment '退会フラグ',
 login_flg boolean default FALSE comment 'ログインフラグ',
 user_flg int not null default 1 comment 'ユーザーフラグ',
-year varchar(4) comment '受講年',
-month varchar(2) comment '受講開始月',
+year varchar(4) not null comment '受講年',
+month varchar(2) not null comment '受講開始月',
 oauth_id varchar(255) comment 'OAuthID',
 oauth_name int default 0 comment 'OAuth名',
 oauth_account varchar(100) comment 'OAuthアカウント',

@@ -1,235 +1,319 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE>
-<html>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html >
+<html lang=ja>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href="img/oc.png">
-<link rel="apple-touch-icon" href="img/oc.png">
-<title>決裁状況一覧</title>
+<meta charset="utf-8">
+<!-- Stylesheet
+      ================================================== -->
+<link rel="stylesheet" type="text/css" href="css/decision_implementation.css">
+
+<!-- Javascripts
+      ================================================== -->
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 
-<link rel="stylesheet" href="css/decision.css">
-
-<!-- JSファイル読み込み -->
-<script src="js/jquery-3.1.0.min.js"></script>
-<script src="js/decision.js"></script>
 
 
-<!-- <link href="css/bootstrap.css" rel="stylesheet" type="text/css"> -->
+
+<title>実施決裁</title>
+<script type="text/javascript">
+
+
+
+
+
+//選択箇所全入力
+$(function() {
+	$("#input").on("keyup change", function() {
+		$("#res,#lines,#c,#d").val($(this).val());
+	});
+});
+</script>
 </head>
+
+
 <body>
 
-	<!-- ヘッダー読み込み -->
-	<header><jsp:include page="header.jsp" /></header>
-
-	<div class="container">
-
-
-
-		<br>
-		<h1>決裁状況一覧</h1>
-			<s:if test="%{#session.userFlg >= 1}">
-		<div align="left">案件名を入力してください</div>
-		<p>
-		<p>
-			<s:form action="DecisionSelectAction">
-				<input type="text" name="searchString" id="searchText"
-					placeholder="案件名を入力" maxlength="100" />
-				<input type="submit" value="検索" class="button">
-			</s:form>
-		</p>
-		<br>
-		<s:property value="resultString" />
-		<s:property value="resultSelect" />
-		<br>
-		<s:form action="DecisionUpdateAction">
-			<table border="1"width="150%" style="table-layout: auto;">
-				<tr>
-					<!-- 一覧 -->
-					
-					
-					<td bgcolor="#66FF33">登録日</td>
-
-                    <td>ユーザーID </td>
-
-					<td bgcolor="#66FF33">
-						
-							<Strong>   姓   </Strong>
-						
-
-					<td bgcolor="#66FF33">
-						<h5>
-							<Strong>   名   </Strong>
-						</h5>
-
-					<td bgcolor="#66FF33>
-						<h5>
-							<Strong>プロジェクトID</Strong>
-						</h5>
-					
-					<td bgcolor="#66FF33">
-						<h5>
-							<Strong>プロジェクト名</Strong>
-						</h5>
-					</td>
-					<td bgcolor="#66FF33">
-						<h5>
-							<Strong>案件番号</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>案件名</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>詳細</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>実施起案番号</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>実施決裁番号</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>契約起案番号</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>契約決番号</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>実施兼契約起案番号</Strong>
-						</h5>
-					</td>
-					<td>
-						<h5>
-							<Strong>実施兼契約番号</Strong>
-						</h5>
-					</td>
-				</tr>
-				<!-- 繰り返し -->
-				<s:iterator value="decisiontList">
-					<tr>
-						<td><input type="hidden"
-							value=<s:property value="decisionId" /> name="decisionId"></td>
-						<td><input type="text"
-							pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-							placeholder="登録日を入力" required name="registration" maxlength="10"
-							value="<s:property value="registration" />" id="registration" /></td>
-
-						<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
-							required name="userId" value="<s:property value="userId" />"
-							id="registration" placeholder="ユーザーIDを入力" /></td>
-
-
-						<td><div class="username"><s:property value="familyNameKanji" /></div></td>
-
-						<td><div class="username"><s:property value="givenNameKanji" /></div></td>
-
-						<td><input type="text" pattern="[1-9][0-9]*" maxlength="5"
-							required name="projectId"
-							value="<s:property value="projectId" />" id="registration"
-							placeholder="プロジェクトIDを入力" /></td>
-
-						<td><s:property value="projectName" /></td>
-
-						<td><div class="decisionid">
-								<s:property value="decisionIdNumber" />
-							</div></td>
-						<td><input type="text" maxlength="100" placeholder="案件名を入力"
-							name="decisionName" id="display"
-							value="<s:property value="decisionName" />" /></td>
-						<td><input type="text" maxlength="255" placeholder="詳細を入力"
-							name="detail" id="display" value="<s:property value="detail" />" /></td>
-						<td><input type="text" maxlength="100"
-							placeholder="実施起案番号を入力" name="iDraftingId" id="registration"
-							value="<s:property value="iDraftingId" />" /></td>
-						<td><input type="text" maxlength="100"
-							placeholder="実施決裁番号を入力" name="iApprovalId" id="registration"
-							value="<s:property value="iApprovalId" />" /></td>
-						<td><input type="text" maxlength="100"
-							placeholder="契約起案番号を入力" name="aDraftingId" id="registration"
-							value="<s:property value="aDraftingId" />" /></td>
-						<td><input type="text" maxlength="100" placeholder="契約決番号を入力"
-							name="cdId" id="registration" value="<s:property value="cdId" />" /></td>
-						<td><input type="text" maxlength="100"
-							placeholder="実施兼契約起案番号を入力" name="iADId" id="registration"
-							value="<s:property value="iADId" />" /></td>
-						<td><input type="text" maxlength="100"
-							placeholder="実施兼契約番号を入力" name="iAId" id="registration"
-							value="<s:property value="iAId" />" /></td>
-					</tr>
-				</s:iterator>
-			</table>
-
-			<br>
-			<center><s:if test="%{#session.userFlg >= 50}">
-				<input type="submit" value="編集" class="button">
-			</s:if>
-			</center>
+<table>
+<tr><td>
+	<div>
+		<s:form action="DecisionSelectAction">
+			<input type="submit" value="表示">
 		</s:form>
-		<br>
+	</div>
+</td>
+<td>
+	<div class="save">
 
-		<s:if test="%{#session.userFlg >= 50}">
-			<div id="btna">＋ ユーザー一覧を表示</div>
-
-			<div id="menua">
-				<table border="1">
-					<tr>
-						<th>ユーザーID</th>
-						<th>ユーザー名</th>
-					</tr>
-					<s:iterator value="studentsList">
-						<tr>
-							<td><s:property value="userId" /></td>
-							<td><s:property value="familyNameKanji" /> <s:property
-									value="givenNameKanji" /></td>
-						</tr>
-					</s:iterator>
-				</table>
-			</div>
-
-			<div id="btnb">＋ プロジェクト一覧を表示</div>
-			<div id="menub">
-				<table border="1">
-					<tr>
-						<th>プロジェクトID</th>
-						<th>プロジェクト名</th>
-					</tr>
-					<s:iterator value="projectsList">
-						<tr>
-							<td><s:property value="projectId" /></td>
-							<td><s:property value="projectName" /></td>
-						</tr>
-					</s:iterator>
-				</table>
-			</div>
-		</s:if>
-	</s:if>
-	<s:else>
-	ログイン後に表示します。
-	</s:else>
-
-		<s:form action="GetAddressAction">
-			<center>
-				<input type=submit value="戻る" class="button">
-			</center>
+<s:form action="DecisionCalculationAction">
+			<input type="submit" value="計算">
 		</s:form>
+
 
 	</div>
+</td></tr>
+
+</table>
+
+
+<s:form action="DecisionUpdateAction">
+
+<table class="main" border="0">
+決裁番号:
+<s:if test="iApprovalId != null && !iApprovalId.isEmpty()">
+<input type="text" readonly="readonly" value="<s:property value="iApprovalId" />">
+</s:if>
+<s:else>
+決裁中
+</s:else>
+</table>
+
+<table class="main" border="2">
+
+<tr>
+<td class="kian"><b>起案者名</b></td>
+
+<s:if test="nameList != null && !nameList.isEmpty()">
+<td>
+<s:iterator value="nameList">
+	<s:if test="familyNameKanji != null && !familyNameKanji.isEmpty()">
+	  <input type="text" readonly="readonly" value="<s:property value='familyNameKanji'/><s:property value='givenNameKanji'/> "/>
+	  </s:if>
+
+	</s:iterator>
+</td>
+	</s:if>
+<s:else>
+
+	<input type="text" value="未定義">
+
+</s:else>
+</tr>
+
+
+<tr>
+<td><b>起案番号</b></td>
+<td colspan="2"><input type="text" readonly="readonly" value="<s:property value="iDraftingId" />"></td>
+
+
+
+	<tr>
+		<th>案件名</th>
+		<s:if test="decisionList != null && !decisionList.isEmpty()">
+		<s:iterator value="decisionList">
+			<td colspan="3"><textarea cols="50" rows="4" name="decisionName"><s:property value="decisionName" /></textarea></td>
+		</s:iterator>
+		</s:if>
+		<s:else>
+		<td colspan="10"><textarea cols="105" rows="4">未定義</textarea></td>
+		</s:else>
+
+	</tr>
+
+	<tr>
+		<th>概要</th>
+		<s:if test="decisionList != null && !decisionList.isEmpty()">
+		<s:iterator value="decisionList">
+			<td colspan="10"><textarea cols="125" rows="4"><s:property value="summary" /></textarea></td>
+		</s:iterator>
+		</s:if>
+		<s:else>
+		<td colspan="10"><textarea cols="105" rows="4">未定義</textarea></td>
+		</s:else>
+	</tr>
+	<tr>
+	<th>(1)内容</th>
+		<s:if test="decisionList != null && !decisionList.isEmpty()">
+		<s:iterator value="decisionList">
+			<td colspan="10"><textarea cols="125" rows="4" name="cause"><s:property value="cause" /></textarea></td>
+		</s:iterator>
+		</s:if>
+		<s:else>
+		<td colspan="10"><textarea cols="105" rows="4">未定義</textarea></td>
+		</s:else>
+	</tr>
+	<tr>
+		<th>(2)費用</th>
+		<td colspan="6">
+		建設費用：<input type="text" name="bildCost" value="<s:property value="bildCost" />" readonly="readonly"
+			size="8">万円 <br>
+		損益費用：<input type="text" name="benefit" value="<s:property value="benefit" />" readonly="readonly" size="8">万円<br>
+		合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text" name="amountAll" value="<s:property value="amountAll" />" readonly="readonly"
+			size="8">万円
+		</td>
+	</tr>
+	<tr>
+		<td><b>(3)期間</b></td>
+		<td colspan="3">
+		<input type="date" name="startDay" placeholder="YYYY-MM-DD" value="<s:property value="startDay" />">
+		~
+		<input type="date" name="endDay" placeholder="YYYY-MM-DD" value="<s:property value="endDay" />">
+		</td>
+	</tr>
+	<tr>
+		<td><b>承認者</b></td>
+		<td>
+		<input type="text" name="name" size="8" placeholder="氏名"><br>
+		<input type="text" name="name" size="8" placeholder="氏名"><br>
+		<input type="text" name="name" size="9" placeholder="氏名">
+		</tr>
+
+		<!--
+		<th colspan="2">承認番号</th>
+		<td colspan="2"><input type="text" name="name" size="32"
+			placeholder="氏名"></td>
+		-->
+</table>
+
+<div align="center">
+<h3>建設費用</h3>
+</div>
+		<table class="sub" border="2">
+    <tr>
+				<th></th>
+				<th>単価(万円)</th>
+
+				<th>個数</th>
+
+				<th>小計(万円)</th>
+			</tr>
+    <tr>
+    <th>開発端末</th>
+<td>
+<input type="number" id="defaultprove"  value="<s:property value="prove" />">
+</td>
+<td>
+<input type="number" placeholder="メンバー人数を入力" id="input">
+</td>
+<td>
+<input type="number" readonly="readonly" value="<s:property value="totalProve"/>"  size="20">
+</td>
+</tr>
+      <tr>
+				<th>リリース環境使用料</th>
+				<s:iterator value="decisionList">
+					<td><input type="number" readonly="readonly"   value="<s:property value="re" />"></td>
+				</s:iterator>
+				<td><input type="number"  id="res" value="" readonly="readonly"></td>
+				<td><input type="number"  size="20" value="totalRe"
+					readonly="readonly">万円</td>
+			</tr>
+			<tr>
+				<th>回線使用料</th>
+				<s:iterator value="decisionList">
+					<td><input type="number"  readonly="readonly"  value="<s:property value="line" />"></td>
+				</s:iterator>
+
+				<td><input type="number"id="lines" value=""
+					 readonly="readonly"></td>
+
+				<td><input type="number" size="20" readonly="readonly" value="<s:property value="totalLine"/>">万円</td>
+			</tr>
+
+			<tr>
+				<th>施設使用料</th>
+
+				<s:iterator value="decisionList">
+					<td><input type="text"  readonly="readonly" id="rooms" value="<s:property value="room" />"></td>
+				</s:iterator>
+				<td><input type="number" id="roomed" value=""
+					 readonly="readonly"></td>
+
+				<td><input type="number" id="roomal"  size="20" value="<s:property value="totalRoom" />"
+					readonly="readonly">万円</td>
+			</tr>
+
+			<tr>
+				<th>建設費用</th>
+				<td></td>
+
+				<td></td>
+
+				<td>
+
+				<input type="number" value="<s:property value="bildCost"/>" size="20" readonly="readonly">万円
+
+				</td>
+
+			    </tr>
+
+               </table>
+
+<div align="center">
+<h3>損益費用</h3>
+</div>
+
+		<table class="math" border="2">
+			<tr>
+				<th></th>
+				<th>単価(万円)</th>
+				<th>個数</th>
+				<th>小計(万円)</th>
+			</tr>
+
+			<tr>
+				<th>開発要員</th>
+				<s:iterator value="decisionList">
+					<td><s:property value="human" /></td>
+				</s:iterator>
+
+				<td><input type="number" name="goods5" id="c" value=""
+					 readonly="readonly"></td>
+				<td><input type="number"  size="20" value="<s:property value="totalHuman"/>"
+					readonly="readonly">万円</td>
+
+			</tr>
+
+			<tr>
+				<th>雑費</th>
+
+				<s:iterator value="decisionList">
+					<td><s:property value="etc" /></td>
+				</s:iterator>
+
+				<td><input type="number" name="goods6" id="d" value=""
+					 readonly="readonly"></td>
+				<td><input type="number" size="20" value="<s:property value="totalEtc"/>"
+					readonly="readonly">万円</td>
+
+			</tr>
+
+			<tr>
+				<th>損益費用(万円)</th>
+				<td></td>
+				<td></td>
+				<td><input type="text" value="<s:property value="benefit"/>" readonly="readonly"
+					size="20">万円</td>
+			</tr>
+		</table>
+<input type="submit" value="編集を保存">
+
+</s:form>
+
+
+
+		<br>
+		<br>
+
+
+	<h2><a href="./attach_help.jsp" target="_blank">資料添付</a></h2>
+	<div class="file">
+		<form action="decideaction">
+			<input id="File1" type="file" multiple size="30" /><input
+				id="Button1" type="button" value="開く" onclick="OnButtonClick();" />
+			<div id="output"></div>
+		</form>
+	</div>
+
+	<br>
+	<br>
+
+
+
+
 
 </body>
 </html>

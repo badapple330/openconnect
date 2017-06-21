@@ -1,3 +1,0 @@
-<location /examples/ >
-  ProxyPass ajp://localhost:8009/examples/
-  Order allow,demy

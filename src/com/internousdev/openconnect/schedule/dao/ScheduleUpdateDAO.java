@@ -23,7 +23,7 @@ public class ScheduleUpdateDAO {
 	 * @param content
 	 * @return count
 	 */
-	public int update(int id, String startDay, String endDay, String title, String content){
+	public int update(int id, String startDay, String endDay, String title){
 		int count=0;
 
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
@@ -34,15 +34,15 @@ public class ScheduleUpdateDAO {
 			endDay = "0000-00-00";
 		}
 
-		String sql = "UPDATE schedule SET start_day=?, end_day=?, title=?, content=? WHERE id=?";
+		String sql = "UPDATE schedule SET start_day=?, end_day=?, title=? WHERE id=?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,startDay);
 			ps.setString(2,endDay);
 			ps.setString(3,title);
-			ps.setString(4,content);
-			ps.setInt(5,id);
+			ps.setInt(4,id);
+
 
 			count =ps.executeUpdate();
 

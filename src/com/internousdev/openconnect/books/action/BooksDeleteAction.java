@@ -2,16 +2,19 @@ package com.internousdev.openconnect.books.action;
 
 import java.util.Map;
 
-import org.apache.struts2.interceptor.SessionAware;
-
 import com.internousdev.openconnect.books.dao.BooksDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 画面で受け取ったIDを元にして、DBの情報のID,タイトル、削除を削除する為のクラス
- * @author TATSUYA HOSHI
+ * 画面で受け取ったIDを元にしてDBの状態フラグを更新し、表示画面から削除する為のクラス
+ * @author TATSUYA HOSHI, SOSHI AZUMA
  */
-public class BooksDeleteAction extends ActionSupport implements SessionAware{
+public class BooksDeleteAction extends ActionSupport {
+
+	/**
+	 * シリアルID
+	 */
+	private static final long serialVersionUID = -1382871800294980617L;
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -21,32 +24,31 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	 */
 	private int bookId;
 	/**
-	 * シリアルバージョンID
-	 */
-	private static final long serialVersionUID = -7586577377473680450L;
-	/**
 	 * エラーメッセージ
 	 */
-	private String resultString = "この書籍は削除できません。";
+	private String resultString = "削除に失敗しました！";
 	/**
 	 * DAOに命令し、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute(){
-		BooksDAO dao = new BooksDAO();
+
 		String result = ERROR;
+
+		BooksDAO dao = new BooksDAO();
+
 		int count = 0;
 		count = dao.delete(bookId);
+
 		if(count > 0){
 			result = SUCCESS;
-			resultString = "削除しました。";
+			resultString = "削除に成功しました！";
 		}
 		return result;
 	}
 
 	/**
 	* エラーメッセージ取得メソッド
-	* @author TATSUYA HOSHI
 	* @return resultString
 	*/
 	public String getResultString() {
@@ -55,7 +57,6 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 
 	/**
 	* エラーメッセージ設定メソッド
-	* @author TATSUYA HOSHI
 	* @param resultString
 	*/
 	public void setResultString(String resultString) {
@@ -63,17 +64,7 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	* シリアルバージョン取得メソッド
-	* @author TATSUYA HOSHI
-	* @return serialversion
-	*/
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
 	 * ブックID取得メソッド
-	 * @author TATSUYA HOSHI
 	 * @return bookId
 	 */
 	public int getBookId() {
@@ -82,17 +73,14 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * ブックID設定メソッド
-	 * @author TATSUYA HOSHI
 	 * @param bookId
 	 */
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
 
-
 	/**
 	 * セッション取得メソッド
-	 * @author TATSUYA HOSHI
 	 * @return session
 	 */
 	public Map<String, Object> getSession() {
@@ -102,11 +90,12 @@ public class BooksDeleteAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * セッション設定メソッド
-	 * @author TATSUYA HOSHI
 	 * @param session
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
+
 
 }

@@ -48,6 +48,8 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 */
 	private List<String> scheduleContentList = new ArrayList<String>();
 
+	private List<String> scheduleTeamNameList = new ArrayList<String>();
+
 	/**
 	 * エラーメッセージ
 	 * @author MASAHIRO KEDSUKA
@@ -76,8 +78,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 					scheduleIdList.get(i),
 					scheduleStartdayList.get(i),
 					scheduleEnddayList.get(i),
-					scheduleTitleList.get(i),
-					scheduleContentList.get(i)
+					scheduleTitleList.get(i)
 					);
 		}
 		if ( count > 0) {
@@ -187,6 +188,24 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 */
 	public void setScheduleContentList(List<String> scheduleContentList) {
 		this.scheduleContentList = scheduleContentList;
+	}
+
+
+	/**
+	 * scheduleTeamNameListを取得します。
+	 * @return scheduleTeamNameList
+	 */
+	public List<String> getScheduleTeamNameList() {
+	    return scheduleTeamNameList;
+	}
+
+
+	/**
+	 * scheduleTeamNameListを設定します。
+	 * @param scheduleTeamNameList scheduleTeamNameList
+	 */
+	public void setScheduleTeamNameList(List<String> scheduleTeamNameList) {
+	    this.scheduleTeamNameList = scheduleTeamNameList;
 	}
 
 

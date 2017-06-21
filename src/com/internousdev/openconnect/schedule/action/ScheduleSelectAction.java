@@ -27,11 +27,14 @@ public class ScheduleSelectAction extends ActionSupport {
 	 */
 	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
 
+	private List<ScheduleDTO> teamList = new ArrayList<ScheduleDTO>();
+
 	/**
 	 * 検索文
 	 * @author MASAHIRO KEDSUKA
 	 */
 	private String search = "";
+
 	/**
 	 *成功メッセージ
 	 * @author MASAHIRO KEDSUKA
@@ -50,8 +53,9 @@ public class ScheduleSelectAction extends ActionSupport {
 	public String execute() {
 		String result = ERROR;
 		ScheduleSelectDAO dao = new ScheduleSelectDAO();
-
+		ScheduleSelectDAO dao2 = new ScheduleSelectDAO();
 		scheduleList = dao.select(search);
+		setTeamList(dao2.select2());
 		if (scheduleList.size() != 0) {
 			if(search.equals("")){
 				selectSuccessMsg ="すべてを表示しました。";
@@ -63,97 +67,87 @@ public class ScheduleSelectAction extends ActionSupport {
 		return result;
 	}
 
-
 	/**
-	 * 取得メソッド リスト形式のスケジュール一覧を取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleList
+	 * @author MASAHIRO KEDSUKAを取得します。
+	 * @return @author MASAHIRO KEDSUKA
 	 */
 	public List<ScheduleDTO> getScheduleList() {
-		return scheduleList;
+	    return scheduleList;
 	}
 
-
 	/**
-	 * 設定メソッド リスト形式のスケジュール一覧を設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleList
+	 * @author MASAHIRO KEDSUKAを設定します。
+	 * @param scheduleList @author MASAHIRO KEDSUKA
 	 */
 	public void setScheduleList(List<ScheduleDTO> scheduleList) {
-		this.scheduleList = scheduleList;
+	    this.scheduleList = scheduleList;
 	}
 
+	/**
+	 * teamListを取得します。
+	 * @return teamList
+	 */
+	public List<ScheduleDTO> getTeamList() {
+	    return teamList;
+	}
 
 	/**
-	 * 取得メソッド 検索文を取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return search
+	 * teamListを設定します。
+	 * @param teamList teamList
+	 */
+	public void setTeamList(List<ScheduleDTO> teamList) {
+	    this.teamList = teamList;
+	}
+
+	/**
+	 * 検索文を取得します。
+	 * @return 検索文
 	 */
 	public String getSearch() {
-		return search;
+	    return search;
 	}
 
-
 	/**
-	 * 設定メソッド 検索文を設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param search
+	 * 検索文を設定します。
+	 * @param search 検索文
 	 */
 	public void setSearch(String search) {
-		this.search = search;
+	    this.search = search;
 	}
 
 
 
-
-
 	/**
-	 * 取得メソッド 成功メッセージを取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return selectSuccessMsg
+	 * 成功メッセージを取得します。
+	 * @return 成功メッセージ
 	 */
 	public String getSelectSuccessMsg() {
-		return selectSuccessMsg;
+	    return selectSuccessMsg;
 	}
 
-
 	/**
-	 * 設定メソッド 成功メッセージを設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param selectSuccessMsg
+	 * 成功メッセージを設定します。
+	 * @param selectSuccessMsg 成功メッセージ
 	 */
 	public void setSelectSuccessMsg(String selectSuccessMsg) {
-		this.selectSuccessMsg = selectSuccessMsg;
+	    this.selectSuccessMsg = selectSuccessMsg;
 	}
 
-
 	/**
-	 * 取得メソッド エラーメッセージを取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return selectErrorMsg
+	 * エラーメッセージを取得します。
+	 * @return エラーメッセージ
 	 */
 	public String getSelectErrorMsg() {
-		return selectErrorMsg;
+	    return selectErrorMsg;
 	}
 
-
 	/**
-	 * 設定メソッド エラーメッセージを設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param selectErrorMsg
+	 * エラーメッセージを設定します。
+	 * @param selectErrorMsg エラーメッセージ
 	 */
 	public void setSelectErrorMsg(String selectErrorMsg) {
-		this.selectErrorMsg = selectErrorMsg;
+	    this.selectErrorMsg = selectErrorMsg;
 	}
 
 
-	/**
-	 * 取得メソッド シリアルIDを取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return serialVersionUID
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
-
-}

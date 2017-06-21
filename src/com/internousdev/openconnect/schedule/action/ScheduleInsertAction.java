@@ -43,6 +43,13 @@ public class ScheduleInsertAction extends ActionSupport{
 	private String content;
 
 	/**
+	 * チーム名
+	 * @author MASAHIRO KEDSUKA
+	 * selectActionに渡す情報のためチーム名の変数をsearchとしている
+	 */
+	private String search;
+
+	/**
 	 *エラー
 	 * @author MASAHIRO KEDSUKA
 	 */
@@ -75,7 +82,7 @@ public class ScheduleInsertAction extends ActionSupport{
 
 			ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-			k = dao.insert(startDay,endDay,title,content);
+			k = dao.insert(startDay,endDay,title,search);
 
 			if (k>0) {
 				successMsg=(getText("追加しました。"));
@@ -164,6 +171,24 @@ public class ScheduleInsertAction extends ActionSupport{
 	 */
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+
+	/**
+	 * チーム名を取得します。
+	 * @return チーム名
+	 */
+	public String getSearch() {
+	    return search;
+	}
+
+
+	/**
+	 * チーム名を設定します。
+	 * @param search チーム名
+	 */
+	public void setSearch(String search) {
+	    this.search = search;
 	}
 
 

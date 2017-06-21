@@ -15,7 +15,7 @@
 			<result name="error">login.jsp</result>
 		</action>
 
-		<action name="GoLoginAction" class="com.internousdev.openconnect.action.JustGoAction"
+		<action name="JustGoAction" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success">login.jsp</result>
 		</action>
@@ -26,9 +26,10 @@
 			<result name="error">applist.jsp</result>
 		</action>
 
-		<action name="GoLogoutAction" class="com.internousdev.openconnect.action.LogoutAction"
+		<action name="LogoutAction" class="com.internousdev.openconnect.action.LogoutAction"
 			method="execute">
-			<result name="success" type="redirectAction">GetAddressAction</result>
+			<result name="success">login.jsp</result>
+			<result name="error">login.jsp</result>
 		</action>
 
 		<action name="GoAdminAction" class="com.internousdev.openconnect.action.JustGoAction"
@@ -47,6 +48,14 @@
 			<result name="success">admin_attendance.jsp</result>
 			<result name="error">admin_attendance.jsp</result>
 		</action>
+
+		<action name="GoAdminAttendanceAction"
+			class="com.internousdev.openconnect.attendance.action.GoAdminAttendanceAction"
+			method="execute">
+			<result name="success">admin_attendance.jsp</result>
+			<result name="error">admin_attendance.jsp</result>
+		</action>
+
 
 		<action name="TwitterLogin"
 			class="com.internousdev.openconnect.action.GoTwitterAction" method="execute">
@@ -221,14 +230,52 @@
 			<result name="success" type="chain">StudentsSelectAction</result>
 			<result name="error" type="chain">StudentsSelectAction</result>
 		</action>
+		<action name="StudentsSearchAction"
+			class="com.internousdev.openconnect.students.action.StudentsSearchAction"
+			method="execute">
+			<result name="success">students.jsp</result>
+			<result name="error">students.jsp</result>
+		</action>
+
+		<!-- チーム確認のためのアクション -->
+		<action name="GoTeamAction"
+			class="com.internousdev.openconnect.team.action.GoTeamAction" method="execute">
+			<result name="success">team.jsp</result>
+			<result name="error">team.jsp</result>
+		</action>
+
+		<action name="GoTeamEditAction"
+			class="com.internousdev.openconnect.team.action.GoTeamEditAction"
+			method="execute">
+			<result name="success">team_edit.jsp</result>
+			<result name="error">team.jsp</result>
+		</action>
+
+
+		<action name="TeamEditAction"
+			class="com.internousdev.openconnect.team.action.TeamEditAction"
+			method="execute">
+			<result name="success" type="chain">GoTeamAction</result>
+			<result name="error">team_edit.jsp</result>
+		</action>
+
+
 
 		<!-- 勤怠一覧を表示するためのアクション -->
+		<action name="GoAttendanceAction"
+			class="com.internousdev.openconnect.attendance.action.GoAttendanceAction"
+			method="execute">
+			<result name="success">attendance.jsp</result>
+			<result name="error">attendance.jsp</result>
+		</action>
+
 		<action name="AttendanceAction"
 			class="com.internousdev.openconnect.attendance.action.AttendanceAction"
 			method="execute">
 			<result name="success">attendanceok.jsp</result>
 			<result name="error">attendance.jsp</result>
 		</action>
+
 
 
 		<!-- 決済状況一覧画面への遷移 -->
@@ -246,6 +293,14 @@
 			<result name="error" type="chain">DecisionSelectAction</result>
 		</action>
 
+		<action name="DecisionPreviewAction"
+			class="com.internousdev.openconnect.decision.action.DecisionPreviewAction"
+			method="execute">
+			<result name="success">decision_preview.jsp</result>
+			<result name="error">decision_detail.jsp</result>
+		</action>
+
+
 		<!-- 決済手続き電子化画面への遷移 -->
 		<action name="DecisionDetailSelectAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailSelectAction"
@@ -254,101 +309,46 @@
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
-		<action name="DecisionDetailDeleteAction"
-			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailDeleteAction"
+		<action name="DecisionDetailInsertAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailInsertAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction
-			</result>
-			<result name="error" type="chain">DecisionDetailSelectAction</result>
-		</action>
-
-		<action name="DecisionDetailUpdateAction"
-			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailUpdateAction"
-			method="execute">
-			<result name="success">decision_edit.jsp</result>
-			<result name="error" type="chain">DecisionDetailSelectAction</result>
-		</action>
-
-		<action name="DecisionDetailPreviewAction"
-			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailPreviewAction"
-			method="execute">
-			<result name="success">decision_preview.jsp</result>
+			<result name="success">decision_detail.jsp</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
-		<action name="DecisionDetailDownloadAction"
-			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailDownloadAction"
+		<action name="DecisionDetailPermitAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailPermitAction"
 			method="execute">
-			<result name="success" type="stream">
-				<param name="inputName">inputStream</param>
-				<param name="contentType">application/octet-stream; charset=UTF-8</param>
-				<param name="contentLength">${ contentLength }</param>
-				<param name="contentDisposition">attachment; filename =
-					${fileName};filename*=utf-8''${encodedFileName}</param>
-			</result>
+			<result name="success">decision_detail.jsp</result>
+			<result name="error">decision_detail.jsp</result>
+			<!-- <result name="success" type="chain">DecisionDetailSelectAction</result>
+				<result name="error" type="chain">DecisionDetailSelectAction</result> -->
 		</action>
 
 		<action name="DecisionDetailApplicationAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailApplicationAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction
-			</result>
+			<result name="success">decision_detail.jsp</result>
+			<result name="error">decision_detail.jsp</result>
+			<!-- <result name="success" type="chain">DecisionDetailSelectAction</result>
+				<result name="error" type="chain">DecisionDetailSelectAction</result> -->
+		</action>
+
+		<action name="DecisionDetailRemandAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRemandAction"
+			method="execute">
+			<result name="success">decision_detail.jsp</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
-		<action name="DecisionDetailInsertAction"
-			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailInsertAction"
+		<action name="DecisionDetailRejectAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRejectAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction
-			</result>
+			<result name="success">decision_detail.jsp</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
-		<!-- 決済手続き申請一覧画面への遷移 -->
-		<action name="DecisionApplicationSelectAction"
-			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailSelectAction"
-			method="execute">
-			<result name="success">decision_application.jsp</result>
-			<result name="error">decision_application.jsp</result>
-		</action>
 
-		<action name="DecisionApplicationUpdateAction"
-			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailApplicationAction"
-			method="execute">
-			<result name="success" type="chain">DecisionApplicationSelectAction
-			</result>
-			<result name="error">decision_application.jsp</result>
-		</action>
-
-		<!-- 決済手続き電子化画面編集への遷移 -->
-		<action name="PasswordUpdateAction"
-			class="com.internousdev.openconnect.decision.edit.action.DecisionEditPasswordAction"
-			method="execute">
-			<result name="success" type="chain">DecisionDetailUpdateAction
-			</result>
-			<result name="error">decision_edit.jsp</result>
-		</action>
-
-		<action name="DecisionEditSelectAction"
-			class="com.internousdev.openconnect.decision.edit.action.DecisionEditSelectAction"
-			method="execute">
-			<result name="success">decision_edit.jsp</result>
-			<result name="error">decision_edit.jsp</result>
-		</action>
-
-		<action name="DecisionEditUpdateAction"
-			class="com.internousdev.openconnect.decision.edit.action.DecisionEditUpdateAction"
-			method="execute">
-			<result name="success" type="chain">DecisionEditSelectAction</result>
-			<result name="error">decision_edit.jsp</result>
-		</action>
-
-		<action name="BackGoDecisionAction" class="com.internousdev.openconnect.action.JustGoAction"
-			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction
-			</result>
-			<result name="error">/decision_edit.jsp</result>
-		</action>
 
 		<!-- 書籍一覧画面への遷移 -->
 		<action name="BooksSelectAction"
@@ -369,7 +369,7 @@
 			class="com.internousdev.openconnect.books.action.BooksDeleteAction"
 			method="execute">
 			<result name="success" type="chain">BooksSelectAction</result>
-			<result name="error" type="chain">BooksSelectAction</result>
+			<result name="error">BooksSelectAction</result>
 		</action>
 
 		<action name="BooksUpdateAction"
@@ -379,22 +379,14 @@
 			<result name="error">books.jsp</result>
 		</action>
 
-		<!-- 書籍貸し出し画面への遷移 -->
-		<action name="BooksBorrowSelectAction"
-			class="com.internousdev.openconnect.books.borrow.action.BooksBorrowSelectAction"
-			method="execute">
-			<result name="success">books_borrow.jsp</result>
-			<result name="error">books_borrow.jsp</result>
-		</action>
-
-		<action name="BooksBorrowUpdateAction"
-			class="com.internousdev.openconnect.books.borrow.action.BooksBorrowUpdateAction"
-			method="execute">
-			<result name="success" type="chain">BooksBorrowSelectAction</result>
-			<result name="error" type="chain">BooksBorrowSelectAction</result>
-		</action>
-
 		<!-- スケジュール画面で検索 -->
+		<action name="GoScheduleSelectAction"
+			class="com.internousdev.openconnect.schedule.action.GoScheduleSelectAction"
+			method="execute">
+			<result name="success">schedule.jsp</result>
+			<result name="error">schedule.jsp</result>
+		</action>
+
 		<action name="ScheduleSelectAction"
 			class="com.internousdev.openconnect.schedule.action.ScheduleSelectAction"
 			method="execute">
@@ -425,12 +417,12 @@
 			class="com.internousdev.openconnect.schedule.action.ScheduleDeleteAction"
 			method="execute">
 			<!-- デフォルトinterceptor -->
-			<interceptor-ref name="defaultStack" />
-			<!-- tokenのinterceptor -->
-			<interceptor-ref name="token" />
-			<result name="invalid.token" type="chain">ScheduleSelectAction
-			</result>
-			<result type="chain">ScheduleSelectAction</result>
+	<interceptor-ref name="defaultStack" />
+	<!-- tokenのinterceptor -->
+	<interceptor-ref name="token" />
+	<result name="invalid.token" type="chain">ScheduleSelectAction
+	</result>
+	<result type="chain">ScheduleSelectAction</result>
 		</action>
 
 		<action name="BackGoAction" class="com.internousdev.openconnect.action.JustGoAction"
@@ -439,6 +431,14 @@
 			<result name="error">project_progress.jsp</result>
 		</action>
 
+		<action name="attendanceACTION" method="execute"
+			class="com.internousdev.openconnect.attendance_test.attendanceACTION">
+
+			<result name="success">attendanceTest.jsp</result>
+
+			<result name="error">attendance.jsp</result>
+
+		</action>
 
 
 	</package>

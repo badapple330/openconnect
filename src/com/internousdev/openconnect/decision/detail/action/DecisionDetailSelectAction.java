@@ -5,109 +5,147 @@ package com.internousdev.openconnect.decision.detail.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
-import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
-import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * DBの情報を画面に表示する為のクラス
- * @author TATUHUMI ITOU
+ * @author TATUHUMI ITOU, SOSHI AZUMA
  * @since 2016/09/04
  * @version 1.0
  */
-public class DecisionDetailSelectAction extends ActionSupport{
-
+public class DecisionDetailSelectAction extends ActionSupport implements SessionAware {
 
 
 	/**
-	 * シリアル番号
+	 * シリアルID
 	 */
-	private static final long serialVersionUID = -7677481694269615816L;
+	private static final long serialVersionUID = -7766297666062379491L;
 	/**
-	 * 決裁手続きリスト
+	 * 自プロジェクト以外の決裁手続きリスト
 	 */
-	private List<DecisionDetailDTO> decisionDetailList = new ArrayList<DecisionDetailDTO>();
+	private List<DecisionDetailDTO> decisionDetailList1 = new ArrayList<DecisionDetailDTO>();
 	/**
-	 * プロジェクトリスト
+	 * 自プロジェクトの決裁手続きリスト
 	 */
-	private List<ProjectsSelectDTO> projectsList = new ArrayList<ProjectsSelectDTO>();
+	private List<DecisionDetailDTO> decisionDetailList2 = new ArrayList<DecisionDetailDTO>();
+	/**
+	 * 決裁未手続きリスト
+	 */
+	private List<DecisionDetailDTO> decisionBeginList = new ArrayList<DecisionDetailDTO>();
 	/**
 	 * 検索文字
 	 */
 	private String searchString = "";
 	/**
-	 * エラー文字
+	 * 管理者権限メソッド
 	 */
-	private String resultSelect = "検索結果を表示しました";
+	private Map<String, Object> session;
+	/**
+	 * エラー文字1
+	 */
+	private String resultSelect1 = "全プロジェクト検索結果を表示しました";
+	/**
+	 * エラー文字2
+	 */
+	private String resultSelect2 = "自プロジェクト検索結果を表示しました";
+
+
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 * @author TATUHUMI ITOU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-	public String execute(){
+	public String execute() throws Exception {
+		String result=ERROR;
+
+		//int userFlg = (int) session.get("userFlg");
+		int userId = (int) session.get("userId");
+		int userId1 = userId;
 
 		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
-		ProjectsSelectDAO projectsDao = new ProjectsSelectDAO();
 
-		decisionDetailList = dao.select( searchString );
 
-		projectsList = projectsDao.select("");
+		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
+		decisionDetailList2 = dao.selectMyD( userId, userId1);
+		decisionBeginList = dao.selectP( userId, userId1 );
 
-		if( decisionDetailList.size() == 0 ){
-			resultSelect = "該当する情報はありません";
+
+		if( decisionDetailList1.size() == 0){
+			resultSelect1 = "該当する情報はありません";
 		}
+		if( decisionDetailList2.size() == 0){
+			resultSelect2 = "自プロジェクトはありません";
+		}
+		result = SUCCESS;
 
-
-
-		return SUCCESS;
+		return result;
 	}
 
 
 
 	/**
 	* 取得メソッド 決裁手続きリストを取得
-	* @author TATUHUMI ITOU
-	* @return decisionDetailList
+	* @return decisionDetailList1
 	*/
-	public List<DecisionDetailDTO> getDecisionDetailList() {
-		return decisionDetailList;
+	public List<DecisionDetailDTO> getDecisionDetailList1() {
+		return decisionDetailList1;
 	}
 
 
 
 	/**
 	* 設定メソッド 決裁手続きリストを設定
-	* @author TATUHUMI ITOU
-	* @param decisionDetailList
+	* @param decisionDetailList1
 	*/
-	public void setDecisionDetailList(List<DecisionDetailDTO> decisionDetailList) {
-		this.decisionDetailList = decisionDetailList;
+	public void setDecisionDetailList1(List<DecisionDetailDTO> decisionDetailList1) {
+		this.decisionDetailList1 = decisionDetailList1;
 	}
 
 	/**
-	* 取得メソッド プロジェクトリストを取得
-	* @author KOHEI NITABARU
-	* @return projectsList
+	* 取得メソッド 決裁手続きリストを取得
+	* @return decisionDetailList2
 	*/
-	public List<ProjectsSelectDTO> getProjectsList() {
-		return projectsList;
+	public List<DecisionDetailDTO> getDecisionDetailList2() {
+		return decisionDetailList2;
+	}
+
+
+
+	/**
+	* 設定メソッド 決裁手続きリストを設定
+	* @param decisionDetailList2
+	*/
+	public void setDecisionDetailList2(List<DecisionDetailDTO> decisionDetailList2) {
+		this.decisionDetailList2 = decisionDetailList2;
 	}
 
 	/**
-	* 設定メソッド  プロジェクトリストを設定
-	* @author KOHEI NITABARU
-	* @param projectsList
+	* 取得メソッド を取得
+	* @return decisionBeginList
 	*/
-	public void setProjectsList(List<ProjectsSelectDTO> projectsList) {
-		this.projectsList = projectsList;
+	public List<DecisionDetailDTO> getDecisionBeginList() {
+		return decisionBeginList;
 	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionBeginList
+	*/
+	public void setDecisionBeginList(List<DecisionDetailDTO> decisionBeginList) {
+		this.decisionBeginList = decisionBeginList;
+	}
+
+
 
 	/**
 	* 取得メソッド シリアル番号を取得
-	* @author KOHEI NITABARU
 	* @return serialVersionUID
 	*/
 	public static long getSerialversionuid() {
@@ -116,7 +154,6 @@ public class DecisionDetailSelectAction extends ActionSupport{
 
 	/**
 	* 取得メソッド 検索文を取得
-	* @author TATUHUMI ITOU
 	* @return searchString
 	*/
 	public String getSearchString() {
@@ -125,7 +162,6 @@ public class DecisionDetailSelectAction extends ActionSupport{
 
 	/**
 	* 設定メソッド 検索文を設定
-	* @author TATUHUMI ITOU
 	* @param searchString
 	*/
 	public void setSearchString(String searchString) {
@@ -135,23 +171,59 @@ public class DecisionDetailSelectAction extends ActionSupport{
 
 
 	/**
-	* 取得メソッド
-	* @author TATUHUMI ITOU
-	* @return resultSelect
+	* 取得メソッド を取得
+	* @return session
 	*/
-	public String getResultSelect() {
-		return resultSelect;
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
+
+	/**
+	* 取得メソッド
+	* @return resultSelect1
+	*/
+	public String getResultSelect1() {
+		return resultSelect1;
 	}
 
 
 
 	/**
 	* 設定メソッド
-	* @author TATUHUMI ITOU
-	* @param resultSelect
+	* @param resultSelect1
 	*/
-	public void setResultSelect(String resultSelect) {
-		this.resultSelect = resultSelect;
+	public void setResultSelect1(String resultSelect1) {
+		this.resultSelect1 = resultSelect1;
+	}
+
+	/**
+	* 取得メソッド
+	* @return resultSelect1
+	*/
+	public String getResultSelect2() {
+		return resultSelect2;
+	}
+
+
+
+	/**
+	* 設定メソッド
+	* @param resultSelect2
+	*/
+	public void setResultSelect2(String resultSelect2) {
+		this.resultSelect2 = resultSelect2;
 	}
 
 

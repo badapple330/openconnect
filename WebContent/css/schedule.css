@@ -10,12 +10,15 @@
 	display:inline-block;
 }
 
-.container{
-	display:inline-block;
-}
+
 
 #operation{
+	height:100px;
+	width:700px;
+	margin-left:auto;
+	margin-right:auto;
 	margin-top:500px;
+	margin-bottom:100px;
 }
 
 /* モーダル コンテンツエリア */
@@ -71,28 +74,29 @@
 	width:700px;
 	display:block;
 	margin-top:50px;
-	margin-left:0px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
-#memo{
-	margin-top:400px;
-}
-
-#a{
-	position:absolute;
-	right:200px;
-	top:250px
-}
-
+/*土曜日と日曜日の色を変更*/
 .fc-sat {
 	color: #0080ff;
 }
-
 .fc-sun {
-	color: #FF0000;
+	color: #ff0000;
 }
 
-body{
-	height:1000px;
+
+/*html上表示する必要のない情報を隠す*/
+.hidden {
+	visibility: hidden;
 }
 
+
+@media only screen and (max-device-width : 640px){
+	  	#table-scroll {
+        overflow-x: scroll;
+        }
+
+
+}

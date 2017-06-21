@@ -5,32 +5,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>スケジュール一覧</title>
 <!-- ヘッダー読み込み -->
 	<jsp:include page="header.jsp" />
 	<!-- ヘッダーここまで -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<link href='css/schedule.css' rel='stylesheet' />
         <link href='css/fullcalendar.min.css' rel='stylesheet' />
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/start/jquery-ui.css">
+        <link href='js/calendar/fullcalendar.min.css' rel='stylesheet' />
+        <link href='js/calendar/fullcalendar.print.min.css' rel='stylesheet' media='print' />
         <script src="js/calendar/calendar.js"></script>
+        <script src="js/schedule.js"></script>
         <script src="js/calendar/jquery.min.js"></script>
         <script src="js/calendar/jquery-ui.min.js"></script>
         <script src="js/calendar/moment.min.js"></script>
-        <script src="js/calendar/gcal.js"></script>
-        <script src="js/calendar/gcal.min.js"></script>
         <script src="js/calendar/datepicker-ja.js"></script>
+        <script src="js/calendar/jquery.tabletojson.js"></script>
+        <script src="js/calendar/jquery.tabletojson.min.js"></script>
         <script src="js/calendar/fullcalendar.js"></script>
         <script src="js/calendar/fullcalendar.min.js"></script>
+        <script src="js/calendar/gcal.js"></script>
+        <script src="js/calendar/gcal.min.js"></script>
 
-<title>スケジュール一覧</title>
 </head>
 <body>
-
 <!-- アプリ一覧表示 -->
 	<div class="container">
-		<h1 class="page-header">スケジュール一覧</h1>
+		<h1 class="page-header"><s:property value ="scheduleList[0].teamName" />さんのスケジュール</h1>
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{siteUrl}">
@@ -42,15 +47,18 @@
 		<s:property value="notLoginMsg" />
 	</div>
 
-<div id ="calendar"></div>
 
+<div id ="calendar"></div>
 <div id="operation">
-		<s:if test="%{#session.userFlg < 1}">
-			ログイン後に表示します。
-		</s:if>
-		<s:if test="%{#session.userFlg >= 1}">
+
 			<s:form action="ScheduleSelectAction">
-				<input type="text" name="search" placeholder="検索文字を入力" maxlength=100 />
+			<h5>【チーム名で検索】</h5>
+				<select name="search" required="required">
+								<option value="">以下から選択</option>
+								<s:iterator value="teamList">
+									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
+								</s:iterator>
+							</select>
 				<s:submit value="検索"></s:submit>
 			</s:form>
 			<br>
@@ -61,38 +69,43 @@
 			<s:property value="selectSuccessMsg" />
 			<s:property value="selectErrorMsg" />
 
-<s:property value="startDay" />
+
 			<s:form action="ScheduleUpdateAction">
 				<table id = "schedule" border=1 style="">
 					<tbody>
 						<tr>
 							<th>ID</th>
-							<th>開始日（年-月-日）</th>
-							<th>終了日（年-月-日）</th>
-							<th>件名</th>
-							<th>内容</th>
+							<th>start</th>
+							<th>end</th>
+							<th>title</th>
+							<th>チーム名(編集不可)</th>
 							<th></th>
 						</tr>
 
+						<!-- scheduleListに格納した情報をテーブルで表示 -->
+						<!-- カレンダーに渡すだけの情報は<div class="hidden">で囲ってcssで表示させないようにする -->
+						<!-- jsファイルに渡す情報としてstart,end,titleが必要なのでこのような記述となっている -->
+						<h5>start→開始日　end→終了日　title→作業内容</h5>
 						<s:iterator value="scheduleList">
 							<tr>
 								<td><s:property value="id" /></td>
 								<td><input type="text" name="scheduleStartdayList"
 									value="<s:property value="startDay" />"
 									class="scheduleStartdayList" type="date"
-									pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-									title="yyyy/MM/ddで入力してください。" placeholder="開始日を入力" required></td>
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
+									title="年-月-日で入力してください。" placeholder="開始日を入力" required><div class="hidden"><s:property value="startDay" /></div></td>
 								<td><input type="text" name="scheduleEnddayList"
 									value="<s:property value="endDay" />"
 									class="scheduleEnddayList"
-									pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-									title="yyyy/MM/ddで入力してください。" placeholder="終了日を入力"></td>
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
+									title="年-月-日で入力してください。" placeholder="終了日を入力"><div class="hidden"><s:property value="endDay" />T00:01:00</div></td>
 								<td><input type="text" name="scheduleTitleList"
 									value="<s:property value="title" />" class="scheduleTitleList"
-									placeholder="件名を入力" maxlength=100 required></td>
-								<td><input type="text" name="scheduleContentList"
-									value="<s:property value="content" />"
-									class="scheduleContentList" placeholder="内容を入力" maxlength=100></td>
+									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
+								<td>
+
+								<input type="text" name="teamList"value="<s:property value="teamName" />"class="teamList" disabled>
+								</td>
 								<td>
 										<input type="button" class="button modal-open" value="削除" />
 								</td>
@@ -108,20 +121,29 @@
 
 			</s:form>
 
-			<br> 開始日は今日の日付が自動で入力されます。
+			<br>【予定を登録】
 		<s:form action="ScheduleInsertAction">
-				<table border=1 style="">
+				<table border="0" style="">
 					<tbody>
 						<tr>
-							<td class = "textcalendar"><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"
+							<td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"
 								maxlength=100 required></td>
-							<td class = "textcalendar"><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力"
+						</tr>
+						<tr>
+							<td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力"
 								maxlength=100 required></td>
-							<td></td>
+						</tr>
 							<td><input type="text" name="title" placeholder="件名を入力"
 								maxlength=100 required></td>
-							<td><input type="text" name="content" placeholder="内容を入力"
-								maxlength=100></td>
+						</tr>
+						<tr>
+							<select name="search" required="required">
+								<option value="">以下から選択</option>
+								<s:iterator value="teamList">
+									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
+								</s:iterator>
+							</select>
+						</tr>
 							<!-- tokenタグ -->
 
 								<s:token />
@@ -138,7 +160,6 @@
 				<!-- #contents START -->
 				<div id="modal-style">
 					<table class="modal_border">
-
 						<tr>
 							<td>開始日
 								<div class="delete-startday modalDelete"></div>
@@ -172,16 +193,14 @@
 							<input type="submit" class="delete-true button" value="はい">
 							<input type="button" class="modal-close button" value="いいえ">
 						</s:form>
-
 					</div>
 				</div>
 			</div>
-		</s:if>
+
 		<br>
 		<s:form action="GetAddressAction">
-			<button type="submit" class="button">戻る</button>
+			<button type="submit" class="button">トップへ戻る</button>
 		</s:form>
-	</div>
-
+</div>
 </body>
 </html>

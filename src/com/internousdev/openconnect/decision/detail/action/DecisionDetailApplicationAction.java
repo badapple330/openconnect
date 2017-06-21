@@ -1,242 +1,258 @@
 package com.internousdev.openconnect.decision.detail.action;
-
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
-import com.internousdev.openconnect.decision.dao.DecisionDAO;
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailApplicationDAO;
-import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
+
+
 /**
- * 決裁手続き一覧の情報をDBに格納する為のクラス
- * @author TATSUHUMI ITOU
- * * @since 2016/09/04
- * @version 1.0
- */
-public class DecisionDetailApplicationAction  extends ActionSupport{
+* 決裁手続き画面の申請ボタンに付加された情報をDBに送る為のクラス
+* @author SOSHI AZUMA
+* @since 2017/06/16
+* @version 1.0
+*/
+public class DecisionDetailApplicationAction extends ActionSupport {
+
 	/**
 	 * シリアルバージョンID
 	 */
-	private static final long serialVersionUID = -758470450L;
-	/**
-	 * 決裁状況
-	 */
-	private String decisionStatus;
+	private static final long serialVersionUID = 1352806033937058670L;
 	/**
 	 * 決裁ID
 	 */
-	private int decisionDetailId;
-	/**
-	 * 決裁手続きリスト
-	 */
-	private List<DecisionDetailDTO> decisionDetailInsList = new ArrayList<DecisionDetailDTO>();
-
-
-	/**
-	 *  プロジェクトID
-	 */
-	private int projectId;
-	/**
-	 *  日付
-	 */
-	private String day;
-	/**
-	 *  ユーザーID
-	 */
-	private int userId;
-	/**
-	 *  案件名
-	 */
-	private String projectName;
-	/**
-	 *  決裁ID
-	 */
 	private int decisionId;
 	/**
-	 *  概要
+	 * 決裁種類
 	 */
-	private String summary;
+	private String decisionType;
+	/**
+	 * 文字列番号
+	 */
+	private String StringId;
+	/**
+	 * 管理者権限メソッド
+	 */
+	public Map<String, Object> session;
+	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "申請できませんでした。";
+	/**
+	 * ID番号振り分けリスト
+	 */
+	private List<DecisionDetailDTO> idNumList = new ArrayList<DecisionDetailDTO>();
+
+
 
 	/**
-	 * 実行メソッド DAOのメソッドにデータを渡して、その結果が１つでもあればSUCCESSを返す
-	 * @author TATUHUMI ITOU
+	 * 実行メソッド DAOに情報を渡して、結果を返す
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-	public String execute(){
+	public String execute() throws Exception {
 
+		String result=ERROR;
 
+		//現在日時を取得する
+        Calendar c = Calendar.getInstance();
+        //フォーマットパターンを指定して表示する
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String num = sdf.format( c.getTime() );
+
+		//起案番号の生成
+		String iDraftingId = "KN-" + num + "-";
+		String aDraftingId = "K-KN-" + num + "-";
+		String iADId = "KN-" + num + "-";
+
+		//番号末尾を100桁表示に変換
+		DecimalFormat dformat = new DecimalFormat("000");
 
 		DecisionDetailApplicationDAO dao = new DecisionDetailApplicationDAO();
-		String result = ERROR;
 
+
+		String idNum = "";
 		int count = 0;
 
-		if(decisionStatus.equals("承認")){
-			DecisionDetailSelectDAO daos = new DecisionDetailSelectDAO();
-			decisionDetailInsList = daos.select( decisionDetailId );
 
-			day = decisionDetailInsList.get(0).getDay();
-			projectName = decisionDetailInsList.get(0).getProjectName();
-			summary = decisionDetailInsList.get(0).getSummary();
-			projectId = decisionDetailInsList.get(0).getProjectId();
-			userId = decisionDetailInsList.get(0).getUserId();
+		//実施決裁の申請
+		if(decisionType.equals("実施")) {
 
-			DecisionDAO daoi = new DecisionDAO();
-			daoi.insert(day,userId,projectId,projectName,summary);
+			if(StringId == null || StringId.equals("")) {
 
+				idNum = iDraftingId;
+				idNumList = dao.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					iDraftingId = iDraftingId + b;
+				}
+				else {
+					iDraftingId = iDraftingId + "001";
+				}
+			}
+			else {
+				iDraftingId = StringId;
+			}
+			count = dao.updateAJ( iDraftingId, decisionId );
 		}
 
-		count = dao.update(decisionStatus,decisionDetailId);
-		if(count > 0){
-			result = SUCCESS;
+		//契約決裁の申請
+		else if(decisionType.equals("契約")) {
 
+			if(StringId == null || StringId.equals("")) {
+				idNum = aDraftingId;
+				idNumList = dao.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					aDraftingId = aDraftingId + b;
+				}
+				else {
+					aDraftingId = aDraftingId + "001";
+				}
+			}
+			else {
+				aDraftingId = StringId;
+			}
+			count = dao.updateAK( aDraftingId, decisionId );
+		}
+
+		//実施兼契約決裁の申請
+		else {
+
+			if(StringId == null || StringId.equals("")) {
+				idNum = iADId;
+				idNumList = dao.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					iADId = iADId + b;
+				}
+				else {
+					iADId = iADId + "001";
+				}
+			}
+			else {
+				iADId = StringId;
+			}
+			count = dao.updateAJK( iADId, decisionId );
+		}
+
+
+		if (count > 0 ) {
+			result = SUCCESS;
+			resultString = "申請できました! ";
 		}
 		return result;
 	}
+
+
+
 	/**
-	 * 取得メソッド 決裁状況を取得
-	 * @author TATSUHUMI ITOU
-	 * @return decisionStatus
-	 */
-	public String getDecisionStatus() {
-		return decisionStatus;
-	}
-	/**
-	 * 設定メソッド 決裁状況を設定
-	 * @author TATSUHUMI ITOU
-	 * @param decisionStatus
-	 */
-	public void setDecisionStatus(String decisionStatus) {
-		this.decisionStatus = decisionStatus;
-	}
-	/**
-	 * 取得メソッド 決裁手続きIDを取得
-	 * @author TATSUHUMI ITOU
-	 * @return decisionDetailId
-	 */
-	public int getDecisionDetailId() {
-		return decisionDetailId;
-	}
-	/**
-	 * 設定メソッド 決裁手続きIDを設定
-	 * @author TATSUHUMI ITOU
-	 * @param decisionDetailId
-	 */
-	public void setDecisionDetailId(int decisionDetailId) {
-		this.decisionDetailId = decisionDetailId;
-	}
-	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return
-	 */
-	public List<DecisionDetailDTO> getDecisionDetailInsList() {
-		return decisionDetailInsList;
-	}
-	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param
-	 */
-	public void setDecisionDetailInsList(List<DecisionDetailDTO> decisionDetailInsList) {
-		this.decisionDetailInsList = decisionDetailInsList;
-	}
-	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return
-	 */
-	public int getProjectId() {
-		return projectId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param
-	 */
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
-	}
-	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return
-	 */
-	public String getDay() {
-		return day;
-	}
-	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param
-	 */
-	public void setDay(String day) {
-		this.day = day;
-	}
-	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return
-	 */
-	public int getUserId() {
-		return userId;
-	}
-	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return
-	 */
-	public String getProjectName() {
-		return projectName;
-	}
-	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param
-	 */
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
-	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return
-	 */
+	* 取得メソッド を取得
+	* @return decisionId
+	*/
 	public int getDecisionId() {
 		return decisionId;
 	}
+
 	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param
-	 */
+	* 設定メソッド を設定
+	* @param decisionId
+	*/
 	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
 	}
-	/**
-	 * 取得メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @return
-	 */
-	public String getSummary() {
-		return summary;
+
+	public String getDecisionType() {
+		return decisionType;
 	}
-	/**
-	 * 設定メソッド
-	 * @author MASAHIRO KEDSUKA
-	 * @param
-	 */
-	public void setSummary(String summary) {
-		this.summary = summary;
+
+
+
+	public void setDecisionType(String decisionType) {
+		this.decisionType = decisionType;
 	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return StringId
+	*/
+	public String getStringId() {
+		return StringId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param StringId
+	*/
+	public void setStringId(String stringId) {
+		StringId = stringId;
+	}
+
+
+
+	/**
+	* 取得メソッド 結果を取得
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド 結果を設定
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return idNumList
+	*/
+	public List<DecisionDetailDTO> getIdNumList() {
+		return idNumList;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param idNumList
+	*/
+	public void setIdNumList(List<DecisionDetailDTO> idNumList) {
+		this.idNumList = idNumList;
+	}
+
+
 
 }

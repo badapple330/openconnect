@@ -25,6 +25,8 @@ public class ScheduleSelectDAO {
 	 */
 	public List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
 
+	public List<ScheduleDTO> teamList = new ArrayList<ScheduleDTO>();
+
 
 	/**
 	 * スケジュール一覧を検索するメソッド。
@@ -36,8 +38,12 @@ public class ScheduleSelectDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "select * from schedule where id LIKE '%" + search + "%' OR title LIKE '%" + search + "%'"
-				+ " OR content LIKE '%" + search + "%'";
+		/*id名やtitleも含めて検索したい場合はこっち
+		 * String sql = "select * from schedule where id LIKE '%" + search + "%' OR title LIKE '%" + search + "%'"
+				+ " OR team_name LIKE '%" + search + "%'";*/
+
+		/*チーム名のみで検索*/
+		String sql = "SELECT * FROM schedule WHERE team_name LIKE '%" + search + "%'";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -52,7 +58,7 @@ public class ScheduleSelectDAO {
 				try { dto.setStartDay(sdf.format(rs.getDate("start_day")).toString()); }catch(Exception e){}
 				try { dto.setEndDay(sdf.format(rs.getDate("end_day")).toString()); }catch(Exception e){}
 				dto.setTitle(rs.getString("title"));
-				dto.setContent(rs.getString("content"));
+				dto.setTeamName(rs.getString("team_name"));
 				scheduleList.add(dto);
 
 			}
@@ -67,6 +73,34 @@ public class ScheduleSelectDAO {
 		}
 		return scheduleList;
 
+	}
+
+	public List<ScheduleDTO> select2(){
+
+		DBConnector db2 = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
+		Connection conn2 = db2.getConnection();
+		String sql = "SELECT DISTINCT team_name FROM users ORDER BY team_name ASC";
+
+		try {
+			PreparedStatement ps2 = conn2.prepareStatement(sql);
+			ResultSet rs2 = ps2.executeQuery();
+
+			while(rs2.next()) {
+				ScheduleDTO dto2 = new ScheduleDTO();
+				dto2.setTeamName(rs2.getString("team_name"));
+				teamList.add(dto2);
+
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try{
+				conn2.close();
+			}catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return teamList;
 	}
 
 }

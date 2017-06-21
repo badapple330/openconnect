@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
-<link rel="stylesheet" href="css/projects.css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/projects.css" type="text/css">
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/projects.js"></script>
 <script src="js/pagenation.js"></script>
-
 
 <title>プロジェクト一覧</title>
 </head>
@@ -25,12 +25,14 @@
 	<!--<div class="container"> -->
 
 
-		<h1 class="page-header" align ="center">プロジェクト一覧</h1><BR><BR>
+
+
+		<h1 class="centered">プロジェクト一覧</h1><!--  class="page-header" align ="center" -->
 
 
 		<!-- userflg1以下(未ログイン状態)の場合非表示 -->
 		<!-- userflg1以上(ログイン状態)の場合表示 -->
-		<!-- userflg50のみ編集・削除・追加が可能（仕様）-->
+		<!-- userflg3のみ編集・削除・追加が可能（仕様）-->
 
 
 		<s:iterator value="siteInfoList">
@@ -44,13 +46,13 @@
 		<s:property value="notLoginMsg" />
 
 <!-- flg判定 -->		<s:if test="%{#session.userFlg < 1}">
-			<h1 align="center">ログイン後に表示されます。</h1>
+			<h1 class="centered">ログイン後に表示されます。</h1>
 			<BR><BR><BR>
 		</s:if>
 
 <!-- flg判定 -->		<s:if test="%{#session.userFlg >= 1}">
 			<s:form action="ProjectsSelectAction">
-			<div align="center">
+			<div class="centered">
              --- プロジェクト名を入力 ---<br>
 				<input type="text" maxlength="100" name="search"
 					placeholder="例：rewrite">
@@ -58,7 +60,7 @@
 				</div>
 			</s:form>
 			<br><BR>
-			<div align="center">
+			<div class="centered">
 			<font color="red">
 			<s:property value="%{resultString}" />
 			<s:property value="resultSelect" />
@@ -66,19 +68,20 @@
 			</div>
 			<br><BR>
 
+			<div class="table-scroll">
 			<s:form action="ProjectsUpdateAction">
 
-				<table border="1" align ="center">
+
+				<table border="1" class="centered responsive table-scroll">
 					<tbody id="list_body">
 						<tr>
 							<td></td>
 							<td>ID</td>
 							<td>プロジェクト名</td>
-							<td>管理者ID<br>(リーダー)
-							</td>
+
+
 							<td><div class="largetext">管理者(リーダー)</div></td>
-							<td>管理者ID<br>(サブ)
-							</td>
+
 							<td><div class="largetext">管理者（サブ)</div></td>
 							<td><div class="middletext">開始日（yyyy/MM/dd）</div></td>
 							<td><div class="middletext">終了日（yyyy/MM/dd）</div></td>
@@ -97,20 +100,12 @@
 									maxlength="100" value="<s:property value="projectName"/>"
 									class="projectNamelist" placeholder="例：rewrite"></td>
 
-								<td><input type="text" name="projectManagerIdList"
-									maxlength="10" value="<s:property value="managerId"/>"
-									class="projectManagerIdlist" pattern="[1-9][0-9]*"
-									placeholder="半角数字で入力" title="半角数字を入力してください。" required
-									size="7px"></td>
+
 
 								<td><s:property value="managerFamilyNameKanji" /> <s:property
 										value="managerGivenNameKanji" /></td>
 
-								<td><input type="text" name="projectSubManagerIdList"
-									maxlength="10" value="<s:property value="subManagerId"/>"
-									class="projectSubManagerIdlist" pattern="[1-9][0-9]*"
-									placeholder="半角数字で入力" title="半角数字を入力してください。" required
-									size="7px"></td>
+
 
 								<td><s:property value="subManagerFamilyNameKanji" /> <s:property
 										value="subManagerGivenNameKanji" /></td>
@@ -134,7 +129,7 @@
 
 
 
-<!-- flg判定 -->			<td><s:if test="%{#session.userFlg >= 50}">
+<!-- flg判定 -->			<td><s:if test="%{#session.userFlg == 3}">
 										<input type="button" value="削除" class="modal-open">
 									</s:if></td>
 
@@ -143,18 +138,39 @@
 						</s:iterator>
 					</tbody>
 				</table>
+
 				<BR>
 
-<!-- flg判定 -->	<s:if test="%{#session.userFlg == 50}">
-        <div align="center">
+						<!-- pagenation -->
+	<br>
+		<br>
+		<div id="pager" class="centered  fixedButton">
+			<div id="page_ctrl">
+				<ul id="page_before">
+					<li id="page_prev">prev</li>
+				</ul>
+				<ul id="page_number"></ul>
+				<ul id="page_after">
+					<li id="page_next">next</li>
+				</ul>
+			</div>
+		</div>
+		<br>
+		<br>
+
+<!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
+        <div class="centered  fixedButton">
       	<input class="button" type="submit" value="編集完了">
       	</div><BR><BR>
 				</s:if>
 			</s:form>
+			</div>
 			<br>
-<!-- flg判定 -->	<s:if test="%{#session.userFlg == 50}">
+<!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
+				<div class="table-scroll">
 				<s:form action="ProjectsInsertAction">
-					<table border="1" align ="center">
+
+					<table border="1" class="centered add"><!-- class="centered responsive" -->
 
 						<tr>
 
@@ -176,21 +192,26 @@
 							<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
 								name="subManagerId" placeholder="半角数字で入力" maxlength="10"
 								required></td>
-							<td><input type="text"
+							<td><input type="date"
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-								title="（yyyy/MM/dd）で入力して下さい" name="startDate"
-								placeholder="例：2016/08/30" maxlength="10" required></td>
+								name="startDate" required></td>
 						</tr>
 					</table>
+
 					<BR>
-                    <div align="center">
+                    <div class="centered fixedButton">
 					<input class="button" type="submit" value="追加する">
 					</div>
+					<br>
+					<br>
+
 				</s:form>
+				</div>
+
 				<br>
 
 
-				<div class="container">
+				<!-- <div class="container">
 
 				<input type="button" value="＋受講生一覧表示" id="listButton">
 				<div id="studentsElement">
@@ -217,15 +238,15 @@
 						</s:iterator>
 					</table>
 				</div>
-				</div>
+				</div> -->
 			</s:if>
 
 
 			<div id="modal-main">
 				<!-- #contents START -->
-				<div id="modal-style" align="center">
+				<div id="modal-style" class="centered">
 				<br>
-					<table class="modal_border">
+					<table class="modal_border responsive">
 
 
 						<tr>
@@ -282,27 +303,12 @@
 			<br>
 			<br>
 
-		<!-- pagenation -->
-	<br>
-		<br>
-		<div id="pager">
-			<div id="page_ctrl">
-				<ul id="page_before">
-					<li id="page_prev">prev</li>
-				</ul>
-				<ul id="page_number"></ul>
-				<ul id="page_after">
-					<li id="page_next">next</li>
-				</ul>
-			</div>
-		</div>
-		<br>
-		<br>
+
 		</s:if>
 
 
 		<s:form action="GetAddressAction">
-		<div align="center">
+		<div class="centered">
 			<input type="submit" class="button" value="戻る">
 			</div>
 		</s:form>

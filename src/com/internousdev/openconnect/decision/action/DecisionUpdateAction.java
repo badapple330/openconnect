@@ -1,373 +1,581 @@
+/**
+ *
+ */
 package com.internousdev.openconnect.decision.action;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.decision.dao.DecisionDAO;
+import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- *決裁状況一覧画面から入力された値を更新するクラス。
- * @author KENICHI HORIGUCHI,KOUHEI NITABARU
- * @since 2016/09/8
- * @version 1.0
+ * @author KOTA MIYAZATO
+ *
  */
 public class DecisionUpdateAction extends ActionSupport implements SessionAware{
-	/**
-	 *シリアルID
-	 */
-	private static final long serialVersionUID = -8549544350881549151L;
-	/**
-	 *登録日
-	 */
-	private List<String> registration = new ArrayList<String>();
-	/**
-	 *ユーザーID
-	 */
-	private List<Integer> userId = new ArrayList<Integer>();
-	/**
-	 *プロジェクトID
-	 */
-	private List<Integer> projectId = new ArrayList<Integer>();
-	/**
-	 *案件番号
-	 */
-	private List<Integer> decisionId = new ArrayList<Integer>();
-	/**
-	 *案件名
-	 */
-	private List<String> decisionName = new ArrayList<String>();
-	/**
-	 *詳細
-	 */
-	private List<String> detail = new ArrayList<String>();
-	/**
-	 *実施起案番号
-	 */
-	private List<String> iDraftingId = new ArrayList<String>();
-	/**
-	 *実施決裁番号
-	 */
-	private List<String> iApprovalId = new ArrayList<String>();
-	/**
-	 *契約起案番号
-	 */
-	private List<String> aDraftingId = new ArrayList<String>();
-	/**
-	 *契約決番号
-	 */
-	private List<String> cdId = new ArrayList<String>();
-	/**
-	 *実施兼契約起案番号
-	 */
-	private List<String> iADId = new ArrayList<String>();
-	/**
-	 *実施兼契約番号
-	 */
-	private List<String> iAId = new ArrayList<String>();
+
+
+
 
 
 	/**
-	 * 結果表示
-	 * @author KENICHI HORIGUCHI
-	 */
-	private String resultString = "更新に失敗しました。";
-
-	/**
-	 *管理権限
-	 */
-	public Map<String, Object> session;
-	/**
-	 * 決裁状況一覧情報を更新できたか否か判定するメソッド
-	 * @author  KENICHI HORIGUCHI,KOUHEI NITABARU
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * ユーザーID
 	 *
 	 */
-	public String execute(){
-
-		String result = ERROR;
-
-		DecisionDAO dao = new DecisionDAO();
-
-		int count = 0;
-
-		for(int i=0;i<registration.size();i++){
-
-			count += dao.update(
-					registration.get(i),
-					userId.get(i),
-					projectId.get(i),
-					decisionId.get(i),
-					decisionName.get(i),
-					detail.get(i),
-					iDraftingId.get(i),
-					iApprovalId.get(i),
-					aDraftingId.get(i),
-					cdId.get(i),
-					iADId.get(i),
-					iAId.get(i)
-					);
-		}
-		if(count > 0){
-			result = SUCCESS;
-			resultString = (getText("更新しました。"));
-		}
-		return result;
-	}
+	private int userId;
 
 	/**
-	 * 取得メソッド 登録日
-	 * @author KENICHI HORIGUCHI
-	 * @return registration
+	 * 案件名
+	 *
 	 */
-	public List<String> getRegistration() {
-		return registration;
-	}
+	private String decisionName;
 
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param registration
+	 * 実施起案番号
+	 *
 	 */
-	public void setRegistration(List <String> registration) {
-		this.registration = registration;
-	}
+	private String iDraftingId;
+	/**
+	 * 実施決裁番号
+	 *
+	 */
+	private String iApprovalId;
+	/**
+	 * 契約起案番号
+	 *
+	 */
+	private String aDraftingId;
+	/**
+	 * 契約決裁番号
+	 *
+	 */
+	private String cdId;
+	/**
+	 * 実施兼契約起案番号
+	 *
+	 */
+	private String iADId;
+	/**
+	 * 実施兼契約番号
+	 *
+	 */
+
+	private String iAId;
 
 	/**
-	 * 取得メソッド ユーザーID
-	 * @author KENICHI HORIGUCHI
+	 * 承認番号
+	 */
+	private String adminNum;
+
+	/**
+	 * 理由・目的
+	 */
+	public String cause;
+
+
+
+	/**
+	 * 建設費用
+	 */
+	private float bildCost;
+
+	/**
+	 * 損益費用
+	 */
+	private float benefit;
+
+	/**
+	 * 合計金額
+	 */
+	private float amountAll;
+
+	/**
+	 * 概要
+	 */
+	public String summary;
+
+	/**
+	 * 開始日
+	 */
+	public String startDay;
+
+	/**
+	 * 終了日
+	 */
+	public String endDay;
+
+	/**
+	 * 開発端末料
+	 */
+	public int prove;
+
+	/**
+	 * リリース環境使用料
+	 */
+	public float re;
+
+	/**
+	 *回線使用料
+	 */
+	public int line;
+
+
+	/**
+	 *施設使用料
+	 */
+	public float room;
+
+	/**
+	 *開発要員
+	 */
+	public int human;
+
+	/**
+	 *雑費
+	 */
+	public float etc;
+
+	/**
+	 *姓（漢字）
+	 */
+	public String familyNameKanji;
+
+	/**
+	 *名（漢字）
+	 */
+	public String givenNameKanji;
+
+
+	/*
+	 * decisionList コレクションクラスのオブジェクト宣言
+	 * @author kota.miyazato
+     * @since 2017/06/07
+     * @version 1.0
+     */
+
+	/**
+	 * 決裁手続きの情報をリスト化
+	 */
+	private ArrayList<DecisionDTO> decisionList = new  ArrayList<DecisionDTO>();
+
+	/**
+	 * セッション情報
+	 */
+	private Map<String,Object> session;
+
+
+
+	/**
+	 * サクセスメッセージ
+	 */
+	private String resultString = "更新できました。";
+
+
+	/**
+     * 決裁手続きの情報をリストを更新する
+     * @author kota.miyazato
+     * @since 2017/06/07
+     * @version 1.0
+     */
+
+	public String execute() {
+		String result =ERROR;
+         DecisionDAO dao= new DecisionDAO();
+         int count=0;
+
+         count=dao.update(decisionName);
+
+			if(count>0){
+				result = SUCCESS;
+				resultString = "更新しました。";
+			}
+
+
+
+			return result;
+}
+
+
+
+
+
+	/**
 	 * @return userId
 	 */
-	public List <Integer> getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param userId
+	 * @param userId セットする userId
 	 */
-	public void setUserId(List <Integer> userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
 	/**
-	 * 取得メソッド プロジェクトID
-	 * @author KENICHI HORIGUCHI
-	 * @return projectId
-	 */
-	public List <Integer> getProjectId() {
-		return projectId;
-	}
-
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param projectId
-	 */
-	public void setProjectId(List <Integer> projectId) {
-		this.projectId = projectId;
-	}
-
-	/**
-	 * 取得メソッド 案件番号
-	 * @author KENICHI HORIGUCHI
-	 * @return decisionId
-	 */
-	public List <Integer> getDecisionId() {
-		return decisionId;
-	}
-
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param decisionId
-	 */
-	public void setDecisionId(List <Integer> decisionId) {
-		this.decisionId = decisionId;
-	}
-
-	/**
-	 * 取得メソッド 案件名
-	 * @author KENICHI HORIGUCHI
 	 * @return decisionName
 	 */
-	public List <String> getDecisionName() {
+	public String getDecisionName() {
 		return decisionName;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param decisionName
+	 * @param decisionName セットする decisionName
 	 */
-	public void setDecisionName(List <String> decisionName) {
+	public void setDecisionName(String decisionName) {
 		this.decisionName = decisionName;
 	}
 
 	/**
-	 * 取得メソッド 詳細
-	 * @author KENICHI HORIGUCHI
-	 * @return detail
-	 */
-	public List <String> getDetail() {
-		return detail;
-	}
-
-	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param detail
-	 */
-	public void setDetail(List <String> detail) {
-		this.detail = detail;
-	}
-
-	/**
-	 * 取得メソッド 実施起案番号
-	 * @author KENICHI HORIGUCHI
 	 * @return iDraftingId
 	 */
-	public List <String> getIDraftingId() {
+	public String getiDraftingId() {
 		return iDraftingId;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param iDraftingId
+	 * @param iDraftingId セットする iDraftingId
 	 */
-	public void setIDraftingId(List <String> iDraftingId) {
+	public void setiDraftingId(String iDraftingId) {
 		this.iDraftingId = iDraftingId;
 	}
 
 	/**
-	 * 取得メソッド 実施決裁番号
-	 * @author KENICHI HORIGUCHI
 	 * @return iApprovalId
 	 */
-	public List <String> getIApprovalId() {
+	public String getiApprovalId() {
 		return iApprovalId;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param iApprovalId
+	 * @param iApprovalId セットする iApprovalId
 	 */
-	public void setIApprovalId(List <String> iApprovalId) {
+	public void setiApprovalId(String iApprovalId) {
 		this.iApprovalId = iApprovalId;
 	}
 
 	/**
-	 * 取得メソッド 契約起案番号
-	 * @author KENICHI HORIGUCHI
 	 * @return aDraftingId
 	 */
-	public List <String> getADraftingId() {
+	public String getaDraftingId() {
 		return aDraftingId;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param aDraftingId
+	 * @param aDraftingId セットする aDraftingId
 	 */
-	public void setADraftingId(List <String> aDraftingId) {
+	public void setaDraftingId(String aDraftingId) {
 		this.aDraftingId = aDraftingId;
 	}
 
 	/**
-	 * 取得メソッド 契約決番号
-	 * @author KENICHI HORIGUCHI
 	 * @return cdId
 	 */
-	public List <String> getCdId() {
+	public String getCdId() {
 		return cdId;
 	}
 
 	/**
-	 * 設定メソッド 実施兼契約起案番号
-	 * @author KENICHI HORIGUCHI
-	 * @param cdId
+	 * @param cdId セットする cdId
 	 */
-	public void setCdId(List <String> cdId) {
+	public void setCdId(String cdId) {
 		this.cdId = cdId;
 	}
 
 	/**
-	 * 取得メソッド
-	 * @author KENICHI HORIGUCHI
 	 * @return iADId
 	 */
-	public List <String> getIADId() {
+	public String getiADId() {
 		return iADId;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param iADId
+	 * @param iADId セットする iADId
 	 */
-	public void setIADId(List <String> iADId) {
+	public void setiADId(String iADId) {
 		this.iADId = iADId;
 	}
 
 	/**
-	 * 取得メソッド 実施兼契約番号
-	 * @author KENICHI HORIGUCHI
 	 * @return iAId
 	 */
-	public List <String> getIAId() {
+	public String getiAId() {
 		return iAId;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param iAId
+	 * @param iAId セットする iAId
 	 */
-	public void setIAId(List <String> iAId) {
+	public void setiAId(String iAId) {
 		this.iAId = iAId;
 	}
 
 	/**
-	 * 取得メソッド 管理権限
-	 * @author KENICHI HORIGUCHI
-	 * @return
+	 * @return adminNum
 	 */
-	public Map <String, Object> getSession() {
+	public String getAdminNum() {
+		return adminNum;
+	}
+
+	/**
+	 * @param adminNum セットする adminNum
+	 */
+	public void setAdminNum(String adminNum) {
+		this.adminNum = adminNum;
+	}
+
+
+
+	/**
+	 * @return bildCost
+	 */
+	public float getBildCost() {
+		return bildCost;
+	}
+
+	/**
+	 * @param bildCost セットする bildCost
+	 */
+	public void setBildCost(float bildCost) {
+		this.bildCost = bildCost;
+	}
+
+	/**
+	 * @return benefit
+	 */
+	public float getBenefit() {
+		return benefit;
+	}
+
+	/**
+	 * @param benefit セットする benefit
+	 */
+	public void setBenefit(float benefit) {
+		this.benefit = benefit;
+	}
+
+	/**
+	 * @return amountAll
+	 */
+	public float getAmountAll() {
+		return amountAll;
+	}
+
+	/**
+	 * @param amountAll セットする amountAll
+	 */
+	public void setAmountAll(float amountAll) {
+		this.amountAll = amountAll;
+	}
+
+	/**
+	 * @return session
+	 */
+	public Map<String,Object> getSession() {
 		return session;
 	}
 
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param session
+	 * @param session セットする session
 	 */
-	public void setSession(Map <String, Object> session) {
+	public void setSession(Map<String,Object> session) {
 		this.session = session;
 	}
 
 	/**
-	 * 取得メソッド エラーメッセージ
-	 * @author KENICHI HORIGUCHI
-	 * @return resultString
+	 * @return decisionList
 	 */
+	public ArrayList<DecisionDTO> getDecisionList() {
+		return decisionList;
+	}
+
+	/**
+	 * @param decisionList セットする decisionList
+	 */
+	public void setDecisionList(ArrayList<DecisionDTO> decisionList) {
+		this.decisionList = decisionList;
+	}
+
+
+
+
+	/**
+	 * @return cause
+	 */
+	public String getCause() {
+		return cause;
+	}
+
+
+
+
+	/**
+	 * @param cause セットする cause
+	 */
+	public void setCause(String cause) {
+		this.cause = cause;
+	}
+
+
+
+	/**
+	 * @return summary
+	 */
+	public String getSummary() {
+		return summary;
+	}
+
+
+	/**
+	 * @param summary セットする summary
+	 */
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+
+	/**
+	 * @return startDay
+	 */
+	public String getStartDay() {
+		return startDay;
+	}
+
+	/**
+	 * @param startDay セットする startDay
+	 */
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
+	}
+
+
+	/**
+	 * @return endDay
+	 */
+	public String getEndDay() {
+		return endDay;
+	}
+
+
+
+	/**
+	 * @param endDay セットする endDay
+	 */
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
+	}
+
+
+	/**
+	 * @return prove
+	 */
+	public int getProve() {
+		return prove;
+	}
+	/**
+	 * @param prove セットする prove
+	 */
+	public void setProve(int prove) {
+		this.prove = prove;
+	}
+	/**
+	 * @return re
+	 */
+	public float getRe() {
+		return re;
+	}
+	/**
+	 * @param re セットする re
+	 */
+	public void setRe(float re) {
+		this.re = re;
+	}
+	/**
+	 * @return line
+	 */
+	public int getLine() {
+		return line;
+	}
+	/**
+	 * @param line セットする line
+	 */
+	public void setLine(int line) {
+		this.line = line;
+	}
+	/**
+	 * @return room
+	 */
+	public float getRoom() {
+		return room;
+	}
+	/**
+	 * @param room セットする room
+	 */
+	public void setRoom(float room) {
+		this.room = room;
+	}
+	/**
+	 * @return human
+	 */
+	public int getHuman() {
+		return human;
+	}
+	/**
+	 * @param human セットする human
+	 */
+	public void setHuman(int human) {
+		this.human = human;
+	}
+	/**
+	 * @return etc
+	 */
+	public float getEtc() {
+		return etc;
+	}
+	/**
+	 * @param etc セットする etc
+	 */
+	public void setEtc(float etc) {
+		this.etc = etc;
+	}
+
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return resultString
+	*/
 	public String getResultString() {
 		return resultString;
 	}
 
+
+
+
+
 	/**
-	 * 設定メソッド
-	 * @author KENICHI HORIGUCHI
-	 * @param resultString
-	 */
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param resultString
+	*/
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
 
 }
+
+
+
+
+
+
+
+

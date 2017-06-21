@@ -12,6 +12,7 @@ import com.internousdev.util.DBConnector;
  * 新規登録情報を格納するためのDAO
  *
  * @author YUKI MAEDA
+ * @author TATSUHIRO SAITO
  * @since 2016/07/11
  */
 public class RegisterDAO {
@@ -20,6 +21,7 @@ public class RegisterDAO {
 	 * 挿入メソッド 指定された情報をDBに接続して挿入するメソッド
 	 *
 	 * @author YUKI MAEDA
+	 * @author TATSUHIRO SAITO
 	 * @param userID
 	 *            ユーザーID
 	 * @param password
@@ -28,24 +30,13 @@ public class RegisterDAO {
 	 *            名前
 	 * @param nameF
 	 *            名前(ふりがな)
-	 * @param postal
-	 *            郵便番号
-	 * @param address
-	 *            住所
-	 * @param telNumber
-	 *            代表者
 	 * @param email
 	 *            メールアドレス
-	 * @param sex
-	 *            性別
-	 * @param birthday
-	 *            誕生日
 	 *
 	 * @return result 挿入に成功したら1以上、失敗したら0
 	 */
-	public int insert(int userId, String password, String familyName, String givenName, String familyNameKanji, String familyNameKana,
-			String givenNameKanji, String givenNameKana, String zip, String address, String telNumber, String email, String mobileNumber,
-			String mobileEmail, String sex, String birthday, int year, String month) {
+	public int insert(int userId, String password,  String familyNameKanji, String familyNameKana,
+			String givenNameKanji, String givenNameKana, String email,  int year, String month,int user_flg) {
 		int result = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -55,36 +46,28 @@ public class RegisterDAO {
 //				+ "tel_number, email, sex, birthday, register_day, update_day," + "userdel_flg, login_flg, user_flg)"
 //				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		String sql = "insert into users(user_id, password, family_name, given_name, family_name_kanji, given_name_kanji,"
-+" family_name_kana, given_name_kana, postal, address, phone_number, phone_email, mobile_number, mobile_email, sex,"
-+" birthday, register_day, login_flg, user_flg, year, month)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into users(user_id, password, family_name_kanji, given_name_kanji,"
++" family_name_kana, given_name_kana,phone_email,"
++"  year, month,register_day,login_flg,user_flg)values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String registerDay = sdf.format(System.currentTimeMillis());
+
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, userId);
 			ps.setString(2, password);
-			ps.setString(3, familyName);
-			ps.setString(4, givenName);
-			ps.setString(5, familyNameKanji);
-			ps.setString(6, givenNameKanji);
-			ps.setString(7, familyNameKana);
-			ps.setString(8, givenNameKana);
-			ps.setString(9, zip);
-			ps.setString(10, address);
-			ps.setString(11, telNumber);
-			ps.setString(12, email);
-			ps.setString(13, mobileNumber);
-			ps.setString(14, mobileEmail);
-			ps.setString(15, sex);
-			ps.setString(16, birthday);
-			ps.setString(17, registerDay);
-			ps.setBoolean(18, true);
-			ps.setInt(19, 1);
-			ps.setInt(20, year);
-			ps.setString(21, month);
+			ps.setString(3, familyNameKanji);
+			ps.setString(4, givenNameKanji);
+			ps.setString(5, familyNameKana);
+			ps.setString(6, givenNameKana);
+			ps.setString(7, email);
+			ps.setInt(8, year);
+			ps.setString(9, month);
+			ps.setString(10,registerDay);
+			ps.setBoolean(11, false);
+			ps.setInt(12, 1);
 			result = ps.executeUpdate();
 
 		} catch (Exception e) {
@@ -101,10 +84,10 @@ public class RegisterDAO {
 
 	/**
 	 *
-	 * 指定されたユーザーＩＤが存在するかＤＢに接続して調べるメソッド
-	 *
+	 * 指定されたユーザーメールアドレスが存在するかＤＢに接続して調べるメソッド
+	 *@author TATSUHIRO SAITO
 	 * @author YUKI MAEDA
-	 * @param userId
+	 * @param email
 	 *            ユーザーID
 	 * @return 存在したらtrue、存在しなければfalse
 	 */

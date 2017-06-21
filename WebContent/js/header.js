@@ -56,6 +56,16 @@ $(function(){
 		}
 	});
 
+	$(function(){
+		$("ul.menu").hide();
+		$("div.category").click(function(){
+		$("ul .menu").slideUp();
+		if($("+ul",this).css("display")=="none"){
+		$("+ul",this).slideDown();
+		}
+		});
+		});
+
 $('#location').click(function() {
     if ($(this).val() != '') {
       window.location.href = $('select[name=pulldown2]').val();

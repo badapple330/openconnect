@@ -10,10 +10,18 @@ package com.internousdev.openconnect.attendance.dto;
  * @version 1.0
  */
 public class AttendanceDTO {
-
 	/*
-	 * 手入力の報告
+	 * 手入力の報告年
 	 */
+	private int atYear;
+    /*
+     * 手入力の報告月
+     */
+	private int atMonth;
+	/*
+	 * 手入力の報告日
+	 */
+	private int atDay;
 	/**
 	 * 日付
 	 */
@@ -30,6 +38,10 @@ public class AttendanceDTO {
 	 * 受講開始月
 	 */
 	private String month;
+	/**
+	 * チーム名
+	 */
+	private String teamName;
 	/**
 	 * 漢字姓
 	 */
@@ -49,7 +61,7 @@ public class AttendanceDTO {
 	/**
 	 * 勤怠
 	 */
-	private int attendance;
+	private String attendance;
 	/**
 	 * 勤怠文字
 	 */
@@ -66,7 +78,13 @@ public class AttendanceDTO {
 	 * 備考
 	 */
     private String reason;
+    /**
+     * テストカウント
+     */
+    private int testCount;
 
+    private int syusseki;
+	private int kesseki;
 	/**
 	* 取得メソッド 日付を取得
 	* @author MINORI SUNAGAWA
@@ -202,7 +220,7 @@ public class AttendanceDTO {
 	* @author MINORI SUNAGAWA
 	* @return attendance
 	*/
-	public int getAttendance() {
+	public String getAttendance() {
 		return attendance;
 	}
 	/**
@@ -210,7 +228,7 @@ public class AttendanceDTO {
 	* @author MINORI SUNAGAWA
 	* @param attendance
 	*/
-	public void setAttendance(int attendance) {
+	public void setAttendance(String attendance) {
 		this.attendance = attendance;
 	}
 	/**
@@ -276,6 +294,113 @@ public class AttendanceDTO {
 	*/
 	public void setReason(String reason) {
 		this.reason = reason;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return atYear
+	*/
+	public int getAtYear() {
+		return atYear;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param atYear
+	*/
+	public void setAtYear(int atYear) {
+		this.atYear = atYear;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return atMonth
+	*/
+	public int getAtMonth() {
+		return atMonth;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param atMonth
+	*/
+	public void setAtMonth(int atMonth) {
+		this.atMonth = atMonth;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return atDay
+	*/
+	public int getAtDay() {
+		return atDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param atDay
+	*/
+	public void setAtDay(int atDay) {
+		this.atDay = atDay;
+	}
+	/**
+	* 取得メソッド を取得
+	* @author TEPPEI MATSUMOTO
+	* @return teamName
+	*/
+	public String getTeamName() {
+		return teamName;
+	}
+	/**
+	* 設定メソッド を設定
+	* @author TEPPEI MATSUMOTO
+	* @param teamName
+	*/
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+	/**
+	 * テストカウントを取得します。
+	 * @return テストカウント
+	 */
+	public int getTestCount() {
+	    return testCount;
+	}
+	/**
+	 * テストカウントを設定します。
+	 * @param testCount テストカウント
+	 */
+	public void setTestCount(int testCount) {
+	    this.testCount = testCount;
+	}
+	/**
+	 * syussekiを取得します。
+	 * @return syusseki
+	 */
+	public int getSyusseki() {
+	    return syusseki;
+	}
+	/**
+	 * syussekiを設定します。
+	 * @param syusseki syusseki
+	 */
+	public void setSyusseki(int syusseki) {
+	    this.syusseki = syusseki;
+	}
+	/**
+	 * kessekiを取得します。
+	 * @return kesseki
+	 */
+	public int getKesseki() {
+	    return kesseki;
+	}
+	/**
+	 * kessekiを設定します。
+	 * @param kesseki kesseki
+	 */
+	public void setKesseki(int kesseki) {
+	    this.kesseki = kesseki;
 	}
 
 }

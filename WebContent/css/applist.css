@@ -1,39 +1,36 @@
-@CHARSET "UTF-8";
 
-body {
-	background-image: url("../img/umi.jpg");
-	background-size: 100% 150%;
-	color: #ccffcc;
+.topslide{
+	z-index: -1
 }
 
-.midashi {
-	text-align: center;
-	font-size: 500%;
+.fadeout{
+    opacity: 0;
+    transition: 3s ease-in-out;
+    -webkit-transition: 3s ease-in-out;
+    width: 640px;
+    height: 360px;
+    z-index: -1
 }
 
-.list {
-	text-align: center;
-	color: #FFFFFF;
-	font-size: 300%;
+.fadein{
+    opacity: 1;
+    transition: 3s ease-in-out;
+    -webkit-transition: 3s ease-in-out;
+    width: 640px;
+    height: 360px;
+    z-index: -1
 }
 
-#in {
-	position: relative;
-	width: 100%;
-	height: 30px;
-	margin: 10 auto;
-	text-align: center;
-}
 
-#in .logout {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	margin: -1.5em 0 0 -50%;
-}
-
-#in input[type="submit"] {
-	font-size: 200%
+@media only screen and (max-device-width : 380px) {
+    #idshow1 {
+        width: 100%;
+        }
+    #idshow2 {
+ 		width: 100%;
+  	    }
+  	#table-scroll {
+        overflow-x: scroll;
+        }
 }
 

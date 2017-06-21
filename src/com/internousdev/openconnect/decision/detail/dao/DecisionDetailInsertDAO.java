@@ -10,26 +10,30 @@ import java.sql.SQLException;
 import com.internousdev.util.DBConnector;
 /**
  * 画面で追加した一覧情報をDBへ転送する為のクラス
- * @author TATUHUMI ITOU
- * @since 2016/09/04
+ * @author SOSHI AZUMA
+ * @since 2017/06/16
  * @version 1.0
  */
 public class DecisionDetailInsertDAO {
 	 /**
      * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
-     * @author TATUHUMI ITOU
      */
-	public int insert(int projectId,String password){
+	public int insert(int projectId, String decisionType, int decisionStatus1){
 
 		int count = 0;
+		if(decisionType.equals("実施兼契約")) {
+			decisionStatus1 = 2;
+		}
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection conn = db.getConnection();
-		String sql = "INSERT INTO decision_detail(project_id,password)VALUES(? ,?)";
+		Connection con = db.getConnection();
+		String sql = "INSERT INTO decision ( project_id, decision_type, decision_status1 ) VALUES ( ?, ?, ? )";
 		try{
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,projectId);
-			ps.setString(2,password);
+			ps.setString(2,decisionType);
+			ps.setInt(3,decisionStatus1);
+
 			count = ps.executeUpdate();
 
 
@@ -37,7 +41,7 @@ public class DecisionDetailInsertDAO {
 			e.printStackTrace();
 		}finally {
 			try{
-				conn.close();
+				con.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
@@ -45,5 +49,6 @@ public class DecisionDetailInsertDAO {
 		return count;
 
 	}
+
 
 }

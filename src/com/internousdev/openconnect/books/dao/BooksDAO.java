@@ -8,42 +8,62 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.internousdev.openconnect.books.dto.BooksDTO;
 import com.internousdev.util.DBConnector;
 /**
  * 表示したい内容を、DBから取り出しDTOへ転送する為のクラス
- * @author TATSUYA HOSHI
+ * @author TATSUYA HOSHI, SOSHI AZUMA
  */
 public class BooksDAO {
 
-	private List<BooksDTO>bookList = new ArrayList<BooksDTO>();
+	ArrayList<BooksDTO> bookList = new ArrayList<BooksDTO>();
 
 	/**
 	 * 検索結果情報をリスト化して抽出し、DTOに格納する
 	 */
-	public List<BooksDTO> searchList = new ArrayList<BooksDTO>();
+	ArrayList<BooksDTO> searchList = new ArrayList<BooksDTO>();
+
+
 
 	/**
 	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
 	 */
-	public List<BooksDTO> select() {
+	public ArrayList<BooksDTO> select(String search) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		Connection con = db.getConnection();
+		Connection con = null;
+		con = db.getConnection();
+		String sql = "select @num :=@num + 1 as no, books.* from (select @num := 0) as no, books where status_flg!=1";
+		if (!search.equals("")) {
+			sql = sql + " " + "and title like \"%" + search + "%\"";
+		}
+		sql = sql + " " + "order by title";
 
 		try {
-			String sql="SELECT * FROM books";
-			PreparedStatement ps = con.prepareStatement(sql);
+
+			PreparedStatement ps = null;
+			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
+
 
 			while (rs.next()) {
 				BooksDTO dto = new BooksDTO();
 				dto.setBookId(rs.getInt("book_id"));
 				dto.setTitle(rs.getString("title"));
+				dto.setSubTitle(rs.getString("sub_title"));
+				dto.setAuthor(rs.getString("author"));
+				dto.setPublisher(rs.getString("publisher"));
+				dto.setPubDay(rs.getString("publish_day"));
+				dto.setInitial(rs.getString("initial"));
+				dto.setStatusFlg(rs.getInt("status_flg"));
+				dto.setRegDay(rs.getString("regist_day"));
+				dto.setUpdDay(rs.getString("updated_day"));
+				dto.setNo(rs.getInt("no"));
+
 
 				bookList.add(dto);
 			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -56,49 +76,29 @@ public class BooksDAO {
 		return bookList;
 	}
 
-	public int select( String title ) {
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		Connection con = db.getConnection();
 
-		try {
-			String sql="SELECT * FROM books where title = ?";
-			PreparedStatement ps = con.prepareStatement(sql);
-
-			ps.setString(1, title);
-
-			ResultSet rs = ps.executeQuery();
-
-			while (rs.next()) {
-				return rs.getInt("book_id");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return 0;
-	}
 
 	 /**
      * 更新情報を、DBへ転送し、更新する為のメソッド
      */
-	public int select(String title,int book_id) {
+	public int update(String title, String subTitle, String author, String publisher, String pubDay, int statusFlg, int book_id) {
 
 		int count = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE books SET title = ? where book_id = ?";
+		String sql = "UPDATE books SET title = ?, sub_title = ?, author = ?, publisher = ?, publish_day = ?, status_flg =? where book_id = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,title);
-			ps.setInt(2,book_id);
+			ps.setString(1, title);
+			ps.setString(2, subTitle);
+			ps.setString(3, author);
+			ps.setString(4, publisher);
+			ps.setString(5, pubDay);
+			ps.setInt(6, statusFlg);
+			ps.setInt(7, book_id);
 			count =ps.executeUpdate();
 
 		}catch (SQLException e) {
@@ -117,16 +117,21 @@ public class BooksDAO {
 	/**
 	 * 書籍画面から受け取ったタイトルの追加情報を、DBへ転送し、反映する為のメソッド
 	 */
-	public int insert(String title) {
+	public int insert(String title, String subTitle, String author, String publisher, String pubDay, String initial) {
 
 		int count = 0 ;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "INSERT INTO books(title)VALUES(?)";
+		String sql = "INSERT INTO books(title, sub_title, author, publisher, publish_day, initial)VALUES(?, ?, ?, ?, ?, ?)";
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,title);
+			ps.setString(2,subTitle);
+			ps.setString(3,author);
+			ps.setString(4,publisher);
+			ps.setString(5,pubDay);
+			ps.setString(6,initial);
 
 			count = ps.executeUpdate();
 
@@ -146,7 +151,7 @@ public class BooksDAO {
 
 
 	 /**
-     * 削除メソッド DBからIDの情報を削除する為のメソッド
+     * 削除メソッド DBのbook_statusの情報を変更する為のメソッド
      */
 	public int delete(int bookId){
 
@@ -155,7 +160,7 @@ public class BooksDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 
-		String sql = "delete from books where book_Id = ?";
+		String sql = "update books set status_flg=1 where book_Id = ?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);

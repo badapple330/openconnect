@@ -6,6 +6,7 @@
 <head>
 <link href="css/admin.css" rel="stylesheet" type="text/css">
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>管理者画面</title>
@@ -20,13 +21,12 @@
 		<h1 style="text-align: center;">管理画面</h1>
 	</div>
 
+<div align= "center">
 	<s:if test="%{#session.userFlg >= 1}">
 	<p class="caution">数字入力は半角のみ、 アプリID欄にはアプリIDのみ記入可能、
 		値の確認は下のアプリ一覧情報取得から行ってください。 テンキー入力不可。</p>
 	<br>
-	<div align="center">
-		<font size="2" color="red"> </font>
-	</div>
+
 	<h2>アプリ追加</h2>
 	<s:if test="messageAdd != null">
 		<p class="msg">
@@ -34,17 +34,19 @@
 		</p>
 	</s:if>
 	<s:form action="AddAppAction">
-		<table class="wwFormTable">
+		<table id="wwFormTable1">
 			<tbody>
 				<tr>
-					<td>アプリ名：<input type="text" name="siteName" maxlength="20"
-						required>
+					<td>アプリ名</td>
+					<td><input type="text" name="siteName" maxlength="20"
+					    required>
 					</td>
-					<td>URL：<input type="text" name="siteUrl"
-						style="ime-mode: disabled" size="20" required>
+					<td>URL</td>
+					<td><input type="text" name="siteUrl" style="ime-mode: disabled"
+					    size="20" required>
 					</td>
-					<td>グループ： <select name="genre" style="ime-mode: disabled"
-						required>
+					<td>グループ</td>
+					<td><select name="genre" style="ime-mode: disabled" required>
 							<option value="" selected>グループ</option>
 							<option value="観る">観る</option>
 							<option value="読む">読む</option>
@@ -72,10 +74,11 @@
 		</p>
 	</s:if>
 	<s:form action="DeleteAppAction">
-		<table class="wwFormTable">
+		<table id="wwFormTable2">
 			<tbody>
 				<tr>
-					<td>アプリID : <input type="text" name="siteId" maxlength="20"
+					<td>アプリID</td>
+					<td><input type="text" name="siteId" maxlength="20"
 						onkeyDown="return numOnly()" pattern="[0-9]{1,10}"
 						title="半角数字で入力してください" required>
 					</td>
@@ -92,22 +95,26 @@
 		</p>
 	</s:if>
 	<s:form action="UpdateAppAction">
-		<table class="wwFormTable">
+		<table id="wwFormTable3">
 			<tbody>
 				<tr>
-					<td>アプリID : <input type="text" name="siteId" maxlength="20"
+					<td>アプリID</td>
+					<td><input type="text" name="siteId" maxlength="20"
 						onkeyDown="return numOnly()" pattern="[0-9]{1,10}"
 						title="半角数字で入力してください" required>
 					</td>
 
-					<td>アプリ名：<input type="text" name="siteName" maxlength="20"
+					<td>アプリ名</td>
+					<td><input type="text" name="siteName" maxlength="20"
 						required>
 					</td>
 
-					<td>URL：<input type="text" name="siteUrl"
+					<td>URL</td>
+					<td><input type="text" name="siteUrl"
 						style="ime-mode: disabled" size="20" required>
 					</td>
-					<td>グループ：<select name="genre" style="ime-mode: disabled"
+					<td>グループ</td>
+					<td><select name="genre" style="ime-mode: disabled"
 						required>
 							<option value="" selected>グループ</option>
 							<option value="観る">観る</option>
@@ -161,11 +168,15 @@
 		<a href="#wrap">PAGE TOP</a>
 	</div>
 	</s:if>
+	</div>
+    <br>	<br>	<br>	<br>
+	<div align= "center">
 	<s:else>
 	ログイン後に表示します。
 	</s:else>
 	<s:form action="GetAddressAction">
 		<s:submit align="center" cssClass="Button" value="戻る" />
 	</s:form>
+	</div>
 </body>
 </html>
