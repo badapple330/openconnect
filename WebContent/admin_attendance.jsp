@@ -18,19 +18,17 @@ $(function(){
 $("#searchButtun").click(function(){
 if(($("#teamForm").val() != "") && (($("#familyForm").val() != "") || ($("#GivenForm").val() != ""))){
 alert('チーム名、性、名を同時に検索できません');
-}else if((($("#familyForm").val() != "" && $("#GivenForm").val() == "")) || (($("#familyForm").val() == "") && ($("#GivenForm").val() != ""))){
+}else if(($("#familyForm").val() != "") && (($("#GivenForm").val() == "") || ($("#familyForm").val() == "") && ($("#GivenForm").val() != ""))){
 	alert('姓と名の両方を入力してください');
 }else if(($("#id_year").val() !="") && ($("#id_month").val() !="") && ($("#id_day").val() =="") ||
+		($("#id_year").val() !="") && ($("#id_month").val() =="") && ($("#id_day").val() !="") ||
 		($("#id_year").val() !="") && ($("#id_month").val() =="") && ($("#id_day").val() =="") ||
 		($("#id_year").val() =="") && ($("#id_month").val() !="") && ($("#id_day").val() !="") ||
 		($("#id_year").val() =="") && ($("#id_month").val() !="") && ($("#id_day").val() =="") ||
-		($("#id_year").val() =="") && ($("#id_month").val() !="") && ($("#id_day").val() !="") ||
-		($("#id_year").val() =="") && ($("#id_month").val() !="") && ($("#id_day").val() =="") ||
-		($("#id_year").val() !="") && ($("#id_month").val() =="") && ($("#id_day").val() !=""))
-		{
+		($("#id_year").val() =="") && ($("#id_month").val() =="") && ($("#id_day").val() !="")){
 	alert('日付をすべて選択してください');
 }else if(($("#id_year").val() =="") && ($("#id_month").val() =="") && ($("#id_day").val() =="") &&
-		(($("#familyForm").val() =="")) && ($("#givenForm").val() =="") && (($("#teamForm").val() =="")) &&
+		($("#familyForm").val() =="") && ($("#givenForm").val() =="") && ($("#teamForm").val() =="") &&
 		($("#id_attendance").val !="")){
 	alert('出欠の他に入力してください');
 }else{
@@ -56,7 +54,7 @@ $("#search").submit();
 <select name="atYear" id="id_year" data-choice="year"><option value="">----</option></select>
 <select name="atMonth" id="id_month" data-choice="month"><option value="">----</option></select>
 <select name="atDay" id="id_day" data-choice="day"><option value="">----</option></select>
-<select name="attendance" id="Id_attendance">
+<select name="attendance" id="id_attendance">
 			<option value="">出欠状況</option>
 			<option value="出席">出席</option>
 			<option value="欠席">欠席</option>
@@ -64,7 +62,7 @@ $("#search").submit();
 			<option value="早退">早退</option>
 		</select>
 <s:textfield name="familyNameKanji" id="familyForm" placeholder="名字" title="名字"/>
-<s:textfield name="givenNameKanji" id="GivenForm" placeholder="名前" title="名前"/>
+<s:textfield name="givenNameKanji" id="givenForm" placeholder="名前" title="名前"/>
 <s:textfield name="teamName" placeholder="チーム名" id="teamForm" title="チーム名"/>
 <s:submit value="検索" class="search-btn" id="searchButtun"/>
 </s:form>

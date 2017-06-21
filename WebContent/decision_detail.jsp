@@ -73,7 +73,17 @@
 					</th>
 
 
-					<th>申請</th>
+					<th>
+					<s:if test="decisionStatus1 == 0 || decisionStatus2 == 0">
+						申請
+					</s:if>
+					<s:elseif test="decisionStatus1 == 3 || decisionStatus2 == 3">
+						変更申請
+					</s:elseif>
+					<s:else>
+						承認状況
+					</s:else>
+					</th>
 
 					<s:if test="decisionStatus1 == 3 || decisionStatus2 == 3">
 					<th>変更</th>
@@ -168,6 +178,9 @@
 							<s:form action="DecisionPreviewAction">
 								<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+								<input type="hidden" name="permitUserId1" value="<s:property value="permitUserId1" />">
+								<input type="hidden" name="permitUserId2" value="<s:property value="permitUserId2" />">
+								<input type="hidden" name="permitUserId3" value="<s:property value="permitUserId3" />">
 										<input type="submit" value="プレビュー" >
 							</s:form>
 						</s:else>
@@ -188,7 +201,7 @@
 						</s:if>
 
 						<!-- 契約/実施兼契約・変更時(契約/実施契約)の申請 -->
-						<s:elseif test="%{decisionStatus2 == 0 || decisionStatus2 == 3}">
+						<s:elseif test="%{(decisionStatus2 == 0 || decisionStatus2 == 3) && decisionStatus1 == 2}">
 							<s:if test="%{decisionType == '契約'}">
 								<input type="hidden" name="StringId" value="<s:property value="aDraftingId" />">
 											<input type="submit" value="契約申請">
@@ -295,14 +308,14 @@
 					<th>決裁種類</th>
                     <th>決裁状況</th>
 
-					<th>プレビューボタン</th>
+					<th>プレビュー</th>
 
 					<s:if test="%{#session.userFlg >= 2}">
-					<th>承認ボタン</th>
+					<th>承認</th>
 
 
-					<th>差し戻しボタン</th>
-					<th>却下ボタン</th>
+					<th>差し戻し</th>
+					<th>却下</th>
 					</s:if>
 
 				</tr>
@@ -388,7 +401,6 @@
 					<!-- 実施の承認 -->
 					<s:if test="%{decisionType == '実施'}">
 
-
 						<!-- 先生のみ -->
 							<s:if test="%{#session.userFlg == 3}">
 							<!-- 先生の承認 -->
@@ -397,7 +409,7 @@
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
 										<input type="hidden" name="permitStatus" value="0">
-										<input type="submit" value=" 実施承認3人目">
+												<input type="submit" value=" 実施承認3人目">
 									</s:form>
 								</s:if>
 								<s:elseif test="permitStatus == 1">
@@ -415,7 +427,7 @@
 									<s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="permitStatus" value="1">
-										<input type="submit" value=" 実施承認1人目">
+												<input type="submit" value=" 実施承認1人目">
 									</s:form>
 								</s:if>
 							<!-- リーダー2の承認 -->
@@ -423,7 +435,12 @@
 									<s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="permitStatus" value="2">
-										<input type="submit" value=" 実施承認2人目">
+										<s:if test="%{permitUserId1 == #session.userId}">
+											あなたが1人目の承認者
+										</s:if>
+										<s:else>
+												<input type="submit" value=" 実施承認2人目">
+										</s:else>
 									</s:form>
 								</s:elseif>
 								<s:elseif test="permitStatus == 2">
@@ -435,14 +452,14 @@
 
 					<!-- 契約・実施兼契約の承認 -->
 					<s:else>
-						<s:form action="DecisionDetailPermitAction">
-										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 
 						<!-- 先生のみ -->
 							<s:if test="%{#session.userFlg == 3}">
 							<!-- 先生の承認 -->
 								<s:if test="permitStatus == 2">
-										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
+                                    <s:form action="DecisionDetailPermitAction">
+										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                                        <input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
 										<input type="hidden" name="permitStatus" value="0">
 										<s:if test="%{decisionType == '契約'}">
 												<input type="submit" value="契約承認3人目">
@@ -450,6 +467,7 @@
 										<s:elseif test="%{decisionType == '実施兼契約'}">
 												<input type="submit" value="実施兼契約承認3人目">
 										</s:elseif>
+                                    </s:form>
 								</s:if>
 								<s:elseif test="permitStatus == 1">
 									リーダー2人目承認中
@@ -463,6 +481,8 @@
 							<s:else>
 							<!-- リーダー1の承認 -->
 								<s:if test="permitStatus == 0">
+                                    <s:form action="DecisionDetailPermitAction">
+										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="permitStatus" value="1">
 										<s:if test="%{decisionType == '契約'}">
 												<input type="submit" value="契約承認1人目">
@@ -470,26 +490,35 @@
 										<s:elseif test="%{decisionType == '実施兼契約'}">
 												<input type="submit" value="実施兼契約承認1人目">
 										</s:elseif>
+                                    </s:form>
 								</s:if>
 							<!-- リーダー2の承認 -->
-								<s:if test="permitStatus == 1">
+								<s:elseif test="permitStatus == 1">
+                                    <s:form action="DecisionDetailPermitAction">
+										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="permitStatus" value="2">
-										<s:if test="%{decisionType == '契約'}">
-												<input type="submit" value="契約承認2人目">
+										<s:if test="%{permitUserId1 == #session.userId}">
+											あなたが1人目の承認者
 										</s:if>
-										<s:elseif test="%{decisionType == '実施兼契約'}">
+										<s:else>
+											<s:if test="%{decisionType == '契約'}">
+												<input type="submit" value="契約承認2人目">
+											</s:if>
+											<s:elseif test="%{decisionType == '実施兼契約'}">
 												<input type="submit" value="実施兼契約承認2人目">
-										</s:elseif>
-								</s:if>
+											</s:elseif>
+										</s:else>
+                                    </s:form>
+								</s:elseif>
 								<s:elseif test="permitStatus == 2">
 									先生承認中
 								</s:elseif>
 							</s:else>
 
-						</s:form>
 					</s:else>
 
 					</s:if>
+
 					<!-- 申請中の時以外 -->
 					<s:else>
 						現在申請なし
@@ -503,7 +532,7 @@
 					<td>
 					<!-- 申請中の時 -->
 					<s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
-					<s:form action="DecisionDetailPermitAction">
+					<s:form action="DecisionDetailUpdateAction">
 
 							<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 							<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
@@ -578,7 +607,12 @@
 
 					<!-- 申請中の時以外 -->
 					<s:else>
-						現在申請なし
+						<s:if test="decisionStatus1 == 3 || decisionStatus2 == 3">
+							差し戻し中
+						</s:if>
+						<s:else>
+							現在申請なし
+						</s:else>
 					</s:else>
 					</td>
 
