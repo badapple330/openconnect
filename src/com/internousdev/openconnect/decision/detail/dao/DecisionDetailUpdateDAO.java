@@ -66,7 +66,7 @@ public class DecisionDetailUpdateDAO {
      */
 	public int reject( String decisionType, int decisionId ) {
 
-		int count1 = 0;
+		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
@@ -84,7 +84,7 @@ public class DecisionDetailUpdateDAO {
 
 			ps.setInt(1, decisionId);
 
-			count1 = ps.executeUpdate();
+			count = ps.executeUpdate();
 
 
 		}catch(SQLException e){
@@ -96,7 +96,7 @@ public class DecisionDetailUpdateDAO {
 				e.printStackTrace();
 			}
 		}
-		return count1;
+		return count;
 
 	}
 
