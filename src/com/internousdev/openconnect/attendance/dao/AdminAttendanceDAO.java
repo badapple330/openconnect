@@ -80,7 +80,7 @@ public class AdminAttendanceDAO {
 		/* 勤怠状況定義時 */
 		if(!((attendance).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-			whereState += "attendance="+attendance+"'";
+			whereState += "attendance='"+attendance+"'";
 		}
 
 		/* sql文定義 */
