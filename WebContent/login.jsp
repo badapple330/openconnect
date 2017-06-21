@@ -16,11 +16,7 @@
 <meta http-equiv="refresh"content="0;url=applist.jsp">
 </s:if>
 
-<!-- 背景画像 -->
-<style type="text/css">
-<!--body {background: url(img/sity.jpg) center center / cover no-repeat fixed;}-->
-</style>
-<!-- ここまで -->
+
 
 <title>Open Connect -ログイン</title>
 <!-- css読み込み -->
