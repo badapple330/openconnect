@@ -42,7 +42,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	/**
 	 * チーム名
 	 */
-    private String teamName;
+	private String teamName;
 	/**
 	 * 勤怠
 	 */
@@ -50,23 +50,23 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	/**
 	 * 備考
 	 */
-    private String reason;
-    /**
-     * 出席数
-     */
-    private int present = 0;
+	private String reason;
+	/**
+	 * 出席数
+	 */
+	private int present = 0;
 	/**
 	 * 欠席数
 	 */
-    private int absent = 0;
-    /**
-     * 遅刻数
-     */
-    private int late = 0;
-    /**
-     * 早退数
-     */
-    private int early = 0;
+	private int absent = 0;
+	/**
+	 * 遅刻数
+	 */
+	private int late = 0;
+	/**
+	 * 早退数
+	 */
+	private int early = 0;
 	/**
 	 * ユーザーリスト
 	 */
@@ -92,15 +92,15 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 			} else if(attend.equals("欠席")){
 				absent = absent + 1;
 			} else if(attend.equals("遅刻")){
-                late = late + 1;
-		    } else if(attend.equals("早退")){
-		    	early = early + 1;
-		    }
+				late = late + 1;
+			} else if(attend.equals("早退")){
+				early = early + 1;
+			}
 		}
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}
-	return result;
+		return result;
 	}
 
 
@@ -110,7 +110,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @return present
 	 */
 	public int getPresent() {
-	    return present;
+		return present;
 	}
 
 
@@ -120,7 +120,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @param present present
 	 */
 	public void setPresent(int present) {
-	    this.present = present;
+		this.present = present;
 	}
 
 
@@ -130,7 +130,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @return absent
 	 */
 	public int getAbsent() {
-	    return absent;
+		return absent;
 	}
 
 
@@ -140,7 +140,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @param absent absent
 	 */
 	public void setAbsent(int absent) {
-	    this.absent = absent;
+		this.absent = absent;
 	}
 
 
@@ -150,7 +150,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @return 遅刻数
 	 */
 	public int getLate() {
-	    return late;
+		return late;
 	}
 
 
@@ -160,7 +160,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @param late 遅刻数
 	 */
 	public void setLate(int late) {
-	    this.late = late;
+		this.late = late;
 	}
 
 
@@ -170,7 +170,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @return 早退数
 	 */
 	public int getEarly() {
-	    return early;
+		return early;
 	}
 
 
@@ -180,7 +180,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @param early 早退数
 	 */
 	public void setEarly(int early) {
-	    this.early = early;
+		this.early = early;
 	}
 
 
@@ -216,7 +216,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @return atYear
 	 */
 	public int getAtYear() {
-	    return atYear;
+		return atYear;
 	}
 
 
@@ -226,7 +226,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @param atYear atYear
 	 */
 	public void setAtYear(int atYear) {
-	    this.atYear = atYear;
+		this.atYear = atYear;
 	}
 
 
@@ -236,7 +236,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @return atMonth
 	 */
 	public int getAtMonth() {
-	    return atMonth;
+		return atMonth;
 	}
 
 
@@ -246,7 +246,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @param atMonth atMonth
 	 */
 	public void setAtMonth(int atMonth) {
-	    this.atMonth = atMonth;
+		this.atMonth = atMonth;
 	}
 
 
@@ -256,7 +256,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @return atDay
 	 */
 	public int getAtDay() {
-	    return atDay;
+		return atDay;
 	}
 
 
@@ -266,7 +266,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * @param atDay atDay
 	 */
 	public void setAtDay(int atDay) {
-	    this.atDay = atDay;
+		this.atDay = atDay;
 	}
 
 
@@ -387,18 +387,18 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 		this.reason = reason;
 	}
 	/**
-	* 取得メソッド を取得
-	* @author TEPPEI MATSUMOTO
-	* @return teamName
-	*/
+	 * 取得メソッド を取得
+	 * @author TEPPEI MATSUMOTO
+	 * @return teamName
+	 */
 	public String getTeamName() {
 		return teamName;
 	}
 	/**
-	* 設定メソッド を設定
-	* @author TEPPEI MATSUMOTO
-	* @param teamName
-	*/
+	 * 設定メソッド を設定
+	 * @author TEPPEI MATSUMOTO
+	 * @param teamName
+	 */
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
 	}
