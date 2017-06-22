@@ -70,8 +70,8 @@
 			<s:property value="selectErrorMsg" />
 
 
-			<s:form action="ScheduleUpdateAction"  id = "schedule">
-				<table border=1 style="" id= "sucheduleList">
+			<s:form action="ScheduleUpdateAction">
+				<table border=1 style="" id = "schedule">
 					<tbody>
 						<tr>
 							<th>ID</th>
