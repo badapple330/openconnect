@@ -96,10 +96,13 @@
 @media only screen and (max-device-width : 640px){
 
         #calendar {
-             width: 100% !important;
+        	width: 100% !important;
         }
         #operation {
             margin-top: 270px;
+        }
+        #operation {
+            width: 100% !important;
         }
 
 }
