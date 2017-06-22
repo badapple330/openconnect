@@ -149,6 +149,10 @@ foreign key(k_permiter_id2) references users(user_id) on update cascade on delet
 foreign key(k_permiter_id3) references users(user_id) on update cascade on delete cascade
 );
 
+use openconnect;
+insert into decision(decision_id, j_drafter_id, project_id ,decision_type, decision_name,summary , cause, bild_cost, benefit, amount_all, start_day, end_day, j_permiter_id1, j_permiter_id2, j_permiter_id3) values
+(1,3,3, '実施','シートピア', '海関連のツアーさいと','若者向けのレジャーサイト', 100.0, 200.0, 300.0, '2017/06/20', '2017/06/30',8,3,2),
+(2,4,2, '実施','キャッツアンド', '猫関連の猫さいと','猫向けのサイト', 800.0, 200.0, 1000.0, '2017/06/25', '2017/06/30',8,7,2);
 
 
 
