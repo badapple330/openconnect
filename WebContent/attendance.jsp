@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.8, user-scalable=no" >
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.9, user-scalable=no" >
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>勤怠更新</title>
@@ -20,43 +20,40 @@
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
 
-	<div  class="container">
+	<div  class="attendance" align="center">
 
-	<h1 align="center">勤怠更新</h1>
-		<s:if test="%{#session.userFlg >= 1}">
-		<hr>
+	<h1 align="center">勤怠更新</h1><hr>
+	<s:if test="%{#session.userFlg >= 1}">
+<p>
 
-	<br>
-
-<div align= "center">
 	<s:form action="AttendanceAction">
 
-	<div>
-	    <label>
-	      <s:iterator value="atUserList">
-	        氏名：<br>
+	<table class="atform">
+	<colgroup>
+        <col style="width:33%;">
+        <col style="width:67%;">
+    </colgroup>
+
+	       <tr><th> ユーザー名：</th>
+	        <td><s:iterator value="atUserList">
 	          <s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/>
-	          </s:iterator>
-	     </label>
+	          </s:iterator></td></tr>
 
-	<br>
-
-	     <label>
-	        日時：<br>
-	        <select style="width: 80px;" name="atYear" id="id_year" data-choice="year" required="required"></select>
+	     <tr>
+	        <th>  日  時  ：</th>
+	        <td>
+	        <select style="width: 60px;" name="atYear" id="id_year" data-choice="year" required="required"></select>
 	        <span style="margin-left: 3px; margin-right: 5px; display: inline-block;">年</span>
 
-	        <select style="width: 50px;" name="atMonth" id="id_month" data-choice="month" required="required"></select>
+	        <select style="width: 45px;" name="atMonth" id="id_month" data-choice="month" required="required"></select>
 	        <span style="margin-left: 3px; margin-right: 5px; display: inline-block;">月</span>
 
-	        <select style="width: 50px;" name="atDay" id="id_day" data-choice="day" required="required"></select>
+	        <select style="width: 45px;" name="atDay" id="id_day" data-choice="day" required="required"></select>
 	        <span style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
-	     </label>
+	        </td></tr>
 
-	<br>
-
-	    <label>
-	出欠確認：<br>
+	        <tr><th>
+	出欠確認：</th><td>
 	<select name="attendance" required="required">
 
 	<option value="">以下から選択</option>
@@ -66,30 +63,26 @@
 	<option value="早退">早退</option>
 
 	</select>
-	</label>
+	</td></tr>
 
-	<br>
+	<tr><th>
+	  備  考  ：</th><td>
+	<textarea name="reason"  rows="6" cols="40" maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
+	</td></tr>
 
+	</table>
 
-	<label>
-	備考：<br>
-	<textarea name="reason"  rows="10" cols="50" maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
-	</label>
-	</div>
-
-<br><br>
+<br>
 	<input type="submit"  value="送信" class="button" onClick="javascript:double(this)"/>
 
 
 	</s:form>
-	</div>
 
 	</s:if>
 	<s:else>
 	ログイン後に表示します。
 	</s:else>
-
-</div>
+	</div>
 
 <script src="js/jquery.ymdpulldown.js"></script>
 <script>

@@ -18,40 +18,39 @@
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
 
-	<div  class="container">
+	<div  class="attendance" align="center">
 
-	<h1 align="center">勤怠確認完了</h1><hr>
+	<h1>勤怠確認完了</h1><hr>
 	<br>
-	<h4 align="center">以下の内容で勤怠の送信を完了しました。</h4>
+	<h4>以下の内容で勤怠の送信を完了しました。</h4>
 
-<div class="atok" align="center">
-	<table  style="table-layout:fixed;width:50%;"> <!--  -->
+	<table class="atok">
 	<colgroup>
-        <col style="width:25%;">
-        <col style="width:75%;">
+        <col style="width:33%;">
+        <col style="width:67%;">
     </colgroup>
+    <tr>
+    <th> ユーザー名：</th>
+    <td><s:iterator  value="atUserList"><s:property value="familyNameKanji"/>　<s:property value="givenNameKanji"/></s:iterator></td>
+    </tr>
+
 	<tr>
-	<th>日時:</th>
+	<th>  日  時  ：</th>
 	<td><s:property value="atYear"/>年<s:property value="atMonth"/>月<s:property value="atDay"/>日</td>
     </tr>
 
     <tr>
-    <th>名前:</th>
-    <td><s:iterator  value="atUserList"><s:property value="familyNameKanji"/>　<s:property value="givenNameKanji"/></s:iterator></td>
-    </tr>
-
-    <tr>
-    <th>出欠:</th>
+    <th>出欠確認：</th>
     <td><s:property value="attendance"/></td>
     </tr>
 
     <tr>
-    <th>備考:</th>
+    <th>  備  考  :</th>
     <td style="word-wrap:break-word;"><s:property value="reason"/></td>
     </tr>
 
     </table>
-           </div>
+
            <br>
 
 
