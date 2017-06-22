@@ -92,9 +92,9 @@
 								value="<s:property value="givenNameKanji" />"
 								class="givenNameKanji maxText" maxlength="20" required></div></td>
 
-							<td><div class="smallWidth"><input type="text" name="team_name"
-								value="<s:property value="TeamName" />"
-								class="team_name maxText" maxlength="20" required></div></td>
+							<td><div class="smallWidth"><input type="text" name="teamName"
+								value="<s:property value="teamName" />"
+								class="TeamName maxText" maxlength="20" required></div></td>
 
 
 						<!-- 	<s:if test="%{#session.userFlg == 3}">-->
@@ -174,6 +174,8 @@
 				<div class="updateFamilyName modalString"></div>
 				<br> 名 ：
 				<div class="updateGivenName modalString"></div>
+				<br> チーム名 ：
+				<div class="updateTeamName modalString"></div>
 				<br> <br> 上記の受講生の編集を行います。
 				<s:form action="StudentsUpdateAction">
 					<input type="hidden" name="userId" class="updateUserId" value="">
@@ -183,7 +185,7 @@
 
 					<input type="hidden" name="givenNameKanji"
 						class="updateGivenNameKanji" value="">
-					<input type="hidden" name="team_name"
+					<input type="hidden" name="teamName"
  						class="updateTeamName" value="">
 
 
