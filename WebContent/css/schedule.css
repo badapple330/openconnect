@@ -105,12 +105,10 @@
         .scheduleEnddayList {
             width:80px;
         }
-        .scheduleTitleList {
+        .scheduleTitleList,
+        .teamList           {
             width:100px;
         }
-        #schedule table th:nth-child(5),
-        #schedule table td:nth-child(5) {
-            display:none;
-        }
+
 
 }
