@@ -47,9 +47,7 @@ public class DecisionDetailSelectDAO {
 				DecisionDetailDTO dto = new DecisionDetailDTO();
 				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setProjectId(rs.getInt("project_Id"));
-				dto.setDecisionName(rs.getString("decision_name"));
 				dto.setProjectName(rs.getString("project_name"));
-				dto.setDecisionIdNumber(String.format("%04d", rs.getInt("decision_id")));
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus1(rs.getInt("decision_status1"));
 				dto.setDecisionStatus2(rs.getInt("decision_status2"));
@@ -57,9 +55,12 @@ public class DecisionDetailSelectDAO {
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setPermitStatus(rs.getInt("permit_status"));
-				dto.setPermitUserId1(rs.getInt("permit_user_id1"));
-				dto.setPermitUserId2(rs.getInt("permit_user_id2"));
-				dto.setPermitUserId3(rs.getInt("permit_user_id3"));
+				dto.setjPermiterId1(rs.getInt("j_permiter_id1"));
+				dto.setjPermiterId2(rs.getInt("j_permiter_id2"));
+				dto.setjPermiterId3(rs.getInt("j_permiter_id3"));
+				dto.setkPermiterId1(rs.getInt("k_permiter_id1"));
+				dto.setkPermiterId2(rs.getInt("k_permiter_id2"));
+				dto.setkPermiterId3(rs.getInt("k_permiter_id3"));
 
 				decisionDetailList1.add( dto );
 			}
@@ -104,18 +105,16 @@ public class DecisionDetailSelectDAO {
 				DecisionDetailDTO dto = new DecisionDetailDTO();
 				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setProjectId(rs.getInt("project_Id"));
-				dto.setDecisionName(rs.getString("decision_name"));
 				dto.setProjectName(rs.getString("project_name"));
-				dto.setDecisionIdNumber(String.format("%04d", rs.getInt("decision_id")));
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus1(rs.getInt("decision_status1"));
 				dto.setDecisionStatus2(rs.getInt("decision_status2"));
 
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
-				dto.setIDraftingId(rs.getString("i_drafting_id"));
-				dto.setADraftingId(rs.getString("a_drafting_id"));
-				dto.setIADId(rs.getString("i_a_d_id"));
+				dto.setjImpId(rs.getString("j_imp_id"));
+				dto.setkImpId(rs.getString("k_imp_id"));
+				dto.setJkImpId(rs.getString("jk_imp_id"));
 
 				decisionDetailList2.add( dto );
 			}
