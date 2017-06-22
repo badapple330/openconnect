@@ -9,7 +9,7 @@
 }
 
 table{
-	width: 800px;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid;
@@ -34,34 +34,8 @@ tr, td{
 	border: 1px solid;
 }
 
-.textApproval{
-	width: 100px;
-}
-
-.tableCost{
-	width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-	border: 1px solid;
-}
-
-.width1{
-	width: 30px;
-}
-.width2{
-	width: 60px;
-}
-.width3{
-	width: 90px;
-}
 .width4{
 	width: 120px;
-}
-.width5{
-	width: 150px;
-}
-.width6{
-	width: 200px;
 }
 
 @media screen and (max-width: 768px) {
