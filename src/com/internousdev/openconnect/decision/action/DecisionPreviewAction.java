@@ -196,10 +196,6 @@ public class DecisionPreviewAction extends ActionSupport {
 		}
 
 		if(decisionPreviewList!=null){
-			System.out.println(jDrafterId);
-			System.out.println(jPermiterId1);
-			System.out.println(jPermiterId2);
-			System.out.println(jPermiterId3);
 			try {
 				jDrafterId = decisionPreviewList.get(0).getjDrafterId();
 				nameList = dao.selectByIds(jDrafterId);
@@ -212,7 +208,6 @@ public class DecisionPreviewAction extends ActionSupport {
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
-
 		}
 
 		result=SUCCESS;
@@ -757,5 +752,6 @@ public class DecisionPreviewAction extends ActionSupport {
 	public void setjPermiterId3(int jPermiterId3) {
 	    this.jPermiterId3 = jPermiterId3;
 	}
+
 
 }
