@@ -11,7 +11,7 @@
 <title>勤怠確認</title>
 
 <script src="js/jquery-3.1.0.min.js"></script>
-<link rel="stylesheet" href="css/attendance.css">
+<link rel="stylesheet" href="./css/admin_attendance.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -77,11 +77,11 @@
 		<!-- 日付、名前検索 -->
 		<s:form action="AdminAttendanceAction" method="get" id="search">
 			<select name="atYear" id="id_year" data-choice="year"><option
-					value="">----</option></select>
+					value="">----</option></select><s:text name="年"/>
 			<select name="atMonth" id="id_month" data-choice="month"><option
-					value="">----</option></select>
+					value="">----</option></select><s:text name="月"/>
 			<select name="atDay" id="id_day" data-choice="day"><option
-					value="">----</option></select>
+					value="">----</option></select><s:text name="日"/>
 			<select name="attendance" id="id_attendance">
 				<option value="">出欠状況</option>
 				<option value="出席">出席</option>
@@ -99,12 +99,12 @@
 		</s:form>
 		</div>
 		<font color="red"><s:property value="errorMsg"/></font>
-		<table border="2px">
+		<table border="2px" width="30%" height="80">
 			<tr>
-				<td>出席</td>
-				<td>欠席</td>
-				<td>遅刻</td>
-				<td>早退</td>
+				<td style="white-space: nowrap;">出席</td>
+				<td style="white-space: nowrap;">欠席</td>
+				<td style="white-space: nowrap;">遅刻</td>
+				<td style="white-space: nowrap;">早退</td>
 			</tr>
 
 			<tr align="center">
@@ -118,16 +118,16 @@
 
 
 		<!-- 一覧表示 -->
-		<table class="table table-striped table-borderd">
+		<table align="center" class="type11">
 			<thead>
 				<tr>
 					<th>報告日時</th>
 					<th>受講開始月</th>
 					<th>チーム</th>
-					<th>性</th>
-					<th>名</th>
+					<th style="white-space: nowrap;">性</th>
+					<th style="white-space: nowrap;">名</th>
 					<th>出欠状況</th>
-					<th>備考</th>
+					<th width="1000">備考</th>
 				</tr>
 			</thead>
 
@@ -138,10 +138,10 @@
 						<td><s:property value="atDate" /></td>
 						<td><s:property value="month" /></td>
 						<td><s:property value="teamName" /></td>
-						<td><s:property value="familyNameKanji" /></td>
-						<td><s:property value="givenNameKanji" /></td>
+						<td style="white-space: nowrap;"><s:property value="familyNameKanji" /></td>
+						<td style="white-space: nowrap;"><s:property value="givenNameKanji" /></td>
 						<td><s:property value="attendance" /></td>
-						<td><s:property value="reason" /></td>
+						<td width="1000"><s:property value="reason" /></td>
 					</tr>
 				</s:iterator>
 
