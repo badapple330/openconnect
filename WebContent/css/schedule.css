@@ -14,7 +14,7 @@
 
 #operation{
 	height:100px;
-	width:100%;
+	width:700px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:500px;
@@ -99,6 +99,7 @@
         	width: 100% !important;
         }
         #operation {
+            width: 100%;
             margin-top: 270px !important;
         }
         .scheduleStartdayList,
