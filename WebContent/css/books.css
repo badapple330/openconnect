@@ -43,6 +43,7 @@
 .list {
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: 40px;
 	border-collapse: separate;
 	border-spacing: 1px;
 	width: 95%;
@@ -101,6 +102,10 @@
 
 .w04 {
 	width: 4%;
+}
+
+.w07 {
+	width: 7%;
 }
 
 .w10 {
@@ -216,8 +221,8 @@
 
 	.page-top {
     position: fixed;
-    bottom: 15px;
-    right: 25px;
+    bottom: 5px;
+    right: 5px;
     background-color: rgb(0, 27, 65);
     color: #ffffff;
 	padding: 10px 10px;
