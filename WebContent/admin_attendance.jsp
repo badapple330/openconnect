@@ -69,6 +69,7 @@
 
 	<div class="container">
 		<!-- タイトル -->
+		<div align="center">
 		<h3
 			style="border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 1px 0 rgba(255, 255, 255, 1);">勤怠確認</h3>
 
@@ -89,15 +90,16 @@
 				<option value="早退">早退</option>
 			</select>
 			<s:textfield name="familyNameKanji" id="familyForm" placeholder="名字"
-				title="名字" />
+				title="名字"  />
 			<s:textfield name="givenNameKanji" id="givenForm" placeholder="名前"
-				title="名前" />
+				title="名前"  />
 			<s:textfield name="teamName" placeholder="チーム名" id="teamForm"
-				title="チーム名" />
+				title="チーム名"  />
 			<s:submit value="検索" class="search-btn" id="searchButtun" />
 		</s:form>
+		</div>
 		<font color="red"><s:property value="errorMsg"/></font>
-		<table>
+		<table border="2px">
 			<tr>
 				<td>出席</td>
 				<td>欠席</td>
@@ -105,7 +107,7 @@
 				<td>早退</td>
 			</tr>
 
-			<tr>
+			<tr align="center">
 				<td><s:property value="present" /></td>
 				<td><s:property value="absent" /></td>
 				<td><s:property value="late" /></td>
