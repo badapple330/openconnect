@@ -108,5 +108,8 @@
         .scheduleTitleList {
             width:100px;
         }
+        .teamList {
+            display:none;
+        }
 
 }
