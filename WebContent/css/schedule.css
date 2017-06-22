@@ -100,7 +100,6 @@
         }
         #operation {
             width: 100%;
-            margin-top: 270px !important;
         }
         .scheduleStartdayList,
         .scheduleEnddayList {
@@ -109,8 +108,8 @@
         .scheduleTitleList {
             width: 100px;
         }
-        #sucheduleList th:nth-child(5),
-        #sucheduleList td:nth-child(5) {
+        #suchedule th:nth-child(5),
+        #suchedule td:nth-child(5) {
             display: none;
         }
 
