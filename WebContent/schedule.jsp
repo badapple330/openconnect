@@ -71,7 +71,7 @@
 
 
 			<s:form action="ScheduleUpdateAction"  id = "schedule">
-				<table border=1 style="" id = "scheduleList">
+				<table border=1 style="">
 					<tbody>
 						<tr>
 							<th>ID</th>

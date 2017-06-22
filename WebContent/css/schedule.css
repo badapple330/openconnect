@@ -108,8 +108,8 @@
         .scheduleTitleList {
             width:100px;
         }
-        #scheduleList th:nth-child(5),
-        #scheduleList td:nth-child(5) {
+        #schedule table th:nth-child(5),
+        #schedule table td:nth-child(5) {
             display:none;
         }
 
