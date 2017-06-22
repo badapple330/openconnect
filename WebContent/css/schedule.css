@@ -99,7 +99,7 @@
         	width: 100% !important;
         }
         #operation {
-            margin-top: 270px;
+            margin-top: 270px !important;
         }
         .scheduleStartdayList,
         .scheduleEnddayList {
@@ -108,6 +108,9 @@
         .scheduleTitleList {
             width; 100px;
         }
-
+        #sucheduleList th:nth-child(5),
+        #sucheduleList td:nth-child(5) {
+        display: none;
+    }
 
 }
