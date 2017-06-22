@@ -70,8 +70,9 @@
 			<s:property value="selectErrorMsg" />
 
 
-			<s:form action="ScheduleUpdateAction">
-				<table id = "schedule" border=1 style="">
+			<s:form action="ScheduleUpdateAction"  id = "schedule">
+
+				<table border=1 style="">
 					<tbody>
 						<tr>
 							<th>ID</th>
@@ -116,7 +117,6 @@
 					</tbody>
 				</table>
 
-
 					<button type="submit" class="button">編集</button>
 
 			</s:form>
@@ -133,6 +133,7 @@
 							<td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力"
 								maxlength=100 required></td>
 						</tr>
+						<tr>
 							<td><input type="text" name="title" placeholder="件名を入力"
 								maxlength=100 required></td>
 						</tr>
@@ -148,7 +149,7 @@
 
 								<s:token />
 
-						</tr>
+
 					</tbody>
 				</table>
 

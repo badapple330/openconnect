@@ -11,7 +11,7 @@ public class DecisionDTO {
 	 * 起案者ユーザーID
 	 *
 	 */
-	private int draftUserId;
+	private int jDrafterUserId;
 
 	/**
 	 * ユーザーID
@@ -180,7 +180,7 @@ public class DecisionDTO {
 	 *合計雑費
 	 */
 	public float totalEtc;
-	
+
 	/**
 	* 実施_承認者ID(1人目:リーダー)
 	*/
@@ -433,16 +433,16 @@ public class DecisionDTO {
 	* @author KOTA MIYAZATO
 	* @return
 	*/
-	public int getDraftUserId() {
-		return draftUserId;
+	public int getjDrafterUserId() {
+		return jDrafterUserId;
 	}
 	/**
 	* 設定メソッド
 	* @author KOTA MIYAZATO
 	* @param
 	*/
-	public void setDraftUserId(int draftUserId) {
-		this.draftUserId = draftUserId;
+	public void setjDrafterUserId(int jDrafterUserId) {
+		this.jDrafterUserId = jDrafterUserId;
 	}
 
 	/**
@@ -766,6 +766,6 @@ public class DecisionDTO {
 			this.givenNameKanji = givenNameKanji;
 		}
 
-		
+
 
 }

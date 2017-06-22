@@ -81,6 +81,8 @@ $(function(){
 		$('.updateMonth').html( $('.month').eq(index).val() );
 		$('.updateFamilyName').html( $('.familyNameKanji').eq(index).val() );
 		$('.updateGivenName').html( $('.givenNameKanji').eq(index).val() );
+		$('.updateTeamName').html( $('.TeamName').eq(index).val() );
+
 
 		// hiddenのvalue
 		$('.updateUserId').val( $('.userId').eq(index).val() );
@@ -92,6 +94,7 @@ $(function(){
 		$('.updateFamilyNameKana').val( $('.familyNameKana').eq(index).val() );
 		$('.updateGivenNameKanji').val( $('.givenNameKanji').eq(index).val() );
 		$('.updateGivenNameKana').val( $('.givenNameKana').eq(index).val() );
+		$('.updateTeamName').val( $('.TeamName').eq(index).val() );
 		$('.updatePostal').val( $('.postal').eq(index).val() );
 		$('.updateAddress').val( $('.address').eq(index).val() );
 		$('.updatePhoneNumber').val( $('.phoneNumber').eq(index).val() );
