@@ -9,10 +9,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>プロジェクトリリース状況</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="css/project_status.css">
 <link rel="stylesheet" href="css/pagenation.css">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
+<link rel="stylesheet" href="css/project_status.css">
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/pagenation.js"></script>
 
@@ -21,10 +21,7 @@
 	<header><jsp:include page="header.jsp" /></header>
 
 
-		<div class="centered">
-			<br>
-			<h1 class="page-header" align ="center">プロジェクトリリース状況</h1>
-		</div>
+			<h1 class ="title" align="center">プロジェクトリリース状況</h1>
 
 
 		<!-- userflg1以下(未ログイン状態)の場合非表示 -->
@@ -42,15 +39,15 @@
 			<br>
 
 			<s:form action="ProjectStatusSelectAction">
-             <div  class="centered">
+             <div  class="center fontsize">
              --- プロジェクト名を入力 ---<br>
 				<input type="text" name="searchString" placeholder="プロジェクト名"
 					id="searchText" maxlength="100">
-				<input type="submit" value="検索" class="button">
+				<input type="submit" value="検索" class="button0">
           </div>
 			</s:form>
 			<br><BR>
-			<div class="centered">
+			<div class="center fontsize">
 			<font color="red">
 			<s:property value="%{resultSelect}" />
 			<s:property value="%{resultString}" />
@@ -61,7 +58,7 @@
 			<div class="table-scroll">
 			<s:form action="ProjectStatusUpdateAction">
 
-				<table border=1  class="centered ">
+				<table border=1  class="center fontsize">
 				<tbody id="list_body">
 					<tr>
 						<th><div class="largetext">プロジェクトID</div></th>
@@ -117,9 +114,23 @@
 
 				</table>
 
-				<br>
+
+<!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}"><BR>
+<div class="center">
+				<div  class="center add fixedButton">
+					<input type="submit" class="button" value="編集完了" />
+					</div>
+					</div>
+				</s:if>
+
+			</s:form>
+			</div>
+<BR>
+					<br>
+
+
 				<!-- pagenation -->
-				<div id="pager" class="centered fixedButton">
+				<div id="pager" class="center">
 					<div id="page_ctrl">
 						<ul id="page_before">
 							<li id="page_prev">prev</li>
@@ -132,15 +143,6 @@
 				</div>
 				<br>
 
-
-<!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}"><BR>
-				<div  class="centered add fixedButton">
-					<input type="submit" class="button" value="編集完了" />
-					</div>
-				</s:if>
-
-			</s:form>
-			</div>
 			<br>
 
 
@@ -154,8 +156,8 @@
 
 
 		<s:form action="GetAddressAction">
-		<div class="centered">
-			<button type="submit" class="button">戻る</button>
+		<div class="center">
+			<button type="submit" class="button2">戻る</button>
 			</div>
 		</s:form>
 		<br>

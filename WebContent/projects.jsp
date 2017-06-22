@@ -29,7 +29,8 @@
 
 
 
-	<h1 class="centered1" align="center">プロジェクト一覧</h1><BR>
+	<h1 class="centered1" align="center">プロジェクト一覧</h1>
+	<BR>
 	<!--  class="page-header" align ="center" -->
 
 
@@ -131,48 +132,28 @@
 								<td><input type="text" name="projectNoteList"
 									maxlength="100" value="<s:property value="note"/>"
 									class="projectNotelist"></td>
-
-
-
 								<!-- flg判定 -->
 								<td><s:if test="%{#session.userFlg == 3}">
 										<div>
 											<input type="button" value="削除" class="modal-open">
 										</div>
 									</s:if></td>
-
 							</tr>
-
 						</s:iterator>
 					</tbody>
 				</table>
 
 				<BR>
-
-
 				<!-- flg判定 -->
 				<s:if test="%{#session.userFlg == 3}">
-					<div class="center  fixedButton">
+					<div class="center add fixedButton">
 						<input class="btntype" type="submit" value="編集完了">
 					</div>
 					<BR>
 				</s:if>
 			</s:form>
 		</div>
-<BR>
-		<!-- pagenation -->
-		<div id="pager" class="center  fixedButton">
-			<div id="page_ctrl" class="center">
-				<ul id="page_before">
-					<li id="page_prev">prev</li>
-				</ul>
-				<ul id="page_number"></ul>
-				<ul id="page_after">
-					<li id="page_next">next</li>
-				</ul>
-			</div>
-		</div>
-		<br>
+
 		<BR>
 		<!-- flg判定 -->
 		<s:if test="%{#session.userFlg == 3}">
@@ -256,36 +237,37 @@
 			<!-- #contents START -->
 			<div id="modal-style">
 				<br>
-				<div  class="modal_border responsive">
+				<div class="modal_border responsive">
 
-						【プロジェクト名】
-							<div class="delete-projectname modalDelete"></div>
-						【管理者(ﾘ-ﾀﾞｰ)】
-							<div class="delete-projectmanagerid modalDelete"></div>
-						【管理者(ｻﾌﾞﾘｰﾀﾞｰ)】
-							<div class="delete-projectsubmanagerid modalDelete"></div>
-						【開始日】
-							<div class="delete-projectstartdate modalDelete"></div>
-						【終了日】
-							<div class="delete-projectenddate modalDelete"></div>
-						【備考】
-							<div class="delete-projectnote modalDelete"></div><BR>
+					【プロジェクト名】
+					<div class="delete-projectname modalDelete"></div>
+					【管理者(ﾘ-ﾀﾞｰ)】
+					<div class="delete-projectmanagerid modalDelete"></div>
+					【管理者(ｻﾌﾞﾘｰﾀﾞｰ)】
+					<div class="delete-projectsubmanagerid modalDelete"></div>
+					【開始日】
+					<div class="delete-projectstartdate modalDelete"></div>
+					【終了日】
+					<div class="delete-projectenddate modalDelete"></div>
+					【備考】
+					<div class="delete-projectnote modalDelete"></div>
+					<BR> <input type="button" class="delete-true button"
+						value="削除"> <input type="button"
+						class="modal-close button" value="閉じる">
 
-				<input type="button" class="delete-true button" value="削除">
-				<input type="button" class="modal-close button" value="閉じる">
+					<div class="delete-prepare">
+						<p>本当に削除しますか。</p>
 
-				<div class="delete-prepare">
-					<p>本当に削除しますか。</p>
+						<s:form action="ProjectsDeleteAction">
+							<input type="hidden" name="projectId" value=""
+								class="true-delete">
+							<input type="submit" class="delete-true button" value="はい">
+							<input type="button" class="modal-close button" value="いいえ">
+						</s:form>
 
-					<s:form action="ProjectsDeleteAction">
-						<input type="hidden" name="projectId" value="" class="true-delete">
-						<input type="submit" class="delete-true button" value="はい">
-						<input type="button" class="modal-close button" value="いいえ">
-					</s:form>
-
+					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 
 		<div id="contents">
