@@ -30,7 +30,7 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 起案者ユーザーID
 	 *
 	 */
-	private int draftUserId;
+	private int jDraftUserId;
 
 	/**
 	 * ユーザーID
@@ -184,13 +184,10 @@ public class DecisionPreviewAction extends ActionSupport {
 		}
 
 		if(decisionPreviewList!=null){
-			System.out.println(draftUserId);
+			System.out.println(jDraftUserId);
 			try {
-				draftUserId = decisionPreviewList.get(0).getDraftUserId();
-				jPermiterId1 = decisionPreviewList.get(0).getjPermiterId1();
-				jPermiterId2 = decisionPreviewList.get(0).getjPermiterId2();
-				jPermiterId3 = decisionPreviewList.get(0).getjPermiterId3();
-				nameList = dao.selectByDraftUserId(draftUserId, jPermiterId1, jPermiterId2, jPermiterId3);
+				jDraftUserId = decisionPreviewList.get(0).getjDraftUserId();
+				nameList = dao.selectByIds(jDraftUserId);
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
@@ -218,15 +215,15 @@ public class DecisionPreviewAction extends ActionSupport {
 	/**
 	 * @return userId
 	 */
-	public int getDraftUserId() {
-		return draftUserId;
+	public int getjDraftUserId() {
+		return jDraftUserId;
 	}
 
 	/**
 	 * @param userId セットする userId
 	 */
-	public void setDraftUserId(int draftUserId) {
-		this.draftUserId = draftUserId;
+	public void setjDraftUserId(int jDraftUserId) {
+		this.jDraftUserId = jDraftUserId;
 	}
 
 	/**

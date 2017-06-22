@@ -42,7 +42,7 @@ public class DecisionPreviewDAO {
 			while (rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
 
-				dto.setDraftUserId(rs.getInt("j_draft_user_id")); // 	実施起案者ユーザーID
+				dto.setjDraftUserId(rs.getInt("j_draft_user_id")); // 	実施起案者ユーザーID
 
 				dto.setDecisionType(rs.getString("decision_type")); // 決裁種類
 
@@ -114,29 +114,22 @@ public class DecisionPreviewDAO {
 
 	}
 
-	public ArrayList<DecisionDTO> selectByDraftUserId(int draftUserId,int jPermiterId1,int jPermiterId2,int jPermiterId3) {
+	public ArrayList<DecisionDTO> selectByIds(int jDraftUserId) {
 		DecisionDTO dto = new DecisionDTO();
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
 				"openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 		ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
-		String sql = "(select * from users where user_id=?)"
-				+ "union(select * from users where user_id=?)"
-				+ "union(select * from users where user_id=?)"
-				+ "union(select * from users where user_id=?)";
+		String sql = "(select * from users where user_id=?)";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,draftUserId);
-			ps.setInt(2,jPermiterId1);
-			ps.setInt(3,jPermiterId2);
-			ps.setInt(4,jPermiterId3);
+			ps.setInt(1,jDraftUserId);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
 				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
 				nameList.add(dto);
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -148,6 +141,7 @@ public class DecisionPreviewDAO {
 		}
 		return nameList;
 	}
+
 
 
 }
