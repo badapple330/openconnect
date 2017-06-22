@@ -18,7 +18,7 @@ public class DecisionDetailApplicationDAO {
 
 
 	/**
-	 * DBの起案番号前方と照合し一致する番号を取得する為のメソッド
+	 * DBの起案番号と照合し前方一致する起案番号を全て取得する為のメソッド
 	 */
 	public List<DecisionDetailDTO> select(String decisionType, String idNum) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
@@ -75,7 +75,7 @@ public class DecisionDetailApplicationDAO {
 
 
 	/**
-	 * DBの起案番号前方と照合し一致する番号を取得する為のメソッド
+	 * DBの起案番号と照合し完全一致する起案番号を取得する為のメソッド
 	 */
 	public DecisionDetailDTO compareId(String decisionType, String compareId) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
@@ -113,7 +113,7 @@ public class DecisionDetailApplicationDAO {
 				else {
 					dto.setCompareId(rs.getString("jk_imp_id"));
 				}
-			  }
+			}
 
 			rs.close();
 			ps.close();
