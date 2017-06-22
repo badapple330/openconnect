@@ -86,7 +86,7 @@
 								<th class="w03 nwrap id_font" scope="col">ID</th>
 								<th class="w40" scope="col">タイトル<br>サブタイトル
 								</th>
-								<th class="w10" scope="col">著者</th>
+								<th class="w15" scope="col">著者</th>
 								<th class="w15" scope="col">出版社<br>出版日
 								</th>
 								<s:if test="%{#session.userFlg >= 3}">
@@ -262,13 +262,13 @@
 									<th class="w03 nwrap id_font font80" scope="col">ID</th>
 									<th class="w40 font80" scope="col">タイトル<br>サブタイトル
 									</th>
-									<th class="w10 font80" scope="col">著者</th>
+									<th class="w15 font80" scope="col">著者</th>
 									<th class="w15 font80" scope="col">出版社<br>出版日
 									</th>
 									<s:if test="%{#session.userFlg >= 3}">
 										<th class="w04 font80" scope="col">状<br>態
 										</th>
-										<th class="w04 nwrap font80" scope="col">削<br>除
+										<th class="w07 nwrap font80" scope="col">削<br>除
 										</th>
 									</s:if>
 								</tr>
