@@ -105,9 +105,8 @@
         .scheduleEnddayList {
             width:80px;
         }
-        .scheduleTitleList,
-        .teamList           {
-            width:100px;
+        .scheduleTitleList {
+            width; 100px;
         }
 
 
