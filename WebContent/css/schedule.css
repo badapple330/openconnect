@@ -108,7 +108,8 @@
         .scheduleTitleList {
             width:100px;
         }
-        .teamList {
+        #scheduleList th:nth-child(5),
+        #scheduleList td:nth-child(5) {
             display:none;
         }
 
