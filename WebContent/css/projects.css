@@ -64,13 +64,14 @@ input {
 
 /* モーダル コンテンツエリア */
 #modal-main {
+	text-align: center;
 	display: none;
 	width: 500px;
-	height: 300px;
+	height: 320px;
 	margin: 0;
 	padding: 0;
 	background-color: #ffffff;
-	color: #666666;
+	color: #ff8080;
 	position: fixed;
 	z-index: 2;
 }
@@ -88,21 +89,21 @@ input {
 
 .largetext {
 	width: 200px;
-	text-align: center;
+	text-align: left;
 	white-space: normal;;
 }
 
 .middletext {
 	width: 150px;
 	display: inline;
-	text-align: center;
+	text-align: left;
 	white-space: normal;;
 }
 
 .smalltext {
 	width: 75px;
 	display: inline;
-	text-align: center;
+	text-align: left;
 	white-space: normal;;
 }
 
@@ -111,6 +112,9 @@ input {
 	display: inline;
 	margin: 0;
 	padding: 0;
+	align: center;
+	text-align:center;
+
 }
 
 #page_before li, #page_after li, #page_number li {
@@ -165,11 +169,33 @@ input {
   	align: center;
   	}
 
+ /*inputのボタンデザイン*/
+.btntype {
+    font-size: 1em;
+    padding: 10px 30px;
+    background-color: #248;
+    color: #fff;
+    border-style: none;
+}
+.btntype {
+    background-color: #6dacfa;
+    color: #fff;
+}
+.btntype2 {
+    font-size: 1em;
+    padding: 10px 40px;
+    background-color: #248;
+    color: #fff;
+    border-style: none;
+}
+.btntype2 {
+    background-color: #6dacfa;
+    color: #fff;
+}
+
+
 @media only screen and (max-device-width: 900px){
-	.centered{
-	  	margin-left: auto;
-	  	text-align: left;
-	}
+
 	.add{
 		text-align: left;
 		margin-left: 0px;
@@ -180,4 +206,46 @@ input {
 	.fixedButton{
 		position: absolute;
 	}
+}
+
+/*携帯ディスプレイver-----------------------------------*/
+@media only screen and (max-device-width: 575px) {
+	.centered1 {
+		font-size: 20px;
+		font-weight: bold;
+		align: center
+	}
+	.center {
+		text-align:center;
+		align:center;
+	}
+.fontsize{
+	font-size:10px;
+}
+
+ /*inputのボタンデザイン*/
+.btntype {
+    font-size: 12px;
+    padding: 5px 15px;
+    background-color: #248;
+    color: #fff;
+    border-style: none;
+}
+.btntype {
+    background-color: #6dacfa;
+    color: #fff;
+}
+.btntype2 {
+    font-size: 12px;
+    padding: 5px 28px;
+    background-color: #248;
+    color: #fff;
+    border-style: none;
+}
+.btntype2 {
+    background-color: #6dacfa;
+    color: #fff;
+}
+
+
 }

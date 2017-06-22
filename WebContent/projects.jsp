@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -13,6 +14,7 @@
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/projects.js"></script>
 <script src="js/pagenation.js"></script>
+
 
 <title>プロジェクト一覧</title>
 </head>
@@ -27,52 +29,55 @@
 
 
 
-		<h1 class="centered">プロジェクト一覧</h1><!--  class="page-header" align ="center" -->
+	<h1 class="centered1" align="center">プロジェクト一覧</h1><BR>
+	<!--  class="page-header" align ="center" -->
 
 
-		<!-- userflg1以下(未ログイン状態)の場合非表示 -->
-		<!-- userflg1以上(ログイン状態)の場合表示 -->
-		<!-- userflg3のみ編集・削除・追加が可能（仕様）-->
+	<!-- userflg1以下(未ログイン状態)の場合非表示 -->
+	<!-- userflg1以上(ログイン状態)の場合表示 -->
+	<!-- userflg3のみ編集・削除・追加が可能（仕様）-->
 
 
-		<s:iterator value="siteInfoList">
-			<ul>
-				<s:a href="%{siteUrl}">
-					<s:property value="siteName" />
-					<br>
-				</s:a>
-			</ul>
-		</s:iterator>
-		<s:property value="notLoginMsg" />
+	<s:iterator value="siteInfoList">
+		<ul>
+			<s:a href="%{siteUrl}">
+				<s:property value="siteName" />
+				<br>
+			</s:a>
+		</ul>
+	</s:iterator>
+	<s:property value="notLoginMsg" />
 
-<!-- flg判定 -->		<s:if test="%{#session.userFlg < 1}">
-			<h1 class="centered">ログイン後に表示されます。</h1>
-			<BR><BR><BR>
-		</s:if>
+	<!-- flg判定 -->
+	<s:if test="%{#session.userFlg < 1}">
+		<h1 class="centered">ログイン後に表示されます。</h1>
+		<BR>
+		<BR>
+	</s:if>
 
-<!-- flg判定 -->		<s:if test="%{#session.userFlg >= 1}">
-			<s:form action="ProjectsSelectAction">
-			<div class="centered">
-             --- プロジェクト名を入力 ---<br>
-				<input type="text" maxlength="100" name="search"
-					placeholder="例：rewrite">
-				<input type="submit" value="検索">
-				</div>
-			</s:form>
-			<br><BR>
-			<div class="centered">
-			<font color="red">
-			<s:property value="%{resultString}" />
-			<s:property value="resultSelect" />
-			</font>
+	<!-- flg判定 -->
+	<s:if test="%{#session.userFlg >= 1}">
+		<s:form action="ProjectsSelectAction">
+			<div class="center fontsize">
+				--- プロジェクト名を入力 ---<br> <input type="text" maxlength="100"
+					name="search" placeholder="例：rewrite"> <input type="submit"
+					value="検索">
 			</div>
-			<br><BR>
+		</s:form>
+		<BR>
+		<!-- 検索結果表示 -->
+		<div class="center fontsize">
+			<font color="red"> <s:property value="%{resultString}" /> <s:property
+					value="resultSelect" />
+			</font>
+		</div>
+		<BR>
 
-			<div class="table-scroll">
+		<div class="table-scroll">
 			<s:form action="ProjectsUpdateAction">
 
 
-				<table border="1" class="centered responsive table-scroll">
+				<table border="1" class="centered fontsize responsive table-scroll">
 					<tbody id="list_body">
 						<tr>
 							<td></td>
@@ -129,8 +134,11 @@
 
 
 
-<!-- flg判定 -->			<td><s:if test="%{#session.userFlg == 3}">
-										<input type="button" value="削除" class="modal-open">
+								<!-- flg判定 -->
+								<td><s:if test="%{#session.userFlg == 3}">
+										<div>
+											<input type="button" value="削除" class="modal-open">
+										</div>
 									</s:if></td>
 
 							</tr>
@@ -141,11 +149,20 @@
 
 				<BR>
 
-						<!-- pagenation -->
-	<br>
-		<br>
-		<div id="pager" class="centered  fixedButton">
-			<div id="page_ctrl">
+
+				<!-- flg判定 -->
+				<s:if test="%{#session.userFlg == 3}">
+					<div class="center  fixedButton">
+						<input class="btntype" type="submit" value="編集完了">
+					</div>
+					<BR>
+				</s:if>
+			</s:form>
+		</div>
+<BR>
+		<!-- pagenation -->
+		<div id="pager" class="center  fixedButton">
+			<div id="page_ctrl" class="center">
 				<ul id="page_before">
 					<li id="page_prev">prev</li>
 				</ul>
@@ -156,21 +173,14 @@
 			</div>
 		</div>
 		<br>
-		<br>
-
-<!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
-        <div class="centered  fixedButton">
-      	<input class="button" type="submit" value="編集完了">
-      	</div><BR><BR>
-				</s:if>
-			</s:form>
-			</div>
-			<br>
-<!-- flg判定 -->	<s:if test="%{#session.userFlg == 3}">
-				<div class="table-scroll">
+		<BR>
+		<!-- flg判定 -->
+		<s:if test="%{#session.userFlg == 3}">
+			<div class="table-scroll">
 				<s:form action="ProjectsInsertAction">
 
-					<table border="1" class="centered add"><!-- class="centered responsive" -->
+					<table border="1" class="centered add fontsize">
+						<!-- class="centered responsive" -->
 
 						<tr>
 
@@ -199,19 +209,19 @@
 					</table>
 
 					<BR>
-                    <div class="centered fixedButton">
-					<input class="button" type="submit" value="追加する">
+					<div class="center fixedButton">
+						<input class="btntype" type="submit" value="追加する">
 					</div>
 					<br>
 					<br>
 
 				</s:form>
-				</div>
+			</div>
 
-				<br>
+			<br>
 
 
-				<!-- <div class="container">
+			<!-- <div class="container">
 
 				<input type="button" value="＋受講生一覧表示" id="listButton">
 				<div id="studentsElement">
@@ -239,80 +249,62 @@
 					</table>
 				</div>
 				</div> -->
-			</s:if>
-
-
-			<div id="modal-main">
-				<!-- #contents START -->
-				<div id="modal-style" class="centered">
-				<br>
-					<table class="modal_border responsive">
-
-
-						<tr>
-							<td>プロジェクト名
-								<div class="delete-projectname modalDelete"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>管理者（リーダー）
-								<div class="delete-projectmanagerid modalDelete"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>管理者（サブリーダー）
-								<div class="delete-projectsubmanagerid modalDelete"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>開始日
-								<div class="delete-projectstartdate modalDelete"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>終了日
-								<div class="delete-projectenddate modalDelete"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>備考
-								<div class="delete-projectnote modalDelete"></div>
-							</td>
-					</table>
-					<input type="button" class="delete-true button" value="削除">
-					<input type="button" class="modal-close button" value="閉じる">
-
-					<div class="delete-prepare">
-						<p>本当に削除しますか。</p>
-
-						<s:form action="ProjectsDeleteAction">
-							<input type="hidden" name="projectId" value=""
-								class="true-delete">
-							<input type="submit" class="delete-true button" value="はい">
-							<input type="button" class="modal-close button" value="いいえ">
-						</s:form>
-
-					</div>
-				</div>
-			</div>
-
-			<div id="contents">
-				<br>
-			</div>
-
-			<br>
-			<br>
-
-
 		</s:if>
 
 
-		<s:form action="GetAddressAction">
-		<div class="centered">
-			<input type="submit" class="button" value="戻る">
+		<div id="modal-main">
+			<!-- #contents START -->
+			<div id="modal-style">
+				<br>
+				<div  class="modal_border responsive">
+
+						【プロジェクト名】
+							<div class="delete-projectname modalDelete"></div>
+						【管理者(ﾘ-ﾀﾞｰ)】
+							<div class="delete-projectmanagerid modalDelete"></div>
+						【管理者(ｻﾌﾞﾘｰﾀﾞｰ)】
+							<div class="delete-projectsubmanagerid modalDelete"></div>
+						【開始日】
+							<div class="delete-projectstartdate modalDelete"></div>
+						【終了日】
+							<div class="delete-projectenddate modalDelete"></div>
+						【備考】
+							<div class="delete-projectnote modalDelete"></div><BR>
+
+				<input type="button" class="delete-true button" value="削除">
+				<input type="button" class="modal-close button" value="閉じる">
+
+				<div class="delete-prepare">
+					<p>本当に削除しますか。</p>
+
+					<s:form action="ProjectsDeleteAction">
+						<input type="hidden" name="projectId" value="" class="true-delete">
+						<input type="submit" class="delete-true button" value="はい">
+						<input type="button" class="modal-close button" value="いいえ">
+					</s:form>
+
+				</div>
 			</div>
-		</s:form>
-		<BR>
+		</div>
+		</div>
+
+		<div id="contents">
+			<br>
+		</div>
+
+		<br>
+		<br>
+
+
+	</s:if>
+
+
+	<s:form action="GetAddressAction">
+		<div class="center">
+			<input type="submit" class="btntype2" value="戻る">
+		</div>
+	</s:form>
+	<BR>
 
 
 
