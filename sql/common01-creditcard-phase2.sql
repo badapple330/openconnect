@@ -1,8 +1,8 @@
 set names utf8;
 set foreign_key_checks=0;
-drop database if exists creditcard_manager;
-create database creditcard_manager;
-use creditcard_manager;
+drop database if exists new_creditcard_manager;
+create database new_creditcard_manager;
+use new_creditcard_manager;
 
 /***************************
  * クレジットカード種別管理マスター
