@@ -126,7 +126,7 @@ k_imp_id varchar(100) comment '契約起案番号',
 k_dec_id varchar(100) comment '契約決裁番号',
 jk_imp_id varchar(100) comment '実施兼契約起案番号',
 jk_dec_id varchar(100) comment '実施兼契約決裁番号',
-j_drafte_id int comment'実施起案者ID',
+j_drafter_id int comment'実施起案者ID',
 k_drafter_id int comment'契約/実施兼契約起案者ID',
 permit_status tinyint(1) default 0 comment '承認状況(0:未承認, 1:リーダー1承認, 2:リーダー2承認, 0:先生承認)',
 
@@ -139,9 +139,14 @@ k_permiter_id2 int comment '契約/実施兼契約_承認者ID(2人目:リーダ
 k_permiter_id3 int comment '契約/実施兼契約_承認者ID(3人目:先生)',
 
 foreign key(project_id) references projects(project_id) on update cascade on delete cascade,
-foreign key(permit_user_id1) references users(user_id) on update cascade on delete cascade,
-foreign key(permit_user_id2) references users(user_id) on update cascade on delete cascade,
-foreign key(permit_user_id3) references users(user_id) on update cascade on delete cascade
+foreign key(j_drafter_id) references users(user_id) on update cascade on delete cascade,
+foreign key(k_drafter_id) references users(user_id) on update cascade on delete cascade,
+foreign key(j_permiter_id1) references users(user_id) on update cascade on delete cascade,
+foreign key(j_permiter_id2) references users(user_id) on update cascade on delete cascade,
+foreign key(j_permiter_id3) references users(user_id) on update cascade on delete cascade,
+foreign key(k_permiter_id1) references users(user_id) on update cascade on delete cascade,
+foreign key(k_permiter_id2) references users(user_id) on update cascade on delete cascade,
+foreign key(k_permiter_id3) references users(user_id) on update cascade on delete cascade
 );
 
 
