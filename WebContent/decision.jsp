@@ -27,6 +27,10 @@ $("#res,#lines,#c,#d").val($(this).val());
 
 <body>
 
+
+
+<h1 align=center>実施決裁</h1>
+
 <s:property value="%{resultString}" />
 
 <table>
@@ -42,7 +46,7 @@ $("#res,#lines,#c,#d").val($(this).val());
 </table>
 
 <s:form action="DecisionUpdateAction">
-<input type="submit" value="編集を保存">
+
 
 <table class="main" border="2">
 
@@ -52,7 +56,7 @@ $("#res,#lines,#c,#d").val($(this).val());
 <td>
 <s:iterator value="nameList">
 <s:if test="familyNameKanji != null && !familyNameKanji.isEmpty()">
- <input type="text" readonly="readonly" value="<s:property value='familyNameKanji'/><s:property value='givenNameKanji'/>">
+ <s:property value='familyNameKanji'/><s:property value='givenNameKanji'/>
   </s:if>
 </s:iterator>
 </td>
@@ -104,6 +108,7 @@ $("#res,#lines,#c,#d").val($(this).val());
 
 <tr>
 <th>(2)費用</th>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <td colspan="6">
 建設費用：<input type="text" name="bildCost" value="<s:property value="bildCost" />" readonly="readonly" size="8">万円 <br>
@@ -111,16 +116,33 @@ $("#res,#lines,#c,#d").val($(this).val());
 合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text"  value="<s:property value="amountAll" />" readonly="readonly" size="8">万円
 </td>
 </s:iterator>
+</s:if>
+<s:else>
+<td colspan="6">
+建設費用：<input type="text" name="bildCost" value="未入力" readonly="readonly" size="8">万円 <br>
+損益費用：<input type="text" name="benefit" value="未入力" readonly="readonly" size="8">万円<br>
+合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text"  value="未入力" readonly="readonly" size="8">万円
+</td>
+</s:else>
+
+
 </tr>
 
 <tr>
 <td><b>(3)期間</b></td>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <td colspan="3">
 <input type="date" name="startDay" size="7" required placeholder="YYYYMMDD" value="<s:property value="startDay" />">  ~
 <input type="date" name="endDay" size="7" required placeholder="YYYYMMDD" value="<s:property value="endDay" />">
 </td>
 </s:iterator>
+</s:if>
+<s:else>
+<td colspan="3">
+<input type="date" name="startDay" size="7" required placeholder="YYYYMMDD" value="未入力">  ~
+<input type="date" name="endDay" size="7" required placeholder="YYYYMMDD" value="未入力">
+</s:else>
 </tr>
 
 <tr>
@@ -241,7 +263,20 @@ $("#res,#lines,#c,#d").val($(this).val());
 </tr>
 
 </table>
+
+<input type="submit" value="編集を保存">
 </s:form>
+
+
+<h2><a href="./attach_help.jsp" target="_blank">資料添付</a></h2>
+
+<div align=center>
+<form action="upload" method="post" enctype="multipart/form-data">
+      <label for="myFile">フォルダをアップロード</label>
+      <input type="file" name="myFile" />
+      <input type="submit" value="Upload"/>
+   </form>
+</div>
 
 
 </body>
