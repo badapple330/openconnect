@@ -33,6 +33,28 @@ public class DecisionDetailDTO {
 
 
 
+	/**
+	 * 起案番号一時保管庫
+	 */
+	private String compareId;
+	/**
+	* 取得メソッド を取得
+	* @return compareId
+	*/
+	public String getCompareId() {
+		return compareId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param compareId
+	*/
+	public void setCompareId(String compareId) {
+		this.compareId = compareId;
+	}
+
+
+
+
 
 	/**
 	 *  リーダーID
@@ -75,7 +97,7 @@ public class DecisionDetailDTO {
 	 */
 	private int decisionStatus2;
 	/**
-	 *  ユーザーID
+	 *  ログイン中ユーザーID
 	 */
 	private int userId;
 
