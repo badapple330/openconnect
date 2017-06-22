@@ -142,6 +142,21 @@ public class DecisionPreviewAction extends ActionSupport {
 	 */
 	public String givenNameKanji;
 
+	/**
+	 *承認者ユーザーID1(リーダー)
+	 */
+	public int permitUserId1;
+
+	/**
+	 *承認者ユーザーID2(リーダー)
+	 */
+	public int permitUserId2;
+
+	/**
+	 *承認者ユーザーID3(先生)
+	 */
+	public int permitUserId3;
+
 
 	/**
 	 * 決裁手続きの情報をリスト化
@@ -175,7 +190,10 @@ public class DecisionPreviewAction extends ActionSupport {
 			log.error(decisionPreviewList);
 			try {
 				draftUserId = decisionPreviewList.get(0).getDraftUserId();
-				nameList = dao.selectByDraftUserId(draftUserId);
+				permitUserId1 = decisionPreviewList.get(0).getPermitUserId1();
+				permitUserId2 = decisionPreviewList.get(0).getPermitUserId2();
+				permitUserId3 = decisionPreviewList.get(0).getPermitUserId3();
+				nameList = dao.selectByDraftUserId(draftUserId, permitUserId1, permitUserId2, permitUserId3);
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
@@ -356,6 +374,7 @@ public class DecisionPreviewAction extends ActionSupport {
 	public void setSession(Map<String,Object> session) {
 		this.session = session;
 	}
+
 
 	/**
 	 * @return decisionPreviewList
@@ -617,6 +636,58 @@ public class DecisionPreviewAction extends ActionSupport {
 		this.givenNameKanji = givenNameKanji;
 	}
 
+	/**
+	 * 承認者ユーザーID1(リーダー)を取得します。
+	 * @return 承認者ユーザーID1(リーダー)
+	 */
+	public int getPermitUserId1() {
+	    return permitUserId1;
+	}
+
+
+	/**
+	 * 承認者ユーザーID1(リーダー)を設定します。
+	 * @param permitUserId1 承認者ユーザーID1(リーダー)
+	 */
+	public void setPermitUserId1(int permitUserId1) {
+	    this.permitUserId1 = permitUserId1;
+	}
+
+
+	/**
+	 * 承認者ユーザーID2(リーダー)を取得します。
+	 * @return 承認者ユーザーID2(リーダー)
+	 */
+	public int getPermitUserId2() {
+	    return permitUserId2;
+	}
+
+
+	/**
+	 * 承認者ユーザーID2(リーダー)を設定します。
+	 * @param permitUserId2 承認者ユーザーID2(リーダー)
+	 */
+	public void setPermitUserId2(int permitUserId2) {
+	    this.permitUserId2 = permitUserId2;
+	}
+
+
+	/**
+	 * 承認者ユーザーID3(先生)を取得します。
+	 * @return 承認者ユーザーID3(先生)
+	 */
+	public int getPermitUserId3() {
+	    return permitUserId3;
+	}
+
+
+	/**
+	 * 承認者ユーザーID3(先生)を設定します。
+	 * @param permitUserId3 承認者ユーザーID3(先生)
+	 */
+	public void setPermitUserId3(int permitUserId3) {
+	    this.permitUserId3 = permitUserId3;
+	}
 
 
 

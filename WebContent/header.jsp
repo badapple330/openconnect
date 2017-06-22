@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- 背景画像 -->
 <style type="text/css">
@@ -23,16 +24,74 @@
 </head>
 <body>
 	<!-- ヘッダー -->
-					<div id="headerSpace">
-					<h1 class="container">
-						<a href="applist.jsp" class="openConnect">Open Connect</a>
-			   <!-- internousdevのロゴ -->
-               <TABLE border="1" bordercolor="grey" align="right">
-               <tr><td>
-               <a href=""><img src="img/hd_logo.jpg"></a>
-               </td></tr></table>
-					</h1>
-                        <div class="container" align="right">
+					<header id="headerSpace">
+						<div class="upperHeader">
+										<a href="applist.jsp" class="openConnect">Open Connect</a>
+							   <!-- internousdevのロゴ -->
+
+
+				               <a href=""><img class="dissappear" src="img/hd_logo.png"></a>
+
+						</div>
+						<nav id="primary_nav_wrap">
+							<ul>
+							  <s:if test="%{#session.userFlg == null}">
+							    <li><a href="JustGoAction" class="part_line">■ Login</a>
+							  </s:if>
+
+							  <s:if test="%{#session.userFlg >= 1}">
+							  <li><a href="#">■ Category</a>
+							    <ul>
+							      <li><a href="GoTeamAction">チーム情報</a></li>
+							      <li><a href="#">プロジェクト</a>
+							      	<ul>
+							      	 <li><a href="ProjectsSelectAction">プロジェクト一覧</a></li>
+								      <li><a href="ProjectStatusSelectAction">プロジェクトリリース状況</a></li>
+								      <li><a href="ProjectProgressSelectAction">プロジェクト進捗報告</a></li>
+							      </ul>
+							      </li>
+							      <li><a href="#">一覧</a>
+							      	<ul>
+							      		<li><a href="StudentsSelectAction">受講生一覧</a></li>
+							      		<li><a href="BooksSelectAction">書籍一覧</a></li>
+							      		<li><a href="GoScheduleSelectAction">スケジュール一覧</a></li>
+							      	</ul>
+							      </li>
+								  <s:if test="%{#session.userFlg >= 2}">
+								  	<li><a href="#">勤怠</a>
+									  	<ul>
+											<li><a href="GoAdminAttendanceAction">勤怠確認</a></li>
+											<li><a href="GoAttendanceAction">勤怠更新</a></li>
+										</ul>
+									</li>
+								  </s:if>
+
+								  <s:if test="%{#session.userFlg >= 1}">
+								  	 <li><a href="#">決裁</a>
+								      	<ul>
+								      	<li><a href="DecisionDetailSelectAction">決裁手続き</a></li>
+									  	<li><a href="DecisionArchiveAction">完了済み決裁</a></li>
+								      </ul>
+								     </li>
+								  </s:if>
+
+							    </ul>
+							  </li>
+							  </s:if>
+
+							  <s:if test="%{#session.userFlg != null}">
+							  <li>
+							      <a href="LogoutAction" class="part_line">■ Logout</a>
+							  </li>
+							  </s:if>
+							  <s:if test="%{#session.userFlg == 3}">
+							  <li><a href="GoAdminAction" class="part_line">■ 管理者 </a></li>
+							  </s:if>
+							</ul>
+						</nav>
+
+
+                        <!-- <div class="container" align="right">
 
                           <s:if test="%{#session.userFlg >= 1}">
 					<ul class="pulldown2" id="selectBer">
@@ -77,7 +136,7 @@
 
 
 
-						</div>
+						</div> -->
 				<!-- 				<dl id="menuElementGroup"> -->
 				<!-- 				<dd><a href="ProjectsSelectAction" class="menuElement">プロジェクト一覧</a></dd> -->
 				<!-- 				<dd><a href="ProjectStatusSelectAction" class="menuElement">プロジェクトリリース状況</a></dd> -->
@@ -93,7 +152,7 @@
 				<!-- 				<dd><a href="BooksBorrowSelectAction" class="menuElement">書籍貸し出し</a></dd> -->
 				<!-- 				<dd><a href="ScheduleSelectAction" class="menuElement">スケジュール一覧</a></dd> -->
 				<!-- 				</dl> -->
-					</div>
+					</header>
 	<!-- ヘッダーはここまで -->
 <br>
 <br>

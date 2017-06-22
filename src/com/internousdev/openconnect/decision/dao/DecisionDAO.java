@@ -18,6 +18,10 @@ import com.internousdev.util.DBConnector;
  *
  */
 
+/**
+ * @author internousdev
+ *
+ */
 public class DecisionDAO {
 
 	/**
@@ -56,17 +60,17 @@ public class DecisionDAO {
 
 				dto.setDecisionName(rs.getString("decision_name")); // 案件名
 
-				dto.setIDraftingId(rs.getString("i_drafting_id")); // 実施起案番号
+				dto.setjImpId(rs.getString("j_imp_id")); // 実施起案番号
 
-				dto.setIApprovalId(rs.getString("i_approval_id")); // 実施決裁番号
+				dto.setjDecId(rs.getString("j_dec_id")); // 実施決裁番号
 
-				dto.setADraftingId(rs.getString("a_drafting_id")); // 契約起案番号
+				dto.setkImpId(rs.getString("k_imp_id")); // 契約起案番号
 
-				dto.setCdId(rs.getString("cd_id")); // 契約決裁番号
+				dto.setkDecId(rs.getString("k_dec_id")); // 契約決裁番号
 
-				dto.setIADId(rs.getString("i_a_d_id")); // 実施兼契約起案番号
+				dto.setJkImpId(rs.getString("jk_imp_id")); // 実施兼契約起案番号
 
-				dto.setIAId(rs.getString("i_a_id")); // 実施兼契約番号
+				dto.setJkDecId(rs.getString("jk_dec_id")); // 実施兼契約決裁番号
 
 				dto.setSummary(rs.getString("summary")); // 概要
 
@@ -104,9 +108,9 @@ public class DecisionDAO {
 
 				dto.setTotalRoom(rs.getFloat("total_room")); // 合計施設使用料
 
-				dto.setTotalHuman(rs.getInt("human")); // 合計開発要員
+				dto.setTotalHuman(rs.getInt("total_human")); // 合計開発要員
 
-				dto.setTotalEtc(rs.getFloat("etc")); // 合計雑費
+				dto.setTotalEtc(rs.getFloat("total_etc")); // 合計雑費
 
 				decisionList.add(dto);
 			}
@@ -170,37 +174,73 @@ public class DecisionDAO {
 	 * @param line
 	 * @param re
 	 * @param prove
-	 * @return projectList 抽出に成功したらSUCCESS、失敗したらERROR
+	 * @return
 	 */
 
 	/**
-	 * 決裁手続きの情報をリスト化
+	 * 決裁手続きの情報アップデート
 	 *
 	 */
 
-	public int update(String decisionName) {
+	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll) {
+		int count = 0;
+
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
-		int count = 0;
-		String sql = "UPDATE decision SET decision_name=?";
+
+		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,"
+				+ "total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, decisionName);
+			ps.setString(2, summary);
+			ps.setString(3, cause);
+			ps.setString(4, startDay);
+			ps.setString(5, endDay);
+			ps.setInt(6, persons);
+			ps.setInt(7, totalProve);
+			ps.setFloat(8, totalRe);
+			ps.setInt(9, totalLine);
+			ps.setFloat(10, totalRoom);
+			ps.setInt(11, totalHuman);
+			ps.setFloat(12, totalEtc);
+			ps.setFloat(13, benefit);
+			ps.setFloat(14, bildCost);
+			ps.setFloat(15, amountAll);
+
+
+
+
 
             count = ps.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			try {
+			if(con!=null){
+				try{
 				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
+		}
 		return count;
-	}
+		}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+

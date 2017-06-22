@@ -81,9 +81,6 @@ public class DecisionDetailApplicationDAO {
 
 		int count = 0;
 
-		/*if(decisionStatus2 == 1) {
-			decisionStatus1 = 2;
-		}*/
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");

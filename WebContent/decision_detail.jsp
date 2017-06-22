@@ -48,7 +48,7 @@
 		<s:iterator value="decisionDetailList2">
 		<p>自のlist内：<s:property value="%{decisionDetailList2.size()}" />個</p>
 		<p>全のlist内：<s:property value="%{decisionDetailList1.size()}" />個</p>
-		<p>決済未作成のlist内：<s:property value="%{decisionBeginList.size()}" />個</p>
+		<p>決裁未作成のlist内：<s:property value="%{decisionBeginList.size()}" />個</p>
 		<s:if test="%{decisionDetailList2.size() > 0}">
 
 			<table border="1">
@@ -57,16 +57,18 @@
 					<th>決裁ID</th>
 
                     <th>プロジェクトID</th>
-					<th>案件名</th>
 					<th>プロジェクト名</th>
 
 					<th>決裁種類</th>
                     <th>決裁状況</th>
 
 					<th>
-					<s:if test="decisionStatus1 == 0 || decisionStatus2 == 0">
+					<s:if test="%{decisionType == '実施' && decisionStatus1 == 0}">
 						編集
 					</s:if>
+					<s:elseif test="(decisionStatus1 == 3 && decisionStatus2 == 0) || (decisionStatus1 == 2 && decisionStatus2 == 3)">
+						変更へ
+					</s:elseif>
 					<s:else>
 						プレビュー
 					</s:else>
@@ -74,14 +76,14 @@
 
 
 					<th>
-					<s:if test="decisionStatus1 == 0 || decisionStatus2 == 0">
-						申請
+					<s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
+						承認状況
 					</s:if>
 					<s:elseif test="decisionStatus1 == 3 || decisionStatus2 == 3">
 						変更申請
 					</s:elseif>
 					<s:else>
-						承認状況
+						申請
 					</s:else>
 					</th>
 
@@ -89,6 +91,8 @@
 					<th>変更</th>
 					</s:if>
                 </tr>
+
+
 
 				<tr>
 				<!-- 決裁ID -->
@@ -100,10 +104,6 @@
 				<!-- プロジェクトID -->
 					<td class="project_id">
 						<s:property value="projectId" />
-					</td>
-				<!-- 案件名 -->
-					<td>
-						<s:property value="decisionName" />
 					</td>
 				<!-- プロジェクト名 -->
 					<td class="project_name">
@@ -172,6 +172,10 @@
 										<input type="submit" value="実施兼契約編集">
 								</s:elseif>
 							</s:form>
+						</s:elseif>
+					<!-- 変更中の場合 -->
+						<s:elseif test="%{decisionStatus1 == 3 || decisionStatus2 == 3}">
+							変更へ
 						</s:elseif>
 					<!-- プレビュー -->
 						<s:else>
@@ -244,7 +248,7 @@
 
 				</tr>
 
-			</table>
+			</table><br>
 
 		</s:if>
 		</s:iterator>
@@ -254,11 +258,11 @@
 
 		<s:iterator value="decisionBeginList">
 
-			<s:if test="%{decisionDetailList2.size() == 0 && decisionBeginList.size() > 0}">
-    			<div class="pad">
+			<s:if test="%{decisionBeginList.size() > 0}">
+    			<div class="pad"><br>
 
             <s:form action="DecisionDetailInsertAction">
-					案件の追加<br>あなたのプロジェクトは...
+					決裁手続きを始める<br>あなたのプロジェクトは...
 			<table border="1">
 				<tr>
 					<td>プロジェクト名：</td>
@@ -292,6 +296,8 @@
 
 	</s:if>
 
+<br>
+
 
 
 
@@ -302,7 +308,6 @@
 					<th>決裁ID</th>
 
                     <th>プロジェクトID</th>
-					<th>案件名</th>
 					<th>プロジェクト名</th>
 
 					<th>決裁種類</th>
@@ -333,10 +338,6 @@
 			<!-- プロジェクトID -->
 					<td class="project_id">
 						<s:property value="projectId" />
-					</td>
-			<!-- 案件名 -->
-					<td>
-						<s:property value="decisionName" />
 					</td>
 			<!-- プロジェクト名 -->
 					<td class="project_name">
@@ -532,7 +533,7 @@
 					<td>
 					<!-- 申請中の時 -->
 					<s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
-					<s:form action="DecisionDetailUpdateAction">
+					<s:form action="DecisionDetailRemandAction">
 
 							<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 							<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
@@ -576,9 +577,10 @@
 					<td>
 					<!-- 申請中の時 -->
 					<s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
-					<s:form action="DecisionDetailPermitAction">
+					<s:form action="DecisionDetailRejectAction">
 
 							<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+							<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
 
 						<!-- 先生のみ -->
 							<s:if test="%{#session.userFlg == 3}">
@@ -608,7 +610,7 @@
 					<!-- 申請中の時以外 -->
 					<s:else>
 						<s:if test="decisionStatus1 == 3 || decisionStatus2 == 3">
-							差し戻し中
+							却下済み/変更中
 						</s:if>
 						<s:else>
 							現在申請なし

@@ -55,7 +55,7 @@ public class BooksDAO {
 				dto.setPublisher(rs.getString("publisher"));
 				dto.setPubDay(rs.getString("publish_day"));
 				dto.setInitial(rs.getString("initial"));
-				dto.setStatusFlg(rs.getInt("status_flg"));
+				dto.setStatusFlg(rs.getString("status_flg"));
 				dto.setRegDay(rs.getString("regist_day"));
 				dto.setUpdDay(rs.getString("updated_day"));
 				dto.setNo(rs.getInt("no"));
@@ -81,7 +81,7 @@ public class BooksDAO {
 	 /**
      * 更新情報を、DBへ転送し、更新する為のメソッド
      */
-	public int update(String title, String subTitle, String author, String publisher, String pubDay, int statusFlg, int book_id) {
+	public int update(String title, String subTitle, String author, String publisher, String pubDay, String statusFlg, int book_id) {
 
 		int count = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
@@ -97,7 +97,7 @@ public class BooksDAO {
 			ps.setString(3, author);
 			ps.setString(4, publisher);
 			ps.setString(5, pubDay);
-			ps.setInt(6, statusFlg);
+			ps.setString(6, statusFlg);
 			ps.setInt(7, book_id);
 			count =ps.executeUpdate();
 

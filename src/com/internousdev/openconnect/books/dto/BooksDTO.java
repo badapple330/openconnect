@@ -49,7 +49,7 @@ public class BooksDTO {
 	/**
 	 * 状態フラグ
 	 */
-	private int statusFlg;
+	private String statusFlg;
 
 	/**
 	 * カレッジ登録日
@@ -68,11 +68,8 @@ public class BooksDTO {
 
 
 
-
-
-
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return bookId
 	*/
 	public int getBookId() {
@@ -80,15 +77,15 @@ public class BooksDTO {
 	}
 
 	/**
-	* を格納するメソッド
-	* @param bookId セットする bookId
+	* 設定メソッド を設定
+	* @param bookId
 	*/
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
 
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return title
 	*/
 	public String getTitle() {
@@ -96,15 +93,15 @@ public class BooksDTO {
 	}
 
 	/**
-	* を格納するメソッド
-	* @param title セットする title
+	* 設定メソッド を設定
+	* @param title
 	*/
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return subTitle
 	*/
 	public String getSubTitle() {
@@ -112,15 +109,15 @@ public class BooksDTO {
 	}
 
 	/**
-	* を格納するメソッド
-	* @param subTitle セットする subTitle
+	* 設定メソッド を設定
+	* @param subTitle
 	*/
 	public void setSubTitle(String subTitle) {
 		this.subTitle = subTitle;
 	}
 
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return author
 	*/
 	public String getAuthor() {
@@ -128,15 +125,15 @@ public class BooksDTO {
 	}
 
 	/**
-	* を格納するメソッド
-	* @param author セットする author
+	* 設定メソッド を設定
+	* @param author
 	*/
 	public void setAuthor(String author) {
 		this.author = author;
 	}
 
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return publisher
 	*/
 	public String getPublisher() {
@@ -144,15 +141,15 @@ public class BooksDTO {
 	}
 
 	/**
-	* を格納するメソッド
-	* @param publisher セットする publisher
+	* 設定メソッド を設定
+	* @param publisher
 	*/
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
 
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return pubDay
 	*/
 	public String getPubDay() {
@@ -160,15 +157,15 @@ public class BooksDTO {
 	}
 
 	/**
-	* を格納するメソッド
-	* @param pubDay セットする pubDay
+	* 設定メソッド を設定
+	* @param pubDay
 	*/
 	public void setPubDay(String pubDay) {
 		this.pubDay = pubDay;
 	}
 
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return initial
 	*/
 	public String getInitial() {
@@ -176,31 +173,31 @@ public class BooksDTO {
 	}
 
 	/**
-	* を格納するメソッド
-	* @param initial セットする initial
+	* 設定メソッド を設定
+	* @param initial
 	*/
 	public void setInitial(String initial) {
 		this.initial = initial;
 	}
 
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return statusFlg
 	*/
-	public int getStatusFlg() {
+	public String getStatusFlg() {
 		return statusFlg;
 	}
 
 	/**
-	* を格納するメソッド
-	* @param statusFlg セットする statusFlg
+	* 設定メソッド を設定
+	* @param statusFlg
 	*/
-	public void setStatusFlg(int statusFlg) {
+	public void setStatusFlg(String statusFlg) {
 		this.statusFlg = statusFlg;
 	}
 
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return regDay
 	*/
 	public String getRegDay() {
@@ -208,15 +205,15 @@ public class BooksDTO {
 	}
 
 	/**
-	* を格納するメソッド
-	* @param regDay セットする regDay
+	* 設定メソッド を設定
+	* @param regDay
 	*/
 	public void setRegDay(String regDay) {
 		this.regDay = regDay;
 	}
 
 	/**
-	* を取得するメソッド
+	* 取得メソッド を取得
 	* @return updDay
 	*/
 	public String getUpdDay() {
@@ -224,8 +221,8 @@ public class BooksDTO {
 	}
 
 	/**
-	* を格納するメソッド
-	* @param updDay セットする updDay
+	* 設定メソッド を設定
+	* @param updDay
 	*/
 	public void setUpdDay(String updDay) {
 		this.updDay = updDay;
@@ -233,7 +230,6 @@ public class BooksDTO {
 
 	/**
 	* 取得メソッド を取得
-	* @author TEPPEI MATSUMOTO
 	* @return no
 	*/
 	public int getNo() {
@@ -242,12 +238,16 @@ public class BooksDTO {
 
 	/**
 	* 設定メソッド を設定
-	* @author TEPPEI MATSUMOTO
 	* @param no
 	*/
 	public void setNo(int no) {
 		this.no = no;
 	}
+
+
+
+
+
 
 
 

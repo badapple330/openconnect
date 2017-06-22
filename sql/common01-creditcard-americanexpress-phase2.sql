@@ -1,7 +1,7 @@
 set names utf8;
-drop database if exists americanexpress;
-create database americanexpress;
-use americanexpress;
+drop database if exists new_americanexpress;
+create database new_americanexpress;
+use new_americanexpress;
 
 
 /* ユーザー情報

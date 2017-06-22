@@ -21,7 +21,6 @@
 <!--body {background: url(img/sity.jpg) center center / cover no-repeat fixed;}-->
 </style>
 <!-- ここまで -->
-
 <title>Open Connect -ログイン</title>
 <!-- css読み込み -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -30,7 +29,6 @@
 <script src="js/bootstrap.js"></script>
 </head>
 <body>
-
 	<!-- ヘッダー
 	<header>
 		<nav class="navbar navbar-default navbar-static-top">
@@ -44,63 +42,41 @@
 		</nav>
 	</header>
 	<!-- ヘッダーはここまで -->
-
-
-
 					<h1 align="center">
 						<a href="applist.jsp" class="square_btn35">Open Connect</a>
 					</h1>
 <br><br><br><br><br>
-
 	<!------------------    ユーザーログイン    ------------------->
 <s:if test="%{#session.userFlg == null}">
 	<div class="box" align ="center">
 	<table id= "main">
 <tr align="center">
 <td>
-
-
-
-
 				<s:property value="%{resultString}" />
-
 				<s:form theme="simple" id="inner" class="form-horizontal"
 					action="LoginAction" autocomplete="off">
-
-
 					<!------------------    メールアドレス    ------------------->
 						<td><h3>メールアドレス</h3></td>
 						<td><s:textfield name="phoneEmail"  value=""
 						    placeholder="example@example.com" />
                         </td>
-
 					<!------------------    パスワード    ------------------->
 						<td><h3>パスワード</h3></td>
 						<td><s:password  name="password" value="" />
 						    <s:textfield type="hidden" name="userFlg" value="userFlg" />
                         </td>
-
-
 					<!------------------    ログイン情報を送信    ------------------->
-
 							<td><s:submit type="submit" value="ログイン" /></td>
-
-
 				</s:form>
-
-
-
 </td>
 	</tr>
 </table>
 </div>
-
 <!-- 新規登録ボタン -->
 <BR><BR><BR><BR>
 <div align="center">
 <a href="GoRegisterAction" class="square_btn">新規登録はこちら</a>
 </div>
 </s:if>
-
 </body>
 </html>

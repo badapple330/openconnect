@@ -14,6 +14,29 @@ public class DecisionDTO {
 	private int draftUserId;
 
 	/**
+	 * ユーザーID
+	 *
+	 */
+	private int userId;
+
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	/**
+
+	/**
 	 * 案件名
 	 *
 	 */
@@ -28,38 +51,34 @@ public class DecisionDTO {
 	 * 実施起案番号
 	 *
 	 */
-	private String iDraftingId;
+	private String jImpId;
 	/**
 	 * 実施決裁番号
 	 *
 	 */
-	private String iApprovalId;
+	private String jDecId;
 	/**
 	 * 契約起案番号
 	 *
 	 */
-	private String aDraftingId;
+	private String kImpId;
 	/**
 	 * 契約決裁番号
 	 *
 	 */
-	private String cdId;
+	private String kDecId;
 	/**
 	 * 実施兼契約起案番号
 	 *
 	 */
-	private String iADId;
+	private String jkImpId;
 	/**
 	 * 実施兼契約番号
 	 *
 	 */
 
-	private String iAId;
+	private String jkDecId;
 
-	/**
-	 * 承認番号
-	 */
-	private String adminNum;
 
 	/**
 	 * 理由・目的
@@ -162,6 +181,8 @@ public class DecisionDTO {
 	 */
 	public float totalEtc;
 
+
+
 	/**
 	 * 承認ユーザーID1
 	 */
@@ -174,6 +195,20 @@ public class DecisionDTO {
 	 * 承認ユーザーID3
 	 */
 	private int permitUserId3;
+
+    /** 取得メソッド を取得
+	* @return person
+	*/
+	public int getPerson() {
+		return person;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param person
+	*/
+	public void setPerson(int person) {
+		this.person = person;
+	}
 
 	/**
 	* 取得メソッド を取得
@@ -308,66 +343,7 @@ public class DecisionDTO {
 
 
 
-	/**
-	 * @return iDraftingId
-	 */
-	public String getiDraftingId() {
-		return iDraftingId;
-	}
-	/**
-	 * @param iDraftingId セットする iDraftingId
-	 */
-	public void setiDraftingId(String iDraftingId) {
-		this.iDraftingId = iDraftingId;
-	}
-	/**
-	 * @return iApprovalId
-	 */
-	public String getiApprovalId() {
-		return iApprovalId;
-	}
-	/**
-	 * @param iApprovalId セットする iApprovalId
-	 */
-	public void setiApprovalId(String iApprovalId) {
-		this.iApprovalId = iApprovalId;
-	}
-	/**
-	 * @return aDraftingId
-	 */
-	public String getaDraftingId() {
-		return aDraftingId;
-	}
-	/**
-	 * @param aDraftingId セットする aDraftingId
-	 */
-	public void setaDraftingId(String aDraftingId) {
-		this.aDraftingId = aDraftingId;
-	}
-	/**
-	 * @return iADId
-	 */
-	public String getiADId() {
-		return iADId;
-	}
-	/**
-	 * @param iADId セットする iADId
-	 */
-	public void setiADId(String iADId) {
-		this.iADId = iADId;
-	}
-	/**
-	 * @return iAId
-	 */
-	public String getiAId() {
-		return iAId;
-	}
-	/**
-	 * @param iAId セットする iAId
-	 */
-	public void setiAId(String iAId) {
-		this.iAId = iAId;
-	}
+
 	/**
 	 * @return prove
 	 */
@@ -489,118 +465,93 @@ public class DecisionDTO {
 	public void setDecisionType(String decisionType) {
 		this.decisionType = decisionType;
 	}
-	/**
-	* 取得メソッド
-	* @author KOTA MIYAZATO
-	* @return
-	*/
-	public String getIDraftingId() {
-		return iDraftingId;
-	}
-	/**
-	* 設定メソッド
-	* @author KOTA MIYAZATO
-	* @param
-	*/
-	public void setIDraftingId(String iDraftingId) {
-		this.iDraftingId = iDraftingId;
-	}
-	/**
-	* 取得メソッド
-	* @author KOTA MIYAZATO
-	* @return
-	*/
-	public String getIApprovalId() {
-		return iApprovalId;
-	}
-	/**
-	* 設定メソッド
-	* @author KOTA MIYAZATO
-	* @param
-	*/
-	public void setIApprovalId(String iApprovalId) {
-		this.iApprovalId = iApprovalId;
-	}
-	/**
-	* 取得メソッド
-	* @author KOTA MIYAZATO
-	* @return
-	*/
-	public String getADraftingId() {
-		return aDraftingId;
-	}
-	/**
-	* 設定メソッド
-	* @author KOTA MIYAZATO
-	* @param
-	*/
-	public void setADraftingId(String aDraftingId) {
-		this.aDraftingId = aDraftingId;
-	}
-	/**
-	* 取得メソッド
-	* @author KOTA MIYAZATO
-	* @return
-	*/
-	public String getCdId() {
-		return cdId;
-	}
-	/**
-	* 設定メソッド
-	* @author KOTA MIYAZATO
-	* @param
-	*/
-	public void setCdId(String cdId) {
-		this.cdId = cdId;
-	}
-	/**
-	* 取得メソッド
-	* @author KOTA MIYAZATO
-	* @return
-	*/
-	public String getIADId() {
-		return iADId;
-	}
-	/**
-	* 設定メソッド
-	* @author KOTA MIYAZATO
-	* @param
-	*/
-	public void setIADId(String iADId) {
-		this.iADId = iADId;
-	}
-	/**
-	* 取得メソッド
-	* @author KOTA MIYAZATO
-	* @return
-	*/
-	public String getIAId() {
-		return iAId;
-	}
-	/**
-	* 設定メソッド
-	* @author KOTA MIYAZATO
-	* @param
-	*/
-	public void setIAId(String iAId) {
-		this.iAId = iAId;
-	}
-	/**
-	 * @return adminNum
-	 */
-	public String getAdminNum() {
-		return adminNum;
-	}
-	/**
-	 * @param adminNum セットする adminNum
-	 */
-	public void setAdminNum(String adminNum) {
-		this.adminNum = adminNum;
-	}
-	/**
-	 * @return head
-	 */
 
+
+
+	/**
+	* 取得メソッド を取得
+	* @return jImpId
+	*/
+	public String getjImpId() {
+		return jImpId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jImpId
+	*/
+	public void setjImpId(String jImpId) {
+		this.jImpId = jImpId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return jDecId
+	*/
+	public String getjDecId() {
+		return jDecId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jDecId
+	*/
+	public void setjDecId(String jDecId) {
+		this.jDecId = jDecId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return kImpId
+	*/
+	public String getkImpId() {
+		return kImpId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kImpId
+	*/
+	public void setkImpId(String kImpId) {
+		this.kImpId = kImpId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return kDecId
+	*/
+	public String getkDecId() {
+		return kDecId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kDecId
+	*/
+	public void setkDecId(String kDecId) {
+		this.kDecId = kDecId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return jkImpId
+	*/
+	public String getJkImpId() {
+		return jkImpId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jkImpId
+	*/
+	public void setJkImpId(String jkImpId) {
+		this.jkImpId = jkImpId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return jkDecId
+	*/
+	public String getJkDecId() {
+		return jkDecId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jkDecId
+	*/
+	public void setJkDecId(String jkDecId) {
+		this.jkDecId = jkDecId;
+	}
 	/**
 	 * @return bildcost
 	 */
