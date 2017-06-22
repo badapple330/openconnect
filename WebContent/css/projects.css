@@ -15,7 +15,6 @@ th {
 
 td {
 	text-align: center;
-
 }
 
 .delete {
@@ -33,7 +32,6 @@ modalDelete {
 /*body {
 	background-color: #808080;
 }*/
-
 p {
 	width: 100%;
 }
@@ -113,8 +111,7 @@ input {
 	margin: 0;
 	padding: 0;
 	align: center;
-	text-align:center;
-
+	text-align: center;
 }
 
 #page_before li, #page_after li, #page_number li {
@@ -155,55 +152,55 @@ input {
 /*#pager {
 	text-align: center;
 }*/
-
 #contents {
 	z-index: 0;
 	font-size: 16px;
 }
 
 /* 中央寄せ */
-.centered{
+.centered {
 	margin-right: auto;
-  	margin-left: auto;
-  	text-align: center;
-  	align: center;
-  	}
+	margin-left: auto;
+	text-align: center;
+	align: center;
+}
 
- /*inputのボタンデザイン*/
+/*inputのボタンデザイン*/
 .btntype {
-    font-size: 1em;
-    padding: 10px 30px;
-    background-color: #248;
-    color: #fff;
-    border-style: none;
+	font-size: 1em;
+	padding: 10px 30px;
+	background-color: #248;
+	color: #fff;
+	border-style: none;
 }
+
 .btntype {
-    background-color: #6dacfa;
-    color: #fff;
+	background-color: #6dacfa;
+	color: #fff;
 }
+
 .btntype2 {
-    font-size: 1em;
-    padding: 10px 40px;
-    background-color: #248;
-    color: #fff;
-    border-style: none;
+	font-size: 1em;
+	padding: 10px 40px;
+	background-color: #248;
+	color: #fff;
+	border-style: none;
 }
+
 .btntype2 {
-    background-color: #6dacfa;
-    color: #fff;
+	background-color: #6dacfa;
+	color: #fff;
 }
 
-
-@media only screen and (max-device-width: 900px){
-
-	.add{
+@media only screen and (max-device-width: 900px) {
+	.add {
 		text-align: left;
 		margin-left: 0px;
 	}
-	.table-scroll{
+	.table-scroll {
 		overflow-x: scroll;
 	}
-	.fixedButton{
+	.fixedButton {
 		position: absolute;
 	}
 }
@@ -216,36 +213,34 @@ input {
 		align: center
 	}
 	.center {
-		text-align:center;
-		align:center;
+		text-align: center;
+		align: center;
 	}
-.fontsize{
-	font-size:10px;
-}
+	.fontsize {
+		font-size: 10px;
+	}
 
- /*inputのボタンデザイン*/
-.btntype {
-    font-size: 12px;
-    padding: 5px 15px;
-    background-color: #248;
-    color: #fff;
-    border-style: none;
-}
-.btntype {
-    background-color: #6dacfa;
-    color: #fff;
-}
-.btntype2 {
-    font-size: 12px;
-    padding: 5px 28px;
-    background-color: #248;
-    color: #fff;
-    border-style: none;
-}
-.btntype2 {
-    background-color: #6dacfa;
-    color: #fff;
-}
-
-
+	/*inputのボタンデザイン*/
+	.btntype {
+		font-size: 12px;
+		padding: 5px 15px;
+		background-color: #248;
+		color: #fff;
+		border-style: none;
+	}
+	.btntype {
+		background-color: #6dacfa;
+		color: #fff;
+	}
+	.btntype2 {
+		font-size: 12px;
+		padding: 5px 28px;
+		background-color: #248;
+		color: #fff;
+		border-style: none;
+	}
+	.btntype2 {
+		background-color: #6dacfa;
+		color: #fff;
+	}
 }
