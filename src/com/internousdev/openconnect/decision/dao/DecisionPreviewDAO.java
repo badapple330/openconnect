@@ -48,7 +48,7 @@ public class DecisionPreviewDAO {
 			while (rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
 
-				dto.setjDraftUserId(rs.getInt("j_draft_user_id")); // 	実施起案者ユーザーID
+				dto.setjDrafterUserId(rs.getInt("j_draft_user_id")); // 	実施起案者ユーザーID
 
 				dto.setDecisionType(rs.getString("decision_type")); // 決裁種類
 
@@ -120,7 +120,7 @@ public class DecisionPreviewDAO {
 
 	}
 
-	public ArrayList<DecisionDTO> selectByIds(int jDraftUserId) {
+	public ArrayList<DecisionDTO> selectByIds(int jDrafterUserId) {
 		DecisionDTO dto = new DecisionDTO();
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
 				"openconnect", "root", "mysql");
@@ -129,7 +129,7 @@ public class DecisionPreviewDAO {
 		String sql = "(select * from users where user_id=?)";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,jDraftUserId);
+			ps.setInt(1,jDrafterUserId);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
