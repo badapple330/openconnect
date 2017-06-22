@@ -60,17 +60,17 @@ public class DecisionDAO {
 
 				dto.setDecisionName(rs.getString("decision_name")); // 案件名
 
-				dto.setIDraftingId(rs.getString("i_drafting_id")); // 実施起案番号
+				dto.setjImpId(rs.getString("j_imp_id")); // 実施起案番号
 
-				dto.setIApprovalId(rs.getString("i_approval_id")); // 実施決裁番号
+				dto.setjDecId(rs.getString("j_dec_id")); // 実施決裁番号
 
-				dto.setADraftingId(rs.getString("a_drafting_id")); // 契約起案番号
+				dto.setkImpId(rs.getString("k_imp_id")); // 契約起案番号
 
-				dto.setCdId(rs.getString("cd_id")); // 契約決裁番号
+				dto.setkDecId(rs.getString("k_dec_id")); // 契約決裁番号
 
-				dto.setIADId(rs.getString("i_a_d_id")); // 実施兼契約起案番号
+				dto.setJkImpId(rs.getString("jk_imp_id")); // 実施兼契約起案番号
 
-				dto.setIAId(rs.getString("i_a_id")); // 実施兼契約番号
+				dto.setJkDecId(rs.getString("jk_dec_id")); // 実施兼契約決裁番号
 
 				dto.setSummary(rs.getString("summary")); // 概要
 

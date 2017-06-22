@@ -64,7 +64,7 @@ $("#res,#lines,#c,#d").val($(this).val());
 
 <tr>
 <td><b>起案番号</b></td>
-<td colspan="2"><input type="text" readonly="readonly" value="<s:property value="iDraftingId" />"></td>
+<td colspan="2"><s:property value="jImpId" /></td>
 <tr>
 
 <th>案件名</th>
@@ -126,9 +126,9 @@ $("#res,#lines,#c,#d").val($(this).val());
 <tr>
 <td><b>承認者</b></td>
 <td>
-<input type="text" value="" size="8" placeholder="氏名" disabled="disabled"><br>
-<input type="text" value="" size="8" placeholder="氏名" disabled="disabled"><br>
-<input type="text" value="" size="8" placeholder="氏名" disabled="disabled">
+承認者名<br>
+承認者名<br>
+承認者名
 </td>
 </tr>
 

@@ -36,33 +36,33 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	 * 実施起案番号
 	 *
 	 */
-	private String iDraftingId;
+	private String jImpId;
 	/**
 	 * 実施決裁番号
 	 *
 	 */
-	private String iApprovalId;
+	private String jDecId;
 	/**
 	 * 契約起案番号
 	 *
 	 */
-	private String aDraftingId;
+	private String kImpId;
 	/**
 	 * 契約決裁番号
 	 *
 	 */
-	private String cdId;
+	private String kDecId;
 	/**
 	 * 実施兼契約起案番号
 	 *
 	 */
-	private String iADId;
+	private String jkImpId;
 	/**
 	 * 実施兼契約番号
 	 *
 	 */
 
-	private String iAId;
+	private String jkDecId;
 
 
 
@@ -263,92 +263,102 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 		this.decisionName = decisionName;
 	}
 
+
 	/**
-	 * @return iDraftingId
-	 */
-	public String getiDraftingId() {
-		return iDraftingId;
+	* 取得メソッド を取得
+	* @return iImpId
+	*/
+	public String getiJImpId() {
+		return jImpId;
 	}
 
 	/**
-	 * @param iDraftingId セットする iDraftingId
-	 */
-	public void setiDraftingId(String iDraftingId) {
-		this.iDraftingId = iDraftingId;
+	* 設定メソッド を設定
+	* @param iImpId
+	*/
+	public void setJImpId(String jImpId) {
+		this.jImpId = jImpId;
 	}
 
 	/**
-	 * @return iApprovalId
-	 */
-	public String getiApprovalId() {
-		return iApprovalId;
+	* 取得メソッド を取得
+	* @return jDecId
+	*/
+	public String getjDecId() {
+		return jDecId;
 	}
 
 	/**
-	 * @param iApprovalId セットする iApprovalId
-	 */
-	public void setiApprovalId(String iApprovalId) {
-		this.iApprovalId = iApprovalId;
+	* 設定メソッド を設定
+	* @param jDecId
+	*/
+	public void setjDecId(String jDecId) {
+		this.jDecId = jDecId;
 	}
 
 	/**
-	 * @return aDraftingId
-	 */
-	public String getaDraftingId() {
-		return aDraftingId;
+	* 取得メソッド を取得
+	* @return kImpId
+	*/
+	public String getkImpId() {
+		return kImpId;
 	}
 
 	/**
-	 * @param aDraftingId セットする aDraftingId
-	 */
-	public void setaDraftingId(String aDraftingId) {
-		this.aDraftingId = aDraftingId;
+	* 設定メソッド を設定
+	* @param kImpId
+	*/
+	public void setkImpId(String kImpId) {
+		this.kImpId = kImpId;
 	}
 
 	/**
-	 * @return cdId
-	 */
-	public String getCdId() {
-		return cdId;
+	* 取得メソッド を取得
+	* @return kDecId
+	*/
+	public String getkDecId() {
+		return kDecId;
 	}
 
 	/**
-	 * @param cdId セットする cdId
-	 */
-	public void setCdId(String cdId) {
-		this.cdId = cdId;
+	* 設定メソッド を設定
+	* @param kDecId
+	*/
+	public void setkDecId(String kDecId) {
+		this.kDecId = kDecId;
 	}
 
 	/**
-	 * @return iADId
-	 */
-	public String getiADId() {
-		return iADId;
+	* 取得メソッド を取得
+	* @return jkImpId
+	*/
+	public String getJkImpId() {
+		return jkImpId;
 	}
 
 	/**
-	 * @param iADId セットする iADId
-	 */
-	public void setiADId(String iADId) {
-		this.iADId = iADId;
+	* 設定メソッド を設定
+	* @param jkImpId
+	*/
+	public void setJkImpId(String jkImpId) {
+		this.jkImpId = jkImpId;
 	}
 
 	/**
-	 * @return iAId
-	 */
-	public String getiAId() {
-		return iAId;
+	* 取得メソッド を取得
+	* @return jkDecId
+	*/
+	public String getJkDecId() {
+		return jkDecId;
 	}
 
 	/**
-	 * @param iAId セットする iAId
-	 */
-	public void setiAId(String iAId) {
-		this.iAId = iAId;
+	* 設定メソッド を設定
+	* @param jkDecId
+	*/
+	public void setjkDecId(String jkDecId) {
+		this.jkDecId = jkDecId;
 	}
-
-
-
 
 	/**
 	 * @return bildCost
