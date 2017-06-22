@@ -14,7 +14,7 @@
 
 #operation{
 	height:100px;
-	width:700px;
+	width:100%;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:500px;
@@ -112,7 +112,5 @@
         #sucheduleList td:nth-child(5) {
             display: none;
         }
-        form {
-            width:100% !important;
-            }
+
 }
