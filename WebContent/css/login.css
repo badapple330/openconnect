@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-.
+
 body {
 	height: 100%;
     animation: fadeIn 2s ease 0s 1 normal;
@@ -81,17 +81,26 @@ body {
 
 }
 
- body {
-	background-image: url("../img/sity.jpg"); 
-	background-size: cover; 
- 	background-repeat: no-repeat; 
- 	background-position: center; 
-	margin: 1; 
- 	color: white; 
- } 
 
- span.size { 
- 	font-size: 250%;  } 
+}
+
+
+
+
+
+
+/* body { */
+/* 	background-image: url("../img/space.png"); */
+/* 	background-size: cover; */
+/* 	background-repeat: no-repeat; */
+/* 	background-position: center; */
+/* 	margin: 0; */
+/* 	color: white; */
+/* } */
+
+/* span.size { */
+/* 	font-size: 250%; */
+/* } */
 
 /* #inner { */
 /* 	position: relative; */
