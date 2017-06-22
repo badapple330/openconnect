@@ -180,11 +180,7 @@
 					<!-- プレビュー -->
 						<s:else>
 							<s:form action="DecisionPreviewAction">
-								<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-								<input type="hidden" name="permitUserId1" value="<s:property value="permitUserId1" />">
-								<input type="hidden" name="permitUserId2" value="<s:property value="permitUserId2" />">
-								<input type="hidden" name="permitUserId3" value="<s:property value="permitUserId3" />">
 										<input type="submit" value="プレビュー" >
 							</s:form>
 						</s:else>

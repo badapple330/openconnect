@@ -65,9 +65,9 @@ public class DecisionDetailApplicationAction extends ActionSupport {
         String num = sdf.format( c.getTime() );
 
 		//起案番号の生成
-		String iDraftingId = "KN-" + num + "-";
-		String aDraftingId = "K-KN-" + num + "-";
-		String iADId = "KN-" + num + "-";
+		String jImpId = "KN-" + num + "-";
+		String kImpId = "K-KN-" + num + "-";
+		String jkImpId = "KN-" + num + "-";
 
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
@@ -80,68 +80,68 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 
 
 		//実施決裁の申請
-		if(decisionType.equals("実施")) {
+				if(decisionType.equals("実施")) {
 
-			if(StringId == null || StringId.equals("")) {
+					if(StringId == null || StringId.equals("")) {
 
-				idNum = iDraftingId;
-				idNumList = dao.select(decisionType, idNum);
-				if(idNumList.size() > 0) {
-					int a = idNumList.size() + 1;
-					String b = dformat.format(a);
-					iDraftingId = iDraftingId + b;
+						idNum = jImpId;
+						idNumList = dao.select(decisionType, idNum);
+						if(idNumList.size() > 0) {
+							int a = idNumList.size() + 1;
+							String b = dformat.format(a);
+							jImpId = jImpId + b;
+						}
+						else {
+							jImpId = jImpId + "001";
+						}
+					}
+					else {
+						jImpId = StringId;
+					}
+					count = dao.updateAJ( jImpId, decisionId );
 				}
+
+				//契約決裁の申請
+				else if(decisionType.equals("契約")) {
+
+					if(StringId == null || StringId.equals("")) {
+						idNum = kImpId;
+						idNumList = dao.select(decisionType, idNum);
+						if(idNumList.size() > 0) {
+							int a = idNumList.size() + 1;
+							String b = dformat.format(a);
+							kImpId = kImpId + b;
+						}
+						else {
+							kImpId = kImpId + "001";
+						}
+					}
+					else {
+						kImpId = StringId;
+					}
+					count = dao.updateAK( kImpId, decisionId );
+				}
+
+				//実施兼契約決裁の申請
 				else {
-					iDraftingId = iDraftingId + "001";
-				}
-			}
-			else {
-				iDraftingId = StringId;
-			}
-			count = dao.updateAJ( iDraftingId, decisionId );
-		}
 
-		//契約決裁の申請
-		else if(decisionType.equals("契約")) {
-
-			if(StringId == null || StringId.equals("")) {
-				idNum = aDraftingId;
-				idNumList = dao.select(decisionType, idNum);
-				if(idNumList.size() > 0) {
-					int a = idNumList.size() + 1;
-					String b = dformat.format(a);
-					aDraftingId = aDraftingId + b;
+					if(StringId == null || StringId.equals("")) {
+						idNum = jkImpId;
+						idNumList = dao.select(decisionType, idNum);
+						if(idNumList.size() > 0) {
+							int a = idNumList.size() + 1;
+							String b = dformat.format(a);
+							jkImpId = jkImpId + b;
+						}
+						else {
+							jkImpId = jkImpId + "001";
+						}
+					}
+					else {
+						jkImpId = StringId;
+					}
+					count = dao.updateAJK( jkImpId, decisionId );
 				}
-				else {
-					aDraftingId = aDraftingId + "001";
-				}
-			}
-			else {
-				aDraftingId = StringId;
-			}
-			count = dao.updateAK( aDraftingId, decisionId );
-		}
-
-		//実施兼契約決裁の申請
-		else {
-
-			if(StringId == null || StringId.equals("")) {
-				idNum = iADId;
-				idNumList = dao.select(decisionType, idNum);
-				if(idNumList.size() > 0) {
-					int a = idNumList.size() + 1;
-					String b = dformat.format(a);
-					iADId = iADId + b;
-				}
-				else {
-					iADId = iADId + "001";
-				}
-			}
-			else {
-				iADId = StringId;
-			}
-			count = dao.updateAJK( iADId, decisionId );
-		}
 
 
 		if (count > 0 ) {

@@ -72,9 +72,9 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
         String num = sdf.format( c.getTime() );
 
 		//決裁番号の生成
-		String iApprovalId = "J-" + num + "-";
-		String cdId = "K-" + num + "-";
-		String iAId = "JK-" + num + "-";
+		String jDecId = "J-" + num + "-";
+		String kDecId = "K-" + num + "-";
+		String jkDecId = "JK-" + num + "-";
 
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
@@ -85,7 +85,9 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 
 
-		int permitUserId3;
+		int jPermiterId3;
+		int kPermiterId3;
+		int jkPermiterId3;
 		String idNum = "";
 		int count = 0;
 
@@ -93,63 +95,65 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		//リーダーの承認
 		if(permitStatus == 1 || permitStatus == 2) {
 			int userId = (int) session.get("userId");
-			count = daoPer.updateP(permitStatus, userId, decisionId);
+			count = daoPer.updateP(decisionType, permitStatus, userId, decisionId);
 		}
 
 
 		//先生の承認
-		if(permitStatus == 0) {
-			permitUserId3 = (int) session.get("userId");
+				if(permitStatus == 0) {
+		            jPermiterId3 = (int) session.get("userId");
+		            kPermiterId3 = (int) session.get("userId");
+					jkPermiterId3 = (int) session.get("userId");
 
-			//実施決裁の承認
-			if(decisionType.equals("実施")) {
+					//実施決裁の承認
+					if(decisionType.equals("実施")) {
 
-				idNum = iApprovalId;
-				idNumList = daoApp.select(decisionType, idNum);
-				if(idNumList.size() > 0) {
-					int a = idNumList.size() + 1;
-					String b = dformat.format(a);
-					iApprovalId = iApprovalId + b;
-				}
-				else {
-					iApprovalId = iApprovalId + "001";
-				}
-				count = daoPer.updatePJ( iApprovalId, permitUserId3, decisionId );//DAOでTypeを契約にする＋permitStatusを０にする＋decisionStatus1を２にする
-			}
-
-
-			//契約決裁の承認
-			else if(decisionType.equals("契約")) {
-
-				idNum = cdId;
-				idNumList = daoApp.select(decisionType, idNum);
-				if(idNumList.size() > 0) {
-					int a = idNumList.size() + 1;
-					String b = dformat.format(a);
-					cdId = cdId + b;
-				}
-				else {
-					cdId = cdId + "001";
-				}
-				count = daoPer.updatePK( cdId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
-			}
+						idNum = jDecId;
+						idNumList = daoApp.select(decisionType, idNum);
+						if(idNumList.size() > 0) {
+							int a = idNumList.size() + 1;
+							String b = dformat.format(a);
+							jDecId = jDecId + b;
+						}
+						else {
+							jDecId = jDecId + "001";
+						}
+						count = daoPer.updatePJ( jDecId, jPermiterId3, decisionId );//DAOでTypeを契約にする＋permitStatusを０にする＋decisionStatus1を２にする
+					}
 
 
-			//実施兼契約決裁の承認
-			else  {
+					//契約決裁の承認
+					else if(decisionType.equals("契約")) {
 
-				idNum = iAId;
-				idNumList = daoApp.select(decisionType, idNum);
-				if(idNumList.size() > 0) {
-					int a = idNumList.size() + 1;
-					String b = dformat.format(a);
-					iAId = iAId + b;
-				}
-				else {
-					iAId = iAId + "001";
-				}
-				count = daoPer.updatePJK( iAId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
-			}
+						idNum = kDecId;
+						idNumList = daoApp.select(decisionType, idNum);
+						if(idNumList.size() > 0) {
+							int a = idNumList.size() + 1;
+							String b = dformat.format(a);
+							kDecId = kDecId + b;
+						}
+						else {
+							kDecId = kDecId + "001";
+						}
+						count = daoPer.updatePK( kDecId, kPermiterId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
+					}
+
+
+					//実施兼契約決裁の承認
+					else  {
+
+						idNum = jkDecId;
+						idNumList = daoApp.select(decisionType, idNum);
+						if(idNumList.size() > 0) {
+							int a = idNumList.size() + 1;
+							String b = dformat.format(a);
+							jkDecId = jkDecId + b;
+						}
+						else {
+							jkDecId = jkDecId + "001";
+						}
+						count = daoPer.updatePJK( jkDecId, jkPermiterId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
+					}
 
 		}
 
