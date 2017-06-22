@@ -60,17 +60,17 @@ public class AdminAttendanceDAO {
 		}
 
 		/* 姓が定義されたとき */
-		if(!((familyNameKanji).equals(""))){
+		if(!((familyNameKanji).equals("")) && !((givenNameKanji).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-			whereState += "family_name_kanji='"+familyNameKanji+"'";
+			whereState += "family_name_kanji='"+familyNameKanji+"' AND given_name_kanji='"+givenNameKanji+"'";
 
 		}
 
-		/* 名が定義されたとき */
-		if(!((givenNameKanji).equals(""))){
-			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-			whereState += "given_name_kanji='"+givenNameKanji+"'";
-		}
+//		/* 名が定義されたとき */
+//		if(!((givenNameKanji).equals(""))){
+//			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+//			whereState += "given_name_kanji='"+givenNameKanji+"'";
+//		}
 
 		/* チーム名が定義されたとき */
 		if(!((teamName).equals(""))){
@@ -84,12 +84,12 @@ public class AdminAttendanceDAO {
 		}
 
 		/* sql文定義 */
-		if(whereState.equals("")){
+		if(!((whereState).equals(""))){
 			/*条件完全未定義時、任意の勤怠状況データを得る。 */
-			sql = "select * from attendance left join users on attendance.user_id=users.user_id;";
-		} else {
+//			sql = "select * from attendance left join users on attendance.user_id=users.user_id;";
+//		} else {
 			/* Where節 定義時 */
-			sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + ";";
+			sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + "";
 		}
 
 		try {
