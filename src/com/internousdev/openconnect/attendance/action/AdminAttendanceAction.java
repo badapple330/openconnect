@@ -82,7 +82,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	public String execute() {
 
 		String result = ERROR;
-this.setErrorMsg("*入力に間違いがあります");
+this.errorMsg="*入力に間違いがあります";
 
 		AdminAttendanceDAO dao = new AdminAttendanceDAO();
 		searchList = dao.select(atYear,atMonth,atDay,familyNameKanji,givenNameKanji,attendance,teamName);
