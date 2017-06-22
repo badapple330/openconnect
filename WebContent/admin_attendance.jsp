@@ -23,7 +23,8 @@
 									"#familyForm").val() == "")
 									&& ($("#givenForm").val() != ""))) {
 						alert('姓と名の両方を入力してください');
-					} else if (($("#id_year").val() != "")
+						return false
+					}else if (($("#id_year").val() != "")
 							&& ($("#id_month").val() != "")
 							&& ($("#id_day").val() == "")
 							|| ($("#id_year").val() != "")
@@ -42,16 +43,19 @@
 							&& ($("#id_month").val() == "")
 							&& ($("#id_day").val() != "")) {
 						alert('日付をすべて選択してください');
-					} else if (($("#id_year").val() == "")
+						return false
+					}else if (($("#id_year").val() == "")
 							&& ($("#id_month").val() == "")
 							&& ($("#id_day").val() == "")
 							&& ($("#familyForm").val() == "")
 							&& ($("#givenForm").val() == "")
 							&& ($("#teamForm").val() == "")
-							&& ($("#id_attendance").val != "")) {
+							&& ($("#id_attendance").val() != "")) {
 						alert('出欠の他に何か入力してください');
+						return false
+
 					} else {
-						$("#search").submit();
+						return true
 					}
 				});
 	});
