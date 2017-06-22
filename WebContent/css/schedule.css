@@ -100,7 +100,13 @@
         }
         #operation {
             margin-top: 270px;
-            width: 100% !important;
+        }
+        .scheduleStartdayList,
+        .scheduleEnddayList {
+            width:80px;
+        }
+        .scheduleTitleList {
+            width:100px;
         }
 
 }
