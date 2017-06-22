@@ -71,6 +71,7 @@
 
 
 			<s:form action="ScheduleUpdateAction"  id = "schedule">
+
 				<table border=1 style="">
 					<tbody>
 						<tr>
@@ -115,7 +116,6 @@
 						</s:iterator>
 					</tbody>
 				</table>
-
 
 					<button type="submit" class="button">編集</button>
 
