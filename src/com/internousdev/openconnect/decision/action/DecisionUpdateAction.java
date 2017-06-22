@@ -66,15 +66,11 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 	private String iAId;
 
-	/**
-	 * 承認番号
-	 */
-	private String adminNum;
 
 	/**
 	 * 理由・目的
 	 */
-	public String cause;
+	private String cause;
 
 
 
@@ -96,12 +92,12 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	/**
 	 * 概要
 	 */
-	public String summary;
+	private String summary;
 
 	/**
 	 * 開始日
 	 */
-	public String startDay;
+	private String startDay;
 
 	/**
 	 * 終了日
@@ -111,38 +107,44 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	/**
 	 * 開発端末料
 	 */
-	public int prove;
+	private int prove;
 
 	/**
 	 * リリース環境使用料
 	 */
-	public float re;
+	private float re;
 
 	/**
 	 *回線使用料
 	 */
-	public int line;
+	private int line;
 
 
 	/**
 	 *施設使用料
 	 */
-	public float room;
+	private float room;
 
 	/**
 	 *開発要員
 	 */
-	public int human;
+	private int human;
+
+	/**
+	 * 人数
+	 */
+	private int persons;
+
 
 	/**
 	 *雑費
 	 */
-	public float etc;
+	private float etc;
 
 	/**
 	 *姓（漢字）
 	 */
-	public String familyNameKanji;
+	private String familyNameKanji;
 
 	/**
 	 *名（漢字）
@@ -170,9 +172,9 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * サクセスメッセージ
+	 * エラーメッセージ
 	 */
-	private String resultString = "更新できました。";
+	private String resultString = "更新できません。";
 
 
 	/**
@@ -187,7 +189,26 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
          DecisionDAO dao= new DecisionDAO();
          int count=0;
 
-         count=dao.update(decisionName);
+
+         int totalProve = prove * persons;
+
+         float totalRe = re * (float)persons;
+
+         int totalLine = line * persons;
+
+         float totalRoom = room * 1;
+
+         int totalHuman = human * persons;
+
+         float totalEtc = etc * (float)persons;
+
+         float benefit = totalHuman + totalEtc;
+
+         float bildCost = (float)totalProve + totalRe + totalLine + (float)totalRoom;
+
+         float amountAll = benefit + bildCost;
+
+         count=dao.update(decisionName,summary,cause,startDay,endDay,persons,totalProve,totalRe,totalLine,totalRoom,totalHuman,totalEtc,benefit,bildCost,amountAll);
 
 			if(count>0){
 				result = SUCCESS;
@@ -314,21 +335,6 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	public void setiAId(String iAId) {
 		this.iAId = iAId;
 	}
-
-	/**
-	 * @return adminNum
-	 */
-	public String getAdminNum() {
-		return adminNum;
-	}
-
-	/**
-	 * @param adminNum セットする adminNum
-	 */
-	public void setAdminNum(String adminNum) {
-		this.adminNum = adminNum;
-	}
-
 
 
 	/**
@@ -550,14 +556,36 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 	/**
 	* 取得メソッド を取得
+	* @return persons
+	*/
+	public int getPersons() {
+		return persons;
+	}
+
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param persons
+	*/
+	public void setPersons(int persons) {
+		this.persons = persons;
+	}
+
+
+
+
+
+	/**
+	* 取得メソッド を取得
 	* @author KOHEI NITABARU
 	* @return resultString
 	*/
 	public String getResultString() {
 		return resultString;
 	}
-
-
 
 
 
@@ -569,6 +597,56 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
+
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return familyNameKanji
+	*/
+	public String getFamilyNameKanji() {
+		return familyNameKanji;
+	}
+
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param familyNameKanji
+	*/
+	public void setFamilyNameKanji(String familyNameKanji) {
+		this.familyNameKanji = familyNameKanji;
+	}
+
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return givenNameKanji
+	*/
+	public String getGivenNameKanji() {
+		return givenNameKanji;
+	}
+
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param givenNameKanji
+	*/
+	public void setGivenNameKanji(String givenNameKanji) {
+		this.givenNameKanji = givenNameKanji;
+	}
+
+
 
 }
 

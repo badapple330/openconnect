@@ -89,9 +89,9 @@
 												<td><div class="width4">実施決裁番号：<s:property value="iApprovalId" /><br><br></div></td>
 											</tr>
 											<tr>
-												<td><div class="width4">承認者：<br> <br>日付：<s:property value="day" /></div></td>
-												<td><div class="width4">承認者：<br> <br>日付：<s:property value="day" /></div></td>
-												<td><div class="width4">承認者：<br> <br>日付：<s:property value="day" /></div></td>
+												<td><div class="width4">承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></div></td>
+												<td><div class="width4">承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></div></td>
+												<td><div class="width4">承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></div></td>
 											</tr>
 										</table>
 										<br>
