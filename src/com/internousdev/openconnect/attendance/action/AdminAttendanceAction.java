@@ -67,6 +67,8 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * 早退数
 	 */
 	private int early = 0;
+
+	private String errorMsg;
 	/**
 	 * ユーザーリスト
 	 */
@@ -80,7 +82,7 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	public String execute() {
 
 		String result = ERROR;
-
+this.setErrorMsg("*入力に間違いがあります");
 
 		AdminAttendanceDAO dao = new AdminAttendanceDAO();
 		searchList = dao.select(atYear,atMonth,atDay,familyNameKanji,givenNameKanji,attendance,teamName);
@@ -401,6 +403,26 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 */
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return errorMsg
+	*/
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param errorMsg
+	*/
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
 	}
 
 

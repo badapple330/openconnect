@@ -96,6 +96,7 @@
 				title="チーム名" />
 			<s:submit value="検索" class="search-btn" id="searchButtun" />
 		</s:form>
+		<font color="red"><s:property value="errorMsg"/></font>
 		<table>
 			<tr>
 				<td>出席</td>
@@ -103,6 +104,7 @@
 				<td>遅刻</td>
 				<td>早退</td>
 			</tr>
+
 			<tr>
 				<td><s:property value="present" /></td>
 				<td><s:property value="absent" /></td>
