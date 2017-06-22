@@ -104,7 +104,7 @@
 									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
 								<td>
 
-								<input type="text" name="teamList"value="<s:property value="teamName" />"class="teamList" disabled>
+								<input type="text" name="teamList"value="<s:property value="teamName" />"class="teamList" readonly>
 								</td>
 								<td>
 										<input type="button" class="button modal-open" value="削除" />

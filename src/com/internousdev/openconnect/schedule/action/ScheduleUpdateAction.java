@@ -63,12 +63,20 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 */
 	private String successMsg;
 
+	//ScheduleSelectAcitionにチーム名渡すための変数
+	private String search;
+
+	//jspからteamNameを取得する
+	private List<String> teamList = new ArrayList<String>();
+
 
 	/**
 	 * 更新のメソッド。
 	 */
 	public String execute(){
 		String ret = ERROR;
+
+		search = getParameterValues("teamList[]");
 
 		ScheduleUpdateDAO dao = new ScheduleUpdateDAO();
 		int count = 0;
@@ -92,102 +100,92 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド リスト形式のスケジュールIDを取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleIdList
+	 * IDを取得します。
+	 * @return ID
 	 */
 	public List<Integer> getScheduleIdList() {
-		return scheduleIdList;
+	    return scheduleIdList;
 	}
 
 
 	/**
-	 * 設定メソッド リスト形式のスケジュールIDを設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleIdList
+	 * IDを設定します。
+	 * @param scheduleIdList ID
 	 */
 	public void setScheduleIdList(List<Integer> scheduleIdList) {
-		this.scheduleIdList = scheduleIdList;
+	    this.scheduleIdList = scheduleIdList;
 	}
 
 
 	/**
-	 * 取得メソッド リスト形式の開始日を取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleStartdayList
+	 * 開始日を取得します。
+	 * @return 開始日
 	 */
 	public List<String> getScheduleStartdayList() {
-		return scheduleStartdayList;
+	    return scheduleStartdayList;
 	}
 
 
 	/**
-	 * 設定メソッド リスト形式の開始日を設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleStartdayList
+	 * 開始日を設定します。
+	 * @param scheduleStartdayList 開始日
 	 */
 	public void setScheduleStartdayList(List<String> scheduleStartdayList) {
-		this.scheduleStartdayList = scheduleStartdayList;
+	    this.scheduleStartdayList = scheduleStartdayList;
 	}
 
 
 	/**
-	 * 取得メソッド リスト形式の終了日を取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleEnddayList
+	 * 終了日を取得します。
+	 * @return 終了日
 	 */
 	public List<String> getScheduleEnddayList() {
-		return scheduleEnddayList;
+	    return scheduleEnddayList;
 	}
 
 
 	/**
-	 * 設定メソッド リスト形式の終了日を設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleEnddayList
+	 * 終了日を設定します。
+	 * @param scheduleEnddayList 終了日
 	 */
 	public void setScheduleEnddayList(List<String> scheduleEnddayList) {
-		this.scheduleEnddayList = scheduleEnddayList;
+	    this.scheduleEnddayList = scheduleEnddayList;
 	}
 
 
 	/**
-	 * 取得メソッド リスト形式の件名を取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleTitleList
+	 * 件名を取得します。
+	 * @return 件名
 	 */
 	public List<String> getScheduleTitleList() {
-		return scheduleTitleList;
+	    return scheduleTitleList;
 	}
 
 
 	/**
-	 * 設定メソッド リスト形式の件名を設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleTitleList
+	 * 件名を設定します。
+	 * @param scheduleTitleList 件名
 	 */
 	public void setScheduleTitleList(List<String> scheduleTitleList) {
-		this.scheduleTitleList = scheduleTitleList;
+	    this.scheduleTitleList = scheduleTitleList;
 	}
 
 
 	/**
-	 * 取得メソッド リスト形式の内容を取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleContentList
+	 * 内容を取得します。
+	 * @return 内容
 	 */
 	public List<String> getScheduleContentList() {
-		return scheduleContentList;
+	    return scheduleContentList;
 	}
 
 
 	/**
-	 * 設定メソッド リスト形式の内容を設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleContentList
+	 * 内容を設定します。
+	 * @param scheduleContentList 内容
 	 */
 	public void setScheduleContentList(List<String> scheduleContentList) {
-		this.scheduleContentList = scheduleContentList;
+	    this.scheduleContentList = scheduleContentList;
 	}
 
 
@@ -210,53 +208,75 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * 取得メソッド エラーメッセージを取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return errorMsg
+	 * エラーメッセージを取得します。
+	 * @return エラーメッセージ
 	 */
 	public String getErrorMsg() {
-		return errorMsg;
+	    return errorMsg;
 	}
 
 
 	/**
-	 * 設定メソッド エラーメッセージを設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param errorMsg
+	 * エラーメッセージを設定します。
+	 * @param errorMsg エラーメッセージ
 	 */
 	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
+	    this.errorMsg = errorMsg;
 	}
 
 
 	/**
-	 * 取得メソッド 成功メッセージの取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return successMsg
+	 * 成功メッセージを取得します。
+	 * @return 成功メッセージ
 	 */
 	public String getSuccessMsg() {
-		return successMsg;
+	    return successMsg;
 	}
 
 
 	/**
-	 * 設定メソッド 成功メッセージの設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param successMsg
+	 * 成功メッセージを設定します。
+	 * @param successMsg 成功メッセージ
 	 */
 	public void setSuccessMsg(String successMsg) {
-		this.successMsg = successMsg;
+	    this.successMsg = successMsg;
 	}
 
 
 	/**
-	 * 取得メソッド シリアルIDの取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return serialVersionUID
+	 * searchを取得します。
+	 * @return search
 	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getSearch() {
+	    return search;
 	}
 
 
-}
+	/**
+	 * searchを設定します。
+	 * @param search search
+	 */
+	public void setSearch(String search) {
+	    this.search = search;
+	}
+
+
+	/**
+	 * teamListを取得します。
+	 * @return teamList
+	 */
+	public List<String> getTeamList() {
+	    return teamList;
+	}
+
+
+	/**
+	 * teamListを設定します。
+	 * @param teamList teamList
+	 */
+	public void setTeamList(List<String> teamList) {
+	    this.teamList = teamList;
+	}
+
+
+	}
