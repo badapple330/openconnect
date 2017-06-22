@@ -6,7 +6,6 @@ package com.internousdev.openconnect.decision.action;
 import java.util.ArrayList;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.omg.CORBA.portable.UnknownException;
 
 import com.internousdev.openconnect.decision.dao.DecisionPreviewDAO;
@@ -48,12 +47,12 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 実施起案番号
 	 *
 	 */
-	private String iDraftingId;
+	private String jImpId;
 	/**
 	 * 実施決裁番号
 	 *
 	 */
-	private String iApprovalId;
+	private String jDecId;
 	/**
 	 * 承認番号
 	 */
@@ -145,17 +144,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	/**
 	 *承認者ユーザーID1(リーダー)
 	 */
-	public int permitUserId1;
+	public int jPermiterId1;
 
 	/**
 	 *承認者ユーザーID2(リーダー)
 	 */
-	public int permitUserId2;
+	public int jPermiterId2;
 
 	/**
 	 *承認者ユーザーID3(先生)
 	 */
-	public int permitUserId3;
+	public int jPermiterId3;
 
 
 	/**
@@ -186,14 +185,12 @@ public class DecisionPreviewAction extends ActionSupport {
 
 		if(decisionPreviewList!=null){
 			System.out.println(draftUserId);
-			Logger log = Logger.getLogger(DecisionPreviewAction.class.getName());
-			log.error(decisionPreviewList);
 			try {
 				draftUserId = decisionPreviewList.get(0).getDraftUserId();
-				permitUserId1 = decisionPreviewList.get(0).getPermitUserId1();
-				permitUserId2 = decisionPreviewList.get(0).getPermitUserId2();
-				permitUserId3 = decisionPreviewList.get(0).getPermitUserId3();
-				nameList = dao.selectByDraftUserId(draftUserId, permitUserId1, permitUserId2, permitUserId3);
+				jPermiterId1 = decisionPreviewList.get(0).getjPermiterId1();
+				jPermiterId2 = decisionPreviewList.get(0).getjPermiterId2();
+				jPermiterId3 = decisionPreviewList.get(0).getjPermiterId3();
+				nameList = dao.selectByDraftUserId(draftUserId, jPermiterId1, jPermiterId2, jPermiterId3);
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
@@ -265,31 +262,31 @@ public class DecisionPreviewAction extends ActionSupport {
 	}
 
 	/**
-	 * @return iDraftingId
+	 * @return jImpId
 	 */
-	public String getIDraftingId() {
-		return iDraftingId;
+	public String getjImpId() {
+		return jImpId;
 	}
 
 	/**
-	 * @param iDraftingId セットする iDraftingId
+	 * @param jImpId セットする jImpId
 	 */
-	public void setIDraftingId(String iDraftingId) {
-		this.iDraftingId = iDraftingId;
+	public void setjImpId(String jImpId) {
+		this.jImpId = jImpId;
 	}
 
 	/**
-	 * @return iApprovalId
+	 * @return jDecId
 	 */
-	public String getIApprovalId() {
-		return iApprovalId;
+	public String getjDecId() {
+		return jDecId;
 	}
 
 	/**
-	 * @param iApprovalId セットする iApprovalId
+	 * @param jDecId セットする jDecId
 	 */
-	public void setIApprovalId(String iApprovalId) {
-		this.iApprovalId = iApprovalId;
+	public void setjDecId(String jDecId) {
+		this.jDecId = jDecId;
 	}
 	/**
 	 * @return adminNum
@@ -640,17 +637,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 承認者ユーザーID1(リーダー)を取得します。
 	 * @return 承認者ユーザーID1(リーダー)
 	 */
-	public int getPermitUserId1() {
-	    return permitUserId1;
+	public int getjPermiterId1() {
+	    return jPermiterId1;
 	}
 
 
 	/**
 	 * 承認者ユーザーID1(リーダー)を設定します。
-	 * @param permitUserId1 承認者ユーザーID1(リーダー)
+	 * @param jPermiterId1 承認者ユーザーID1(リーダー)
 	 */
-	public void setPermitUserId1(int permitUserId1) {
-	    this.permitUserId1 = permitUserId1;
+	public void setjPermiterId1(int jPermiterId1) {
+	    this.jPermiterId1 = jPermiterId1;
 	}
 
 
@@ -658,17 +655,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 承認者ユーザーID2(リーダー)を取得します。
 	 * @return 承認者ユーザーID2(リーダー)
 	 */
-	public int getPermitUserId2() {
-	    return permitUserId2;
+	public int getjPermiterId2() {
+	    return jPermiterId2;
 	}
 
 
 	/**
 	 * 承認者ユーザーID2(リーダー)を設定します。
-	 * @param permitUserId2 承認者ユーザーID2(リーダー)
+	 * @param jPermiterId2 承認者ユーザーID2(リーダー)
 	 */
-	public void setPermitUserId2(int permitUserId2) {
-	    this.permitUserId2 = permitUserId2;
+	public void setjPermiterId2(int jPermiterId2) {
+	    this.jPermiterId2 = jPermiterId2;
 	}
 
 
@@ -676,19 +673,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 承認者ユーザーID3(先生)を取得します。
 	 * @return 承認者ユーザーID3(先生)
 	 */
-	public int getPermitUserId3() {
-	    return permitUserId3;
+	public int getjPermiterId3() {
+	    return jPermiterId3;
 	}
 
 
 	/**
 	 * 承認者ユーザーID3(先生)を設定します。
-	 * @param permitUserId3 承認者ユーザーID3(先生)
+	 * @param jPermiterId3 承認者ユーザーID3(先生)
 	 */
-	public void setPermitUserId3(int permitUserId3) {
-	    this.permitUserId3 = permitUserId3;
+	public void setjPermiterId3(int jPermiterId3) {
+	    this.jPermiterId3 = jPermiterId3;
 	}
-
-
 
 }

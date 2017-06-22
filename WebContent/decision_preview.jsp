@@ -135,9 +135,9 @@
 															<td><div class="width4">実施決裁番号：<s:property value="iApprovalId" /><br><br></div></td>
 														</tr>
 														<tr>
-															<td><div class="width4">承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></div></td>
-															<td><div class="width4">承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></div></td>
-															<td><div class="width4">承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></div></td>
+															<td><div class="width4"><label>承認者：</label><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br><label>日付：</label><s:property value="day" /></div></td>
+															<td><div class="width4"><label>承認者：</label><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br><label>日付：</label><s:property value="day" /></div></td>
+															<td><div class="width4"><label>承認者：</label><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br><label>日付：</label><s:property value="day" /></div></td>
 														</tr>
 													</table>
 												</div>
@@ -149,11 +149,11 @@
 															<th>承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></th>
 														</tr>
 														<tr>
-															<td>起案番号：<s:property value="iDraftingId" /><br><br></td>
+															<td>起案番号：<s:property value="jImpId" /><br><br></td>
 															<th>承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></th>
 														</tr>
 														<tr>
-															<td>実施決裁番号：<s:property value="iApprovalId" /><br><br></td>
+															<td>実施決裁番号：<s:property value="jDecId" /><br><br></td>
 															<th>承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></th>
 														</tr>
 													</table>

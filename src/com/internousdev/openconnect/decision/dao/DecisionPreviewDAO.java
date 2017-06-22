@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.apache.log4j.Logger;
-
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
 
@@ -44,15 +42,15 @@ public class DecisionPreviewDAO {
 			while (rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
 
-				dto.setDraftUserId(rs.getInt("draft_user_id")); // 	起案者ユーザーID
+				dto.setDraftUserId(rs.getInt("j_draft_user_id")); // 	実施起案者ユーザーID
 
 				dto.setDecisionType(rs.getString("decision_type")); // 決裁種類
 
 				dto.setDecisionName(rs.getString("decision_name")); // 案件名
 
-				dto.setIDraftingId(rs.getString("i_drafting_id")); // 実施起案番号
+				dto.setjImpId(rs.getString("j_imp_id")); // 実施起案番号
 
-				dto.setIApprovalId(rs.getString("i_approval_id")); // 実施決裁番号
+				dto.setjDecId(rs.getString("j_dec_id")); // 実施決裁番号
 
 				dto.setSummary(rs.getString("summary")); // 概要
 
@@ -94,11 +92,11 @@ public class DecisionPreviewDAO {
 
 				dto.setTotalEtc(rs.getFloat("etc")); // 合計雑費
 
-				dto.setPermitUserId1(rs.getInt("permit_user_id1")); // 	承認者ユーザーID1（リーダー）
+				dto.setjPermiterId1(rs.getInt("j_permiter_id1")); // 	承認者ユーザーID1（リーダー）
 
-				dto.setPermitUserId2(rs.getInt("permit_user_id2")); // 	承認者ユーザーID2（リーダー）
+				dto.setjPermiterId2(rs.getInt("j_permiter_id2")); // 	承認者ユーザーID2（リーダー）
 
-				dto.setPermitUserId3(rs.getInt("permit_user_id3")); // 	承認者ユーザーID3（先生）
+				dto.setjPermiterId3(rs.getInt("j_permiter_id3")); // 	承認者ユーザーID3（先生）
 
 				decisionPreviewList.add(dto);
 			}
@@ -116,7 +114,7 @@ public class DecisionPreviewDAO {
 
 	}
 
-	public ArrayList<DecisionDTO> selectByDraftUserId(int draftUserId,int permitUserId1,int permitUserId2,int permitUserId3) {
+	public ArrayList<DecisionDTO> selectByDraftUserId(int draftUserId,int jPermiterId1,int jPermiterId2,int jPermiterId3) {
 		DecisionDTO dto = new DecisionDTO();
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
 				"openconnect", "root", "mysql");
@@ -126,14 +124,12 @@ public class DecisionPreviewDAO {
 				+ "union(select * from users where user_id=?)"
 				+ "union(select * from users where user_id=?)"
 				+ "union(select * from users where user_id=?)";
-		Logger log = Logger.getLogger(DecisionPreviewDAO.class.getName());
-		log.error(permitUserId1);
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,draftUserId);
-			ps.setInt(2,permitUserId1);
-			ps.setInt(3,permitUserId2);
-			ps.setInt(4,permitUserId3);
+			ps.setInt(2,jPermiterId1);
+			ps.setInt(3,jPermiterId2);
+			ps.setInt(4,jPermiterId3);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
@@ -150,7 +146,6 @@ public class DecisionPreviewDAO {
 				e.printStackTrace();
 			}
 		}
-		log.error(nameList);
 		return nameList;
 	}
 
