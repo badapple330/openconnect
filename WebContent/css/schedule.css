@@ -106,11 +106,13 @@
             width:80px;
         }
         .scheduleTitleList {
-            width; 100px;
+            width: 100px;
         }
         #sucheduleList th:nth-child(5),
         #sucheduleList td:nth-child(5) {
-        display: none;
-    }
-
+            display: none;
+        }
+        form {
+            width:100% !important;
+            }
 }
