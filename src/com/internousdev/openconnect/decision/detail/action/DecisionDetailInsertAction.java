@@ -75,9 +75,6 @@ public class DecisionDetailInsertAction extends ActionSupport {
 			}
 
 		}
-		else {
-			resultString = "既に登録できました。";
-		}
 
 /*
 		DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();

@@ -284,9 +284,6 @@
 					</td>
 					<td>
 						<input type="hidden" name="projectId" value="<s:property value="projectId" />">
-						<input type="hidden" name="stringId" value="<s:property value="jImpId" />">
-						<input type="hidden" name="stringId" value="<s:property value="kImpId" />">
-						<input type="hidden" name="stringId" value="<s:property value="jkImpId" />">
 						<input type="submit" value="追加(決済資料を作る)">
 					</td>
 				</tr>
@@ -409,6 +406,7 @@
 									<s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
+										<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 										<input type="hidden" name="permitStatus" value="0">
 												<input type="submit" value=" 実施承認3人目">
 									</s:form>
@@ -428,6 +426,7 @@
 									<s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
+										<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 										<input type="hidden" name="permitStatus" value="1">
 												<input type="submit" value=" 実施承認1人目">
 									</s:form>
@@ -437,8 +436,9 @@
 									<s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
+										<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 										<input type="hidden" name="permitStatus" value="2">
-										<s:if test="%{permitUserId1 == #session.userId}">
+										<s:if test="%{jPermiterId1 == userId}">
 											あなたが1人目の承認者
 										</s:if>
 										<s:else>
@@ -487,6 +487,7 @@
                                     <s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
+										<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 										<input type="hidden" name="permitStatus" value="1">
 										<s:if test="%{decisionType == '契約'}">
 												<input type="submit" value="契約承認1人目">
@@ -501,8 +502,9 @@
                                     <s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
+										<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 										<input type="hidden" name="permitStatus" value="2">
-										<s:if test="%{permitUserId1 == #session.userId}">
+										<s:if test="%{kPermiterId1 == #session.userId}">
 											あなたが1人目の承認者
 										</s:if>
 										<s:else>

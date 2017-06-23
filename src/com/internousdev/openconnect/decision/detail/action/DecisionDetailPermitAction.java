@@ -106,60 +106,60 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 
 		//先生の承認
-				if(permitStatus == 0) {
-		            jPermiterId3 = userId;
-		            kPermiterId3 = userId;
-					jkPermiterId3 = userId;
+		if(permitStatus == 0) {
+            jPermiterId3 = userId;
+            kPermiterId3 = userId;
+			jkPermiterId3 = userId;
 
-					//実施決裁の承認
-					if(decisionType.equals("実施")) {
+			//実施決裁の承認
+			if(decisionType.equals("実施")) {
 
-						idNum = jDecId;
-						idNumList = daoApp.select(decisionType, idNum);
-						if(idNumList.size() > 0) {
-							int a = idNumList.size() + 1;
-							String b = dformat.format(a);
-							jDecId = jDecId + b;
-						}
-						else {
-							jDecId = jDecId + "001";
-						}
-						count = daoPer.updatePJ( jDecId, jPermiterId3, decisionId );//DAOでTypeを契約にする＋permitStatusを０にする＋decisionStatus1を２にする
-					}
-
-
-					//契約決裁の承認
-					else if(decisionType.equals("契約")) {
-
-						idNum = kDecId;
-						idNumList = daoApp.select(decisionType, idNum);
-						if(idNumList.size() > 0) {
-							int a = idNumList.size() + 1;
-							String b = dformat.format(a);
-							kDecId = kDecId + b;
-						}
-						else {
-							kDecId = kDecId + "001";
-						}
-						count = daoPer.updatePK( kDecId, kPermiterId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
-					}
+				idNum = jDecId;
+				idNumList = daoApp.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					jDecId = jDecId + b;
+				}
+				else {
+					jDecId = jDecId + "001";
+				}
+				count = daoPer.updatePJ( jDecId, jPermiterId3, decisionId );//DAOでTypeを契約にする＋permitStatusを０にする＋decisionStatus1を２にする
+			}
 
 
-					//実施兼契約決裁の承認
-					else  {
+			//契約決裁の承認
+			else if(decisionType.equals("契約")) {
 
-						idNum = jkDecId;
-						idNumList = daoApp.select(decisionType, idNum);
-						if(idNumList.size() > 0) {
-							int a = idNumList.size() + 1;
-							String b = dformat.format(a);
-							jkDecId = jkDecId + b;
-						}
-						else {
-							jkDecId = jkDecId + "001";
-						}
-						count = daoPer.updatePJK( jkDecId, jkPermiterId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
-					}
+				idNum = kDecId;
+				idNumList = daoApp.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					kDecId = kDecId + b;
+				}
+				else {
+					kDecId = kDecId + "001";
+				}
+				count = daoPer.updatePK( kDecId, kPermiterId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
+			}
+
+
+			//実施兼契約決裁の承認
+			else  {
+
+				idNum = jkDecId;
+				idNumList = daoApp.select(decisionType, idNum);
+				if(idNumList.size() > 0) {
+					int a = idNumList.size() + 1;
+					String b = dformat.format(a);
+					jkDecId = jkDecId + b;
+				}
+				else {
+					jkDecId = jkDecId + "001";
+				}
+				count = daoPer.updatePJK( jkDecId, jkPermiterId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
+			}
 
 		}
 
@@ -168,6 +168,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 			result = SUCCESS;
 			resultString = "承認できました! ";
 		}
+
 		return result;
 	}
 
