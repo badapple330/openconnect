@@ -98,7 +98,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 					else {
 						jImpId = StringId;
 					}
-					count = dao.updateAJ( jImpId, decisionId );
+					count = dao.updateAJ( jImpId, num, decisionId );
 				}
 
 				//契約決裁の申請
@@ -119,7 +119,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 					else {
 						kImpId = StringId;
 					}
-					count = dao.updateAK( kImpId, decisionId );
+					count = dao.updateAK( kImpId, num, decisionId );
 				}
 
 				//実施兼契約決裁の申請
@@ -140,7 +140,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 					else {
 						jkImpId = StringId;
 					}
-					count = dao.updateAJK( jkImpId, decisionId );
+					count = dao.updateAJK( jkImpId, num, decisionId );
 				}
 
 

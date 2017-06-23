@@ -70,9 +70,8 @@
 			<s:property value="selectErrorMsg" />
 
 
-			<s:form action="ScheduleUpdateAction"  id = "schedule">
-
-				<table border=1 style="">
+			<s:form action="ScheduleUpdateAction">
+				<table border=1 style="" id = "schedule">
 					<tbody>
 						<tr>
 							<th>ID</th>
@@ -105,7 +104,7 @@
 									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
 								<td>
 
-								<input type="text" name="teamList"value="<s:property value="teamName" />"class="teamList" disabled>
+								<input type="text" name="teamList"value="<s:property value="teamName" />"class="teamList" readonly>
 								</td>
 								<td>
 										<input type="button" class="button modal-open" value="削除" />
@@ -116,7 +115,6 @@
 						</s:iterator>
 					</tbody>
 				</table>
-
 					<button type="submit" class="button">編集</button>
 
 			</s:form>

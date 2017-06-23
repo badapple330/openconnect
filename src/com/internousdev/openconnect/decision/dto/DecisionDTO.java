@@ -11,7 +11,7 @@ public class DecisionDTO {
 	 * 起案者ユーザーID
 	 *
 	 */
-	private int jDrafterUserId;
+	private int jDrafterId;
 
 	/**
 	 * ユーザーID
@@ -433,16 +433,16 @@ public class DecisionDTO {
 	* @author KOTA MIYAZATO
 	* @return
 	*/
-	public int getjDrafterUserId() {
-		return jDrafterUserId;
+	public int getjDrafterId() {
+		return jDrafterId;
 	}
 	/**
 	* 設定メソッド
 	* @author KOTA MIYAZATO
 	* @param
 	*/
-	public void setjDrafterUserId(int jDrafterUserId) {
-		this.jDrafterUserId = jDrafterUserId;
+	public void setjDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
 	}
 
 	/**

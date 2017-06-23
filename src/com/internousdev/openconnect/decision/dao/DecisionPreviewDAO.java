@@ -48,7 +48,7 @@ public class DecisionPreviewDAO {
 			while (rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
 
-				dto.setjDrafterUserId(rs.getInt("j_draft_user_id")); // 	実施起案者ユーザーID
+				dto.setjDrafterId(rs.getInt("j_drafter_id")); // 	実施起案者ユーザーID
 
 				dto.setDecisionType(rs.getString("decision_type")); // 決裁種類
 
@@ -120,7 +120,7 @@ public class DecisionPreviewDAO {
 
 	}
 
-	public ArrayList<DecisionDTO> selectByIds(int jDrafterUserId) {
+	public ArrayList<DecisionDTO> selectByIds(int jDrafterId) {
 		DecisionDTO dto = new DecisionDTO();
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
 				"openconnect", "root", "mysql");
@@ -129,7 +129,7 @@ public class DecisionPreviewDAO {
 		String sql = "(select * from users where user_id=?)";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,jDrafterUserId);
+			ps.setInt(1,jDrafterId);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
@@ -162,7 +162,7 @@ public class DecisionPreviewDAO {
 			while (rs.next()) {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
 				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
-				nameList.add(dto);
+				jPremiter1nameList.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -190,7 +190,7 @@ public class DecisionPreviewDAO {
 			while (rs.next()) {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
 				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
-				nameList.add(dto);
+				jPremiter2nameList.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -218,7 +218,7 @@ public class DecisionPreviewDAO {
 			while (rs.next()) {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
 				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
-				nameList.add(dto);
+				jPremiter3nameList.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

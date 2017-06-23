@@ -4,9 +4,12 @@
 package com.internousdev.openconnect.decision.detail.action;
 
 
+import java.util.List;
 import java.util.Map;
 
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailInsertDAO;
+import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
+import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 決裁手続き画面で新規に追加した情報を、DBに追加する為のクラス
@@ -44,6 +47,39 @@ public class DecisionDetailInsertAction extends ActionSupport {
 	public String execute() {
 
 		String result=ERROR;
+
+
+		//多重作成をチェックする
+		DecisionDetailSelectDAO daoS = new DecisionDetailSelectDAO();
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+
+
+		int userId = dto.getUserId();
+		int userId1 = userId;
+
+		List<DecisionDetailDTO> checkDouble;
+		checkDouble = daoS.selectP( userId, userId1 );
+
+		if(checkDouble.size() == 0) {
+
+			DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();
+
+			int count = 0;
+			int decisionStatus1 = 0;
+
+			count = dao.insert( projectId, decisionType, decisionStatus1 );
+
+			if (count > 0 ) {
+				result = SUCCESS;
+				resultString = "追加できました! 1度検索ボタンを押してください。";
+			}
+
+		}
+		else {
+			resultString = "既に登録できました。";
+		}
+
+/*
 		DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();
 
 		int count = 0;
@@ -54,7 +90,8 @@ public class DecisionDetailInsertAction extends ActionSupport {
 		if (count > 0 ) {
 			result = SUCCESS;
 			resultString = "追加できました! 1度検索ボタンを押してください。";
-		}
+		}*/
+
 		return result;
 	}
 
