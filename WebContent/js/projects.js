@@ -37,6 +37,10 @@ $(function(){
 
 		$('.delete-projectnote').html($('.projectNotelist').eq(index).val());
 
+		$('.delete-projectmanagername').html($('.projectManagerNameList').eq(index).val());
+
+		$('.delete-projectsubmanagername').html($('.projectSubManagerNameList').eq(index).val());
+
 
 		var index = $('.modal-open').index($(this));
 		var abc = $('.projectId').eq(index).val();
