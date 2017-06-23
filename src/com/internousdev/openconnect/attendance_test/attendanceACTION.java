@@ -40,7 +40,7 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 		String result = ERROR;
 
 		AttendanceDao dao = new AttendanceDao();
-		searchList = dao.select(atYear,atMonth,atDay,attendance);
+		searchList = dao.select(atYear,atMonth,atDay,attendance,teamName);
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}
@@ -216,5 +216,21 @@ public class attendanceACTION extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> arg0) {
 		// TODO 自動生成されたメソッド・スタブ
 
+	}
+
+	/**
+	 * searchListを取得します。
+	 * @return searchList
+	 */
+	public ArrayList<AttendanceDTO> getSearchList() {
+	    return searchList;
+	}
+
+	/**
+	 * searchListを設定します。
+	 * @param searchList searchList
+	 */
+	public void setSearchList(ArrayList<AttendanceDTO> searchList) {
+	    this.searchList = searchList;
 	}
 }

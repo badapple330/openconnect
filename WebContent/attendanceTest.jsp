@@ -26,6 +26,10 @@
 			<option value="遅刻">遅刻</option>
 			<option value="早退">早退</option>
 		</select>
+
+		<s:textfield name="teamName" placeholder="チーム名" id="teamForm"
+			title="チーム名" />
+
 		<s:submit value="検索" />
 	</s:form>
 
