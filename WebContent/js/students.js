@@ -29,9 +29,6 @@ $(function(){
 
 		$('.deleteUserId').html( $('.userId').eq(index).val() );
 
-		$('.deleteYear').html( $('.year').eq(index).val() );
-
-		$('.deleteMonth').html( $('.month').eq(index).val() );
 
 		$('.deleteFamilyName').html( $('.familyNameKanji').eq(index).val() );
 
@@ -77,37 +74,17 @@ $(function(){
 
 		// 表示文字
 		$('.updateUserId').html( $('.userId').eq(index).val() );
-		$('.updateYear').html( $('.year').eq(index).val() );
-		$('.updateMonth').html( $('.month').eq(index).val() );
 		$('.updateFamilyName').html( $('.familyNameKanji').eq(index).val() );
 		$('.updateGivenName').html( $('.givenNameKanji').eq(index).val() );
-		$('.updateTeamName').html( $('.TeamName').eq(index).val() );
+		$('.updateteamName').html( $('.teamName').eq(index).val() );
 
 
 		// hiddenのvalue
 		$('.updateUserId').val( $('.userId').eq(index).val() );
-		$('.updateYear').val( $('.year').eq(index).val() );
-		$('.updateMonth').val( $('.month').eq(index).val() );
-		$('.updateFamilyName').val( $('.familyName').eq(index).val() );
-		$('.updateGivenName').val( $('.givenName').eq(index).val() );
 		$('.updateFamilyNameKanji').val( $('.familyNameKanji').eq(index).val() );
-		$('.updateFamilyNameKana').val( $('.familyNameKana').eq(index).val() );
 		$('.updateGivenNameKanji').val( $('.givenNameKanji').eq(index).val() );
-		$('.updateGivenNameKana').val( $('.givenNameKana').eq(index).val() );
-		$('.updateTeamName').val( $('.TeamName').eq(index).val() );
-		$('.updatePostal').val( $('.postal').eq(index).val() );
-		$('.updateAddress').val( $('.address').eq(index).val() );
-		$('.updatePhoneNumber').val( $('.phoneNumber').eq(index).val() );
-		$('.updatePhoneEmail').val( $('.phoneEmail').eq(index).val() );
-		$('.updateMobileNumber').val( $('.mobileNumber').eq(index).val() );
-		$('.updateMobileEmail').val( $('.mobileEmail').eq(index).val() );
-		$('.updateSex').val( $('.sex').eq(index).val() );
-		$('.updateBirthday').val( $('.birthday').eq(index).val() );
-		$('.updateUserdelFlg').val( $('.userdelFlg').eq(index).val() );
-		$('.updateLoginFlg').val( $('.loginFlg').eq(index).val() );
+		$('.updateteamName').val( $('.teamName').eq(index).val() );
 		$('.updateUserFlg').val( $('.userFlg').eq(index).val() );
-		$('.updatePassword').val( $('.password').eq(index).val() );
-
 		$(".modal-close").click(function(){
 			$("#modal-updateMain,#modal-bg").fadeOut("slow",function(){
 				//挿入した<div id="modal-bg"></div>を削除
