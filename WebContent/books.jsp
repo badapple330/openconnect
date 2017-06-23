@@ -246,12 +246,53 @@
 
 
 
-				</div>
+
 				<br>
+
+				<s:if test="%{#session.userFlg >= 3}">
+					<div class="page_content_frame">
+						<div class="insert_table pad font140">
+							<s:form action="BooksInsertAction">
+								<h3 class="center">書籍の追加</h3>
+								<table class="insert-table">
+
+									<tr>
+										<td>タイトル：<input type="text" name="title" required
+											maxlength="50">
+										</td>
+										<td>著者：<input type="text" name="author" required
+											maxlength="50">
+										</td>
+									</tr>
+									<tr>
+										<td>サブタイトル：<input type="text" name="subTitle"
+											maxlength="50">
+										</td>
+										<td>出版社：<input type="text" name="publisher" required
+											maxlength="50">
+										</td>
+									</tr>
+									<tr>
+										<td>イニシャル：<input type="text" name="initial" required
+											maxlength="5" placeholder="例:ア,カ,サ/A,B,C/その他">
+										</td>
+										<td>出版日：<input type="text" name="pubDay" required
+											maxlength="10" placeholder="例：2017.06">
+										</td>
+									</tr>
+								</table>
+								<div class=" center">
+									<input class="button" type="submit" value="追加">
+								</div>
+							</s:form>
+						</div>
+					</div>
+				</s:if>
+				</div>
 				<%-- ↑PCの場合の表示↑ --%>
 
 				<%-- ↓スマホの場合の表示↓ --%>
-				<div class="col-xs-12 visible-xs">
+				<div class="page_content_frame col-xs-12 visible-xs">
 
 					<s:form action="BooksUpdateAction">
 
@@ -289,7 +330,6 @@
 												<input type="text" name="subTitleList" maxlength="50"
 													class="bookSubTitle font80"
 													value="<s:property value="subTitle"/>">
-
 											</s:if> <s:else>
 												<s:property value="title" />
 												<br>
@@ -425,39 +465,42 @@
 
 
 
-				</div>
 				<br>
-				<%-- ↑スマホの場合の表示↑ --%>
-
 
 				<s:if test="%{#session.userFlg >= 3}">
 					<div class="page_content_frame">
-						<div class="insert_table pad">
+						<div class="insert_table pad font80">
 							<s:form action="BooksInsertAction">
 								<h3 class="center">書籍の追加</h3>
 								<table class="insert-table">
 
 									<tr>
-										<td>タイトル：<input type="text" name="title" required
-											maxlength="50">
-										</td>
-										<td>著者：<input type="text" name="author" required
+										<td>タイトル：<input type="text" name="title" class="font70" required
 											maxlength="50">
 										</td>
 									</tr>
 									<tr>
-										<td>サブタイトル：<input type="text" name="subTitle"
-											maxlength="50">
-										</td>
-										<td>出版社：<input type="text" name="publisher" required
+										<td>著者：<input type="text" name="author" class="font70" required
 											maxlength="50">
 										</td>
 									</tr>
 									<tr>
-										<td>イニシャル：<input type="text" name="initial" required
+										<td>サブタイトル：<input type="text" name="subTitle" class="font70"
+											maxlength="50">
+										</td>
+									</tr>
+									<tr>
+										<td>出版社：<input type="text" name="publisher" class="font70" required
+											maxlength="50">
+										</td>
+									</tr>
+									<tr>
+										<td>イニシャル：<input type="text" name="initial" class="font70" required
 											maxlength="5" placeholder="例:ア,カ,サ/A,B,C/その他">
 										</td>
-										<td>出版日：<input type="text" name="pubDay" required
+									</tr>
+									<tr>
+										<td>出版日：<input type="text" name="pubDay" class="font70" required
 											maxlength="10" placeholder="例：2017.06">
 										</td>
 									</tr>
@@ -469,6 +512,11 @@
 						</div>
 					</div>
 				</s:if>
+				</div>
+				<%-- ↑スマホの場合の表示↑ --%>
+
+
+
 
 			</div>
 
