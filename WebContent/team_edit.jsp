@@ -36,7 +36,7 @@
 	<tr>
 		<td>チーム名：</td>
 		<td>
-			<select name="search" required="required">
+			<select name="teamName" required="required">
 				<option value="">以下から選択</option>
 					<s:iterator value="teamList">
 						<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
