@@ -129,16 +129,10 @@
 	color: rgba(40, 96, 144, 0.64);
 }
 
-.bookSubTitle, .bookAuthor, .bookPublisher, .bookPubDay {
+.bookTitle,.bookSubTitle, .bookAuthor, .bookPublisher, .bookPubDay {
 	width:100%;
 	border: none;
-	background-color: rgba(245, 245, 245, 0.65);
-	font-size: 100%;
-}
-.bookTitle{
-	width:100%;
-	border: none;
-	background-color: rgba(245, 245, 245, 0.65);
+	background-color: #ffffff;
 	font-size: 100%;
 }
 
@@ -146,7 +140,7 @@
 	width: 30px;
 	height: 30px;
 	border: none;
-	background-color: rgba(245, 245, 245, 0.65);
+	background-color: #ffffff;
 }
 
 .edit {
