@@ -51,84 +51,7 @@ public class ProjectsInsertAction extends ActionSupport {
 	 */
 	private String resultString = "";
 
-	/* テスト */
-	private String manager_family_name;
-	private String manager_given_name;
 
-	/**
-	 * 取得メソッド を取得
-	 *
-	 * @return manager_family_name
-	 */
-	public String getManager_family_name() {
-		return manager_family_name;
-	}
-
-	/**
-	 * 設定メソッド を設定
-	 *
-	 * @param manager_family_name
-	 */
-	public void setManager_family_name(String manager_family_name) {
-		this.manager_family_name = manager_family_name;
-	}
-
-	/**
-	 * 取得メソッド を取得
-	 *
-	 * @return manager_given_name
-	 */
-	public String getManager_given_name() {
-		return manager_given_name;
-	}
-
-	/**
-	 * 設定メソッド を設定
-	 *
-	 * @param manager_given_name
-	 */
-	public void setManager_given_name(String manager_given_name) {
-		this.manager_given_name = manager_given_name;
-	}
-
-	private String submanager_family_name;
-	private String submanager_given_name;
-
-	/**
-	 * 取得メソッド を取得
-	 *
-	 * @return submanager_family_name
-	 */
-	public String getSubmanager_family_name() {
-		return submanager_family_name;
-	}
-
-	/**
-	 * 設定メソッド を設定
-	 *
-	 * @param submanager_family_name
-	 */
-	public void setSubmanager_family_name(String submanager_family_name) {
-		this.submanager_family_name = submanager_family_name;
-	}
-
-	/**
-	 * 取得メソッド を取得
-	 *
-	 * @return submanager_given_name
-	 */
-	public String getSubmanager_given_name() {
-		return submanager_given_name;
-	}
-
-	/**
-	 * 設定メソッド を設定
-	 *
-	 * @param submanager_given_name
-	 */
-	public void setSubmanager_given_name(String submanager_given_name) {
-		this.submanager_given_name = submanager_given_name;
-	}
 
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
@@ -140,19 +63,7 @@ public class ProjectsInsertAction extends ActionSupport {
 
 		String result = ERROR;
 		ProjectsInsertDAO dao = new ProjectsInsertDAO();
-		ProjectsSelectDTO dtoByManager = new ProjectsSelectDTO();
-		ProjectsSelectDTO dtoBySubManager = new ProjectsSelectDTO();
 
-		dtoByManager = dao.managerIdFinder(manager_family_name, manager_given_name);
-		dtoBySubManager = dao.subManagerIdFinder(submanager_family_name, submanager_given_name);
-
-		int managerId = 0;
-		int subManagerId = 0;
-
-		if (dtoByManager != null && dtoBySubManager != null) {
-			managerId = dtoByManager.getManagerId();
-			subManagerId = dtoBySubManager.getSubManagerId();
-		}
 
 		int count = 0;
 		count = dao.insert(projectName, managerId, subManagerId, startDate);

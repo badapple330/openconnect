@@ -197,45 +197,8 @@
 			 <div class="table-scroll">
 				<s:form action="ProjectsInsertAction">
 
-					<table border="1" class="centered add fontsize">
 
-
-						<tr>
-
-							<td>プロジェクト名</td>
-							<td>管理者(リーダー)：姓</td>
-							<td>管理者(リーダー)：名</td>
-							<td>管理者(サブリーダー)：姓</td>
-							<td>管理者(サブリーダー)：名</td>
-							<td>開始日(yyyy/MM/dd)</td>
-						</tr>
-
-						<tr>
-
-							<td><input type="text" name="projectName"
-								placeholder="例：rewrite" maxlength=100 title="" required></td>
-
-							<td><input type="text" title="漢字のみ"
-								name="manager_family_name" placeholder="漢字で入力" maxlength="10" required
-								></td>
-							<td><input type="text" title="漢字のみ"
-								name="manager_given_name" placeholder="漢字で入力" maxlength="10" required
-								></td>
-
-							<td><input type="text" title="漢字のみ"
-								name="submanager_family_name" placeholder="漢字で入力" maxlength="10"
-								required></td>
-							<td><input type="text" title="漢字のみ"
-								name="submanager_given_name" placeholder="漢字で入力" maxlength="10"
-								required></td>
-
-							<td><input type="date"
-								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
-								name="startDate" required></td>
-						</tr>
-					</table>
-
-					<!--<table border="1" class="centered add">
+					<table border="1" class="centered add">
 
 						<tr>
 
@@ -261,7 +224,7 @@
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 								name="startDate" required></td>
 						</tr>
-					</table>-->
+					</table>
 
 					<BR>
 					<div class="center fixedButton">
