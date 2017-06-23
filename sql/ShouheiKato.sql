@@ -19,9 +19,9 @@ author varchar(100) not null comment '著者',
 publisher varchar(100) not null comment '出版社',
 publish_day varchar(10) not null comment '出版日',
 initial varchar(10) not null comment 'イニシャル(例:ア,カ,サ/A,B,C/数字)',
-status_flg tinyint(1) not null default '0' comment '状態フラグ(0:通常,1:削除,2:紛失)',
-regist_day datetime not null default current_timestamp comment 'カレッジ登録日',
-updated_day datetime not null default current_timestamp on update current_timestamp comment '更新日'
+status_flg varchar(10) not null default '通常' comment '状態フラグ(1:通常,2:削除,3:紛失)',
+regist_day datetime not null  default current_timestamp comment 'カレッジ登録日',
+updated_day datetime not null  default current_timestamp on update current_timestamp comment '更新日'
 );
 
 use openconnect;
@@ -78,14 +78,14 @@ use openconnect;
 insert into books
 (book_id, title, sub_title, author, publisher, publish_day, initial, status_flg)
 values
-(46, 'EclipseではじめるJavaフレームワーク入門第4版', 'クラウド開発対応', '掌田津耶乃', '秀和システム', '2013.03', 'E', '2'),
-(47, 'はじめてのJavaフレームワーク第3版', 'Struts2/Spring/Hibernate対応', '岡田賢治', '秀和システム', '2011.06', 'ハ', '2'),
-(48, 'Eclipse 3.7 完全攻略', '', '宮本信二', 'ソフトバンククリエイティブ', '2011.10', 'E', '2'),
-(49, '10日でおぼえるHTML5入門教室', '', '古籏一浩', '翔泳社', '2011.09', 'その他', '2'),
-(50, '基本から学ぶHTML5+JavaScript', '', 'クジラ飛行机, 土井毅', 'SBクリエイティブ', '2012.04', 'カ', '2'),
-(51, 'アプリを作ろう! HTML5入門', '', '山田祥寛', '日経BP社', '2012.06', 'ア', '2'),
-(52, '独習Javaサーバサイド編 第2版', '', '山田祥寛', '翔泳社', '2013.01', 'タ', '2'),
-(53, 'スッキリわかるJava入門 実践編', '', '中山清喬', 'インプレス', '2012.09', 'サ', '2');
+(46, 'EclipseではじめるJavaフレームワーク入門第4版', 'クラウド開発対応', '掌田津耶乃', '秀和システム', '2013.03', 'E', '紛失'),
+(47, 'はじめてのJavaフレームワーク第3版', 'Struts2/Spring/Hibernate対応', '岡田賢治', '秀和システム', '2011.06', 'ハ', '紛失'),
+(48, 'Eclipse 3.7 完全攻略', '', '宮本信二', 'ソフトバンククリエイティブ', '2011.10', 'E', '紛失'),
+(49, '10日でおぼえるHTML5入門教室', '', '古籏一浩', '翔泳社', '2011.09', 'その他', '紛失'),
+(50, '基本から学ぶHTML5+JavaScript', '', 'クジラ飛行机, 土井毅', 'SBクリエイティブ', '2012.04', 'カ', '紛失'),
+(51, 'アプリを作ろう! HTML5入門', '', '山田祥寛', '日経BP社', '2012.06', 'ア', '紛失'),
+(52, '独習Javaサーバサイド編 第2版', '', '山田祥寛', '翔泳社', '2013.01', 'タ', '紛失'),
+(53, 'スッキリわかるJava入門 実践編', '', '中山清喬', 'インプレス', '2012.09', 'サ', '紛失');
 
 
 
@@ -93,60 +93,35 @@ values
 /* 決裁 */
 create table decision(
 decision_id int primary key auto_increment comment '決裁ID',
-project_id int unique not null comment 'プロジェクトID',
+project_id int not null comment 'プロジェクトID',
 decision_name varchar(100) comment '案件名',
 decision_type enum('実施', '契約', '実施兼契約') default '実施' comment '決裁種類',
 decision_status1 tinyint(1) default 0 comment '[実施]決裁状況(0:作成中, 1:申請中/承認待ち, 2:承認済み, 3:変更中)',
-decision_status2 tinyint(1) default 0 comment '[契約/実施兼契約]決裁状況(0:作成中, 1:申請中/承認待ち, 2:承認済み, 3:変更中, 4:リリース済み)',
+decision_status2 tinyint(1) default 0 comment '[契約/実施兼契約]決裁状況(0:作成中, 1:申請中/承認待ち, 2:承認済み, 3:変更中)',
 summary varchar(255) comment '概要',
-cause varchar(255) comment '内容',
+cause varchar(255) comment '理由',
+detail varchar(255) comment '詳細',
 persons int comment '人数',
-apply_day varchar(10) comment '申請日',
-start_day date comment '開始日',/* default current_date */
+registration date comment '登録日',
+start_day date comment '開始日',
 end_day date comment '終了日',
-bild_cost float comment '建設費用',
-benefit float comment '損益利益',
-amount_all float comment '合計金額',
-prove int default 7 comment '開発端末',
-total_prove int comment '合計開発端末',
-re float default 0.6 comment 'リリース環境使用料',
-total_re float comment '合計リリース環境使用料',
-line int default 1 comment '回線使用料',
-total_line int comment '合計回線使用料',
-room float default 55.5 comment '施設使用料',
-total_room float comment '合計施設使用料',
-human int default 100 comment '開発要員',
-total_human int comment '合計開発要員',
-etc float default 0.5 comment '雑費' ,
-total_etc float comment '合計雑費' ,
 plan varchar(255) comment '実施計画の資料',
-j_imp_id varchar(100) comment '実施起案番号',
-j_dec_id varchar(100) comment '実施決裁番号',
-k_imp_id varchar(100) comment '契約起案番号',
-k_dec_id varchar(100) comment '契約決裁番号',
-jk_imp_id varchar(100) comment '実施兼契約起案番号',
-jk_dec_id varchar(100) comment '実施兼契約決裁番号',
-j_drafter_id int comment'実施起案者ID',
-k_drafter_id int comment'契約/実施兼契約起案者ID',
-permit_status tinyint(1) default 0 comment '承認状況(0:未承認, 1:リーダー1承認, 2:リーダー2承認, 0:先生承認)',
+i_drafting_id varchar(100) comment '実施起案番号',
+i_approval_id varchar(100) comment '実施決裁番号',
+a_drafting_id varchar(100) comment '契約起案番号',
+cd_id varchar(100) comment '契約決裁番号',
+i_a_d_id varchar(100) comment '実施兼契約起案番号',
+i_a_id varchar(100) comment '実施兼契約決裁番号',
+permit_status tinyint(1) default 0 comment '承認状況(0:未承認, 1:リーダー1承認, 2:リーダー2承認, 3:先生承認)',
+permit_user_id1 int comment '承認ユーザーID(1人目:リーダー)',
+permit_user_id2 int comment '承認ユーザーID(2人目:リーダー)',
+permit_user_id3 int comment '承認ユーザーID(3人目:先生)',
 
-j_permiter_id1 int comment '実施_承認者ID(1人目:リーダー)',
-j_permiter_id2 int comment '実施_承認者ID(2人目:リーダー)',
-j_permiter_id3 int comment '実施_承認者ID(3人目:先生)',
-
-k_permiter_id1 int comment '契約/実施兼契約_承認者ID(1人目:リーダー)',
-k_permiter_id2 int comment '契約/実施兼契約_承認者ID(2人目:リーダー)',
-k_permiter_id3 int comment '契約/実施兼契約_承認者ID(3人目:先生)',
-
+day date comment '日付',
 foreign key(project_id) references projects(project_id) on update cascade on delete cascade,
-foreign key(j_drafter_id) references users(user_id) on update cascade on delete cascade,
-foreign key(k_drafter_id) references users(user_id) on update cascade on delete cascade,
-foreign key(j_permiter_id1) references users(user_id) on update cascade on delete cascade,
-foreign key(j_permiter_id2) references users(user_id) on update cascade on delete cascade,
-foreign key(j_permiter_id3) references users(user_id) on update cascade on delete cascade,
-foreign key(k_permiter_id1) references users(user_id) on update cascade on delete cascade,
-foreign key(k_permiter_id2) references users(user_id) on update cascade on delete cascade,
-foreign key(k_permiter_id3) references users(user_id) on update cascade on delete cascade
+foreign key(permit_user_id1) references users(user_id) on update cascade on delete cascade,
+foreign key(permit_user_id2) references users(user_id) on update cascade on delete cascade,
+foreign key(permit_user_id3) references users(user_id) on update cascade on delete cascade
 );
 
 

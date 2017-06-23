@@ -78,6 +78,12 @@ public class ProjectsSelectAction extends ActionSupport {
 			searchList.get(i).setSubManagerGivenNameKanji(dto.getSubManagerGivenNameKanji());
 			searchList.get(i).setSubManagerFamilyNameKanji(dto.getSubManagerFamilyNameKanji());
 		}
+		if(dao.search(search) == null){
+
+			return result;
+		}else{
+			studentsList = dao.search(search);
+		}
 
 		if (searchList.size() != 0) {
 			result = SUCCESS;
@@ -88,12 +94,11 @@ public class ProjectsSelectAction extends ActionSupport {
 
 			}
 		}
-
-
-
-		studentsList = dao.search(search);
-
 		return result;
+
+
+
+
 	}
 
 	/**

@@ -27,12 +27,15 @@ public class DecisionDetailInsertDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
+
 		String sql = "INSERT INTO decision ( project_id, decision_type, decision_status1 ) VALUES ( ?, ?, ? )";
+
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,projectId);
-			ps.setString(2,decisionType);
-			ps.setInt(3,decisionStatus1);
+
+			ps.setInt(1, projectId);
+			ps.setString(2, decisionType);
+			ps.setInt(3, decisionStatus1);
 
 			count = ps.executeUpdate();
 
