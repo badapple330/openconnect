@@ -135,9 +135,9 @@
 															<td><div class="width4">実施決裁番号：<s:property value="jDecId" /><br><br></div></td>
 														</tr>
 														<tr>
-															<td><div class="width4"><label>承認者：</label><s:iterator value="jPremiter1nameList"><%-- s:property value="familyNameKanji" /><s:property value="givenNameKanji" / --%><s:property value="jPermiterId1" /></s:iterator><br> <br><label>日付：</label><s:property value="day" /></div></td>
-															<td><div class="width4"><label>承認者：</label><s:iterator value="jPremiter2nameList"><%-- s:property value="familyNameKanji" /><s:property value="givenNameKanji" / --%><s:property value="jPermiterId2" /></s:iterator><br> <br><label>日付：</label><s:property value="day" /></div></td>
-															<td><div class="width4"><label>承認者：</label><s:iterator value="jPremiter3nameList"><%-- s:property value="familyNameKanji" /><s:property value="givenNameKanji" / --%><s:property value="jPermiterId3" /></s:iterator><br> <br><label>日付：</label><s:property value="day" /></div></td>
+															<td><div class="width4"><label>承認者：</label><s:iterator value="jPremiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="day" /></div></td>
+															<td><div class="width4"><label>承認者：</label><s:iterator value="jPremiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="day" /></div></td>
+															<td><div class="width4"><label>承認者：</label><s:iterator value="jPremiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="day" /></div></td>
 														</tr>
 													</table>
 												</div>
