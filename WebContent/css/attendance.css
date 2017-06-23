@@ -40,6 +40,7 @@
 	box-shadow: none;
 }
 
+
 @media only screen and (max-width:420px){
 	.attendance h1{
 		font-size : 150% ;

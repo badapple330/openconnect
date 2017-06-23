@@ -39,7 +39,33 @@
 	          <s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/>
 	          </s:iterator></td></tr>
 
-	     <tr>
+	     <tr><!-- 表示用の日時 -->
+	        <th>  日  時  ：</th>
+	        <td class="ymd">
+	        </td></tr>
+	        <tr>
+
+
+	        <tr id="tr_type"><th>
+	出欠確認：</th><td>
+	<select name="attendance" style="width:60px;" required="required">
+
+	<option class="atslc" value="出席">出席</option>
+	<option class="atslc" value="欠席">欠席</option>
+	<option class="atslc" value="遅刻">遅刻</option>
+	<option class="atslc" value="早退">早退</option>
+
+	</select>
+	</td></tr>
+
+	<tr id="tr_reason" style="display: none;">
+	<th>
+	  備  考  ：<span style="background-color: red; color: white; padding:1px 2px; border-radius:5px;">必須</span></th>
+	  <td>
+	<textarea id="reason" name="reason"  rows="6" cols="40" maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など" disabled="disabled"></textarea>
+	</td></tr>
+
+	<tr style="display: none;"><!-- 日時のデータ送信用 選択させないため非表示 -->
 	        <th>  日  時  ：</th>
 	        <td>
 	        <select style="width: 60px;" name="atYear" id="id_year" data-choice="year" required="required"></select>
@@ -51,24 +77,7 @@
 	        <select style="width: 45px;" name="atDay" id="id_day" data-choice="day" required="required"></select>
 	        <span style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
 	        </td></tr>
-
-	        <tr><th>
-	出欠確認：</th><td>
-	<select name="attendance" required="required">
-
-	<option value="">以下から選択</option>
-	<option value="出席">出席</option>
-	<option value="欠席">欠席</option>
-	<option value="遅刻">遅刻</option>
-	<option value="早退">早退</option>
-
-	</select>
-	</td></tr>
-
-	<tr><th>
-	  備  考  ：</th><td>
-	<textarea name="reason"  rows="6" cols="40" maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"></textarea>
-	</td></tr>
+	        <tr>
 
 	</table>
 
