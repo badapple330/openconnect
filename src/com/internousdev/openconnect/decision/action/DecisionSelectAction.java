@@ -20,11 +20,6 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DecisionSelectAction extends ActionSupport implements SessionAware{
 
 
-	/**
-	 * ユーザーID
-	 *
-	 */
-	private int userId;
 
 	/**
 	 * 案件名
@@ -216,31 +211,23 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 		e.printStackTrace();
 		}
 
+		if(decisionList!=null){
 
-
-		result=SUCCESS;
-		resultString = "表示しました。";
-		return result;
+			DecisionDAO decisionDAO = new DecisionDAO();
+			try {
+				nameList = decisionDAO.selectByUserId(userId);
+			} catch (UnknownException e) {
+				e.printStackTrace();
+			}
 
 		}
 
-	/**
-	 * @return userId
-	 */
-	public int getUserId() {
-		return userId;
-	}
 
+		result=SUCCESS;
 
+		return result;
 
-
-
-	/**
-	 * @param userId セットする userId
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+		}
 
 	/**
 	 * @return decisionName

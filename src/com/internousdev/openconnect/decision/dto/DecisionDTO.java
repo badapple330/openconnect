@@ -13,28 +13,6 @@ public class DecisionDTO {
 	 */
 	private int jDrafterId;
 
-	/**
-	 * ユーザーID
-	 *
-	 */
-	private int userId;
-
-
-	/**
-	* 取得メソッド を取得
-	* @return userId
-	*/
-	public int getUserId() {
-		return userId;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param userId
-	*/
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	/**
 
 	/**
 	 * 案件名

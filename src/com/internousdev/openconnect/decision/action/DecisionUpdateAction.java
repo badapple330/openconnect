@@ -22,11 +22,6 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 
-	/**
-	 * ユーザーID
-	 *
-	 */
-	private int userId;
 
 	/**
 	 * 案件名
@@ -224,19 +219,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 
-	/**
-	 * @return userId
-	 */
-	public int getUserId() {
-		return userId;
-	}
 
-	/**
-	 * @param userId セットする userId
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 	/**
 	 * @return decisionName

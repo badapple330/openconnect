@@ -75,12 +75,16 @@ $("#res,#lines,#c,#d").val($(this).val());
 <tr>
 
 <th>案件名</th>
-
+<s:if test="decisionName != null && !decisionLis.isEmpty()">
 <td colspan="3">
 <s:iterator value="decisionList">
 <textarea cols="50" rows="4" name="decisionName"><s:property value="decisionName" /></textarea>
 </s:iterator>
 </td>
+</s:if>
+<s:else>
+<textarea cols="50" rows="4" name="decisionName">未定義</textarea>
+</s:else>
 
 </tr>
 
@@ -416,15 +420,6 @@ $("#res,#lines,#c,#d").val($(this).val());
 </s:form>
 
 
-<h2><a href="./attach_help.jsp" target="_blank">資料添付</a></h2>
-
-<div align=center>
-<form action="upload" method="post" enctype="multipart/form-data">
-      <label for="myFile">フォルダをアップロード</label>
-      <input type="file" name="myFile" />
-      <input type="submit" value="Upload"/>
-   </form>
-</div>
 
 </body>
 </html>
