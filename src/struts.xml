@@ -297,7 +297,7 @@
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
 			<result name="success">decision.jsp</result>
-			<result name="error" >decision.jsp</result>
+			<result name="error">decision.jsp</result>
 		</action>
 
 		<action name="DecisionPreviewAction"
@@ -438,12 +438,12 @@
 			class="com.internousdev.openconnect.schedule.action.ScheduleDeleteAction"
 			method="execute">
 			<!-- デフォルトinterceptor -->
-	<interceptor-ref name="defaultStack" />
-	<!-- tokenのinterceptor -->
-	<interceptor-ref name="token" />
-	<result name="invalid.token" type="chain">ScheduleSelectAction
-	</result>
-	<result type="chain">ScheduleSelectAction</result>
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">ScheduleSelectAction
+			</result>
+			<result type="chain">ScheduleSelectAction</result>
 		</action>
 
 		<action name="BackGoAction" class="com.internousdev.openconnect.action.JustGoAction"
@@ -452,10 +452,10 @@
 			<result name="error">project_progress.jsp</result>
 		</action>
 
-		<action name="attendanceACTION" method="execute"
-			class="com.internousdev.openconnect.attendance_test.attendanceACTION">
+		<action name="AdminAttendanceAction" method="execute"
+			class="com.internousdev.openconnect.attendance.AdminAttendanceAction">
 
-			<result name="success">attendanceTest.jsp</result>
+			<result name="success">attendance.jsp</result>
 
 			<result name="error">attendance.jsp</result>
 
