@@ -60,11 +60,6 @@ public class ProjectsUpdateDAO {
 		return count;
 	}
 
-	public int find(String family_name_kanji, String given_name_kanji){
-		int count = 0;
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 
-		return count;
-	}
 }
 
