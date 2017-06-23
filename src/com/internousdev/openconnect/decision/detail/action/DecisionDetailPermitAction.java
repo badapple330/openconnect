@@ -83,6 +83,8 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		DecisionDetailPermitDAO daoPer = new DecisionDetailPermitDAO();
 		DecisionDetailApplicationDAO daoApp = new DecisionDetailApplicationDAO();
 
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+		int userId = dto.getUserId();
 
 
 		int jPermiterId3;
@@ -94,16 +96,16 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 		//リーダーの承認
 		if(permitStatus == 1 || permitStatus == 2) {
-			int userId = (int) session.get("userId");
+
 			count = daoPer.updateP(decisionType, permitStatus, userId, decisionId);
 		}
 
 
 		//先生の承認
 				if(permitStatus == 0) {
-		            jPermiterId3 = (int) session.get("userId");
-		            kPermiterId3 = (int) session.get("userId");
-					jkPermiterId3 = (int) session.get("userId");
+		            jPermiterId3 = userId;
+		            kPermiterId3 = userId;
+					jkPermiterId3 = userId;
 
 					//実施決裁の承認
 					if(decisionType.equals("実施")) {

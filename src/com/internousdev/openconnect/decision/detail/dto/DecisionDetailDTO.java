@@ -34,7 +34,7 @@ public class DecisionDetailDTO {
 
 
 	/**
-	 * 起案番号一時保管庫
+	 * 比較用起案番号一時保管庫
 	 */
 	private String compareId;
 	/**
@@ -52,6 +52,26 @@ public class DecisionDetailDTO {
 		this.compareId = compareId;
 	}
 
+
+
+	/**
+	 * sessionから取得したログイン中ユーザーID
+	 */
+	private int userId;
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 
 
@@ -96,10 +116,7 @@ public class DecisionDetailDTO {
 	 *  契約/実施兼契約決裁状況
 	 */
 	private int decisionStatus2;
-	/**
-	 *  ログイン中ユーザーID
-	 */
-	private int userId;
+
 
 
 
@@ -280,20 +297,6 @@ public class DecisionDetailDTO {
 	*/
 	public void setDecisionStatus2(int decisionStatus2) {
 		this.decisionStatus2 = decisionStatus2;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return userId
-	*/
-	public int getUserId() {
-		return userId;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param userId
-	*/
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 	/**
 	* 取得メソッド を取得

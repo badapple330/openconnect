@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,17 +16,17 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * DBの情報を画面に表示する為のクラス
- * @author TATUHUMI ITOU, SOSHI AZUMA
- * @since 2016/09/04
+ * @author SOSHI AZUMA
+ * @since 2017/06/23
  * @version 1.0
  */
-public class DecisionDetailSelectAction extends ActionSupport {
+public class GoDecisionAction extends ActionSupport implements SessionAware {
 
 
 	/**
 	 * シリアルID
 	 */
-	private static final long serialVersionUID = -7766297666062379491L;
+	private static final long serialVersionUID = -8812625215544148609L;
 	/**
 	 * 自プロジェクト以外の決裁手続きリスト
 	 */
@@ -37,10 +39,6 @@ public class DecisionDetailSelectAction extends ActionSupport {
 	 * 決裁未手続きリスト
 	 */
 	private List<DecisionDetailDTO> decisionBeginList = new ArrayList<DecisionDetailDTO>();
-	/**
-	 * 検索文字
-	 */
-	private String searchString = "";
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -66,15 +64,14 @@ public class DecisionDetailSelectAction extends ActionSupport {
 		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
 
 
-		//int userId = (int) session.get("userId");
-		//int userId1 = userId;
-
-
-		DecisionDetailDTO dto = new DecisionDetailDTO();
-		int userId = dto.getUserId();
+		int userId = (int) session.get("userId");
 		int userId1 = userId;
 
 
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+		dto.setUserId( userId );
+
+		String searchString = "";
 		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
 		decisionDetailList2 = dao.selectMyD( userId, userId1);
 		decisionBeginList = dao.selectP( userId, userId1 );
@@ -145,32 +142,6 @@ public class DecisionDetailSelectAction extends ActionSupport {
 	*/
 	public void setDecisionBeginList(List<DecisionDetailDTO> decisionBeginList) {
 		this.decisionBeginList = decisionBeginList;
-	}
-
-
-
-	/**
-	* 取得メソッド シリアル番号を取得
-	* @return serialVersionUID
-	*/
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	* 取得メソッド 検索文を取得
-	* @return searchString
-	*/
-	public String getSearchString() {
-		return searchString;
-	}
-
-	/**
-	* 設定メソッド 検索文を設定
-	* @param searchString
-	*/
-	public void setSearchString(String searchString) {
-		this.searchString = searchString;
 	}
 
 

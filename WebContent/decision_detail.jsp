@@ -185,18 +185,18 @@
 
 						<!-- 実施・変更時(実施)の申請-->
 						<s:if test="%{(decisionStatus1 == 0 || decisionStatus1 == 3) && decisionStatus2 == 0}">
-							<input type="hidden" name="StringId" value="<s:property value="iDraftingId" />">
+							<input type="hidden" name="stringId" value="<s:property value="jImpId" />">
 											<input type="submit" value="実施申請">
 						</s:if>
 
 						<!-- 契約/実施兼契約・変更時(契約/実施契約)の申請 -->
 						<s:elseif test="%{(decisionStatus2 == 0 || decisionStatus2 == 3) && decisionStatus1 == 2}">
 							<s:if test="%{decisionType == '契約'}">
-								<input type="hidden" name="StringId" value="<s:property value="aDraftingId" />">
+								<input type="hidden" name="stringId" value="<s:property value="kImpId" />">
 											<input type="submit" value="契約申請">
 							</s:if>
 							<s:if test="%{decisionType == '実施兼契約'}">
-								<input type="hidden" name="StringId" value="<s:property value="iADId" />">
+								<input type="hidden" name="stringId" value="<s:property value="jkImpId" />">
 											<input type="submit" value="実施兼契約申請">
 							</s:if>
 						</s:elseif>
@@ -267,6 +267,9 @@
 					</td>
 					<td>
 						<input type="hidden" name="projectId" value="<s:property value="projectId" />">
+						<input type="hidden" name="stringId" value="<s:property value="jImpId" />">
+						<input type="hidden" name="stringId" value="<s:property value="kImpId" />">
+						<input type="hidden" name="stringId" value="<s:property value="jkImpId" />">
 						<input type="submit" value="追加(決済資料を作る)">
 					</td>
 				</tr>
