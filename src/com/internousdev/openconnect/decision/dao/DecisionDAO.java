@@ -24,7 +24,7 @@ import com.internousdev.util.DBConnector;
  */
 public class DecisionDAO {
 
-	public ArrayList<DecisionDTO> decisionPreviewList = new ArrayList<DecisionDTO>();
+	public ArrayList<DecisionDTO> decisionList = new ArrayList<DecisionDTO>();
 
 	public ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
 
@@ -40,7 +40,7 @@ public class DecisionDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		ArrayList<DecisionDTO> decisionPreviewList = new ArrayList<DecisionDTO>();
+		ArrayList<DecisionDTO> decisionList = new ArrayList<DecisionDTO>();
 
 		String sql = "select * from decision where decision_id=?";
 
@@ -108,7 +108,7 @@ public class DecisionDAO {
 
 				dto.setjPermiterId3(rs.getInt("j_permiter_id3")); // 	承認者ユーザーID3（先生）
 
-				decisionPreviewList.add(dto);
+				decisionList.add(dto);
 			}
 
 		} catch (SQLException e) {
@@ -120,7 +120,7 @@ public class DecisionDAO {
 				e.printStackTrace();
 			}
 		}
-		return decisionPreviewList;
+		return decisionList;
 
 	}
 
@@ -130,7 +130,7 @@ public class DecisionDAO {
 				"openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 		ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
-		String sql = "(select * from users where user_id=?)";
+		String sql = "(select family_name_kanji,given_name_kanji from users where user_id=?)";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,jDrafterId);
@@ -159,7 +159,7 @@ public class DecisionDAO {
 	 *
 	 */
 
-	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll) {
+	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll,int jDrafterId,int decisionId) {
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
@@ -167,7 +167,7 @@ public class DecisionDAO {
 		Connection con = db.getConnection();
 
 		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,"
-				+ "total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?";
+				+ "total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id where decision_id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -187,6 +187,8 @@ public class DecisionDAO {
 			ps.setFloat(13, benefit);
 			ps.setFloat(14, bildCost);
 			ps.setFloat(15, amountAll);
+			ps.setInt(16, jDrafterId);
+			ps.setInt(17, decisionId);
 
 
 
