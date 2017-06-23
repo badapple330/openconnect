@@ -129,16 +129,16 @@
 	color: rgba(40, 96, 144, 0.64);
 }
 
-.bookTitle,.bookSubTitle, .bookAuthor, .bookPublisher, .bookPubDay {
+.bookTitle,.bookSubTitle,.bookPublisher, .bookPubDay {
 	width:100%;
 	border: none;
 	background-color: #ffffff;
 	font-size: 100%;
 }
 
-.bookStatusFlg {
-	width: 30px;
-	height: 30px;
+ .bookAuthor,.bookStatusFlg {
+	width: 100%;
+	height: 80px;
 	border: none;
 	background-color: #ffffff;
 }
