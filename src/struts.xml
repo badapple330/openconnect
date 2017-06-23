@@ -302,6 +302,13 @@
 
 
 		<!-- 決済手続き電子化画面への遷移 -->
+		<action name="GoDecisionAction"
+			class="com.internousdev.openconnect.decision.detail.action.GoDecisionAction"
+			method="execute">
+			<result name="success">decision_detail.jsp</result>
+			<result name="error">decision_detail.jsp</result>
+		</action>
+
 		<action name="DecisionDetailSelectAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailSelectAction"
 			method="execute">

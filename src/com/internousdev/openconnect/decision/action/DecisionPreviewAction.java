@@ -201,15 +201,12 @@ public class DecisionPreviewAction extends ActionSupport {
 				nameList = dao.selectByIds(jDrafterId);
 				jPermiterId1 = decisionPreviewList.get(0).getjPermiterId1();
 				jPremiter1nameList = dao.selectByjPremiterId1(jPermiterId1);
-				jPermiterId2 = decisionPreviewList.get(0).getjPermiterId2();
 				jPremiter2nameList = dao.selectByjPremiterId2(jPermiterId2);
-				jPermiterId3 = decisionPreviewList.get(0).getjPermiterId3();
 				jPremiter3nameList = dao.selectByjPremiterId3(jPermiterId3);
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
 		}
-
 		result=SUCCESS;
 		return result;
 		}

@@ -34,7 +34,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 	/**
 	 * 文字列番号
 	 */
-	private String StringId;
+	private String stringId;
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -72,82 +72,97 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
 
+
 		DecisionDetailApplicationDAO dao = new DecisionDetailApplicationDAO();
+
+
+		//DBに完全一致する番号が既に存在する場合に申請を拒否する為の準備
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+			dto = dao.compareIdSelect(decisionType, stringId);
+			String compareId = dto.getCompareId();
 
 
 		String idNum = "";
 		int count = 0;
 
 
-		//実施決裁の申請
-				if(decisionType.equals("実施")) {
+		//完全一致する番号が存在しない場合
+		if(compareId.equals("")) {
 
-					if(StringId == null || StringId.equals("")) {
+			//実施決裁の申請
+			if(decisionType.equals("実施")) {
 
-						idNum = jImpId;
-						idNumList = dao.select(decisionType, idNum);
-						if(idNumList.size() > 0) {
-							int a = idNumList.size() + 1;
-							String b = dformat.format(a);
-							jImpId = jImpId + b;
-						}
-						else {
-							jImpId = jImpId + "001";
-						}
+				if(stringId.equals("")) {
+
+					idNum = jImpId;
+					idNumList = dao.select(decisionType, idNum);
+					if(idNumList.size() > 0) {
+						int a = idNumList.size() + 1;
+						String b = dformat.format(a);
+						jImpId = jImpId + b;
 					}
 					else {
-						jImpId = StringId;
+						jImpId = jImpId + "001";
 					}
-					count = dao.updateAJ( jImpId, num, decisionId );
 				}
-
-				//契約決裁の申請
-				else if(decisionType.equals("契約")) {
-
-					if(StringId == null || StringId.equals("")) {
-						idNum = kImpId;
-						idNumList = dao.select(decisionType, idNum);
-						if(idNumList.size() > 0) {
-							int a = idNumList.size() + 1;
-							String b = dformat.format(a);
-							kImpId = kImpId + b;
-						}
-						else {
-							kImpId = kImpId + "001";
-						}
-					}
-					else {
-						kImpId = StringId;
-					}
-					count = dao.updateAK( kImpId, num, decisionId );
-				}
-
-				//実施兼契約決裁の申請
 				else {
+					jImpId = stringId;
+				}
+				count = dao.updateAJ( jImpId, num, decisionId );
+			}
 
-					if(StringId == null || StringId.equals("")) {
-						idNum = jkImpId;
-						idNumList = dao.select(decisionType, idNum);
-						if(idNumList.size() > 0) {
-							int a = idNumList.size() + 1;
-							String b = dformat.format(a);
-							jkImpId = jkImpId + b;
-						}
-						else {
-							jkImpId = jkImpId + "001";
-						}
+			//契約決裁の申請
+			else if(decisionType.equals("契約")) {
+
+				if(stringId.equals("")) {
+					idNum = kImpId;
+					idNumList = dao.select(decisionType, idNum);
+					if(idNumList.size() > 0) {
+						int a = idNumList.size() + 1;
+						String b = dformat.format(a);
+						kImpId = kImpId + b;
 					}
 					else {
-						jkImpId = StringId;
+						kImpId = kImpId + "001";
 					}
-					count = dao.updateAJK( jkImpId, num, decisionId );
 				}
+				else {
+					kImpId = stringId;
+				}
+				count = dao.updateAK( kImpId, num, decisionId );
+			}
+
+			//実施兼契約決裁の申請
+			else {
+
+				if(stringId.equals("")) {
+					idNum = jkImpId;
+					idNumList = dao.select(decisionType, idNum);
+					if(idNumList.size() > 0) {
+						int a = idNumList.size() + 1;
+						String b = dformat.format(a);
+						jkImpId = jkImpId + b;
+					}
+					else {
+						jkImpId = jkImpId + "001";
+					}
+				}
+				else {
+					jkImpId = stringId;
+				}
+				count = dao.updateAJK( jkImpId, num, decisionId );
+			}
+
+			if (count > 0 ) {
+				result = SUCCESS;
+				resultString = "申請できました! ";
+			}
 
 
-		if (count > 0 ) {
-			result = SUCCESS;
-			resultString = "申請できました! ";
 		}
+
+
+
 		return result;
 	}
 
@@ -186,7 +201,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 	* @return StringId
 	*/
 	public String getStringId() {
-		return StringId;
+		return stringId;
 	}
 
 
@@ -196,7 +211,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 	* @param StringId
 	*/
 	public void setStringId(String stringId) {
-		StringId = stringId;
+		this.stringId = stringId;
 	}
 
 

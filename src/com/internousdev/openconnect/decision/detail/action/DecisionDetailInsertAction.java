@@ -27,7 +27,7 @@ public class DecisionDetailInsertAction extends ActionSupport {
 	/**
 	 * エラーメッセージ
 	 */
-	private String resultString = "追加できませんでした。";
+	private String resultString = "追加できませんでした。もしくは作成済みです。";
 	/**
 	 * プロジェクトID
 	 */
