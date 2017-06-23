@@ -19,8 +19,9 @@ public class AdminAttendanceDeleteAction {
 	public String execute(){
 		AdminAttendanceDeleteDAO dao = new AdminAttendanceDeleteDAO();
 		String retult = ERROR;
-		int List=0;
-		if(List>0){
+		int list=0;
+		list=dao.delete(atMonth);
+		if(list>0){
 			retult = SUCCESS;
 		}
 		return retult;
