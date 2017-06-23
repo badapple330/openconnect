@@ -251,7 +251,7 @@
 
 				<s:if test="%{#session.userFlg >= 3}">
 					<div class="page_content_frame">
-						<div class="insert_table pad font140">
+						<div class="insert_table pad font120">
 							<s:form action="BooksInsertAction">
 								<h3 class="center">書籍の追加</h3>
 								<table class="insert-table">
