@@ -89,11 +89,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 	public String execute(){
 		String ret = ERROR;
 
-		/*if(teamName.get(0).equals(null)){
-			search = "";
-		} else {*/
 		search = teamName.get(0);
-		/*}*/
 
 		ScheduleUpdateDAO dao = new ScheduleUpdateDAO();
 		int count = 0;
@@ -105,8 +101,6 @@ public class ScheduleUpdateAction extends ActionSupport {
 					scheduleEnddayList.get(i),
 					scheduleTitleList.get(i)
 					);
-
-
 		}
 		if ( count > 0) {
 			successMsg=(getText("更新しました。"));
