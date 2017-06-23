@@ -80,7 +80,8 @@
 							<th>end</th>
 							<th>title</th>
 							<th>チーム名(編集不可)</th>
-							<th></th>
+							<th>削除</th>
+							<th>編集</th>
 						</tr>
 
 						<!-- scheduleListに格納した情報をテーブルで表示 -->
@@ -110,15 +111,15 @@
 								<td>
 										<input type="button" class="button modal-open" value="削除" />
 								</td>
+								<td>
+									<button type="submit" class="button" style="width:45px">編集</button>
+								</td>
 							</tr>
 							<input type="hidden" name="scheduleIdList"
 								value="<s:property value="id" />" class="scheduleIdList">
 						</s:iterator>
 					</tbody>
 				</table>
-
-
-					<button type="submit" class="button">編集</button>
 
 			</s:form>
 
