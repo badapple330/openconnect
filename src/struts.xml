@@ -230,6 +230,13 @@
 			<result name="success" type="chain">StudentsSelectAction</result>
 			<result name="error" type="chain">StudentsSelectAction</result>
 		</action>
+		<action name="StudentsDeleteAction2"
+			class="com.internousdev.openconnect.students.action.StudentsDeleteAction2"
+			method="execute">
+			<result name="success" type="chain">StudentsSelectAction</result>
+			<result name="error" type="chain">StudentsSelectAction</result>
+		</action>
+
 		<action name="StudentsSearchAction"
 			class="com.internousdev.openconnect.students.action.StudentsSearchAction"
 			method="execute">
