@@ -60,7 +60,7 @@
 						<td><input id="postBtn" type="submit" value="丸ごと削除"></td>
 			</s:form></s:if>
 			<br>
-
+<div class="table">
 			<s:if test="%{studentsList.size() >0}">
 
 				<table border="1"class="demo3">
@@ -144,7 +144,7 @@
 							value="<s:property value="userId" />" class="userId">
 					</s:iterator>
 				</table>
-			</s:if>
+			</s:if></div>
 			<div id="modal-deleteMain">
 				id ：
 				<div class="deleteUserId modalString"></div>
@@ -209,9 +209,10 @@
 		<%-- <s:else>
 		ログイン後に表示します。
 		</s:else> --%>
+		<div class="back">
 		<s:form action="GetAddressAction">
 			<button type="submit" class="button">戻る</button>
-		</s:form>
+		</s:form></div>
 	</div>
 	<br>
 </body>

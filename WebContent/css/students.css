@@ -112,7 +112,7 @@ body {
 }
 .inner{
 	position: absolute;
-  top: 428px;
+  top: 336px;
   left: 49%;
   -webkit-transform: translateY(-50%) translateX(-50%);
   transform: translateY(-50%) translateX(-50%);
@@ -129,7 +129,7 @@ body {
     margin-left: auto;
 }
 .title {
-	margin-top:-87px;
+	margin-top:-18px;
     padding-left: 76px;
     padding-right: 15px;
     margin-left: auto;
