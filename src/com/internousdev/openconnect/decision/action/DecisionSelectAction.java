@@ -171,7 +171,7 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
     public int persons;
 
 
-
+	private String resultString = "表示できません。";
 
 
 	/*
@@ -216,19 +216,12 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 		e.printStackTrace();
 		}
 
-		if(decisionList!=null){
 
-			DecisionDAO decisionDAO = new DecisionDAO();
-			try {
-				nameList = decisionDAO.selectByUserId(userId);
-			} catch (UnknownException e) {
-				e.printStackTrace();
-			}
-
-		}
 
 		result=SUCCESS;
+		resultString = "表示しました。";
 		return result;
+
 		}
 
 	/**
@@ -753,6 +746,26 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	}
 
 
+
+	/**
+	* 取得メソッド を取得
+	* @author KOHEI NITABARU
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @author KOHEI NITABARU
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
 
 
 
