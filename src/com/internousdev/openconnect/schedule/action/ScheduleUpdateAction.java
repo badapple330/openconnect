@@ -101,8 +101,6 @@ public class ScheduleUpdateAction extends ActionSupport {
 					scheduleEnddayList.get(i),
 					scheduleTitleList.get(i)
 					);
-
-
 		}
 		if ( count > 0) {
 			successMsg=(getText("更新しました。"));
