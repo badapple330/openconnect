@@ -35,7 +35,14 @@
 	<table class="teamedit">
 	<tr>
 		<td>チーム名：</td>
-		<td><input type="text" name=teamName  size="30" pattern="^[0-9A-Za-z]+$" required="required" value="<s:property value="teamName"/>" placeholder="半角英数で入力してください" title="半角英数で入力してください"/></td>
+		<td>
+			<select name="search" required="required">
+				<option value="">以下から選択</option>
+					<s:iterator value="teamList">
+						<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
+					</s:iterator>
+			</select>
+		</td>
 	</tr>
 	<tr>
 		<td>役職：</td>
