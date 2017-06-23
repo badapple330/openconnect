@@ -77,7 +77,7 @@ public class DecisionDetailApplicationDAO {
 	/**
 	 * DBの起案番号と照合し完全一致する起案番号を取得する為のメソッド
 	 */
-	public DecisionDetailDTO compareId(String decisionType, String compareId) {
+	public DecisionDetailDTO compareIdSelect(String decisionType, String stringId) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = null;
 		con = db.getConnection();
@@ -98,7 +98,7 @@ public class DecisionDetailApplicationDAO {
 		try {
 			PreparedStatement ps = null;
 			ps = con.prepareStatement(sql);
-			ps.setString(1, compareId);
+			ps.setString(1, stringId);
 
 			ResultSet rs = ps.executeQuery();
 
