@@ -52,6 +52,13 @@
 			<br>
 			<s:property value="%{resultString}" />
 			<s:property value="%{resultSelect}" />
+			<s:if test="%{#session.userFlg == 3}">
+			<s:form action="StudentsDeleteAction2">
+						<h5>開始月で丸ごと削除</h5>
+					<td><input type="text" name="month" pattern="([0-1][0-9])"
+						maxlength="2" required title="08" placeholder="08" /></td>
+						<td><input id="postBtn" type="submit" value="丸ごと削除"></td>
+			</s:form></s:if>
 			<br>
 
 			<s:if test="%{studentsList.size() >0}">
