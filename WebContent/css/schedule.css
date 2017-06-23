@@ -108,8 +108,8 @@
         .scheduleTitleList {
             width: 100px;
         }
-        #suchedule th:nth-child(5),
-        #suchedule td:nth-child(5) {
+        #schedule th:nth-child(5),
+        #schedule td:nth-child(5) {
             display: none;
         }
 

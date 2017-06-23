@@ -18,7 +18,7 @@ public class DecisionDetailPermitDAO {
 
 
 	/**
-     * 実施決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
+     * 実施決裁の先生承認時メソッド  承認による値の更新と実施_承認者ID(3人目:先生)の登録をする為のメソッド
      */
 	public int updatePJ( String jDecId, int jpermiterId3, int decisionId ) {
 
@@ -53,12 +53,12 @@ public class DecisionDetailPermitDAO {
 
 
 	/**
-     * 契約決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
+     * 契約決裁の先生承認時メソッド  承認による値の更新と契約_承認者ID(3人目:先生)の登録をする為のメソッド
      */
 	public int updatePK( String kDecId, int kPermiterId3, int decisionId ) {
 
 		int count = 0;
-		//updateK( cdId, permitUserId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
+
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
 		String sql = "update decision set decision_status2 = 2, permit_status = 0, k_dec_id = ?, k_permiter_id3 = ? where decision_id = ?";
@@ -88,7 +88,7 @@ public class DecisionDetailPermitDAO {
 
 
 	/**
-     * 実施兼契約決裁の先生承認時メソッド  承認による値の更新と承認者ID3の登録をする為のメソッド
+     * 実施兼契約決裁の先生承認時メソッド  承認による値の更新と実施兼契約_承認者ID(3人目:先生)の登録をする為のメソッド
      */
 	public int updatePJK( String jkDecId, int jkPermiterId3, int decisionId ) {
 
@@ -126,7 +126,7 @@ public class DecisionDetailPermitDAO {
 
 
 	/**
-     * リーダー承認時メソッド  承認による値の更新と承認者IDの登録をする為のメソッド
+     * リーダー承認時メソッド  承認による値の更新と承認者ID(リーダー)の登録をする為のメソッド
      */
 	public int updateP( String decisionType, int permitStatus, int userId, int decisionId ) {
 

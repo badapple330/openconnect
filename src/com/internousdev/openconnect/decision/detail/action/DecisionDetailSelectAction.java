@@ -13,6 +13,7 @@ import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
+
 /**
  * DBの情報を画面に表示する為のクラス
  * @author TATUHUMI ITOU, SOSHI AZUMA
@@ -47,6 +48,10 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 */
 	private Map<String, Object> session;
 	/**
+	 * セッションユーザーID
+	 */
+	private int userId;
+	/**
 	 * エラー文字1
 	 */
 	private String resultSelect1 = "全プロジェクト検索結果を表示しました";
@@ -61,13 +66,18 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
 	public String execute() throws Exception {
+
 		String result=ERROR;
 
-		//int userFlg = (int) session.get("userFlg");
+		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
+
+
 		int userId = (int) session.get("userId");
 		int userId1 = userId;
 
-		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
+
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+		dto.setUserId( userId );
 
 
 		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
@@ -186,6 +196,26 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	*/
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 

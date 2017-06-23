@@ -17,12 +17,12 @@
 		<jsp:include page="header.jsp" />
 
 <div class="container">
-<s:if test="%{#session.userFlg >= 1}">
+<s:if test="%{#session.userFlg >= 1 && #session.userId != null}">
 
 			<br>
 			<!-- 一覧表示 -->
 			<h1>決裁手続き一覧</h1>
-			ログイン中ユーザー：<s:property value="#session.user" /><br>ID:<s:property value="#session.userId" /><br>
+			ログイン中ユーザーID:<s:property value="#session.userId" /><br>
 
 
 			<s:form action="DecisionDetailSelectAction">
@@ -38,7 +38,9 @@
 			<s:property value="%{resultSelect1}" />
 			<s:property value="%{resultSelect2}" />
 			</font>
-
+<p>自のlist内：<s:property value="%{decisionDetailList2.size()}" />個</p>
+		<p>全のlist内：<s:property value="%{decisionDetailList1.size()}" />個</p>
+		<p>決裁未作成のlist内：<s:property value="%{decisionBeginList.size()}" />個</p>
 
 
 
@@ -54,9 +56,6 @@
 			<table border="1">
 
 				<tr>
-					<th>決裁ID</th>
-
-                    <th>プロジェクトID</th>
 					<th>プロジェクト名</th>
 
 					<th>決裁種類</th>
@@ -95,16 +94,6 @@
 
 
 				<tr>
-				<!-- 決裁ID -->
-					<td class="decision_id">
-						<s:property value="decisionId" />
-					</td>
-
-
-				<!-- プロジェクトID -->
-					<td class="project_id">
-						<s:property value="projectId" />
-					</td>
 				<!-- プロジェクト名 -->
 					<td class="project_name">
 						<s:property value="projectName" />
@@ -286,6 +275,9 @@
 			</s:form>
 				</div>
 			</s:if>
+			<s:else>
+			nasi
+			</s:else>
 
 		</s:iterator>
 
@@ -301,9 +293,6 @@
 
 			<table border="1">
 				<tr>
-					<th>決裁ID</th>
-
-                    <th>プロジェクトID</th>
 					<th>プロジェクト名</th>
 
 					<th>決裁種類</th>
@@ -325,16 +314,6 @@
 				<s:iterator value="decisionDetailList1">
 
 				<tr>
-			<!-- 決裁ID -->
-					<td class="decision_id">
-						<s:property value="decisionId" />
-					</td>
-
-
-			<!-- プロジェクトID -->
-					<td class="project_id">
-						<s:property value="projectId" />
-					</td>
 			<!-- プロジェクト名 -->
 					<td class="project_name">
 						<s:property value="projectName" />

@@ -31,7 +31,7 @@ public class DecisionDetailSelectDAO {
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 2 and ( manager_id != ? and sub_manager_id != ? ) and project_name LIKE '%" + searchString + "%'";
+				+"where decision_status2 != 4 and ( manager_id != ? and sub_manager_id != ? ) and project_name LIKE '%" + searchString + "%'";
 
 		List<DecisionDetailDTO> decisionDetailList1 = new ArrayList<DecisionDetailDTO>();
 
@@ -88,7 +88,7 @@ public class DecisionDetailSelectDAO {
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 2 and ( manager_id = ? or sub_manager_id = ? )";
+				+"where decision_status2 != 4 and ( manager_id = ? or sub_manager_id = ? )";
 
 		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
 
@@ -162,6 +162,7 @@ public class DecisionDetailSelectDAO {
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setDecisionId(rs.getInt("decision_id"));
 
+
 				decisionBeginList.add( dto );
 			}
 		}catch (SQLException e) {
@@ -177,6 +178,37 @@ public class DecisionDetailSelectDAO {
 		return decisionBeginList ;
 	}
 
+
+ /*public DecisionDetailDTO selectUserId( int sessionUserId ){
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
+
+		Connection con = db.getConnection();
+
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+
+		String sql ="select user_id from users where user_id = ?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, sessionUserId);
+
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()){
+				dto.setUserId(rs.getInt("user_id"));
+			}
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}try{
+			con.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}return dto;
+		}
+*/
 
 
 }
