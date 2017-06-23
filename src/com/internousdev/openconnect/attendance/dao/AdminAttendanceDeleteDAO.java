@@ -19,10 +19,10 @@ public class AdminAttendanceDeleteDAO {
 
 	/**
 	 * 月が一致するデータを全件削除するメソッド
-	 * @param at_month
+	 * @param atMonth
 	 * @return list
 	 */
-	public int delete(int at_month){
+	public int delete(int atMonth){
 		int list = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -31,7 +31,7 @@ public class AdminAttendanceDeleteDAO {
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,at_month);
+			ps.setInt(1,atMonth);
 			list = ps.executeUpdate();
 
 		} catch(SQLException e){

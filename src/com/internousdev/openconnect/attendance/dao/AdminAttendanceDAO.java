@@ -40,7 +40,7 @@ public class AdminAttendanceDAO {
 	 * @param givenNameKanji
 	 * @param attendance
 	 * @param teamName
-	 * @return
+	 * @return searchList
 	 */
 	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String familyNameKanji,String givenNameKanji,String attendance, String teamName) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
