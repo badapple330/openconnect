@@ -29,6 +29,7 @@
 				プロジェクト検索
 				<input type="text" placeholder="例：legmina" name="searchString"
 					maxlength=30>
+				<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 				<input type="submit" value="検索" />
 			</s:form>
 
@@ -88,6 +89,10 @@
 
 					<s:if test="decisionStatus1 == 3 || decisionStatus2 == 3">
 					<th>変更</th>
+					</s:if>
+
+					<s:if test="decisionStatus2 == 2"><!-- &&終了日を過ぎた場合 -->
+					<th>遡求</th>
 					</s:if>
                 </tr>
 
@@ -224,9 +229,21 @@
 					<s:if test="%{decisionStatus1 == 3 || decisionStatus2 == 3}">
 					<td>
 						<s:form action="DecisionSelectAction">
-							<!-- <input type="hidden" name="userId" value="<s:property value="#session.userId" />"> -->
 							<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-							<input type="submit" value="変更" />
+							<input type="submit" value="変更編集" />
+						</s:form>
+					</td>
+					</s:if>
+
+
+				<!-- 遡求ボタン -->
+
+					<!-- 最終承認済みかつ終了日を過ぎた時のみ表示 -->
+					<s:if test="decisionStatus2 == 2"><!-- &&終了日を過ぎた場合 -->
+					<td>
+						<s:form action="DecisionSelectAction">
+							<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+							<input type="submit" value="遡求申請" />
 						</s:form>
 					</td>
 					</s:if>
@@ -309,6 +326,11 @@
 
 					<th>差し戻し</th>
 					<th>却下</th>
+
+					<s:if test="%{#session.userFlg == 3 && decisionStatus == 2}">
+					<th>リリース完了</th>
+					</s:if>
+
 					</s:if>
 
 				</tr>
@@ -405,6 +427,7 @@
 								<s:if test="permitStatus == 0">
 									<s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
 										<input type="hidden" name="permitStatus" value="1">
 												<input type="submit" value=" 実施承認1人目">
 									</s:form>
@@ -413,6 +436,7 @@
 								<s:elseif test="permitStatus == 1">
 									<s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
 										<input type="hidden" name="permitStatus" value="2">
 										<s:if test="%{permitUserId1 == #session.userId}">
 											あなたが1人目の承認者
@@ -462,6 +486,7 @@
 								<s:if test="permitStatus == 0">
                                     <s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
 										<input type="hidden" name="permitStatus" value="1">
 										<s:if test="%{decisionType == '契約'}">
 												<input type="submit" value="契約承認1人目">
@@ -475,6 +500,7 @@
 								<s:elseif test="permitStatus == 1">
                                     <s:form action="DecisionDetailPermitAction">
 										<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+										<input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
 										<input type="hidden" name="permitStatus" value="2">
 										<s:if test="%{permitUserId1 == #session.userId}">
 											あなたが1人目の承認者
@@ -596,6 +622,18 @@
 					</s:else>
 					</td>
 
+
+
+
+			<!-- リリース完了ボタン -->
+					<s:if test="%{#session.userFlg == 3 && decisionStatus == 2}">
+					<td>
+					<s:form action="DecisionDetailReleaseAction">
+						<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+						<input type="submit" value="リリース完了" />
+					</s:form>
+					</td>
+					</s:if>
 
 
 		</s:if>

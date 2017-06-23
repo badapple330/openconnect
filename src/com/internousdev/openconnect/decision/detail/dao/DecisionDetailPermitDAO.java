@@ -158,7 +158,7 @@ public class DecisionDetailPermitDAO {
 
 			ps.setInt(1, permitStatus);
 
-			if(decisionType.equals("実施")) {
+			if(decisionType == "実施" || decisionType.equals("実施")) {
 				if(permitStatus == 1) {
 					int jPermiterId1 = userId;
 					ps.setInt(2, jPermiterId1);

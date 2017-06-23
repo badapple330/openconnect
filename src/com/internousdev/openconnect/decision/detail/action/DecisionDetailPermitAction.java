@@ -43,6 +43,10 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	 */
 	private String decisionType;
 	/**
+	 * sessionから取得したログイン中ユーザーID
+	 */
+	private int userId;
+	/**
 	 * エラーメッセージ
 	 */
 	private String resultString = "承認できませんでした。";
@@ -83,8 +87,8 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		DecisionDetailPermitDAO daoPer = new DecisionDetailPermitDAO();
 		DecisionDetailApplicationDAO daoApp = new DecisionDetailApplicationDAO();
 
-		DecisionDetailDTO dto = new DecisionDetailDTO();
-		int userId = dto.getUserId();
+		//DecisionDetailDTO dto = new DecisionDetailDTO();
+		//int userId = dto.getUserId();
 
 
 		int jPermiterId3;
@@ -217,6 +221,26 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 	public void setDecisionType(String decisionType) {
 		this.decisionType = decisionType;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 

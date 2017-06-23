@@ -83,16 +83,16 @@ public class DecisionDetailApplicationDAO {
 		con = db.getConnection();
 		DecisionDetailDTO dto = new DecisionDetailDTO();
 
-		String sql = "select * from decision where";
+		String sql;
 
 		if(decisionType.equals("実施")) {
-			sql = sql + " j_imp_id =?";
+			sql = "select j_imp_id from decision where j_imp_id =?";
 		}
 		else if(decisionType.equals("契約")) {
-			sql = sql + " k_imp_id = ?";
+			sql = "select k_imp_id from decision where k_imp_id = ?";
 		}
 		else {
-			sql = sql + " jk_imp_id = ?";
+			sql = "select jk_imp_id from decision where jk_imp_id = ?";
 		}
 
 		try {

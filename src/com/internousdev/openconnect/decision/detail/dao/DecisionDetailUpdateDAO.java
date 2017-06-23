@@ -101,4 +101,39 @@ public class DecisionDetailUpdateDAO {
 	}
 
 
+
+	/**
+     * リリース完了ボタン押下時メソッド  リリース完了による値の更新する為のメソッド
+     */
+	public int release( int decisionId ) {
+
+		int count = 0;
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
+		Connection con = db.getConnection();
+		String sql = "update decision set decision_status2 = 4 where decision_id = ?";
+
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, decisionId);
+
+			count = ps.executeUpdate();
+
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			try{
+				con.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return count;
+
+	}
+
+
 }

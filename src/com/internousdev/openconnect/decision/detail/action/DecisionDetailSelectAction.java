@@ -42,6 +42,10 @@ public class DecisionDetailSelectAction extends ActionSupport {
 	 */
 	private String searchString = "";
 	/**
+	 * sessionから取得したログイン中ユーザーID
+	 */
+	private int userId;
+	/**
 	 * 管理者権限メソッド
 	 */
 	private Map<String, Object> session;
@@ -70,8 +74,8 @@ public class DecisionDetailSelectAction extends ActionSupport {
 		//int userId1 = userId;
 
 
-		DecisionDetailDTO dto = new DecisionDetailDTO();
-		int userId = dto.getUserId();
+		//DecisionDetailDTO dto = new DecisionDetailDTO();
+		//int userId = dto.getUserId();
 		int userId1 = userId;
 
 
@@ -171,6 +175,26 @@ public class DecisionDetailSelectAction extends ActionSupport {
 	*/
 	public void setSearchString(String searchString) {
 		this.searchString = searchString;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 

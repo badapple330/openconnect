@@ -58,22 +58,22 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 
 		String result=ERROR;
 
+		DecisionDetailApplicationDAO dao = new DecisionDetailApplicationDAO();
+
+
 		//現在日時を取得する
         Calendar c = Calendar.getInstance();
         //フォーマットパターンを指定して表示する
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String num = sdf.format( c.getTime() );
+        	String num = sdf.format( c.getTime() );
 
-		//起案番号の生成
-		String jImpId = "KN-" + num + "-";
-		String kImpId = "K-KN-" + num + "-";
-		String jkImpId = "KN-" + num + "-";
+			//起案番号の生成
+			String jImpId = "KN-" + num + "-";
+			String kImpId = "K-KN-" + num + "-";
+			String jkImpId = "KN-" + num + "-";
 
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
-
-
-		DecisionDetailApplicationDAO dao = new DecisionDetailApplicationDAO();
 
 
 		//DBに完全一致する番号が既に存在する場合に申請を拒否する為の準備
@@ -82,12 +82,12 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 			String compareId = dto.getCompareId();
 
 
-		String idNum = "";
-		int count = 0;
+			String idNum = "";
+			int count = 0;
 
 
 		//完全一致する番号が存在しない場合
-		if(compareId.equals("")) {
+		if(compareId == null || compareId.equals("")) {
 
 			//実施決裁の申請
 			if(decisionType.equals("実施")) {
@@ -158,9 +158,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 				resultString = "申請できました! ";
 			}
 
-
 		}
-
 
 
 		return result;
