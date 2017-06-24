@@ -285,7 +285,7 @@
 
 
 
-		<!-- 決済状況一覧画面への遷移 -->
+		<!-- 決裁状況一覧画面への遷移 -->
 		<action name="DecisionSelectAction"
 			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
 			method="execute">
@@ -308,7 +308,7 @@
 		</action>
 
 
-		<!-- 決済手続き電子化画面への遷移 -->
+		<!-- 決裁手続き画面への遷移 -->
 		<action name="GoDecisionAction"
 			class="com.internousdev.openconnect.decision.detail.action.GoDecisionAction"
 			method="execute">
@@ -357,6 +357,13 @@
 
 		<action name="DecisionDetailRejectAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRejectAction"
+			method="execute">
+			<result name="success">decision_detail.jsp</result>
+			<result name="error">decision_detail.jsp</result>
+		</action>
+
+		<action name="DecisionDetailReleaseAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailReleaseAction"
 			method="execute">
 			<result name="success">decision_detail.jsp</result>
 			<result name="error">decision_detail.jsp</result>
@@ -453,7 +460,7 @@
 		</action>
 
 		<action name="AdminAttendanceAction" method="execute"
-			class="com.internousdev.openconnect.attendance.AdminAttendanceAction">
+			class="com.internousdev.openconnect.attendance.action.AdminAttendanceAction">
 
 			<result name="success">attendance.jsp</result>
 
