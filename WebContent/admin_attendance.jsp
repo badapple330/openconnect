@@ -178,8 +178,14 @@
 
 		</table>
 
-
+		<!-- 一覧モーダル -->
 		<div id="modal-atlist" style="display: none;">
+
+		<div class="modal-header">
+        <button type="button" class="close" id="modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">勤怠確認</h4>
+      </div>
+
 		<table style="margin-top: 10px;" class="type11">
 			<thead>
 				<tr>
@@ -209,12 +215,13 @@
 					</tr>
 				</s:iterator>
 
+				</tbody>
+			</table>
 
-			</tbody>
-
-		</table>
-		<input type="button" class="modal-close button" value="閉じる">
-		</div>
+			<div class="modal-footer">
+        		<button type="button" id="modal-close" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+        	</div>
+       </div>
 
 	</div>
 
