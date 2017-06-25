@@ -22,7 +22,7 @@ import com.internousdev.util.DBConnector;
 public class DecisionDetailSelectDAO {
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
+	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
 	 * 自プロジェクト以外を呼び出す専用
 	 * @author TATUHUMI ITOU, SOSHI AZUMA
 	 */
@@ -55,12 +55,12 @@ public class DecisionDetailSelectDAO {
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setPermitStatus(rs.getInt("permit_status"));
-				dto.setjPermiterId1(rs.getInt("j_permiter_id1"));
-				dto.setjPermiterId2(rs.getInt("j_permiter_id2"));
-				dto.setjPermiterId3(rs.getInt("j_permiter_id3"));
-				dto.setkPermiterId1(rs.getInt("k_permiter_id1"));
-				dto.setkPermiterId2(rs.getInt("k_permiter_id2"));
-				dto.setkPermiterId3(rs.getInt("k_permiter_id3"));
+				dto.setJPermiterId1(rs.getInt("j_permiter_id1"));
+				dto.setJPermiterId2(rs.getInt("j_permiter_id2"));
+				dto.setJPermiterId3(rs.getInt("j_permiter_id3"));
+				dto.setKPermiterId1(rs.getInt("k_permiter_id1"));
+				dto.setKPermiterId2(rs.getInt("k_permiter_id2"));
+				dto.setKPermiterId3(rs.getInt("k_permiter_id3"));
 
 				decisionDetailList1.add( dto );
 			}
@@ -79,8 +79,8 @@ public class DecisionDetailSelectDAO {
 
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
-	 * ログインユーザーの自プロジェクトを呼び出す専用
+	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
+	 * ログイン中ユーザーの自プロジェクトを呼び出す専用
 	 * @author TATUHUMI ITOU, SOSHI AZUMA
 	 */
 	public List<DecisionDetailDTO> selectMyD( int userId, int userId1 ){
@@ -112,8 +112,8 @@ public class DecisionDetailSelectDAO {
 
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
-				dto.setjImpId(rs.getString("j_imp_id"));
-				dto.setkImpId(rs.getString("k_imp_id"));
+				dto.setJImpId(rs.getString("j_imp_id"));
+				dto.setKImpId(rs.getString("k_imp_id"));
 				dto.setJkImpId(rs.getString("jk_imp_id"));
 
 				decisionDetailList2.add( dto );
@@ -133,8 +133,8 @@ public class DecisionDetailSelectDAO {
 
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
-	 * ログインユーザーの決裁未作成の自プロジェクトを呼び出す専用
+	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
+	 * ログイン中ユーザーの決裁未着手の自プロジェクトを呼び出す専用
 	 * @author SOSHI AZUMA
 	 */
  	public List<DecisionDetailDTO> selectP(int userId, int userId1){
@@ -162,7 +162,6 @@ public class DecisionDetailSelectDAO {
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setDecisionId(rs.getInt("decision_id"));
 
-
 				decisionBeginList.add( dto );
 			}
 		}catch (SQLException e) {
@@ -177,38 +176,6 @@ public class DecisionDetailSelectDAO {
 
 		return decisionBeginList ;
 	}
-
-
- /*public DecisionDetailDTO selectUserId( int sessionUserId ){
-
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-
-		Connection con = db.getConnection();
-
-		DecisionDetailDTO dto = new DecisionDetailDTO();
-
-		String sql ="select user_id from users where user_id = ?";
-
-		try{
-			PreparedStatement ps = con.prepareStatement(sql);
-
-			ps.setInt(1, sessionUserId);
-
-			ResultSet rs = ps.executeQuery();
-
-			if(rs.next()){
-				dto.setUserId(rs.getInt("user_id"));
-			}
-
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}try{
-			con.close();
-		}catch(SQLException e){
-			e.printStackTrace();
-		}return dto;
-		}
-*/
 
 
 }

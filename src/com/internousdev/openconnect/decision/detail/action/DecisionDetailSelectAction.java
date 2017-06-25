@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
- * DBの情報を画面に表示する為のクラス
+ * DBの決裁情報を画面に表示する為のクラス
  * @author TATUHUMI ITOU, SOSHI AZUMA
  * @since 2016/09/04
  * @version 1.0
@@ -60,8 +60,8 @@ public class DecisionDetailSelectAction extends ActionSupport {
 
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * 実行メソッド DAOから指定した決裁情報を取得する
+	 * @return result 決裁情報の取得に成功したらSUCCESS, 失敗したらERROR
 	 */
 	public String execute() throws Exception {
 
@@ -72,11 +72,14 @@ public class DecisionDetailSelectAction extends ActionSupport {
 
 		//int userId = (int) session.get("userId");
 		//int userId1 = userId;
-
-
-		//DecisionDetailDTO dto = new DecisionDetailDTO();
-		//int userId = dto.getUserId();
 		int userId1 = userId;
+
+		if(userId < 0) {
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+		int userId = dto.getUserId();
+		userId1 = userId;
+		}
+
 
 
 		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );

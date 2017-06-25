@@ -4,15 +4,12 @@
 package com.internousdev.openconnect.decision.detail.action;
 
 
-import java.util.List;
 import java.util.Map;
 
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailInsertDAO;
-import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
-import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * 決裁手続き画面で新規に追加した情報を、DBに追加する為のクラス
+ * 新規決裁追加ボタン押下時にDBに情報を格納するクラス
  * @author TATUHUMI ITOU, SOSHI AZUMA
  * @since 2016/09/04
  * @version 1.0
@@ -41,42 +38,20 @@ public class DecisionDetailInsertAction extends ActionSupport {
 	 */
 	public Map<String, Object> session;
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * sessionから取得したログイン中ユーザーID
+	 */
+	private int userId;
+
+
+
+	/**
+	 * 実行メソッド 追加による値の格納をする
+	 * @return result 決裁情報の追加に成功したらSUCCESS, 失敗したらERROR
 	 */
 	public String execute() {
 
 		String result=ERROR;
 
-
-		//多重作成をチェックする
-		DecisionDetailSelectDAO daoS = new DecisionDetailSelectDAO();
-		DecisionDetailDTO dto = new DecisionDetailDTO();
-
-
-		int userId = dto.getUserId();
-		int userId1 = userId;
-
-		List<DecisionDetailDTO> checkDouble;
-		checkDouble = daoS.selectP( userId, userId1 );
-
-		if(checkDouble.size() == 0) {
-
-			DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();
-
-			int count = 0;
-			int decisionStatus1 = 0;
-
-			count = dao.insert( projectId, decisionType, decisionStatus1 );
-
-			if (count > 0 ) {
-				result = SUCCESS;
-				resultString = "追加できました! 1度検索ボタンを押してください。";
-			}
-
-		}
-
-/*
 		DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();
 
 		int count = 0;
@@ -86,11 +61,13 @@ public class DecisionDetailInsertAction extends ActionSupport {
 
 		if (count > 0 ) {
 			result = SUCCESS;
-			resultString = "追加できました! 1度検索ボタンを押してください。";
-		}*/
+			resultString = "追加できました!";
+		}
 
 		return result;
 	}
+
+
 
 	/**
 	* 取得メソッド プロジェクトIDを取得
@@ -153,6 +130,22 @@ public class DecisionDetailInsertAction extends ActionSupport {
 	*/
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 

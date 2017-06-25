@@ -49,7 +49,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	/**
 	 * エラーメッセージ
 	 */
-	private String resultString = "承認できませんでした。";
+	private String resultString = "承認できませんでした。もしくは承認済みです。";
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -59,6 +59,14 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	 */
 	private List<DecisionDetailDTO> idNumList = new ArrayList<DecisionDetailDTO>();
 
+	private String token;
+
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
 
 
 	/**
@@ -83,12 +91,8 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
 
-		//DecisionDetailDTO dto = new DecisionDetailDTO();
 		DecisionDetailPermitDAO daoPer = new DecisionDetailPermitDAO();
 		DecisionDetailApplicationDAO daoApp = new DecisionDetailApplicationDAO();
-
-		//DecisionDetailDTO dto = new DecisionDetailDTO();
-		//int userId = dto.getUserId();
 
 
 		int jPermiterId3;
@@ -100,7 +104,6 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 		//リーダーの承認
 		if(permitStatus == 1 || permitStatus == 2) {
-
 			count = daoPer.updateP(decisionType, permitStatus, userId, decisionId);
 		}
 
@@ -182,8 +185,6 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		return decisionId;
 	}
 
-
-
 	/**
 	* 設定メソッド を設定
 	* @param decisionId
@@ -191,8 +192,6 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
 	}
-
-
 
 	/**
 	* 取得メソッド を取得
@@ -202,8 +201,6 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		return permitStatus;
 	}
 
-
-
 	/**
 	* 設定メソッド を設定
 	* @param permitStatus
@@ -212,19 +209,13 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		this.permitStatus = permitStatus;
 	}
 
-
-
 	public String getDecisionType() {
 		return decisionType;
 	}
 
-
-
 	public void setDecisionType(String decisionType) {
 		this.decisionType = decisionType;
 	}
-
-
 
 	/**
 	* 取得メソッド を取得
@@ -234,8 +225,6 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		return userId;
 	}
 
-
-
 	/**
 	* 設定メソッド を設定
 	* @param userId
@@ -243,8 +232,6 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
-
 
 	/**
 	* 取得メソッド 結果を取得
@@ -278,13 +265,9 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		this.session = session;
 	}
 
-
-
 	public List<DecisionDetailDTO> getIdNumList() {
 		return idNumList;
 	}
-
-
 
 	public void setIdNumList(List<DecisionDetailDTO> idNumList) {
 		this.idNumList = idNumList;

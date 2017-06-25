@@ -4,15 +4,16 @@
 package com.internousdev.openconnect.decision.detail.dto;
 
 /**
+ * 決裁手続きに関するデータを溜め込むDTOクラス。
  * @author SOSHI AZUMA
- * 決裁手続きから検索したデータを溜め込むクラス。
  * @since 2017/06/15
+ * @version 1.0
  */
 public class DecisionDetailDTO {
 
 
 	/**
-	 * 起案番号一時保管庫
+	 * 起案番号一時保管庫(DecisionDetailApplicationDAO)
 	 */
 	private String idNumAmount;
 
@@ -29,27 +30,6 @@ public class DecisionDetailDTO {
 	*/
 	public void setIdNumAmount(String idNumAmount) {
 		this.idNumAmount = idNumAmount;
-	}
-
-
-
-	/**
-	 * 比較用起案番号一時保管庫
-	 */
-	private String compareId;
-	/**
-	* 取得メソッド を取得
-	* @return compareId
-	*/
-	public String getCompareId() {
-		return compareId;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param compareId
-	*/
-	public void setCompareId(String compareId) {
-		this.compareId = compareId;
 	}
 
 
@@ -72,7 +52,6 @@ public class DecisionDetailDTO {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
 
 
 
@@ -302,28 +281,28 @@ public class DecisionDetailDTO {
 	* 取得メソッド を取得
 	* @return jImpId
 	*/
-	public String getjImpId() {
+	public String getJImpId() {
 		return jImpId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param jImpId
 	*/
-	public void setjImpId(String jImpId) {
+	public void setJImpId(String jImpId) {
 		this.jImpId = jImpId;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return kImpId
 	*/
-	public String getkImpId() {
+	public String getKImpId() {
 		return kImpId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param kImpId
 	*/
-	public void setkImpId(String kImpId) {
+	public void setKImpId(String kImpId) {
 		this.kImpId = kImpId;
 	}
 	/**
@@ -358,84 +337,84 @@ public class DecisionDetailDTO {
 	* 取得メソッド を取得
 	* @return jPermiterId1
 	*/
-	public int getjPermiterId1() {
+	public int getJPermiterId1() {
 		return jPermiterId1;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param jPermiterId1
 	*/
-	public void setjPermiterId1(int jPermiterId1) {
+	public void setJPermiterId1(int jPermiterId1) {
 		this.jPermiterId1 = jPermiterId1;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return jPermiterId2
 	*/
-	public int getjPermiterId2() {
+	public int getJPermiterId2() {
 		return jPermiterId2;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param jPermiterId2
 	*/
-	public void setjPermiterId2(int jPermiterId2) {
+	public void setJPermiterId2(int jPermiterId2) {
 		this.jPermiterId2 = jPermiterId2;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return jPermiterId3
 	*/
-	public int getjPermiterId3() {
+	public int getJPermiterId3() {
 		return jPermiterId3;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param jPermiterId3
 	*/
-	public void setjPermiterId3(int jPermiterId3) {
+	public void setJPermiterId3(int jPermiterId3) {
 		this.jPermiterId3 = jPermiterId3;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return kPermiterId1
 	*/
-	public int getkPermiterId1() {
+	public int getKPermiterId1() {
 		return kPermiterId1;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param kPermiterId1
 	*/
-	public void setkPermiterId1(int kPermiterId1) {
+	public void setKPermiterId1(int kPermiterId1) {
 		this.kPermiterId1 = kPermiterId1;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return kPermiterId2
 	*/
-	public int getkPermiterId2() {
+	public int getKPermiterId2() {
 		return kPermiterId2;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param kPermiterId2
 	*/
-	public void setkPermiterId2(int kPermiterId2) {
+	public void setKPermiterId2(int kPermiterId2) {
 		this.kPermiterId2 = kPermiterId2;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return kPermiterId3
 	*/
-	public int getkPermiterId3() {
+	public int getKPermiterId3() {
 		return kPermiterId3;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param kPermiterId3
 	*/
-	public void setkPermiterId3(int kPermiterId3) {
+	public void setKPermiterId3(int kPermiterId3) {
 		this.kPermiterId3 = kPermiterId3;
 	}
 
