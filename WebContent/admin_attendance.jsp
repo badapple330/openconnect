@@ -171,6 +171,8 @@
 						<td><s:property value="attendance" /></td>
 						<td width="1000"><s:property value="reason" /></td>
 					</tr>
+
+					<input type="hidden" name="modalList"value="searchList" class="modal-list">
 				</s:iterator>
 
 

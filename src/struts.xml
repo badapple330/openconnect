@@ -463,14 +463,7 @@
 			<result name="error">project_progress.jsp</result>
 		</action>
 
-		<action name="AdminAttendanceAction" method="execute"
-			class="com.internousdev.openconnect.attendance.action.AdminAttendanceAction">
 
-			<result name="success">attendance.jsp</result>
-
-			<result name="error">attendance.jsp</result>
-
-		</action>
 
 
 	</package>
