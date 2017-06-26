@@ -20,8 +20,8 @@ publisher varchar(100) not null comment '出版社',
 publish_day varchar(10) not null comment '出版日',
 initial varchar(10) not null comment 'イニシャル(例:ア,カ,サ/A,B,C/数字)',
 status_flg tinyint(1) not null default '0' comment '状態フラグ(0:通常,1:削除,2:紛失)',
-regist_day datetime not null  default current_timestamp comment 'カレッジ登録日',
-updated_day datetime not null  default current_timestamp on update current_timestamp comment '更新日'
+regist_day datetime not null default current_timestamp comment 'カレッジ登録日',
+updated_day datetime not null default current_timestamp on update current_timestamp comment '更新日'
 );
 
 use openconnect;
@@ -93,7 +93,7 @@ values
 /* 決裁 */
 create table decision(
 decision_id int primary key auto_increment comment '決裁ID',
-project_id int not null comment 'プロジェクトID',
+project_id int unique not null comment 'プロジェクトID',
 decision_name varchar(100) comment '案件名',
 decision_type enum('実施', '契約', '実施兼契約') default '実施' comment '決裁種類',
 decision_status1 tinyint(1) default 0 comment '[実施]決裁状況(0:作成中, 1:申請中/承認待ち, 2:承認済み, 3:変更中)',
@@ -101,23 +101,23 @@ decision_status2 tinyint(1) default 0 comment '[契約/実施兼契約]決裁状
 summary varchar(255) comment '概要',
 cause varchar(255) comment '内容',
 persons int comment '人数',
-apply_day date comment '申請日',
-start_day date comment '開始日',
+apply_day varchar(10) comment '申請日',
+start_day date comment '開始日',/* default current_date */
 end_day date comment '終了日',
 bild_cost float comment '建設費用',
 benefit float comment '損益利益',
 amount_all float comment '合計金額',
-prove int comment '開発端末',
+prove int default 7 comment '開発端末',
 total_prove int comment '合計開発端末',
-re float comment 'リリース環境使用料',
+re float default 0.6 comment 'リリース環境使用料',
 total_re float comment '合計リリース環境使用料',
-line int comment '回線使用料',
+line int default 1 comment '回線使用料',
 total_line int comment '合計回線使用料',
-room float comment '施設使用料',
+room float default 55.5 comment '施設使用料',
 total_room float comment '合計施設使用料',
-human int comment '開発要員',
+human int default 100 comment '開発要員',
 total_human int comment '合計開発要員',
-etc float comment '雑費' ,
+etc float default 0.5 comment '雑費' ,
 total_etc float comment '合計雑費' ,
 plan varchar(255) comment '実施計画の資料',
 j_imp_id varchar(100) comment '実施起案番号',

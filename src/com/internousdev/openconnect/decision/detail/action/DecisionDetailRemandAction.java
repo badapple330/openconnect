@@ -1,16 +1,16 @@
 package com.internousdev.openconnect.decision.detail.action;
 import java.util.Map;
 
-import com.internousdev.openconnect.decision.detail.dao.DecisionDetailUpdateDAO;
+import com.internousdev.openconnect.decision.detail.dao.DecisionDetailRemandDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
-* 決裁手続き画面の申請ボタンに付加された情報をDBに送る為のクラス
-* @author SOSHI AZUMA
-* @since 2017/06/16
-* @version 1.0
-*/
+ * 差し戻しボタン押下時にDBの情報を更新するクラス
+ * @author SOSHI AZUMA
+ * @since 2017/06/21
+ * @version 1.0
+ */
 public class DecisionDetailRemandAction extends ActionSupport {
 
 	/**
@@ -40,17 +40,16 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 
 
-
 	/**
-	 * 実行メソッド DAOに情報を渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * 実行メソッド 差し戻しによる値の更新をする
+	 * @return result 決裁情報の更新に成功したらSUCCESS, 失敗したらERROR
 	 */
 	public String execute() throws Exception {
 
 		String result=ERROR;
 
 
-		DecisionDetailUpdateDAO dao = new DecisionDetailUpdateDAO();
+		DecisionDetailRemandDAO dao = new DecisionDetailRemandDAO();
 
 
 		int count = 0;
@@ -87,13 +86,9 @@ public class DecisionDetailRemandAction extends ActionSupport {
 		return decisionType;
 	}
 
-
-
 	public void setDecisionType(String decisionType) {
 		this.decisionType = decisionType;
 	}
-
-
 
 	/**
 	* 取得メソッド を取得
@@ -103,8 +98,6 @@ public class DecisionDetailRemandAction extends ActionSupport {
 		return permitStatus;
 	}
 
-
-
 	/**
 	* 設定メソッド を設定
 	* @param permitStatus
@@ -112,8 +105,6 @@ public class DecisionDetailRemandAction extends ActionSupport {
 	public void setPermitStatus(int permitStatus) {
 		this.permitStatus = permitStatus;
 	}
-
-
 
 	/**
 	* 取得メソッド 結果を取得

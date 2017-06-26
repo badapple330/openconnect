@@ -8,7 +8,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.openconnect.team.dao.GoTeamDAO;
+import com.internousdev.openconnect.team.dao.GoTeamEditDAO;
 import com.internousdev.openconnect.team.dto.TeamDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -31,6 +31,11 @@ public class GoTeamEditAction extends ActionSupport implements SessionAware{
 	 * ユーザーリスト
 	 */
 	private ArrayList<TeamDTO> teamUserList = new ArrayList<TeamDTO>();
+
+	/**
+	 * チームリスト2
+	 */
+	private ArrayList<TeamDTO> teamList = new ArrayList<TeamDTO>();
 
 	/**
 	 * ユーザーID
@@ -62,7 +67,9 @@ public class GoTeamEditAction extends ActionSupport implements SessionAware{
 
 		if(session.get("userId")!=null){
 			int userId = (int) session.get("userId");
-			GoTeamDAO dao = new GoTeamDAO();
+			GoTeamEditDAO dao = new GoTeamEditDAO();
+			GoTeamEditDAO dao2 = new GoTeamEditDAO();
+			teamList=dao2.select2();
 			teamUserList = dao.select(userId);
 
 			if(teamUserList.size() >0){
@@ -107,7 +114,21 @@ public class GoTeamEditAction extends ActionSupport implements SessionAware{
 	public void setTeamUserList(ArrayList<TeamDTO> teamUserList) {
 		this.teamUserList = teamUserList;
 	}
+	/**
+	 * teamListを取得します。
+	 * @return teamList
+	 */
+	public ArrayList<TeamDTO> getTeamList() {
+	    return teamList;
+	}
 
+	/**
+	 * teamListを設定します。
+	 * @param teamList teamList
+	 */
+	public void setTeamList(ArrayList<TeamDTO> teamList) {
+	    this.teamList = teamList;
+	}
 	/**
 	* 取得メソッド を取得
 	* @author TEPPEI MATSUMOTO

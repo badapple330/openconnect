@@ -29,44 +29,20 @@ public class StudentsUpdateDAO {
      * @param userFlg
 
      */
-    public int update(
-             String familyNameKanji,
-            String givenNameKanji,
-           int userFlg,  int userId) {
+    public int update(String familyNameKanji,String givenNameKanji,String teamName,int userFlg,int userId) {
 
 
-        DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
-                "mysql");
+        DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/", "openconnect","root","mysql");
         Connection con = db.getConnection();
         int result = 0;
-
-        String sql = "update users set family_name_kanji=?,given_name_kanji=?, user_flg=? where user_id=? order by user_flg";
-
-
-
-
-
-
-
+        String sql = "update users set family_name_kanji=?,given_name_kanji=?,team_name=?,user_flg=? where user_id=?";
         try {
-
-
             PreparedStatement ps = con.prepareStatement(sql);
-
-
-
             ps.setString(1, familyNameKanji);
             ps.setString(2, givenNameKanji);
-
-
-
-
-
-            ps.setInt(3, userFlg);
-
-
-
-            ps.setInt(4, userId);
+            ps.setString(3, teamName);
+            ps.setInt(4, userFlg);
+            ps.setInt(5, userId);
             result = ps.executeUpdate();
             ps.close();
 

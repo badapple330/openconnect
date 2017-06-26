@@ -40,7 +40,7 @@ public class AdminAttendanceDAO {
 	 * @param givenNameKanji
 	 * @param attendance
 	 * @param teamName
-	 * @return
+	 * @return searchList
 	 */
 	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String familyNameKanji,String givenNameKanji,String attendance, String teamName) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
@@ -59,7 +59,7 @@ public class AdminAttendanceDAO {
 			whereState += "at_year="+atYear +" AND at_month="+atMonth +" AND at_day="+atDay;
 		}
 
-		/* 姓が定義されたとき */
+		/* 姓と名が定義されたとき */
 		if(!((familyNameKanji).equals("")) && !((givenNameKanji).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
 			whereState += "family_name_kanji='"+familyNameKanji+"' AND given_name_kanji='"+givenNameKanji+"'";

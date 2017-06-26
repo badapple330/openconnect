@@ -52,6 +52,9 @@ public class ScheduleSelectAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
+		if(search.equals("全件表示")){
+			search = "";
+		}
 		ScheduleSelectDAO dao = new ScheduleSelectDAO();
 		ScheduleSelectDAO dao2 = new ScheduleSelectDAO();
 		scheduleList = dao.select(search);

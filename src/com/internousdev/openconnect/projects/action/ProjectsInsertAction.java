@@ -10,10 +10,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 画面から追加された情報をＤＢに追加するクラス
+ *
  * @author YUICHI KIRIU
  * @since 2016/09/07
  */
-public class ProjectsInsertAction  extends ActionSupport  {
+public class ProjectsInsertAction extends ActionSupport {
 
 	/**
 	 * シリアルＩＤ
@@ -51,17 +52,21 @@ public class ProjectsInsertAction  extends ActionSupport  {
 	private String resultString = "";
 
 
+
 	/**
 	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 *
 	 * @author YUICHI KIRIU
 	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
 	 */
-	public String execute(){
+	public String execute() {
 
 		String result = ERROR;
 		ProjectsInsertDAO dao = new ProjectsInsertDAO();
+
+
 		int count = 0;
-		count = dao.insert(projectName,managerId,subManagerId,startDate);
+		count = dao.insert(projectName, managerId, subManagerId, startDate);
 
 		if (count > 0) {
 			result = SUCCESS;
@@ -74,24 +79,25 @@ public class ProjectsInsertAction  extends ActionSupport  {
 
 			List<ProjectsSelectDTO> list = selectDao.select("");
 
-			for( int i=0; i<list.size(); i++ ){
+			for (int i = 0; i < list.size(); i++) {
 
-				if( list.get(i).getProjectId() > maxId ) maxId = list.get(i).getProjectId();
+				if (list.get(i).getProjectId() > maxId)
+					maxId = list.get(i).getProjectId();
 			}
 
 			ProjectStatusInsertDAO insertDao = new ProjectStatusInsertDAO();
 
 			insertDao.insert(maxId);
-		}else{
+		} else {
 			resultString = "追加に失敗しました";
 		}
+
 		return result;
 	}
 
-
-
 	/**
 	 * 取得メソッド プロジェクトＩＤを取得
+	 *
 	 * @author YUICHI KIRIU
 	 * @return projectId
 	 */
@@ -99,10 +105,9 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		return projectId;
 	}
 
-
-
 	/**
 	 * 設定メソッド プロジェクトＩＤを設定
+	 *
 	 * @author YUICHI KIRIU
 	 * @param projectId
 	 */
@@ -110,10 +115,9 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		this.projectId = projectId;
 	}
 
-
-
 	/**
 	 * 取得メソッド プロジェクト名を取得
+	 *
 	 * @author YUICHI KIRIU
 	 * @return projectName
 	 */
@@ -121,10 +125,9 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		return projectName;
 	}
 
-
-
 	/**
 	 * 設定メソッド プロジェクト名を設定
+	 *
 	 * @author YUICHI KIRIU
 	 * @param projectName
 	 */
@@ -132,10 +135,9 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		this.projectName = projectName;
 	}
 
-
-
 	/**
 	 * 取得メソッド 管理者ＩＤ（リーダー）を取得
+	 *
 	 * @author YUICHI KIRIU
 	 * @return managerId
 	 */
@@ -143,10 +145,9 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		return managerId;
 	}
 
-
-
 	/**
 	 * 設定メソッド 管理者ＩＤ（リーダー）を設定
+	 *
 	 * @author YUICHI KIRIU
 	 * @param managerId
 	 */
@@ -154,10 +155,9 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		this.managerId = managerId;
 	}
 
-
-
 	/**
-	 * 取得メソッド　管理者ＩＤ（サブ）を取得
+	 * 取得メソッド 管理者ＩＤ（サブ）を取得
+	 *
 	 * @author YUICHI KIRIU
 	 * @return subManagerId
 	 */
@@ -165,10 +165,9 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		return subManagerId;
 	}
 
-
-
 	/**
 	 * 設定メソッド管理者ＩＤ（サブ）を設定
+	 *
 	 * @author YUICHI KIRIU
 	 * @param subManagerId
 	 */
@@ -176,10 +175,9 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		this.subManagerId = subManagerId;
 	}
 
-
-
 	/**
 	 * 取得メソッド 開始日を取得
+	 *
 	 * @author YUICHI KIRIU
 	 * @return startDate
 	 */
@@ -187,10 +185,9 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		return startDate;
 	}
 
-
-
 	/**
 	 * 設定メソッド 開始日を設定
+	 *
 	 * @author YUICHI KIRIU
 	 * @param startDate
 	 */
@@ -198,28 +195,24 @@ public class ProjectsInsertAction  extends ActionSupport  {
 		this.startDate = startDate;
 	}
 
-
-
 	/**
-	* 取得メソッド  結果文字を取得
-	* @author YUICHI KIRIU
-	* @return resultString
-	*/
+	 * 取得メソッド 結果文字を取得
+	 *
+	 * @author YUICHI KIRIU
+	 * @return resultString
+	 */
 	public String getResultString() {
 		return resultString;
 	}
 
-
-
 	/**
-	* 設定メソッド  結果文字を設定
-	* @author YUICHI KIRIU
-	* @param resultString
-	*/
+	 * 設定メソッド 結果文字を設定
+	 *
+	 * @author YUICHI KIRIU
+	 * @param resultString
+	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
-
-
 
 }

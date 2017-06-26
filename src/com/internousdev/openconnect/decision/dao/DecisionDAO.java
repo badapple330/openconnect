@@ -24,21 +24,17 @@ import com.internousdev.util.DBConnector;
  */
 public class DecisionDAO {
 
-	/**
-	 * 決裁手続きの情報をリスト化
-	 *
-	 */
 	public ArrayList<DecisionDTO> decisionList = new ArrayList<DecisionDTO>();
 
 	public ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
 
-	/**
-	 * 情報を引き出すメソッド
-	 *
-	 * @param
-	 * @return Decision
-	 */
-	public ArrayList<DecisionDTO> select() {
+	public ArrayList<DecisionDTO> jPremiter1nameList = new ArrayList<DecisionDTO>();
+
+	public ArrayList<DecisionDTO> jPremiter2nameList = new ArrayList<DecisionDTO>();
+
+	public ArrayList<DecisionDTO> jPremiter3nameList = new ArrayList<DecisionDTO>();
+
+	public ArrayList<DecisionDTO> select(int decisionId){
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -46,31 +42,25 @@ public class DecisionDAO {
 
 		ArrayList<DecisionDTO> decisionList = new ArrayList<DecisionDTO>();
 
-		String sql = "select * from decision";
+		String sql = "select * from decision where decision_id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-
+			ps.setInt(1, decisionId);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
 
-				dto.setUserId(rs.getInt("user_id")); // ユーザーID
+				dto.setjDrafterId(rs.getInt("j_drafter_id")); // 	実施起案者ユーザーID
+
+				dto.setDecisionType(rs.getString("decision_type")); // 決裁種類
 
 				dto.setDecisionName(rs.getString("decision_name")); // 案件名
 
 				dto.setjImpId(rs.getString("j_imp_id")); // 実施起案番号
 
 				dto.setjDecId(rs.getString("j_dec_id")); // 実施決裁番号
-
-				dto.setkImpId(rs.getString("k_imp_id")); // 契約起案番号
-
-				dto.setkDecId(rs.getString("k_dec_id")); // 契約決裁番号
-
-				dto.setJkImpId(rs.getString("jk_imp_id")); // 実施兼契約起案番号
-
-				dto.setJkDecId(rs.getString("jk_dec_id")); // 実施兼契約決裁番号
 
 				dto.setSummary(rs.getString("summary")); // 概要
 
@@ -108,9 +98,15 @@ public class DecisionDAO {
 
 				dto.setTotalRoom(rs.getFloat("total_room")); // 合計施設使用料
 
-				dto.setTotalHuman(rs.getInt("total_human")); // 合計開発要員
+				dto.setTotalHuman(rs.getInt("human")); // 合計開発要員
 
-				dto.setTotalEtc(rs.getFloat("total_etc")); // 合計雑費
+				dto.setTotalEtc(rs.getFloat("etc")); // 合計雑費
+
+				dto.setjPermiterId1(rs.getInt("j_permiter_id1")); // 	承認者ユーザーID1（リーダー）
+
+				dto.setjPermiterId2(rs.getInt("j_permiter_id2")); // 	承認者ユーザーID2（リーダー）
+
+				dto.setjPermiterId3(rs.getInt("j_permiter_id3")); // 	承認者ユーザーID3（先生）
 
 				decisionList.add(dto);
 			}
@@ -128,30 +124,22 @@ public class DecisionDAO {
 
 	}
 
-	/**
-	 * ユーザーIDから名前を引き出すメソッド
-	 *
-	 * @param userId
-	 * @param
-	 * @return Decision
-	 */
-	public ArrayList<DecisionDTO> selectByUserId(int userId) {
+	public ArrayList<DecisionDTO> selectByIds(int jDrafterId) {
 		DecisionDTO dto = new DecisionDTO();
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
 				"openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 		ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
-		String sql = "select * from users";
+		String sql = "(select family_name_kanji,given_name_kanji from users where user_id=?)";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,jDrafterId);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				dto.setUserId(rs.getInt("user_id")); // ユーザーID
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
 				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
 				nameList.add(dto);
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -164,25 +152,14 @@ public class DecisionDAO {
 		return nameList;
 	}
 
-	/**
-	 * 表示メソッド 表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
-	 *
-	 * @author TATUHUMI ITOU
-	 * @param etc
-	 * @param human
-	 * @param room
-	 * @param line
-	 * @param re
-	 * @param prove
-	 * @return
-	 */
+
 
 	/**
 	 * 決裁手続きの情報アップデート
 	 *
 	 */
 
-	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll) {
+	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll,int jDrafterId,int decisionId) {
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
@@ -190,7 +167,7 @@ public class DecisionDAO {
 		Connection con = db.getConnection();
 
 		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,"
-				+ "total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?";
+				+ "total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id where decision_id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -210,6 +187,8 @@ public class DecisionDAO {
 			ps.setFloat(13, benefit);
 			ps.setFloat(14, bildCost);
 			ps.setFloat(15, amountAll);
+			ps.setInt(16, jDrafterId);
+			ps.setInt(17, decisionId);
 
 
 

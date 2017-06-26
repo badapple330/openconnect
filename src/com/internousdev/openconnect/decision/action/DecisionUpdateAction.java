@@ -19,15 +19,16 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
-
-
-
 	/**
-	 * ユーザーID
+	 * 起案者ユーザーID
 	 *
 	 */
-	private int userId;
+	private int jDrafterId;
 
+	/**
+	 * 決裁ID
+	 */
+	private int decisionId;
 	/**
 	 * 案件名
 	 *
@@ -208,7 +209,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
          float amountAll = benefit + bildCost;
 
-         count=dao.update(decisionName,summary,cause,startDay,endDay,persons,totalProve,totalRe,totalLine,totalRoom,totalHuman,totalEtc,benefit,bildCost,amountAll);
+         count=dao.update(decisionName,summary,cause,startDay,endDay,persons,totalProve,totalRe,totalLine,totalRoom,totalHuman,totalEtc,benefit,bildCost,amountAll,jDrafterId,decisionId);
 
 			if(count>0){
 				result = SUCCESS;
@@ -224,19 +225,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 
-	/**
-	 * @return userId
-	 */
-	public int getUserId() {
-		return userId;
-	}
 
-	/**
-	 * @param userId セットする userId
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 	/**
 	 * @return decisionName
@@ -644,6 +633,62 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	*/
 	public void setGivenNameKanji(String givenNameKanji) {
 		this.givenNameKanji = givenNameKanji;
+	}
+
+
+
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return jDrafterId
+	*/
+	public int getjDrafterId() {
+		return jDrafterId;
+	}
+
+
+
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param jDrafterId
+	*/
+	public void setjDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
+	}
+
+
+
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionID
+	*/
+	public int getDecisionId() {
+		return decisionId;
+	}
+
+
+
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionId
+	*/
+	public void setDecisionID(int decisionId) {
+		this.decisionId = decisionId;
 	}
 
 

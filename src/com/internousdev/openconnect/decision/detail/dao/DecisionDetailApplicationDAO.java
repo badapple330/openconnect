@@ -18,7 +18,7 @@ public class DecisionDetailApplicationDAO {
 
 
 	/**
-	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+	 * DBの起案番号と照合し前方一致する起案番号を全て取得する為のメソッド
 	 */
 	public List<DecisionDetailDTO> select(String decisionType, String idNum) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
@@ -28,13 +28,13 @@ public class DecisionDetailApplicationDAO {
 		String sql = "select * from decision where";
 
 		if(decisionType.equals("実施")) {
-			sql = sql + " i_drafting_id like '" + idNum + "%'";
+			sql = sql + " j_imp_id like '" + idNum + "%'";
 		}
 		else if(decisionType.equals("契約")) {
-			sql = sql + " a_drafting_id like '" + idNum + "%'";
+			sql = sql + " k_imp_id like '" + idNum + "%'";
 		}
 		else {
-			sql = sql + " i_a_d_id like '" + idNum + "%'";
+			sql = sql + " jk_imp_id like '" + idNum + "%'";
 		}
 
 		List<DecisionDetailDTO> idNumList = new ArrayList<DecisionDetailDTO>();
@@ -46,9 +46,16 @@ public class DecisionDetailApplicationDAO {
 
 			while(rs.next()) {
 				DecisionDetailDTO dto = new DecisionDetailDTO();
-				dto.setIdNumAmount(rs.getString("i_drafting_id"));
-				dto.setIdNumAmount(rs.getString("a_drafting_id"));
-				dto.setIdNumAmount(rs.getString("i_a_d_id"));
+
+				if(decisionType.equals("実施")) {
+					dto.setIdNumAmount(rs.getString("j_imp_id"));
+				}
+				else if(decisionType.equals("契約")) {
+					dto.setIdNumAmount(rs.getString("k_imp_id"));
+				}
+				else {
+					dto.setIdNumAmount(rs.getString("jk_imp_id"));
+				}
 
 				idNumList.add( dto );
 			  }
@@ -70,14 +77,10 @@ public class DecisionDetailApplicationDAO {
 
 
 
-
-
-
-
 	/**
      * 実施決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateAJ( String iDraftingId, int decisionId ) {
+	public int updateAJ( String jImpId, String num, int decisionId ) {
 
 		int count = 0;
 
@@ -86,19 +89,20 @@ public class DecisionDetailApplicationDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE decision SET decision_status1 = 1, i_drafting_id = ? where decision_id = ?";
+		String sql = "UPDATE decision SET decision_status1 = 1, j_imp_id = ?, apply_day = ? where decision_id = ?";
 
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, iDraftingId);
-			ps.setInt(2, decisionId);
+			ps.setString(1, jImpId);
+			ps.setString(2, num);
+			ps.setInt(3, decisionId);
 
 			count =ps.executeUpdate();
 
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 
 				try {
 					con.close();
@@ -116,31 +120,29 @@ public class DecisionDetailApplicationDAO {
 	/**
      * 契約決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateAK( String aDraftingId, int decisionId ) {
+	public int updateAK( String kImpId, String num, int decisionId ) {
 
 		int count = 0;
 
-	/*	if(decisionStatus2 == 1) {
-			decisionStatus1 = 2;
-		}*/
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE decision SET decision_status2 = 1, a_drafting_id = ? where decision_id = ?";
+		String sql = "UPDATE decision SET decision_status2 = 1, k_imp_id = ?, apply_day = ? where decision_id = ?";
 
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, aDraftingId);
-			ps.setInt(2, decisionId);
+			ps.setString(1, kImpId);
+			ps.setString(2, num);
+			ps.setInt(3, decisionId);
 
 			count =ps.executeUpdate();
 
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 
 				try {
 					con.close();
@@ -158,31 +160,74 @@ public class DecisionDetailApplicationDAO {
 	/**
      * 実施兼契約決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateAJK( String iADId, int decisionId ) {
+	public int updateAJK( String jkImpId, String num, int decisionId ) {
 
 		int count = 0;
 
-	/*	if(decisionStatus2 == 1) {
-			decisionStatus1 = 2;
-		}*/
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE decision SET decision_status2 = 1, i_a_d_id = ? where decision_id = ?";
+		String sql = "UPDATE decision SET decision_status2 = 1, jk_imp_id = ?, apply_day = ? where decision_id = ?";
 
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, iADId);
+			ps.setString(1, jkImpId);
+			ps.setString(2, num);
+			ps.setInt(3, decisionId);
+
+			count =ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+
+		}
+		return count;
+	}
+
+
+
+	/**
+     * 起案番号発行を伴わない申請時の情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
+     */
+	public int updateSimple( String decisionType, String num, int decisionId ) {
+
+		int count = 0;
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection con = db.getConnection();
+
+		String sql;
+
+		if(decisionType.equals("実施")) {
+			sql = "UPDATE decision SET decision_status1 = 1, apply_day = ? where decision_id = ?";
+		}
+		else {
+			sql = "UPDATE decision SET decision_status2 = 1, apply_day = ? where decision_id = ?";
+		}
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, num);
 			ps.setInt(2, decisionId);
 
 			count =ps.executeUpdate();
 
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 
 				try {
 					con.close();

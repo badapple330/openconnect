@@ -11,30 +11,8 @@ public class DecisionDTO {
 	 * 起案者ユーザーID
 	 *
 	 */
-	private int draftUserId;
+	private int jDrafterId;
 
-	/**
-	 * ユーザーID
-	 *
-	 */
-	private int userId;
-
-
-	/**
-	* 取得メソッド を取得
-	* @return userId
-	*/
-	public int getUserId() {
-		return userId;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param userId
-	*/
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	/**
 
 	/**
 	 * 案件名
@@ -181,20 +159,31 @@ public class DecisionDTO {
 	 */
 	public float totalEtc;
 
+	/**
+	* 実施_承認者ID(1人目:リーダー)
+	*/
+	private int jPermiterId1;
+	/**
+	* 実施_承認者ID(2人目:リーダー)
+	*/
+	private int jPermiterId2;
+	/**
+	* 実施_承認者ID(3人目:先生)
+	*/
+	private int jPermiterId3;
+	/**
+	* 契約_承認者ID(1人目:リーダー)
+	*/
+	private int kPermiterId1;
+	/**
+	* 契約_承認者ID(2人目:リーダー)
+	*/
+	private int kPermiterId2;
+	/**
+	* 契約_承認者ID(3人目:先生)
+	*/
+	private int kPermiterId3;
 
-
-	/**
-	 * 承認ユーザーID1
-	 */
-	private int permitUserId1;
-	/**
-	 * 承認ユーザーID2
-	 */
-	private int permitUserId2;
-	/**
-	 * 承認ユーザーID3
-	 */
-	private int permitUserId3;
 
     /** 取得メソッド を取得
 	* @return person
@@ -422,16 +411,16 @@ public class DecisionDTO {
 	* @author KOTA MIYAZATO
 	* @return
 	*/
-	public int getDraftUserId() {
-		return draftUserId;
+	public int getJDrafterId() {
+		return jDrafterId;
 	}
 	/**
 	* 設定メソッド
 	* @author KOTA MIYAZATO
 	* @param
 	*/
-	public void setDraftUserId(int draftUserId) {
-		this.draftUserId = draftUserId;
+	public void setJDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
 	}
 
 	/**
@@ -472,56 +461,56 @@ public class DecisionDTO {
 	* 取得メソッド を取得
 	* @return jImpId
 	*/
-	public String getjImpId() {
+	public String getJImpId() {
 		return jImpId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param jImpId
 	*/
-	public void setjImpId(String jImpId) {
+	public void setJImpId(String jImpId) {
 		this.jImpId = jImpId;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return jDecId
 	*/
-	public String getjDecId() {
+	public String getJDecId() {
 		return jDecId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param jDecId
 	*/
-	public void setjDecId(String jDecId) {
+	public void setJDecId(String jDecId) {
 		this.jDecId = jDecId;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return kImpId
 	*/
-	public String getkImpId() {
+	public String getKImpId() {
 		return kImpId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param kImpId
 	*/
-	public void setkImpId(String kImpId) {
+	public void setKImpId(String kImpId) {
 		this.kImpId = kImpId;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return kDecId
 	*/
-	public String getkDecId() {
+	public String getKDecId() {
 		return kDecId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param kDecId
 	*/
-	public void setkDecId(String kDecId) {
+	public void setKDecId(String kDecId) {
 		this.kDecId = kDecId;
 	}
 	/**
@@ -639,6 +628,90 @@ public class DecisionDTO {
 		}
 
 		/**
+		 * 実施_承認者ID(1人目:リーダー)を取得します。
+		 * @return 実施_承認者ID(1人目:リーダー)
+		 */
+		public int getJPermiterId1() {
+		    return jPermiterId1;
+		}
+		/**
+		 * 実施_承認者ID(1人目:リーダー)を設定します。
+		 * @param jPermiterId1 実施_承認者ID(1人目:リーダー)
+		 */
+		public void setJPermiterId1(int jPermiterId1) {
+		    this.jPermiterId1 = jPermiterId1;
+		}
+		/**
+		 * 実施_承認者ID(2人目:リーダー)を取得します。
+		 * @return 実施_承認者ID(2人目:リーダー)
+		 */
+		public int getJPermiterId2() {
+		    return jPermiterId2;
+		}
+		/**
+		 * 実施_承認者ID(2人目:リーダー)を設定します。
+		 * @param jPermiterId2 実施_承認者ID(2人目:リーダー)
+		 */
+		public void setJPermiterId2(int jPermiterId2) {
+		    this.jPermiterId2 = jPermiterId2;
+		}
+		/**
+		 * 実施_承認者ID(3人目:先生)を取得します。
+		 * @return 実施_承認者ID(3人目:先生)
+		 */
+		public int getJPermiterId3() {
+		    return jPermiterId3;
+		}
+		/**
+		 * 実施_承認者ID(3人目:先生)を設定します。
+		 * @param jPermiterId3 実施_承認者ID(3人目:先生)
+		 */
+		public void setJPermiterId3(int jPermiterId3) {
+		    this.jPermiterId3 = jPermiterId3;
+		}
+		/**
+		 * 契約_承認者ID(1人目:リーダー)を取得します。
+		 * @return 契約_承認者ID(1人目:リーダー)
+		 */
+		public int getKPermiterId1() {
+		    return kPermiterId1;
+		}
+		/**
+		 * 契約_承認者ID(1人目:リーダー)を設定します。
+		 * @param kPermiterId1 契約_承認者ID(1人目:リーダー)
+		 */
+		public void setKPermiterId1(int kPermiterId1) {
+		    this.kPermiterId1 = kPermiterId1;
+		}
+		/**
+		 * 契約_承認者ID(2人目:リーダー)を取得します。
+		 * @return 契約_承認者ID(2人目:リーダー)
+		 */
+		public int getKPermiterId2() {
+		    return kPermiterId2;
+		}
+		/**
+		 * 契約_承認者ID(2人目:リーダー)を設定します。
+		 * @param kPermiterId2 契約_承認者ID(2人目:リーダー)
+		 */
+		public void setKPermiterId2(int kPermiterId2) {
+		    this.kPermiterId2 = kPermiterId2;
+		}
+		/**
+		 * 契約_承認者ID(3人目:先生)を取得します。
+		 * @return 契約_承認者ID(3人目:先生)
+		 */
+		public int getKPermiterId3() {
+		    return kPermiterId3;
+		}
+		/**
+		 * 契約_承認者ID(3人目:先生)を設定します。
+		 * @param kPermiterId3 契約_承認者ID(3人目:先生)
+		 */
+		public void setKPermiterId3(int kPermiterId3) {
+		    this.kPermiterId3 = kPermiterId3;
+		}
+		/**
 		* 取得メソッド を取得
 		* @author KOHEI NITABARU
 		* @return familyNameKanji
@@ -671,37 +744,6 @@ public class DecisionDTO {
 			this.givenNameKanji = givenNameKanji;
 		}
 
-		/**
-		* 設定メソッド を設定
-		* @param premitUserId1
-		*/
-		public int getPermitUserId1() {
-			return permitUserId1;
-		}
-		public void setPermitUserId1(int permitUserId1) {
-			this.permitUserId1 = permitUserId1;
-		}
 
-		/**
-		* 設定メソッド を設定
-		* @param premitUserId2
-		*/
-		public int getPermitUserId2() {
-			return permitUserId2;
-		}
-		public void setPermitUserId2(int permitUserId2) {
-			this.permitUserId2 = permitUserId2;
-		}
-
-		/**
-		* 設定メソッド を設定
-		* @param premitUserId3
-		*/
-		public int getPermitUserId3() {
-			return permitUserId3;
-		}
-		public void setPermitUserId3(int permitUserId3) {
-			this.permitUserId3 = permitUserId3;
-		}
 
 }

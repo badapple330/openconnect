@@ -55,6 +55,7 @@
 			<h5>【チーム名で検索】</h5>
 				<select name="search" required="required">
 								<option value="">以下から選択</option>
+								<option value="全件表示">全件表示</option>
 								<s:iterator value="teamList">
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
 								</s:iterator>
@@ -79,14 +80,15 @@
 							<th>end</th>
 							<th>title</th>
 							<th>チーム名(編集不可)</th>
-							<th></th>
+							<th>削除</th>
+							<th>編集</th>
 						</tr>
 
 						<!-- scheduleListに格納した情報をテーブルで表示 -->
 						<!-- カレンダーに渡すだけの情報は<div class="hidden">で囲ってcssで表示させないようにする -->
 						<!-- jsファイルに渡す情報としてstart,end,titleが必要なのでこのような記述となっている -->
 						<h5>start→開始日　end→終了日　title→作業内容</h5>
-						<s:iterator value="scheduleList">
+						<s:iterator value="scheduleList" status="st">
 							<tr>
 								<td><s:property value="id" /></td>
 								<td><input type="text" name="scheduleStartdayList"
@@ -104,10 +106,13 @@
 									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
 								<td>
 
-								<input type="text" name="teamList"value="<s:property value="teamName" />"class="teamList" disabled>
+								<input type="text" name="teamName[<s:property value="#st.index" />]"value="<s:property value="teamName" />"class="teamList" readonly><div class="hidden"><s:property value="teamName" /></div>
 								</td>
 								<td>
 										<input type="button" class="button modal-open" value="削除" />
+								</td>
+								<td>
+									<button type="submit" class="button" style="width:45px">編集</button>
 								</td>
 							</tr>
 							<input type="hidden" name="scheduleIdList"
@@ -115,9 +120,6 @@
 						</s:iterator>
 					</tbody>
 				</table>
-
-
-					<button type="submit" class="button">編集</button>
 
 			</s:form>
 
