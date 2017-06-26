@@ -82,11 +82,11 @@ public class BotExercise {
 			while(wordList.get(i).getPartOfSpeech().contains("括弧開")){
 				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
 				wordList.remove(i+1);
-			}
-			if(wordList.get(i).getPartOfSpeech().contains("括弧閉")){
-				wordList.get(i-1).setWord(wordList.get(i-1).getWord() + wordList.get(i).getWord());
-				wordList.remove(i);
-				i--;
+				if(wordList.get(i).getPartOfSpeech().contains("括弧閉")){
+					wordList.get(i-1).setWord(wordList.get(i-1).getWord() + wordList.get(i).getWord());
+					wordList.remove(i);
+					break;
+				}
 			}
 		}
 		return wordList;
