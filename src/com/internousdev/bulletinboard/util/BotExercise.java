@@ -79,16 +79,15 @@ public class BotExercise {
 	public ArrayList<BotDTO> bracketsConbine(ArrayList<BotDTO> wordList){
 
 		for(int i=0;i<(wordList.size()-1);i++){
-			if(wordList.get(i).getPartOfSpeech().contains("括弧開")){
+			while(wordList.get(i).getPartOfSpeech().contains("括弧開")){
 				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
-				if(wordList.get(i+1).getPartOfSpeech().contains("括弧閉")){
-					wordList.remove(i+1);
-					break;
-				}else{
-					wordList.remove(i+1);
-				}
+				wordList.remove(i+1);
 			}
-
+			if(wordList.get(i).getPartOfSpeech().contains("括弧閉")){
+				wordList.get(i-1).setWord(wordList.get(i-1).getWord() + wordList.get(i).getWord());
+				wordList.remove(i);
+				i--;
+			}
 		}
 		return wordList;
 	}

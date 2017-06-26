@@ -10,25 +10,25 @@
 
 	<!-- Stylesheet
     ================================================== -->
-	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="../css/bootstrap.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/timeline.css">
-	<link rel="stylesheet" href="css/Bfooter.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/timeline.css">
+	<link rel="stylesheet" href="../css/Bfooter.css">
 
 	<!-- Javascripts
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 	<!-- ↓相対時刻を表示するプログラム↓ -->
-	<script type="text/javascript" src="js/jquery_elapse.js"></script>
+	<script type="text/javascript" src="../js/jquery_elapse.js"></script>
 	<!-- ↓通知表示のプログラム↓ -->
-	<script src="js/toast.js"></script>
+	<script src="../js/toast.js"></script>
 	<!-- 自動リンクのプログラム -->
-	<script src="js/autoLink.js"></script>
+	<script src="../js/autoLink.js"></script>
 	<script type="text/javascript">
 	<!--
 	function check(){
