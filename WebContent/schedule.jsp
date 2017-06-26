@@ -35,7 +35,7 @@
 <body>
 <!-- アプリ一覧表示 -->
 	<div class="container">
-		<h1 class="page-header"><s:property value ="scheduleList[0].teamName" />さんのスケジュール</h1>
+		<h1 class="page-header"><s:property value ="loginTeamList[0].teamName" />さんのスケジュール</h1>
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{siteUrl}">
@@ -115,8 +115,13 @@
 									<button type="submit" class="button" style="width:45px">編集</button>
 								</td>
 							</tr>
+
+							<!-- 削除機能で使用 -->
 							<input type="hidden" name="scheduleIdList"
 								value="<s:property value="id" />" class="scheduleIdList">
+							<input type="hidden" name="teamList2"
+								value="<s:property value="teamName" />" class="teamList2">
+
 						</s:iterator>
 					</tbody>
 				</table>
@@ -178,8 +183,8 @@
 							</td>
 						</tr>
 						<tr>
-							<td>内容
-								<div class="delete-content modalDelete"></div>
+							<td>チーム名
+								<div class="delete-teamname modalDelete"></div>
 							</td>
 						</tr>
 					</table>
@@ -189,9 +194,10 @@
 					<div class="delete-prepare">
 						<p>本当に削除しますか。</p>
 						<s:form action="ScheduleDeleteAction">
-							<input type="hidden" name="scheduleId" value=""
-								class="true-delete">
+							<input type="hidden" name="scheduleId" value="" class="true-delete">
 							<s:token />
+							<input type="hidden" name="search" value="" class="true-delete2">
+
 							<input type="submit" class="delete-true button" value="はい">
 							<input type="button" class="modal-close button" value="いいえ">
 						</s:form>

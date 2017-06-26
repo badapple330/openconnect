@@ -19,9 +19,9 @@ author varchar(100) not null comment '著者',
 publisher varchar(100) not null comment '出版社',
 publish_day varchar(10) not null comment '出版日',
 initial varchar(10) not null comment 'イニシャル(例:ア,カ,サ/A,B,C/数字)',
-status_flg tinyint(1) not null default '0' comment '状態フラグ(0:通常,1:削除,2:紛失)',
-regist_day datetime not null default current_timestamp comment 'カレッジ登録日',
-updated_day datetime not null default current_timestamp on update current_timestamp comment '更新日'
+status_flg varchar(10) not null default '通常' comment '状態フラグ(1:通常,2:削除,3:紛失)',
+regist_day datetime not null  default current_timestamp comment 'カレッジ登録日',
+updated_day datetime not null  default current_timestamp on update current_timestamp comment '更新日'
 );
 
 use openconnect;
@@ -138,13 +138,13 @@ k_permiter_id1 int comment '契約/実施兼契約_承認者ID(1人目:リーダ
 k_permiter_id2 int comment '契約/実施兼契約_承認者ID(2人目:リーダー)',
 k_permiter_id3 int comment '契約/実施兼契約_承認者ID(3人目:先生)',
 
-j_permit_day1 date comment '実施_承認日(1人目:リーダー)',
-j_permit_day2 date comment '実施_承認日(2人目:リーダー)',
-j_permit_day3 date comment '実施_承認日(3人目:先生)',
+j_permit_day1 varchar(20) comment '実施_承認日(1人目:リーダー)',
+j_permit_day2 varchar(20) comment '実施_承認日(2人目:リーダー)',
+j_permit_day3 varchar(20) comment '実施_承認日(3人目:先生)',
 
-k_permit_day1 date comment '契約/実施兼契約_承認日(1人目:リーダー)',
-k_permit_day2 date comment '契約/実施兼契約_承認日(2人目:リーダー)',
-k_permit_day3 date comment '契約/実施兼契約_承認日(3人目:先生)',
+k_permit_day1 varchar(20) comment '契約/実施兼契約_承認日(1人目:リーダー)',
+k_permit_day2 varchar(20) comment '契約/実施兼契約_承認日(2人目:リーダー)',
+k_permit_day3 varchar(20) comment '契約/実施兼契約_承認日(3人目:先生)',
 
 foreign key(project_id) references projects(project_id) on update cascade on delete cascade,
 foreign key(j_drafter_id) references users(user_id) on update cascade on delete cascade,
