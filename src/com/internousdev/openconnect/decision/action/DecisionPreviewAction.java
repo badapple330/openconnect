@@ -170,15 +170,15 @@ public class DecisionPreviewAction extends ActionSupport {
 	/**
 	 * 承認者1人目の情報のリスト
 	 */
-	private ArrayList<DecisionDTO> jPremiter1nameList = new ArrayList<DecisionDTO>();
+	private ArrayList<DecisionDTO> jPermiter1nameList = new ArrayList<DecisionDTO>();
 	/**
 	 * 承認者2人目の情報のリスト
 	 */
-	private ArrayList<DecisionDTO> jPremiter2nameList = new ArrayList<DecisionDTO>();
+	private ArrayList<DecisionDTO> jPermiter2nameList = new ArrayList<DecisionDTO>();
 	/**
 	 * 承認者3人目の情報のリスト
 	 */
-	private ArrayList<DecisionDTO> jPremiter3nameList = new ArrayList<DecisionDTO>();
+	private ArrayList<DecisionDTO> jPermiter3nameList = new ArrayList<DecisionDTO>();
 
 	/**
 	 * セッション情報
@@ -197,15 +197,52 @@ public class DecisionPreviewAction extends ActionSupport {
 
 		if(decisionPreviewList!=null){
 			try {
-				jDrafterId = decisionPreviewList.get(0).getjDrafterId();
+				jDrafterId = decisionPreviewList.get(0).getJDrafterId();
 				nameList = dao.selectByIds(jDrafterId);
-				jPermiterId1 = decisionPreviewList.get(0).getjPermiterId1();
-				jPremiter1nameList = dao.selectByjPremiterId1(jPermiterId1);
-				jPremiter2nameList = dao.selectByjPremiterId2(jPermiterId2);
-				jPremiter3nameList = dao.selectByjPremiterId3(jPermiterId3);
+				jPermiterId1 = decisionPreviewList.get(0).getJPermiterId1();
+				jPermiter1nameList = dao.selectByJPermiterId1(jPermiterId1);
+				jPermiterId2 = decisionPreviewList.get(0).getJPermiterId2();
+				jPermiter2nameList = dao.selectByJPermiterId2(jPermiterId2);
+				jPermiterId3 = decisionPreviewList.get(0).getJPermiterId3();
+				jPermiter3nameList = dao.selectByJPermiterId3(jPermiterId3);
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
+
+			/**try {
+				JPermiterId1 = decisionPreviewList.get(0).getJPermiterId1();
+				jPermiter1nameList = dao.selectByjPremiterId1(JPermiterId1);
+			} catch (UnknownException e) {
+				e.printStackTrace();
+			}
+
+			try {
+				JPermiterId2 = decisionPreviewList.get(0).getJPermiterId2();
+				jPermiter2nameList = dao.selectByjPremiterId2(JPermiterId2);
+			} catch (UnknownException e) {
+				e.printStackTrace();
+			}
+
+			try {
+				JPermiterId3 = decisionPreviewList.get(0).getJPermiterId3();
+				jPermiter3nameList = dao.selectByjPremiterId3(JPermiterId3);
+			} catch (UnknownException e) {
+				e.printStackTrace();
+			}
+
+
+			/** ケース2
+			 * try {
+			for (int i = 0; i < decisionPreviewList.size(); i++) {
+				JPermiterId1 = (decisionPreviewList.get(i).getJPermiterId1());
+				jPermiter1nameList = dao.selectByjPremiterId1(JPermiterId1);
+			}
+			} catch (UnknownException e) {
+				e.printStackTrace();
+			}*/
+
+
+
 		}
 		result=SUCCESS;
 		return result;
@@ -372,17 +409,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 承認者1人目の情報のリストを取得します。
 	 * @return 承認者1人目の情報のリスト
 	 */
-	public ArrayList<DecisionDTO> getjPremiter1nameList() {
-	    return jPremiter1nameList;
+	public ArrayList<DecisionDTO> getjPermiter1nameList() {
+	    return jPermiter1nameList;
 	}
 
 
 	/**
 	 * 承認者1人目の情報のリストを設定します。
-	 * @param jPremiter1nameList 承認者1人目の情報のリスト
+	 * @param jPermiter1nameList 承認者1人目の情報のリスト
 	 */
-	public void setjPremiter1nameList(ArrayList<DecisionDTO> jPremiter1nameList) {
-	    this.jPremiter1nameList = jPremiter1nameList;
+	public void setjPermiter1nameList(ArrayList<DecisionDTO> jPermiter1nameList) {
+	    this.jPermiter1nameList = jPermiter1nameList;
 	}
 
 
@@ -390,17 +427,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 承認者2人目の情報のリストを取得します。
 	 * @return 承認者2人目の情報のリスト
 	 */
-	public ArrayList<DecisionDTO> getjPremiter2nameList() {
-	    return jPremiter2nameList;
+	public ArrayList<DecisionDTO> getjPermiter2nameList() {
+	    return jPermiter2nameList;
 	}
 
 
 	/**
 	 * 承認者2人目の情報のリストを設定します。
-	 * @param jPremiter2nameList 承認者2人目の情報のリスト
+	 * @param jPermiter2nameList 承認者2人目の情報のリスト
 	 */
-	public void setjPremiter2nameList(ArrayList<DecisionDTO> jPremiter2nameList) {
-	    this.jPremiter2nameList = jPremiter2nameList;
+	public void setjPermiter2nameList(ArrayList<DecisionDTO> jPermiter2nameList) {
+	    this.jPermiter2nameList = jPermiter2nameList;
 	}
 
 
@@ -408,17 +445,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 承認者3人目の情報のリストを取得します。
 	 * @return 承認者3人目の情報のリスト
 	 */
-	public ArrayList<DecisionDTO> getjPremiter3nameList() {
-	    return jPremiter3nameList;
+	public ArrayList<DecisionDTO> getjPermiter3nameList() {
+	    return jPermiter3nameList;
 	}
 
 
 	/**
 	 * 承認者3人目の情報のリストを設定します。
-	 * @param jPremiter3nameList 承認者3人目の情報のリスト
+	 * @param jPermiter3nameList 承認者3人目の情報のリスト
 	 */
-	public void setjPremiter3nameList(ArrayList<DecisionDTO> jPremiter3nameList) {
-	    this.jPremiter3nameList = jPremiter3nameList;
+	public void setjPermiter3nameList(ArrayList<DecisionDTO> jPermiter3nameList) {
+	    this.jPermiter3nameList = jPermiter3nameList;
 	}
 
 
@@ -435,7 +472,6 @@ public class DecisionPreviewAction extends ActionSupport {
 	public void setSession(Map<String,Object> session) {
 		this.session = session;
 	}
-
 
 	/**
 	 * @return decisionPreviewList
@@ -701,16 +737,16 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 承認者ユーザーID1(リーダー)を取得します。
 	 * @return 承認者ユーザーID1(リーダー)
 	 */
-	public int getjPermiterId1() {
+	public int getJPermiterId1() {
 	    return jPermiterId1;
 	}
 
 
 	/**
 	 * 承認者ユーザーID1(リーダー)を設定します。
-	 * @param jPermiterId1 承認者ユーザーID1(リーダー)
+	 * @param JPermiterId1 承認者ユーザーID1(リーダー)
 	 */
-	public void setjPermiterId1(int jPermiterId1) {
+	public void setJPermiterId1(int jPermiterId1) {
 	    this.jPermiterId1 = jPermiterId1;
 	}
 
@@ -719,16 +755,16 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 承認者ユーザーID2(リーダー)を取得します。
 	 * @return 承認者ユーザーID2(リーダー)
 	 */
-	public int getjPermiterId2() {
+	public int getJPermiterId2() {
 	    return jPermiterId2;
 	}
 
 
 	/**
 	 * 承認者ユーザーID2(リーダー)を設定します。
-	 * @param jPermiterId2 承認者ユーザーID2(リーダー)
+	 * @param JPermiterId2 承認者ユーザーID2(リーダー)
 	 */
-	public void setjPermiterId2(int jPermiterId2) {
+	public void setJPermiterId2(int jPermiterId2) {
 	    this.jPermiterId2 = jPermiterId2;
 	}
 
@@ -737,18 +773,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	 * 承認者ユーザーID3(先生)を取得します。
 	 * @return 承認者ユーザーID3(先生)
 	 */
-	public int getjPermiterId3() {
+	public int getJPermiterId3() {
 	    return jPermiterId3;
 	}
 
 
 	/**
 	 * 承認者ユーザーID3(先生)を設定します。
-	 * @param jPermiterId3 承認者ユーザーID3(先生)
+	 * @param JPermiterId3 承認者ユーザーID3(先生)
 	 */
-	public void setjPermiterId3(int jPermiterId3) {
+	public void setJPermiterId3(int jPermiterId3) {
 	    this.jPermiterId3 = jPermiterId3;
 	}
-
 
 }
