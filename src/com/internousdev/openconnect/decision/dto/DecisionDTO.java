@@ -180,15 +180,15 @@ public class DecisionDTO {
 	/**
 	* 実施_承認者の日付(1人目:リーダー)
 	*/
-	private int jPermitDay1;
+	private String jPermitDay1;
 	/**
 	* 実施_承認者の日付(2人目:リーダー)
 	*/
-	private int jPermitDay2;
+	private String jPermitDay2;
 	/**
 	* 実施_承認者の日付(3人目:先生)
 	*/
-	private int jPermitDay3;
+	private String jPermitDay3;
 
 	/**
 	* 契約_承認者ID(1人目:リーダー)
@@ -206,15 +206,15 @@ public class DecisionDTO {
 	/**
 	* 契約_承認者ID(1人目:リーダー)
 	*/
-	private int kPermitDay1;
+	private String kPermitDay1;
 	/**
 	* 契約_承認者ID(2人目:リーダー)
 	*/
-	private int kPermitDay2;
+	private String kPermitDay2;
 	/**
 	* 契約_承認者ID(3人目:先生)
 	*/
-	private int kPermitDay3;
+	private String kPermitDay3;
 
 
     /** 取得メソッド を取得
@@ -720,42 +720,42 @@ public class DecisionDTO {
 		* 取得メソッド を取得
 		* @return jPermitDay1
 		*/
-		public int getJPermitDay1() {
+		public String getJPermitDay1() {
 			return jPermitDay1;
 		}
 		/**
 		* 設定メソッド を設定
 		* @param jPermitDay1
 		*/
-		public void setJPermitDay1(int jPermitDay1) {
+		public void setJPermitDay1(String jPermitDay1) {
 			this.jPermitDay1 = jPermitDay1;
 		}
 		/**
 		* 取得メソッド を取得
 		* @return jPermitDay2
 		*/
-		public int getJPermitDay2() {
+		public String getJPermitDay2() {
 			return jPermitDay2;
 		}
 		/**
 		* 設定メソッド を設定
 		* @param jPermitDay2
 		*/
-		public void setJPermitDay2(int jPermitDay2) {
+		public void setJPermitDay2(String jPermitDay2) {
 			this.jPermitDay2 = jPermitDay2;
 		}
 		/**
 		* 取得メソッド を取得
 		* @return jPermitDay3
 		*/
-		public int getJPermitDay3() {
+		public String getJPermitDay3() {
 			return jPermitDay3;
 		}
 		/**
 		* 設定メソッド を設定
 		* @param jPermitDay3
 		*/
-		public void setJPermitDay3(int jPermitDay3) {
+		public void setJPermitDay3(String jPermitDay3) {
 			this.jPermitDay3 = jPermitDay3;
 		}
 		/**
@@ -804,42 +804,42 @@ public class DecisionDTO {
 		* 取得メソッド を取得
 		* @return kPermitDay1
 		*/
-		public int getkPermitDay1() {
+		public String getkPermitDay1() {
 			return kPermitDay1;
 		}
 		/**
 		* 設定メソッド を設定
 		* @param kPermitDay1
 		*/
-		public void setKPermitDay1(int kPermitDay1) {
+		public void setKPermitDay1(String kPermitDay1) {
 			this.kPermitDay1 = kPermitDay1;
 		}
 		/**
 		* 取得メソッド を取得
 		* @return kPermitDay2
 		*/
-		public int getKPermitDay2() {
+		public String getKPermitDay2() {
 			return kPermitDay2;
 		}
 		/**
 		* 設定メソッド を設定
 		* @param kPermitDay2
 		*/
-		public void setKPermitDay2(int kPermitDay2) {
+		public void setKPermitDay2(String kPermitDay2) {
 			this.kPermitDay2 = kPermitDay2;
 		}
 		/**
 		* 取得メソッド を取得
 		* @return kPermitDay3
 		*/
-		public int getKPermitDay3() {
+		public String getKPermitDay3() {
 			return kPermitDay3;
 		}
 		/**
 		* 設定メソッド を設定
 		* @param kPermitDay3
 		*/
-		public void setKPermitDay3(int kPermitDay3) {
+		public void setKPermitDay3(String kPermitDay3) {
 			this.kPermitDay3 = kPermitDay3;
 		}
 		/**

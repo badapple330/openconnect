@@ -63,6 +63,8 @@ public class DecisionPreviewDAO {
 				dto.setSummary(rs.getString("summary")); // 概要
 
 				dto.setCause(rs.getString("cause")); // 理由・目的
+				
+				dto.setApplyDay(rs.get);
 
 				dto.setStartDay(rs.getString("start_day")); // 開始日
 
