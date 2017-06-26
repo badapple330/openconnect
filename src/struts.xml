@@ -605,6 +605,11 @@
 <result name="error">login.jsp</result>
 </action>
 
+<action name="AddsiteAction" class="com.internousdev.openconnect.action.AddsiteAction" method="execute">
+<result name="success">login.jsp</result>
+<result name="error">login.jsp</result>
+</action>
+
 <!-- グループ新規作成の二重投稿を防止するアクション -->
 <action name="GroupTokenAction" class="com.internousdev.bulletinboard.action.GroupTokenAction">
     <!-- デフォルトinterceptor -->
