@@ -24,6 +24,10 @@ body {
 	width: 100%;
 }
 
+input#inner_phoneEmail,
+input#inner_password {
+	width:300px;
+}
 
 /*タイトルロゴ--------------------------------*/
 
