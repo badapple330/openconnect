@@ -9,8 +9,10 @@
 				<li><a href="company_overview.jsp" target="blank">会社概要</a></li>
 
 				<li><a href="terms_of_use.jsp" target="blank">利用規約</a></li>
+
+				<li><a href="" target="blank">bulletinboard</a></li>
 			</ul>
 		</nav>
-		<small>Copyright © 2014-2016 ProgrammerCollege、all rights reserved.</small>
+		<small>Copyright © 2014-2017 ProgrammerCollege、all rights reserved.</small>
 	</div>
 </footer>
