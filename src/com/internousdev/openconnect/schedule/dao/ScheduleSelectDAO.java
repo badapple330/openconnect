@@ -27,8 +27,6 @@ public class ScheduleSelectDAO {
 
 	public List<ScheduleDTO> teamList = new ArrayList<ScheduleDTO>();
 
-	public List<ScheduleDTO> loginTeamList = new ArrayList<ScheduleDTO>();
-
 
 	/**
 	 * スケジュール一覧を検索するメソッド。
@@ -104,35 +102,6 @@ public class ScheduleSelectDAO {
 			}
 		}
 		return teamList;
-	}
-
-	public List<ScheduleDTO> select3(){
-		//全グループのリストを格納するためのメソッド
-		DBConnector db3 = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection conn3 = db3.getConnection();
-		//DISTINCTは重複したグループがあったときそれを統一するsql文
-		String sql3 = "SELECT team_name FROM users WHERE user_id = ?";
-
-		try {
-			PreparedStatement ps3 = conn3.prepareStatement(sql3);
-			ResultSet rs3 = ps3.executeQuery();
-
-			while(rs3.next()) {
-				ScheduleDTO dto3 = new ScheduleDTO();
-				dto3.setTeamName(rs3.getString("team_name"));
-				loginTeamList.add(dto3);
-
-			}
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally{
-			try{
-				conn3.close();
-			}catch (SQLException e){
-				e.printStackTrace();
-			}
-		}
-		return loginTeamList;
 	}
 
 }
