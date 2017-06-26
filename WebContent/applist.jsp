@@ -38,6 +38,7 @@
 
 
 <!-- 画像スライドショー -->
+<s:property value="#session.userFlg"/>
 <div class="container" align="center">
 <div class="topslide">
 
