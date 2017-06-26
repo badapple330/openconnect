@@ -804,7 +804,7 @@ public class DecisionDTO {
 		* 取得メソッド を取得
 		* @return kPermitDay1
 		*/
-		public String getkPermitDay1() {
+		public String getKPermitDay1() {
 			return kPermitDay1;
 		}
 		/**
