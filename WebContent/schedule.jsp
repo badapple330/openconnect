@@ -34,8 +34,9 @@
 </head>
 <body>
 <!-- アプリ一覧表示 -->
+<!-- S:ifで条件分岐 -->
 	<div class="container">
-		<h1 class="page-header"><s:property value ="loginTeamList[0].teamName" />さんのスケジュール</h1>
+		<h1 class="page-header"><s:property value ="search" />さんのスケジュール</h1>
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{siteUrl}">
