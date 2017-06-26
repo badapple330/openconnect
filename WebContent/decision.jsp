@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <!-- Stylesheet
       ================================================== -->
-<link rel="stylesheet" type="text/css" href="css/decision_implementation.css">
+      <link rel="stylesheet" type="text/css" href="css/decision_implementation.css">
 
 <!-- Javascripts
       ================================================== -->
@@ -23,14 +23,12 @@ $("#res,#lines,#c,#d").val($(this).val());
  });
 });
 </script>
+
+<jsp:include page="header.jsp" />
 </head>
-
 <body>
-
 <h1 align=center>実施決裁</h1>
-
 <s:property value="%{resultString}" />
-
 <table>
 <tr>
 <td>
@@ -44,26 +42,17 @@ $("#res,#lines,#c,#d").val($(this).val());
 </td>
 </tr>
 </table>
-
 <s:form action="DecisionUpdateAction">
 
-
 <table class="main" border="2">
-
 <tr>
 <td class="kian"><b>起案者名</b>
 </td>
 
 <td>
 <s:iterator value="nameList">
-
  <s:property value='familyNameKanji'/><s:property value='givenNameKanji'/>
-
 </s:iterator>
-</td>
-
-<td>
-
 </td>
 </tr>
 
@@ -73,19 +62,18 @@ $("#res,#lines,#c,#d").val($(this).val());
 <tr>
 
 <th>案件名</th>
-<s:if test="decisionName != null && !decisionList.isEmpty()">
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <td colspan="3">
 <s:iterator value="decisionList">
-<textarea cols="50" rows="4" name="decisionName"><s:property value="decisionName" /></textarea>
+<textarea cols="125" rows="4" name="decisionName"><s:property value="decisionName" /></textarea>
 </s:iterator>
 </td>
 </s:if>
 <s:else>
 <td colspan="3">
-<textarea cols="50" rows="4" name="decisionName">未定義</textarea>
+<textarea cols="125" rows="4" name="decisionName">未定義</textarea>
 </td>
 </s:else>
-
 </tr>
 
 <tr>
@@ -101,8 +89,6 @@ $("#res,#lines,#c,#d").val($(this).val());
 <textarea cols="125" rows="4" name="summary">未定義</textarea>
 </td>
 </s:else>
-
-
 </tr>
 
 <tr>
@@ -137,8 +123,6 @@ $("#res,#lines,#c,#d").val($(this).val());
 合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text" value="<s:property value="amountAll" />" readonly="readonly" size="8">万円
 </td>
 </s:else>
-
-
 </tr>
 
 <tr>
@@ -157,21 +141,28 @@ $("#res,#lines,#c,#d").val($(this).val());
 <input type="date" name="endDay" size="7" required placeholder="YYYYMMDD" value="<s:property value="endDay" />">
 </td>
 </s:else>
-
 </tr>
 
 <tr>
 <td><b>承認者</b></td>
 <td>
-承認者名<br>
-承認者名<br>
-承認者名
+<s:if test="decisionType != '実施'" >
+<s:property value="jPermiterId1" /><br>
+<s:property value="jPermiterId2" /><br>
+<s:property value="jPermiterId3" />
+</s:if>
+<s:elseif test="decisionType != '契約'">
+<s:property value="kPermiterId1" /><br>
+<s:property value="kPermiterId2" /><br>
+<s:property value="kPermiterId3" />
+</s:elseif>
+<s:else>
+遡及承認者1人
+</s:else>
 </td>
 </tr>
 
 </table>
-
-
 <div align="center">
 <h3>建設費用</h3>
 </div>
@@ -183,7 +174,6 @@ $("#res,#lines,#c,#d").val($(this).val());
 <th>個数</th>
 <th>小計(万円)</th>
 </tr>
-
 
 <tr>
 <th>開発端末</th>
@@ -223,7 +213,6 @@ $("#res,#lines,#c,#d").val($(this).val());
 </td>
 </s:else>
 </tr>
-
 
 <tr>
 <th>リリース環境使用料</th>
@@ -328,15 +317,12 @@ $("#res,#lines,#c,#d").val($(this).val());
 </s:else>
 </td>
 </tr>
-
 </table>
 
 <div align="center">
 <h3>損益費用</h3>
 </div>
-
 <table class="math" border="2">
-
 <tr>
 <th></th>
 <th>単価(万円)</th>
@@ -413,14 +399,20 @@ $("#res,#lines,#c,#d").val($(this).val());
 <td><input type="number"  value="" readonly="readonly" size="20">万円</td>
 </s:else>
 </tr>
-
 </table>
-<input type="hidden" name="jDrafterId" value="<s:property value="session.userId" />">
+
+<input type="hidden" name="jDrafterId" value="<s:property value="session.jDraftId" />">
 <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 <input type="submit"  value="編集を保存">
 </s:form>
+<br><br>
 
+<h2><a href="./file_up.jsp" target="_blank">資料添付</a></h2>
 
+<!-- 戻る -->
+	<s:form action="GetAddressAction">
+		<input type="submit" class="button" value="戻る">
+	</s:form>
 
 </body>
 </html>
