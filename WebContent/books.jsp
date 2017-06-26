@@ -31,7 +31,8 @@
 
 				<s:if test="%{#session.userFlg >= 3}">
 					<div class="page_content_base_msg">
-						この画面上だけで検索・一覧表示・編集・削除ができます。<br> 編集完了ボタンは複数の編集を一度に受け付けられます。<br>
+						この画面上だけで検索・一覧表示・編集・削除ができます。<br>
+						編集完了ボタンは複数の編集を一度に受け付けられます。<br>
 						削除ボタン押下時、モーダルによる確認がなされます。
 					</div>
 
@@ -60,15 +61,19 @@
 					<span class="f_left" style="float: right;"> <b><font
 							color="red"> <s:property value="%{resultString}" /> <span>
 							</span> <s:property value="%{resultSelect}" />
-						</font></b> <span> </span> ページ【<s:property value="currentPage+1" />/<s:property
+						</font></b> <span> </span><br> ページ【<s:property value="currentPage+1" />/<s:property
 							value="pageCount" />】
-					</span> 検索結果【
+					</span>
+					検索結果[
 					<s:property value="bookList.size()" />
-					】 <span> </span> 検索ワード「
+					]
+					<br>
+					検索ワード「
 					<s:property value="search" />
-					」 <span> </span>
+					」
 
 				</div>
+				<br>
 
 
 
@@ -90,7 +95,7 @@
 								<th class="w15" scope="col">出版社<br>出版日
 								</th>
 								<s:if test="%{#session.userFlg >= 3}">
-									<th class="w04" scope="col">状態</th>
+									<th class="w05" scope="col">状態</th>
 									<th class="w04 nwrap" scope="col">削除</th>
 								</s:if>
 							</tr>
@@ -290,24 +295,24 @@
 				<%-- ↑PCの場合の表示↑ --%>
 
 				<%-- ↓スマホの場合の表示↓ --%>
-				<div class="page_content_frame col-xs-12 visible-xs">
+				<div class="page_content_frame visible-xs">
 
 					<s:form action="BooksUpdateAction">
 
 						<table class="list">
 							<tr>
-								<th class="w04 nwrap font80" scope="col">番<br>号
+								<th class="w04 nwrap font60" scope="col">番<br>号
 								</th>
-								<th class="w03 nwrap id_font font80" scope="col">ID</th>
-								<th class="w40 font80" scope="col">タイトル<br>サブタイトル
+								<th class="w03 nwrap id_font font60" scope="col">ID</th>
+								<th class="w40 font60" scope="col">タイトル<br>サブタイトル
 								</th>
-								<th class="w15 font80" scope="col">著者</th>
-								<th class="w15 font80" scope="col">出版社<br>出版日
+								<th class="w15 font60" scope="col">著者</th>
+								<th class="w15 font60" scope="col">出版社<br>出版日
 								</th>
 								<s:if test="%{#session.userFlg >= 3}">
-									<th class="w10 font80" scope="col">状<br>態
+									<th class="w10 font60" scope="col">状<br>態
 									</th>
-									<th class="w07 nwrap font80" scope="col">削<br>除
+									<th class="w07 nwrap font60" scope="col">削<br>除
 									</th>
 								</s:if>
 							</tr>
@@ -315,18 +320,18 @@
 							<s:iterator value="searchList">
 
 								<tr id="<s:property value="initial" />">
-									<td class="center nwrap font80"><s:property value="no" /></td>
-									<td class="bookId center nwrap id_font font80"><input
+									<td class="center nwrap font60"><s:property value="no" /></td>
+									<td class="bookId center nwrap id_font font60"><input
 										type="hidden" name="bookIdList"
 										value="<s:property value="bookId" />"> <s:property
 											value="bookId" /></td>
 									<td><s:if test="%{#session.userFlg >= 3}">
 											<textarea cols=10 rows=4 name="titleList" maxlength="50"
-												class="bookTitle font80" placeholder="例：やさしいJAVA" required> <s:property
+												class="bookTitle font60" placeholder="例：やさしいJAVA" required> <s:property
 													value="title" /> </textarea>
 											<br>
 											<input type="text" name="subTitleList" maxlength="50"
-												class="bookSubTitle font80"
+												class="bookSubTitle font60"
 												value="<s:property value="subTitle"/>">
 										</s:if> <s:else>
 											<s:property value="title" />
@@ -335,7 +340,7 @@
 										</s:else></td>
 									<td><s:if test="%{#session.userFlg >= 3}">
 											<input type="text" name="authorList" maxlength="30"
-												class="bookAuthor center font80 vertical"
+												class="bookAuthor center font60 vertical"
 												placeholder="例：Mr.マリック"
 												value="<s:property value="author" />" required>
 										</s:if> <s:else>
@@ -343,12 +348,12 @@
 										</s:else></td>
 									<td class="center"><s:if test="%{#session.userFlg >= 3}">
 											<input type="text" name="publisherList" maxlength="50"
-												class="bookPublisher center font80"
+												class="bookPublisher center font60"
 												value="<s:property value="publisher"/>"
 												placeholder="例：オーブン社" required>
 											<br>
 											<input type="text" name="pubDayList" maxlength="10"
-												class="bookPubDay center font80"
+												class="bookPubDay center font60"
 												value="<s:property value="pubDay"/>" placeholder="例：2017.06"
 												required>
 										</s:if> <s:else>
@@ -359,10 +364,10 @@
 									<s:if test="%{#session.userFlg >= 3}">
 										<td class="center"><input type="text"
 											name="statusFlgList"
-											class="bookStatusFlg center font80 vertical"
+											class="bookStatusFlg center font60 vertical"
 											value="<s:property value="statusFlg"/>"></td>
-										<td class="center nwrap font80"><input type="button"
-											class="btn-danger modal-open button" value="×"></td>
+										<td class="center nwrap font60"><input type="button"
+											class="btn-danger modal-open button" value="×" style="width:5px; height:15px"></td>
 									</s:if>
 
 								</tr>
@@ -468,39 +473,39 @@
 
 					<s:if test="%{#session.userFlg >= 3}">
 						<div class="page_content_frame">
-							<div class="insert_table pad font80">
+							<div class="insert_table pad font60">
 								<s:form action="BooksInsertAction">
 									<h3 class="center">書籍の追加</h3>
 									<table class="insert-table">
 
 										<tr>
-											<td>タイトル：<input type="text" name="title" class="font70"
+											<td>ﾀｲﾄﾙ：<input type="text" name="title" size="18" class="font60"
 												required maxlength="50">
 											</td>
 										</tr>
 										<tr>
-											<td>著者：<input type="text" name="author" class="font70"
+											<td>著者：<input type="text" name="author" size="18" class="font60"
 												required maxlength="50">
 											</td>
 										</tr>
 										<tr>
-											<td>サブタイトル：<input type="text" name="subTitle"
-												class="font70" maxlength="50">
+											<td>ｻﾌﾞﾀｲﾄﾙ：<input type="text" name="subTitle" size="18"
+												class="font60" maxlength="50">
 											</td>
 										</tr>
 										<tr>
-											<td>出版社：<input type="text" name="publisher"
-												class="font70" required maxlength="50">
+											<td>出版社：<input type="text" name="publisher" size="18"
+												class="font60" required maxlength="50">
 											</td>
 										</tr>
 										<tr>
-											<td>イニシャル：<input type="text" name="initial"
-												class="font70" required maxlength="5"
+											<td>ｲﾆｼｬﾙ：<input type="text" name="initial" size="18"
+												class="font60" required maxlength="5"
 												placeholder="例:ア,カ,サ/A,B,C/その他">
 											</td>
 										</tr>
 										<tr>
-											<td>出版日：<input type="text" name="pubDay" class="font70"
+											<td>出版日：<input type="text" name="pubDay" size="18" class="font70"
 												required maxlength="10" placeholder="例：2017.06">
 											</td>
 										</tr>
