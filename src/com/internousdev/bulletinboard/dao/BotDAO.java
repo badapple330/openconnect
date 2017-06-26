@@ -25,7 +25,7 @@ public class BotDAO {
 	 */
 	public ArrayList<BotDTO> wordSearch(String word){
 		ArrayList<BotDTO> wordList = new ArrayList<BotDTO>();
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("bbbot").getConnection();
 		String phase= "%"+ word + "%";
 
 		String sql = "select word from word_analysis where word like ?";
@@ -58,7 +58,7 @@ public class BotDAO {
 	 * @return タイムラインの投稿内容のリスト
 	 */
 	public ArrayList<String> getContents(int userId){
-		 Connection con = new MySqlConnector("bulletinboard").getConnection();
+		 Connection con = new MySqlConnector("bbbot").getConnection();
 		 ArrayList<String> contentsList = new ArrayList<String>();
 
 		 String sql = "select send_contents from send_timeline where sender_id = ?";
@@ -91,7 +91,7 @@ public class BotDAO {
 	 */
 	public ArrayList<BotDTO> phaseSearch(String word){
 		ArrayList<BotDTO> wordList = new ArrayList<BotDTO>();
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("bbbot").getConnection();
 
 		String sql = "select after_word from word_analysis where word=?";
 

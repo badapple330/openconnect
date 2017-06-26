@@ -64,24 +64,33 @@ public class BotExercise {
 		//単語の次に助詞・助動詞があった場合はくっつける
 		for(int i=0;i<(wordList.size()-1);i++){
 			if(wordList.get(i+1).getPartOfSpeech().contains("助詞") || wordList.get(i+1).getPartOfSpeech().contains("助動詞")){
-				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
-				wordList.remove(i+1);
+				//記号と助詞助動詞はくっつけない
+				if(!wordList.get(i).getPartOfSpeech().contains("記号")){
+					wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
+					wordList.remove(i+1);
+					i--;
+				}
 			}
 		}
 
 		return wordList;
 	}
-	
+
 	public ArrayList<BotDTO> bracketsConbine(ArrayList<BotDTO> wordList){
-		ArrayList<BotDTO> newWordList = new ArrayList<BotDTO>();
-		
+
 		for(int i=0;i<(wordList.size()-1);i++){
-			if(wordList.get(i).getPartOfSpeech().contains("(") || wordList.get(i).getPartOfSpeech().contains("（")){
+			if(wordList.get(i).getPartOfSpeech().contains("括弧開")){
 				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
-				wordList.get(i).setParts(wordList.get(i).getParts() + wordList.get(i+1).getParts());
+				if(wordList.get(i+1).getPartOfSpeech().contains("括弧閉")){
+					wordList.remove(i+1);
+					break;
+				}else{
+					wordList.remove(i+1);
+				}
 			}
-			if
+
 		}
+		return wordList;
 	}
 	/**
 	 * リストをもとに、単語とその前後関係をテーブルに書き込むメソッド
@@ -90,8 +99,9 @@ public class BotExercise {
 	public int wordSet(){
 		ArrayList<BotDTO> wordList = new ArrayList<BotDTO>();
 		wordList = wordConbine();
+		//wordList = bracketsConbine(wordList);
 		int inserted = 0;
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("bbbot").getConnection();
 
 		String sql = "insert into word_analysis(word,parts,part_of_speech,dictionary,after_word,before_word) values(?,?,?,?,?,?)";
 

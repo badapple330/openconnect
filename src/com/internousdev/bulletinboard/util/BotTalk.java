@@ -66,7 +66,7 @@ public class BotTalk {
 	 * @return レスポンスリスト
 	 */
 	public ArrayList<BotDTO> responseGet(){
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("bbbot").getConnection();
 		ArrayList<BotDTO> responseList = new ArrayList<BotDTO>();
 		String sql = null;
 
@@ -145,7 +145,7 @@ public class BotTalk {
 	 */
 	  public int botSet(int receiverId,String postContents){
 		  int inserted = 0;
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("bbbot").getConnection();
 
 		  String sql = "insert into post (sender_id,receiver_id,post_contents,img) values (?,?,?,'') ";
 		    try{
