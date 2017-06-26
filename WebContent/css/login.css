@@ -24,6 +24,10 @@ body {
 	width: 100%;
 }
 
+input {
+	font-size: 1.6em;
+}
+
 input#inner_phoneEmail,
 input#inner_password {
 	width:300px;
