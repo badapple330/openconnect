@@ -26,9 +26,13 @@ public class DecisionDetailRemandAction extends ActionSupport {
 	 */
 	private String decisionType;
 	/**
-	 * 承認状況
+	 * [実施]承認状況
 	 */
-	private int permitStatus;
+	private int permitStatusJ;
+	/**
+	 * [契約/実施兼契約]承認状況
+	 */
+	private int permitStatusK;
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -54,7 +58,7 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 		int count = 0;
 
-		count = dao.remand( decisionType, permitStatus, decisionId );
+		count = dao.remand( decisionType, permitStatusJ, permitStatusK, decisionId );
 
 
 		if (count > 0 ) {
@@ -92,18 +96,34 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 	/**
 	* 取得メソッド を取得
-	* @return permitStatus
+	* @return permitStatusJ
 	*/
-	public int getPermitStatus() {
-		return permitStatus;
+	public int getPermitStatusJ() {
+		return permitStatusJ;
 	}
 
 	/**
 	* 設定メソッド を設定
-	* @param permitStatus
+	* @param permitStatusJ
 	*/
-	public void setPermitStatus(int permitStatus) {
-		this.permitStatus = permitStatus;
+	public void setPermitStatusJ(int permitStatusJ) {
+		this.permitStatusJ = permitStatusJ;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return permitStatusK
+	*/
+	public int getPermitStatusK() {
+		return permitStatusK;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param permitStatusK
+	*/
+	public void setPermitStatusK(int permitStatusK) {
+		this.permitStatusK = permitStatusK;
 	}
 
 	/**

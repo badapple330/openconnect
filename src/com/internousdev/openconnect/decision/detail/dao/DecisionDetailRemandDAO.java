@@ -20,7 +20,7 @@ public class DecisionDetailRemandDAO {
 	/**
      * 差し戻しボタン押下時メソッド  差し戻しによる値の更新をする為のメソッド
      */
-	public int remand( String decisionType, int permitStatus, int decisionId ) {
+	public int remand( String decisionType, int permitStatusJ, int permitStatusK, int decisionId ) {
 
 		int count = 0;
 
@@ -38,7 +38,12 @@ public class DecisionDetailRemandDAO {
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, permitStatus);
+			if(decisionType.equals("実施")) {
+				ps.setInt(1, permitStatusJ);
+			}
+			else {
+				ps.setInt(1, permitStatusK);
+			}
 			ps.setInt(2, decisionId);
 
 			count = ps.executeUpdate();

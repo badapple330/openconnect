@@ -138,7 +138,7 @@ public class DecisionDetailPermitDAO {
 	/**
      * リーダー承認時メソッド  承認による値の更新と承認者ID(リーダー)の登録をする為のメソッド
      */
-	public int updateP( String decisionType, int permitStatus, int userId, int decisionId ) {
+	public int updateP( String decisionType, int permitStatusJ, int permitStatusK, int userId, int decisionId ) {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
 		String permitDay = sdf.format(System.currentTimeMillis());
@@ -149,49 +149,48 @@ public class DecisionDetailPermitDAO {
 		String sql = "";
 
 		if(decisionType.equals("実施")) {
-			if(permitStatus == 1) {
-			sql = sql + "update decision set permit_statusJ = ?, j_permiter_id1 = ?, j_permit_day1 = ? where decision_id = ?";
+			if(permitStatusJ == 1) {
+			sql = sql + "update decision set permit_statusJ = 1, j_permiter_id1 = ?, j_permit_day1 = ? where decision_id = ?";
 			}
-			if(permitStatus == 2) {
-			sql = sql + "update decision set permit_statusJ = ?, j_permiter_id2 = ?, j_permit_day2 = ? where decision_id = ?";
+			if(permitStatusJ == 2) {
+			sql = sql + "update decision set permit_statusJ = 2, j_permiter_id2 = ?, j_permit_day2 = ? where decision_id = ?";
 			}
 		}
 		else {
-			if(permitStatus == 1) {
-			sql = sql + "update decision set permit_statusK = ?, k_permiter_id1 = ?, k_permit_day1 = ? where decision_id = ?";
+			if(permitStatusK == 1) {
+			sql = sql + "update decision set permit_statusK = 1, k_permiter_id1 = ?, k_permit_day1 = ? where decision_id = ?";
 			}
-			if(permitStatus == 2) {
-			sql = sql + "update decision set permit_statusK = ?, k_permiter_id2 = ?, k_permit_day2 = ? where decision_id = ?";
+			if(permitStatusK == 2) {
+			sql = sql + "update decision set permit_statusK = 2, k_permiter_id2 = ?, k_permit_day2 = ? where decision_id = ?";
 			}
 		}
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, permitStatus);
 
 			if(decisionType == "実施" || decisionType.equals("実施")) {
-				if(permitStatus == 1) {
+				if(permitStatusJ == 1) {
 					int jPermiterId1 = userId;
-					ps.setInt(2, jPermiterId1);
+					ps.setInt(1, jPermiterId1);
 				}
-				if(permitStatus == 2) {
+				if(permitStatusJ == 2) {
 					int jPermiterId2 = userId;
-					ps.setInt(2, jPermiterId2);
+					ps.setInt(1, jPermiterId2);
 				}
 			}
 			else {
-				if(permitStatus == 1) {
+				if(permitStatusK == 1) {
 					int kPermiterId1 = userId;
-					ps.setInt(2, kPermiterId1);
+					ps.setInt(1, kPermiterId1);
 				}
-				if(permitStatus == 2) {
+				if(permitStatusK == 2) {
 					int kPermiterId2 = userId;
-					ps.setInt(2, kPermiterId2);
+					ps.setInt(1, kPermiterId2);
 				}
 			}
-			ps.setString(3, permitDay);
-			ps.setInt(4, decisionId);
+			ps.setString(2, permitDay);
+			ps.setInt(3, decisionId);
 
 			count = ps.executeUpdate();
 

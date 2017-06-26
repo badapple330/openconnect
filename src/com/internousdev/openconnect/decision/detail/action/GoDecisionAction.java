@@ -74,7 +74,7 @@ public class GoDecisionAction extends ActionSupport implements SessionAware {
 		String searchString = "";
 		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
 		decisionDetailList2 = dao.selectMyD( userId, userId1);
-		decisionBeginList = dao.selectP( userId, userId1 );
+		decisionBeginList = dao.selectBeginP( userId, userId1 );
 
 
 		if( decisionDetailList1.size() == 0){

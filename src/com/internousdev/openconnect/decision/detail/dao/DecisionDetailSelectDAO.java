@@ -137,7 +137,7 @@ public class DecisionDetailSelectDAO {
 	 * ログイン中ユーザーの決裁未着手の自プロジェクトを呼び出す専用
 	 * @author SOSHI AZUMA
 	 */
- 	public List<DecisionDetailDTO> selectP(int userId, int userId1){
+ 	public List<DecisionDetailDTO> selectBeginP(int userId, int userId1){
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from projects left outer join decision on projects.project_id = decision.project_id "
