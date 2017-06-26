@@ -1,65 +1,59 @@
+/**
+ *
+ */
 package com.internousdev.openconnect.decision.detail.action;
+
 import java.util.Map;
 
-import com.internousdev.openconnect.decision.detail.dao.DecisionDetailRemandDAO;
+import com.internousdev.openconnect.decision.detail.dao.DecisionDetailRecourseDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 /**
- * 差し戻しボタン押下時にDBの情報を更新するクラス
+ * 遡求申請ボタン押下時にDBの情報を更新するクラス
  * @author SOSHI AZUMA
- * @since 2017/06/21
+ * @since 2017/06/24
  * @version 1.0
  */
-public class DecisionDetailRemandAction extends ActionSupport {
+public class DecisionDetailRecourseAction extends ActionSupport {
+
 
 	/**
 	 * シリアルバージョンID
 	 */
-	private static final long serialVersionUID = -8411529948818659378L;
+	private static final long serialVersionUID = 570817582132722601L;
 	/**
 	 * 決裁ID
 	 */
 	private int decisionId;
 	/**
-	 * 決裁種類
+	 * エラーメッセージ
 	 */
-	private String decisionType;
-	/**
-	 * 承認状況
-	 */
-	private int permitStatus;
+	private String resultString = "遡求申請できませんでした。";
 	/**
 	 * 管理者権限メソッド
 	 */
 	public Map<String, Object> session;
-	/**
-	 * エラーメッセージ
-	 */
-	private String resultString = "差し戻しできませんでした。";
 
 
 
 	/**
-	 * 実行メソッド 差し戻しによる値の更新をする
+	 * 実行メソッド 遡求申請による値の更新をする
 	 * @return result 決裁情報の更新に成功したらSUCCESS, 失敗したらERROR
 	 */
-	public String execute() throws Exception {
+	public String execute() {
 
 		String result=ERROR;
 
-
-		DecisionDetailRemandDAO dao = new DecisionDetailRemandDAO();
-
+		DecisionDetailRecourseDAO dao = new DecisionDetailRecourseDAO();
 
 		int count = 0;
 
-		count = dao.remand( decisionType, permitStatus, decisionId );
+		count = dao.recourse( decisionId );
 
 
 		if (count > 0 ) {
 			result = SUCCESS;
-			resultString = "差し戻しできました!";
+			resultString = "遡求申請しました! ";
 		}
 		return result;
 	}
@@ -80,30 +74,6 @@ public class DecisionDetailRemandAction extends ActionSupport {
 	*/
 	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
-	}
-
-	public String getDecisionType() {
-		return decisionType;
-	}
-
-	public void setDecisionType(String decisionType) {
-		this.decisionType = decisionType;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return permitStatus
-	*/
-	public int getPermitStatus() {
-		return permitStatus;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param permitStatus
-	*/
-	public void setPermitStatus(int permitStatus) {
-		this.permitStatus = permitStatus;
 	}
 
 	/**
@@ -137,7 +107,5 @@ public class DecisionDetailRemandAction extends ActionSupport {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
 
 }

@@ -32,7 +32,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 	 */
 	private String decisionType;
 	/**
-	 * 文字列番号
+	 * 3種に対応する起案番号の入れ物
 	 */
 	private String stringId;
 	/**
@@ -40,13 +40,26 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 	 */
 	public Map<String, Object> session;
 	/**
+	 * sessionから取得したログイン中ユーザーID
+	 */
+	private int userId;
+	/**
 	 * エラーメッセージ
 	 */
-	private String resultString = "申請できませんでした。";
+	private String resultString = "申請できませんでした。もしくは申請済みです。";
 	/**
-	 * ID番号振り分けリスト
+	 * 起案番号振り分け用リスト
 	 */
 	private List<DecisionDetailDTO> idNumList = new ArrayList<DecisionDetailDTO>();
+
+	private String token;
+
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
 
 
 
@@ -65,101 +78,110 @@ public class DecisionDetailApplicationAction extends ActionSupport {
         Calendar c = Calendar.getInstance();
         //フォーマットパターンを指定して表示する
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        	String num = sdf.format( c.getTime() );
+    		String num = sdf.format( c.getTime() );
 
-			//起案番号の生成
-			String jImpId = "KN-" + num + "-";
-			String kImpId = "K-KN-" + num + "-";
-			String jkImpId = "KN-" + num + "-";
+		//起案番号の生成
+		String jImpId = "KN-" + num + "-";
+		String kImpId = "K-KN-" + num + "-";
+		String jkImpId = "KN-" + num + "-";
 
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
 
-
-		//DBに完全一致する番号が既に存在する場合に申請を拒否する為の準備
-		DecisionDetailDTO dto = new DecisionDetailDTO();
-			dto = dao.compareIdSelect(decisionType, stringId);
-			String compareId = dto.getCompareId();
+		String idNum = "";
+		int count = 0;
 
 
-			String idNum = "";
-			int count = 0;
+		//実施決裁の申請
+		if(decisionType.equals("実施")) {
+			idNum = jImpId;
+			idNumList = dao.select(decisionType, idNum);
 
+			//本日発行された実施起案番号がある場合
+			if(idNumList.size() > 0) {
 
-		//完全一致する番号が存在しない場合
-		if(compareId == null || compareId.equals("")) {
-
-			//実施決裁の申請
-			if(decisionType.equals("実施")) {
-
-				if(stringId.equals("")) {
-
-					idNum = jImpId;
-					idNumList = dao.select(decisionType, idNum);
-					if(idNumList.size() > 0) {
+					//自プロジェクトの実施起案番号が未発行の場合
+					if(stringId == null || stringId.equals("")) {
 						int a = idNumList.size() + 1;
 						String b = dformat.format(a);
 						jImpId = jImpId + b;
+						count = dao.updateAJ( jImpId, num, decisionId );
 					}
+					/*自プロジェクトの実施起案番号が既に発行済みの場合
+					(起案番号の発行を伴わない当日中の差し戻し、変更申請)*/
 					else {
-						jImpId = jImpId + "001";
+						count = dao.updateSimple(decisionType, num, decisionId);
 					}
-				}
-				else {
-					jImpId = stringId;
-				}
+			}
+			//本日発行された実施起案番号がない場合
+			else {
+				jImpId = jImpId + "001";
 				count = dao.updateAJ( jImpId, num, decisionId );
 			}
+		}
 
-			//契約決裁の申請
-			else if(decisionType.equals("契約")) {
+		//契約決裁の申請
+		else if(decisionType.equals("契約")) {
 
-				if(stringId.equals("")) {
-					idNum = kImpId;
-					idNumList = dao.select(decisionType, idNum);
-					if(idNumList.size() > 0) {
+			idNum = kImpId;
+			idNumList = dao.select(decisionType, idNum);
+
+			//本日発行された契約起案番号がある場合
+			if(idNumList.size() > 0) {
+
+					//自プロジェクトの契約起案番号が未発行の場合
+					if(stringId == null || stringId.equals("")) {
 						int a = idNumList.size() + 1;
 						String b = dformat.format(a);
 						kImpId = kImpId + b;
+						count = dao.updateAK( kImpId, num, decisionId );
 					}
+					/*自プロジェクトの契約起案番号が既に発行済みの場合
+					(起案番号の発行を伴わない当日中の差し戻し、変更申請)*/
 					else {
-						kImpId = kImpId + "001";
+						count = dao.updateSimple(decisionType, num, decisionId);
 					}
-				}
-				else {
-					kImpId = stringId;
-				}
+			}
+			//本日発行された契約起案番号がない場合
+			else {
+				kImpId = kImpId + "001";
 				count = dao.updateAK( kImpId, num, decisionId );
 			}
+		}
 
-			//実施兼契約決裁の申請
-			else {
+		//実施兼契約決裁の申請
+		else {
 
-				if(stringId.equals("")) {
-					idNum = jkImpId;
-					idNumList = dao.select(decisionType, idNum);
-					if(idNumList.size() > 0) {
+			idNum = jkImpId;
+			idNumList = dao.select(decisionType, idNum);
+
+			//本日発行された実施兼契約起案番号がある場合
+			if(idNumList.size() > 0) {
+
+					//自プロジェクトの実施兼契約起案番号が未発行の場合
+					if(stringId == null || stringId.equals("")) {
 						int a = idNumList.size() + 1;
 						String b = dformat.format(a);
 						jkImpId = jkImpId + b;
+						count = dao.updateAJK( jkImpId, num, decisionId );
 					}
+					/*自プロジェクトの実施兼契約起案番号が既に発行済みの場合
+					(起案番号の発行を伴わない当日中の差し戻し、変更申請)*/
 					else {
-						jkImpId = jkImpId + "001";
+						count = dao.updateSimple(decisionType, num, decisionId);
 					}
-				}
-				else {
-					jkImpId = stringId;
-				}
+			}
+			//本日発行された実施兼契約起案番号がない場合
+			else {
+				jkImpId = jkImpId + "001";
 				count = dao.updateAJK( jkImpId, num, decisionId );
 			}
-
-			if (count > 0 ) {
-				result = SUCCESS;
-				resultString = "申請できました! ";
-			}
-
 		}
 
+		if (count > 0 ) {
+			result = SUCCESS;
+			resultString = "申請できました! ";
+		}
 
 		return result;
 	}
@@ -182,17 +204,21 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		this.decisionId = decisionId;
 	}
 
+	/**
+	* 取得メソッド を取得
+	* @return decisionType
+	*/
 	public String getDecisionType() {
 		return decisionType;
 	}
 
-
-
+	/**
+	* 設定メソッド を設定
+	* @param decisionType
+	*/
 	public void setDecisionType(String decisionType) {
 		this.decisionType = decisionType;
 	}
-
-
 
 	/**
 	* 取得メソッド を取得
@@ -202,8 +228,6 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		return stringId;
 	}
 
-
-
 	/**
 	* 設定メソッド を設定
 	* @param StringId
@@ -211,8 +235,6 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 	public void setStringId(String stringId) {
 		this.stringId = stringId;
 	}
-
-
 
 	/**
 	* 取得メソッド 結果を取得
@@ -246,7 +268,21 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 		this.session = session;
 	}
 
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
 
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	/**
 	* 取得メソッド を取得
@@ -255,8 +291,6 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 	public List<DecisionDetailDTO> getIdNumList() {
 		return idNumList;
 	}
-
-
 
 	/**
 	* 設定メソッド を設定

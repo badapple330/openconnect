@@ -24,6 +24,8 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 */
 	private List<Integer> scheduleIdList = new ArrayList<Integer>();
 
+	private List<Integer> scheduleList = new ArrayList<Integer>();
+
 	/**
 	 * 開始日
 	 * @author MASAHIRO KEDSUKA
@@ -48,7 +50,12 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 */
 	private List<String> scheduleContentList = new ArrayList<String>();
 
-	private List<String> scheduleTeamNameList = new ArrayList<String>();
+	/**
+	 * とりあえず用意してあるチームリスト
+	 * @author WATARU AMEMIYA
+	 */
+	private List<String> scheduleTeamList = new ArrayList<String>();
+	private List<String> teamList = new ArrayList<String>();
 
 	/**
 	 * エラーメッセージ
@@ -63,11 +70,17 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 */
 	private String successMsg;
 
-	//ScheduleSelectAcitionにチーム名渡すための変数
+	/**
+	 * ScheduleSelectAcitionにチーム名渡すための変数
+	 * @author WATARU AMEMIYA
+	 */
 	private String search;
 
-	//jspからteamNameを取得する
-	private List<String> teamList = new ArrayList<String>();
+	/**
+	 * jspから配列teamNameを取得する
+	 * @author WATARU AMEMIYA
+	 */
+	private List<String> teamName = new ArrayList<String>();
 
 
 	/**
@@ -76,7 +89,7 @@ public class ScheduleUpdateAction extends ActionSupport {
 	public String execute(){
 		String ret = ERROR;
 
-		search = getParameterValues("teamList[]");
+		search = teamName.get(0);
 
 		ScheduleUpdateDAO dao = new ScheduleUpdateDAO();
 		int count = 0;
@@ -114,6 +127,24 @@ public class ScheduleUpdateAction extends ActionSupport {
 	 */
 	public void setScheduleIdList(List<Integer> scheduleIdList) {
 	    this.scheduleIdList = scheduleIdList;
+	}
+
+
+	/**
+	 * scheduleListを取得します。
+	 * @return scheduleList
+	 */
+	public List<Integer> getScheduleList() {
+	    return scheduleList;
+	}
+
+
+	/**
+	 * scheduleListを設定します。
+	 * @param scheduleList scheduleList
+	 */
+	public void setScheduleList(List<Integer> scheduleList) {
+	    this.scheduleList = scheduleList;
 	}
 
 
@@ -190,20 +221,38 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * scheduleTeamNameListを取得します。
-	 * @return scheduleTeamNameList
+	 * とりあえず用意してあるチームリストを取得します。
+	 * @return とりあえず用意してあるチームリスト
 	 */
-	public List<String> getScheduleTeamNameList() {
-	    return scheduleTeamNameList;
+	public List<String> getScheduleTeamList() {
+	    return scheduleTeamList;
 	}
 
 
 	/**
-	 * scheduleTeamNameListを設定します。
-	 * @param scheduleTeamNameList scheduleTeamNameList
+	 * とりあえず用意してあるチームリストを設定します。
+	 * @param scheduleTeamList とりあえず用意してあるチームリスト
 	 */
-	public void setScheduleTeamNameList(List<String> scheduleTeamNameList) {
-	    this.scheduleTeamNameList = scheduleTeamNameList;
+	public void setScheduleTeamList(List<String> scheduleTeamList) {
+	    this.scheduleTeamList = scheduleTeamList;
+	}
+
+
+	/**
+	 * teamListを取得します。
+	 * @return teamList
+	 */
+	public List<String> getTeamList() {
+	    return teamList;
+	}
+
+
+	/**
+	 * teamListを設定します。
+	 * @param teamList teamList
+	 */
+	public void setTeamList(List<String> teamList) {
+	    this.teamList = teamList;
 	}
 
 
@@ -244,8 +293,8 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * searchを取得します。
-	 * @return search
+	 * ScheduleSelectAcitionにチーム名渡すための変数を取得します。
+	 * @return ScheduleSelectAcitionにチーム名渡すための変数
 	 */
 	public String getSearch() {
 	    return search;
@@ -253,8 +302,8 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * searchを設定します。
-	 * @param search search
+	 * ScheduleSelectAcitionにチーム名渡すための変数を設定します。
+	 * @param search ScheduleSelectAcitionにチーム名渡すための変数
 	 */
 	public void setSearch(String search) {
 	    this.search = search;
@@ -262,21 +311,21 @@ public class ScheduleUpdateAction extends ActionSupport {
 
 
 	/**
-	 * teamListを取得します。
-	 * @return teamList
+	 * jspからteamNameを取得するを取得します。
+	 * @return jspからteamNameを取得する
 	 */
-	public List<String> getTeamList() {
-	    return teamList;
+	public List<String> getTeamName() {
+	    return teamName;
 	}
 
 
 	/**
-	 * teamListを設定します。
-	 * @param teamList teamList
+	 * jspからteamNameを取得するを設定します。
+	 * @param teamName jspからteamNameを取得する
 	 */
-	public void setTeamList(List<String> teamList) {
-	    this.teamList = teamList;
+	public void setTeamName(List<String> teamName) {
+	    this.teamName = teamName;
 	}
 
 
-	}
+		}

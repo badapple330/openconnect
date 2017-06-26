@@ -12,7 +12,8 @@
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 
-<s:if test="%{#session.userFlg != null}">
+
+<s:if test="%{#session.loginFlg != null}">
 <meta http-equiv="refresh"content="0;url=applist.jsp">
 </s:if>
 

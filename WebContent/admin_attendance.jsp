@@ -61,6 +61,8 @@
 	});
 </script>
 
+<script type="text/javascript" src="js/admin_attendance.js"></script>
+
 </head>
 
 <body>
@@ -134,6 +136,12 @@
 		</table>
 
 
+		<!-- 印刷用モーダル表示ボタン -->
+		<input type="button" class="modal-open" id="modal-open" value="一覧印刷"/>
+
+
+
+
 
 		<!-- 一覧表示 -->
 		<table style="margin-top: 10px;" class="type11">
@@ -163,12 +171,60 @@
 						<td><s:property value="attendance" /></td>
 						<td width="1000"><s:property value="reason" /></td>
 					</tr>
+
+					<input type="hidden" name="modalList"value="searchList" class="modal-list">
 				</s:iterator>
 
 
 			</tbody>
 
 		</table>
+
+		<!-- 一覧モーダル -->
+		<div id="modal-atlist" style="display: none;">
+
+		<div class="modal-header">
+        <button type="button" class="close" id="modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">勤怠確認</h4>
+      </div>
+
+		<table style="margin-top: 10px;" class="type11">
+			<thead>
+				<tr>
+					<th>報告日時</th>
+					<th>受講開始月</th>
+					<th>チーム</th>
+					<th style="white-space: nowrap;">性</th>
+					<th style="white-space: nowrap;">名</th>
+					<th>出欠状況</th>
+					<th width="1000">備考</th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+				<s:iterator value="searchList">
+					<tr>
+						<td><s:property value="atDate" /></td>
+						<td><s:property value="month" /></td>
+						<td><s:property value="teamName" /></td>
+						<td style="white-space: nowrap;"><s:property
+								value="familyNameKanji" /></td>
+						<td style="white-space: nowrap;"><s:property
+								value="givenNameKanji" /></td>
+						<td><s:property value="attendance" /></td>
+						<td width="1000"><s:property value="reason" /></td>
+					</tr>
+				</s:iterator>
+
+				</tbody>
+			</table>
+
+			<div class="modal-footer">
+        		<button type="button" id="modal-close" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+        	</div>
+       </div>
+
 	</div>
 
 	<script src="js/jquery.ymdpulldown.js"></script>

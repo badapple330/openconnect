@@ -19,7 +19,16 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class DecisionSelectAction extends ActionSupport implements SessionAware{
 
+	/**
+	 * 決裁番号
+	 */
+	private int decisionId;
 
+	/**
+	 * 起案者ユーザーID
+	 *
+	 */
+	private int jDrafterId;
 
 	/**
 	 * 案件名
@@ -165,6 +174,21 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
      */
     public int persons;
 
+	/**
+	 *承認者ユーザーID1(リーダー)
+	 */
+	public int jPermiterId1;
+
+	/**
+	 *承認者ユーザーID2(リーダー)
+	 */
+	public int jPermiterId2;
+
+	/**
+	 *承認者ユーザーID3(先生)
+	 */
+	public int jPermiterId3;
+
 
 	private String resultString = "表示できません。";
 
@@ -192,10 +216,8 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	private Map<String,Object> session;
 
 
-
 	/**
      * DAOに入力されたデータを渡して、結果を返す
-
      * @author kota.miyazato
      * @since 2017/06/07
      * @version 1.0
@@ -206,16 +228,16 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 		DecisionDAO dao = new DecisionDAO();
 
 		try {
-		decisionList=dao.select();
+		decisionList=dao.select(decisionId);
 		} catch (UnknownException e) {
 		e.printStackTrace();
 		}
 
 		if(decisionList!=null){
 
-			DecisionDAO decisionDAO = new DecisionDAO();
 			try {
-				nameList = decisionDAO.selectByUserId(userId);
+				jDrafterId = decisionList.get(0).getjDrafterId();
+				nameList = dao.selectByIds(jDrafterId);
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
@@ -752,6 +774,64 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	*/
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return jDrafterId
+	*/
+	public int getjDrafterId() {
+		return jDrafterId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param jDrafterId
+	*/
+	public void setjDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return jImpId
+	*/
+	public String getjImpId() {
+		return jImpId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param jImpId
+	*/
+	public void setjImpId(String jImpId) {
+		this.jImpId = jImpId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param jkDecId
+	*/
+	public void setJkDecId(String jkDecId) {
+		this.jkDecId = jkDecId;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionId
+	*/
+	public int getDecisionId() {
+		return decisionId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionId
+	*/
+	public void setDecisionId(int decisionId) {
+		this.decisionId = decisionId;
 	}
 
 

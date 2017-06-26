@@ -46,9 +46,16 @@ public class DecisionDetailApplicationDAO {
 
 			while(rs.next()) {
 				DecisionDetailDTO dto = new DecisionDetailDTO();
-				dto.setIdNumAmount(rs.getString("j_imp_id"));
-				dto.setIdNumAmount(rs.getString("k_imp_id"));
-				dto.setIdNumAmount(rs.getString("jk_imp_id"));
+
+				if(decisionType.equals("実施")) {
+					dto.setIdNumAmount(rs.getString("j_imp_id"));
+				}
+				else if(decisionType.equals("契約")) {
+					dto.setIdNumAmount(rs.getString("k_imp_id"));
+				}
+				else {
+					dto.setIdNumAmount(rs.getString("jk_imp_id"));
+				}
 
 				idNumList.add( dto );
 			  }
@@ -70,72 +77,6 @@ public class DecisionDetailApplicationDAO {
 
 
 
-
-
-
-
-	/**
-	 * DBの起案番号と照合し完全一致する起案番号を取得する為のメソッド
-	 */
-	public DecisionDetailDTO compareIdSelect(String decisionType, String stringId) {
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		Connection con = null;
-		con = db.getConnection();
-		DecisionDetailDTO dto = new DecisionDetailDTO();
-
-		String sql;
-
-		if(decisionType.equals("実施")) {
-			sql = "select j_imp_id from decision where j_imp_id =?";
-		}
-		else if(decisionType.equals("契約")) {
-			sql = "select k_imp_id from decision where k_imp_id = ?";
-		}
-		else {
-			sql = "select jk_imp_id from decision where jk_imp_id = ?";
-		}
-
-		try {
-			PreparedStatement ps = null;
-			ps = con.prepareStatement(sql);
-			ps.setString(1, stringId);
-
-			ResultSet rs = ps.executeQuery();
-
-			while(rs.next()) {
-
-				if(decisionType.equals("実施")) {
-					dto.setCompareId(rs.getString("j_imp_id"));
-				}
-				else if(decisionType.equals("契約")) {
-					dto.setCompareId(rs.getString("k_imp_id"));
-				}
-				else {
-					dto.setCompareId(rs.getString("jk_imp_id"));
-				}
-			}
-
-			rs.close();
-			ps.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return dto;
-	}
-
-
-
-
-
-
-
 	/**
      * 実施決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
@@ -150,7 +91,7 @@ public class DecisionDetailApplicationDAO {
 
 		String sql = "UPDATE decision SET decision_status1 = 1, j_imp_id = ?, apply_day = ? where decision_id = ?";
 
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, jImpId);
@@ -159,9 +100,9 @@ public class DecisionDetailApplicationDAO {
 
 			count =ps.executeUpdate();
 
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 
 				try {
 					con.close();
@@ -190,7 +131,7 @@ public class DecisionDetailApplicationDAO {
 
 		String sql = "UPDATE decision SET decision_status2 = 1, k_imp_id = ?, apply_day = ? where decision_id = ?";
 
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, kImpId);
@@ -199,9 +140,9 @@ public class DecisionDetailApplicationDAO {
 
 			count =ps.executeUpdate();
 
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 
 				try {
 					con.close();
@@ -230,7 +171,7 @@ public class DecisionDetailApplicationDAO {
 
 		String sql = "UPDATE decision SET decision_status2 = 1, jk_imp_id = ?, apply_day = ? where decision_id = ?";
 
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, jkImpId);
@@ -239,9 +180,54 @@ public class DecisionDetailApplicationDAO {
 
 			count =ps.executeUpdate();
 
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
+
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+
+		}
+		return count;
+	}
+
+
+
+	/**
+     * 起案番号発行を伴わない申請時の情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
+     */
+	public int updateSimple( String decisionType, String num, int decisionId ) {
+
+		int count = 0;
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection con = db.getConnection();
+
+		String sql;
+
+		if(decisionType.equals("実施")) {
+			sql = "UPDATE decision SET decision_status1 = 1, apply_day = ? where decision_id = ?";
+		}
+		else {
+			sql = "UPDATE decision SET decision_status2 = 1, apply_day = ? where decision_id = ?";
+		}
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, num);
+			ps.setInt(2, decisionId);
+
+			count =ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 
 				try {
 					con.close();

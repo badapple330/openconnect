@@ -285,7 +285,7 @@
 
 
 
-		<!-- 決済状況一覧画面への遷移 -->
+		<!-- 決裁編集/プレビュー画面への遷移 -->
 		<action name="DecisionSelectAction"
 			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
 			method="execute">
@@ -297,7 +297,7 @@
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
 			<result name="success">decision.jsp</result>
-			<result name="error" >decision.jsp</result>
+			<result name="error">decision.jsp</result>
 		</action>
 
 		<action name="DecisionPreviewAction"
@@ -308,7 +308,7 @@
 		</action>
 
 
-		<!-- 決済手続き電子化画面への遷移 -->
+		<!-- 決裁手続き画面への遷移 -->
 		<action name="GoDecisionAction"
 			class="com.internousdev.openconnect.decision.detail.action.GoDecisionAction"
 			method="execute">
@@ -326,37 +326,48 @@
 		<action name="DecisionDetailInsertAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailInsertAction"
 			method="execute">
-			<result name="success">decision_detail.jsp</result>
-			<result name="error">decision_detail.jsp</result>
+			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="error" type="chain">DecisionDetailSelectAction</result>
 		</action>
 
 		<action name="DecisionDetailPermitAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailPermitAction"
 			method="execute">
-			<result name="success">decision_detail.jsp</result>
-			<result name="error">decision_detail.jsp</result>
-			<!-- <result name="success" type="chain">DecisionDetailSelectAction</result>
-				<result name="error" type="chain">DecisionDetailSelectAction</result> -->
+			<!-- デフォルトinterceptor -->
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">DecisionDetailSelectAction</result>
+			<result type="chain">DecisionDetailSelectAction</result>
 		</action>
 
 		<action name="DecisionDetailApplicationAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailApplicationAction"
 			method="execute">
-			<result name="success">decision_detail.jsp</result>
-			<result name="error">decision_detail.jsp</result>
-			<!-- <result name="success" type="chain">DecisionDetailSelectAction</result>
-				<result name="error" type="chain">DecisionDetailSelectAction</result> -->
+			<!-- デフォルトinterceptor -->
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">DecisionDetailSelectAction</result>
+			<result type="chain">DecisionDetailSelectAction</result>
 		</action>
 
 		<action name="DecisionDetailRemandAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRemandAction"
 			method="execute">
-			<result name="success">decision_detail.jsp</result>
+			<result name="success" type="chain">DecisionDetailSelectAction</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailRejectAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRejectAction"
+			method="execute">
+			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="error">decision_detail.jsp</result>
+		</action>
+
+		<action name="DecisionDetailCompleteAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailCompleteAction"
 			method="execute">
 			<result name="success">decision_detail.jsp</result>
 			<result name="error">decision_detail.jsp</result>
@@ -438,12 +449,12 @@
 			class="com.internousdev.openconnect.schedule.action.ScheduleDeleteAction"
 			method="execute">
 			<!-- デフォルトinterceptor -->
-	<interceptor-ref name="defaultStack" />
-	<!-- tokenのinterceptor -->
-	<interceptor-ref name="token" />
-	<result name="invalid.token" type="chain">ScheduleSelectAction
-	</result>
-	<result type="chain">ScheduleSelectAction</result>
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">ScheduleSelectAction
+			</result>
+			<result type="chain">ScheduleSelectAction</result>
 		</action>
 
 		<action name="BackGoAction" class="com.internousdev.openconnect.action.JustGoAction"
@@ -452,14 +463,7 @@
 			<result name="error">project_progress.jsp</result>
 		</action>
 
-		<action name="attendanceACTION" method="execute"
-			class="com.internousdev.openconnect.attendance_test.attendanceACTION">
 
-			<result name="success">attendanceTest.jsp</result>
-
-			<result name="error">attendance.jsp</result>
-
-		</action>
 
 
 	</package>

@@ -5,18 +5,21 @@ package com.internousdev.openconnect.decision.detail.action;
 
 import java.util.Map;
 
-import com.internousdev.openconnect.decision.detail.dao.DecisionDetailUpdateDAO;
+import com.internousdev.openconnect.decision.detail.dao.DecisionDetailCompleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
+
 /**
- * @author internousdev
- *
+ * リリース完了ボタン押下時にDBの情報を更新するクラス
+ * @author SOSHI AZUMA
+ * @since 2017/06/23
+ * @version 1.0
  */
-public class DecisionDetailReleaseAction extends ActionSupport {
+public class DecisionDetailCompleteAction extends ActionSupport {
 
 
 	/**
-	 * シリアルID
+	 * シリアルバージョンID
 	 */
 	private static final long serialVersionUID = 8633009576791703661L;
 	/**
@@ -35,18 +38,18 @@ public class DecisionDetailReleaseAction extends ActionSupport {
 
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * 実行メソッド リリース完了による値の更新をする
+	 * @return result 決裁情報の更新に成功したらSUCCESS, 失敗したらERROR
 	 */
 	public String execute() {
 
 		String result=ERROR;
 
-		DecisionDetailUpdateDAO dao = new DecisionDetailUpdateDAO();
+		DecisionDetailCompleteDAO dao = new DecisionDetailCompleteDAO();
 
 		int count = 0;
 
-		count = dao.release( decisionId );
+		count = dao.releaseComplete( decisionId );
 
 
 		if (count > 0 ) {
@@ -65,8 +68,6 @@ public class DecisionDetailReleaseAction extends ActionSupport {
 	public int getDecisionId() {
 		return decisionId;
 	}
-
-
 
 	/**
 	* 設定メソッド を設定

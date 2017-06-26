@@ -415,8 +415,9 @@ $("#res,#lines,#c,#d").val($(this).val());
 </tr>
 
 </table>
-
-<input type="submit" value="編集を保存">
+<input type="hidden" name="jDrafterId" value="<s:property value="session.userId" />">
+<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+<input type="submit"  value="編集を保存">
 </s:form>
 
 
