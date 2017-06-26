@@ -1,8 +1,6 @@
 package com.internousdev.openconnect.schedule.action;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -56,17 +54,10 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	 */
 	private String search;
 
-	/**
-	 * jspから配列teamNameを取得する
-	 * @author WATARU AMEMIYA
-	 */
-	private List<String> teamName = new ArrayList<String>();
-
 	public String execute() throws SQLException{
 
 		String result =ERROR;    //削除の判定
 
-		search = teamName.get(0);
 
 		ScheduleDeleteDAO dao = new ScheduleDeleteDAO();
 		int count = 0;
@@ -161,19 +152,4 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	    this.search = search;
 	}
 
-	/**
-	 * jspから配列teamNameを取得するを取得します。
-	 * @return jspから配列teamNameを取得する
-	 */
-	public List<String> getTeamName() {
-	    return teamName;
-	}
-
-	/**
-	 * jspから配列teamNameを取得するを設定します。
-	 * @param teamName jspから配列teamNameを取得する
-	 */
-	public void setTeamName(List<String> teamName) {
-	    this.teamName = teamName;
-	}
-
+}
