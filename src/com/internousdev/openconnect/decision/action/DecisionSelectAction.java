@@ -190,9 +190,6 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public int jPermiterId3;
 
 
-	private String resultString = "表示できません。";
-
-
 	/*
 	 * decisionList コレクションクラスのオブジェクト宣言
 	 * @author kota.miyazato
@@ -475,22 +472,7 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	}
 
 
-	/**
-	* 取得メソッド を取得
-	* @return resultString
-	*/
-	public String getResultString() {
-		return resultString;
-	}
 
-
-	/**
-	* 設定メソッド を設定
-	* @param resultString
-	*/
-	public void setResultString(String resultString) {
-		this.resultString = resultString;
-	}
 
 
 	/**
