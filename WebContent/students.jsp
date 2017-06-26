@@ -209,7 +209,7 @@
 						<h5>開始月で丸ごと削除</h5>
 					<td><input type="text" name="month" pattern="([0-1][0-9])"
 						maxlength="2" required title="08" placeholder="08" /></td>
-						<td><input id="postBtn" type="submit" value="丸ごと削除"></td>
+						<td><input id="postBtn" type="submit" value="丸ごと削除" onClick='return confirm("本当に削除しますか？")'></td>
 			</s:form></s:if><br><br><br></div>
 		<div class="back">
 		<s:form action="GetAddressAction">

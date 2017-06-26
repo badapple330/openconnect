@@ -105,18 +105,18 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 						int a = idNumList.size() + 1;
 						String b = dformat.format(a);
 						jImpId = jImpId + b;
-						count = dao.updateAJ( jImpId, num, decisionId );
+						count = dao.updateAJ( jImpId, decisionId );
 					}
 					/*自プロジェクトの実施起案番号が既に発行済みの場合
 					(起案番号の発行を伴わない当日中の差し戻し、変更申請)*/
 					else {
-						count = dao.updateSimple(decisionType, num, decisionId);
+						count = dao.updateSimple(decisionType, decisionId);
 					}
 			}
 			//本日発行された実施起案番号がない場合
 			else {
 				jImpId = jImpId + "001";
-				count = dao.updateAJ( jImpId, num, decisionId );
+				count = dao.updateAJ( jImpId, decisionId );
 			}
 		}
 
@@ -134,18 +134,18 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 						int a = idNumList.size() + 1;
 						String b = dformat.format(a);
 						kImpId = kImpId + b;
-						count = dao.updateAK( kImpId, num, decisionId );
+						count = dao.updateAK( kImpId, decisionId );
 					}
 					/*自プロジェクトの契約起案番号が既に発行済みの場合
 					(起案番号の発行を伴わない当日中の差し戻し、変更申請)*/
 					else {
-						count = dao.updateSimple(decisionType, num, decisionId);
+						count = dao.updateSimple(decisionType, decisionId);
 					}
 			}
 			//本日発行された契約起案番号がない場合
 			else {
 				kImpId = kImpId + "001";
-				count = dao.updateAK( kImpId, num, decisionId );
+				count = dao.updateAK( kImpId, decisionId );
 			}
 		}
 
@@ -163,18 +163,18 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 						int a = idNumList.size() + 1;
 						String b = dformat.format(a);
 						jkImpId = jkImpId + b;
-						count = dao.updateAJK( jkImpId, num, decisionId );
+						count = dao.updateAJK( jkImpId, decisionId );
 					}
 					/*自プロジェクトの実施兼契約起案番号が既に発行済みの場合
 					(起案番号の発行を伴わない当日中の差し戻し、変更申請)*/
 					else {
-						count = dao.updateSimple(decisionType, num, decisionId);
+						count = dao.updateSimple(decisionType, decisionId);
 					}
 			}
 			//本日発行された実施兼契約起案番号がない場合
 			else {
 				jkImpId = jkImpId + "001";
-				count = dao.updateAJK( jkImpId, num, decisionId );
+				count = dao.updateAJK( jkImpId, decisionId );
 			}
 		}
 

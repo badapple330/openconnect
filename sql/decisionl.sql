@@ -101,7 +101,7 @@ decision_status2 tinyint(1) default 0 comment '[契約/実施兼契約]決裁状
 summary varchar(255) comment '概要',
 cause varchar(255) comment '内容',
 persons int comment '人数',
-apply_day varchar(10) comment '申請日',
+apply_day varchar(20) comment '申請日',
 start_day date comment '開始日',/* default current_date */
 end_day date comment '終了日',
 bild_cost float comment '建設費用',
@@ -138,13 +138,13 @@ k_permiter_id1 int comment '契約/実施兼契約_承認者ID(1人目:リーダ
 k_permiter_id2 int comment '契約/実施兼契約_承認者ID(2人目:リーダー)',
 k_permiter_id3 int comment '契約/実施兼契約_承認者ID(3人目:先生)',
 
-j_permit_day1 date comment '実施_承認日(1人目:リーダー)',
-j_permit_day2 date comment '実施_承認日(2人目:リーダー)',
-j_permit_day3 date comment '実施_承認日(3人目:先生)',
+j_permit_day1 varchar(20) comment '実施_承認日(1人目:リーダー)',
+j_permit_day2 varchar(20) comment '実施_承認日(2人目:リーダー)',
+j_permit_day3 varchar(20) comment '実施_承認日(3人目:先生)',
 
-k_permit_day1 date comment '契約/実施兼契約_承認日(1人目:リーダー)',
-k_permit_day2 date comment '契約/実施兼契約_承認日(2人目:リーダー)',
-k_permit_day3 date comment '契約/実施兼契約_承認日(3人目:先生)',
+k_permit_day1 varchar(20) comment '契約/実施兼契約_承認日(1人目:リーダー)',
+k_permit_day2 varchar(20) comment '契約/実施兼契約_承認日(2人目:リーダー)',
+k_permit_day3 varchar(20) comment '契約/実施兼契約_承認日(3人目:先生)',
 
 foreign key(project_id) references projects(project_id) on update cascade on delete cascade,
 foreign key(j_drafter_id) references users(user_id) on update cascade on delete cascade,

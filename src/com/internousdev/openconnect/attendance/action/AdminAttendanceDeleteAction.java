@@ -4,12 +4,13 @@
 package com.internousdev.openconnect.attendance.action;
 
 import com.internousdev.openconnect.attendance.dao.AdminAttendanceDeleteDAO;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internousdev
  *
  */
-public class AdminAttendanceDeleteAction {
+public class AdminAttendanceDeleteAction extends ActionSupport {
 
 
 
@@ -18,13 +19,13 @@ public class AdminAttendanceDeleteAction {
 
 	public String execute(){
 		AdminAttendanceDeleteDAO dao = new AdminAttendanceDeleteDAO();
-		String retult = ERROR;
+		String result = ERROR;
 		int list=0;
 		list=dao.delete(atMonth);
 		if(list>0){
-			retult = SUCCESS;
+			result = SUCCESS;
 		}
-		return retult;
+		return result;
 	}
 
 
