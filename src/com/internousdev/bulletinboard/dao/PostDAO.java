@@ -68,7 +68,7 @@ public class PostDAO {
 
 	  public ArrayList<PostDTO> postGet(){
 
-		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "bulletinboard", "root","mysql");
+		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		    Connection con = db.getConnection();
 		    Connection con2= db.getConnection();
 		    Connection con3 = db.getConnection();
@@ -150,7 +150,7 @@ public class PostDAO {
 
 
 	  public int postSet(){
-		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "bulletinboard", "root","mysql");
+		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		    Connection con = db.getConnection();
 
 		    int inserted=0;

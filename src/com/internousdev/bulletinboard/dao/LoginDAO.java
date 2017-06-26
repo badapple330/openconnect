@@ -32,7 +32,7 @@ public class LoginDAO {
 	 */
 	public LoginDTO select(String phone_email, String password){
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 
 		Connection con = db.getConnection();
 		LoginDTO dto = new LoginDTO();
@@ -76,7 +76,7 @@ public class LoginDAO {
 	 */
 	public int update(String phoneEmail, String password){
 		int count=0;
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 		String sql = "update users set login_flg = true where phone_email = ? and password = ?";
 		try{

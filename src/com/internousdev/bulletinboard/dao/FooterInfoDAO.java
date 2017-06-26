@@ -18,7 +18,7 @@ public class FooterInfoDAO {
 	//グループ側
 	public int groupInfoGet(int userId){
 		int info=0;
-		Connection con= new MySqlConnector("bulletinboard").getConnection();
+		Connection con= new MySqlConnector("openconnect").getConnection();
 		 String sql1 = "select group_id from groups where user_id=? order by group_id asc";
 		 String sql2 = "select post_id from post where group_id=? and sender_id != ? order by post_id asc";
 		 String sql3 = "select * from read_flg where post_id=? and user_id=?";
@@ -64,7 +64,7 @@ public class FooterInfoDAO {
 	//トーク側
 	public int talkInfoGet(int userId){
 		int info=0;
-		Connection con= new MySqlConnector("bulletinboard").getConnection();
+		Connection con= new MySqlConnector("openconnect").getConnection();
 
 		//相互フォローを検索
 		String sqla ="select done from follow where do=?";

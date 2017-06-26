@@ -20,7 +20,7 @@ public class StampDAO {
 
 	  public ArrayList<StampDTO> stampGet(int userId){
 
-		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "bulletinboard", "root","mysql");
+		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		    Connection con = db.getConnection();
 		    ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
 

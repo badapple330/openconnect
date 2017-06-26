@@ -17,7 +17,7 @@ public class FriendSearchDAO {
 
         //userNameで検索されたusers情報をallListに格納
 		public ArrayList<UserDTO> select(String userName) {
-			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/","bulletinboard", "root","mysql");
+			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/","openconnect", "root","mysql");
 			Connection con = db.getConnection();
 
 			String SearchName= "%"+ userName + "%";
@@ -64,7 +64,7 @@ public class FriendSearchDAO {
 
 
 		public ArrayList<UserDTO> check(int userId) {
-			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/","bulletinboard", "root","mysql");
+			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/","openconnect", "root","mysql");
 			Connection con = db.getConnection();
 
 			ArrayList<UserDTO>checkList = new ArrayList<UserDTO>();

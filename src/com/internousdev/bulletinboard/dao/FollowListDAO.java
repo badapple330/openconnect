@@ -12,7 +12,7 @@ import com.internousdev.bulletinboard.util.DBConnector;
 public class FollowListDAO {
 
 	public ArrayList<UserDTO> getFollow(int userId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
 		ArrayList<UserDTO> followList = new ArrayList<UserDTO>();

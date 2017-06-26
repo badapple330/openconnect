@@ -47,7 +47,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
   <div class="navbar-header">
-  <a class="navbar-brand" href="#">internousdev</a>
+  <a class="navbar-brand" href="applist.jsp">Openconnect</a>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
       <span class="sr-only">メニュー</span>
       <span class="icon-bar"></span>

@@ -13,7 +13,7 @@ public class LvDAO {
 
 	public int Lv_up(int userId){
 
-		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "bulletinboard", "root","mysql");
+		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con=db.getConnection();
 		Connection con2=db.getConnection();
 		int inserted= 0;

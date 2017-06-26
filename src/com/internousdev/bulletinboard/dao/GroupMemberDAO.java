@@ -18,7 +18,7 @@ import com.internousdev.util.db.mysql.MySqlConnector;
  */
 public class GroupMemberDAO {
 	public ArrayList<UserDTO> select(int groupId) {
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		ArrayList<UserDTO> memberList = new ArrayList<UserDTO>();
 
 		String sql = "SELECT groups.user_id, user_img, user_name, profile FROM groups INNER JOIN users "

@@ -28,7 +28,7 @@ public class LogoutDAO {
 	 */
 	public int update(int userId, boolean loginFlg){
 		int count = 0;
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "bulletinboard", "root", "mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 
 		String sql = "update users set login_flg=? where user_id=?";

@@ -17,7 +17,7 @@ public class FollowListDeleteDAO {
 
 	public int delete(int userId, int viewId){
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
 		int result=0;
