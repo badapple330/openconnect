@@ -145,7 +145,7 @@
 					<!-- 実施の編集 -->
 						<s:if test="%{decisionStatus1 == 0 && decisionStatus2 == 0}">
 							<s:form action="DecisionSelectAction">
-								<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
+								<input type="hidden" name="jDrafterId" value="<s:property value="jDrafterId" />">
 								<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 										<input type="submit" value="実施編集">
 							</s:form>

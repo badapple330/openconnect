@@ -27,8 +27,6 @@ $("#res,#lines,#c,#d").val($(this).val());
 
 <body>
 
-
-
 <h1 align=center>実施決裁</h1>
 
 <s:property value="%{resultString}" />
@@ -38,6 +36,8 @@ $("#res,#lines,#c,#d").val($(this).val());
 <td>
 <div>
 <s:form action="DecisionSelectAction">
+<input type="hidden" name="decisionId" value="<s:property value="decisionId"/>">
+<input type="hidden" name="jDrafterId" value="<s:property value="jDrafterId"/>">
 <input type="submit" value="表示">
 </s:form>
 </div>
@@ -53,19 +53,17 @@ $("#res,#lines,#c,#d").val($(this).val());
 <tr>
 <td class="kian"><b>起案者名</b>
 </td>
-<s:if test="nameList != null && !nameList.isEmpty()">
+
 <td>
 <s:iterator value="nameList">
-<s:if test="familyNameKanji != null && !familyNameKanji.isEmpty()">
+
  <s:property value='familyNameKanji'/><s:property value='givenNameKanji'/>
-  </s:if>
+
 </s:iterator>
 </td>
-</s:if>
+
 <td>
-<s:else>
-<input type="text" readonly="readonly" value="未定義">
-</s:else>
+
 </td>
 </tr>
 
@@ -75,7 +73,7 @@ $("#res,#lines,#c,#d").val($(this).val());
 <tr>
 
 <th>案件名</th>
-<s:if test="decisionName != null && !decisionLis.isEmpty()">
+<s:if test="decisionName != null && !decisionList.isEmpty()">
 <td colspan="3">
 <s:iterator value="decisionList">
 <textarea cols="50" rows="4" name="decisionName"><s:property value="decisionName" /></textarea>
@@ -83,7 +81,9 @@ $("#res,#lines,#c,#d").val($(this).val());
 </td>
 </s:if>
 <s:else>
+<td colspan="3">
 <textarea cols="50" rows="4" name="decisionName">未定義</textarea>
+</td>
 </s:else>
 
 </tr>

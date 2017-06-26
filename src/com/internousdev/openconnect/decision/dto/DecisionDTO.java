@@ -13,6 +13,10 @@ public class DecisionDTO {
 	 */
 	private int jDrafterId;
 
+	/**
+	 * 決裁番号
+	 */
+	private int decisionId;
 
 	/**
 	 * 案件名
@@ -184,6 +188,23 @@ public class DecisionDTO {
 	*/
 	private int kPermiterId3;
 
+	/**
+	 *姓（漢字）
+	 */
+	public String familyNameKanji;
+
+
+	/**
+	 *名（漢字）
+	 */
+	public String givenNameKanji;
+
+	/**
+	 *人数
+	 */
+	public int persons;
+
+
 
     /** 取得メソッド を取得
 	* @return person
@@ -311,27 +332,6 @@ public class DecisionDTO {
 	public void setPersons(int persons) {
 		this.persons = persons;
 	}
-	/**
-	 *姓（漢字）
-	 */
-	public String familyNameKanji;
-
-
-	/**
-	 *名（漢字）
-	 */
-	public String givenNameKanji;
-
-	/**
-	 *人数
-	 */
-	public int persons;
-
-
-
-
-
-
 
 	/**
 	 * @return prove
@@ -742,6 +742,20 @@ public class DecisionDTO {
 		*/
 		public void setGivenNameKanji(String givenNameKanji) {
 			this.givenNameKanji = givenNameKanji;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return decisionId
+		*/
+		public int getDecisionId() {
+			return decisionId;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param decisionId
+		*/
+		public void setDecisionId(int decisionId) {
+			this.decisionId = decisionId;
 		}
 
 
