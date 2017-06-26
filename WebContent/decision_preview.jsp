@@ -4,10 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<LINK rel="stylesheet" type="text/css" href="css/style.css">
 <jsp:include page="header.jsp" />
-<LINK rel="stylesheet" type="text/css" href="css/decision_preview.css">
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
@@ -16,19 +13,20 @@
 <script src="js/sendCheck.js"></script>
 <script type="text/javascript" src="js/decision_preview.js"></script>
 <title>決裁プレビュー</title>
+<link rel="stylesheet" type="text/css" href="css/decision_preview.css">
 </head>
 <body>
 	<s:if test="%{#session.userFlg >= 1}">
 
-		<h1 id="decisionTitle">決裁プレビュー画面</h1>
+		<h1 id="decisionTitle">実施決裁プレビュー画面</h1>
 		<br>
 		<br>
 		<s:if test="decisionPreviewList.size() == 0">
 				<h1>まだ何も編集されていません。</h1>
-	</s:if>
+		</s:if>
 	<s:property value="%{resultString}" /><br>
 		<s:iterator value="decisionPreviewList">
-			<div class="container">
+			<div class="container"  style="position:relative; z-index:-1;">
 				<div class="well well-sm">
 					<div class="row">
 						<div class="col-sm-12 col-xs-12">
@@ -56,8 +54,8 @@
 											<div class="row">
 												<div class="col-sm-12">
 													<s:iterator value="nameList">
-													<label>氏名</label><s:property value="familyNameKanji" />
-													<s:property value="givenNameKanji" />
+														<label>氏名</label><s:property value="familyNameKanji" />
+																			<s:property value="givenNameKanji" />
 													</s:iterator>
 												</div>
 											</div>
@@ -80,10 +78,10 @@
 											<br>
 											<div class="row">
 												<div class="col-sm-12">
-												<div class="center">
-													<h1>記</h1>
+													<div class="center">
+														<h1>記</h1>
+													</div>
 												</div>
-											</div>
 											</div>
 											<br>
 											<div class="row">
@@ -129,15 +127,15 @@
 											<div class="row">
 												<div class="col-sm-12 hidden-xs">
 													<table id="tableApproval">
-														<tr>
-															<td><div class="width4">―：<br><br></div></td>
-															<td><div class="width4">起案番号：<s:property value="jImpId" /><br><br></div></td>
+														<tr style="width:70%;">
+															<td>―：<br><br></td>
+															<td>起案番号：<s:property value="jImpId" /><br><br></td>
 															<td><div class="width4">実施決裁番号：<s:property value="jDecId" /><br><br></div></td>
 														</tr>
-														<tr>
-															<td><div class="width4"><label>承認者：</label><s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="jPermitDay1" /></div></td>
-															<td><div class="width4"><label>承認者：</label><s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="jPermitDay2" /></div></td>
-															<td><div class="width4"><label>承認者：</label><s:iterator value="jPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="jPermitDay3" /></div></td>
+														<tr style="height:100px;">
+															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="jPermitDay1" /></td>
+															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="jPermitDay2" /></td>
+															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="jPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="jPermitDay3" /></td>
 														</tr>
 													</table>
 												</div>
@@ -146,11 +144,11 @@
 													<table>
 														<tr>
 															<td>―：<br><br></td>
-															<th>承認者：<s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="jPermitDay1" /></th>
+															<th>承認者：<s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br>日付：<s:property value="jPermitDay1" /></th>
 														</tr>
 														<tr>
 															<td>起案番号：<s:property value="jImpId" /><br><br></td>
-															<th>承認者：<s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="jPermitDay2" /></th>
+															<th>承認者：<s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br>日付：<s:property value="jPermitDay2" /></th>
 														</tr>
 														<tr>
 															<td>実施決裁番号：<s:property value="jDecId" /><br><br></td>
@@ -167,7 +165,9 @@
 							</div>
 						</div>
 				</div>
+			</div>
 
+			<div class="container">
 				<div class="well well-sm">
 					<div class="row">
 						<div class="col-sm-12 col-xs-12">
@@ -206,9 +206,8 @@
 									</tr>
 								</table>
 								<br>
-								<br>
 								<form>
-									<input class="center-block" type="button" value="戻る" onclick="history.back()">
+									<input class="btn btn-default center-block" type="button" value="戻る" onclick="history.back()" style="position:relative; z-index:1;">
 								</form>
 						</div>
 					</div>
