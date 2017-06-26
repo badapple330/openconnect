@@ -183,7 +183,7 @@ public class DecisionPreviewDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
 				"openconnect", "root", "mysql");
 		Connection con = db.getConnection();
-		ArrayList<DecisionDTO> jPermiter1nameList = new ArrayList<DecisionDTO>();
+		ArrayList<DecisionDTO> jPermiter2nameList = new ArrayList<DecisionDTO>();
 		String sql = "(select * from users where user_id=?)";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -192,7 +192,7 @@ public class DecisionPreviewDAO {
 			while (rs.next()) {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
 				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
-				jPermiter1nameList.add(dto);
+				jPermiter2nameList.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -203,7 +203,7 @@ public class DecisionPreviewDAO {
 				e.printStackTrace();
 			}
 		}
-		return jPermiter1nameList;
+		return jPermiter2nameList;
 	}
 
 	public ArrayList<DecisionDTO> selectByJPermiterId3(int jPermiterId3) {
