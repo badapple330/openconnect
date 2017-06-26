@@ -2,6 +2,9 @@ package com.internousdev.openconnect.schedule.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.schedule.dao.ScheduleSelectDAO;
 import com.internousdev.openconnect.schedule.dto.ScheduleDTO;
@@ -13,7 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
-public class ScheduleSelectAction extends ActionSupport {
+public class ScheduleSelectAction extends ActionSupport implements SessionAware{
 
 
 	/**
@@ -28,6 +31,12 @@ public class ScheduleSelectAction extends ActionSupport {
 	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
 
 	private List<ScheduleDTO> teamList = new ArrayList<ScheduleDTO>();
+
+	private List<ScheduleDTO> loginTeamList = new ArrayList<ScheduleDTO>();
+
+	private Map<String,Object> session;
+
+	private int userId;
 
 	/**
 	 * 検索文
@@ -52,13 +61,16 @@ public class ScheduleSelectAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
+		userId = (int) session.get("userId");
 		if(search.equals("全件表示")){
 			search = "";
 		}
 		ScheduleSelectDAO dao = new ScheduleSelectDAO();
 		ScheduleSelectDAO dao2 = new ScheduleSelectDAO();
+		ScheduleSelectDAO dao3 = new ScheduleSelectDAO();
 		scheduleList = dao.select(search);
 		setTeamList(dao2.select2());
+		setLoginTeamList(dao3.select3());
 		if (scheduleList.size() != 0) {
 			if(search.equals("")){
 				selectSuccessMsg ="すべてを表示しました。";
@@ -100,6 +112,54 @@ public class ScheduleSelectAction extends ActionSupport {
 	 */
 	public void setTeamList(List<ScheduleDTO> teamList) {
 	    this.teamList = teamList;
+	}
+
+	/**
+	 * loginTeamListを取得します。
+	 * @return loginTeamList
+	 */
+	public List<ScheduleDTO> getLoginTeamList() {
+	    return loginTeamList;
+	}
+
+	/**
+	 * loginTeamListを設定します。
+	 * @param loginTeamList loginTeamList
+	 */
+	public void setLoginTeamList(List<ScheduleDTO> loginTeamList) {
+	    this.loginTeamList = loginTeamList;
+	}
+
+	/**
+	 * sessionを取得します。
+	 * @return session
+	 */
+	public Map<String,Object> getSession() {
+	    return session;
+	}
+
+	/**
+	 * sessionを設定します。
+	 * @param session session
+	 */
+	public void setSession(Map<String,Object> session) {
+	    this.session = session;
+	}
+
+	/**
+	 * userIdを取得します。
+	 * @return userId
+	 */
+	public int getUserId() {
+	    return userId;
+	}
+
+	/**
+	 * userIdを設定します。
+	 * @param userId userId
+	 */
+	public void setUserId(int userId) {
+	    this.userId = userId;
 	}
 
 	/**
