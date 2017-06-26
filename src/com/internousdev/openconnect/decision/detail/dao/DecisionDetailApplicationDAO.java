@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,8 +81,10 @@ public class DecisionDetailApplicationDAO {
 	/**
      * 実施決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateAJ( String jImpId, String num, int decisionId ) {
+	public int updateAJ( String jImpId, int decisionId ) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
 
@@ -95,7 +98,7 @@ public class DecisionDetailApplicationDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, jImpId);
-			ps.setString(2, num);
+			ps.setString(2, applyDay);
 			ps.setInt(3, decisionId);
 
 			count =ps.executeUpdate();
@@ -120,8 +123,10 @@ public class DecisionDetailApplicationDAO {
 	/**
      * 契約決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateAK( String kImpId, String num, int decisionId ) {
+	public int updateAK( String kImpId, int decisionId ) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
 
@@ -135,7 +140,7 @@ public class DecisionDetailApplicationDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, kImpId);
-			ps.setString(2, num);
+			ps.setString(2, applyDay);
 			ps.setInt(3, decisionId);
 
 			count =ps.executeUpdate();
@@ -160,8 +165,10 @@ public class DecisionDetailApplicationDAO {
 	/**
      * 実施兼契約決裁の申請情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateAJK( String jkImpId, String num, int decisionId ) {
+	public int updateAJK( String jkImpId, int decisionId ) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
 
@@ -175,7 +182,7 @@ public class DecisionDetailApplicationDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, jkImpId);
-			ps.setString(2, num);
+			ps.setString(2, applyDay);
 			ps.setInt(3, decisionId);
 
 			count =ps.executeUpdate();
@@ -200,8 +207,10 @@ public class DecisionDetailApplicationDAO {
 	/**
      * 起案番号発行を伴わない申請時の情報更新メソッド  更新したい内容を、DBへ転送する為のメソッド
      */
-	public int updateSimple( String decisionType, String num, int decisionId ) {
+	public int updateSimple( String decisionType, int decisionId ) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
@@ -220,7 +229,7 @@ public class DecisionDetailApplicationDAO {
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, num);
+			ps.setString(1, applyDay);
 			ps.setInt(2, decisionId);
 
 			count =ps.executeUpdate();

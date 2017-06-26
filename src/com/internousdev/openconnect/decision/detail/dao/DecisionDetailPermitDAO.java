@@ -6,6 +6,7 @@ package com.internousdev.openconnect.decision.detail.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 /**
@@ -22,18 +23,21 @@ public class DecisionDetailPermitDAO {
      */
 	public int updatePJ( String jDecId, int jpermiterId3, int decisionId ) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		String permitDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "update decision set decision_type = '契約', decision_status1 = 2, permit_status = 0, j_dec_id = ?, j_permiter_id3 = ? where decision_id = ?";
+		String sql = "update decision set decision_type = '契約', decision_status1 = 2, permit_status = 0, j_dec_id = ?, j_permiter_id3 = ?, j_permit_day3 = ? where decision_id = ?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 			ps.setString(1, jDecId);
 			ps.setInt(2, jpermiterId3);
-			ps.setInt(3, decisionId);
+			ps.setString(3, permitDay);
+			ps.setInt(4, decisionId);
 
 			count = ps.executeUpdate();
 
@@ -57,18 +61,21 @@ public class DecisionDetailPermitDAO {
      */
 	public int updatePK( String kDecId, int kPermiterId3, int decisionId ) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		String permitDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "update decision set decision_status2 = 2, permit_status = 0, k_dec_id = ?, k_permiter_id3 = ? where decision_id = ?";
+		String sql = "update decision set decision_status2 = 2, permit_status = 0, k_dec_id = ?, k_permiter_id3 = ?, k_permit_day3 = ? where decision_id = ?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 			ps.setString(1, kDecId);
 			ps.setInt(2, kPermiterId3);
-			ps.setInt(3, decisionId);
+			ps.setString(3, permitDay);
+			ps.setInt(4, decisionId);
 
 			count = ps.executeUpdate();
 
@@ -92,18 +99,21 @@ public class DecisionDetailPermitDAO {
      */
 	public int updatePJK( String jkDecId, int jkPermiterId3, int decisionId ) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		String permitDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "update decision set decision_status2 = 2, permit_status = 0, jk_dec_id = ?, jk_permiter_id3 = ? where decision_id = ?";
+		String sql = "update decision set decision_status2 = 2, permit_status = 0, jk_dec_id = ?, k_permiter_id3 = ?, k_permit_day3 = ? where decision_id = ?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 			ps.setString(1, jkDecId);
 			ps.setInt(2, jkPermiterId3);
-			ps.setInt(3, decisionId);
+			ps.setString(3, permitDay);
+			ps.setInt(4, decisionId);
 
 			count = ps.executeUpdate();
 
@@ -130,6 +140,8 @@ public class DecisionDetailPermitDAO {
      */
 	public int updateP( String decisionType, int permitStatus, int userId, int decisionId ) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		String permitDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
@@ -138,18 +150,18 @@ public class DecisionDetailPermitDAO {
 
 		if(decisionType.equals("実施")) {
 			if(permitStatus == 1) {
-			sql = sql + ", j_permiter_id1 = ? where decision_id = ?";
+			sql = sql + ", j_permiter_id1 = ?, j_permit_day1 = ? where decision_id = ?";
 			}
 			if(permitStatus == 2) {
-			sql = sql + ", j_permiter_id2 = ? where decision_id = ?";
+			sql = sql + ", j_permiter_id2 = ?, j_permit_day2 = ? where decision_id = ?";
 			}
 		}
 		else {
 			if(permitStatus == 1) {
-			sql = sql + ", k_permiter_id1 = ? where decision_id = ?";
+			sql = sql + ", k_permiter_id1 = ?, k_permit_day1 = ? where decision_id = ?";
 			}
 			if(permitStatus == 2) {
-			sql = sql + ", k_permiter_id2 = ? where decision_id = ?";
+			sql = sql + ", k_permiter_id2 = ?, k_permit_day2 = ? where decision_id = ?";
 			}
 		}
 
@@ -178,7 +190,8 @@ public class DecisionDetailPermitDAO {
 					ps.setInt(2, kPermiterId2);
 				}
 			}
-			ps.setInt(3, decisionId);
+			ps.setString(3, permitDay);
+			ps.setInt(4, decisionId);
 
 			count = ps.executeUpdate();
 
