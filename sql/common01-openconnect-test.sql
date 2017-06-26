@@ -252,31 +252,8 @@ insert into schedule(id,start_day,end_day,title,content,team_name) values
 (2,"2017-06-18","2017-06-25","実装2","実装2","AdminTeam");
 
 
-/* サイト一覧情報 */
-create table site(
-site_id int primary key not null auto_increment comment 'サイトID',
-site_name varchar(100) not null comment 'サイト名',
-site_url varchar(255) not null unique comment 'サイトURL',
-site_article text comment 'サイト記事',
-genre varchar(50) comment 'ジャンル',
-picture varchar(255) comment '画像',
-banner varchar(80) comment 'バナー',
-year int comment '作成年度'
-) comment='サイト情報格納テーブル';
 
-/* カレッジ生名簿 *
- * 管理番号 = number
- * 名前 = name
- * ふりがな = symbol
- * 入校年月 = entrance
- */
-create table students(
-number varchar(5) comment '管理番号',
-name varchar(50) comment '名前',
-symbol varchar(50) comment 'ふりがな',
-entrance varchar(10) comment '入校年月',
-PRIMARY KEY (number)
-) comment = 'カレッジ生テーブル';
+
 
 
 
@@ -318,7 +295,8 @@ comment = 'ユーザー情報格納テーブル';
 
 
 
-
+/* 以下、SNSサイトのDB
+ **************************/
 
 
 
