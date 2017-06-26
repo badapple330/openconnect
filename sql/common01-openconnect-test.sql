@@ -620,7 +620,9 @@ insert into stamp(type_id,lv,url) values
 
 
 
-
+insert into users values
+(-1,'bot01','bot','bot','bot','bot','bot','bot','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','bot01@gmail.com','09012345678','bot01@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/syoki.png','テストbotくん','0','1','よろしくお願いします',FALSE),
+(-2,'bot02','bot','bot','bot','bot','bot','bot','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','bot02@gmail.com','09012345678','bot02@ne.jp','男','1990-09-25',FALSE,FALSE,'3','2010','13','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','AdminTeam','pic/user_img/syoki.png','妹bot','0','1','よろしくお願いします',FALSE);
 
 
 

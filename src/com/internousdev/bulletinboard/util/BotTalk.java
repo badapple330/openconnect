@@ -145,7 +145,7 @@ public class BotTalk {
 	 */
 	  public int botSet(int receiverId,String postContents){
 		  int inserted = 0;
-		  Connection con = new MySqlConnector("bbbot").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 
 		  String sql = "insert into post (sender_id,receiver_id,post_contents,img) values (?,?,?,'') ";
 		    try{
