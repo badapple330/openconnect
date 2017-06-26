@@ -35,7 +35,7 @@
 <body>
 <!-- アプリ一覧表示 -->
 	<div class="container">
-		<h1 class="page-header"><s:property value ="scheduleList[0].teamName" />さんのスケジュール</h1>
+		<h1 class="page-header"><s:property value ="loginTeamList[0].teamName" />さんのスケジュール</h1>
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{siteUrl}">
@@ -55,6 +55,7 @@
 			<h5>【チーム名で検索】</h5>
 				<select name="search" required="required">
 								<option value="">以下から選択</option>
+								<option value="全件表示">全件表示</option>
 								<s:iterator value="teamList">
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
 								</s:iterator>
@@ -79,14 +80,15 @@
 							<th>end</th>
 							<th>title</th>
 							<th>チーム名(編集不可)</th>
-							<th></th>
+							<th>削除</th>
+							<th>編集</th>
 						</tr>
 
 						<!-- scheduleListに格納した情報をテーブルで表示 -->
 						<!-- カレンダーに渡すだけの情報は<div class="hidden">で囲ってcssで表示させないようにする -->
 						<!-- jsファイルに渡す情報としてstart,end,titleが必要なのでこのような記述となっている -->
 						<h5>start→開始日　end→終了日　title→作業内容</h5>
-						<s:iterator value="scheduleList">
+						<s:iterator value="scheduleList" status="st">
 							<tr>
 								<td><s:property value="id" /></td>
 								<td><input type="text" name="scheduleStartdayList"
@@ -104,20 +106,25 @@
 									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
 								<td>
 
-								<input type="text" name="teamList"value="<s:property value="teamName" />"class="teamList" disabled>
+								<input type="text" name="teamName[<s:property value="#st.index" />]"value="<s:property value="teamName" />"class="teamList" readonly><div class="hidden"><s:property value="teamName" /></div>
 								</td>
 								<td>
 										<input type="button" class="button modal-open" value="削除" />
 								</td>
+								<td>
+									<button type="submit" class="button" style="width:45px">編集</button>
+								</td>
 							</tr>
+
+							<!-- 削除機能で使用 -->
 							<input type="hidden" name="scheduleIdList"
 								value="<s:property value="id" />" class="scheduleIdList">
+							<input type="hidden" name="teamList2"
+								value="<s:property value="teamName" />" class="teamList2">
+
 						</s:iterator>
 					</tbody>
 				</table>
-
-
-					<button type="submit" class="button">編集</button>
 
 			</s:form>
 
@@ -176,8 +183,8 @@
 							</td>
 						</tr>
 						<tr>
-							<td>内容
-								<div class="delete-content modalDelete"></div>
+							<td>チーム名
+								<div class="delete-teamname modalDelete"></div>
 							</td>
 						</tr>
 					</table>
@@ -187,9 +194,10 @@
 					<div class="delete-prepare">
 						<p>本当に削除しますか。</p>
 						<s:form action="ScheduleDeleteAction">
-							<input type="hidden" name="scheduleId" value=""
-								class="true-delete">
+							<input type="hidden" name="scheduleId" value="" class="true-delete">
 							<s:token />
+							<input type="hidden" name="search" value="" class="true-delete2">
+
 							<input type="submit" class="delete-true button" value="はい">
 							<input type="button" class="modal-close button" value="いいえ">
 						</s:form>

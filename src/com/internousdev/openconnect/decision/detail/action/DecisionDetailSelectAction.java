@@ -7,19 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.struts2.interceptor.SessionAware;
-
 import com.internousdev.openconnect.decision.detail.dao.DecisionDetailSelectDAO;
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
+
 /**
- * DBの情報を画面に表示する為のクラス
+ * DBの決裁情報を画面に表示する為のクラス
  * @author TATUHUMI ITOU, SOSHI AZUMA
  * @since 2016/09/04
  * @version 1.0
  */
-public class DecisionDetailSelectAction extends ActionSupport implements SessionAware {
+public class DecisionDetailSelectAction extends ActionSupport {
 
 
 	/**
@@ -43,6 +42,10 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	 */
 	private String searchString = "";
 	/**
+	 * sessionから取得したログイン中ユーザーID
+	 */
+	private int userId;
+	/**
 	 * 管理者権限メソッド
 	 */
 	private Map<String, Object> session;
@@ -57,17 +60,26 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * 実行メソッド DAOから指定した決裁情報を取得する
+	 * @return result 決裁情報の取得に成功したらSUCCESS, 失敗したらERROR
 	 */
 	public String execute() throws Exception {
+
 		String result=ERROR;
 
-		//int userFlg = (int) session.get("userFlg");
-		int userId = (int) session.get("userId");
+		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
+
+
+		//int userId = (int) session.get("userId");
+		//int userId1 = userId;
 		int userId1 = userId;
 
-		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
+		if(userId < 0) {
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+		int userId = dto.getUserId();
+		userId1 = userId;
+		}
+
 
 
 		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
@@ -166,6 +178,26 @@ public class DecisionDetailSelectAction extends ActionSupport implements Session
 	*/
 	public void setSearchString(String searchString) {
 		this.searchString = searchString;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 

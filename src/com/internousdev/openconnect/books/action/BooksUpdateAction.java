@@ -52,7 +52,7 @@ public class BooksUpdateAction extends ActionSupport {
 	/**
 	 * 状態フラグリスト
 	 */
-	private List<Integer> statusFlgList = new ArrayList<Integer>();
+	private List<String> statusFlgList = new ArrayList<String>();
 
 	/**
 	 * 管理者権限メソッド
@@ -170,7 +170,7 @@ public class BooksUpdateAction extends ActionSupport {
 	* 取得メソッド を取得
 	* @return statusFlgList
 	*/
-	public List<Integer> getStatusFlgList() {
+	public List<String> getStatusFlgList() {
 		return statusFlgList;
 	}
 
@@ -178,7 +178,7 @@ public class BooksUpdateAction extends ActionSupport {
 	* 設定メソッド を設定
 	* @param statusFlgList
 	*/
-	public void setStatusFlgList(List<Integer> statusFlgList) {
+	public void setStatusFlgList(List<String> statusFlgList) {
 		this.statusFlgList = statusFlgList;
 	}
 

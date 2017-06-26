@@ -1,7 +1,7 @@
 set names utf8;
-drop database if exists new_visa;
-create database new_visa;
-use new_visa;
+drop database if exists visa;
+create database visa;
+use visa;
 
 /* ユーザー情報
  **************************/

@@ -109,7 +109,7 @@ public class ProjectsSelectDAO {
 
         String sql;
 
-        sql="select * from users order by user_flg desc";
+        sql="select * from users";
 
         try {
 
@@ -130,8 +130,6 @@ public class ProjectsSelectDAO {
                 dto.setFamilyNameKana(rs.getString("family_name_kana"));
                 dto.setGivenNameKanji(rs.getString("given_name_kanji"));
                 dto.setGivenNameKana(rs.getString("given_name_kana"));
-                dto.setTeamName(rs.getString("team_name"));
-
                 dto.setPostal(rs.getString("postal"));
                 dto.setAddress(rs.getString("address"));
                 dto.setPhoneNumber(rs.getString("phone_number"));
@@ -158,7 +156,6 @@ public class ProjectsSelectDAO {
                 dto.setUserFlg(rs.getInt("user_flg"));
                 dto.setYear(rs.getString("year"));
                 dto.setMonth(rs.getString("month"));
-
 
                 searchList.add(dto);
             }

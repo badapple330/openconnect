@@ -70,6 +70,8 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> session;
 
 
+
+
 	/**
 	 * プロジェクト一覧情報を更新できたか否か判定するメソッド
 	 * @author  YUICHI KIRIU
@@ -81,6 +83,9 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 
 		String result =ERROR;
 		ProjectsUpdateDAO dao = new ProjectsUpdateDAO();
+
+
+
 		int count = 0;
 		for(int i=0;i<projectIdList.size();++i){
 

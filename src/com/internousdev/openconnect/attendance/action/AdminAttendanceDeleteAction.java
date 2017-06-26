@@ -1,0 +1,50 @@
+/**
+ *
+ */
+package com.internousdev.openconnect.attendance.action;
+
+import com.internousdev.openconnect.attendance.dao.AdminAttendanceDeleteDAO;
+import com.opensymphony.xwork2.ActionSupport;
+
+/**
+ * @author internousdev
+ *
+ */
+public class AdminAttendanceDeleteAction extends ActionSupport {
+
+
+
+	private int atMonth;
+
+
+	public String execute(){
+		AdminAttendanceDeleteDAO dao = new AdminAttendanceDeleteDAO();
+		String result = ERROR;
+		int list=0;
+		list=dao.delete(atMonth);
+		if(list>0){
+			result = SUCCESS;
+		}
+		return result;
+	}
+
+
+
+
+
+	/**
+	 * 取得メソッド を取得
+	 * @return atMonth
+	 */
+	public int getAtMonth() {
+		return atMonth;
+	}
+
+	/**
+	 * 設定メソッド を設定
+	 * @param atMonth
+	 */
+	public void setAtMonth(int atMonth) {
+		this.atMonth = atMonth;
+	}
+}

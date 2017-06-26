@@ -12,7 +12,8 @@
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 
-<s:if test="%{#session.userFlg != null}">
+
+<s:if test="%{#session.loginFlg != null}">
 <meta http-equiv="refresh"content="0;url=applist.jsp">
 </s:if>
 
@@ -72,11 +73,12 @@
 	</tr>
 </table>
 </div>
-<!-- 新規登録ボタン -->
+<!-- 新規登録ボタン
 <BR><BR><BR><BR>
 <div align="center">
 <a href="GoRegisterAction" class="square_btn">新規登録はこちら</a>
 </div>
+ -->
 </s:if>
 </body>
 </html>

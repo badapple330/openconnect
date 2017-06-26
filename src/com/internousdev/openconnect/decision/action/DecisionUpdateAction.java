@@ -16,18 +16,23 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author KOTA MIYAZATO
  *
  */
+/**
+ * @author internousdev
+ *
+ */
 public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
-
-
-
 	/**
-	 * ユーザーID
+	 * 起案者ユーザーID
 	 *
 	 */
-	private int userId;
+	private int jDrafterId;
 
+	/**
+	 * 決裁ID
+	 */
+	private int decisionId;
 	/**
 	 * 案件名
 	 *
@@ -38,33 +43,33 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	 * 実施起案番号
 	 *
 	 */
-	private String iDraftingId;
+	private String jImpId;
 	/**
 	 * 実施決裁番号
 	 *
 	 */
-	private String iApprovalId;
+	private String jDecId;
 	/**
 	 * 契約起案番号
 	 *
 	 */
-	private String aDraftingId;
+	private String kImpId;
 	/**
 	 * 契約決裁番号
 	 *
 	 */
-	private String cdId;
+	private String kDecId;
 	/**
 	 * 実施兼契約起案番号
 	 *
 	 */
-	private String iADId;
+	private String jkImpId;
 	/**
 	 * 実施兼契約番号
 	 *
 	 */
 
-	private String iAId;
+	private String jkDecId;
 
 
 	/**
@@ -208,7 +213,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
          float amountAll = benefit + bildCost;
 
-         count=dao.update(decisionName,summary,cause,startDay,endDay,persons,totalProve,totalRe,totalLine,totalRoom,totalHuman,totalEtc,benefit,bildCost,amountAll);
+         count=dao.update(decisionName,summary,cause,startDay,endDay,persons,totalProve,totalRe,totalLine,totalRoom,totalHuman,totalEtc,benefit,bildCost,amountAll,jDrafterId,decisionId);
 
 			if(count>0){
 				result = SUCCESS;
@@ -221,337 +226,382 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 }
 
 
-
-
-
 	/**
-	 * @return userId
-	 */
-	public int getUserId() {
-		return userId;
+	* 取得メソッド を取得
+	* @return jDrafterId
+	*/
+	public int getJDrafterId() {
+		return jDrafterId;
 	}
 
-	/**
-	 * @param userId セットする userId
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 	/**
-	 * @return decisionName
-	 */
+	* 設定メソッド を設定
+	* @param jDrafterId
+	*/
+	public void setJDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionId
+	*/
+	public int getDecisionId() {
+		return decisionId;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionId
+	*/
+	public void setDecisionId(int decisionId) {
+		this.decisionId = decisionId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionName
+	*/
 	public String getDecisionName() {
 		return decisionName;
 	}
 
+
 	/**
-	 * @param decisionName セットする decisionName
-	 */
+	* 設定メソッド を設定
+	* @param decisionName
+	*/
 	public void setDecisionName(String decisionName) {
 		this.decisionName = decisionName;
 	}
 
-	/**
-	 * @return iDraftingId
-	 */
-	public String getiDraftingId() {
-		return iDraftingId;
-	}
 
 	/**
-	 * @param iDraftingId セットする iDraftingId
-	 */
-	public void setiDraftingId(String iDraftingId) {
-		this.iDraftingId = iDraftingId;
-	}
-
-	/**
-	 * @return iApprovalId
-	 */
-	public String getiApprovalId() {
-		return iApprovalId;
-	}
-
-	/**
-	 * @param iApprovalId セットする iApprovalId
-	 */
-	public void setiApprovalId(String iApprovalId) {
-		this.iApprovalId = iApprovalId;
-	}
-
-	/**
-	 * @return aDraftingId
-	 */
-	public String getaDraftingId() {
-		return aDraftingId;
-	}
-
-	/**
-	 * @param aDraftingId セットする aDraftingId
-	 */
-	public void setaDraftingId(String aDraftingId) {
-		this.aDraftingId = aDraftingId;
-	}
-
-	/**
-	 * @return cdId
-	 */
-	public String getCdId() {
-		return cdId;
-	}
-
-	/**
-	 * @param cdId セットする cdId
-	 */
-	public void setCdId(String cdId) {
-		this.cdId = cdId;
-	}
-
-	/**
-	 * @return iADId
-	 */
-	public String getiADId() {
-		return iADId;
-	}
-
-	/**
-	 * @param iADId セットする iADId
-	 */
-	public void setiADId(String iADId) {
-		this.iADId = iADId;
-	}
-
-	/**
-	 * @return iAId
-	 */
-	public String getiAId() {
-		return iAId;
-	}
-
-	/**
-	 * @param iAId セットする iAId
-	 */
-	public void setiAId(String iAId) {
-		this.iAId = iAId;
+	* 取得メソッド を取得
+	* @return jImpId
+	*/
+	public String getJImpId() {
+		return jImpId;
 	}
 
 
 	/**
-	 * @return bildCost
-	 */
-	public float getBildCost() {
-		return bildCost;
-	}
-
-	/**
-	 * @param bildCost セットする bildCost
-	 */
-	public void setBildCost(float bildCost) {
-		this.bildCost = bildCost;
-	}
-
-	/**
-	 * @return benefit
-	 */
-	public float getBenefit() {
-		return benefit;
-	}
-
-	/**
-	 * @param benefit セットする benefit
-	 */
-	public void setBenefit(float benefit) {
-		this.benefit = benefit;
-	}
-
-	/**
-	 * @return amountAll
-	 */
-	public float getAmountAll() {
-		return amountAll;
-	}
-
-	/**
-	 * @param amountAll セットする amountAll
-	 */
-	public void setAmountAll(float amountAll) {
-		this.amountAll = amountAll;
-	}
-
-	/**
-	 * @return session
-	 */
-	public Map<String,Object> getSession() {
-		return session;
-	}
-
-	/**
-	 * @param session セットする session
-	 */
-	public void setSession(Map<String,Object> session) {
-		this.session = session;
-	}
-
-	/**
-	 * @return decisionList
-	 */
-	public ArrayList<DecisionDTO> getDecisionList() {
-		return decisionList;
-	}
-
-	/**
-	 * @param decisionList セットする decisionList
-	 */
-	public void setDecisionList(ArrayList<DecisionDTO> decisionList) {
-		this.decisionList = decisionList;
+	* 設定メソッド を設定
+	* @param jImpId
+	*/
+	public void setJImpId(String jImpId) {
+		this.jImpId = jImpId;
 	}
 
 
+	/**
+	* 取得メソッド を取得
+	* @return jDecId
+	*/
+	public String getJDecId() {
+		return jDecId;
+	}
 
 
 	/**
-	 * @return cause
-	 */
+	* 設定メソッド を設定
+	* @param jDecId
+	*/
+	public void setJDecId(String jDecId) {
+		this.jDecId = jDecId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kImpId
+	*/
+	public String getKImpId() {
+		return kImpId;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kImpId
+	*/
+	public void setKImpId(String kImpId) {
+		this.kImpId = kImpId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kDecId
+	*/
+	public String getKDecId() {
+		return kDecId;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kDecId
+	*/
+	public void setKDecId(String kDecId) {
+		this.kDecId = kDecId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return jkImpId
+	*/
+	public String getJkImpId() {
+		return jkImpId;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param jkImpId
+	*/
+	public void setJkImpId(String jkImpId) {
+		this.jkImpId = jkImpId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return jkDecId
+	*/
+	public String getJkDecId() {
+		return jkDecId;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param jkDecId
+	*/
+	public void setJkDecId(String jkDecId) {
+		this.jkDecId = jkDecId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return cause
+	*/
 	public String getCause() {
 		return cause;
 	}
 
 
-
-
 	/**
-	 * @param cause セットする cause
-	 */
+	* 設定メソッド を設定
+	* @param cause
+	*/
 	public void setCause(String cause) {
 		this.cause = cause;
 	}
 
 
+	/**
+	* 取得メソッド を取得
+	* @return bildCost
+	*/
+	public float getBildCost() {
+		return bildCost;
+	}
+
 
 	/**
-	 * @return summary
-	 */
+	* 設定メソッド を設定
+	* @param bildCost
+	*/
+	public void setBildCost(float bildCost) {
+		this.bildCost = bildCost;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return benefit
+	*/
+	public float getBenefit() {
+		return benefit;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param benefit
+	*/
+	public void setBenefit(float benefit) {
+		this.benefit = benefit;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return amountAll
+	*/
+	public float getAmountAll() {
+		return amountAll;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param amountAll
+	*/
+	public void setAmountAll(float amountAll) {
+		this.amountAll = amountAll;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return summary
+	*/
 	public String getSummary() {
 		return summary;
 	}
 
 
 	/**
-	 * @param summary セットする summary
-	 */
+	* 設定メソッド を設定
+	* @param summary
+	*/
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}
 
 
 	/**
-	 * @return startDay
-	 */
+	* 取得メソッド を取得
+	* @return startDay
+	*/
 	public String getStartDay() {
 		return startDay;
 	}
 
+
 	/**
-	 * @param startDay セットする startDay
-	 */
+	* 設定メソッド を設定
+	* @param startDay
+	*/
 	public void setStartDay(String startDay) {
 		this.startDay = startDay;
 	}
 
 
 	/**
-	 * @return endDay
-	 */
+	* 取得メソッド を取得
+	* @return endDay
+	*/
 	public String getEndDay() {
 		return endDay;
 	}
 
 
-
 	/**
-	 * @param endDay セットする endDay
-	 */
+	* 設定メソッド を設定
+	* @param endDay
+	*/
 	public void setEndDay(String endDay) {
 		this.endDay = endDay;
 	}
 
 
 	/**
-	 * @return prove
-	 */
+	* 取得メソッド を取得
+	* @return prove
+	*/
 	public int getProve() {
 		return prove;
 	}
+
+
 	/**
-	 * @param prove セットする prove
-	 */
+	* 設定メソッド を設定
+	* @param prove
+	*/
 	public void setProve(int prove) {
 		this.prove = prove;
 	}
+
+
 	/**
-	 * @return re
-	 */
+	* 取得メソッド を取得
+	* @return re
+	*/
 	public float getRe() {
 		return re;
 	}
+
+
 	/**
-	 * @param re セットする re
-	 */
+	* 設定メソッド を設定
+	* @param re
+	*/
 	public void setRe(float re) {
 		this.re = re;
 	}
+
+
 	/**
-	 * @return line
-	 */
+	* 取得メソッド を取得
+	* @return line
+	*/
 	public int getLine() {
 		return line;
 	}
+
+
 	/**
-	 * @param line セットする line
-	 */
+	* 設定メソッド を設定
+	* @param line
+	*/
 	public void setLine(int line) {
 		this.line = line;
 	}
+
+
 	/**
-	 * @return room
-	 */
+	* 取得メソッド を取得
+	* @return room
+	*/
 	public float getRoom() {
 		return room;
 	}
+
+
 	/**
-	 * @param room セットする room
-	 */
+	* 設定メソッド を設定
+	* @param room
+	*/
 	public void setRoom(float room) {
 		this.room = room;
 	}
+
+
 	/**
-	 * @return human
-	 */
+	* 取得メソッド を取得
+	* @return human
+	*/
 	public int getHuman() {
 		return human;
 	}
+
+
 	/**
-	 * @param human セットする human
-	 */
+	* 設定メソッド を設定
+	* @param human
+	*/
 	public void setHuman(int human) {
 		this.human = human;
 	}
-	/**
-	 * @return etc
-	 */
-	public float getEtc() {
-		return etc;
-	}
-	/**
-	 * @param etc セットする etc
-	 */
-	public void setEtc(float etc) {
-		this.etc = etc;
-	}
-
-
-
 
 
 	/**
@@ -563,9 +613,6 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 
-
-
-
 	/**
 	* 設定メソッド を設定
 	* @param persons
@@ -575,31 +622,22 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 
-
-
-
 	/**
 	* 取得メソッド を取得
-	* @author KOHEI NITABARU
-	* @return resultString
+	* @return etc
 	*/
-	public String getResultString() {
-		return resultString;
+	public float getEtc() {
+		return etc;
 	}
-
 
 
 	/**
 	* 設定メソッド を設定
-	* @author KOHEI NITABARU
-	* @param resultString
+	* @param etc
 	*/
-	public void setResultString(String resultString) {
-		this.resultString = resultString;
+	public void setEtc(float etc) {
+		this.etc = etc;
 	}
-
-
-
 
 
 	/**
@@ -611,9 +649,6 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 
-
-
-
 	/**
 	* 設定メソッド を設定
 	* @param familyNameKanji
@@ -621,9 +656,6 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	public void setFamilyNameKanji(String familyNameKanji) {
 		this.familyNameKanji = familyNameKanji;
 	}
-
-
-
 
 
 	/**
@@ -635,9 +667,6 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 
-
-
-
 	/**
 	* 設定メソッド を設定
 	* @param givenNameKanji
@@ -645,6 +674,63 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	public void setGivenNameKanji(String givenNameKanji) {
 		this.givenNameKanji = givenNameKanji;
 	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionList
+	*/
+	public ArrayList<DecisionDTO> getDecisionList() {
+		return decisionList;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionList
+	*/
+	public void setDecisionList(ArrayList<DecisionDTO> decisionList) {
+		this.decisionList = decisionList;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+
+
 
 
 

@@ -4,11 +4,13 @@
 package com.internousdev.openconnect.team.action;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.team.dao.TeamEditDAO;
+import com.internousdev.openconnect.team.dto.TeamDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -18,7 +20,13 @@ import com.opensymphony.xwork2.ActionSupport;
  *@version 1.0
  */
 public class TeamEditAction extends ActionSupport implements SessionAware{
+	/**
+	 * @author MASAHIRO KEDSUKA
+	 * スケジュールリスト
+	 */
+	private ArrayList<TeamDTO> teamUserList = new ArrayList<TeamDTO>();
 
+	private ArrayList<TeamDTO> teamList = new ArrayList<TeamDTO>();
 
 
 	/**
@@ -54,6 +62,8 @@ public class TeamEditAction extends ActionSupport implements SessionAware{
 			int userId = (int) session.get("userId");
 		TeamEditDAO dao = new TeamEditDAO();
 
+
+
 		int count = dao.update(teamName,userFlg,userId);
 		if(count > 0){
 			result = SUCCESS;
@@ -85,7 +95,38 @@ public class TeamEditAction extends ActionSupport implements SessionAware{
 		this.userId = userId;
 	}
 
+	/**
+	* 取得メソッド を取得
+	* @author TEPPEI MATSUMOTO
+	* @return teamUserList
+	*/
+	public ArrayList<TeamDTO> getTeamUserList() {
+		return teamUserList;
+	}
 
+	/**
+	* 設定メソッド を設定
+	* @author TEPPEI MATSUMOTO
+	* @param teamUserList
+	*/
+	public void setTeamUserList(ArrayList<TeamDTO> teamUserList) {
+		this.teamUserList = teamUserList;
+	}
+	/**
+	 * teamListを取得します。
+	 * @return teamList
+	 */
+	public ArrayList<TeamDTO> getTeamList() {
+	    return teamList;
+	}
+
+	/**
+	 * teamListを設定します。
+	 * @param teamList teamList
+	 */
+	public void setTeamList(ArrayList<TeamDTO> teamList) {
+	    this.teamList = teamList;
+	}
 	/**
 	* 取得メソッド を取得
 	* @author TEPPEI MATSUMOTO

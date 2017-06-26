@@ -22,7 +22,7 @@ import com.internousdev.util.DBConnector;
 public class DecisionDetailSelectDAO {
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
+	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
 	 * 自プロジェクト以外を呼び出す専用
 	 * @author TATUHUMI ITOU, SOSHI AZUMA
 	 */
@@ -31,7 +31,7 @@ public class DecisionDetailSelectDAO {
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 2 and ( manager_id != ? and sub_manager_id != ? ) and project_name LIKE '%" + searchString + "%'";
+				+"where decision_status2 != 4 and ( manager_id != ? and sub_manager_id != ? ) and project_name LIKE '%" + searchString + "%'";
 
 		List<DecisionDetailDTO> decisionDetailList1 = new ArrayList<DecisionDetailDTO>();
 
@@ -55,12 +55,12 @@ public class DecisionDetailSelectDAO {
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setPermitStatus(rs.getInt("permit_status"));
-				dto.setjPermiterId1(rs.getInt("j_permiter_id1"));
-				dto.setjPermiterId2(rs.getInt("j_permiter_id2"));
-				dto.setjPermiterId3(rs.getInt("j_permiter_id3"));
-				dto.setkPermiterId1(rs.getInt("k_permiter_id1"));
-				dto.setkPermiterId2(rs.getInt("k_permiter_id2"));
-				dto.setkPermiterId3(rs.getInt("k_permiter_id3"));
+				dto.setJPermiterId1(rs.getInt("j_permiter_id1"));
+				dto.setJPermiterId2(rs.getInt("j_permiter_id2"));
+				dto.setJPermiterId3(rs.getInt("j_permiter_id3"));
+				dto.setKPermiterId1(rs.getInt("k_permiter_id1"));
+				dto.setKPermiterId2(rs.getInt("k_permiter_id2"));
+				dto.setKPermiterId3(rs.getInt("k_permiter_id3"));
 
 				decisionDetailList1.add( dto );
 			}
@@ -79,8 +79,8 @@ public class DecisionDetailSelectDAO {
 
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
-	 * ログインユーザーの自プロジェクトを呼び出す専用
+	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
+	 * ログイン中ユーザーの自プロジェクトを呼び出す専用
 	 * @author TATUHUMI ITOU, SOSHI AZUMA
 	 */
 	public List<DecisionDetailDTO> selectMyD( int userId, int userId1 ){
@@ -88,7 +88,7 @@ public class DecisionDetailSelectDAO {
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 2 and ( manager_id = ? or sub_manager_id = ? )";
+				+"where decision_status2 != 4 and ( manager_id = ? or sub_manager_id = ? )";
 
 		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
 
@@ -112,8 +112,8 @@ public class DecisionDetailSelectDAO {
 
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
-				dto.setjImpId(rs.getString("j_imp_id"));
-				dto.setkImpId(rs.getString("k_imp_id"));
+				dto.setJImpId(rs.getString("j_imp_id"));
+				dto.setKImpId(rs.getString("k_imp_id"));
 				dto.setJkImpId(rs.getString("jk_imp_id"));
 
 				decisionDetailList2.add( dto );
@@ -133,8 +133,8 @@ public class DecisionDetailSelectDAO {
 
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを元に検索を行いその結果をDTOに転送する
-	 * ログインユーザーの決裁未作成の自プロジェクトを呼び出す専用
+	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
+	 * ログイン中ユーザーの決裁未着手の自プロジェクトを呼び出す専用
 	 * @author SOSHI AZUMA
 	 */
  	public List<DecisionDetailDTO> selectP(int userId, int userId1){
@@ -176,7 +176,6 @@ public class DecisionDetailSelectDAO {
 
 		return decisionBeginList ;
 	}
-
 
 
 }

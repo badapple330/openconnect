@@ -47,9 +47,18 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	/**
 	 * 実行メソッド。DAOにデータを渡して削除する。
 	 */
+
+	/**
+	 * ScheduleSelectAcitionにチーム名渡すための変数
+	 * @author WATARU AMEMIYA
+	 */
+	private String search;
+
 	public String execute() throws SQLException{
 
 		String result =ERROR;    //削除の判定
+
+
 		ScheduleDeleteDAO dao = new ScheduleDeleteDAO();
 		int count = 0;
 		count = dao.delete(scheduleId);
@@ -64,82 +73,83 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * 取得メソッド スケジュールのIDを取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return scheduleId
+	 * @author MASAHIRO KEDSUKAを取得します。
+	 * @return @author MASAHIRO KEDSUKA
 	 */
 	public int getScheduleId() {
-		return scheduleId;
+	    return scheduleId;
 	}
 
-
 	/**
-	 * 設定メソッド スケジュールのIDを設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param scheduleId
+	 * @author MASAHIRO KEDSUKAを設定します。
+	 * @param scheduleId @author MASAHIRO KEDSUKA
 	 */
 	public void setScheduleId(int scheduleId) {
-		this.scheduleId = scheduleId;
+	    this.scheduleId = scheduleId;
 	}
 
-
 	/**
-	 * 取得メソッド 成功のメッセージを取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return successMsg
+	 * 成功メッセージを取得します。
+	 * @return 成功メッセージ
 	 */
 	public String getSuccessMsg() {
-		return successMsg;
+	    return successMsg;
 	}
 
-
 	/**
-	 * 設定メソッド 成功のメッセージを設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param successMsg
+	 * 成功メッセージを設定します。
+	 * @param successMsg 成功メッセージ
 	 */
 	public void setSuccessMsg(String successMsg) {
-		this.successMsg = successMsg;
+	    this.successMsg = successMsg;
 	}
 
-
 	/**
-	 * 取得メソッド エラーメッセージを取得
-	 * @author MASAHIRO KEDSUKA
-	 * @return errorMsg
+	 * エラーメッセージを取得します。
+	 * @return エラーメッセージ
 	 */
 	public String getErrorMsg() {
-		return errorMsg;
+	    return errorMsg;
 	}
 
-
 	/**
-	 * 設定メソッド エラーメッセージを設定
-	 * @author MASAHIRO KEDSUKA
-	 * @param errorMsg
+	 * エラーメッセージを設定します。
+	 * @param errorMsg エラーメッセージ
 	 */
 	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
+	    this.errorMsg = errorMsg;
 	}
 
-
 	/**
-	* 取得メソッド 管理権限の状態を取得
-	* @author MASAHIRO KEDSUKA
-	* @return session
-	*/
-	public Map<String, Object> getSession() {
-		return session;
+	 * 管理権限を取得します。
+	 * @return 管理権限
+	 */
+	public Map<String,Object> getSession() {
+	    return session;
 	}
 
+	/**
+	 * 管理権限を設定します。
+	 * @param session 管理権限
+	 */
+	public void setSession(Map<String,Object> session) {
+	    this.session = session;
+	}
 
 	/**
-	* 設定メソッド 管理権限の状態を設定
-	* @author MASAHIRO KEDSUKA
-	* @param session
-	*/
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
+	 * 実行メソッド。DAOにデータを渡して削除する。を取得します。
+	 * @return 実行メソッド。DAOにデータを渡して削除する。
+	 */
+	public String getSearch() {
+	    return search;
+	}
+
+	/**
+	 * 実行メソッド。DAOにデータを渡して削除する。を設定します。
+	 * @param search 実行メソッド。DAOにデータを渡して削除する。
+	 */
+	public void setSearch(String search) {
+	    this.search = search;
 	}
 
 }

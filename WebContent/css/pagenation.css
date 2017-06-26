@@ -1,11 +1,13 @@
 @CHARSET "UTF-8";
 
-
 /*ページネーション*/
 #page_ctrl ul, #page_ctrl li {
 	display: inline;
 	margin: 0;
 	padding: 0;
+	align: center;
+	text-align:center;
+
 }
 
 #page_before li, #page_after li, #page_number li {
@@ -43,9 +45,9 @@
 	font-weight: bold !important;
 }
 
-#pager {
+/*#pager {
 	text-align: center;
-}
+}*/
 
 #contents {
 	z-index: 0;

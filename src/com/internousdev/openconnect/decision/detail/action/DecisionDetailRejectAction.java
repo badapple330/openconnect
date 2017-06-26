@@ -1,12 +1,12 @@
 package com.internousdev.openconnect.decision.detail.action;
 import java.util.Map;
 
-import com.internousdev.openconnect.decision.detail.dao.DecisionDetailUpdateDAO;
+import com.internousdev.openconnect.decision.detail.dao.DecisionDetailRejectDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
-* 決裁手続き画面の申請ボタンに付加された情報をDBに送る為のクラス
+* 却下ボタン押下時にDBの情報を更新するクラス
 * @author SOSHI AZUMA
 * @since 2017/06/21
 * @version 1.0
@@ -36,17 +36,15 @@ public class DecisionDetailRejectAction extends ActionSupport {
 
 
 
-
 	/**
-	 * 実行メソッド DAOに情報を渡して、結果を返す
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * 実行メソッド 却下による値の更新をする
+	 * @return result 決裁情報の更新に成功したらSUCCESS, 失敗したらERROR
 	 */
 	public String execute() throws Exception {
 
 		String result=ERROR;
 
-
-		DecisionDetailUpdateDAO dao = new DecisionDetailUpdateDAO();
+		DecisionDetailRejectDAO dao = new DecisionDetailRejectDAO();
 
 		int count = 0;
 

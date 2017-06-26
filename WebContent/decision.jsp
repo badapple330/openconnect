@@ -27,6 +27,8 @@ $("#res,#lines,#c,#d").val($(this).val());
 
 <body>
 
+<h1 align=center>実施決裁</h1>
+
 <s:property value="%{resultString}" />
 
 <table>
@@ -34,6 +36,8 @@ $("#res,#lines,#c,#d").val($(this).val());
 <td>
 <div>
 <s:form action="DecisionSelectAction">
+<input type="hidden" name="decisionId" value="<s:property value="decisionId"/>">
+<input type="hidden" name="jDrafterId" value="<s:property value="jDrafterId"/>">
 <input type="submit" value="表示">
 </s:form>
 </div>
@@ -42,24 +46,25 @@ $("#res,#lines,#c,#d").val($(this).val());
 </table>
 
 <s:form action="DecisionUpdateAction">
-<input type="submit" value="編集を保存">
+
 
 <table class="main" border="2">
 
 <tr>
-<td class="kian"><b>起案者名</b></td>
-<s:if test="nameList != null && !nameList.isEmpty()">
+<td class="kian"><b>起案者名</b>
+</td>
+
 <td>
 <s:iterator value="nameList">
-<s:if test="familyNameKanji != null && !familyNameKanji.isEmpty()">
- <input type="text" readonly="readonly" value="<s:property value='familyNameKanji'/><s:property value='givenNameKanji'/>">
-  </s:if>
+
+ <s:property value='familyNameKanji'/><s:property value='givenNameKanji'/>
+
 </s:iterator>
 </td>
-</s:if>
-<s:else>
-<input type="text" value="未定義">
-</s:else>
+
+<td>
+
+</td>
 </tr>
 
 <tr>
@@ -68,42 +73,55 @@ $("#res,#lines,#c,#d").val($(this).val());
 <tr>
 
 <th>案件名</th>
-<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:if test="decisionName != null && !decisionList.isEmpty()">
+<td colspan="3">
 <s:iterator value="decisionList">
-<td colspan="3"><textarea cols="50" rows="4" name="decisionName"><s:property value="decisionName" /></textarea></td>
+<textarea cols="50" rows="4" name="decisionName"><s:property value="decisionName" /></textarea>
 </s:iterator>
+</td>
 </s:if>
 <s:else>
-<td colspan="10"><textarea cols="105" rows="4">未定義</textarea></td>
+<td colspan="3">
+<textarea cols="50" rows="4" name="decisionName">未定義</textarea>
+</td>
 </s:else>
+
 </tr>
 
 <tr>
 <th>概要</th>
 <s:if test="decisionList != null && !decisionList.isEmpty()">
+<td colspan="10">
 <s:iterator value="decisionList">
-<td colspan="10"><textarea cols="125" rows="4" name="summary"><s:property value="summary" /></textarea></td>
+<textarea cols="125" rows="4" name="summary"><s:property value="summary" /></textarea>
 </s:iterator>
 </s:if>
 <s:else>
-<td colspan="10"><textarea cols="125" rows="4">未定義</textarea></td>
+<td>
+<textarea cols="125" rows="4" name="summary">未定義</textarea>
+</td>
 </s:else>
+
+
 </tr>
 
 <tr>
 <th>(1)内容</th>
+<td colspan="10">
 <s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
-<td colspan="10"><textarea cols="125" rows="4" name="cause"><s:property value="cause" /></textarea></td>
+<textarea cols="125" rows="4" name="cause"><s:property value="cause" /></textarea>
 </s:iterator>
 </s:if>
 <s:else>
-<td colspan="10"><textarea cols="105" rows="4">未定義</textarea></td>
+<textarea cols="125" rows="4" name="cause">未定義<s:property value="cause" /></textarea>
 </s:else>
+</td>
 </tr>
 
 <tr>
 <th>(2)費用</th>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <td colspan="6">
 建設費用：<input type="text" name="bildCost" value="<s:property value="bildCost" />" readonly="readonly" size="8">万円 <br>
@@ -111,16 +129,35 @@ $("#res,#lines,#c,#d").val($(this).val());
 合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text"  value="<s:property value="amountAll" />" readonly="readonly" size="8">万円
 </td>
 </s:iterator>
+</s:if>
+<s:else>
+<td colspan="6">
+建設費用：<input type="text" name="bildCost" value="<s:property value="bildCost" />" readonly="readonly" size="8">万円 <br>
+損益費用：<input type="text" name="benefit" value="<s:property value="benefit" />" readonly="readonly" size="8">万円<br>
+合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text" value="<s:property value="amountAll" />" readonly="readonly" size="8">万円
+</td>
+</s:else>
+
+
 </tr>
 
 <tr>
 <td><b>(3)期間</b></td>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <td colspan="3">
 <input type="date" name="startDay" size="7" required placeholder="YYYYMMDD" value="<s:property value="startDay" />">  ~
 <input type="date" name="endDay" size="7" required placeholder="YYYYMMDD" value="<s:property value="endDay" />">
 </td>
 </s:iterator>
+</s:if>
+<s:else>
+<td colspan="3">
+<input type="date" name="startDay" size="7" required placeholder="YYYYMMDD" value="<s:property value="startDay" />">  ~
+<input type="date" name="endDay" size="7" required placeholder="YYYYMMDD" value="<s:property value="endDay" />">
+</td>
+</s:else>
+
 </tr>
 
 <tr>
@@ -147,44 +184,133 @@ $("#res,#lines,#c,#d").val($(this).val());
 <th>小計(万円)</th>
 </tr>
 
-<s:iterator value="decisionList">
+
 <tr>
 <th>開発端末</th>
 <td>
-<input type="number"  name="prove" value="<s:property value="prove" />"></td>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
+<input type="number"  name="prove" value="<s:property value="prove" />">
+</s:iterator>
+</s:if>
+<s:else>
+<input type="number"  name="prove" value="<s:property value="prove" />">
+</s:else>
+</td>
+
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td>
 <input type="number" name="persons" value="<s:property value="persons"/>" placeholder="メンバー人数を入力" name="persons" id="input">
 </td>
+</s:iterator>
+</s:if>
+<s:else>
+<td>
+<input type="number" name="persons"  value="<s:property value="persons"/>" placeholder="メンバー人数を入力" name="persons" id="input">
+</td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td>
 <input type="number" readonly="readonly" size="20"   value="<s:property value="totalProve"/>">
 </td>
-</tr>
 </s:iterator>
+</s:if>
+<s:else>
+<td>
+<input type="number" readonly="readonly" size="20"   value="<s:property value="totalProve"/>">
+</td>
+</s:else>
+</tr>
+
 
 <tr>
 <th>リリース環境使用料</th>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
-<td><input type="number" readonly="readonly" name="re"  value="<s:property value="re" />"></td>
+<td>
+<input type="number" readonly="readonly" name="re"  value="<s:property value="re" />">
+</td>
+</s:iterator>
+</s:if>
+<s:else>
+<td>
+<input type="number" readonly="readonly" name="re"  value="">
+</td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number"  id="res"  value="<s:property value="persons"/>" readonly="readonly"></td>
+</s:iterator>
+</s:if>
+<s:else>
+<td><input type="number"  id="res"  value="" readonly="readonly"></td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number"  size="20"  value="<s:property value="totalRe"/>" readonly="readonly">万円</td>
 </s:iterator>
+</s:if>
+<s:else>
+<td><input type="number"  size="20"  value="" readonly="readonly">万円</td>
+</s:else>
 </tr>
+
 <tr>
 <th>回線使用料</th>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <td><input type="number"  readonly="readonly" name="line"  value="<s:property value="line" />"></td>
+</s:iterator>
+</s:if>
+<s:else>
+<td><input type="number"  readonly="readonly" name="line"  value=""></td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number"id="lines" value="<s:property value="persons"/>" readonly="readonly"></td>
+</s:iterator>
+</s:if>
+<s:else>
+<td><input type="number"id="lines" value="" readonly="readonly"></td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number" size="20"  readonly="readonly" value="<s:property value="totalLine"/>">万円</td>
 </s:iterator>
+</s:if>
+<s:else>
+<td><input type="number" size="20"  readonly="readonly" value="">万円</td>
+</s:else>
 </tr>
 
 <tr>
 <th>施設使用料</th>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <td><input type="number"  readonly="readonly" name="room" value="<s:property value="room" />"></td>
+</s:iterator>
+</s:if>
+<s:else>
+<td><input type="number"  readonly="readonly" name="room" value=""></td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number"  value="1"  readonly="readonly"></td>
+</s:iterator>
+</s:if>
+<s:else>
+<td><input type="number"  value="1"  readonly="readonly"></td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number" size="20"  value="<s:property value="totalRoom" />" readonly="readonly">万円</td>
 </s:iterator>
+</s:if>
+<s:else>
+<td><input type="number" size="20"  value="" readonly="readonly">万円</td>
+</s:else>
 </tr>
 
 <tr>
@@ -192,9 +318,14 @@ $("#res,#lines,#c,#d").val($(this).val());
 <td></td>
 <td></td>
 <td>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <input type="number" value="<s:property value="bildCost"/>" size="20" readonly="readonly">万円
 </s:iterator>
+</s:if>
+<s:else>
+<input type="number" value="">万円
+</s:else>
 </td>
 </tr>
 
@@ -215,33 +346,80 @@ $("#res,#lines,#c,#d").val($(this).val());
 
 <tr>
 <th>開発要員</th>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <td><input type="number" name="human" value="<s:property value="human" />"></td>
+</s:iterator>
+</s:if>
+<s:else>
+<td><input type="number" name="human" value=""></td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number" id="c"  value="<s:property value="persons"/>" readonly="readonly"></td>
+</s:iterator>
+</s:if>
+<s:else>
+<td><input type="number" id="c"  value="" readonly="readonly"></td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number"  size="20" value="<s:property value="totalHuman"/>"readonly="readonly">万円</td>
 </s:iterator>
+</s:if>
+<s:else>
+<td><input type="number"  size="20" value=""readonly="readonly">万円</td>
+</s:else>
 </tr>
 
 <tr>
 <th>雑費</th>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <td><input type="number" name="etc" value="<s:property value="etc" />" readonly="readonly"></td>
+</s:iterator>
+</s:if>
+<s:else>
+<td><input type="number" name="etc" value="" readonly="readonly"></td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number"  id="d"  value="<s:property value="persons"/>" readonly="readonly"></td>
+</s:iterator>
+</s:if>
+<s:else>
+<td><input type="number"  id="d"  value="" readonly="readonly"></td>
+</s:else>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
+<s:iterator value="decisionList">
 <td><input type="number" size="20"  value="<s:property value="totalEtc"/>"readonly="readonly">万円</td>
 </s:iterator>
+</s:if>
+<s:else>
+<td><input type="number" size="20"  value=""readonly="readonly">万円</td>
+</s:else>
 </tr>
 
 <tr>
 <th>損益費用(万円)</th>
 <td></td>
 <td></td>
+<s:if test="decisionList != null && !decisionList.isEmpty()">
 <s:iterator value="decisionList">
 <td><input type="number"  value="<s:property value="benefit"/>" readonly="readonly" size="20">万円</td>
 </s:iterator>
+</s:if>
+<s:else>
+<td><input type="number"  value="" readonly="readonly" size="20">万円</td>
+</s:else>
 </tr>
 
 </table>
+<input type="hidden" name="jDrafterId" value="<s:property value="session.userId" />">
+<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+<input type="submit"  value="編集を保存">
 </s:form>
+
 
 
 </body>

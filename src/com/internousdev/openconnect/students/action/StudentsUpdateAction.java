@@ -32,6 +32,10 @@ public class StudentsUpdateAction extends ActionSupport {
      * 名(漢字)
      */
     private String givenNameKanji;
+    /**
+     * チーム名
+     */
+    private String teamName;
 
 
 
@@ -57,10 +61,7 @@ public class StudentsUpdateAction extends ActionSupport {
         String result = ERROR;
         StudentsUpdateDAO dao = new StudentsUpdateDAO();
         int count = 0;
-        count = dao.update(
-        		familyNameKanji,
-                givenNameKanji,
-                userFlg, userId);
+        count = dao.update(familyNameKanji,givenNameKanji,teamName,userFlg,userId);
         if (count != 0) {
             result = SUCCESS;
             resultString = "更新に成功しました。";
@@ -129,6 +130,23 @@ public class StudentsUpdateAction extends ActionSupport {
      */
     public void setGivenNameKanji(String givenNameKanji) {
         this.givenNameKanji = givenNameKanji;
+    }
+    /**
+     * 取得メソッド チーム名を取得
+     * @author KOHEI NITABARU
+     * @return temamName
+     */
+    public String getTeamName() {
+        return teamName;
+    }
+
+    /**
+     * 設定メソッド チーム名を設定
+     * @author KOHEI NITABARU
+     * @param TeamName
+     */
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
 
