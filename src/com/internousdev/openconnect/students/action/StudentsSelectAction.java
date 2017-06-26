@@ -69,7 +69,7 @@ public class StudentsSelectAction extends ActionSupport {
 	/**
 	 * チーム名
 	 */
-	private String TeamName;
+	private String teamName;
 
 	/**
 	 * 受講年
@@ -97,7 +97,7 @@ public class StudentsSelectAction extends ActionSupport {
 
         String result = ERROR;
         StudentsSelectDAO dao = new StudentsSelectDAO();
-        studentsList = dao.select(searchInt);
+        studentsList = dao.select(userId);
 
         if (studentsList.size() != 0) {
             result = SUCCESS;
@@ -388,7 +388,7 @@ public class StudentsSelectAction extends ActionSupport {
 	 * @return team_namel 取得するメールアドレス
 	 */
 	public String getTeamName() {
-		return TeamName;
+		return teamName;
 	}
 
 	/**
@@ -397,8 +397,8 @@ public class StudentsSelectAction extends ActionSupport {
 	 * @author TATSUHIRO SAITO
 	 * @param team_name 格納するチーム名
 	 */
-	public void setTeamName(String TeamName) {
-		this.TeamName = TeamName;
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
 

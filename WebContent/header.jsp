@@ -43,6 +43,7 @@
 							  <li><a href="#">■ Category</a>
 							    <ul>
 							      <li><a href="GoTeamAction">チーム情報</a></li>
+							      <li><a href="GoAttendanceAction">勤怠更新</a></li>
 							      <li><a href="#">プロジェクト</a>
 							      	<ul>
 							      	 <li><a href="ProjectsSelectAction">プロジェクト一覧</a></li>
@@ -58,18 +59,19 @@
 							      	</ul>
 							      </li>
 								  <s:if test="%{#session.userFlg >= 2}">
-								  	<li><a href="#">勤怠</a>
-									  	<ul>
-											<li><a href="GoAdminAttendanceAction">勤怠確認</a></li>
-											<li><a href="GoAttendanceAction">勤怠更新</a></li>
-										</ul>
+								  	<li>
+
+
+
+											<a href="GoAdminAttendanceAction">勤怠確認</a>
+
 									</li>
 								  </s:if>
 
 								  <s:if test="%{#session.userFlg >= 1}">
 								  	 <li><a href="#">決裁</a>
 								      	<ul>
-								      	<li><a href="DecisionDetailSelectAction">決裁手続き</a></li>
+								      	<li><a href="GoDecisionAction">決裁手続き</a></li>
 									  	<li><a href="DecisionArchiveAction">完了済み決裁</a></li>
 								      </ul>
 								     </li>

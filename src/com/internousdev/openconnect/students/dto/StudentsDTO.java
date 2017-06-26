@@ -97,7 +97,7 @@ public class StudentsDTO {
     /**
      * チーム名
      */
-    private String TeamName;
+    private String teamName;
 
 
 
@@ -521,7 +521,7 @@ public class StudentsDTO {
     * @return team_name
     */
     public String getTeamName() {
-        return TeamName;
+        return teamName;
     }
 
     /**
@@ -529,8 +529,8 @@ public class StudentsDTO {
     * @author KOHEI NITABARU
     * @param month
     */
-    public void setTeamName(String TeamName) {
-        this.TeamName = TeamName;
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
 

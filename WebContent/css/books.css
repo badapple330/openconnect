@@ -43,6 +43,7 @@
 .list {
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: 40px;
 	border-collapse: separate;
 	border-spacing: 1px;
 	width: 95%;
@@ -103,6 +104,10 @@
 	width: 4%;
 }
 
+.w07 {
+	width: 7%;
+}
+
 .w10 {
 	width: 10%;
 }
@@ -124,11 +129,18 @@
 	color: rgba(40, 96, 144, 0.64);
 }
 
-.bookTitle, .bookSubTitle, .bookAuthor, .bookPublisher, .bookPubDay, .bookStatusFlg {
+.bookTitle,.bookSubTitle,.bookPublisher, .bookPubDay {
 	width:100%;
 	border: none;
-	background-color: rgba(245, 245, 245, 0.65);
+	background-color: #ffffff;
 	font-size: 100%;
+}
+
+ .bookAuthor,.bookStatusFlg {
+	width: 100%;
+	height: 80px;
+	border: none;
+	background-color: #ffffff;
 }
 
 .edit {
@@ -152,6 +164,21 @@
 
 .pad {
 	margin: 10px;
+}
+.font120{
+	font-size: 120%;
+}
+.font80 {
+	font-size: 80%;
+}
+.font70{
+	font-size: 70%;
+}
+
+.vertical{
+	-webkit-writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
 }
 
 /* モーダル 背景エリア */
@@ -195,21 +222,21 @@
 
 	.page-top {
     position: fixed;
-    bottom: 15%;
-    right: 25px;
+    bottom: 5px;
+    right: 5px;
     background-color: rgb(0, 27, 65);
     color: #ffffff;
-	padding: 10px 20px;
+	padding: 10px 10px;
 	display: block;
 	border-radius: 3px;
 	text-decoration: none;
-	font-size: 200%;
+	font-size: 100%;
 	}
 }
 @media (min-width: 768px) {
 .page-top {
     position: fixed;
-    bottom: 15%;
+    bottom: 15px;
     right: 25px;
     background-color: rgb(0, 27, 65);
     color: #ffffff;

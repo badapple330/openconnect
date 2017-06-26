@@ -59,5 +59,35 @@ public class GoTeamEditDAO {
 		}
 		return teamUserList;
 	}
+	public ArrayList<TeamDTO> teamList = new ArrayList<TeamDTO>();
+
+	public ArrayList<TeamDTO> select2(){
+		DBConnector db2 = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
+		Connection conn2 = db2.getConnection();
+		String sql = "SELECT DISTINCT project_name FROM projects ORDER BY project_name ASC";
+
+		try {
+			PreparedStatement ps2 = conn2.prepareStatement(sql);
+			ResultSet rs2 = ps2.executeQuery();
+
+			while(rs2.next()) {
+				TeamDTO dto2 = new TeamDTO();
+				dto2.setTeamName(rs2.getString("project_name"));
+				teamList.add(dto2);
+
+			}
+
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try{
+			conn2.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return teamList;
+	}
 
 }

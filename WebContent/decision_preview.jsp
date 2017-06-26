@@ -6,6 +6,8 @@
 <head>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <LINK rel="stylesheet" type="text/css" href="css/style.css">
+<jsp:include page="header.jsp" />
+<LINK rel="stylesheet" type="text/css" href="css/decision_preview.css">
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
@@ -17,8 +19,6 @@
 </head>
 <body>
 	<s:if test="%{#session.userFlg >= 1}">
-		<jsp:include page="header.jsp" />
-<LINK rel="stylesheet" type="text/css" href="css/decision_preview.css">
 
 		<h1 id="decisionTitle">決裁プレビュー画面</h1>
 		<br>
@@ -131,13 +131,13 @@
 													<table id="tableApproval">
 														<tr>
 															<td><div class="width4">―：<br><br></div></td>
-															<td><div class="width4">起案番号：<s:property value="iDraftingId" /><br><br></div></td>
-															<td><div class="width4">実施決裁番号：<s:property value="iApprovalId" /><br><br></div></td>
+															<td><div class="width4">起案番号：<s:property value="jImpId" /><br><br></div></td>
+															<td><div class="width4">実施決裁番号：<s:property value="jDecId" /><br><br></div></td>
 														</tr>
 														<tr>
-															<td><div class="width4">承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></div></td>
-															<td><div class="width4">承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></div></td>
-															<td><div class="width4">承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></div></td>
+															<td><div class="width4"><label>承認者：</label><s:iterator value="jPremiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="day" /></div></td>
+															<td><div class="width4"><label>承認者：</label><s:iterator value="jPremiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="day" /></div></td>
+															<td><div class="width4"><label>承認者：</label><s:iterator value="jPremiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="day" /></div></td>
 														</tr>
 													</table>
 												</div>
@@ -146,15 +146,15 @@
 													<table>
 														<tr>
 															<td>―：<br><br></td>
-															<th>承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></th>
+															<th>承認者：<s:iterator value="jPremiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="day" /></th>
 														</tr>
 														<tr>
-															<td>起案番号：<s:property value="iDraftingId" /><br><br></td>
-															<th>承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></th>
+															<td>起案番号：<s:property value="jImpId" /><br><br></td>
+															<th>承認者：<s:iterator value="jPremiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="day" /></th>
 														</tr>
 														<tr>
-															<td>実施決裁番号：<s:property value="iApprovalId" /><br><br></td>
-															<th>承認者：<s:property value="familyNameKanji" /><s:property value="givenNameKanji" /><br> <br>日付：<s:property value="day" /></th>
+															<td>実施決裁番号：<s:property value="jDecId" /><br><br></td>
+															<th>承認者：<s:iterator value="jPremiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="day" /></th>
 														</tr>
 													</table>
 												</div>

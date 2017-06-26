@@ -26,7 +26,7 @@
 
 <p>
 <s:iterator value="teamUserList">
-	<table class="teaminfo">
+	<table class="teaminfo" stycellspacing="10" >
 	<tr>
 	<th>ユーザー名：</th><td><s:property value="familyNameKanji"/> <s:property value="givenNameKanji"/></td>
 	</tr>

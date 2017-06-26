@@ -96,10 +96,21 @@
 @media only screen and (max-device-width : 640px){
 
         #calendar {
-             width: 100% !important;
+        	width: 100% !important;
         }
         #operation {
-            margin-top: 270px;
+            width: 100%;
+        }
+        .scheduleStartdayList,
+        .scheduleEnddayList {
+            width:80px;
+        }
+        .scheduleTitleList {
+            width: 100px;
+        }
+        #schedule th:nth-child(5),
+        #schedule td:nth-child(5) {
+            display: none;
         }
 
 }

@@ -52,8 +52,15 @@
 			<br>
 			<s:property value="%{resultString}" />
 			<s:property value="%{resultSelect}" />
+			<s:if test="%{#session.userFlg == 3}">
+			<s:form action="StudentsDeleteAction2">
+						<h5>開始月で丸ごと削除</h5>
+					<td><input type="text" name="month" pattern="([0-1][0-9])"
+						maxlength="2" required title="08" placeholder="08" /></td>
+						<td><input id="postBtn" type="submit" value="丸ごと削除"></td>
+			</s:form></s:if>
 			<br>
-
+<div class="table">
 			<s:if test="%{studentsList.size() >0}">
 
 				<table border="1"class="demo3">
@@ -92,9 +99,9 @@
 								value="<s:property value="givenNameKanji" />"
 								class="givenNameKanji maxText" maxlength="20" required></div></td>
 
-							<td><div class="smallWidth"><input type="text" name="team_name"
-								value="<s:property value="TeamName" />"
-								class="team_name maxText" maxlength="20" required></div></td>
+							<td><div class="smallWidth"><input type="text" name="teamNameList"
+								value="<s:property value="teamName" />"
+								class="teamName maxText" maxlength="20" required></div></td>
 
 
 						<!-- 	<s:if test="%{#session.userFlg == 3}">-->
@@ -137,7 +144,7 @@
 							value="<s:property value="userId" />" class="userId">
 					</s:iterator>
 				</table>
-			</s:if>
+			</s:if></div>
 			<div id="modal-deleteMain">
 				id ：
 				<div class="deleteUserId modalString"></div>
@@ -174,6 +181,8 @@
 				<div class="updateFamilyName modalString"></div>
 				<br> 名 ：
 				<div class="updateGivenName modalString"></div>
+				<br> チーム名 ：
+				<div class="updateteamName modalString"></div>
 				<br> <br> 上記の受講生の編集を行います。
 				<s:form action="StudentsUpdateAction">
 					<input type="hidden" name="userId" class="updateUserId" value="">
@@ -183,13 +192,7 @@
 
 					<input type="hidden" name="givenNameKanji"
 						class="updateGivenNameKanji" value="">
-					<input type="hidden" name="team_name"
- 						class="updateTeamName" value="">
-
-
-
-
-
+					<input type="hidden" name="teamName" class="updateteamName" value="">
 					<input type="hidden" name="userFlg" class="updateUserFlg" value="">
 
 
@@ -206,9 +209,10 @@
 		<%-- <s:else>
 		ログイン後に表示します。
 		</s:else> --%>
+		<div class="back">
 		<s:form action="GetAddressAction">
 			<button type="submit" class="button">戻る</button>
-		</s:form>
+		</s:form></div>
 	</div>
 	<br>
 </body>
