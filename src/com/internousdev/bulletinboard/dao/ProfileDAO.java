@@ -16,7 +16,7 @@ public class ProfileDAO {
 
 
 	public ArrayList<UserDTO> select(int userId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 		UserDTO dto = new UserDTO();
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
@@ -52,7 +52,7 @@ public class ProfileDAO {
 
 
 	public ArrayList<UserDTO> getFollow(int userId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
@@ -101,7 +101,7 @@ public class ProfileDAO {
 
 
 	public ArrayList<UserDTO> getFollower(int userId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
@@ -150,7 +150,7 @@ public class ProfileDAO {
 
 
 	public int profileSend(int user_id,String profile,String user_img){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 		int inserted=0;
 		int c=1;
@@ -211,7 +211,7 @@ public class ProfileDAO {
 	}
 
 	public int insert(int userId,String userImg,String profile){
-		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "bulletinboard", "root","mysql");
+		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con=db.getConnection();
 		int inserted=0;
 		String sql= "insert into img(user_id,user_img,profile)"
@@ -245,7 +245,7 @@ public class ProfileDAO {
 	 */
 	public int viewIdGet(String userName){
 		int viewId = 0;
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = " select user_id from users where user_name = ?";
 

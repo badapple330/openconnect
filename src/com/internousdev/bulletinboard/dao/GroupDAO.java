@@ -18,8 +18,8 @@ public class GroupDAO {
 	 * @return
 	 */
 	  public ArrayList<PostDTO> groupGet(int userId){
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
-		  Connection con2 = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
+		  Connection con2 = new MySqlConnector("openconnect").getConnection();
 		  ArrayList<PostDTO> groupList = new ArrayList<PostDTO>();
 
 		  String sql = "select * from groups join group_master on groups.group_id=group_master.group_id where user_id=?";
@@ -84,7 +84,7 @@ public class GroupDAO {
 	 */
 	public int groupmasterAdd(String groupName){
 		int inserted = 0;
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = "insert into group_master (group_name) values (?)";
 
@@ -116,7 +116,7 @@ public class GroupDAO {
 	public int groupsAdd(int userId,String groupName){
 		int inserted = 0;
 		int groupId = 0;
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = "select group_id from group_master where group_name=? order by created_at desc limit 1";
 		String sql2 = "insert into groups (user_id,group_id) values (?,?)";
@@ -161,7 +161,7 @@ public class GroupDAO {
 	 */
 	public ArrayList<UserDTO> followGet(int userId, int groupId){
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = "select * from follow where do=? and not exists(select user_id from groups where group_id =? and groups.user_id=follow.done)";
 		String sql2 = "select * from users where user_id=?";
@@ -207,7 +207,7 @@ public class GroupDAO {
 	 */
 	public int groudmasterDelete(String groupName){
 		int deleted = 0;
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = "delete from group_master where group_name = ? order by created_at desc limit 1";
 
@@ -233,7 +233,7 @@ public class GroupDAO {
 	 * @return
 	 *//*
 	public boolean selectGroups(String groupName){
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		ArrayList<PostDTO> groupMasterList = new ArrayList<PostDTO>();
 		ArrayList<PostDTO> contentsList = new ArrayList<PostDTO>();
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
@@ -299,7 +299,7 @@ public class GroupDAO {
 	public int memberAdd(int groupId, ArrayList<Integer> memberList){
 		int inserted = 0;
 		int[] intMemberList = new int[memberList.size()];
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = "insert into groups(user_id,group_id) values(?,?)";
 
@@ -336,7 +336,7 @@ public class GroupDAO {
 		int inserted = 0;
 		String names = "";
 		int[] intMemberList = new int[memberList.size()];
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 
 		String sql = "select * from users where user_id=?";
@@ -386,7 +386,7 @@ public class GroupDAO {
 	 */
 	public int memberRemove(int userId, int groupId){
 		int deleted = 0;
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = "delete from groups where user_id = ? and group_id=?";
 
@@ -408,7 +408,7 @@ public class GroupDAO {
 
 	public int memberRemoveSend(int userId, int groupId){
 		int inserted = 0;
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = "insert into post(sender_id,group_id,post_contents) values(?,?,?)";
 

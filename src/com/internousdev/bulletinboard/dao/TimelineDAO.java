@@ -35,7 +35,7 @@ public class TimelineDAO {
 	 * @return
 	 */
 	public ArrayList<TimelineDTO> TimelineGet(){
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		ArrayList<TimelineDTO> tlList = new ArrayList<TimelineDTO>();
 		int senderId;
 
@@ -140,7 +140,7 @@ public class TimelineDAO {
 	  public int timelineSend(String sendContents, int reTimelineId){
 		  int inserted=0;
 
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 		  String sql = "insert into send_timeline (sender_id, send_contents, re_timeline_id) values (?,?,?)";
 
 		  try{
@@ -171,7 +171,7 @@ public class TimelineDAO {
 	   */
 	  public int timelineDelete(int timelineId){
 		  int deleted = 0;
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 
 		  String sql = "delete from send_timeline where timeline_id=?";
 
@@ -199,7 +199,7 @@ public class TimelineDAO {
 	   */
 	  public int goodDelete(int timelineId){
 		  int deleted = 0;
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 
 		  String sql = "delete from good where timeline_id=?";
 
@@ -227,7 +227,7 @@ public class TimelineDAO {
 	   */
 	  public TimelineDTO timelineCheck(){
 		  TimelineDTO dto = new TimelineDTO();
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 
 		  String sql = "select send_contents from send_timeline where sender_id = ? order by send_at desc limit 1";
 
