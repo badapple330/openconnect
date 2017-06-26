@@ -138,6 +138,14 @@ k_permiter_id1 int comment '契約/実施兼契約_承認者ID(1人目:リーダ
 k_permiter_id2 int comment '契約/実施兼契約_承認者ID(2人目:リーダー)',
 k_permiter_id3 int comment '契約/実施兼契約_承認者ID(3人目:先生)',
 
+j_permit_day1 date comment '実施_承認日(1人目:リーダー)',
+j_permit_day2 date comment '実施_承認日(2人目:リーダー)',
+j_permit_day3 date comment '実施_承認日(3人目:先生)',
+
+k_permit_day1 date comment '契約/実施兼契約_承認日(1人目:リーダー)',
+k_permit_day2 date comment '契約/実施兼契約_承認日(2人目:リーダー)',
+k_permit_day3 date comment '契約/実施兼契約_承認日(3人目:先生)',
+
 foreign key(project_id) references projects(project_id) on update cascade on delete cascade,
 foreign key(j_drafter_id) references users(user_id) on update cascade on delete cascade,
 foreign key(k_drafter_id) references users(user_id) on update cascade on delete cascade,
