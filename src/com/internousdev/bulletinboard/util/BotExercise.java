@@ -76,17 +76,38 @@ public class BotExercise {
 		return wordList;
 	}
 
+	/**
+	 * 読点をその前の言葉につなげるメソッド
+	 * @param wordList
+	 * @return
+	 */
+	public ArrayList<BotDTO> readingPointConbine(ArrayList<BotDTO> wordList){
+		for(int i=0;i<(wordList.size()-1);i++){
+			if(wordList.get(i+1).getPartOfSpeech().contains("読点")){
+				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
+			}
+		}
+		return wordList;
+	}
+
+	/**
+	 * 括弧の開始から終わりまでを一つの文章として扱うメソッド
+	 * @param wordList
+	 * @return
+	 */
 	public ArrayList<BotDTO> bracketsConbine(ArrayList<BotDTO> wordList){
 
 		for(int i=0;i<(wordList.size()-1);i++){
-			while(wordList.get(i).getPartOfSpeech().contains("括弧開")){
-				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
-				wordList.remove(i+1);
-				if(wordList.get(i).getPartOfSpeech().contains("括弧閉")){
-					wordList.get(i-1).setWord(wordList.get(i-1).getWord() + wordList.get(i).getWord());
-					wordList.remove(i);
-					break;
+			if(wordList.get(i).getPartOfSpeech().contains("括弧開")){
+				while(wordList.get(i+1).getWord().contains("括弧閉")){
+					wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
+					wordList.remove(i+1);
 				}
+			}
+			if(wordList.get(i).getPartOfSpeech().contains("括弧閉")){
+				wordList.get(i-1).setWord(wordList.get(i-1).getWord() + wordList.get(i).getWord());
+				wordList.remove(i);
+				i--;
 			}
 		}
 		return wordList;
