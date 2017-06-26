@@ -463,11 +463,6 @@
 			<result name="error">project_progress.jsp</result>
 		</action>
 
-<!-- ログイン画面（セッションにuserIdをadd-->
-<action name="LoginAction" class="com.internousdev.bulletinboard.action.LoginAction" method="execute">
-<result name="success" type="redirectAction">GoTalkListAction</result>
-<result name="error">login.jsp</result>
-</action>
 
 <!-- チャット画面への遷移 -->
 <action name="GoPostAction" class="com.internousdev.bulletinboard.action.GoPostAction" method="execute">
