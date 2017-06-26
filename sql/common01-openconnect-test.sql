@@ -6,7 +6,6 @@ use openconnect;
 
 drop table if exists attendance;
 drop table if exists books;
-drop table if exists books_borrow;
 drop table if exists decision;
 drop table if exists decision_detail;
 drop table if exists kesseki;
@@ -114,9 +113,9 @@ author varchar(100) not null comment '著者',
 publisher varchar(100) not null comment '出版社',
 publish_day varchar(10) not null comment '出版日',
 initial varchar(10) not null comment 'イニシャル(例:ア,カ,サ/A,B,C/数字)',
-status_flg tinyint(1) not null default '0' comment '状態フラグ(0:通常,1:削除,2:紛失)',
-regist_day datetime not null default current_timestamp comment 'カレッジ登録日',
-updated_day datetime not null default current_timestamp on update current_timestamp comment '更新日'
+status_flg varchar(10) not null default '通常' comment '状態フラグ(1:通常,2:削除,3:紛失)',
+regist_day datetime not null  default current_timestamp comment 'カレッジ登録日',
+updated_day datetime not null  default current_timestamp on update current_timestamp comment '更新日'
 );
 
 insert into books

@@ -96,14 +96,20 @@ decision_id int primary key auto_increment comment '決裁ID',
 project_id int unique not null comment 'プロジェクトID',
 decision_name varchar(100) comment '案件名',
 decision_type enum('実施', '契約', '実施兼契約') default '実施' comment '決裁種類',
-decision_status1 tinyint(1) default 0 comment '[実施]決裁状況(0:作成中, 1:申請中/承認待ち, 2:承認済み, 3:変更中)',
-decision_status2 tinyint(1) default 0 comment '[契約/実施兼契約]決裁状況(0:作成中, 1:申請中/承認待ち, 2:承認済み, 3:変更中, 4:リリース済み)',
+decision_status tinyint(1) default 0 comment '決裁進捗状況
+( 0:作成中, 1:差し戻し中, 2:却下中, 3:申請中/承認待ち, 4:変更申請中, 5:承認済み, 6:遡求申請中, 7:リリース済み )',
+permit_statusJ tinyint(1) default 0 comment '[実施]承認状況(0:未承認, 1:リーダー1承認済み, 2:リーダー2承認済み, 3:先生承認済み)',
+permit_statusK tinyint(1) default 0 comment '[契約/実施兼契約]承認状況(0:未承認, 1:リーダー1承認済み, 2:リーダー2承認済み, 3:先生承認済み)',
+permit_statusS tinyint(1) default 3 comment '[遡求]承認状況(0:未承認, 3:先生承認済み)',
+
 summary varchar(255) comment '概要',
 cause varchar(255) comment '内容',
 persons int comment '人数',
-apply_day varchar(20) comment '申請日',
-start_day date comment '開始日',/* default current_date */
-end_day date comment '終了日',
+j_apply_day varchar(20) comment '実施申請日',
+k_apply_day varchar(20) comment '契約/実施兼契約申請日',
+s_apply_day varchar(20) comment '遡求申請日',
+start_day varchar(20) comment '開始日',
+end_day varchar(20) comment '終了日',
 bild_cost float comment '建設費用',
 benefit float comment '損益利益',
 amount_all float comment '合計金額',
@@ -128,7 +134,6 @@ jk_imp_id varchar(100) comment '実施兼契約起案番号',
 jk_dec_id varchar(100) comment '実施兼契約決裁番号',
 j_drafter_id int comment'実施起案者ID',
 k_drafter_id int comment'契約/実施兼契約起案者ID',
-permit_status tinyint(1) default 0 comment '承認状況(0:未承認, 1:リーダー1承認, 2:リーダー2承認, 0:先生承認)',
 
 j_permiter_id1 int comment '実施_承認者ID(1人目:リーダー)',
 j_permiter_id2 int comment '実施_承認者ID(2人目:リーダー)',
@@ -138,6 +143,8 @@ k_permiter_id1 int comment '契約/実施兼契約_承認者ID(1人目:リーダ
 k_permiter_id2 int comment '契約/実施兼契約_承認者ID(2人目:リーダー)',
 k_permiter_id3 int comment '契約/実施兼契約_承認者ID(3人目:先生)',
 
+s_permiter_id int comment '遡求承認者ID(先生)',
+
 j_permit_day1 varchar(20) comment '実施_承認日(1人目:リーダー)',
 j_permit_day2 varchar(20) comment '実施_承認日(2人目:リーダー)',
 j_permit_day3 varchar(20) comment '実施_承認日(3人目:先生)',
@@ -145,6 +152,8 @@ j_permit_day3 varchar(20) comment '実施_承認日(3人目:先生)',
 k_permit_day1 varchar(20) comment '契約/実施兼契約_承認日(1人目:リーダー)',
 k_permit_day2 varchar(20) comment '契約/実施兼契約_承認日(2人目:リーダー)',
 k_permit_day3 varchar(20) comment '契約/実施兼契約_承認日(3人目:先生)',
+
+s_permit_day varchar(20) comment '遡求_承認日(先生)',
 
 foreign key(project_id) references projects(project_id) on update cascade on delete cascade,
 foreign key(j_drafter_id) references users(user_id) on update cascade on delete cascade,
@@ -154,7 +163,8 @@ foreign key(j_permiter_id2) references users(user_id) on update cascade on delet
 foreign key(j_permiter_id3) references users(user_id) on update cascade on delete cascade,
 foreign key(k_permiter_id1) references users(user_id) on update cascade on delete cascade,
 foreign key(k_permiter_id2) references users(user_id) on update cascade on delete cascade,
-foreign key(k_permiter_id3) references users(user_id) on update cascade on delete cascade
+foreign key(k_permiter_id3) references users(user_id) on update cascade on delete cascade,
+foreign key(s_permiter_id) references users(user_id) on update cascade on delete cascade
 );
 
 

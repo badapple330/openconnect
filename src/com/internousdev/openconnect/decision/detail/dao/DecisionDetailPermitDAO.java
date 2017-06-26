@@ -29,7 +29,7 @@ public class DecisionDetailPermitDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "update decision set decision_type = '契約', decision_status1 = 2, permit_status = 0, j_dec_id = ?, j_permiter_id3 = ?, j_permit_day3 = ? where decision_id = ?";
+		String sql = "update decision set decision_type = '契約', decision_status = 0, permit_statusJ = 3, j_dec_id = ?, j_permiter_id3 = ?, j_permit_day3 = ? where decision_id = ?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -67,7 +67,7 @@ public class DecisionDetailPermitDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "update decision set decision_status2 = 2, permit_status = 0, k_dec_id = ?, k_permiter_id3 = ?, k_permit_day3 = ? where decision_id = ?";
+		String sql = "update decision set decision_status = 5, permit_statusK = 3, k_dec_id = ?, k_permiter_id3 = ?, k_permit_day3 = ? where decision_id = ?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -105,7 +105,7 @@ public class DecisionDetailPermitDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn = db.getConnection();
-		String sql = "update decision set decision_status2 = 2, permit_status = 0, jk_dec_id = ?, k_permiter_id3 = ?, k_permit_day3 = ? where decision_id = ?";
+		String sql = "update decision set decision_status = 5, permit_statusK = 3, jk_dec_id = ?, k_permiter_id3 = ?, k_permit_day3 = ? where decision_id = ?";
 
 		try{
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -146,22 +146,22 @@ public class DecisionDetailPermitDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
-		String sql = "update decision set permit_status = ?";
+		String sql = "";
 
 		if(decisionType.equals("実施")) {
 			if(permitStatus == 1) {
-			sql = sql + ", j_permiter_id1 = ?, j_permit_day1 = ? where decision_id = ?";
+			sql = sql + "update decision set permit_statusJ = ?, j_permiter_id1 = ?, j_permit_day1 = ? where decision_id = ?";
 			}
 			if(permitStatus == 2) {
-			sql = sql + ", j_permiter_id2 = ?, j_permit_day2 = ? where decision_id = ?";
+			sql = sql + "update decision set permit_statusJ = ?, j_permiter_id2 = ?, j_permit_day2 = ? where decision_id = ?";
 			}
 		}
 		else {
 			if(permitStatus == 1) {
-			sql = sql + ", k_permiter_id1 = ?, k_permit_day1 = ? where decision_id = ?";
+			sql = sql + "update decision set permit_statusK = ?, k_permiter_id1 = ?, k_permit_day1 = ? where decision_id = ?";
 			}
 			if(permitStatus == 2) {
-			sql = sql + ", k_permiter_id2 = ?, k_permit_day2 = ? where decision_id = ?";
+			sql = sql + "update decision set permit_statusK = ?, k_permiter_id2 = ?, k_permit_day2 = ? where decision_id = ?";
 			}
 		}
 

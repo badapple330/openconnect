@@ -168,7 +168,7 @@ $("#permit-btn")
                         <s:elseif test="decisionStatus1 == 2">
                             承認済み
                         </s:elseif>
-                        <s:elseif test="decisionStatus2 == 3">
+                        <s:elseif test="decisionStatus2 == 2">
                             変更中
                         </s:elseif>
                     </s:if>
@@ -340,13 +340,13 @@ $("#permit-btn")
 							<s:token />
 
 						<!-- 実施・変更時(実施)の申請-->
-						<s:if test="%{(decisionStatus1 == 0 || decisionStatus1 == 3) && decisionStatus2 == 0}">
+						<s:if test="%{decisionStatus1 == 0 && decisionStatus2 == 0}">
 							<input type="hidden" name="stringId" value="<s:property value="jImpId" />">
 											<input type="submit" value="実施申請" onclick='return confirm("よろしいですか？");'>
 						</s:if>
 
 						<!-- 契約/実施兼契約・変更時(契約/実施契約)の申請 -->
-						<s:elseif test="%{(decisionStatus2 == 0 || decisionStatus2 == 3) && decisionStatus1 == 2}">
+						<s:elseif test="%{decisionStatus2 == 0 && decisionStatus1 == 2}">
 							<s:if test="%{decisionType == '契約'}">
 								<input type="hidden" name="stringId" value="<s:property value="kImpId" />">
 											<input type="submit" value="契約申請" onclick='return confirm("よろしいですか？");'>
@@ -358,13 +358,24 @@ $("#permit-btn")
 						</s:elseif>
                 </s:form>
                 </s:if>
-                <!-- 最終承認済みかつ終了日を過ぎた時のみ表示 -->
-                <s:elseif test="decisionStatus2 == 2"><!-- &&終了日を過ぎた場合 -->
-                <!-- 遡求の申請 -->
-                <s:form action="DecisionRecourseAction">
-                    <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-                    <input type="submit" value="遡求申請"  onclick='return confirm("よろしいですか？");'>
-                </s:form>
+               <!-- 最終承認済みの時のみ表示 -->
+                <s:elseif test="decisionStatus2 == 2">
+                <!-- 終了日を過ぎた時のみ表示 -->
+                    <s:if test="endDay <= 今日">
+                	<!-- 遡求の申請 -->
+                	<s:form action="DecisionDetailRecourseAction">
+	                    <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+	                    <input type="submit" value="遡求申請" onclick='return confirm("よろしいですか？");'>
+	                </s:form>
+	                </s:if>
+                <!-- 終了日までの間表示 -->
+                    <s:else>
+                        <s:form action="DecisionDetailChangeAction">
+                        <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
+                        <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                                <input type="submit" value="変更申請" onclick='return confirm("よろしいですか？");'>
+                        </s:form>
+                    </s:else>
                 </s:elseif>
             </td>
         </tr>
@@ -411,9 +422,6 @@ $("#permit-btn")
                         <s:elseif test="decisionStatus1 == 2">
                             承認済み
                         </s:elseif>
-                        <s:elseif test="decisionStatus1 == 3">
-                            変更中
-                        </s:elseif>
                     </s:if>
                 <!-- 契約/実施兼契約 -->
                     <s:else>
@@ -425,9 +433,6 @@ $("#permit-btn")
                         </s:elseif>
                         <s:elseif test="decisionStatus2 == 2">
                             承認済み
-                        </s:elseif>
-                        <s:elseif test="decisionStatus2 == 3">
-                            変更中
                         </s:elseif>
                     </s:else>
             </td>

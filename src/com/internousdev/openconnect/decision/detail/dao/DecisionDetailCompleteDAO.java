@@ -26,7 +26,7 @@ public class DecisionDetailCompleteDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
-		String sql = "update decision set decision_status2 = 4 where decision_id = ?";
+		String sql = "update decision set decision_status = 7 where decision_id = ?";
 
 
 		try {

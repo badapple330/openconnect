@@ -26,13 +26,13 @@ public class DecisionDetailRemandDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
-		String sql = "update decision set permit_status = ?";
+		String sql = "";
 
 		if(decisionType.equals("実施")) {
-			sql = sql + ", decision_status1 = 0 where decision_id = ?";
+			sql = "update decision set decision_status = 1, permit_statusJ = ? where decision_id = ?";
 		}
 		else {
-			sql = sql + ", decision_status2 = 0 where decision_id = ?";
+			sql = "update decision set decision_status = 1, permit_statusK = ? where decision_id = ?";
 		}
 
 		try {

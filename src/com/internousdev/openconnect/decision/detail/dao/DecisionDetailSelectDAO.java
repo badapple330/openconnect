@@ -31,7 +31,7 @@ public class DecisionDetailSelectDAO {
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 4 and ( manager_id != ? and sub_manager_id != ? ) and project_name LIKE '%" + searchString + "%'";
+				+"where decision_status != 7 and ( manager_id != ? and sub_manager_id != ? ) and project_name LIKE '%" + searchString + "%'";
 
 		List<DecisionDetailDTO> decisionDetailList1 = new ArrayList<DecisionDetailDTO>();
 
@@ -49,12 +49,13 @@ public class DecisionDetailSelectDAO {
 				dto.setProjectId(rs.getInt("project_Id"));
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionType(rs.getString("decision_type"));
-				dto.setDecisionStatus1(rs.getInt("decision_status1"));
-				dto.setDecisionStatus2(rs.getInt("decision_status2"));
+				dto.setDecisionStatus(rs.getInt("decision_status"));
 
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
-				dto.setPermitStatus(rs.getInt("permit_status"));
+				dto.setPermitStatusJ(rs.getInt("permit_statusJ"));
+				dto.setPermitStatusK(rs.getInt("permit_statusK"));
+				dto.setPermitStatusS(rs.getInt("permit_statusS"));
 				dto.setJPermiterId1(rs.getInt("j_permiter_id1"));
 				dto.setJPermiterId2(rs.getInt("j_permiter_id2"));
 				dto.setJPermiterId3(rs.getInt("j_permiter_id3"));
@@ -88,7 +89,7 @@ public class DecisionDetailSelectDAO {
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 4 and ( manager_id = ? or sub_manager_id = ? )";
+				+"where decision_status != 7 and ( manager_id = ? or sub_manager_id = ? )";
 
 		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
 
@@ -107,8 +108,7 @@ public class DecisionDetailSelectDAO {
 				dto.setProjectId(rs.getInt("project_Id"));
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionType(rs.getString("decision_type"));
-				dto.setDecisionStatus1(rs.getInt("decision_status1"));
-				dto.setDecisionStatus2(rs.getInt("decision_status2"));
+				dto.setDecisionStatus(rs.getInt("decision_status"));
 
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
