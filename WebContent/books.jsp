@@ -367,7 +367,7 @@
 											class="bookStatusFlg center font60 vertical"
 											value="<s:property value="statusFlg"/>"></td>
 										<td class="center nwrap font60"><input type="button"
-											class="btn-danger modal-open button" value="×" style="width:5px; height:15px"></td>
+											class="btn-danger modal-open button" value="×"></td>
 									</s:if>
 
 								</tr>
@@ -379,7 +379,7 @@
 
 
 						<s:if test="%{#session.userFlg >= 3}">
-							<div class="center font80">
+							<div class="center font60">
 								<input type="submit" class="edit button" value="編集完了" />
 							</div>
 						</s:if>
@@ -479,33 +479,33 @@
 									<table class="insert-table">
 
 										<tr>
-											<td>ﾀｲﾄﾙ：<input type="text" name="title" size="18" class="font60"
+											<td>タイトル：<input type="text" name="title" class="font60"
 												required maxlength="50">
 											</td>
 										</tr>
 										<tr>
-											<td>著者：<input type="text" name="author" size="18" class="font60"
+											<td>著者：<input type="text" name="author" class="font60"
 												required maxlength="50">
 											</td>
 										</tr>
 										<tr>
-											<td>ｻﾌﾞﾀｲﾄﾙ：<input type="text" name="subTitle" size="18"
+											<td>サブタイトル：<input type="text" name="subTitle"
 												class="font60" maxlength="50">
 											</td>
 										</tr>
 										<tr>
-											<td>出版社：<input type="text" name="publisher" size="18"
+											<td>出版社：<input type="text" name="publisher"
 												class="font60" required maxlength="50">
 											</td>
 										</tr>
 										<tr>
-											<td>ｲﾆｼｬﾙ：<input type="text" name="initial" size="18"
+											<td>イニシャル：<input type="text" name="initial"
 												class="font60" required maxlength="5"
 												placeholder="例:ア,カ,サ/A,B,C/その他">
 											</td>
 										</tr>
 										<tr>
-											<td>出版日：<input type="text" name="pubDay" size="18" class="font70"
+											<td>出版日：<input type="text" name="pubDay" class="font60"
 												required maxlength="10" placeholder="例：2017.06">
 											</td>
 										</tr>
