@@ -63,8 +63,8 @@ public class DecisionPreviewDAO {
 				dto.setSummary(rs.getString("summary")); // 概要
 
 				dto.setCause(rs.getString("cause")); // 理由・目的
-				
-				dto.setApplyDay(rs.get);
+
+				dto.setApplyDay(rs.getString("apply_day")); //申請日（サイト上部日付）
 
 				dto.setStartDay(rs.getString("start_day")); // 開始日
 
@@ -107,6 +107,12 @@ public class DecisionPreviewDAO {
 				dto.setJPermiterId2(rs.getInt("j_permiter_id2")); // 	承認者ユーザーID2（リーダー）
 
 				dto.setJPermiterId3(rs.getInt("j_permiter_id3")); // 	承認者ユーザーID3（先生）
+
+				dto.setJPermitDay1(rs.getString("j_permit_day1")); // 	承認者ユーザー日付1人目（リーダー）
+
+				dto.setJPermitDay2(rs.getString("j_permit_day2")); // 	承認者ユーザー日付2人目（リーダー）
+
+				dto.setJPermitDay3(rs.getString("j_permit_day3")); // 	承認者ユーザー日付3人目（先生）
 
 				decisionPreviewList.add(dto);
 			}

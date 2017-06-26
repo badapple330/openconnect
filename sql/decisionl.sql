@@ -101,7 +101,7 @@ decision_status2 tinyint(1) default 0 comment '[契約/実施兼契約]決裁状
 summary varchar(255) comment '概要',
 cause varchar(255) comment '内容',
 persons int comment '人数',
-apply_day varchar(10) comment '申請日',
+apply_day varchar(20) comment '申請日',
 start_day date comment '開始日',/* default current_date */
 end_day date comment '終了日',
 bild_cost float comment '建設費用',
