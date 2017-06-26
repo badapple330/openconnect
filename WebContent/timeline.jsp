@@ -61,7 +61,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">internousdev</a>
+      <a class="navbar-brand" href="applist.jsp">Openconnect</a>
    <button type="button" class="send" data-toggle="modal" data-target="#sampleModal">
 	<span class="glyphicon glyphicon-pencil"></span>  投稿
 </button>
