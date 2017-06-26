@@ -411,7 +411,7 @@ public class DecisionDTO {
 	* @author KOTA MIYAZATO
 	* @return
 	*/
-	public int getjDrafterId() {
+	public int getJDrafterId() {
 		return jDrafterId;
 	}
 	/**
@@ -419,7 +419,7 @@ public class DecisionDTO {
 	* @author KOTA MIYAZATO
 	* @param
 	*/
-	public void setjDrafterId(int jDrafterId) {
+	public void setJDrafterId(int jDrafterId) {
 		this.jDrafterId = jDrafterId;
 	}
 
@@ -461,56 +461,56 @@ public class DecisionDTO {
 	* 取得メソッド を取得
 	* @return jImpId
 	*/
-	public String getjImpId() {
+	public String getJImpId() {
 		return jImpId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param jImpId
 	*/
-	public void setjImpId(String jImpId) {
+	public void setJImpId(String jImpId) {
 		this.jImpId = jImpId;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return jDecId
 	*/
-	public String getjDecId() {
+	public String getJDecId() {
 		return jDecId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param jDecId
 	*/
-	public void setjDecId(String jDecId) {
+	public void setJDecId(String jDecId) {
 		this.jDecId = jDecId;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return kImpId
 	*/
-	public String getkImpId() {
+	public String getKImpId() {
 		return kImpId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param kImpId
 	*/
-	public void setkImpId(String kImpId) {
+	public void setKImpId(String kImpId) {
 		this.kImpId = kImpId;
 	}
 	/**
 	* 取得メソッド を取得
 	* @return kDecId
 	*/
-	public String getkDecId() {
+	public String getKDecId() {
 		return kDecId;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param kDecId
 	*/
-	public void setkDecId(String kDecId) {
+	public void setKDecId(String kDecId) {
 		this.kDecId = kDecId;
 	}
 	/**
@@ -631,84 +631,84 @@ public class DecisionDTO {
 		 * 実施_承認者ID(1人目:リーダー)を取得します。
 		 * @return 実施_承認者ID(1人目:リーダー)
 		 */
-		public int getjPermiterId1() {
+		public int getJPermiterId1() {
 		    return jPermiterId1;
 		}
 		/**
 		 * 実施_承認者ID(1人目:リーダー)を設定します。
 		 * @param jPermiterId1 実施_承認者ID(1人目:リーダー)
 		 */
-		public void setjPermiterId1(int jPermiterId1) {
+		public void setJPermiterId1(int jPermiterId1) {
 		    this.jPermiterId1 = jPermiterId1;
 		}
 		/**
 		 * 実施_承認者ID(2人目:リーダー)を取得します。
 		 * @return 実施_承認者ID(2人目:リーダー)
 		 */
-		public int getjPermiterId2() {
+		public int getJPermiterId2() {
 		    return jPermiterId2;
 		}
 		/**
 		 * 実施_承認者ID(2人目:リーダー)を設定します。
 		 * @param jPermiterId2 実施_承認者ID(2人目:リーダー)
 		 */
-		public void setjPermiterId2(int jPermiterId2) {
+		public void setJPermiterId2(int jPermiterId2) {
 		    this.jPermiterId2 = jPermiterId2;
 		}
 		/**
 		 * 実施_承認者ID(3人目:先生)を取得します。
 		 * @return 実施_承認者ID(3人目:先生)
 		 */
-		public int getjPermiterId3() {
+		public int getJPermiterId3() {
 		    return jPermiterId3;
 		}
 		/**
 		 * 実施_承認者ID(3人目:先生)を設定します。
 		 * @param jPermiterId3 実施_承認者ID(3人目:先生)
 		 */
-		public void setjPermiterId3(int jPermiterId3) {
+		public void setJPermiterId3(int jPermiterId3) {
 		    this.jPermiterId3 = jPermiterId3;
 		}
 		/**
 		 * 契約_承認者ID(1人目:リーダー)を取得します。
 		 * @return 契約_承認者ID(1人目:リーダー)
 		 */
-		public int getkPermiterId1() {
+		public int getKPermiterId1() {
 		    return kPermiterId1;
 		}
 		/**
 		 * 契約_承認者ID(1人目:リーダー)を設定します。
 		 * @param kPermiterId1 契約_承認者ID(1人目:リーダー)
 		 */
-		public void setkPermiterId1(int kPermiterId1) {
+		public void setKPermiterId1(int kPermiterId1) {
 		    this.kPermiterId1 = kPermiterId1;
 		}
 		/**
 		 * 契約_承認者ID(2人目:リーダー)を取得します。
 		 * @return 契約_承認者ID(2人目:リーダー)
 		 */
-		public int getkPermiterId2() {
+		public int getKPermiterId2() {
 		    return kPermiterId2;
 		}
 		/**
 		 * 契約_承認者ID(2人目:リーダー)を設定します。
 		 * @param kPermiterId2 契約_承認者ID(2人目:リーダー)
 		 */
-		public void setkPermiterId2(int kPermiterId2) {
+		public void setKPermiterId2(int kPermiterId2) {
 		    this.kPermiterId2 = kPermiterId2;
 		}
 		/**
 		 * 契約_承認者ID(3人目:先生)を取得します。
 		 * @return 契約_承認者ID(3人目:先生)
 		 */
-		public int getkPermiterId3() {
+		public int getKPermiterId3() {
 		    return kPermiterId3;
 		}
 		/**
 		 * 契約_承認者ID(3人目:先生)を設定します。
 		 * @param kPermiterId3 契約_承認者ID(3人目:先生)
 		 */
-		public void setkPermiterId3(int kPermiterId3) {
+		public void setKPermiterId3(int kPermiterId3) {
 		    this.kPermiterId3 = kPermiterId3;
 		}
 		/**
