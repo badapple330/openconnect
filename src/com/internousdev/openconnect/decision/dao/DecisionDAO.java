@@ -207,6 +207,10 @@ public class DecisionDAO {
 		return count;
 		}
 
+
+
+
+
 	public ArrayList<DecisionDTO> selectByJPermiterId1(int jPermiterId1) {
 		DecisionDTO dto = new DecisionDTO();
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",

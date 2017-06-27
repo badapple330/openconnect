@@ -225,6 +225,10 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	 */
 	private ArrayList<DecisionDTO> jPermiter3nameList = new ArrayList<DecisionDTO>();
 
+	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "	表示できません。";
 
 	/**
      * DAOに入力されたデータを渡して、結果を返す
@@ -249,9 +253,14 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 
 
 
+
 		result=SUCCESS;
+		resultString ="表示しました。";
+
+
 
 		return result;
+
 
 		}
 
@@ -580,6 +589,24 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	*/
 	public void setJPermiter3nameList(ArrayList<DecisionDTO> jPermiter3nameList) {
 		this.jPermiter3nameList = jPermiter3nameList;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 

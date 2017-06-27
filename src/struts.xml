@@ -296,7 +296,7 @@
 		<action name="DecisionUpdateAction"
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
-			<result name="success" type="chain">decision.jsp</result>
+			<result name="success">decision.jsp</result>
 			<result name="error">decision.jsp</result>
 		</action>
 

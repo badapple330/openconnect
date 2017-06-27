@@ -24,7 +24,8 @@ $("#res,#lines,#c,#d").val($(this).val());
 });
 </script>
 
-<jsp:include page="header.jsp" />
+
+
 </head>
 <body>
 <h1 align=center>実施決裁</h1>
@@ -100,7 +101,7 @@ $("#res,#lines,#c,#d").val($(this).val());
 </s:iterator>
 </s:if>
 <s:else>
-<textarea cols="125" rows="4" name="cause">未定義<s:property value="cause" /></textarea>
+<textarea cols="125" rows="4" name="cause">未定義</textarea>
 </s:else>
 </td>
 </tr>
@@ -146,24 +147,7 @@ $("#res,#lines,#c,#d").val($(this).val());
 <tr>
 <td><b>承認者</b></td>
 <td>
-<s:if test="decisionType != '実施'" >
-<s:property value="jPermiterId1" /><br>
-<s:property value="jPermiterId2" /><br>
-<s:property value="jPermiterId3" />
-</s:if>
-<s:elseif test="decisionType != '契約'">
-<s:property value="kPermiterId1" /><br>
-<s:property value="kPermiterId2" /><br>
-<s:property value="kPermiterId3" />
-</s:elseif>
-<s:elseif test="decisionType != '実施' && decisionType != '契約'">
-遡及承認者1人
-</s:elseif>
-<s:else>
-承認者1<br>
-承認者2<br>
-承認者3
-</s:else>
+
 </td>
 </tr>
 
@@ -406,18 +390,11 @@ $("#res,#lines,#c,#d").val($(this).val());
 </tr>
 </table>
 
-<input type="hidden" name="jDrafterId" value="<s:property value="session.jDraftId" />">
+<input type="hidden" name="jDrafterId" value="<s:property value="session.userId" />">
 <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 <input type="submit"  value="編集を保存">
 </s:form>
 <br><br>
-
-<h2><a href="./file_up.jsp" target="_blank">資料添付</a></h2>
-
-<!-- 戻る -->
-	<s:form action="GetAddressAction">
-		<input type="submit" class="button" value="戻る">
-	</s:form>
 
 </body>
 </html>
