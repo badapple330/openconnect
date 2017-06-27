@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%>
 	<link href="css/bootstrap2.css" rel="stylesheet">
 	  <link rel="stylesheet" href="css/prof.css">
 	<link rel="stylesheet" href="css/Bfooter.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style2.css">
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript"></script>

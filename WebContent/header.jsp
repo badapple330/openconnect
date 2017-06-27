@@ -83,9 +83,9 @@
 							    <li><a href="GoAttendanceAction">■ 勤怠報告</a></li>
 							  </s:if>
 
-							  <s:if test="%{#session.userFlg == 3}">
+							  <!-- <s:if test="%{#session.userFlg == 3}">
 							  <li><a href="GoAdminAction">■ 管理者 </a></li>
-							  </s:if>
+							  </s:if> -->
 
 
 

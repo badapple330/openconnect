@@ -21,7 +21,7 @@
     <![endif]-->
 <link rel="stylesheet" href="css/Bfooter.css">
 <link rel="stylesheet" href="css/form.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style2.css">
 <link rel="stylesheet" href="css/modal.css">
 <link rel="stylesheet" href="css/chat.css">
 

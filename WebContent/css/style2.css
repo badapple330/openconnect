@@ -1,8 +1,6 @@
 @CHARSET "UTF-8";
 
-/* Openconnectに引っ越しました。
-なにか問題が発生したらstyle.cssのSNS側の記述を消し
-SNSのjspファイルにstyle2.cssを読み込ませましょう。
+/* SNS側のstyle.cssです。
 
 
 

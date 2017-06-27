@@ -41,7 +41,7 @@ input#inner_password {
     padding: 0.5em 1em;
     font-size: 40px;
     text-decoration: none;
-    color: #3595db;
+    color: #000080;
     transition: .5s;
 }
 .square_btn35:hover {
