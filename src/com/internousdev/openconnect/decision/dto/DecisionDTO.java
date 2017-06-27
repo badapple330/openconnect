@@ -8,10 +8,16 @@ package com.internousdev.openconnect.decision.dto;
 public class DecisionDTO {
 
 	/**
-	 * 起案者ユーザーID
+	 * 実施起案者ユーザーID
 	 *
 	 */
 	private int jDrafterId;
+
+	/**
+	 * 契約/実施兼契約起案者ユーザーID
+	 *
+	 */
+	private int kDrafterId;
 
 	/**
 	 * 決裁番号
@@ -169,6 +175,11 @@ public class DecisionDTO {
 	public float totalEtc;
 
 	/**
+	 * 実施、契約決裁の振り分け用。
+	 */
+	public int type;
+
+	/**
 	* 実施_承認者ID(1人目:リーダー)
 	*/
 	private int jPermiterId1;
@@ -235,6 +246,21 @@ public class DecisionDTO {
 	 *人数
 	 */
 	public int persons;
+
+	/**
+	 * 資料ID
+	 */
+	public int documentId;
+
+	/**
+	 * 資料名
+	 */
+	public String documentName;
+
+	/**
+	 * 資料パス
+	 */
+	public String documentPath;
 
 
 
@@ -455,6 +481,20 @@ public class DecisionDTO {
 		this.jDrafterId = jDrafterId;
 	}
 
+	/**
+	* 取得メソッド を取得
+	* @return kDrafterId
+	*/
+	public int getKDrafterId() {
+		return kDrafterId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kDrafterId
+	*/
+	public void setKDrafterId(int kDrafterId) {
+		this.kDrafterId = kDrafterId;
+	}
 	/**
 	* 取得メソッド
 	* @author KOTA MIYAZATO
@@ -888,7 +928,62 @@ public class DecisionDTO {
 		public void setDecisionId(int decisionId) {
 			this.decisionId = decisionId;
 		}
-
+		/**
+		* 取得メソッド を取得
+		* @return documentId
+		*/
+		public int getDocumentId() {
+			return documentId;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param documentId
+		*/
+		public void setDocumentId(int documentId) {
+			this.documentId = documentId;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return documentName
+		*/
+		public String getDocumentName() {
+			return documentName;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param documentName
+		*/
+		public void setDocumentName(String documentName) {
+			this.documentName = documentName;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return documentPath
+		*/
+		public String getDocumentPath() {
+			return documentPath;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param documentPath
+		*/
+		public void setDocumentPath(String documentPath) {
+			this.documentPath = documentPath;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return type
+		*/
+		public int getType() {
+			return type;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param type
+		*/
+		public void setType(int type) {
+			this.type = type;
+		}
 
 
 }

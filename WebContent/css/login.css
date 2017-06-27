@@ -24,6 +24,14 @@ body {
 	width: 100%;
 }
 
+input {
+	font-size: 1.6em;
+}
+
+input#inner_phoneEmail,
+input#inner_password {
+	width:300px;
+}
 
 /*タイトルロゴ--------------------------------*/
 
@@ -33,7 +41,7 @@ body {
     padding: 0.5em 1em;
     font-size: 40px;
     text-decoration: none;
-    color: #3595db;
+    color: #000080;
     transition: .5s;
 }
 .square_btn35:hover {
@@ -54,7 +62,7 @@ body {
 
 /*透過部分--------------------------------------*/
 .box {
-	height:300px;
+	height:350px;
     background: rgba(255,255,255,0.3);
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#33ffffff', endColorstr='#33ffffff');
 }
@@ -81,12 +89,22 @@ body {
 
 }
 
-
+input#inner_0 {
+	font-size:1.4em;
+	font-weight: bold;
+	padding: 10px 30px;
+	background-color: #248;
+	color:#fff;
+	border-style: none;
 }
 
 
-
-
+@media only screen and (max-device-width: 500px){
+    input#inner_phoneEmail,
+    input#inner_password {
+	    height:45px;
+        }
+}
 
 
 /* body { */

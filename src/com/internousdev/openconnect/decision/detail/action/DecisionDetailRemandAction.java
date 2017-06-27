@@ -100,7 +100,7 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 	/**
 	* 設定メソッド を設定
-	* @param permitStatus
+	* @param permitStatusJ
 	*/
 	public void setPermitStatus(int permitStatus) {
 		this.permitStatus = permitStatus;

@@ -283,9 +283,7 @@
 			<result name="error">attendance.jsp</result>
 		</action>
 
-
-
-		<!-- 決裁編集/プレビュー画面への遷移 -->
+		<!--決裁編集画面表示  -->
 		<action name="DecisionSelectAction"
 			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
 			method="execute">
@@ -293,12 +291,14 @@
 			<result name="error">decision.jsp</result>
 		</action>
 
+			<!-- 決裁編集画面更新 -->
 		<action name="DecisionUpdateAction"
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
-			<result name="success">decision.jsp</result>
+			<result name="success" type="chain">DecisionSelectAction</result>
 			<result name="error">decision.jsp</result>
 		</action>
+
 
 		<action name="DecisionPreviewAction"
 			class="com.internousdev.openconnect.decision.action.DecisionPreviewAction"
@@ -330,8 +330,8 @@
 			<result name="error" type="chain">DecisionDetailSelectAction</result>
 		</action>
 
-		<action name="DecisionDetailPermitAction"
-			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailPermitAction"
+		<action name="DecisionDetailApplicationAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailApplicationAction"
 			method="execute">
 			<!-- デフォルトinterceptor -->
 			<interceptor-ref name="defaultStack" />
@@ -341,8 +341,8 @@
 			<result type="chain">DecisionDetailSelectAction</result>
 		</action>
 
-		<action name="DecisionDetailApplicationAction"
-			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailApplicationAction"
+		<action name="DecisionDetailPermitAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailPermitAction"
 			method="execute">
 			<!-- デフォルトinterceptor -->
 			<interceptor-ref name="defaultStack" />
@@ -361,6 +361,20 @@
 
 		<action name="DecisionDetailRejectAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRejectAction"
+			method="execute">
+			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="error">decision_detail.jsp</result>
+		</action>
+
+		<action name="DecisionDetailChangeAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailChangeAction"
+			method="execute">
+			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="error">decision_detail.jsp</result>
+		</action>
+
+		<action name="DecisionDetailRecourseAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRecourseAction"
 			method="execute">
 			<result name="success" type="chain">DecisionDetailSelectAction</result>
 			<result name="error">decision_detail.jsp</result>
@@ -463,11 +477,6 @@
 			<result name="error">project_progress.jsp</result>
 		</action>
 
-<!-- ログイン画面（セッションにuserIdをadd-->
-<action name="LoginAction" class="com.internousdev.bulletinboard.action.LoginAction" method="execute">
-<result name="success" type="redirectAction">GoTalkListAction</result>
-<result name="error">login.jsp</result>
-</action>
 
 <!-- チャット画面への遷移 -->
 <action name="GoPostAction" class="com.internousdev.bulletinboard.action.GoPostAction" method="execute">
@@ -477,7 +486,7 @@
 
 <!-- チャット画面 -->
 <action name="PostAction" class="com.internousdev.bulletinboard.action.PostAction" method="execute">
-<result name="success">chat.jsp</result>
+<result name="success"> chat.jsp</result>
 <result name="error">login.jsp</result>
 </action>
 
@@ -489,8 +498,8 @@
 
 <!-- タイムライン画面への遷移 -->
 <action name="GoTimelineAction" class="com.internousdev.bulletinboard.action.GoTimelineAction" method="execute">
-<result name="success">timeline.jsp</result>
-<result name="error">timeline.jsp</result>
+<result name="success"> timeline.jsp</result>
+<result name="error"> timeline.jsp</result>
 </action>
 
 <!-- タイムラインの投稿 -->
@@ -501,24 +510,24 @@
 
 <!-- プロフィールページ関連 -->
 <action name="ProfileAction" class="com.internousdev.bulletinboard.action.ProfileAction" method="execute">
-<result name="success">profile.jsp</result>
+<result name="success"> profile.jsp</result>
 <result name="error">login.jsp</result>
 </action>
 
 <action name="ProfileUpdateAction" class="com.internousdev.bulletinboard.action.ProfileUpdateAction" method="execute">
-<result name="success">profile.jsp</result>
-<result name="error">profile.jsp</result>
+<result name="success"> profile.jsp</result>
+<result name="error"> profile.jsp</result>
 </action>
 
 <action name="ProfileSessionAction" class="com.internousdev.bulletinboard.action.ProfileSessionAction" method="execute">
 <result name="success" type="redirectAction">ProfileUpdateAction</result>
-<result name="error">profile.jsp</result>
+<result name="error"> profile.jsp</result>
 </action>
 
 <!-- タイムラインの削除 -->
 <action name="DeleteTimelineAction" class="com.internousdev.bulletinboard.action.DeleteTimelineAction" method="execute">
 <result name="success"  type="redirectAction">GoTimelineAction</result>
-<result name="error">timeline.jsp</result>
+<result name="error"> timeline.jsp</result>
 </action>
 
 <!-- タイムラインいいね -->
@@ -529,8 +538,8 @@
 
 <!-- グループ画面の遷移 -->
 <action name="GoGroupAction" class="com.internousdev.bulletinboard.action.GoGroupAction" method="execute">
-<result name="success">group.jsp</result>
-<result name="error">group.jsp</result>
+<result name="success"> group.jsp</result>
+<result name="error"> group.jsp</result>
 </action>
 
 <!-- グループの追加 -->
@@ -541,7 +550,7 @@
 
 <!-- グループメンバー確認画面への遷移 -->
 <action name="GoGroupMemberAction" class="com.internousdev.bulletinboard.action.GoGroupMemberAction" method="execute">
-  <result name="success">groupMember.jsp</result>
+  <result name="success"> groupMember.jsp</result>
   <result name="error">login.jsp</result>
 </action>
 
@@ -581,8 +590,8 @@
 </action>
 
 <action name="FollowListAction" class="com.internousdev.bulletinboard.action.FollowListAction" method="execute">
-<result name="success">followlist.jsp</result>
-<result name="error">followlist.jsp</result>
+<result name="success"> followlist.jsp</result>
+<result name="error"> followlist.jsp</result>
 </action>
 
 <action name="FollowListSessionAction" class="com.internousdev.bulletinboard.action.FollowListSessionAction" method="execute">
@@ -592,23 +601,29 @@
 
 <action name="SendProfileAction" class="com.internousdev.bulletinboard.action.SendProfileAction" method="execute">
 <result name="success"  type="redirectAction">ProfileUpdateAction</result>
-<result name="error">profile.jsp</result>
+<result name="error"> profile.jsp</result>
 </action>
 
 <action name="GoTalkListAction" class="com.internousdev.bulletinboard.action.GoTalkListAction" method="execute">
-<result name="success" >TalkMember.jsp</result>
+<result name="success" > TalkMember.jsp</result>
 <result name="error">login.jsp</result>
 </action>
 
 <action name="FriendSearchAction" class="com.internousdev.bulletinboard.action.FriendSearchAction" method="execute">
-<result name="success">FriendList.jsp</result>
-<result name="error">FriendList.jsp</result>
+<result name="success"> FriendList.jsp</result>
+<result name="error"> FriendList.jsp</result>
 </action>
 
 <action name="BotExerciseAction" class="com.internousdev.bulletinboard.action.BotExerciseAction" method="execute">
 <result name="success">login.jsp</result>
-<result name="error">logout.jsp</result>
+<result name="error">login.jsp</result>
 </action>
+
+<action name="AddsiteAction" class="com.internousdev.openconnect.addsite.action.AddsiteAction" method="execute">
+<result name="success">addsite.jsp</result>
+<result name="error">addsite.jsp</result>
+</action>
+
 
 <!-- グループ新規作成の二重投稿を防止するアクション -->
 <action name="GroupTokenAction" class="com.internousdev.bulletinboard.action.GroupTokenAction">

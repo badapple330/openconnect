@@ -22,7 +22,7 @@
 }
 
 .attendance .button {
-	width:100px;
+	width:150px;
 	height:30px;
 	font-weight:bold;
 	color:#ffffff;
@@ -55,6 +55,7 @@
 	}
      .attendance tr{
 		display: block;
+		width:100%;
 		margin-bottom: 1.0em;
 		margin-left: 0.7em;
     }
@@ -62,5 +63,11 @@
 		display: list-item;
 		border: none;
     }
-    .....
+    #tr_reason{
+    	width:100%;
+		margin-bottom: 1.0em;
+		margin-left: 0.7em;
+    }
+
+
 }

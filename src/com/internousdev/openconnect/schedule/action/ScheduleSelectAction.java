@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
-public class ScheduleSelectAction extends ActionSupport {
+public class ScheduleSelectAction extends ActionSupport{
 
 
 	/**
@@ -52,13 +52,14 @@ public class ScheduleSelectAction extends ActionSupport {
 	 */
 	public String execute() {
 		String result = ERROR;
+
 		if(search.equals("全件表示")){
 			search = "";
 		}
 		ScheduleSelectDAO dao = new ScheduleSelectDAO();
 		ScheduleSelectDAO dao2 = new ScheduleSelectDAO();
 		scheduleList = dao.select(search);
-		setTeamList(dao2.select2());
+		teamList	 = dao2.select2();
 		if (scheduleList.size() != 0) {
 			if(search.equals("")){
 				selectSuccessMsg ="すべてを表示しました。";
@@ -117,8 +118,6 @@ public class ScheduleSelectAction extends ActionSupport {
 	public void setSearch(String search) {
 	    this.search = search;
 	}
-
-
 
 	/**
 	 * 成功メッセージを取得します。

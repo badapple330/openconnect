@@ -27,7 +27,7 @@ public class DecisionDetailRecourseDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
-		String sql = "update decision set decision_status2 = 4 where decision_id = ?";
+		String sql = "update decision set decision_status = 6, permit_statusS = 0 where decision_id = ?";
 
 
 		try {
@@ -36,7 +36,6 @@ public class DecisionDetailRecourseDAO {
 			ps.setInt(1, decisionId);
 
 			count = ps.executeUpdate();
-
 
 		} catch(SQLException e) {
 			e.printStackTrace();

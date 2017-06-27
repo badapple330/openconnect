@@ -207,6 +207,82 @@ public class DecisionDAO {
 		return count;
 		}
 
+
+
+
+	/**
+	 * 資料を追加するメソッド
+	 * @param documentId 資料ID
+	 * @param documentPath
+	 * @return 成否を格納する変数
+	 */
+	 public int insert(int documentId,String documentPath,String documentName){
+			DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+			Connection con=db.getConnection();
+			int inserted=0;
+			String sql= "insert into img(document_id,document_path,document_name)"
+					+ "values(?,?,?)";
+
+			try{
+				PreparedStatement ps= con.prepareStatement(sql);
+				ps.setInt(1,documentId);
+				ps.setString(2,documentPath);
+				ps.setString(3,documentName);
+				inserted=ps.executeUpdate();
+
+
+				ps.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}finally{
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+			return inserted;
+		}
+
+
+
+	 /**
+	  * 資料を削除するメソッド
+	 * @param imageName
+	 * @return
+	 */
+	public int delete(String documentName){
+			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+			Connection con = db.getConnection();
+			int deleted = 0;
+			String sql = "delete from document where document_name=?";
+
+			try{
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setString(1,documentName);
+				deleted = ps.executeUpdate();
+
+				ps.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}finally{
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+			return deleted;
+
+		}
+
+
+
+
+
+
+
+
 	public ArrayList<DecisionDTO> selectByJPermiterId1(int jPermiterId1) {
 		DecisionDTO dto = new DecisionDTO();
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",

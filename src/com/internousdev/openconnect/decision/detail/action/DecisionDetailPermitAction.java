@@ -103,13 +103,13 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 
 		//リーダーの承認
-		if(permitStatus == 1 || permitStatus == 2) {
+		if( permitStatus < 2 ) {
 			count = daoPer.updateP(decisionType, permitStatus, userId, decisionId);
 		}
 
 
 		//先生の承認
-		if(permitStatus == 0) {
+		if( permitStatus == 2 ) {
             jPermiterId3 = userId;
             kPermiterId3 = userId;
 			jkPermiterId3 = userId;
@@ -200,10 +200,9 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	public int getPermitStatus() {
 		return permitStatus;
 	}
-
 	/**
 	* 設定メソッド を設定
-	* @param permitStatus
+	* @param permitStatusJ
 	*/
 	public void setPermitStatus(int permitStatus) {
 		this.permitStatus = permitStatus;

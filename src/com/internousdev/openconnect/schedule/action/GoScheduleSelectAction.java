@@ -12,13 +12,41 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoScheduleSelectAction extends ActionSupport implements SessionAware{
 
+	/**
+	 * @author WATARU AMEMIYA
+	 * スケジュール情報を格納しておく変数
+	 */
 	private List<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
+
+	/**
+	 * @author WATARU AMEMIYA
+	 * チームの情報を格納しておく変数
+	 */
 	private List<ScheduleDTO> teamList = new ArrayList<ScheduleDTO>();
 
+	/**
+	 * @author WATARU AMEMIYA
+	 * ログインしたユーザーidを格納しておく変数
+	 */
 	private int userId;
 
+	/**
+	  * @author WATARU AMEMIYA
+	  * ログインしたチームの名前を格納しておく変数
+	  */
 	private String teamName;
 
+	/**
+	 * @author WATARU AMEMIYA
+	 * jspに検索する文字列の変数として一応用意
+	 * 現状○○さんのスケジュールなど、見出しを変更するためだけに使用
+	 */
+	private String search = "";
+
+	/**
+	 * @author WATARU AMEMIYA
+	 * ログインしたユーザーの情報を格納する変数
+	 */
 	private Map<String,Object> session;
 
 	public String execute(){
@@ -28,6 +56,7 @@ public class GoScheduleSelectAction extends ActionSupport implements SessionAwar
 		GoScheduleSelectDAO dao2 = new GoScheduleSelectDAO();
 		scheduleList = dao.select(userId);
 		teamList = dao2.select2();
+		search = scheduleList.get(0).getTeamName();
 		result = SUCCESS;
 
 
@@ -112,6 +141,22 @@ public class GoScheduleSelectAction extends ActionSupport implements SessionAwar
 	 */
 	public void setTeamName(String teamName) {
 	    this.teamName = teamName;
+	}
+
+	/**
+	 * searchを取得します。
+	 * @return search
+	 */
+	public String getSearch() {
+	    return search;
+	}
+
+	/**
+	 * searchを設定します。
+	 * @param search search
+	 */
+	public void setSearch(String search) {
+	    this.search = search;
 	}
 
 	/**

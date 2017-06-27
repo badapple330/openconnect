@@ -2,6 +2,7 @@
 
 #decisionTitle{
 	text-align:center;
+	padding-top:100px;
 }
 
 .textInline{
@@ -34,14 +35,9 @@ tr, td{
 	border: 1px solid;
 }
 
-.width4{
-	width: 120px;
+.HeightTr{
+	height:100px;
 }
-
-.well{
-	z-index: -1;
-}
-
 @media screen and (max-width: 768px) {
 /* 768pxまでの幅の場合に適応される */
 

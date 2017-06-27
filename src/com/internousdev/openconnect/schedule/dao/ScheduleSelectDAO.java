@@ -80,10 +80,10 @@ public class ScheduleSelectDAO {
 		DBConnector db2 = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection conn2 = db2.getConnection();
 		//DISTINCTは重複したグループがあったときそれを統一するsql文
-		String sql = "SELECT DISTINCT team_name FROM users ORDER BY team_name ASC";
+		String sql2 = "SELECT DISTINCT team_name FROM users ORDER BY team_name ASC";
 
 		try {
-			PreparedStatement ps2 = conn2.prepareStatement(sql);
+			PreparedStatement ps2 = conn2.prepareStatement(sql2);
 			ResultSet rs2 = ps2.executeQuery();
 
 			while(rs2.next()) {

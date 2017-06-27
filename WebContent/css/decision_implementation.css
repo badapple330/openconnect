@@ -65,6 +65,13 @@ textarea{
 .save{
 	text-align:center;
 	border:1px;
+}
+
+.w80{
+	width: 80%;
+}
+.font60{
+	font-size: 60%;
+}
 
 
-	}

@@ -35,6 +35,27 @@ public class DecisionDetailDTO {
 
 
 	/**
+	 * 終了日比較結果(DecisionDetailSelectDAO)
+	 */
+	 private int compareDay;
+	/**
+	* 取得メソッド を取得
+	* @return compareDay
+	*/
+	public int getCompareDay() {
+		return compareDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param compareDay
+	*/
+	public void setCompareDay(int compareDay) {
+		this.compareDay = compareDay;
+	}
+
+
+
+	/**
 	 * sessionから取得したログイン中ユーザーID
 	 */
 	private int userId;
@@ -80,21 +101,30 @@ public class DecisionDetailDTO {
 	 */
 	private int projectId;
 	/**
-	 *  申請日
+	 *  実施申請日
 	 */
-	private String applyDay;
+	private String jApplyDay;
+	/**
+	 *  契約/実施兼契約申請日
+	 */
+	private String kApplyDay;
+	/**
+	 *  遡求申請日
+	 */
+	private String sApplyDay;
 	/**
 	 *  決裁種類
 	 */
 	private String decisionType;
 	/**
-	 *  実施決裁状況
+	 *  決裁進捗状況
 	 */
-	private int decisionStatus1;
+	private int decisionStatus;
 	/**
-	 *  契約/実施兼契約決裁状況
+	 * 終了日
 	 */
-	private int decisionStatus2;
+	private String endDay;
+
 
 
 
@@ -223,17 +253,45 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @return applyDay
+	* @return jApplyDay
 	*/
-	public String getApplyDay() {
-		return applyDay;
+	public String getJApplyDay() {
+		return jApplyDay;
 	}
 	/**
 	* 設定メソッド を設定
-	* @param applyDay
+	* @param jApplyDay
 	*/
-	public void setApplyDay(String applyDay) {
-		this.applyDay = applyDay;
+	public void setJApplyDay(String jApplyDay) {
+		this.jApplyDay = jApplyDay;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return kApplyDay
+	*/
+	public String getKApplyDay() {
+		return kApplyDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kApplyDay
+	*/
+	public void setKApplyDay(String kApplyDay) {
+		this.kApplyDay = kApplyDay;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return sApplyDay
+	*/
+	public String getSApplyDay() {
+		return sApplyDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param sApplyDay
+	*/
+	public void setSApplyDay(String sApplyDay) {
+		this.sApplyDay = sApplyDay;
 	}
 	/**
 	* 取得メソッド を取得
@@ -251,31 +309,31 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @return decisionStatus1
+	* @return decisionStatus
 	*/
-	public int getDecisionStatus1() {
-		return decisionStatus1;
+	public int getDecisionStatus() {
+		return decisionStatus;
 	}
 	/**
 	* 設定メソッド を設定
-	* @param decisionStatus1
+	* @param decisionStatus
 	*/
-	public void setDecisionStatus1(int decisionStatus1) {
-		this.decisionStatus1 = decisionStatus1;
+	public void setDecisionStatus(int decisionStatus) {
+		this.decisionStatus = decisionStatus;
 	}
 	/**
 	* 取得メソッド を取得
-	* @return decisionStatus2
+	* @return endDay
 	*/
-	public int getDecisionStatus2() {
-		return decisionStatus2;
+	public String getEndDay() {
+		return endDay;
 	}
 	/**
 	* 設定メソッド を設定
-	* @param decisionStatus2
+	* @param endDay
 	*/
-	public void setDecisionStatus2(int decisionStatus2) {
-		this.decisionStatus2 = decisionStatus2;
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
 	}
 	/**
 	* 取得メソッド を取得
