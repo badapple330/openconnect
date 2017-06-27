@@ -37,7 +37,7 @@
 				<h6 class="modal-title">スタンプ</h6>
 			</div>
 
-			<div class="m-http://localhost:8080/bulletinboard/PostAction.action#body">
+			<div class="m-http://localhost:8080/openconnect/PostAction.action#body">
 				<ul id="normal" class="dropmenu">
 					<s:iterator value="stList">
 					<li><a href="#"><img src="<s:property value="typeUrl"/>" height="50px"></a>
