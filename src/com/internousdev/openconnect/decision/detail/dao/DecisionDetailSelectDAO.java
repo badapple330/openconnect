@@ -115,6 +115,7 @@ public class DecisionDetailSelectDAO {
 				dto.setJImpId(rs.getString("j_imp_id"));
 				dto.setKImpId(rs.getString("k_imp_id"));
 				dto.setJkImpId(rs.getString("jk_imp_id"));
+				dto.setEndDay(rs.getString("end_day"));
 
 				decisionDetailList2.add( dto );
 			}

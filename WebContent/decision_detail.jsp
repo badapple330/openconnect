@@ -182,7 +182,8 @@ $("#permit-btn")
             </td>
         </tr>
         <tr>
-            <s:if test="%{decisionType == '実施' || decisionType == '契約'}">     <th>D実施</th>
+            <s:if test="%{decisionType == '実施' || decisionType == '契約'}">
+				<th>D実施</th>
                 <th>E契約</th>
             </s:if>
             <s:else>
@@ -205,9 +206,9 @@ $("#permit-btn")
             <s:if test="%{decisionType == '実施' || decisionType == '契約'}">
             <td>
                 I<!-- 実施の編集 -->
-                    <s:if test="%{decisionStatus < 3}">
+                    <s:if test="%{decisionStatus < 3 && decisionType == '実施'}">
                         <s:form action="DecisionSelectAction">
-                            <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
+                            <input type="hidden" name="jDrafterId" value="<s:property value="jDrafterId" />">
                             <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                                     <input type="submit" value="実施編集">
                         </s:form>
@@ -222,9 +223,9 @@ $("#permit-btn")
             </td>
             <td>
                 J<!-- 契約の編集 -->
-                    <s:if test="%{decisionStatus < 3}">
+                    <s:if test="%{decisionStatus < 3 && decisionType == '契約'}">
                         <s:form action="DecisionSelectAction">
-                            <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
+                            <input type="hidden" name="kDrafterId" value="<s:property value="kDrafterId" />">
                             <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                                     <input type="submit" value="契約編集">
                         </s:form>
@@ -247,7 +248,7 @@ $("#permit-btn")
                 I+J<!-- 実施兼契約の編集 -->
                 <s:if test="%{decisionStatus < 3}">
                     <s:form action="DecisionSelectAction">
-                        <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
+                        <input type="hidden" name="kDrafterId" value="<s:property value="kDrafterId" />">
                         <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                                 <input type="submit" value="実施兼契約編集">
                     </s:form>
@@ -296,13 +297,13 @@ $("#permit-btn")
                     <s:if test="permitStatus == 3">
                         先生<span class="smart"><br></span>承認済み
                     </s:if>
-                    <s:elseif test="permitStatus == 2">
+                    <s:elseif test="permitStatusJ == 2">
                         2人承認済み
                     </s:elseif>
-                    <s:elseif test="permitStatus == 1">
+                    <s:elseif test="permitStatusJ == 1">
                         1人承認済み
                     </s:elseif>
-                    <s:elseif test="permitStatus == 0">
+                    <s:elseif test="permitStatusJ == 0">
                         承認待ち
                     </s:elseif>
                 </s:if>
@@ -349,6 +350,9 @@ $("#permit-btn")
 											<input type="submit" value="実施兼契約申請" onclick='return confirm("よろしいですか？");'>
 							</s:if>
 						</s:elseif>
+						<s:else>
+							申請取り下げボタン
+						</s:else>
                 </s:form>
                 </s:if>
                <!-- 最終承認済みの時のみ表示 -->

@@ -99,6 +99,10 @@ public class DecisionDetailDTO {
 	 *  決裁進捗状況
 	 */
 	private int decisionStatus;
+	/**
+	 * 終了日
+	 */
+	private String endDay;
 
 
 
@@ -303,6 +307,20 @@ public class DecisionDetailDTO {
 	*/
 	public void setDecisionStatus(int decisionStatus) {
 		this.decisionStatus = decisionStatus;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return endDay
+	*/
+	public String getEndDay() {
+		return endDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param endDay
+	*/
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
 	}
 	/**
 	* 取得メソッド を取得
