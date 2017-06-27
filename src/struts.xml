@@ -285,13 +285,7 @@
 
 
 
-		<!-- 決裁編集/プレビュー画面への遷移 -->
-		<action name="DecisionSelectAction"
-			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
-			method="execute">
-			<result name="success">decision.jsp</result>
-			<result name="error">decision.jsp</result>
-		</action>
+
 
 		<action name="DecisionPreviewAction"
 			class="com.internousdev.openconnect.decision.action.DecisionPreviewAction"
