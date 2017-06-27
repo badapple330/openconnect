@@ -250,7 +250,7 @@
 							<th>姓(漢字)</th>
 
 							<th>名(漢字)</th>
-							<th>名(かな)</th>
+							<!-- <th>名(かな)</th>  -->
 						</tr>
 						<s:iterator value="studentsList">
 							<tr>
