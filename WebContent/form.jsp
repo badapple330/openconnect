@@ -23,8 +23,12 @@
 </div>
 
 <!-- スタンプ -->
+<!-- スタンプを連打すると連投できてしまう不具合が解決していません。
+	onclick="disabled = true;" → ボタンを押せなくなるのが優先されるのでsubmitできない
+	onclick="style.display='none'" → なくなることでリストの次のスタンプが繰り上がってくるので結果的にさまざまなスタンプが連投されることになる -->
+
 <div class="stamp-form">
-<button type="button" class="stamp-btn" data-toggle="modal" data-target="#stamp"> <img height=20px; src="pic/stamp/icon.png">
+<button type="button" class="stamp-btn" data-toggle="modal" data-target="#stamp" > <img height=20px; src="pic/stamp/icon.png">
 </button>
 </div>
 
@@ -34,7 +38,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-				<h6 class="modal-title">スタンプ</h6>
+				<h6 class="modal-title">スタンプ 連打は控えましょう</h6>
 			</div>
 
 			<div class="m-http://localhost:8080/openconnect/PostAction.action#body">
