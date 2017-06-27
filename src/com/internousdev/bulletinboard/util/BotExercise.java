@@ -85,6 +85,7 @@ public class BotExercise {
 		for(int i=0;i<(wordList.size()-1);i++){
 			if(wordList.get(i+1).getPartOfSpeech().contains("読点")){
 				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
+				wordList.remove(i+1);
 			}
 		}
 		return wordList;
@@ -99,7 +100,7 @@ public class BotExercise {
 
 		for(int i=0;i<(wordList.size()-1);i++){
 			if(wordList.get(i).getPartOfSpeech().contains("括弧開")){
-				while(wordList.get(i+1).getWord().contains("括弧閉")){
+				while(!(wordList.get(i+1).getPartOfSpeech().contains("括弧閉"))){
 					wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
 					wordList.remove(i+1);
 				}
@@ -119,7 +120,8 @@ public class BotExercise {
 	public int wordSet(){
 		ArrayList<BotDTO> wordList = new ArrayList<BotDTO>();
 		wordList = wordConbine();
-		//wordList = bracketsConbine(wordList);
+		wordList = readingPointConbine(wordList);
+		wordList = bracketsConbine(wordList);
 		int inserted = 0;
 		Connection con = new MySqlConnector("bbbot").getConnection();
 
