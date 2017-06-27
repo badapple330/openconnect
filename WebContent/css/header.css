@@ -206,10 +206,15 @@ text-align: center;
 	background-color: #fff;
 }
 
+
 #primary_nav_wrap ul ul li
 {
 	float:none;
 	width:130px
+}
+
+#primary_nav_wrap ul li:hover {
+	background-color:#87ceeb;
 }
 
 #primary_nav_wrap ul ul a
