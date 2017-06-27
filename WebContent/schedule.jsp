@@ -36,7 +36,14 @@
 <!-- アプリ一覧表示 -->
 <!-- S:ifで条件分岐 -->
 	<div class="container">
+	<s:set name = "search" value="%{search}"/>
+	<s:if test="%{#search == ''}">
+		<h1 class="page-header">スケジュール一覧</h1>
+	</s:if>
+	<s:else>
 		<h1 class="page-header"><s:property value ="search" />さんのスケジュール</h1>
+	</s:else>
+
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{siteUrl}">
@@ -116,7 +123,7 @@
 									<button type="submit" class="button" style="width:45px">編集</button>
 								</td>
 							</tr>
-
+							<div class="hidden"><s:property value="search"/></div>
 							<!-- 削除機能で使用 -->
 							<input type="hidden" name="scheduleIdList"
 								value="<s:property value="id" />" class="scheduleIdList">
