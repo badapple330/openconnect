@@ -8,10 +8,16 @@ package com.internousdev.openconnect.decision.dto;
 public class DecisionDTO {
 
 	/**
-	 * 起案者ユーザーID
+	 * 実施起案者ユーザーID
 	 *
 	 */
 	private int jDrafterId;
+
+	/**
+	 * 契約/実施兼契約起案者ユーザーID
+	 *
+	 */
+	private int kDrafterId;
 
 	/**
 	 * 決裁番号
@@ -455,6 +461,20 @@ public class DecisionDTO {
 		this.jDrafterId = jDrafterId;
 	}
 
+	/**
+	* 取得メソッド を取得
+	* @return kDrafterId
+	*/
+	public int getKDrafterId() {
+		return kDrafterId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kDrafterId
+	*/
+	public void setKDrafterId(int kDrafterId) {
+		this.kDrafterId = kDrafterId;
+	}
 	/**
 	* 取得メソッド
 	* @author KOTA MIYAZATO
