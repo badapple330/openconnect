@@ -18,11 +18,12 @@
 <body>
 	<s:if test="%{#session.userFlg >= 1}">
 
+
 	<s:iterator value="decisionPreviewList">
 
 		<h1 id="decisionTitle">
-			<s:if test="decisionType == '実施'">実施決裁プレビュー画面</s:if>
-				<s:elseif test="decisionType == '契約'">契約決裁プレビュー画面</s:elseif>
+			<s:if test="type == 1 ">実施決裁プレビュー画面</s:if>
+				<s:elseif test="type == 2">契約決裁プレビュー画面</s:elseif>
 					<s:elseif test="decisionType == '実施兼契約'">実施兼契約決裁プレビュー画面</s:elseif>
 		</h1>
 
@@ -61,7 +62,7 @@
 
 											<div class="row">
 												<div class="col-sm-12">
-													<s:if test="decisionType == '実施'">
+													<s:if test="jImpId != null">
 														<s:iterator value="JNameList">
 															<label>氏名</label><s:property value="familyNameKanji" />
 																				<s:property value="givenNameKanji" />

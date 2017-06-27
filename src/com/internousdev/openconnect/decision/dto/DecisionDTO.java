@@ -175,6 +175,11 @@ public class DecisionDTO {
 	public float totalEtc;
 
 	/**
+	 * 実施、契約決裁の振り分け用。
+	 */
+	public int type;
+
+	/**
 	* 実施_承認者ID(1人目:リーダー)
 	*/
 	private int jPermiterId1;
@@ -965,7 +970,20 @@ public class DecisionDTO {
 		public void setDocumentPath(String documentPath) {
 			this.documentPath = documentPath;
 		}
-
+		/**
+		* 取得メソッド を取得
+		* @return type
+		*/
+		public int getType() {
+			return type;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param type
+		*/
+		public void setType(int type) {
+			this.type = type;
+		}
 
 
 }
