@@ -195,19 +195,14 @@ text-align: center;
 }
 
 
-#primary_nav_wrap ul li:hover
-{
-	background:#f0e68c;
-}
-
 #primary_nav_wrap ul ul
 {
 	display:none;
 	position:absolute;
 	top:100%;
 	left:0;
-	background: #afeeee;
-	padding:0
+	padding:0;
+	border: medium #333 double;
 }
 
 #primary_nav_wrap ul ul li
