@@ -12,7 +12,7 @@ public class JsonWrite {
 
 		Tokenizer tokenizer = Tokenizer.builder().build();
 
-		List<Token> tokens = tokenizer.tokenize("グルーミング、");
+		List<Token> tokens = tokenizer.tokenize("［［＃５字下げ］五十一［＃「五十一」は中見出し］");
 
 		for (Token token : tokens) {
 			System.out.println("==================================================");
@@ -26,13 +26,6 @@ public class JsonWrite {
 			System.out.println("未知語? : " + token.isUnknown());
 			System.out.println("ユーザ定義? : " + token.isUser());
 		}
-		String n="*";
-		if(n != "*"){
-
-		}else{
-			System.out.println("*");
-		}
-
 
 	}
 

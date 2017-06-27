@@ -116,4 +116,35 @@ public class BotDAO {
 		  return wordList;
 	}
 
+	/**
+	 * 印象テーブルの情報をリスト化するメソッド
+	 * @return
+	 */
+	public ArrayList<BotDTO> impressionSearch(){
+		ArrayList<BotDTO> impressionList = new ArrayList<BotDTO>();
+		Connection con = new MySqlConnector("bbbot").getConnection();
+
+		String sql = "select * from word_impression";
+
+		  try{
+			  PreparedStatement ps = con.prepareStatement(sql);
+			  ResultSet rs = ps.executeQuery();
+			  while(rs.next()){
+				  BotDTO dto = new BotDTO();
+				  dto.setWord(rs.getString("word"));
+				  dto.setImpression(rs.getInt("impression"));
+				  impressionList.add(dto);
+				  }
+			  }catch(SQLException e){
+		    	e.printStackTrace();
+		    	}finally {
+			try{
+				con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		  return impressionList;
+	}
+
 }

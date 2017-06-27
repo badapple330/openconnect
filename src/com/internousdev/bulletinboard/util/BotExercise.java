@@ -77,6 +77,27 @@ public class BotExercise {
 	}
 
 	/**
+	 * 空白などの余分なものを除去するメソッド
+	 * @param wordList
+	 * @return
+	 */
+	public ArrayList<BotDTO> wordRemover(ArrayList<BotDTO> wordList){
+		for(int i=0;i<(wordList.size()-1);i++){
+			if(wordList.get(i).getPartOfSpeech().contains("空白")){
+				wordList.remove(i);
+				i--;
+			}else if(wordList.get(i).getWord().equals("\r")){
+				wordList.remove(i);
+				i--;
+			}else if(wordList.get(i).getWord().equals("\n")){
+				wordList.remove(i);
+				i--;
+			}
+		}
+		return wordList;
+	}
+
+	/**
 	 * 読点をその前の言葉につなげるメソッド
 	 * @param wordList
 	 * @return
@@ -113,6 +134,28 @@ public class BotExercise {
 		}
 		return wordList;
 	}
+
+	/**
+	 * 青空文庫のテキストを整えるメソッド
+	 * @param wordList
+	 * @return
+	 */
+	public ArrayList<BotDTO> aozoraRemover(ArrayList<BotDTO> wordList){
+		for(int i=0;i<(wordList.size()-1);i++){
+			if(wordList.get(i).getWord().contains("《")){
+				wordList.remove(i);
+				i--;
+			}else if(wordList.get(i).getWord().contains("［")){
+				wordList.remove(i);
+				while(!wordList.get(i).getWord().contains("］")){
+					wordList.remove(i);
+				}
+				wordList.remove(i);
+				i--;
+			}
+		}
+		return wordList;
+	}
 	/**
 	 * リストをもとに、単語とその前後関係をテーブルに書き込むメソッド
 	 * @return 成否を判断する変数
@@ -120,8 +163,10 @@ public class BotExercise {
 	public int wordSet(){
 		ArrayList<BotDTO> wordList = new ArrayList<BotDTO>();
 		wordList = wordConbine();
+		wordList = wordRemover(wordList);
 		wordList = readingPointConbine(wordList);
 		wordList = bracketsConbine(wordList);
+		//wordList = aozoraRemover(wordList);
 		int inserted = 0;
 		Connection con = new MySqlConnector("bbbot").getConnection();
 

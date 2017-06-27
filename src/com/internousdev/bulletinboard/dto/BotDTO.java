@@ -26,6 +26,10 @@ public class BotDTO {
 	 * 辞書にあるか
 	 */
 	private boolean dictionary;
+	/**
+	 * 印象
+	 */
+	private int impression;
 
 
 
@@ -83,6 +87,20 @@ public class BotDTO {
 	 */
 	public void setDictionary(boolean dictionary) {
 		this.dictionary = dictionary;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return impression
+	*/
+	public int getImpression() {
+		return impression;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param impression
+	*/
+	public void setImpression(int impression) {
+		this.impression = impression;
 	}
 
 }
