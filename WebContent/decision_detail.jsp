@@ -157,36 +157,28 @@ $("#permit-btn")
         <tr>
         <!-- 決裁状況 -->
             <td colspan="3">
-            C<!-- 実施 -->
-                    <s:if test="%{decisionType == '実施'}">
-                        <s:if test="decisionStatus1 == 0">
-                            作成中
-                        </s:if>
-                        <s:elseif test="decisionStatus1 == 1">
-                            申請中/承認待ち
-                        </s:elseif>
-                        <s:elseif test="decisionStatus1 == 2">
-                            承認済み
-                        </s:elseif>
-                        <s:elseif test="decisionStatus2 == 2">
-                            変更中
-                        </s:elseif>
-                    </s:if>
-                <!-- 契約/実施兼契約 -->
-                    <s:else>
-                        <s:if test="decisionStatus2 == 0">
-                            作成中
-                        </s:if>
-                        <s:elseif test="decisionStatus2 == 1">
-                            申請中/承認待ち
-                        </s:elseif>
-                        <s:elseif test="decisionStatus2 == 2">
-                            承認済み
-                        </s:elseif>
-                        <s:elseif test="decisionStatus2 == 3">
-                            変更中
-                        </s:elseif>
-                    </s:else>
+            C
+                <s:if test="decisionStatus == 0">
+                    作成中
+                </s:if>
+                <s:elseif test="decisionStatus == 1">
+                    差し戻し中
+                </s:elseif>
+                <s:elseif test="decisionStatus == 2">
+                    却下中
+                </s:elseif>
+                <s:elseif test="decisionStatus == 3">
+                    申請中/承認待ち
+                </s:elseif>
+                <s:elseif test="decisionStatus == 4">
+                    変更申請中
+                </s:elseif>
+                <s:elseif test="decisionStatus == 5">
+                    承認済み
+                </s:elseif>
+                <s:elseif test="decisionStatus == 6">
+                    遡求申請中
+                </s:elseif>
             </td>
         </tr>
         <tr>
@@ -213,7 +205,7 @@ $("#permit-btn")
             <s:if test="%{decisionType == '実施' || decisionType == '契約'}">
             <td>
                 I<!-- 実施の編集 -->
-                    <s:if test="%{decisionStatus1 == 0 && decisionStatus2 == 0}">
+                    <s:if test="%{decisionStatus < 3}">
                         <s:form action="DecisionSelectAction">
                             <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
                             <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
@@ -230,7 +222,7 @@ $("#permit-btn")
             </td>
             <td>
                 J<!-- 契約の編集 -->
-                    <s:if test="%{decisionStatus2 == 0 && decisionStatus1 == 2}">
+                    <s:if test="%{decisionStatus < 3}">
                         <s:form action="DecisionSelectAction">
                             <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
                             <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
@@ -253,7 +245,7 @@ $("#permit-btn")
             <s:else>
             <td colspan="2">
                 I+J<!-- 実施兼契約の編集 -->
-                <s:if test="%{decisionStatus2 == 0 && decisionStatus1 == 2}">
+                <s:if test="%{decisionStatus < 3}">
                     <s:form action="DecisionSelectAction">
                         <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
                         <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
@@ -273,7 +265,7 @@ $("#permit-btn")
         <!-- 変更・遡求編集ボタン -->
             <td>
                 K<!-- 最終承認済みの時のみ表示 -->
-                <s:if test="decisionStatus2 == 2">
+                <s:if test="decisionStatus == 5">
                 <!-- 終了日を過ぎた時のみ表示 -->
                     <s:if test="endDay <= 今日">
                         <s:form action="DecisionSelectAction">
@@ -300,38 +292,39 @@ $("#permit-btn")
         <!-- 承認状況 -->
             <td>
                 L<!-- 申請中の時 -->
-                <s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
-                    <s:if test="permitStatus == 2">
-                        先生の<span class="smart"><br></span>承認待ち
+                <s:if test="decisionStatus == 3 || decisionStatus == 4 || decisionStatus == 6">
+                    <s:if test="permitStatus == 3">
+                        先生<span class="smart"><br></span>承認済み
                     </s:if>
+                    <s:elseif test="permitStatus == 2">
+                        2人承認済み
+                    </s:elseif>
                     <s:elseif test="permitStatus == 1">
-                        2人目の承認待ち
+                        1人承認済み
                     </s:elseif>
                     <s:elseif test="permitStatus == 0">
-                        1人目の承認待ち
+                        承認待ち
                     </s:elseif>
                 </s:if>
                 <!-- 作成中の時 -->
-                <s:elseif test="(decisionStatus1 == 0 && decisionStatus2 == 0) || (decisionStatus1 == 2 && decisionStatus2 == 0)">
-                    <!-- 1度でも申請している場合 -->
-                    <s:if test="%{(decisionType == '実施' && jImpId != null) || (decisionType == '契約' && kImpId != null) || (decisionType == '実施兼契約' && jkImpId != null)}">
+                <s:elseif test="decisionStatus < 3">
+                    <s:if test="decisionStatus == 1">
                         差し戻されました
                     </s:if>
+                    <s:elseif test="decisionStatus == 2">
+                        却下されました
+                    </s:elseif>
                     <!-- まだ申請していない場合 -->
                     <s:else>
                         未申請
                     </s:else>
-
-                </s:elseif>
-                <s:elseif test="decisionStatus1 == 3 || decisionStatus2 == 3">
-                    却下されました
                 </s:elseif>
             </td>
 
         <!-- 申請ボタン -->
             <td>
                 M<!-- 承認を揃えている間 -->
-                <s:if test="decisionStatus2 != 2">
+                <s:if test="decisionStatus != 5">
                 <s:form action="DecisionDetailApplicationAction">
 
 							<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
@@ -339,14 +332,14 @@ $("#permit-btn")
 							<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 							<s:token />
 
-						<!-- 実施・変更時(実施)の申請-->
-						<s:if test="%{decisionStatus1 == 0 && decisionStatus2 == 0}">
+						<!-- 実施(差し戻し/却下時含む)の申請-->
+						<s:if test="%{decisionType == '実施' && decisionStatus < 3}">
 							<input type="hidden" name="stringId" value="<s:property value="jImpId" />">
 											<input type="submit" value="実施申請" onclick='return confirm("よろしいですか？");'>
 						</s:if>
 
-						<!-- 契約/実施兼契約・変更時(契約/実施契約)の申請 -->
-						<s:elseif test="%{decisionStatus2 == 0 && decisionStatus1 == 2}">
+						<!-- 契約/実施兼契約(差し戻し/却下時含む)の申請 -->
+						<s:elseif test="%{decisionType != '実施' && decisionStatus < 3}">
 							<s:if test="%{decisionType == '契約'}">
 								<input type="hidden" name="stringId" value="<s:property value="kImpId" />">
 											<input type="submit" value="契約申請" onclick='return confirm("よろしいですか？");'>
@@ -359,7 +352,7 @@ $("#permit-btn")
                 </s:form>
                 </s:if>
                <!-- 最終承認済みの時のみ表示 -->
-                <s:elseif test="decisionStatus2 == 2">
+                <s:elseif test="decisionStatus == 5">
                 <!-- 終了日を過ぎた時のみ表示 -->
                     <s:if test="endDay <= 今日">
                 	<!-- 遡求の申請 -->
@@ -411,34 +404,39 @@ $("#permit-btn")
         <tr>
         <!-- 決裁状況 -->
             <td colspan="3">
-            C<!-- 実施 -->
-                    <s:if test="%{decisionType == '実施'}">
-                        <s:if test="decisionStatus1 == 0">
-                            作成中
-                        </s:if>
-                        <s:elseif test="decisionStatus1 == 1">
-                            申請中/承認待ち
-                        </s:elseif>
-                        <s:elseif test="decisionStatus1 == 2">
-                            承認済み
-                        </s:elseif>
+            C<!-- 申請中の時 -->
+                    <s:if test="decisionStatus == 3 || decisionStatus == 4 || decisionStatus == 6">
+                    <s:if test="permitStatus == 3">
+                        先生<span class="smart"><br></span>承認済み
                     </s:if>
-                <!-- 契約/実施兼契約 -->
+                    <s:elseif test="permitStatus == 2">
+                        2人承認済み
+                    </s:elseif>
+                    <s:elseif test="permitStatus == 1">
+                        1人承認済み
+                    </s:elseif>
+                    <s:elseif test="permitStatus == 0">
+                        承認待ち
+                    </s:elseif>
+                </s:if>
+                <!-- 作成中の時 -->
+                <s:elseif test="decisionStatus < 3">
+                    <s:if test="decisionStatus == 1">
+                        差し戻されました
+                    </s:if>
+                    <s:elseif test="decisionStatus == 2">
+                        却下されました
+                    </s:elseif>
+                    <!-- まだ申請していない場合 -->
                     <s:else>
-                        <s:if test="decisionStatus2 == 0">
-                            作成中
-                        </s:if>
-                        <s:elseif test="decisionStatus2 == 1">
-                            申請中/承認待ち
-                        </s:elseif>
-                        <s:elseif test="decisionStatus2 == 2">
-                            承認済み
-                        </s:elseif>
+                        未申請
                     </s:else>
+                </s:elseif>
             </td>
         </tr>
         <tr>
-            <s:if test="%{decisionType == '実施' || decisionType == '契約'}">     <th>D実施</th>
+            <s:if test="%{decisionType == '実施' || decisionType == '契約'}">
+                <th>D実施</th>
                 <th>E契約</th>
             </s:if>
             <s:else>
@@ -495,12 +493,14 @@ $("#permit-btn")
         <!-- 差し戻しボタン -->
             <td>
             K<!-- 申請中の時 -->
-            <s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
+            <s:if test="decisionStatus == 3 || decisionStatus == 4 || decisionStatus == 6">
             <s:form action="DecisionDetailRemandAction">
 
                     <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                     <input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
-                    <input type="hidden" name="permitStatus" value="<s:property value="permitStatus" />">
+                    <input type="hidden" name="permitStatusJ" value="<s:property value="permitStatusJ" />">
+                    <input type="hidden" name="permitStatusK" value="<s:property value="permitStatusK" />">
+                    <input type="hidden" name="permitStatusS" value="<s:property value="permitStatusS" />">
 
             <!-- 先生のみ -->
                 <s:if test="%{#session.userFlg == 3}">
@@ -537,10 +537,11 @@ $("#permit-btn")
                 現在申請なし
             </s:else>
             </td>
+
         <!-- 却下ボタン -->
             <td>
             L<!-- 申請中の時 -->
-            <s:if test="decisionStatus1 == 1 || decisionStatus2 == 1">
+            <s:if test="decisionStatus == 3 || decisionStatus == 4 || decisionStatus == 6">
             <s:form action="DecisionDetailRejectAction">
 
                     <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
@@ -576,10 +577,13 @@ $("#permit-btn")
             </s:form>
             </s:if>
 
-            <!-- 申請中の時以外 -->
+            <!-- 申請中の時以外 -->//////////////////////////////////////////////////
             <s:else>
-                <s:if test="decisionStatus1 == 3 || decisionStatus2 == 3">
-                    却下済み/変更中
+                <s:if test="decisionStatus == 2">
+                    却下済み
+                </s:if>
+                <s:if test="decisionStatus == 2">
+                    差し戻し済み
                 </s:if>
                 <s:else>
                     現在申請なし
