@@ -24,7 +24,7 @@
 <jsp:include page="header.jsp" />
 
   <!--]
-  
+
     <div class="container">
       <h1 class="page-header">アプリ一覧</h1>
 	  <s:iterator value="siteInfoList">
@@ -39,7 +39,7 @@
 
 
 <!-- 画像スライドショー -->
-<s:property value="#session.userFlg"/>
+<!--<s:property value="#session.userFlg"/> -->
 <div class="container" align="center">
 <div class="topslide">
 
@@ -69,7 +69,7 @@ myChange();
 
 
 </div><BR><BR>
-
+ <jsp:include page="footer.jsp" />
 
 </body>
 </html>
