@@ -16,7 +16,7 @@
     	<textarea name="postContents" class="nonbs-form-control" maxlength="255" ></textarea>
 	</div><s:hidden name="receiverId" /><s:hidden name="groupId" /><s:hidden name="groupName" /><s:hidden name="friendsName" />
 <div class="nonbs-rightside">
-<button type="submit" class="btn btn-default" onclick="disabled = true;">送信</button>
+<button type="submit" class="btn btn-default" onclick="style.display='none'">送信</button>
 </div>
 </s:form>
 </div>
