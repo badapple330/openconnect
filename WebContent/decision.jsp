@@ -156,8 +156,13 @@ $("#res,#lines,#c,#d").val($(this).val());
 <s:property value="kPermiterId2" /><br>
 <s:property value="kPermiterId3" />
 </s:elseif>
-<s:else>
+<s:elseif test="decisionType != '実施' && decisionType != '契約'">
 遡及承認者1人
+</s:elseif>
+<s:else>
+承認者1<br>
+承認者2<br>
+承認者3
 </s:else>
 </td>
 </tr>
