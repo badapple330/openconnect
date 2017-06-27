@@ -23,7 +23,8 @@
 
 <jsp:include page="header.jsp" />
 
-  <!--
+  <!--]
+  
     <div class="container">
       <h1 class="page-header">アプリ一覧</h1>
 	  <s:iterator value="siteInfoList">

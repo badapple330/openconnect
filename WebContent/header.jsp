@@ -62,9 +62,6 @@
 							      		<li><a href="GoScheduleSelectAction">スケジュール一覧</a></li>
 							      	</ul>
 							      </li>
-							      <li><a href="<s:url action="GoTalkListAction"/>">sns</a>
-							      </li>
-
 								  <s:if test="%{#session.userFlg >= 1}">
 								  	 <li><a href="#">決裁</a>
 								      	<ul>
