@@ -106,6 +106,7 @@
     border-left: solid 2px #668ad8;
     color: #668ad8 !important;
     transition: .4s;
+    float:right;
     }
 
 .part_line:hover {
@@ -169,7 +170,6 @@ text-align: center;
 {
 	list-style:none;
 	position:relative;
-	float:left;
 	margin:0;
 	padding:0
 }
@@ -189,7 +189,6 @@ text-align: center;
 #primary_nav_wrap ul li
 {
 	position:relative;
-	float:left;
 	margin:0;
 	padding:0
 }
@@ -199,7 +198,7 @@ text-align: center;
 {
 	display:none;
 	position:absolute;
-	top:100%;
+	top:30px;
 	left:0;
 	padding:0;
 	border: medium #333 double;
@@ -213,7 +212,8 @@ text-align: center;
 	width:130px
 }
 
-#primary_nav_wrap ul li:hover {
+#primary_nav_wrap ul li:hover,
+#primary_nav_wrap ul li a:hover {
 	background-color:#87ceeb;
 }
 
@@ -234,6 +234,13 @@ text-align: center;
 	display:block
 }
 
+#primary_nav_wrap .header-menu {
+	float:left;
+}
+
+#primary_nav_wrap .header-menu ul li {
+	margin-top:20px;
+}
 
 @media only screen and (max-device-width: 500px){
 	.dissappear{
