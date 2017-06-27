@@ -12,7 +12,7 @@ public class JsonWrite {
 
 		Tokenizer tokenizer = Tokenizer.builder().build();
 
-		List<Token> tokens = tokenizer.tokenize("グルーミング");
+		List<Token> tokens = tokenizer.tokenize("あひるがかわいい");
 
 		for (Token token : tokens) {
 			System.out.println("==================================================");
