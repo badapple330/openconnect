@@ -242,6 +242,21 @@ public class DecisionDTO {
 	 */
 	public int persons;
 
+	/**
+	 * 資料ID
+	 */
+	public int documentId;
+
+	/**
+	 * 資料名
+	 */
+	public String documentName;
+
+	/**
+	 * 資料パス
+	 */
+	public String documentPath;
+
 
 
     /** 取得メソッド を取得
@@ -907,6 +922,48 @@ public class DecisionDTO {
 		*/
 		public void setDecisionId(int decisionId) {
 			this.decisionId = decisionId;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return documentId
+		*/
+		public int getDocumentId() {
+			return documentId;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param documentId
+		*/
+		public void setDocumentId(int documentId) {
+			this.documentId = documentId;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return documentName
+		*/
+		public String getDocumentName() {
+			return documentName;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param documentName
+		*/
+		public void setDocumentName(String documentName) {
+			this.documentName = documentName;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return documentPath
+		*/
+		public String getDocumentPath() {
+			return documentPath;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param documentPath
+		*/
+		public void setDocumentPath(String documentPath) {
+			this.documentPath = documentPath;
 		}
 
 
