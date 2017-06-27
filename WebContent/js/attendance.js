@@ -1,12 +1,17 @@
-
+var w = $(window).width();
+    var x = 640;
 
 	//出席以外のときに備考を表示して必須に
 	$(function(){
 		  $('#tr_type select[name="attendance"]').change(function() {
 		    if ($('select[name="attendance"] option:selected').val() != '出席'){
+		    	if (w <= x) {
+		    	$('#tr_reason').css('display','block');
+			    $('#reason').removeAttr("disabled").attr('required','true');
+		    	}else{
 		    	$('#tr_reason').css('display','table-row');
 		    	$('#reason').removeAttr("disabled").attr('required','true');
-		    }else{
+		    	}}else{
 		    	$('#tr_reason').css('display','none');
 		    	$('#reason').attr('disabled', 'disabled');
 		    }

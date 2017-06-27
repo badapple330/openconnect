@@ -108,3 +108,11 @@ td {
     display: none;
   }
 }
+
+@media only screen and (max-width:420px){
+	.modal-open{
+		display: none;
+	}
+
+
+}
