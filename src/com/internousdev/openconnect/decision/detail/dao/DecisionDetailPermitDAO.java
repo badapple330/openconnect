@@ -23,7 +23,7 @@ public class DecisionDetailPermitDAO {
      */
 	public int updatePJ( String jDecId, int jpermiterId3, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String permitDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -61,7 +61,7 @@ public class DecisionDetailPermitDAO {
      */
 	public int updatePK( String kDecId, int kPermiterId3, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String permitDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -99,7 +99,7 @@ public class DecisionDetailPermitDAO {
      */
 	public int updatePJK( String jkDecId, int jkPermiterId3, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat(" yyyy/MM/dd");
 		String permitDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -140,7 +140,7 @@ public class DecisionDetailPermitDAO {
      */
 	public int updateP( String decisionType, int permitStatus, int userId, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String permitDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -150,18 +150,18 @@ public class DecisionDetailPermitDAO {
 
 		if(decisionType.equals("実施")) {
 			if(permitStatus == 1) {
-			sql = sql + "update decision set permit_status = 1, j_permiter_id1 = ?, j_permit_day1 = ? where decision_id = ?";
+			sql = "update decision set permit_status = 1, j_permiter_id1 = ?, j_permit_day1 = ? where decision_id = ?";
 			}
-			if(permitStatus == 2) {
-			sql = sql + "update decision set permit_status = 2, j_permiter_id2 = ?, j_permit_day2 = ? where decision_id = ?";
+			else if(permitStatus == 2) {
+			sql = "update decision set permit_status = 2, j_permiter_id2 = ?, j_permit_day2 = ? where decision_id = ?";
 			}
 		}
 		else {
 			if(permitStatus == 1) {
-			sql = sql + "update decision set permit_status = 1, k_permiter_id1 = ?, k_permit_day1 = ? where decision_id = ?";
+			sql = "update decision set permit_status = 1, k_permiter_id1 = ?, k_permit_day1 = ? where decision_id = ?";
 			}
-			if(permitStatus == 2) {
-			sql = sql + "update decision set permit_status = 2, k_permiter_id2 = ?, k_permit_day2 = ? where decision_id = ?";
+			else if(permitStatus == 2) {
+			sql = "update decision set permit_status = 2, k_permiter_id2 = ?, k_permit_day2 = ? where decision_id = ?";
 			}
 		}
 
@@ -174,7 +174,7 @@ public class DecisionDetailPermitDAO {
 					int jPermiterId1 = userId;
 					ps.setInt(1, jPermiterId1);
 				}
-				if(permitStatus == 2) {
+				else if(permitStatus == 2) {
 					int jPermiterId2 = userId;
 					ps.setInt(1, jPermiterId2);
 				}
@@ -184,7 +184,7 @@ public class DecisionDetailPermitDAO {
 					int kPermiterId1 = userId;
 					ps.setInt(1, kPermiterId1);
 				}
-				if(permitStatus == 2) {
+				else if(permitStatus == 2) {
 					int kPermiterId2 = userId;
 					ps.setInt(1, kPermiterId2);
 				}

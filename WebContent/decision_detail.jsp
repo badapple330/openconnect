@@ -122,7 +122,7 @@ $("#permit-btn")
 					<td>
 						<input type="hidden" name="projectId" value="<s:property value="projectId" />">
 						<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
-						<input type="submit" value="追加(決済資料を作る)">
+						<input type="submit" value="追加">
 					</td>
 				</tr>
 			</table>
@@ -150,9 +150,9 @@ $("#permit-btn")
                 A<s:property value="projectName" />
             </th>
         <!-- 決裁種類 -->
-            <td colspan="3">
+            <th colspan="3">
                 B<s:property value="decisionType" />
-            </td>
+            </th>
         </tr>
         <tr>
         <!-- 決裁状況 -->
@@ -191,7 +191,7 @@ $("#permit-btn")
             </s:else>
             <th>
                 F<!-- 変更・遡求 -->
-            <!-- 最終承認済みの時のみ表示 -->
+            <!-- 最終承認済み後に表示 -->
                 <s:if test="decisionStatus == 5">
 	                <!-- 終了日を過ぎた場合 -->
 	                <s:if test="compareDay > 0">
@@ -202,9 +202,9 @@ $("#permit-btn")
 					    変更
 					</s:elseif>
 				</s:if>
-            <!-- 未最終承認時 -->
+            <!-- 未-最終承認時 -->
                 <s:else>
-                    空白
+                    ―
                 </s:else>
             </th>
             <th>G承認状況</th>
@@ -226,6 +226,7 @@ $("#permit-btn")
 					<s:else>
 						<s:form action="DecisionPreviewAction">
                             <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                            <input type="hidden" name="type" value="1">
                                     <input type="submit" value="プレビュー" >
                         </s:form>
 					</s:else>
@@ -241,12 +242,13 @@ $("#permit-btn")
                     </s:if>
                 <!-- 契約未着手時 -->
                     <s:elseif test="%{decisionType == '実施'}">
-                        空白
+                        未着手
                     </s:elseif>
                 <!-- 契約のプレビュー -->
 					<s:else>
 						<s:form action="DecisionPreviewAction">
                             <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                            <input type="hidden" name="type" value="2">
                                     <input type="submit" value="プレビュー" >
                         </s:form>
 					</s:else>
@@ -266,6 +268,7 @@ $("#permit-btn")
                 <s:else>
                     <s:form action="DecisionPreviewAction">
                         <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                        <input type="hidden" name="type" value="3">
                                 <input type="submit" value="プレビュー" >
                     </s:form>
                 </s:else>
@@ -274,7 +277,7 @@ $("#permit-btn")
 
         <!-- 変更・遡求編集ボタン -->
             <td>
-                K<!-- 最終承認済みの時のみ表示 -->
+                K<!-- 最終承認済み後に表示 -->
                 <s:if test="decisionStatus == 5">
                 <!-- 終了日を過ぎた時のみ表示 -->
                     <s:if test="compareDay > 0">
@@ -293,13 +296,13 @@ $("#permit-btn")
                         </s:form>
                     </s:elseif>
                 </s:if>
-            <!-- 未最終承認時 -->
+            <!-- 未-最終承認時 -->
                 <s:else>
-                    空白
+                    ―
                 </s:else>
             </td>
 
-        <!-- 承認状況 OK -->
+        <!-- 承認状況 -->
             <td>
                 L<!-- 申請中の時 -->
                 <s:if test="decisionStatus == 3 || decisionStatus == 4 || decisionStatus == 6">
@@ -310,26 +313,25 @@ $("#permit-btn")
 	                    <s:elseif test="permitStatus == 1">
 	                        1人承認済み
 	                    </s:elseif>
-	                    <s:elseif test="permitStatus == 0">
-	                        承認待ち
-	                    </s:elseif>
+	                    <s:else>
+	                        1人目承認待ち
+	                    </s:else>
 	                </s:if>
 	                <s:else>
-	                	<s:if test="%{(kDecId || jkDecId) != null}">
-	                        すべて<span class="smart"><br></span>承認済み
-	                    </s:if>
-	                    <s:elseif test="permitStatus == 2">
+	                    <s:if test="permitStatus == 2">
 	                        2人承認済み
-	                    </s:elseif>
+	                    </s:if>
 	                    <s:elseif test="permitStatus == 1">
 	                        1人承認済み
 	                    </s:elseif>
-	                    <s:elseif test="%{jDecId != null}">
-	                        実施承認済み
-	                    </s:elseif>
-	                    <s:elseif test="%{jDecId == null && permitStatus == 0}">
-	                        承認待ち
-	                    </s:elseif>
+	                    <s:else><!-- //////////////////調整が必要//////////////////////// -->
+	                    	<s:if test='%{JDecId != ""}'>
+	                        	すべて<span class="smart"><br></span>承認済み
+		                    </s:if>
+		                    <s:else>
+		                        1人目承認待ち
+		                    </s:else>
+		                </s:else>
 	                </s:else>
                 </s:if>
                 <!-- 作成中の時 -->
@@ -342,7 +344,12 @@ $("#permit-btn")
                     </s:elseif>
                     <!-- まだ申請していない場合 -->
                     <s:else>
-                        未申請
+                    	<s:if test="%{jDecId != ''}">
+	                        実施完成済み
+	                    </s:if>
+	                    <s:else>
+	                    	未申請
+	                    </s:else>
                     </s:else>
                 </s:elseif>
             </td>
@@ -426,12 +433,12 @@ $("#permit-btn")
                 A<s:property value="projectName" />
             </th>
         <!-- 決裁種類 -->
-            <td colspan="3">
+            <th colspan="3">
                 B<s:property value="decisionType" />
-            </td>
+            </th>
         </tr>
         <tr>
-        <!-- 決裁状況 -->
+        <!-- 決裁状況 ////////////////細かく/////////////-->
             <td colspan="3">
             C
                 <s:if test="decisionStatus == 0">
@@ -444,7 +451,16 @@ $("#permit-btn")
                     却下中
                 </s:elseif>
                 <s:elseif test="decisionStatus == 3">
-                    申請中/承認待ち
+                    申請中<br>
+                    <s:if test="permitStatus == 2">
+	                        先生の承認待ち
+	                    </s:if>
+	                    <s:elseif test="permitStatus == 1">
+	                        2人目の承認待ち
+	                    </s:elseif>
+	                    <s:elseif test="permitStatus == 0">
+	                        1人目の承認待ち
+	                    </s:elseif>
                 </s:elseif>
                 <s:elseif test="decisionStatus == 4">
                     変更申請中
@@ -484,6 +500,7 @@ $("#permit-btn")
                 I<!-- 実施のプレビュー -->
                 <s:form action="DecisionPreviewAction">
                     <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                    <input type="hidden" name="type" value="1">
                             <input type="submit" value="プレビュー" >
                 </s:form>
             </td>
@@ -492,11 +509,12 @@ $("#permit-btn")
                 <s:if test="%{decisionType == '契約'}">
                     <s:form action="DecisionPreviewAction">
                         <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                        <input type="hidden" name="type" value="2">
                                 <input type="submit" value="プレビュー" >
                     </s:form>
                 </s:if>
                 <s:else>
-                    空白
+                    未着手
                 </s:else>
             </td>
             </s:if>
@@ -505,13 +523,16 @@ $("#permit-btn")
                 I+J<!-- 実施兼契約のプレビュー -->
                 <s:form action="DecisionPreviewAction">
                     <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                    <input type="hidden" name="type" value="3">
                             <input type="submit" value="プレビュー" >
                 </s:form>
             </td>
             </s:else>
 
+
         <!-- リーダー以上のみ表示 -->
         <s:if test="%{#session.userFlg >= 2}">
+
         <!-- 差し戻しボタン -->
             <td>
             K<!-- 申請中の時 -->
@@ -563,7 +584,7 @@ $("#permit-btn")
                     差し戻し済み
                 </s:if>
                 <s:else>
-                	現在申請なし
+                	申請なし
                 </s:else>
             </s:else>
             </td>
@@ -613,7 +634,7 @@ $("#permit-btn")
                     却下済み
                 </s:if>
                 <s:else>
-                    現在申請なし
+                    申請なし
                 </s:else>
             </s:else>
             </td>
@@ -649,7 +670,7 @@ $("#permit-btn")
 
                 <!-- リーダーのみ -->
                     <s:else>
-                    <!-- リーダー1の承認 -->
+                    <!-- リーダー1の承認 ////////////////ボタン内の改行/////////////////-->
                         <s:if test="permitStatus == 0">
                             <s:form action="DecisionDetailPermitAction">
                                 <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
@@ -658,6 +679,7 @@ $("#permit-btn")
                                 <s:token />
                                 <input type="hidden" name="permitStatus" value="1">
                                         <input type="submit" value=" 実施承認1人目" onclick='return confirm("よろしいですか？");'>
+                                        <button type="submit" onclick='return confirm("よろしいですか？");'>実施承認<br>1人目</button>
                             </s:form>
                         </s:if>
                     <!-- リーダー2の承認 -->
@@ -762,7 +784,7 @@ $("#permit-btn")
 
             <!-- 申請中の時以外 -->
             <s:else>
-                現在申請なし
+                申請なし
             </s:else>
             </td>
         </s:if>

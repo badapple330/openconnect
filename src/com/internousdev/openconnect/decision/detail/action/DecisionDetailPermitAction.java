@@ -103,7 +103,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 
 		//リーダーの承認
-		if( permitStatus < 2 ) {
+		if( permitStatus == 0 || permitStatus == 1 ) {
 			count = daoPer.updateP(decisionType, permitStatus, userId, decisionId);
 		}
 

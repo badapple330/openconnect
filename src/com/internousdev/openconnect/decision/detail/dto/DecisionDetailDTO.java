@@ -143,6 +143,18 @@ public class DecisionDetailDTO {
 	 */
 	private String jkImpId;
 	/**
+	 * 実施決裁番号
+	 */
+	private String jDecId;
+	/**
+	 * 契約決裁番号
+	 */
+	private String kDecId;
+	/**
+	 * 実施兼契約決裁番号
+	 */
+	private String jkDecId;
+	/**
 	 * 承認状況
 	 */
 	private int permitStatus;
@@ -376,6 +388,48 @@ public class DecisionDetailDTO {
 	*/
 	public void setJkImpId(String jkImpId) {
 		this.jkImpId = jkImpId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return jDecId
+	*/
+	public String getJDecId() {
+		return jDecId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jDecId
+	*/
+	public void setJDecId(String jDecId) {
+		this.jDecId = jDecId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return kDecId
+	*/
+	public String getKDecId() {
+		return kDecId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kDecId
+	*/
+	public void setKDecId(String kDecId) {
+		this.kDecId = kDecId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return jkDecId
+	*/
+	public String getJkDecId() {
+		return jkDecId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jkDecId
+	*/
+	public void setJkDecId(String jkDecId) {
+		this.jkDecId = jkDecId;
 	}
 	/**
 	* 取得メソッド を取得
