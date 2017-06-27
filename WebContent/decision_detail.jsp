@@ -191,12 +191,21 @@ $("#permit-btn")
             </s:else>
             <th>
                 F<!-- 変更・遡求 -->
-                <s:if test="decisionStatus2 == 2 && endDay <= 今日"><!-- &&終了日を過ぎた場合 -->
-                    遡求
-                </s:if>
+            <!-- 最終承認済みの時のみ表示 -->
+                <s:if test="decisionStatus == 5">
+	                <!-- 終了日を過ぎた場合 -->
+	                <s:if test="compareDay > 0">
+	                   	遡求
+	               	</s:if>
+	               	<!-- 最終承認から終了日まで -->
+	                <s:elseif test="compareDay <= 0">
+					    変更
+					</s:elseif>
+				</s:if>
+            <!-- 未最終承認時 -->
                 <s:else>
-				    変更
-				</s:else>
+                    空白
+                </s:else>
             </th>
             <th>G承認状況</th>
             <th>H申請</th>
@@ -268,44 +277,60 @@ $("#permit-btn")
                 K<!-- 最終承認済みの時のみ表示 -->
                 <s:if test="decisionStatus == 5">
                 <!-- 終了日を過ぎた時のみ表示 -->
-                    <s:if test="endDay <= 今日">
+                    <s:if test="compareDay > 0">
                         <s:form action="DecisionSelectAction">
                             <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
                             <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                                     <input type="submit" value="遡求編集">
                         </s:form>
                     </s:if>
-                <!-- 終了日までの間表示 -->
-                    <s:else>
+                <!-- 最終承認から終了日まで -->
+                	<s:elseif test="compareDay <= 0">
                         <s:form action="DecisionSelectAction">
                         <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
                         <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                                 <input type="submit" value="変更編集">
                         </s:form>
-                    </s:else>
+                    </s:elseif>
                 </s:if>
-            <!-- 作成時・未申請時 -->
+            <!-- 未最終承認時 -->
                 <s:else>
                     空白
                 </s:else>
             </td>
 
-        <!-- 承認状況 -->
+        <!-- 承認状況 OK -->
             <td>
                 L<!-- 申請中の時 -->
                 <s:if test="decisionStatus == 3 || decisionStatus == 4 || decisionStatus == 6">
-                    <s:if test="permitStatus == 3">
-                        先生<span class="smart"><br></span>承認済み
-                    </s:if>
-                    <s:elseif test="permitStatusJ == 2">
-                        2人承認済み
-                    </s:elseif>
-                    <s:elseif test="permitStatusJ == 1">
-                        1人承認済み
-                    </s:elseif>
-                    <s:elseif test="permitStatusJ == 0">
-                        承認待ち
-                    </s:elseif>
+                    <s:if test="%{decisionType == '実施'}">
+	                    <s:if test="permitStatus == 2">
+	                        2人承認済み
+	                    </s:if>
+	                    <s:elseif test="permitStatus == 1">
+	                        1人承認済み
+	                    </s:elseif>
+	                    <s:elseif test="permitStatus == 0">
+	                        承認待ち
+	                    </s:elseif>
+	                </s:if>
+	                <s:else>
+	                	<s:if test="%{(kDecId || jkDecId) != null}">
+	                        すべて<span class="smart"><br></span>承認済み
+	                    </s:if>
+	                    <s:elseif test="permitStatus == 2">
+	                        2人承認済み
+	                    </s:elseif>
+	                    <s:elseif test="permitStatus == 1">
+	                        1人承認済み
+	                    </s:elseif>
+	                    <s:elseif test="%{jDecId != null}">
+	                        実施承認済み
+	                    </s:elseif>
+	                    <s:elseif test="%{jDecId == null && permitStatus == 0}">
+	                        承認待ち
+	                    </s:elseif>
+	                </s:else>
                 </s:if>
                 <!-- 作成中の時 -->
                 <s:elseif test="decisionStatus < 3">
@@ -358,7 +383,7 @@ $("#permit-btn")
                <!-- 最終承認済みの時のみ表示 -->
                 <s:elseif test="decisionStatus == 5">
                 <!-- 終了日を過ぎた時のみ表示 -->
-                    <s:if test="endDay <= 今日">
+                    <s:if test="diff >= 0">
                 	<!-- 遡求の申請 -->
                 	<s:form action="DecisionDetailRecourseAction">
 	                    <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
@@ -408,33 +433,27 @@ $("#permit-btn")
         <tr>
         <!-- 決裁状況 -->
             <td colspan="3">
-            C<!-- 申請中の時 -->
-                    <s:if test="decisionStatus == 3 || decisionStatus == 4 || decisionStatus == 6">
-                    <s:if test="permitStatus == 3">
-                        先生<span class="smart"><br></span>承認済み
-                    </s:if>
-                    <s:elseif test="permitStatus == 2">
-                        2人承認済み
-                    </s:elseif>
-                    <s:elseif test="permitStatus == 1">
-                        1人承認済み
-                    </s:elseif>
-                    <s:elseif test="permitStatus == 0">
-                        承認待ち
-                    </s:elseif>
+            C
+                <s:if test="decisionStatus == 0">
+                    作成中
                 </s:if>
-                <!-- 作成中の時 -->
-                <s:elseif test="decisionStatus < 3">
-                    <s:if test="decisionStatus == 1">
-                        差し戻されました
-                    </s:if>
-                    <s:elseif test="decisionStatus == 2">
-                        却下されました
-                    </s:elseif>
-                    <!-- まだ申請していない場合 -->
-                    <s:else>
-                        未申請
-                    </s:else>
+                <s:elseif test="decisionStatus == 1">
+                    差し戻し中
+                </s:elseif>
+                <s:elseif test="decisionStatus == 2">
+                    却下中
+                </s:elseif>
+                <s:elseif test="decisionStatus == 3">
+                    申請中/承認待ち
+                </s:elseif>
+                <s:elseif test="decisionStatus == 4">
+                    変更申請中
+                </s:elseif>
+                <s:elseif test="decisionStatus == 5">
+                    承認済み
+                </s:elseif>
+                <s:elseif test="decisionStatus == 6">
+                    遡求申請中
                 </s:elseif>
             </td>
         </tr>
@@ -467,7 +486,6 @@ $("#permit-btn")
                     <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                             <input type="submit" value="プレビュー" >
                 </s:form>
-
             </td>
             <td>
                 J<!-- 契約のプレビュー -->
@@ -502,9 +520,12 @@ $("#permit-btn")
 
                     <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                     <input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
-                    <input type="hidden" name="permitStatusJ" value="<s:property value="permitStatusJ" />">
-                    <input type="hidden" name="permitStatusK" value="<s:property value="permitStatusK" />">
-                    <input type="hidden" name="permitStatusS" value="<s:property value="permitStatusS" />">
+                    <input type="hidden" name="permitStatus" value="<s:property value="permitStatus" />">
+
+
+
+
+
 
             <!-- 先生のみ -->
                 <s:if test="%{#session.userFlg == 3}">
@@ -538,7 +559,12 @@ $("#permit-btn")
 
             <!-- 申請中の時以外 -->
             <s:else>
-                現在申請なし
+            	<s:if test="decisionStatus == 1">
+                    差し戻し済み
+                </s:if>
+                <s:else>
+                	現在申請なし
+                </s:else>
             </s:else>
             </td>
 
@@ -581,13 +607,10 @@ $("#permit-btn")
             </s:form>
             </s:if>
 
-            <!-- 申請中の時以外 -->//////////////////////////////////////////////////
+            <!-- 申請中の時以外 -->
             <s:else>
                 <s:if test="decisionStatus == 2">
                     却下済み
-                </s:if>
-                <s:if test="decisionStatus == 2">
-                    差し戻し済み
                 </s:if>
                 <s:else>
                     現在申請なし
@@ -598,7 +621,7 @@ $("#permit-btn")
         <!-- 承認ボタン -->
             <td>
             M<!-- 申請中の時 -->
-            <s:if test="%{decisionStatus1 == 1 || decisionStatus2 == 1}">
+            <s:if test="%{decisionStatus == 3}">
 
             <!-- 実施の承認 -->
             <s:if test="%{decisionType == '実施'}">

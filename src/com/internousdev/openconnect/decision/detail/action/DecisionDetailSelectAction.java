@@ -76,18 +76,14 @@ public class DecisionDetailSelectAction extends ActionSupport {
 
 		int userId1 = userId;
 
-	/*	if(userId < 0) {
-		DecisionDetailDTO dto = new DecisionDetailDTO();
-		int userId = dto.getUserId();
-		userId1 = userId;
-		}*/
 
 		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
 		decisionDetailList2 = dao.selectMyD( userId, userId1);
 		decisionBeginList = dao.selectBeginP( userId, userId1 );
 
-
-
+		//日付比較用
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+		dto = dao.selectCompareDay( userId, userId1);
 
 
 		if( decisionDetailList1.size() == 0){

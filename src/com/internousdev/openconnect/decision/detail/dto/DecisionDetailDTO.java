@@ -35,6 +35,27 @@ public class DecisionDetailDTO {
 
 
 	/**
+	 * 終了日比較結果(DecisionDetailSelectDAO)
+	 */
+	 private int compareDay;
+	/**
+	* 取得メソッド を取得
+	* @return compareDay
+	*/
+	public int getCompareDay() {
+		return compareDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param compareDay
+	*/
+	public void setCompareDay(int compareDay) {
+		this.compareDay = compareDay;
+	}
+
+
+
+	/**
 	 * sessionから取得したログイン中ユーザーID
 	 */
 	private int userId;
@@ -122,17 +143,9 @@ public class DecisionDetailDTO {
 	 */
 	private String jkImpId;
 	/**
-	 * [実施]承認状況
+	 * 承認状況
 	 */
-	private int permitStatusJ;
-	/**
-	 * [契約/実施兼契約]承認状況
-	 */
-	private int permitStatusK;
-	/**
-	 * [遡求]承認状況
-	 */
-	private int permitStatusS;
+	private int permitStatus;
 	/**
 	 * 実施_承認者ID(1人目:リーダー)
 	 */
@@ -366,45 +379,17 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @return permitStatusJ
+	* @return permitStatus
 	*/
-	public int getPermitStatusJ() {
-		return permitStatusJ;
+	public int getPermitStatus() {
+		return permitStatus;
 	}
 	/**
 	* 設定メソッド を設定
-	* @param permitStatusJ
+	* @param permitStatus
 	*/
-	public void setPermitStatusJ(int permitStatusJ) {
-		this.permitStatusJ = permitStatusJ;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return permitStatusK
-	*/
-	public int getPermitStatusK() {
-		return permitStatusK;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param permitStatusK
-	*/
-	public void setPermitStatusK(int permitStatusK) {
-		this.permitStatusK = permitStatusK;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return permitStatusS
-	*/
-	public int getPermitStatusS() {
-		return permitStatusS;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param permitStatusS
-	*/
-	public void setPermitStatusS(int permitStatusS) {
-		this.permitStatusS = permitStatusS;
+	public void setPermitStatus(int permitStatus) {
+		this.permitStatus = permitStatus;
 	}
 	/**
 	* 取得メソッド を取得

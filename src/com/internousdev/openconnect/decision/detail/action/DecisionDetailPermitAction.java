@@ -35,13 +35,9 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	 */
 	private int decisionId;
 	/**
-	 * [実施]承認状況
+	 * 承認状況
 	 */
-	private int permitStatusJ;
-	/**
-	 * [契約/実施兼契約]承認状況
-	 */
-	private int permitStatusK;
+	private int permitStatus;
 	/**
 	 * 決裁種類
 	 */
@@ -107,13 +103,13 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 
 		//リーダーの承認
-		if( permitStatusJ <= 2 || permitStatusK <= 2 ) {
-			count = daoPer.updateP(decisionType, permitStatusJ, permitStatusK, userId, decisionId);
+		if( permitStatus < 2 ) {
+			count = daoPer.updateP(decisionType, permitStatus, userId, decisionId);
 		}
 
 
 		//先生の承認
-		if( permitStatusJ == 2 || permitStatusK == 2 ) {
+		if( permitStatus == 2 ) {
             jPermiterId3 = userId;
             kPermiterId3 = userId;
 			jkPermiterId3 = userId;
@@ -199,31 +195,17 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 	/**
 	* 取得メソッド を取得
-	* @return permitStatusJ
+	* @return permitStatus
 	*/
-	public int getPermitStatusJ() {
-		return permitStatusJ;
+	public int getPermitStatus() {
+		return permitStatus;
 	}
 	/**
 	* 設定メソッド を設定
 	* @param permitStatusJ
 	*/
-	public void setPermitStatusJ(int permitStatusJ) {
-		this.permitStatusJ = permitStatusJ;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return permitStatusK
-	*/
-	public int getPermitStatusK() {
-		return permitStatusK;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param permitStatusK
-	*/
-	public void setPermitStatusK(int permitStatusK) {
-		this.permitStatusK = permitStatusK;
+	public void setPermitStatus(int permitStatus) {
+		this.permitStatus = permitStatus;
 	}
 
 	public String getDecisionType() {

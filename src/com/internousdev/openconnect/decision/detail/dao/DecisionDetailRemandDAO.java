@@ -20,7 +20,7 @@ public class DecisionDetailRemandDAO {
 	/**
      * 差し戻しボタン押下時メソッド  差し戻しによる値の更新をする為のメソッド
      */
-	public int remand( String decisionType, int permitStatusJ, int permitStatusK, int decisionId ) {
+	public int remand( String decisionType, int permitStatus, int decisionId ) {
 
 		int count = 0;
 
@@ -28,22 +28,15 @@ public class DecisionDetailRemandDAO {
 		Connection con = db.getConnection();
 		String sql = "";
 
-		if(decisionType.equals("実施")) {
-			sql = "update decision set decision_status = 1, permit_statusJ = ? where decision_id = ?";
-		}
-		else {
-			sql = "update decision set decision_status = 1, permit_statusK = ? where decision_id = ?";
-		}
+
+			sql = "update decision set decision_status = 1, permit_status = ? where decision_id = ?";
+
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			if(decisionType.equals("実施")) {
-				ps.setInt(1, permitStatusJ);
-			}
-			else {
-				ps.setInt(1, permitStatusK);
-			}
+
+			ps.setInt(1, permitStatus);
 			ps.setInt(2, decisionId);
 
 			count = ps.executeUpdate();
