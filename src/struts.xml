@@ -283,8 +283,21 @@
 			<result name="error">attendance.jsp</result>
 		</action>
 
+		<!--決裁編集画面表示  -->
+		<action name="DecisionSelectAction"
+			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
+			method="execute">
+			<result name="success">decision.jsp</result>
+			<result name="error">decision.jsp</result>
+		</action>
 
-
+			<!-- 決裁編集画面更新 -->
+		<action name="DecisionUpdateAction"
+			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
+			method="execute">
+			<result name="success" type="chain">DecisionSelectAction</result>
+			<result name="error">decision.jsp</result>
+		</action>
 
 
 		<action name="DecisionPreviewAction"
