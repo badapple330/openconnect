@@ -83,4 +83,14 @@ $(function(){
 			});
 		}
 	});
+
+	$('.print-btn').on('click', function(){
+        var printPage = $('.print-page').html();
+        $('body').append('<div id="print"></div>');
+        $('#print').append(printPage);
+        $("body *:not(#print,#print *)").addClass('off');
+        window.print();
+        $('#print').remove();
+        $('.off').removeClass('off');
+    });
 });

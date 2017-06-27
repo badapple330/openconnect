@@ -55,21 +55,9 @@
 		<s:property value="notLoginMsg" />
 	</div>
 
-
+<div class = "print-page">
 <div id ="calendar"></div>
 <div id="operation">
-
-			<s:form action="ScheduleSelectAction">
-			<h5>【チーム名で検索】</h5>
-				<select name="search" required="required">
-								<option value="">以下から選択</option>
-								<option value="全件表示">全件表示</option>
-								<s:iterator value="teamList">
-									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
-								</s:iterator>
-							</select>
-				<s:submit value="検索"></s:submit>
-			</s:form>
 			<br>
 
 			<!-- 検索した後に表示するメッセージ -->
@@ -135,7 +123,19 @@
 				</table>
 
 			</s:form>
-
+</div></div>
+<div id="operation2">
+<s:form action="ScheduleSelectAction">
+			<h5>【チーム名で検索】</h5>
+				<select name="search" required="required">
+								<option value="">以下から選択</option>
+								<option value="全件表示">全件表示</option>
+								<s:iterator value="teamList">
+									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
+								</s:iterator>
+							</select>
+				<s:submit value="検索"></s:submit>
+			</s:form>
 			<br>【予定を登録】
 		<s:form action="ScheduleInsertAction">
 				<table border="0" style="">
@@ -169,7 +169,6 @@
 
 				<button type="submit" class="button" name="startDay">追加</button>
 			</s:form>
-
 
 			<div id="modal-main">
 				<!-- #contents START -->
@@ -213,10 +212,12 @@
 				</div>
 			</div>
 
+			<div class = "print-btn" id="btn-print"><input type="button" value ="印刷"></div>
 		<br>
 		<s:form action="GetAddressAction">
 			<button type="submit" class="button">トップへ戻る</button>
 		</s:form>
 </div>
+
 </body>
 </html>

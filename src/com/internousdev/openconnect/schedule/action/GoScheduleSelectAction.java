@@ -56,6 +56,7 @@ public class GoScheduleSelectAction extends ActionSupport implements SessionAwar
 		GoScheduleSelectDAO dao2 = new GoScheduleSelectDAO();
 		scheduleList = dao.select(userId);
 		teamList = dao2.select2();
+		search = scheduleList.get(0).getTeamName();
 		result = SUCCESS;
 
 

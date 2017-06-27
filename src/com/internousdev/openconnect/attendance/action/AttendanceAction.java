@@ -62,7 +62,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	 * 報告日
 	 */
 	private int atDay;
-	
+
 	/**
 	 * チーム名
 	 */
@@ -278,7 +278,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-	
+
 	/**
 	* 取得メソッド を取得
 	* @author TEPPEI MATSUMOTO
