@@ -203,6 +203,7 @@ text-align: center;
 	left:0;
 	padding:0;
 	border: medium #333 double;
+	background-color: #fff;
 }
 
 #primary_nav_wrap ul ul li
