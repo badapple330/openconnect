@@ -296,6 +296,7 @@
   </div>
   </div>
 
+<!--
  <footer>
  <div  class = "footer">
  <nav>
@@ -318,7 +319,8 @@
  </div>
  </nav>
  </div>
- </footer>
+ </footer> -->
+ <jsp:include page="Bfooter.jsp" />
 
 </body>
 </html>

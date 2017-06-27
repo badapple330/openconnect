@@ -272,6 +272,8 @@ FOLLOW</a>
     <br>
     <br>
     <br>
+<jsp:include page="Bfooter.jsp" />
+   <!--
 
     <footer>
       <div  class = "footer">
@@ -296,6 +298,7 @@ FOLLOW</a>
  </nav>
  </div>
     </footer>
+     -->
 </div>
 </body>
 </html>

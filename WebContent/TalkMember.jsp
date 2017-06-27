@@ -126,6 +126,9 @@
     <div class="col-sm-1 visible-lg-block"></div>
   </div>
 </div>
+
+<jsp:include page="Bfooter.jsp" />
+<!--
 <footer>
 <div  class = "footer">
  <nav>
@@ -149,5 +152,6 @@
  </nav>
  </div>
 </footer>
+ -->
 </body>
 </html>
