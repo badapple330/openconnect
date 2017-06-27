@@ -29,7 +29,7 @@ public class uploadFile extends ActionSupport{
    public String execute()
    {
       /* Copy file to a safe location */
-      destPath = "/opt/tomcat8/webapps/openconnect/Upload/";
+      destPath = "/opt/tomcat8/webapps/openconnect/file_up/";
 
       try{
      	 System.out.println("Src File name: " + myFile);
