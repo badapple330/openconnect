@@ -245,6 +245,7 @@
 		<!-- いいね後 -->
 			<div style="text-align:right">
 				<s:if test="goodFlg"><button type="button" class="good"></button><img src="pic/q.png" width= "20" height="20">
+
 				</s:if>
 			</div>
 		<!-- いいね前 -->

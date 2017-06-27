@@ -71,9 +71,13 @@ public class SendTimelineAction extends ActionSupport implements SessionAware{
 
 		//タイムライン投稿情報にインサートする
 		if(dao.timelineSend(sendContents, reTimelineId) != 0){
+
+			//ポイントを20加算
+			if(dao.pointPlus(userId) != 0){
 			//通知をインサート
 			msgDao.msgSet(userId, "投稿が完了しました");
 				result = SUCCESS;
+			}
 		}
 		return result;
 	}

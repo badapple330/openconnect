@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.bulletinboard.dto.TimelineDTO;
+import com.internousdev.util.DBConnector;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
@@ -163,6 +164,46 @@ public class TimelineDAO {
 		     return inserted;
 		  }
 
+	  /**
+	   * 投稿するとポイントが50加算するメソッド
+	   * @param userId
+	   * @param
+	   */
+	  public int pointPlus(int userId){
+		  	int senderId = 0;
+
+			LvDAO Lv =new LvDAO();
+
+			DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+			Connection con=db.getConnection();
+			int inserted=0;
+
+			String sql = "update users set point = point+20 where user_id = ?";
+
+			try{
+				PreparedStatement ps= con.prepareStatement(sql);
+				ps.setInt(1,userId);
+			inserted=ps.executeUpdate();
+
+				ps.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}finally{
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+
+
+			//経験値が1000以上だった場合にレベルUP
+			senderId = userId;
+			Lv.Lv_up(senderId);
+			return inserted;
+
+		}
+
 
 	  /**
 	   * タイムラインの投稿を削除するメソッド
@@ -218,6 +259,12 @@ public class TimelineDAO {
 			}
 			return deleted;
 		}
+
+	  /**
+	   * いいね情報を削除するメソッド
+	   * @param timelineId
+	   * @return
+	   */
 
 
 	  /**

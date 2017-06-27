@@ -10,7 +10,7 @@
 
 				<li><a href="terms_of_use.jsp" target="blank">利用規約</a></li>
 
-				<li><a href="" target="blank">bulletinboard</a></li>
+				<li><a href="TalkMember.jsp" target="blank">bulletinboard</a></li>
 			</ul>
 		</nav>
 		<small>Copyright © 2014-2017 ProgrammerCollege、all rights reserved.</small>
