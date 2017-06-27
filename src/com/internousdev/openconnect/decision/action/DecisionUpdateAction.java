@@ -20,7 +20,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internousdev
  *
  */
-public class DecisionUploadAction extends ActionSupport implements SessionAware{
+public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 	/**
