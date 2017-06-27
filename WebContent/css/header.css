@@ -197,7 +197,7 @@ text-align: center;
 
 #primary_nav_wrap ul li:hover
 {
-	background:#e6e6e6;
+	background:#f0e68c;
 }
 
 #primary_nav_wrap ul ul
@@ -206,7 +206,7 @@ text-align: center;
 	position:absolute;
 	top:100%;
 	left:0;
-	background:#fff;
+	background: #afeeee;
 	padding:0
 }
 
