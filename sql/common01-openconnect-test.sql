@@ -531,11 +531,11 @@ insert into follow(do,done) values(30,31),(31,30),(30,32),(32,30),(31,32),(32,31
 (37,30),(30,37),(31,37),(37,31),(37,32),(32,37),(33,37),(37,33),(37,34),(34,37),(35,37),(37,35),(37,36),(36,37),
 (38,30),(30,38),(31,38),(38,31),(38,32),(32,38),(33,38),(38,33),(38,34),(34,38),(35,38),(38,35),(38,36),(36,38),(37,38),(38,37);
 
-insert into group_master(group_name,group_img) values("legmina","tomato030.jpg"),("openconnect","tomato030.jpg"),("cetus","tomato030.jpg"),("bananalate","tomato030.jpg");
+insert into group_master(group_name,group_img) values("legmina","pic/group_img/tomato01.jpg"),("openconnect","pic/group_img/tomato01.jpg"),("cetus","tomato030.jpg"),("bananalate","tomato030.jpg");
 
-insert into groups(user_id,group_id) values(30,30),(31,30),(32,30),(33,30),(34,33),(32,33),(35,33);
+insert into groups(user_id,group_id) values(30,1),(31,1),(32,1),(33,1),(34,1),(32,2),(35,2);
 
-insert into post(sender_id,group_id,post_contents) values(30,30,"グループを新設しました"),(35,33,"グループを新設しました");
+insert into post(sender_id,group_id,post_contents) values(30,1,"グループを新設しました"),(35,2,"グループを新設しました");
 
 insert into post(sender_id,receiver_id,post_contents) values(30,31,"（・ｘ・）"),(30,32,"｜ω：）"),(30,33,"（・ω｜"),(31,32,"（・ω・）"),(31,33,"（：：）"),(32,33,"v（・ω｜"),
 (34,30,"v（・ω｜"),(34,31,"v（・ω｜"),(34,32,"v（・ω｜"),(34,33,"v（・ω｜"),
