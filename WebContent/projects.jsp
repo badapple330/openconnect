@@ -90,6 +90,7 @@
 							<td></td>
 
 							<td><div class="largetext">管理者（サブ)</div></td>
+							<td><div class="middletext">人数</div></td>
 							<td><div class="middletext">開始日（yyyy/MM/dd）</div></td>
 							<td><div class="middletext">終了日（yyyy/MM/dd）</div></td>
 							<td>備考</td>
@@ -132,6 +133,10 @@
 
 								<s:property value="subManagerFamilyNameKanji" /> <s:property
 										value="subManagerGivenNameKanji" /></td>
+
+								<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
+								name="projectMemberNumberList" placeholder="半角数字で入力" maxlength="10"
+								required value="<s:property value="memberNumber"/>"></td>
 
 
 								<td><input type="text" name="projectStartDateList"
@@ -205,6 +210,7 @@
 							<td>プロジェクト名</td>
 							<td>管理者(リーダー)</td>
 							<td>管理者(サブリーダー)</td>
+							<td>人数</td>
 							<td>開始日(yyyy/MM/dd)</td>
 						</tr>
 
@@ -220,6 +226,11 @@
 							<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
 								name="subManagerId" placeholder="半角数字で入力" maxlength="10"
 								required></td>
+
+							<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
+								name="memberNumber" placeholder="半角数字で入力" maxlength="10"
+								required></td>
+
 							<td><input type="date"
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 								name="startDate" required></td>

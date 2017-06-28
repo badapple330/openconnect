@@ -33,6 +33,12 @@ public class ProjectsSelectDTO {
 	private int subManagerId;
 
 	/**
+	 * 人数
+	 */
+	private int memberNumber;
+
+
+	/**
 	 * 開始日
 	 * @author YUICHI KIRIU
 	 */
@@ -237,6 +243,20 @@ public class ProjectsSelectDTO {
 	 */
 	public void setNote(String note) {
 		this.Note = note;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return memberNumber
+	*/
+	public int getMemberNumber() {
+		return memberNumber;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param memberNumber
+	*/
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
 	}
 
 }

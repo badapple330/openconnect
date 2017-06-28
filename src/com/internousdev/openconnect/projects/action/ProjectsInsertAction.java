@@ -47,6 +47,11 @@ public class ProjectsInsertAction extends ActionSupport {
 	private String startDate;
 
 	/**
+	 * 人数
+	 */
+	private int memberNumber;
+
+	/**
 	 * 結果文字
 	 */
 	private String resultString = "";
@@ -66,7 +71,7 @@ public class ProjectsInsertAction extends ActionSupport {
 
 
 		int count = 0;
-		count = dao.insert(projectName, managerId, subManagerId, startDate);
+		count = dao.insert(projectName, managerId, subManagerId, memberNumber, startDate);
 
 		if (count > 0) {
 			result = SUCCESS;
@@ -213,6 +218,22 @@ public class ProjectsInsertAction extends ActionSupport {
 	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return memberNumber
+	*/
+	public int getMemberNumber() {
+		return memberNumber;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param memberNumber
+	*/
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
 	}
 
 }
