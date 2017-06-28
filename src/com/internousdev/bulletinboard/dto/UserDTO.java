@@ -40,6 +40,14 @@ public class UserDTO {
 	 */
 	private boolean deleteFlg;
 
+
+	/**
+	 * 背景色
+	 */
+	private String color;
+
+
+
 	/**
 	 * 通知文
 	 */
@@ -207,5 +215,14 @@ public int getDone() {
 public void setDone(int done) {
 	Done = done;
 }
+
+public String getColor() {
+	return color;
+}
+
+public void setColor(String color) {
+	this.color = color;
+}
+
 
 }
