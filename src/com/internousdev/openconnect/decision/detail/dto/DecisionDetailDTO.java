@@ -16,7 +16,6 @@ public class DecisionDetailDTO {
 	 * 起案番号一時保管庫(DecisionDetailApplicationDAO)
 	 */
 	private String idNumAmount;
-
 	/**
 	* 取得メソッド を取得
 	* @return idNumAmount

@@ -5,34 +5,30 @@ package com.internousdev.openconnect.decision.detail.action;
 
 import java.util.Map;
 
-import com.internousdev.openconnect.decision.detail.dao.DecisionDetailChangeDAO;
+import com.internousdev.openconnect.decision.detail.dao.DecisionDetailCancelDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
- * 変更申請ボタン押下時にDBの情報を更新するクラス
+ * 申請取り消しボタン押下時にDBの情報を更新するクラス
  * @author SOSHI AZUMA
  * @since 2017/06/28
  * @version 1.0
  */
-public class DecisionDetailChangeAction extends ActionSupport {
+public class DecisionDetailCancelAction extends ActionSupport {
 
 	/**
 	 * シリアルバージョンID
 	 */
-	private static final long serialVersionUID = -2651575283199660553L;
+	private static final long serialVersionUID = -4560754407665304461L;
 	/**
 	 * 決裁ID
 	 */
 	private int decisionId;
 	/**
-	 * 決裁種類
+	 * 決裁状況
 	 */
-	private String decisionType;
-	/**
-	 * sessionから取得したログイン中ユーザーID
-	 */
-	private int userId;
+	private int decisionStatus;
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -40,32 +36,34 @@ public class DecisionDetailChangeAction extends ActionSupport {
 	/**
 	 * エラーメッセージ
 	 */
-	private String resultString = "変更申請できませんでした。もしくは申請済みです。";
+	private String resultString = "申請取り消しできませんでした。もしくは取り消し済みです。";
 
 
 
 	/**
-	 * 実行メソッド 変更申請による値の更新をする
+	 * 実行メソッド 申請取り消しによる値の更新をする
 	 * @return result 決裁情報の更新に成功したらSUCCESS, 失敗したらERROR
 	 */
 	public String execute() {
 
 		String result=ERROR;
 
-		DecisionDetailChangeDAO dao = new DecisionDetailChangeDAO();
+		DecisionDetailCancelDAO dao = new DecisionDetailCancelDAO();
 
 		int count = 0;
 
 
-		count = dao.change(decisionType, decisionId);
+		count = dao.cancel(decisionStatus, decisionId);
 
 
 		if (count > 0 ) {
 			result = SUCCESS;
-			resultString = "変更申請できました! ";
+			resultString = "申請取り消しできました! ";
 		}
 
 		return result;
+
+
 	}
 
 
@@ -92,46 +90,6 @@ public class DecisionDetailChangeAction extends ActionSupport {
 
 	/**
 	* 取得メソッド を取得
-	* @return decisionType
-	*/
-	public String getDecisionType() {
-		return decisionType;
-	}
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param decisionType
-	*/
-	public void setDecisionType(String decisionType) {
-		this.decisionType = decisionType;
-	}
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @return userId
-	*/
-	public int getUserId() {
-		return userId;
-	}
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param userId
-	*/
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-
-
-	/**
-	* 取得メソッド を取得
 	* @return session
 	*/
 	public Map<String, Object> getSession() {
@@ -146,6 +104,26 @@ public class DecisionDetailChangeAction extends ActionSupport {
 	*/
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionStatus
+	*/
+	public int getDecisionStatus() {
+		return decisionStatus;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionStatus
+	*/
+	public void setDecisionStatus(int decisionStatus) {
+		this.decisionStatus = decisionStatus;
 	}
 
 
