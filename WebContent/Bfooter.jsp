@@ -25,11 +25,11 @@
 
 
 
-	<footer >
+	<footer>
 
 
 
-		<div class="footer" style="background-color:#6FF5EF;">
+	<div class="color" style ="background-color:<s:property value="#session.color"/>;">
 			<nav>
 				<div class="contents">
 					<div id="link"
