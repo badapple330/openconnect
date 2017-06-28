@@ -526,7 +526,7 @@
 						size="8">万円 <br> 損益費用：<input type="text"
 						name="benefit" value="<s:property value="benefit" />"
 						readonly="readonly" size="8">万円<br>
-						合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text"
+						合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text"
 						value="<s:property value="amountAll" />" readonly="readonly"
 						size="8">万円
 					</td>
