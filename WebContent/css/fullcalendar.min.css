@@ -36,7 +36,13 @@
  /*ドットの色の変更(月カレンダーの棒状のやつとか日別リストの予定左の●とか)*/
  .fc-event-dot{background-color:#22ddd3}
 
- .fc-event,.fc-event:hover,.ui-widget
+ .fc-event,
+
+/*イベント上にカーソルを置いたときに変更される色の指定(元々の文字の色も黒に変わる。理由不明)*/
+ .fc-event:hover,
+
+
+ .ui-widget
 
  /*文字色の変更(位置を変えると色が正しく表示されない？)*/
  .fc-event{color:white;text-decoration:none}
