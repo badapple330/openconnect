@@ -10,12 +10,11 @@
 <body>
 
 <div class="color" style ="background-color:<s:property value="#session.color"/>;">
-<s:property value="#session.color"/>
 
 <form action="colorChangeAction">
 <label>
  BGC
-  <input id="bg-color" type="color" value="" list="color-list">
+  <input id="bg-color" type="color" value="" list="color-list" name="color">
     <datalist id="color-list">
     <option value="#000000"></option>
     <option value="#ff0000"></option>
@@ -23,7 +22,7 @@
     <option value="#0000ff"></option>
     <option value="#ffff00"></option>
 </label>
-<input type="submit" value="送信">
+<input type="submit"  value="送信">
 </form>
 
 </div>
