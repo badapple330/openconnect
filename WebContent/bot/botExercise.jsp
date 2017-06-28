@@ -33,7 +33,7 @@
     <div class="col-sm-10">
     	<div class = "outline">
 <br>
-<h3>botくんに言葉を覚えさせよう</h3>
+<h3><span class="glyphicon glyphicon-pencil"></span>botくんに言葉を覚えさせよう</h3>
 <br>
 <s:form action="BotExerciseAction" name="test">
   <div class="form-group">
