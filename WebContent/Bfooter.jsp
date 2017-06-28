@@ -25,11 +25,11 @@
 
 
 
-	<footer>
+	<footer >
 
 
 
-		<div class="footer">
+		<div class="footer" style="background-color:#6FF5EF;">
 			<nav>
 				<div class="contents">
 					<div id="link"
