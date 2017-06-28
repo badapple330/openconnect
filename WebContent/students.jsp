@@ -217,5 +217,8 @@
 		</s:form></div>
 	</div>
 	<br>
+
+	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>
