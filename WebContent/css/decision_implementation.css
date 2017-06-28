@@ -67,11 +67,13 @@ textarea{
 	border:1px;
 }
 
-.w80{
-	width: 8px;
+.w67{
+	width: 67px;
 }
 .font60{
 	font-size: 60%;
 }
-
+.bg-color{
+	background-color: #00ffff;
+}
 
