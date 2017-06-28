@@ -80,7 +80,7 @@ pageEncoding="UTF-8"%>
             	<img src="<s:property value="userImg"/>" class="border_radius" alt="">
             	<div class="fontsize"><s:property value="userName"/></div>
         	</figure>
-        	<s:if test="userId==-1"><a href="botMaintenance.jsp">メンテナンスページへ</a></s:if>
+        	<s:if test="userId==-1"><a href="bot/botMaintenance.jsp">メンテナンスページへ</a></s:if>
         </div>
 
      <!-- フォロー・削除ボタン -->
