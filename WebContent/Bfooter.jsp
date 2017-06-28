@@ -11,7 +11,9 @@
 
 <style>
 .active {
-	background-color: rgb(111, 207, 245);
+	background-color: rgba(255, 255, 255, 0.6);
+	border-style:solid;
+	color:rgba(50, 50, 50, 0.6);
 }
 </style>
 

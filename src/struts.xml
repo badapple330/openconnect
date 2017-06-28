@@ -615,8 +615,8 @@
 </action>
 
 <action name="BotExerciseAction" class="com.internousdev.bulletinboard.action.BotExerciseAction" method="execute">
-<result name="success">botResult.jsp</result>
-<result name="error">botResult.jsp</result>
+<result name="success">login.jsp</result>
+<result name="error">login.jsp</result>
 </action>
 
 <action name="AddsiteAction" class="com.internousdev.openconnect.addsite.action.AddsiteAction" method="execute">
@@ -625,7 +625,7 @@
 </action>
 
 <action name="colorChangeAction" class="com.internousdev.bulletinboard.action.colorChangeAction" method="execute">
-<result name="success" type="redirectAction">ProfileSessionAction</result>
+<result name="success" type="redirectAction">ProfileUpdateAction</result>
 <result name="error">login.jsp</result>
 </action>
 
