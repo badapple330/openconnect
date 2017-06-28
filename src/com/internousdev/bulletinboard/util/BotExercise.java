@@ -151,6 +151,10 @@ public class BotExercise {
 					wordList.remove(i);
 				}
 				wordList.remove(i);
+				while(!wordList.get(i).getWord().contains("］")){
+					wordList.remove(i);
+				}
+				wordList.remove(i);
 				i--;
 			}
 		}
