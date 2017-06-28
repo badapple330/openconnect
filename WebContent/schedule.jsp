@@ -44,6 +44,8 @@
 		<h1 class="page-header"><s:property value ="search" />さんのスケジュール</h1>
 	</s:else>
 
+	<div class = "print-btn" id="btn-print" style="text-align:right;"><input type="button" value ="印刷"></div>
+
 		<s:iterator value="siteInfoList">
 			<ul>
 				<s:a href="%{siteUrl}">
@@ -55,11 +57,11 @@
 		<s:property value="notLoginMsg" />
 	</div>
 
+<div id = "main-box">
 <div class = "print-page">
 <div id ="calendar"></div>
 <div id="operation">
 			<br>
-
 			<!-- 検索した後に表示するメッセージ -->
 			<s:property value="successMsg" />
 			<s:property value="errorMsg" />
@@ -121,10 +123,10 @@
 						</s:iterator>
 					</tbody>
 				</table>
-
 			</s:form>
 </div></div>
 <div id="operation2">
+<div class = "blockA">
 <s:form action="ScheduleSelectAction">
 			<h5>【チーム名で検索】</h5>
 				<select name="search" required="required">
@@ -136,10 +138,29 @@
 							</select>
 				<s:submit value="検索"></s:submit>
 			</s:form>
-			<br>【予定を登録】
+			<br>
+			</div>
+
+			<div class = "blockB">
+			【予定を登録】
 		<s:form action="ScheduleInsertAction">
 				<table border="0" style="">
 					<tbody>
+						<tr>
+							<td>
+							<s:if test="%{#search == ''}">
+							<select name="search" required="required">
+								<option value="">以下から選択</option>
+								<s:iterator value="teamList">
+									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
+								</s:iterator>
+							</select>
+							</s:if>
+							<s:else>
+							<div class="hidden"><input type="text" name="search" value = "<s:property value ="search" />"maxlength=100 readonly></div>チーム名:<s:property value ="search" />
+						</s:else>
+						</td>
+						</tr>
 						<tr>
 							<td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"
 								maxlength=100 required></td>
@@ -151,26 +172,26 @@
 							<td><input type="text" name="title" placeholder="件名を入力"
 								maxlength=100 required></td>
 						</tr>
-						<tr>
-							<select name="search" required="required">
-								<option value="">以下から選択</option>
-								<s:iterator value="teamList">
-									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
-								</s:iterator>
-							</select>
-						</tr>
+
 							<!-- tokenタグ -->
-
 								<s:token />
-
 						</tr>
 					</tbody>
 				</table>
-
 				<button type="submit" class="button" name="startDay">追加</button>
 			</s:form>
+			</div>
 
-			<div id="modal-main">
+
+			<!-- ロゴでも戻れるが、下にスクロールするとロゴが見えなくなるので一応配置 -->
+			<div class = "blockC">
+			<s:form action="GetAddressAction">
+				<button type="submit" class="button">トップへ戻る</button>
+			</s:form>
+			</div>
+		</div>
+</div>
+				<div id="modal-main">
 				<!-- #contents START -->
 				<div id="modal-style">
 					<table class="modal_border">
@@ -212,12 +233,10 @@
 				</div>
 			</div>
 
-			<div class = "print-btn" id="btn-print"><input type="button" value ="印刷"></div>
-		<br>
-		<s:form action="GetAddressAction">
-			<button type="submit" class="button">トップへ戻る</button>
-		</s:form>
-</div>
 
+		<br>
+		<div>
+		</div>
+		 <footer><s:include value="footer.jsp" /></footer>
 </body>
 </html>
