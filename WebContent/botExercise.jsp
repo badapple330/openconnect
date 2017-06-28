@@ -14,7 +14,6 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	<link rel="stylesheet" href="css/style2.css">
-	<link rel="stylesheet" href="css/group.css">
 	<link rel="stylesheet" href="css/Bfooter.css">
 
 
@@ -24,26 +23,7 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid">
-  <div class="navbar-header">
-  <a class="navbar-brand" href="botMaintenance.jsp">botくんメンテナンスページ</a>
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
-      <span class="sr-only">メニュー</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
-
-  <div id="gnavi" class="collapse navbar-collapse">
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="botExercise.jsp">言葉を教える</a></li>
-      <li><a href="#">言葉を忘れさせる</a></li>
-    </ul>
-  </div>
-  </div>
-</nav>
+<header><jsp:include page="botHeader.jsp" /></header>
 
 
 <div class="container">
@@ -68,9 +48,8 @@
     <label>覚えさせる文章（単語じゃなくて文章で教えてね）</label>
     <textarea name="sentence" class="form-control" rows="10" cols="80%" id="sendContents" required></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" onclick="disableSubmit(this);">送信</button>
+    <button type="submit" class="btn btn-primary">送信</button>
 </s:form>
-
 <script>
 var obj1 = document.getElementById("selfile");
 

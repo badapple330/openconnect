@@ -27,26 +27,26 @@
 </head>
 
 <body>
-<header><jsp:include page="botHeader.jsp" /></header>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-1 visible-lg-block"></div>
-
-    <div class="col-sm-10">
-    	<div class = "outline">
-    	<br>
-<h2>botくんは今日も元気です。</h2>
-
-		</div>
-    </div>
-
-    <div class="col-sm-1 visible-lg-block"></div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="container-fluid">
+  <div class="navbar-header">
+  <a class="navbar-brand" href="botMaintenance.jsp">botくんメンテナンスページ</a>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+      <span class="sr-only">メニュー</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
   </div>
-</div>
 
-
+  <div id="gnavi" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="botExercise.jsp">言葉を教える</a></li>
+      <li><a href="#">言葉を忘れさせる</a></li>
+    </ul>
+  </div>
+  </div>
+</nav>
 
 </body>
 </html>

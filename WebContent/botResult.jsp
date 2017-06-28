@@ -37,7 +37,7 @@
     <div class="col-sm-10">
     	<div class = "outline">
     	<br>
-<h2>botくんは今日も元気です。</h2>
+<h3><s:property value="resultSentence"/></h3>
 
 		</div>
     </div>
@@ -45,7 +45,6 @@
     <div class="col-sm-1 visible-lg-block"></div>
   </div>
 </div>
-
 
 
 </body>
