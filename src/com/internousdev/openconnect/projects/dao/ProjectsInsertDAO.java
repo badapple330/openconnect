@@ -2,6 +2,7 @@ package com.internousdev.openconnect.projects.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
@@ -57,4 +58,72 @@ public class ProjectsInsertDAO {
 
 	}
 
+
+	public int managerIdFinder(String managerFamilyName, String managerGivenName){
+		int managerId = 0;
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection conn = db.getConnection();
+		String sql = "SELECT user_id FROM users WHERE family_name_kanji = ? and given_name_kanji = ?";
+
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, managerFamilyName);
+			ps.setString(2, managerGivenName);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+            	managerId = rs.getInt("user_id");
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return managerId;
+	}
+
+	public int subManagerIdFinder(String subManagerFamilyName, String subManagerGivenName){
+		int subManagerId = 0;
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection conn = db.getConnection();
+		String sql = "SELECT user_id FROM users WHERE family_name_kanji = ? and given_name_kanji = ?";
+
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, subManagerFamilyName);
+			ps.setString(2, subManagerGivenName);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+
+            	subManagerId = rs.getInt("user_id");
+
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return subManagerId;
+	}
+
+
+
+
+
 }
+
+
+
