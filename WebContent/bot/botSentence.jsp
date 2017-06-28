@@ -47,6 +47,7 @@ $(function() {
             <th data-column-id="id" data-type="numeric">ID</th>
             <th data-column-id="sender">要約</th>
             <th data-column-id="received" data-order="desc">覚えさせた日</th>
+            <th data-column-id="link" data-formatter="link" data-sortable="false">Link</th>
         </tr>
     </thead>
     <tbody>
@@ -55,6 +56,7 @@ $(function() {
             <td><s:property value="sentenceId"/></td>
             <td><s:property value="label"/></td>
             <td><s:property value="createdAt"/></td>
+            <td><a href="<s:url action="BotSearchAction"><s:param name="sentenceId" value="%{sentenceId}"/></s:url>">文章を見る</a></td>
         </tr>
         </s:iterator>
     </tbody>
