@@ -40,7 +40,7 @@
   <div id="gnavi" class="collapse navbar-collapse">
     <ul class="nav navbar-nav navbar-right">
       <li><a href="botExercise.jsp">言葉を教える</a></li>
-      <li><a href="#">言葉を忘れさせる</a></li>
+      <li><a href="<s:url action="BotSearchAction"></s:url>">言葉を閲覧する</a></li>
     </ul>
   </div>
   </div>

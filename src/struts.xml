@@ -626,6 +626,11 @@
 <result name="error">login.jsp</result>
 </action>
 
+<action name="BotSearchAction" class="com.internousdev.bulletinboard.action.BotSearchAction" method="execute">
+<result name="success">botSentence.jsp</result>
+<result name="error">botMaintenance.jsp</result>
+</action>
+
 <action name="AddsiteAction" class="com.internousdev.openconnect.addsite.action.AddsiteAction" method="execute">
 <result name="success">addsite.jsp</result>
 <result name="error">addsite.jsp</result>

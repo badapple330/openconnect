@@ -45,21 +45,18 @@ $(function() {
     <thead>
         <tr>
             <th data-column-id="id" data-type="numeric">ID</th>
-            <th data-column-id="sender">Sender</th>
-            <th data-column-id="received" data-order="desc">Received</th>
+            <th data-column-id="sender">要約</th>
+            <th data-column-id="received" data-order="desc">覚えさせた日</th>
         </tr>
     </thead>
     <tbody>
+    	<s:iterator value="masterList" >
         <tr>
-            <td>10238</td>
-            <td>eduardo@pingpong.com</td>
-            <td>14.10.2013</td>
+            <td><s:property value="sentenceId"/></td>
+            <td><s:property value="label"/></td>
+            <td><s:property value="createdAt"/></td>
         </tr>
-        <tr>
-            <td>10238</td>
-            <td>eduardo@pingpong.com</td>
-            <td>14.10.2013</td>
-        </tr>
+        </s:iterator>
     </tbody>
 </table>
 

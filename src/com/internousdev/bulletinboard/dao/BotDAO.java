@@ -285,4 +285,33 @@ public class BotDAO {
 	return inserted;
 	}
 
+
+	public ArrayList<BotDTO> mastersearch(){
+		ArrayList<BotDTO> masterList = new ArrayList<BotDTO>();
+		Connection con = new MySqlConnector("bbbot").getConnection();
+
+		String sql = "select * from word_analysis_master";
+
+		  try{
+			  PreparedStatement ps = con.prepareStatement(sql);
+			  ResultSet rs = ps.executeQuery();
+			  while(rs.next()){
+				  BotDTO dto = new BotDTO();
+				  dto.setSentenceId(rs.getInt("sentence_id"));
+				  dto.setLabel(rs.getString("label"));
+				  dto.setCreatedAt(rs.getString("created_at"));
+				  masterList.add(dto);
+				  }
+			  }catch(SQLException e){
+		    	e.printStackTrace();
+		    	}finally {
+			try{
+				con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		  return masterList;
+	}
+
 }
