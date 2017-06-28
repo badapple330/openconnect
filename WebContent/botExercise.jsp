@@ -68,7 +68,7 @@
     <label>覚えさせる文章（単語じゃなくて文章で教えてね）</label>
     <textarea name="sentence" class="form-control" rows="10" cols="80%" id="sendContents" required></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">送信</button>
+    <button type="submit" class="btn btn-primary" onclick="disableSubmit(this);">送信</button>
 </s:form>
 
 <script>

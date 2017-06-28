@@ -15,6 +15,11 @@ public class BotExerciseAction extends ActionSupport{
 	 */
 	private String label;
 
+	/**
+	 * 結果の文章
+	 */
+	private String resultSentence;
+
 	public String execute() {
 		String result = ERROR;
 		BotDAO dao = new BotDAO();
@@ -27,10 +32,13 @@ public class BotExerciseAction extends ActionSupport{
 				if(sentenceId!=0){
 					//学習テーブルにインサート
 					if(dao.wordSet(sentence, sentenceId)!=0){
+						resultSentence = "おめでとう！botくんがあなたの入力した文章を覚えました！";
 						result = SUCCESS;
 					}
 				}
 			}
+		}else{
+			resultSentence = "その要約はすでに使われてるので使用できません。ごめんね！";
 		}
 
 		return result;
@@ -66,6 +74,22 @@ public class BotExerciseAction extends ActionSupport{
 	*/
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return resultSentence
+	*/
+	public String getResultSentence() {
+		return resultSentence;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param resultSentence
+	*/
+	public void setResultSentence(String resultSentence) {
+		this.resultSentence = resultSentence;
 	}
 
 
