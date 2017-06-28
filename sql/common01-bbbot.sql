@@ -31,17 +31,24 @@ word varchar(50) not null comment '反応する単語',
 response varchar(150) not null comment '反応'
 );
 
+create table word_analysis_master(
+sentence_id int not null primary key auto_increment comment '文章ID',
+label varchar(50) not null comment 'どんな文章を入れたかの説明',
+created_at datetime not null  default current_timestamp comment '作成日'
+);
 
 create table word_analysis(
-word_id int not null primary key auto_increment comment '単語ID',
+sentence_id int not null primary key auto_increment comment '文章ID',
 word varchar(50) not null comment '単語',
 parts varchar(50) comment '単語の基本形（「行った」なら「行く」）',
 part_of_speech varchar(20) comment '品詞',
 dictionary boolean  default false comment '辞書に載ってるか',
 after_word varchar(50) comment '次に続く言葉',
 before_word varchar(50) comment '前に続いた言葉',
-impression tinyint comment '印象（良ければプラス、悪ければマイナス)'
+impression tinyint comment '印象（良ければプラス、悪ければマイナス)',
+foreign key(sentence_id) references word_analysis_master(sentence_id)
 );
+
 
 create table word_impression(
 word varchar(50) not null comment '単語',

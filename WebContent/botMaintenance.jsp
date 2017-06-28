@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>botくんに言葉を教える</title>
+<title>botくんメンテナンス</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<!-- Stylesheet
     ================================================== -->
 	<link rel="stylesheet" href="css/bootstrap.css" />
@@ -22,7 +24,9 @@
     ================================================== -->
     <script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
@@ -52,49 +56,43 @@
 
     <div class="col-sm-10">
     	<div class = "outline">
-<br>
-<h3>botくんに言葉を覚えさせよう</h3>
-<br>
-<s:form action="BotExerciseAction" name="test">
-  <div class="form-group">
-    <label>どんな言葉を覚えさせるかの要約（50文字以内）（重複NG）</label>
-    <input type="text" class="form-control" maxlength="50" name="label" required>
-  </div>
-  <div class="form-group">
-<label>テキストファイルがある場合は読み込みができます</label>
-<input type="file" id="selfile">
-</div>
-  <div class="form-group">
-    <label>覚えさせる文章（単語じゃなくて文章で教えてね）</label>
-    <textarea name="sentence" class="form-control" rows="10" cols="80%" id="sendContents" required></textarea>
+    	<br>
+<h2>botくんは今日も元気です。</h2>
+
+		</div>
     </div>
-    <button type="submit" class="btn btn-primary">送信</button>
-</s:form>
 
-<script>
-var obj1 = document.getElementById("selfile");
-
-//ダイアログでファイルが選択された時
-obj1.addEventListener("change",function(evt){
-
-  var file = evt.target.files;
-
-  //FileReaderの作成
-  var reader = new FileReader();
-  //テキスト形式で読み込む
-  reader.readAsText(file[0]);
-
-  //読込終了後の処理
-  reader.onload = function(ev){
-    //テキストエリアに表示する
-    document.test.sentence.value = reader.result;
-  }
-},false);
-</script>
-</div>
-</div>
     <div class="col-sm-1 visible-lg-block"></div>
+  </div>
 </div>
-</div>
+
+<jsp:include page="Bfooter.jsp" />
+
+<!--
+<footer>
+<div  class = "footer">
+ <nav>
+ <div class = "contents" >
+ <div class="a" style="margin-right:20px"><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><img class="pic" src ="pic/profile.png" ></a></div>
+
+ <div class="a" style="margin-right:20px"><a href="<s:url action="GoTalkListAction"/>"><img class="pic" src ="pic/talk.png" >
+ <s:if test="talkInfo > 0 and talkInfo <100"><span class="b"><s:property value="talkInfo" /></span></s:if>
+ <s:if test="talkInfo >= 100 and talkInfo <1000"><span class="bh"><s:property value="talkInfo" /></span></s:if>
+ <s:if test="talkInfo >= 1000"><span class="bt"><s:property value="talkInfo" /></span></s:if>
+ </a></div>
+
+ <div class="a" style="margin-right:20px; background-color:rgb(111, 207, 245);" ><a href="<s:url action="GoGroupAction"/>"><img class="pic" src ="pic/group.png" >
+ <s:if test="groupInfo > 0 and groupInfo <100"><span class="b"><s:property value="groupInfo" /></span></s:if>
+ <s:if test="groupInfo >= 100 and groupInfo <1000"><span class="bh"><s:property value="groupInfo" /></span></s:if>
+ <s:if test="groupInfo >= 1000"><span class="bt"><s:property value="groupInfo" /></span></s:if>
+ </a></div>
+
+ <div class="a"><a href="<s:url action="GoTimelineAction"/>"><img class="pic" src ="pic/time_line.png" ></a></div>
+ </div>
+ </nav>
+ </div>
+</footer>
+ -->
+
 </body>
 </html>
