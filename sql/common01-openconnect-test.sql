@@ -371,7 +371,7 @@ comment = 'ユーザー情報格納テーブル';
 create table group_master(
 group_id int not null primary key auto_increment comment 'グループID',
 group_name varchar(50) not null comment 'グループ名',
-group_img varchar(50) default "papurika01.jpg" comment 'グループイメージ',
+group_img varchar(50) default "pic/group_img/papurika01.jpg" comment 'グループイメージ',
 created_at datetime not null  default current_timestamp comment '作成日'
 );
 
