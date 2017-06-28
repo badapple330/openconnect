@@ -624,6 +624,10 @@
 <result name="error">addsite.jsp</result>
 </action>
 
+<action name="colorChangeAction" class="com.internousdev.bulletinboard.action.colorChangeAction" method="execute">
+<result name="success">color.jsp</result>
+<result name="error">login.jsp</result>
+</action>
 
 <!-- グループ新規作成の二重投稿を防止するアクション -->
 <action name="GroupTokenAction" class="com.internousdev.bulletinboard.action.GroupTokenAction">
