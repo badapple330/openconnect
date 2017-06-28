@@ -3,6 +3,10 @@
  */
 package com.internousdev.openconnect.decision.detail.action;
 
+
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -70,21 +74,16 @@ public class DecisionDetailSelectAction extends ActionSupport {
 		DecisionDetailSelectDAO dao = new DecisionDetailSelectDAO();
 
 
-		//int userId = (int) session.get("userId");
-		//int userId1 = userId;
 		int userId1 = userId;
-
-		if(userId < 0) {
-		DecisionDetailDTO dto = new DecisionDetailDTO();
-		int userId = dto.getUserId();
-		userId1 = userId;
-		}
-
 
 
 		decisionDetailList1 = dao.selectAnotherD( searchString, userId, userId1 );
 		decisionDetailList2 = dao.selectMyD( userId, userId1);
-		decisionBeginList = dao.selectP( userId, userId1 );
+		decisionBeginList = dao.selectBeginP( userId, userId1 );
+
+		//日付比較用
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+		dto = dao.selectCompareDay( userId, userId1);
 
 
 		if( decisionDetailList1.size() == 0){

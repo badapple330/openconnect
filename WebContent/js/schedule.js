@@ -53,11 +53,14 @@ $(function(){
 
 		$('.delete-title').html($('.scheduleTitleList').eq(index).val());
 
-		$('.delete-content').html($('.scheduleContentList').eq(index).val());
+		$('.delete-teamname').html($('.teamList').eq(index).val());
 
 		var index = $('.modal-open').index($(this));
 		var abc = $('.scheduleIdList').eq(index).val();
 		$('.true-delete').val( abc );
+
+		var abc2 = $('.teamList2').eq(index).val();
+		$('.true-delete2').val( abc2 );
 
 		$(".modal-close").click(function(){
 			$("#modal-main,#modal-bg").fadeOut("slow",function(){
@@ -80,4 +83,14 @@ $(function(){
 			});
 		}
 	});
+
+	$('.print-btn').on('click', function(){
+        var printPage = $('.print-page').html();
+        $('body').append('<div id="print"></div>');
+        $('#print').append(printPage);
+        $("body *:not(#print,#print *)").addClass('off');
+        window.print();
+        $('#print').remove();
+        $('.off').removeClass('off');
+    });
 });

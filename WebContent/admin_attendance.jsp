@@ -6,14 +6,14 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>勤怠確認</title>
 
 <script src="js/jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="./css/admin_attendance.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#searchButtun").click(
@@ -59,6 +59,7 @@
 					}
 				});
 	});
+
 </script>
 
 <script type="text/javascript" src="js/admin_attendance.js"></script>
@@ -70,6 +71,7 @@
 	<jsp:include page="header.jsp" />
 
 	<div class="container">
+	<div id="orver">
 		<!-- タイトル -->
 		<div align="center">
 			<h3
@@ -137,7 +139,7 @@
 
 
 		<!-- 印刷用モーダル表示ボタン -->
-		<input type="button" class="modal-open" id="modal-open" value="一覧印刷"/>
+		<input type="button" class="modal-open" id="modal-open" value="一覧表示"/>
 
 
 
@@ -179,15 +181,19 @@
 			</tbody>
 
 		</table>
+		</div>
 
 		<!-- 一覧モーダル -->
-		<div id="modal-atlist" style="display: none;">
+		<div id="modal-atlist" class="modal-atlist">
+		<div id="modal-innar">
 
 		<div class="modal-header">
         <button type="button" class="close" id="modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">勤怠確認</h4>
+        <h3 class="modal-title">勤怠確認</h3>
       </div>
-
+      <div class="print-page">
+      <div class="modal-body">
+      <div class="print-btn" id="btn_print">印刷</div>
 		<table style="margin-top: 10px;" class="type11">
 			<thead>
 				<tr>
@@ -219,9 +225,12 @@
 
 				</tbody>
 			</table>
+			</div>
 
 			<div class="modal-footer">
         		<button type="button" id="modal-close" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+        	</div>
+        	</div>
         	</div>
        </div>
 

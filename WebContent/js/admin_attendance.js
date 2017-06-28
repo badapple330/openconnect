@@ -1,19 +1,14 @@
 
 $(function(){
 //一覧印刷をクリックしたら
-$("#modal-open").click(function(){
+	$("#modal-open").click(function(){
+		//キーボード操作などにより、オーバーレイが多重起動するのを防止する
+		 $( this ).blur() ; //ボタンからフォーカスを外す
+		 if( $( "#modal-overlay" )[0] ) return false ;
 		//オーバーレイ用のHTMLコードを、[body]内の最後に生成する
 		$("body").append('<div id="modal-overlay"></div>');
 
-		var current_scrollY;
-
-		current_scrollY = $( window ).scrollTop();
-
-		$( '#wrapper' ).css( {
-			position: 'fixed',
-		    width: '100%',
-		    top: -1 * current_scrollY
-		  } );
+		$('html, body').addClass('lock');
 
 		centeringModalSyncer();
 		//モーダルをフェードインさせる
@@ -23,9 +18,10 @@ $("#modal-open").click(function(){
 
 
 		//
-		$("#modal-overlay,#modal-close").click(function(){
+		$("#modal-overlay,#modal-close").unbind().click(function(){
 			$("#modal-atlist,#modal-overlay").fadeOut("slow",function(){
 			$("#modal-overlay").remove();
+			$('html, body').removeClass('lock');
 			});
 		});
 
@@ -43,12 +39,24 @@ $("#modal-open").click(function(){
 
 			$("#modal-atlist").css({
 				"left": pxleft + "px",
-				"top": pxtop + "px"
+				"top": "10%"
 				});
 
 		}
 	});
+	 //個別印刷
+    $('.print-btn').on('click', function(){
+        var printPage = $(this).closest('.print-page').html();
+        $('body').append('<div id="print"></div>');
+        $('#print').append(printPage);
+        $('body > :not(#print)').addClass('print-off');
+        window.print();
+        $('#print').remove();
+        $('.print-off').removeClass('print-off');
+    });
+
 });
+
 
 
 

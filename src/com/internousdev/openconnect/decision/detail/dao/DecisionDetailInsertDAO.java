@@ -18,27 +18,22 @@ public class DecisionDetailInsertDAO {
 	 /**
      * 挿入メソッド  画面で受け取った追加情報を、DBへ転送し、追加する為のメソッド
      */
-	public int insert(int projectId, String decisionType, int decisionStatus1){
+	public int insert( int projectId, String decisionType ){
 
 		int count = 0;
-		if(decisionType.equals("実施兼契約")) {
-			decisionStatus1 = 2;
-		}
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
-		String sql = "INSERT INTO decision ( project_id, decision_type, decision_status1 ) VALUES ( ?, ?, ? )";
+		String sql = "INSERT INTO decision ( project_id, decision_type ) VALUES ( ?, ? )";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setInt(1, projectId);
 			ps.setString(2, decisionType);
-			ps.setInt(3, decisionStatus1);
 
 			count = ps.executeUpdate();
-
 
 		}catch(SQLException e){
 			e.printStackTrace();

@@ -1,7 +1,7 @@
 set names utf8;
-DROP DATABASE if EXISTS new_mastercard;
-CREATE DATABASE new_mastercard;
-use new_mastercard;
+DROP DATABASE if EXISTS mastercard;
+CREATE DATABASE mastercard;
+use mastercard;
 
 /* ユーザー情報
  **************************/

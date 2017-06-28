@@ -55,9 +55,8 @@ public class DecisionDetailInsertAction extends ActionSupport {
 		DecisionDetailInsertDAO dao = new DecisionDetailInsertDAO();
 
 		int count = 0;
-		int decisionStatus1 = 0;
 
-		count = dao.insert( projectId, decisionType, decisionStatus1 );
+		count = dao.insert( projectId, decisionType );
 
 		if (count > 0 ) {
 			result = SUCCESS;

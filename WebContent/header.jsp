@@ -27,23 +27,25 @@
 					<header id="headerSpace">
 						<div class="upperHeader">
 										<a href="applist.jsp" class="openConnect">Open Connect</a>
-							   <!-- internousdevのロゴ -->
-
-
-				               <a href=""><img class="dissappear" src="img/hd_logo.png"></a>
+						  <!-- internousdevのロゴ
+				             <a href=""><img class="dissappear" src="img/hd_logo.png"></a> -->
 
 						</div>
 						<nav id="primary_nav_wrap">
 							<ul>
 							  <s:if test="%{#session.userFlg == null}">
-							    <li><a href="JustGoAction" class="part_line">■ Login</a>
+							    <li>
+							     <a href="JustGoAction" class="part_line">Login</a>
+							    </li>
 							  </s:if>
 
 							  <s:if test="%{#session.userFlg >= 1}">
-							  <li><a href="#">■ Category</a>
+							  <li><a href="#" class= "header-menu">■ Category</a>
 							    <ul>
+							    <s:if test="%{#session.userFlg >= 2}">
+								  <li><a href="GoAdminAttendanceAction">勤怠確認</a></li>
+								</s:if>
 							      <li><a href="GoTeamAction">チーム情報</a></li>
-							      <li><a href="GoAttendanceAction">勤怠更新</a></li>
 							      <li><a href="#">プロジェクト</a>
 							      	<ul>
 							      	 <li><a href="ProjectsSelectAction">プロジェクト一覧</a></li>
@@ -58,16 +60,6 @@
 							      		<li><a href="GoScheduleSelectAction">スケジュール一覧</a></li>
 							      	</ul>
 							      </li>
-								  <s:if test="%{#session.userFlg >= 2}">
-								  	<li>
-
-
-
-											<a href="GoAdminAttendanceAction">勤怠確認</a>
-
-									</li>
-								  </s:if>
-
 								  <s:if test="%{#session.userFlg >= 1}">
 								  	 <li><a href="#">決裁</a>
 								      	<ul>
@@ -77,17 +69,28 @@
 								     </li>
 								  </s:if>
 
+							<s:if test="%{#session.userFlg == 3}">
+							  <li><a href="GoRegisterAction">新規登録</a></li>
+							 </s:if>
+
 							    </ul>
 							  </li>
 							  </s:if>
 
+							  <s:if test="%{#session.userFlg >= 1}">
+							    <li><a href="GoAttendanceAction" class= "header-menu">■ 勤怠報告</a></li>
+							  </s:if>
+
+							  <!-- <s:if test="%{#session.userFlg == 3}">
+							  <li><a href="GoAdminAction">■ 管理者 </a></li>
+							  </s:if> -->
+
+
+
 							  <s:if test="%{#session.userFlg != null}">
 							  <li>
-							      <a href="LogoutAction" class="part_line">■ Logout</a>
+							      <a href="LogoutAction" class= "part_line">Logout</a>
 							  </li>
-							  </s:if>
-							  <s:if test="%{#session.userFlg == 3}">
-							  <li><a href="GoAdminAction" class="part_line">■ 管理者 </a></li>
 							  </s:if>
 							</ul>
 						</nav>

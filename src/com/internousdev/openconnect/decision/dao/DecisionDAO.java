@@ -52,15 +52,17 @@ public class DecisionDAO {
 			while (rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
 
-				dto.setjDrafterId(rs.getInt("j_drafter_id")); // 	実施起案者ユーザーID
+
+
+				dto.setJDrafterId(rs.getInt("j_drafter_id")); // 	実施起案者ユーザーID
 
 				dto.setDecisionType(rs.getString("decision_type")); // 決裁種類
 
 				dto.setDecisionName(rs.getString("decision_name")); // 案件名
 
-				dto.setjImpId(rs.getString("j_imp_id")); // 実施起案番号
+				dto.setJImpId(rs.getString("j_imp_id")); // 実施起案番号
 
-				dto.setjDecId(rs.getString("j_dec_id")); // 実施決裁番号
+				dto.setJDecId(rs.getString("j_dec_id")); // 実施決裁番号
 
 				dto.setSummary(rs.getString("summary")); // 概要
 
@@ -102,11 +104,11 @@ public class DecisionDAO {
 
 				dto.setTotalEtc(rs.getFloat("etc")); // 合計雑費
 
-				dto.setjPermiterId1(rs.getInt("j_permiter_id1")); // 	承認者ユーザーID1（リーダー）
+				dto.setJPermiterId1(rs.getInt("j_permiter_id1")); // 	承認者ユーザーID1（リーダー）
 
-				dto.setjPermiterId2(rs.getInt("j_permiter_id2")); // 	承認者ユーザーID2（リーダー）
+				dto.setJPermiterId2(rs.getInt("j_permiter_id2")); // 	承認者ユーザーID2（リーダー）
 
-				dto.setjPermiterId3(rs.getInt("j_permiter_id3")); // 	承認者ユーザーID3（先生）
+				dto.setJPermiterId3(rs.getInt("j_permiter_id3")); // 	承認者ユーザーID3（先生）
 
 				decisionList.add(dto);
 			}
@@ -130,7 +132,7 @@ public class DecisionDAO {
 				"openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 		ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
-		String sql = "(select family_name_kanji,given_name_kanji from users where user_id=?)";
+		String sql = "select * from users where user_id=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,jDrafterId);
@@ -166,8 +168,7 @@ public class DecisionDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,"
-				+ "total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id where decision_id=?";
+		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id=? where decision_id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -190,10 +191,6 @@ public class DecisionDAO {
 			ps.setInt(16, jDrafterId);
 			ps.setInt(17, decisionId);
 
-
-
-
-
             count = ps.executeUpdate();
 
 		} catch (SQLException e) {
@@ -209,6 +206,181 @@ public class DecisionDAO {
 		}
 		return count;
 		}
+
+
+
+
+	/**
+	 * 資料を追加するメソッド
+	 * @param documentId 資料ID
+	 * @param documentPath
+	 * @return 成否を格納する変数
+	 */
+	 public int insert(int documentId,String documentPath,String documentName){
+			DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+			Connection con=db.getConnection();
+			int inserted=0;
+			String sql= "insert into img(document_id,document_path,document_name)"
+					+ "values(?,?,?)";
+
+			try{
+				PreparedStatement ps= con.prepareStatement(sql);
+				ps.setInt(1,documentId);
+				ps.setString(2,documentPath);
+				ps.setString(3,documentName);
+				inserted=ps.executeUpdate();
+
+
+				ps.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}finally{
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+			return inserted;
+		}
+
+
+
+	 /**
+	  * 資料を削除するメソッド
+	 * @param imageName
+	 * @return
+	 */
+	public int delete(String documentName){
+			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+			Connection con = db.getConnection();
+			int deleted = 0;
+			String sql = "delete from document where document_name=?";
+
+			try{
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setString(1,documentName);
+				deleted = ps.executeUpdate();
+
+				ps.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}finally{
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+			return deleted;
+
+		}
+
+
+
+
+
+
+
+
+	public ArrayList<DecisionDTO> selectByJPermiterId1(int jPermiterId1) {
+		DecisionDTO dto = new DecisionDTO();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
+				"openconnect", "root", "mysql");
+		Connection con = db.getConnection();
+		ArrayList<DecisionDTO> jPermiter1nameList = new ArrayList<DecisionDTO>();
+		String sql = "(select * from users where user_id=?)";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,jPermiterId1);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
+				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
+				jPermiter1nameList.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return jPermiter1nameList;
+	}
+
+	public ArrayList<DecisionDTO> selectByJPermiterId2(int jPermiterId2) {
+		DecisionDTO dto = new DecisionDTO();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
+				"openconnect", "root", "mysql");
+		Connection con = db.getConnection();
+		ArrayList<DecisionDTO> jPermiter2nameList = new ArrayList<DecisionDTO>();
+		String sql = "(select * from users where user_id=?)";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,jPermiterId2);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
+				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
+				jPermiter2nameList.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return jPermiter2nameList;
+	}
+
+	public ArrayList<DecisionDTO> selectByJPermiterId3(int jPermiterId3) {
+		DecisionDTO dto = new DecisionDTO();
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
+				"openconnect", "root", "mysql");
+		Connection con = db.getConnection();
+		ArrayList<DecisionDTO> jPermiter3nameList = new ArrayList<DecisionDTO>();
+		String sql = "(select * from users where user_id=?)";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,jPermiterId3);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
+				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
+				jPermiter3nameList.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return jPermiter3nameList;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

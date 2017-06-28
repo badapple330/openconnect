@@ -6,6 +6,7 @@ package com.internousdev.openconnect.decision.detail.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import com.internousdev.util.DBConnector;
 
@@ -23,20 +24,22 @@ public class DecisionDetailRecourseDAO {
 	 */
 	public int recourse( int decisionId ) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
-		String sql = "update decision set decision_status2 = 4 where decision_id = ?";
+		String sql = "update decision set decision_status = 6, permit_status = 2, s_apply_day = ? where decision_id = ?";
 
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, decisionId);
+			ps.setString(1, applyDay);
+			ps.setInt(2, decisionId);
 
 			count = ps.executeUpdate();
-
 
 		} catch(SQLException e) {
 			e.printStackTrace();

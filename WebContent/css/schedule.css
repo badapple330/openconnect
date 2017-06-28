@@ -21,6 +21,15 @@
 	margin-bottom:100px;
 }
 
+#operation2{
+	height:100px;
+	width:700px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:auto;
+	margin-bottom:100px;
+}
+
 /* モーダル コンテンツエリア */
 #modal-main {
 	display: none;
@@ -115,3 +124,10 @@
         }
 
 }
+
+
+/*印刷用css*/
+.off {
+	display: none;
+}
+

@@ -8,7 +8,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" >
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
 
@@ -73,11 +73,12 @@
 	</tr>
 </table>
 </div>
-<!-- 新規登録ボタン -->
+<!-- 新規登録ボタン
 <BR><BR><BR><BR>
 <div align="center">
 <a href="GoRegisterAction" class="square_btn">新規登録はこちら</a>
 </div>
+ -->
 </s:if>
 </body>
 </html>

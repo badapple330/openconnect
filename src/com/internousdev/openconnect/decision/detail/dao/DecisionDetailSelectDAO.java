@@ -7,7 +7,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
@@ -31,7 +35,7 @@ public class DecisionDetailSelectDAO {
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 4 and ( manager_id != ? and sub_manager_id != ? ) and project_name LIKE '%" + searchString + "%'";
+				+"where decision_status != 7 and ( manager_id != ? and sub_manager_id != ? ) and project_name LIKE '%" + searchString + "%'";
 
 		List<DecisionDetailDTO> decisionDetailList1 = new ArrayList<DecisionDetailDTO>();
 
@@ -49,8 +53,7 @@ public class DecisionDetailSelectDAO {
 				dto.setProjectId(rs.getInt("project_Id"));
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionType(rs.getString("decision_type"));
-				dto.setDecisionStatus1(rs.getInt("decision_status1"));
-				dto.setDecisionStatus2(rs.getInt("decision_status2"));
+				dto.setDecisionStatus(rs.getInt("decision_status"));
 
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
@@ -88,7 +91,7 @@ public class DecisionDetailSelectDAO {
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from decision inner join projects on decision.project_id = projects.project_id "
-				+"where decision_status2 != 4 and ( manager_id = ? or sub_manager_id = ? )";
+				+"where decision_status != 7 and ( manager_id = ? or sub_manager_id = ? )";
 
 		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
 
@@ -107,14 +110,16 @@ public class DecisionDetailSelectDAO {
 				dto.setProjectId(rs.getInt("project_Id"));
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionType(rs.getString("decision_type"));
-				dto.setDecisionStatus1(rs.getInt("decision_status1"));
-				dto.setDecisionStatus2(rs.getInt("decision_status2"));
+				dto.setDecisionStatus(rs.getInt("decision_status"));
 
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setJImpId(rs.getString("j_imp_id"));
 				dto.setKImpId(rs.getString("k_imp_id"));
 				dto.setJkImpId(rs.getString("jk_imp_id"));
+				dto.setJDecId(rs.getString("j_dec_id"));
+				dto.setKDecId(rs.getString("k_dec_id"));
+				dto.setJkDecId(rs.getString("jk_dec_id"));
 
 				decisionDetailList2.add( dto );
 			}
@@ -137,7 +142,7 @@ public class DecisionDetailSelectDAO {
 	 * ログイン中ユーザーの決裁未着手の自プロジェクトを呼び出す専用
 	 * @author SOSHI AZUMA
 	 */
- 	public List<DecisionDetailDTO> selectP(int userId, int userId1){
+ 	public List<DecisionDetailDTO> selectBeginP(int userId, int userId1){
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
 		String sql = "select * from projects left outer join decision on projects.project_id = decision.project_id "
@@ -175,6 +180,76 @@ public class DecisionDetailSelectDAO {
 		}
 
 		return decisionBeginList ;
+	}
+
+
+
+
+
+ 	/**
+	 * DBの終了日を取り出し今日の日付と比較し、その結果をDTOに転送するメソッド
+	 * @author SOSHI AZUMA
+	 */
+ 	public DecisionDetailDTO selectCompareDay(int userId, int userId1){
+		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
+
+		String sql = "select end_day from decision where manager_id = ? or sub_manager_id = ?";
+
+		DecisionDetailDTO dto = new DecisionDetailDTO();
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, userId);
+			ps.setInt(2, userId1);
+
+			ResultSet rs = ps.executeQuery();
+
+			while( rs.next() ){
+
+				String endDay = rs.getString("end_day");
+
+			// 変換対象の日付文字列
+	        String strEndDay = endDay + "00:00:00";
+
+	        //フォーマットパターンを指定して表示する
+	        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
+
+	        //String→Date型に変換
+	        Date dateEndDay = null;
+	        try {
+	        	dateEndDay = new Date( sdf.parse(strEndDay).getTime() );
+	        } catch (ParseException e) {
+	        	e.printStackTrace();
+	        }
+
+	        //Date→Calendar型に変換
+	        Calendar calEndDay = Calendar.getInstance();
+	        calEndDay.setTime(dateEndDay);
+
+
+
+	        //現在日時を取得する
+	        Calendar calToday = Calendar.getInstance();
+	        calToday.getTime();
+
+	        // 2つの日付を比較し、結果を格納(-1:過去, 0:当日, 1:未来)
+	        int diff = calEndDay.compareTo(calToday);
+
+	        dto.setCompareDay(diff);
+
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try{
+				con.close();
+			}catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
+
+		return dto;
 	}
 
 
