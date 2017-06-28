@@ -1,77 +1,45 @@
 set names utf8;
 set foreign_key_checks=0;
 drop database if exists world_travel;
-create database world_travel DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+create database world_travel default character set utf8 collate utf8_general_ci;
 use world_travel;
 
 
-/***********************************************************
-* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
-***********************************************************/
-create table user_info(
-id int(10) primary key auto_increment comment "",
-user_id varchar(20) unique not null comment "",
-user_pass varchar(20) not null comment "",
-last_name varchar(30) not null comment "",
-first_name varchar(30) not null comment "",
-sex enum('1','2') comment "",
-postal_code varchar(8) not null comment "",
-prefecture varchar(10) not null comment "",
-citytown varchar(30) not null comment "",
-email varchar(100) not null comment "",
-birthday varchar(11) comment "",
-user_ip varchar(15) not null comment "",
-register_date timestamp not null default current_timestamp comment ""
+create table item_lists(
+item_id int primary key not null auto_increment,
+item_name varchar(100) unique not null,
+item_price int not null,
+stock int comment ""
 );
 
-create table item_list(
-item_id int(4) primary key not null auto_increment comment "",
-item_name varchar(100) unique not null comment "",
-item_price int(6) not null comment "",
-stock int(6) comment ""
+
+create table historys(
+user_id varchar(20) not null,
+item_id int not null,
+item_count int not null,
+total_amount int,
+user_ip varchar(15),
+inquiry int not null,
+order_day timestamp not null default current_timestamp
 );
 
-create table history(
-user_id varchar(20) not null comment "",
-item_id int(10) not null comment "",
-item_count int(4) not null comment "",
-total_amount int(10) comment "",
-user_ip varchar(15) comment "",
-inquiry int(14) not null comment "",
-order_day timestamp not null default current_timestamp comment ""
-);
 
-create table cart_list(
+create table cart_lists(
 user_ip varchar(15) not null comment "",
 mac_address varchar(17) not null comment "",
 user_id varchar(20) not null comment "",
-item_id int(10) not null comment "",
-item_count int(4) comment "",
-total_amount int(10) comment ""
+item_id int not null comment "",
+item_count int comment "",
+total_amount int comment ""
 );
 
-/***********************************************************
-* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
-***********************************************************/
-insert into user_info(
-user_id,user_pass,last_name,first_name,sex,postal_code,prefecture,citytown,email,birthday,user_ip)
-values(
-'test','test','山田','太郎',1,'113-0033','東京都','文京区本郷2-4-6','internous@gmail.com','1991-12-20','192.168.001.140'
-);
-
-insert into user_info(
-user_id,user_pass,last_name,first_name,sex,postal_code,prefecture,citytown,email,birthday,user_ip)
-values(
-'yamada','test','山田','太郎',1,'113-0033','東京都','文京区本郷2-4-6','internous@gmail.com','1991-12-20','192.168.001.140'
-);
-
-insert into history(user_id,item_id,item_count,total_amount,user_ip,inquiry) values
+insert into historys(user_id,item_id,item_count,total_amount,user_ip,inquiry) values
 ('test',1,10,1000000,'192.168.001.140',1111);
 
-insert into cart_list values
+insert into cart_lists values
 ('192.168.001.140','44-8A-5B-A2-E4-FC','test',1,10,1000000);
 
-insert into item_list values
+insert into item_lists values
 (1,'ピラミッドを見に行く・エジプト旅行',90000,999999),
 (2,'ギャンブルの聖地ラスベガスへ・アメリカ旅行',50000,999999),
 (3,'ショッピング＆グルメの祭典ソウルへ・韓国旅行',60000,999999),
