@@ -187,7 +187,7 @@ public class DecisionDetailPermitDAO {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
-		String sql = "update decision set decision_type = '契約', permit_status = 0, j_permiter_id3 = ? where decision_id = ?";
+		String sql = "update decision set decision_type = '契約', decision_status = 5, permit_status = 0, j_permiter_id3 = ? where decision_id = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

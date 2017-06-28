@@ -13,6 +13,27 @@ public class DecisionDetailDTO {
 
 
 	/**
+	 * 決裁状況
+	 */
+	private String status;
+	/**
+	* 取得メソッド を取得
+	* @return status
+	*/
+	public String getStatus() {
+		return status;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param status
+	*/
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+
+	/**
 	 * 起案番号一時保管庫(DecisionDetailApplicationDAO)
 	 */
 	private String idNumAmount;

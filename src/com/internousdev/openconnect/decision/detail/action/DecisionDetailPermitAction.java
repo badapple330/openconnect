@@ -140,7 +140,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 			//契約決裁の承認
 			else if(decisionType.equals("契約")) {
 
-				//変更時の承認
+				//変更・遡求時の承認
 				if(decisionStatus == 4 || decisionStatus == 6) {
 					count = daoPer.updateChangePK( userId, decisionId );
 				}
@@ -163,7 +163,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 			//実施兼契約決裁の承認
 			else  {
 
-				//変更時の承認
+				//変更・遡求時の承認
 				if(decisionStatus == 4 || decisionStatus == 6) {
 					count = daoPer.updateChangePK( userId, decisionId );
 				}

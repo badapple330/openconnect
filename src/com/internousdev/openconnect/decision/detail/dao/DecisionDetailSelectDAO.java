@@ -22,6 +22,20 @@ import com.internousdev.util.DBConnector;
  */
 public class DecisionDetailSelectDAO {
 
+	private int status;
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	/*try {status = rs.getInt("decision_status");
+	if(status == 0) {statusMsg = "実施編集中";}
+	else if(status == 1) {statusMsg = "契約編集中";}
+	dto.setStatus(statusMsg);}catch(Exception e){}*/
+
 	/**
 	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
 	 * 自プロジェクト以外を呼び出す専用
@@ -91,7 +105,7 @@ public class DecisionDetailSelectDAO {
 				+"where decision_status != 7 and ( manager_id = ? or sub_manager_id = ? )";
 
 		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
-
+		//String statusMsg = "";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -117,6 +131,8 @@ public class DecisionDetailSelectDAO {
 				dto.setJDecId(rs.getString("j_dec_id"));
 				dto.setKDecId(rs.getString("k_dec_id"));
 				dto.setJkDecId(rs.getString("jk_dec_id"));
+
+				dto.setKPermiterId3(rs.getInt("k_permiter_id3"));
 
 				decisionDetailList2.add( dto );
 			}

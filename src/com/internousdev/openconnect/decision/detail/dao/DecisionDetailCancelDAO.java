@@ -25,9 +25,11 @@ public class DecisionDetailCancelDAO {
 
 		int count = 0;
 
+		//通常の申請の場合
 		if(decisionStatus == 3) {
 			decisionStatus = 0;
 		}
+		//変更・遡求時の申請の場合
 		else {
 			decisionStatus = 5;
 		}

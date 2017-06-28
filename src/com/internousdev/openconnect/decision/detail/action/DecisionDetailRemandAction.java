@@ -63,7 +63,7 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 		if (count > 0 ) {
 			result = SUCCESS;
-			resultString = "差し戻しできました!";
+			resultString = "差し戻しました!";
 		}
 		return result;
 	}
