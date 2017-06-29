@@ -76,7 +76,7 @@ CREATE TABLE tickets_stock
  * user_id 会員ID(自動)
  * name 氏名
  * phonetic ふりがな
- * e_mail メール
+ * phone_email メール
  * password パスワード
  * tel_num 電話
  * postal 郵便番号
@@ -87,14 +87,14 @@ CREATE TABLE user_info
 	user_id int(8) NOT NULL AUTO_INCREMENT comment '会員ID（自動）',
 	name varchar(1000) NOT NULL comment '指名',
 	phonetic varchar(1000) NOT NULL,
-	e_mail varchar(100) NOT NULL,
+	phone_email varchar(100) NOT NULL,
 	password varchar(16) NOT NULL,
 	tel_num varchar(11) NOT NULL,
 	postal varchar(9) NOT NULL,
 	address varchar(100) NOT NULL,
 	unique_id varchar(30),
 	PRIMARY KEY (user_id),
-	UNIQUE (e_mail),
+	UNIQUE (phone_email),
 	UNIQUE (unique_id)
 );
 
@@ -143,13 +143,6 @@ CREATE TABLE sign_out_reason
 	other text
 );
 
-
-/***********************************************************
-* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
-***********************************************************/
-/* テストユーザー登録 */
-insert into user_info(name,phonetic,e_mail,password,tel_num,postal,address)
-values("あいうえお","あいうえお","aaaaa@yahoo.co.jp","aaaa","00011112222","1112222","ちきゅう");
 
 /* チケット内容
  * イテレータを使用し、TOP内に表記させています。 */
