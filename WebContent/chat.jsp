@@ -127,7 +127,10 @@
         </div>
         <s:form action="">
         <div class="modal-body">
-          <img src="<s:property value="groupImg"/>"   alt="" class="img-circle-ex">
+        	<s:iterator value="groupImgList">
+          <img src="<s:property value="url"/>"   alt="" class="img-circle-ex"
+          width="50px" height="50px" style="border-radius: 50%; margin-left: 5px;">
+          </s:iterator>
         </div>
         <div class="modal-footer">
             <s:token />
