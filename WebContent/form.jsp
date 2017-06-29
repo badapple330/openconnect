@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/dropdown.css">
 
 
-<div class = "nonbs-send-form">
+<div class = "nonbs-send-form" style ="background-color:<s:property value="#session.color"/>;">
 
 <div class="nonbs-panel-body">
 <s:form action="PostSetAction">
@@ -26,9 +26,21 @@
 <!-- スタンプを連打すると連投できてしまう不具合が解決していません。
 	onclick="disabled = true;" → ボタンを押せなくなるのが優先されるのでsubmitできない
 	onclick="style.display='none'" → なくなることでリストの次のスタンプが繰り上がってくるので結果的にさまざまなスタンプが連投されることになる -->
+<script>
+var submit = document.getElementByClassName('submit');
+function disableSubmit(button) {
+  setTimeout(function() {
+    button.disabled = true;
+  }, 10);
+  setTimeout(function() {
+    button.disabled = false;
+  }, 1000);
+}
+
+</script>
 
 <div class="stamp-form">
-<button type="button" class="stamp-btn" data-toggle="modal" data-target="#stamp" > <img height=20px; src="pic/stamp/icon.png">
+<button type="button" class="stamp-btn" data-toggle="modal" data-target="#stamp"> <img height=20px; src="pic/stamp/icon.png">
 </button>
 </div>
 
@@ -50,7 +62,7 @@
      						<s:form action="PostSetAction">
 								<s:hidden name="receiverId" /><s:hidden name="groupId" /><s:hidden name="groupName" /><s:hidden name="friendsName" />
 								<s:hidden name="url" />
-								<button type="submit"><img class="imgzoon" src="<s:property value="url"/>"></button>
+								<button type="submit" onclick="disableSubmit(this);"><img class="imgzoon" src="<s:property value="url"/>"></button>
 							</s:form>
 						</s:iterator>
 						</div>

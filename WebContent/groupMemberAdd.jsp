@@ -66,26 +66,8 @@
 </form>
 </div>
 
-<footer><div  class = "footer">
- <nav>
- <div class = "contents" >
- <div class="a" style="margin-right:20px"><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><img class="pic" src ="pic/profile.png" ></a></div>
-
- <div class="a" style="margin-right:20px"><a href="<s:url action="GoTalkListAction"/>"><img class="pic" src ="pic/talk.png" >
- <s:if test="talkInfo > 0 and talkInfo <100"><span class="b"><s:property value="talkInfo" /></span></s:if>
- <s:if test="talkInfo >= 100 and talkInfo <1000"><span class="bh"><s:property value="talkInfo" /></span></s:if>
- <s:if test="talkInfo >= 1000"><span class="bt"><s:property value="talkInfo" /></span></s:if>
- </a></div>
-
- <div class="a" style="margin-right:20px; background-color:rgb(111, 207, 245);" ><a href="<s:url action="GoGroupAction"/>"><img class="pic" src ="pic/group.png" >
- <s:if test="groupInfo > 0 and groupInfo <100"><span class="b"><s:property value="groupInfo" /></span></s:if>
- <s:if test="groupInfo >= 100 and groupInfo <1000"><span class="bh"><s:property value="groupInfo" /></span></s:if>
- <s:if test="groupInfo >= 1000"><span class="bt"><s:property value="groupInfo" /></span></s:if>
- </a></div>
-
- <div class="a"><a href="<s:url action="GoTimelineAction"/>"><img class="pic" src ="pic/time_line.png" ></a></div>
- </div>
- </nav>
- </div></footer>
+<footer>
+<jsp:include page="Bfooter.jsp" />
+</footer>
 </body>
 </html>

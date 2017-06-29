@@ -7,11 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
@@ -24,6 +21,20 @@ import com.internousdev.util.DBConnector;
  * @version 1.0
  */
 public class DecisionDetailSelectDAO {
+
+	private int status;
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	/*try {status = rs.getInt("decision_status");
+	if(status == 0) {statusMsg = "実施編集中";}
+	else if(status == 1) {statusMsg = "契約編集中";}
+	dto.setStatus(statusMsg);}catch(Exception e){}*/
 
 	/**
 	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
@@ -94,7 +105,7 @@ public class DecisionDetailSelectDAO {
 				+"where decision_status != 7 and ( manager_id = ? or sub_manager_id = ? )";
 
 		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
-
+		//String statusMsg = "";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -120,6 +131,8 @@ public class DecisionDetailSelectDAO {
 				dto.setJDecId(rs.getString("j_dec_id"));
 				dto.setKDecId(rs.getString("k_dec_id"));
 				dto.setJkDecId(rs.getString("jk_dec_id"));
+
+				dto.setKPermiterId3(rs.getInt("k_permiter_id3"));
 
 				decisionDetailList2.add( dto );
 			}
@@ -195,6 +208,8 @@ public class DecisionDetailSelectDAO {
 
 		String sql = "select end_day from decision where manager_id = ? or sub_manager_id = ?";
 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 		DecisionDetailDTO dto = new DecisionDetailDTO();
 
 		try{
@@ -207,37 +222,38 @@ public class DecisionDetailSelectDAO {
 
 			while( rs.next() ){
 
-				String endDay = rs.getString("end_day");
-
-			// 変換対象の日付文字列
-	        String strEndDay = endDay + "00:00:00";
-
-	        //フォーマットパターンを指定して表示する
-	        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
-
-	        //String→Date型に変換
-	        Date dateEndDay = null;
-	        try {
-	        	dateEndDay = new Date( sdf.parse(strEndDay).getTime() );
-	        } catch (ParseException e) {
-	        	e.printStackTrace();
-	        }
-
-	        //Date→Calendar型に変換
-	        Calendar calEndDay = Calendar.getInstance();
-	        calEndDay.setTime(dateEndDay);
+				//String endDay = rs.getString("end_day");
+				try { dto.setEndDay(sdf.format(rs.getDate("end_day")).toString()); }catch(Exception e){}
 
 
+	        /*try {
+	        	// 変換対象の日付文字列
+		        String strEndDay = endDay + "11:11:11";
 
-	        //現在日時を取得する
-	        Calendar calToday = Calendar.getInstance();
-	        calToday.getTime();
+		        //フォーマットパターンを指定して表示する
+		        SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日HH:mm:ss");
 
-	        // 2つの日付を比較し、結果を格納(-1:過去, 0:当日, 1:未来)
-	        int diff = calEndDay.compareTo(calToday);
+		        //String→Date型に変換
+		        Date dateEndDay = sdf.parse(strEndDay);
 
-	        dto.setCompareDay(diff);
+		        //Date→Calendar型に変換
+		        Calendar calEndDay = Calendar.getInstance();
+		        calEndDay.setTime(dateEndDay);
 
+		        //現在日時を取得する
+		        Calendar calToday = Calendar.getInstance();
+		        calToday.getTime();
+
+		        // 2つの日付を比較し、結果を格納(-1:過去, 0:当日, 1:未来)
+		        int diff = calEndDay.compareTo(calToday);
+
+		        dto.setCompareDay(diff);
+		        dto.setCalEndDay(calEndDay);
+		        dto.setDateEndDay(dateEndDay);
+
+		        } catch (ParseException e) {
+		        	e.printStackTrace();
+		        }*/
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();

@@ -10,6 +10,9 @@ import java.util.List;
 
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.internousdev.util.DBConnector;
+
+
+
 /**
  * 決裁手続き一覧から更新したい内容を、DBへ転送する為のクラス
  * @author SOSHI AZUMA

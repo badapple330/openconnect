@@ -526,7 +526,7 @@
 						size="8">万円 <br> 損益費用：<input type="text"
 						name="benefit" value="<s:property value="benefit" />"
 						readonly="readonly" size="8">万円<br>
-						合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text"
+						合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：<input type="text"
 						value="<s:property value="amountAll" />" readonly="readonly"
 						size="8">万円
 					</td>
@@ -586,7 +586,7 @@
 		<table class="sub visible-xs" border="2">
 			<tr>
 				<th></th>
-				<th>単価(万円)</th>
+				<th width="10px">単価(万円)</th>
 				<th>個数</th>
 				<th>小計(万円)</th>
 			</tr>
@@ -596,34 +596,34 @@
 				<td><s:if
 						test="decisionList != null && !decisionList.isEmpty()">
 						<s:iterator value="decisionList">
-							<input type="number" name="prove"
+							<input type="number" name="prove" class="w67"
 								value="<s:property value="prove" />">
 						</s:iterator>
 					</s:if> <s:else>
-						<input type="number" name="prove"
+						<input type="number" name="prove" class="w67"
 							value="<s:property value="prove" />">
 					</s:else></td>
 
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" name="persons"
+						<td><input type="number" name="persons" class="w67"
 							value="<s:property value="persons"/>" placeholder="メンバー人数を入力"
 							name="persons" id="input"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" name="persons"
+					<td><input type="number" name="persons" class="w67"
 						value="<s:property value="persons"/>" placeholder="メンバー人数を入力"
 						name="persons" id="input"></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" readonly="readonly" size="20"
+						<td><input type="number" readonly="readonly" size="20" class="w67"
 							value="<s:property value="totalProve"/>"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" readonly="readonly" size="20"
+					<td><input type="number" readonly="readonly" size="20" class="w67"
 						value="<s:property value="totalProve"/>"></td>
 				</s:else>
 			</tr>
@@ -632,31 +632,31 @@
 				<th>リリース環境使用料</th>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" readonly="readonly" name="re"
+						<td><input type="number" readonly="readonly" name="re" class="w67"
 							value="<s:property value="re" />"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" readonly="readonly" name="re"
+					<td><input type="number" readonly="readonly" name="re" class="w67"
 						value=""></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" id="res"
+						<td><input type="number" id="res" class="w67"
 							value="<s:property value="persons"/>" readonly="readonly"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" id="res" value="" readonly="readonly"></td>
+					<td><input type="number" id="res" class="w67" value="" readonly="readonly"></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" size="20"
+						<td><input type="number" size="20" class="w67"
 							value="<s:property value="totalRe"/>" readonly="readonly">万円</td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" size="20" value=""
+					<td><input type="number" size="20" value="" class="w67"
 						readonly="readonly">万円</td>
 				</s:else>
 			</tr>
@@ -665,32 +665,32 @@
 				<th>回線使用料</th>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" readonly="readonly" name="line"
+						<td><input type="number" readonly="readonly" name="line" class="w67"
 							value="<s:property value="line" />"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" readonly="readonly" name="line"
+					<td><input type="number" readonly="readonly" name="line" class="w67"
 						value=""></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" id="lines"
+						<td><input type="number" id="lines" class="w67"
 							value="<s:property value="persons"/>" readonly="readonly"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" id="lines" value=""
+					<td><input type="number" id="lines" class="w67" value=""
 						readonly="readonly"></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" size="20" readonly="readonly"
+						<td><input type="number" size="20" class="w67" readonly="readonly"
 							value="<s:property value="totalLine"/>">万円</td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" size="20" readonly="readonly"
+					<td><input type="number" size="20" class="w67" readonly="readonly"
 						value="">万円</td>
 				</s:else>
 			</tr>
@@ -699,30 +699,30 @@
 				<th>施設使用料</th>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" readonly="readonly" name="room"
+						<td><input type="number" readonly="readonly" name="room" class="w67"
 							value="<s:property value="room" />"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" readonly="readonly" name="room"
+					<td><input type="number" readonly="readonly" name="room" class="w67"
 						value=""></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" value="1" readonly="readonly"></td>
+						<td><input type="number" value="1" class="w67" readonly="readonly"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" value="1" readonly="readonly"></td>
+					<td><input type="number" value="1" class="w67" readonly="readonly"></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" size="20"
+						<td><input type="number" size="20" class="w67"
 							value="<s:property value="totalRoom" />" readonly="readonly">万円</td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" size="20" value=""
+					<td><input type="number" size="20" class="w67" value=""
 						readonly="readonly">万円</td>
 				</s:else>
 			</tr>
@@ -734,11 +734,11 @@
 				<td><s:if
 						test="decisionList != null && !decisionList.isEmpty()">
 						<s:iterator value="decisionList">
-							<input type="number" value="<s:property value="bildCost"/>"
+							<input type="number" class="w67" value="<s:property value="bildCost"/>"
 								size="20" readonly="readonly">万円
 </s:iterator>
 					</s:if> <s:else>
-						<input type="number" value="">万円
+						<input type="number" class="w67" value="">万円
 </s:else></td>
 			</tr>
 		</table>
@@ -758,30 +758,30 @@
 				<th>開発要員</th>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" name="human"
+						<td><input type="number" name="human" class="w67"
 							value="<s:property value="human" />"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" name="human" value=""></td>
+					<td><input type="number" name="human" class="w67" value=""></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" id="c"
+						<td><input type="number" id="c" class="w67"
 							value="<s:property value="persons"/>" readonly="readonly"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" id="c" value="" readonly="readonly"></td>
+					<td><input type="number" id="c" class="w67" value="" readonly="readonly"></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" size="20"
+						<td><input type="number" size="20" class="w67"
 							value="<s:property value="totalHuman"/>" readonly="readonly">万円</td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" size="20" value=""
+					<td><input type="number" size="20" class="w67" value=""
 						readonly="readonly">万円</td>
 				</s:else>
 			</tr>
@@ -790,31 +790,31 @@
 				<th>雑費</th>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" name="etc"
+						<td><input type="number" name="etc" class="w67"
 							value="<s:property value="etc" />" readonly="readonly"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" name="etc" value=""
+					<td><input type="number" name="etc" class="w67" value=""
 						readonly="readonly"></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" id="d"
+						<td><input type="number" id="d" class="w67"
 							value="<s:property value="persons"/>" readonly="readonly"></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" id="d" value="" readonly="readonly"></td>
+					<td><input type="number" id="d" class="w67" value="" readonly="readonly"></td>
 				</s:else>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number" size="20"
+						<td><input type="number" size="20" class="w67"
 							value="<s:property value="totalEtc"/>" readonly="readonly">万円</td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" size="20" value=""
+					<td><input type="number" size="20" class="w67" value=""
 						readonly="readonly">万円</td>
 				</s:else>
 			</tr>
@@ -825,13 +825,13 @@
 				<td></td>
 				<s:if test="decisionList != null && !decisionList.isEmpty()">
 					<s:iterator value="decisionList">
-						<td><input type="number"
+						<td><input type="number" class="w67"
 							value="<s:property value="benefit"/>" readonly="readonly"
 							size="20">万円</td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-					<td><input type="number" value="" readonly="readonly"
+					<td><input type="number" class="w67" value="" readonly="readonly"
 						size="20">万円</td>
 				</s:else>
 			</tr>

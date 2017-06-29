@@ -16,9 +16,9 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class colorChangeAction extends ActionSupport implements SessionAware{
 
-	private int userId=32;
+	private int userId;
 
-	private String color="#000000";
+	private String color;
 
 
 	private Map<String,Object> session;
@@ -26,19 +26,21 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 
 	public String execute() {
+		colorChangeDAO dao = new colorChangeDAO();
 		String result = ERROR;
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
 		}
 		if(userId==0){return result;}
 
-		colorChangeDAO dao = new colorChangeDAO();
 
-
-		session.put("color", color);
+		dao.colorChange( userId, color);
+		session.put("color", dao.getColor(userId));
 		result=SUCCESS;
 		return result;
 	}
+
+
 
 
 	public int getUserId() {

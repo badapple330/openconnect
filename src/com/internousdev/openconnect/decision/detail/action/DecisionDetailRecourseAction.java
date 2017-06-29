@@ -26,6 +26,10 @@ public class DecisionDetailRecourseAction extends ActionSupport {
 	 */
 	private int decisionId;
 	/**
+	 * sessionから取得したログイン中ユーザーID
+	 */
+	private int userId;
+	/**
 	 * エラーメッセージ
 	 */
 	private String resultString = "遡求申請できませんでした。";
@@ -75,6 +79,26 @@ public class DecisionDetailRecourseAction extends ActionSupport {
 	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
 	}
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+
 
 	/**
 	* 取得メソッド 結果を取得

@@ -90,6 +90,7 @@
 							<td></td>
 
 							<td><div class="largetext">管理者（サブ)</div></td>
+							<td><div class="middletext">人数</div></td>
 							<td><div class="middletext">開始日（yyyy/MM/dd）</div></td>
 							<td><div class="middletext">終了日（yyyy/MM/dd）</div></td>
 							<td>備考</td>
@@ -132,6 +133,10 @@
 
 								<s:property value="subManagerFamilyNameKanji" /> <s:property
 										value="subManagerGivenNameKanji" /></td>
+
+								<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
+								name="projectMemberNumberList" placeholder="半角数字で入力" maxlength="10"
+								required value="<s:property value="memberNumber"/>"></td>
 
 
 								<td><input type="text" name="projectStartDateList"
@@ -203,8 +208,11 @@
 						<tr>
 
 							<td>プロジェクト名</td>
-							<td>管理者(リーダー)</td>
-							<td>管理者(サブリーダー)</td>
+							<td>管理者(姓)</td>
+							<td>管理者(名)</td>
+							<td>サブリーダー(姓)</td>
+							<td>サブリーダー(名)</td>
+							<td>人数</td>
 							<td>開始日(yyyy/MM/dd)</td>
 						</tr>
 
@@ -213,13 +221,29 @@
 							<td><input type="text" name="projectName"
 								placeholder="例：rewrite" maxlength=100 title="" required></td>
 
-							<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
+							<!-- <td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
 								name="managerId" placeholder="半角数字で入力" maxlength="10" required
-								max="userId"></td>
+								max="userId"></td>  -->
+							<td><input type="text"
+								name="managerFamilyName" placeholder="漢字で入力" maxlength="10" required
+								></td>
+
+							<td><input type="text"
+								name="managerGivenName" placeholder="漢字で入力" maxlength="10" required
+								></td>
+
+							<td><input type="text"
+								name="subManagerFamilyName" placeholder="漢字で入力" maxlength="10" required
+								></td>
+
+							<td><input type="text"
+								name="subManagerGivenName" placeholder="漢字で入力" maxlength="10" required
+								></td>
 
 							<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
-								name="subManagerId" placeholder="半角数字で入力" maxlength="10"
+								name="memberNumber" placeholder="半角数字で入力" maxlength="10"
 								required></td>
+
 							<td><input type="date"
 								pattern="([0-2][0-9]{3})\/([0-1][0-9])\/([0-3][0-9])"
 								name="startDate" required></td>

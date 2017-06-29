@@ -327,7 +327,7 @@
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailInsertAction"
 			method="execute">
 			<result name="success" type="chain">DecisionDetailSelectAction</result>
-			<result name="error" type="chain">DecisionDetailSelectAction</result>
+			<result name="error">decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailApplicationAction"
@@ -383,7 +383,14 @@
 		<action name="DecisionDetailCompleteAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailCompleteAction"
 			method="execute">
-			<result name="success">decision_detail.jsp</result>
+			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="error">decision_detail.jsp</result>
+		</action>
+
+		<action name="DecisionDetailCancelAction"
+			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailCancelAction"
+			method="execute">
+			<result name="success" type="chain">DecisionDetailSelectAction</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
@@ -619,13 +626,18 @@
 <result name="error">login.jsp</result>
 </action>
 
+<action name="BotSearchAction" class="com.internousdev.bulletinboard.action.BotSearchAction" method="execute">
+<result name="success">botSentence.jsp</result>
+<result name="error">botMaintenance.jsp</result>
+</action>
+
 <action name="AddsiteAction" class="com.internousdev.openconnect.addsite.action.AddsiteAction" method="execute">
 <result name="success">addsite.jsp</result>
 <result name="error">addsite.jsp</result>
 </action>
 
 <action name="colorChangeAction" class="com.internousdev.bulletinboard.action.colorChangeAction" method="execute">
-<result name="success">color.jsp</result>
+<result name="success" type="redirectAction">ProfileUpdateAction</result>
 <result name="error">login.jsp</result>
 </action>
 
