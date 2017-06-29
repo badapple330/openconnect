@@ -233,6 +233,8 @@
 					<div class="modal-footer">
         		<button type="button" id="modal-close" class="btn btn-primary" data-dismiss="modal">閉じる</button>
 		</div>
+		</div>
+		</div>
 
 		<!-- 一括削除モーダル表示
 		<div id="modal-deleteMain"  align="center" >
@@ -282,6 +284,8 @@
 
 		</div>-->
 	</div>
+	</div>
+
 
 	<script src="js/jquery.ymdpulldown.js"></script>
 	<script>
