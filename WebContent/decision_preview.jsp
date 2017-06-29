@@ -43,8 +43,12 @@
 									<tr>
 										<td>
 											<div align="right">
-												日付
+												<label>日付：</label>
+											
+											<%-- 実施の場合 --%>
+											<s:if test="type == 1">
 												<s:property value="" />
+											</s:if>
 											</div>
 											<div class="row">
 												<div class="col-sm-12">
@@ -55,19 +59,29 @@
 
 											<div class="row">
 												<div class="col-sm-12">
-													<label>起案者</label>
+													<label>起案者：</label>
 													<br>
 												</div>
 											</div>
 
 											<div class="row">
 												<div class="col-sm-12">
-													<s:if test="jImpId != null">
+
+												<%-- 実施の場合 --%>
+													<s:if test="type == 1">
 														<s:iterator value="JNameList">
-															<label>氏名</label><s:property value="familyNameKanji" />
+															<label>氏名：</label><s:property value="familyNameKanji" />
 																				<s:property value="givenNameKanji" />
 														</s:iterator>
 													</s:if>
+												<%-- 契約の場合 --%>
+													<s:if test="type == 2">
+														<s:iterator value="KNameList">
+															<label>氏名：</label><s:property value="familyNameKanji" />
+																				<s:property value="givenNameKanji" />
+														</s:iterator>
+													</s:if>
+
 												</div>
 											</div>
 

@@ -648,7 +648,7 @@ public class DecisionDTO {
 	public void setCause(String cause) {
 		this.cause = cause;
 	}
-		}
+
 		/**
 		* 取得メソッド を取得
 		* @return jApplyDay
