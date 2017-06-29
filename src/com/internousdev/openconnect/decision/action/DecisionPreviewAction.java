@@ -85,6 +85,9 @@ public class DecisionPreviewAction extends ActionSupport {
 	 */
 	public int kPermiterId3;
 
+	/**
+	 * 実施/契約/実施兼契約を判断するタイプ。
+	 */
 	public int type;
 
 

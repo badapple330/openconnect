@@ -99,9 +99,19 @@ public class DecisionDTO {
 	public String summary;
 
 	/**
-	 * 申請日(日付)
+	 * 実施申請日(日付)
 	 */
-	public String applyDay;
+	public String jApplyDay;
+
+	/**
+	 * 契約申請日(日付)
+	 */
+	public String kApplyDay;
+
+	/**
+	 * 遡求申請日(日付)
+	 */
+	public String sApplyDay;
 
 	/**
 	 * 終了日
@@ -638,19 +648,48 @@ public class DecisionDTO {
 	public void setCause(String cause) {
 		this.cause = cause;
 	}
-		/**
-		 * 申請日(日付)を取得します。
-		 * @return 申請日(日付)
-		 */
-		public String getApplyDay() {
-		    return applyDay;
 		}
 		/**
-		 * 申請日(日付)を設定します。
-		 * @param applyDay 申請日(日付)
-		 */
-		public void setApplyDay(String applyDay) {
-		    this.applyDay = applyDay;
+		* 取得メソッド を取得
+		* @return jApplyDay
+		*/
+		public String getJApplyDay() {
+			return jApplyDay;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param jApplyDay
+		*/
+		public void setJApplyDay(String jApplyDay) {
+			this.jApplyDay = jApplyDay;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return kApplyDay
+		*/
+		public String getKApplyDay() {
+			return kApplyDay;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param kApplyDay
+		*/
+		public void setKApplyDay(String kApplyDay) {
+			this.kApplyDay = kApplyDay;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return sApplyDay
+		*/
+		public String getSApplyDay() {
+			return sApplyDay;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param sApplyDay
+		*/
+		public void setSApplyDay(String sApplyDay) {
+			this.sApplyDay = sApplyDay;
 		}
 		/**
 		 * @return endDay
