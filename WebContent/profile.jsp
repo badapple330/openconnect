@@ -19,6 +19,7 @@ pageEncoding="UTF-8"%>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript"></script>
+	<script type="text/javascript" src="js/jscolor.js"></script>
 
 </head>
 <body style="background-color:<s:property value="#session.color"/>;">
@@ -29,10 +30,13 @@ pageEncoding="UTF-8"%>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid" style ="background-color:<s:property value="#session.color"/>;">
   <div class="navbar-header">
-  <a class="navbar-brand" href="watch-position.jsp">おにいちゃんまっぷ</a>
 
 
+ <a class="talk_area" href="watch-position.jsp"><img src="pic/map_print.png" ></a>
  <a class="talk_area" href="web_speech.jsp"><img src="pic/user_img/syoki.png" ></a>
+  <a class="talk_area" data-toggle="modal" data-target="#color" class="cursor"><img src="pic/peint.png" ></a>
+
+
 
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
       <span class="sr-only">MENU</span>
@@ -297,23 +301,60 @@ FOLLOW</a>
 							</s:iterator>
 
 					</s:form>
-					<form action="colorChangeAction">
-<label>
- BGC
-  <input id="bg-color" type="color" value="" list="color-list" name="color">
-    <datalist id="color-list">
-    <option value="#000000"></option>
-    <option value="#ff0000"></option>
-    <option value="#008000"></option>
-    <option value="#0000ff"></option>
-    <option value="#ffff00"></option>
-</label>
-<input type="submit"  value="送信">
-</form>
 
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- カラーピッカーモーダル -->
+
+<div class="modal fade" id="color" tabindex="-1">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+				<h4 class="modal-title">仮</h4>
+			</div>
+<div class="modal-body">
+			<form action="colorChangeAction">
+<div class="form-group">
+<label style="width:200px;">色を指定する</label>
+<input class="jscolor  {hash:true}" name="color" value="<s:property value="#session.color"/>">
+<br />クリックするとカラーピッカーが開きます<br />
+</div>
+<div style="margin-top:150px;">
+<p id="backColor" style="margin-top:10px;padding:10px;font-weight:bold;font-size:1.5em;color:#ffffff;background-color:#f00">文字は白　背景色変更テスト</p>
+</div>
+<input type="submit"  value="送信">
+</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
     <br>
     <br>
     <br>
