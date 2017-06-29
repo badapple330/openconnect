@@ -4,16 +4,19 @@
 package com.internousdev.openconnect.attendance.action;
 
 import java.util.ArrayList;
+import java.util.Map;
 
-import com.internousdev.openconnect.attendance.dao.AdminAttendanceDAO;
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.openconnect.attendance.dao.AdminAttendanceLeaderDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
-
+import com.opensymphony.xwork2.ActionSupport;
 /**
  * @author Kawamura
  * @since 6/29
  * @version 1.0.0
  */
-public class AdminAttendanceLeaderAction {
+public class AdminAttendanceLeaderAction extends ActionSupport implements SessionAware{
 
 	/* 自動入力 年 */
 	private int atYear;
@@ -53,8 +56,8 @@ public class AdminAttendanceLeaderAction {
 
 		String result = ERROR;
 
-		AdminAttendanceDAO dao = new AdminAttendanceDAO();
-		searchList = dao.select(atYear,atMonth,atDay,familyNameKanji,givenNameKanji,attendance,teamName);
+		AdminAttendanceLeaderDAO dao = new AdminAttendanceLeaderDAO();
+		searchList = dao.select(atYear,atMonth,atDay,attendance,teamName);
 
 		for(int i = 0; i<searchList.size(); i++){
 			String attend = searchList.get(i).getAttendance();
@@ -305,6 +308,16 @@ public class AdminAttendanceLeaderAction {
 	 */
 	public void setSearchList(ArrayList<AttendanceDTO> searchList) {
 	    this.searchList = searchList;
+	}
+
+
+	/* (非 Javadoc)
+	 * @see org.apache.struts2.interceptor.SessionAware#setSession(java.util.Map)
+	 */
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		// TODO 自動生成されたメソッド・スタブ
+
 	}
 
 

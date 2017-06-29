@@ -54,7 +54,7 @@ public class AdminAttendanceLeaderDAO {
 		}
 
 		/* sql文定義 */
-		sql = "select * from attendance left join users on attendance.user_id where " +whereState + ";";
+		sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + ";";
 
 	try {
 		statement = con.createStatement();

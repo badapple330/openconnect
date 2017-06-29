@@ -13,19 +13,20 @@
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="js/admin_attendance_leader.js"></script>
 <link rel="stylesheet" href="css/admin_attendance_leader.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
 	<!-- タイトル -->
-			<div align="center">
-				<h3
-					style="border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 1px 0 rgba(255, 255, 255, 1);">勤怠確認</h3>
-</div>
+	<div align="center">
+		<h3
+			style="border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 1px 0 rgba(255, 255, 255, 1);">勤怠確認</h3>
+	</div>
 	<div class="container">
 
-		<s:if test="%{#session.userFlg >= 2}">
+		<s:if test="%{#session.userFlg >= 3}">
 			<div class="formbox" align="center">
 				<s:form action="AdminAttendanceLeaderAction">
 					<table class="atform">
@@ -49,8 +50,7 @@
 						<tr>
 						<tr id="tr_type">
 							<th>出欠確認：</th>
-							<td><select name="attendance"
-								required="required">
+							<td><select name="attendance" id="id_attendance">
 
 									<option value="">出欠状況</option>
 									<option value="='出席'">出席</option>
@@ -62,13 +62,7 @@
 							</select></td>
 						</tr>
 
-						<tr id="tr_reason" style="display: none;">
-							<th>備 考 ：<span
-								style="background-color: red; color: white; padding: 1px 2px; border-radius: 5px;">必須</span></th>
-							<td><textarea id="reason" name="reason" rows="6" cols="40"
-									maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など"
-									disabled="disabled"></textarea></td>
-						</tr>
+
 
 						<tr style="display: none;">
 							<!-- 日時のデータ送信用 選択させないため非表示 -->
@@ -88,9 +82,8 @@
 						</tr>
 						<tr>
 					</table>
-					<input type="submit" value="検索" class="button"
-						onClick="javascript:double(this)" />
-
+					<input type="submit" class="form2" value="検索" class="search-btn"
+						id="searchButtun" />
 				</s:form>
 			</div>
 			<table border="2px" width="30%" height="80">
@@ -130,7 +123,6 @@
 
 				<tbody>
 
-
 					<s:iterator value="searchList">
 						<tr>
 							<td><s:property value="atDate" /></td>
@@ -147,16 +139,75 @@
 						<input type="hidden" name="modalList" value="searchList"
 							class="modal-list">
 					</s:iterator>
+
+
 				</tbody>
+
 			</table>
 
 
-		</s:if>
-		<s:else>
-	リーダーログイン後に表示します。
-	</s:else>
+	<!-- 一覧モーダル -->
+	<div id="modal-atlist" class="modal-atlist">
+		<div id="modal-innar">
+
+			<div class="modal-header">
+				<button type="button" class="close" id="modal-close"
+					data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h3 class="modal-title">勤怠確認</h3>
+			</div>
+			<div class="print-page">
+				<div class="modal-body">
+					<div class="print-btn" id="btn_print">印刷</div>
+					<table style="margin-top: 10px;" class="type12">
+						<thead>
+							<tr>
+								<th>報告日時</th>
+								<th>受講開始月</th>
+								<th>チーム</th>
+								<th style="white-space: nowrap;">性</th>
+								<th style="white-space: nowrap;">名</th>
+								<th>出欠状況</th>
+								<th width="1000">備考</th>
+							</tr>
+						</thead>
+
+						<tbody>
+
+							<s:iterator value="searchList">
+								<tr>
+									<td><s:property value="atDate" /></td>
+									<td><s:property value="month" /></td>
+									<td><s:property value="teamName" /></td>
+									<td style="white-space: nowrap;"><s:property
+											value="familyNameKanji" /></td>
+									<td style="white-space: nowrap;"><s:property
+											value="givenNameKanji" /></td>
+									<td><s:property value="attendance" /></td>
+									<td width="1000"><s:property value="reason" /></td>
+								</tr>
+							</s:iterator>
+
+						</tbody>
+					</table>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" id="modal-close" class="btn btn-primary"
+						data-dismiss="modal">閉じる</button>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
+	</s:if>
+	<s:else>
+	リーダーログイン後に表示します。
+	</s:else>
+
+</div>
 	<script src="js/jquery.ymdpulldown.js"></script>
 	<script>
 		$(function() {
