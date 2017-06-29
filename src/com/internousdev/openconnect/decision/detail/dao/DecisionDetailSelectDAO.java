@@ -69,6 +69,8 @@ public class DecisionDetailSelectDAO {
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setPermitStatus(rs.getInt("permit_status"));
+				dto.setJDrafterId(rs.getInt("j_drafter_id"));
+				dto.setKDrafterId(rs.getInt("k_drafter_id"));
 				dto.setJPermiterId1(rs.getInt("j_permiter_id1"));
 				dto.setJPermiterId2(rs.getInt("j_permiter_id2"));
 				dto.setJPermiterId3(rs.getInt("j_permiter_id3"));
@@ -206,9 +208,9 @@ public class DecisionDetailSelectDAO {
  	public DecisionDetailDTO selectCompareDay(int userId, int userId1){
 		Connection con = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql").getConnection();
 
-		String sql = "select end_day from decision where manager_id = ? or sub_manager_id = ?";
+		String sql = "select end_day from decision inner join projects on decision.project_id = projects.project_id where ( end_day < now() ) and ( manager_id = ? or sub_manager_id = ? )";
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
 
 		DecisionDetailDTO dto = new DecisionDetailDTO();
 
@@ -222,38 +224,10 @@ public class DecisionDetailSelectDAO {
 
 			while( rs.next() ){
 
-				//String endDay = rs.getString("end_day");
+				//end_day(終了日)を過ぎた場合に値が入る
 				try { dto.setEndDay(sdf.format(rs.getDate("end_day")).toString()); }catch(Exception e){}
 
 
-	        /*try {
-	        	// 変換対象の日付文字列
-		        String strEndDay = endDay + "11:11:11";
-
-		        //フォーマットパターンを指定して表示する
-		        SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日HH:mm:ss");
-
-		        //String→Date型に変換
-		        Date dateEndDay = sdf.parse(strEndDay);
-
-		        //Date→Calendar型に変換
-		        Calendar calEndDay = Calendar.getInstance();
-		        calEndDay.setTime(dateEndDay);
-
-		        //現在日時を取得する
-		        Calendar calToday = Calendar.getInstance();
-		        calToday.getTime();
-
-		        // 2つの日付を比較し、結果を格納(-1:過去, 0:当日, 1:未来)
-		        int diff = calEndDay.compareTo(calToday);
-
-		        dto.setCompareDay(diff);
-		        dto.setCalEndDay(calEndDay);
-		        dto.setDateEndDay(dateEndDay);
-
-		        } catch (ParseException e) {
-		        	e.printStackTrace();
-		        }*/
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();

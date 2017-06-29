@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>決裁手続き電子化</title>
 <link rel="stylesheet" href="css/decision_detail.css">
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- 	ヘッダー読み込み -->
 <jsp:include page="header.jsp" />
 </head>
@@ -39,7 +39,7 @@
 
     <p>自のlist内：<s:property value="%{decisionDetailList2.size()}" />個</p>
     <p>全のlist内：<s:property value="%{decisionDetailList1.size()}" />個</p>
-    <p>決裁未作成のlist内：<s:property value="%{decisionBeginList.size()}" />個</p>
+    <p>決裁未作成のlist内：<s:property value="%{decisionBeginList.size()}" />個</p>|<s:property value="time" />|<s:property value="endDay" />|
 
 
 
@@ -145,13 +145,13 @@
             <!-- 最終承認済み後に表示/////////////////////////////////////////// -->
                 <s:if test="decisionStatus == 5">
 	                <!-- 終了日を過ぎた場合 -->
-	                <s:if test="compareDay > 0">
+	                <s:if test="time == 1">
 	                   	遡求<s:property value="compareDay" />
 	               	</s:if>
 	               	<!-- 最終承認から終了日まで -->
-	                <s:elseif test="compareDay <= 0">
-					    変更/<s:property value="compareDay" />/<s:property value="endDay" />
-					</s:elseif>
+	                <s:else>
+					    変更
+					</s:else>
 				</s:if>
             <!-- 未-最終承認時 -->
                 <s:else>
@@ -231,7 +231,7 @@
                 K<!-- 最終承認済み後に表示 -->
                 <s:if test="decisionStatus == 5">
                 <!-- 終了日を過ぎた時のみ表示//////////////////////////////////////////////// -->
-                    <s:if test="compareDay > 0">
+                    <s:if test="time == 1">
                         <s:form action="DecisionSelectAction">
                             	<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
                            			<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
@@ -383,7 +383,7 @@
                 <s:else>
 
                 <!-- 終了日を過ぎた時のみ表示 -->
-                    <s:if test="compareDay > 0">
+                    <s:if test="time == 1">
 		                	<!-- 遡求の申請 -->
 		                	<s:form action="DecisionDetailRecourseAction">
 	                    		<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
