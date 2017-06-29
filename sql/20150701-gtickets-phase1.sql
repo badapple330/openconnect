@@ -103,7 +103,7 @@ ALTER TABLE order_info
 	on update cascade on delete cascade
 ;
 
-/* クレジットカード情報テーブルの作成*/
+/* 2017.6改修時：クレジットカード情報テーブルの作成*/
 create table credit(
 user_id int not null comment 'ユーザーID',
 credit_type int not null comment 'クレジットの種類',
