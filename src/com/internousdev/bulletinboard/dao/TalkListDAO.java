@@ -18,7 +18,7 @@ public class TalkListDAO {
 	 * @return
 	 */
 	  public ArrayList<PostDTO> talkGet(int userId){
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 		  ArrayList<PostDTO> talkList = new ArrayList<PostDTO>();
 
 

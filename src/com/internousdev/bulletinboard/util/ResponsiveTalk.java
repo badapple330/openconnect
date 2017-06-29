@@ -71,6 +71,7 @@ public class ResponsiveTalk {
 				}
 				if(wordList.size()!=0){
 					result = responseMake(talkList.get(i).getWord());
+					break;
 				}
 			}
 		}
@@ -172,7 +173,9 @@ public class ResponsiveTalk {
 	 */
 	public String wordAnalysis(ArrayList<BotDTO> wordList){
 		String result = null;
+		//上位3つの言葉が出てきた回数
 		int firstCount=0;int secondCount=0;int thirdCount= 0;
+		//上位3つの言葉のリスト階層
 		int firstId=0;int secondId=0;int thirdId=0;
 
 		if(wordList.size()==0){
@@ -180,30 +183,42 @@ public class ResponsiveTalk {
 		}else{
 			for(int i=0;i<wordList.size();i++){
 				int partsCount = 0;
-				for(int n= i+1;n<wordList.size();n++){
-					if(wordList.get(i).getWord().equals(wordList.get(n).getWord())){
-						partsCount++;
+				if(i==0){
+					for(int n= 0;n<wordList.size();n++){
+						if(wordList.get(i).getWord().equals(wordList.get(n).getWord())){
+							partsCount++;
+						}
 					}
-					if(partsCount > firstCount){
-						thirdCount = secondCount;
-						thirdId = secondId;
-						secondCount = firstCount;
-						secondId = firstId;
-						firstCount = partsCount;
-						firstId = i;
-					}else if(partsCount > secondCount){
-						thirdCount = secondCount;
-						thirdId = secondId;
-						secondCount = partsCount;
-						secondId = i;
-					}else if(partsCount > thirdCount){
-						thirdId = partsCount;
-						thirdId = i;
+				}else{
+					if(wordList.get(i).getWord().equals(wordList.get(firstId).getWord()) || wordList.get(i).getWord().equals(wordList.get(secondId).getWord()) || wordList.get(i).getWord().equals(wordList.get(thirdId).getWord())){
+					}else{
+						for(int n= 0;n<wordList.size();n++){
+							if(wordList.get(i).getWord().equals(wordList.get(n).getWord())){
+								partsCount++;
+							}
+						}
 					}
+
+				}
+				if(partsCount > thirdCount){
+					thirdCount = partsCount;
+					thirdId = i;
+				}
+				if(thirdCount > secondCount){
+					thirdCount = secondCount;
+					secondCount = partsCount;
+					thirdId = secondId;
+					secondId = i;
+				}
+				if(secondCount > firstCount){
+					secondCount = firstCount;
+					firstCount = partsCount;
+					secondId = firstId;
+					firstId = i;
 				}
 			}
 			Random rnd = new Random();
-			int ran = rnd.nextInt(2)+1;
+			int ran = rnd.nextInt(3)+1;
 			switch(ran){
 			case 1:ran = firstId;break;
 			case 2:ran = secondId;break;
@@ -211,7 +226,7 @@ public class ResponsiveTalk {
 			}
 			if(secondCount==0){
 				result = wordList.get(firstId).getWord();
-			}else if(thirdCount==0 && ran==3){
+			}else if(thirdCount==0 && ran==thirdId){
 					result = wordList.get(firstId).getWord();
 			}else{
 				result = wordList.get(ran).getWord();

@@ -19,7 +19,7 @@ import com.internousdev.bulletinboard.util.DBConnector;
 public class ProfileUpdateDAO {
 
 	public ArrayList<UserDTO> update(int viewId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
@@ -65,7 +65,7 @@ public class ProfileUpdateDAO {
 	}
 
 	public ArrayList<UserDTO> getFollow(int viewId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
@@ -114,7 +114,7 @@ public class ProfileUpdateDAO {
 
 
 	public ArrayList<UserDTO> getFollower(int viewId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
@@ -161,7 +161,7 @@ public class ProfileUpdateDAO {
 	}
 
 	public boolean checkId(int userId, int viewId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
 		boolean result = false;

@@ -30,6 +30,10 @@ public class DecisionDetailRemandAction extends ActionSupport {
 	 */
 	private int permitStatus;
 	/**
+	 * sessionから取得したログイン中ユーザーID
+	 */
+	private int userId;
+	/**
 	 * 管理者権限メソッド
 	 */
 	public Map<String, Object> session;
@@ -59,7 +63,7 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 		if (count > 0 ) {
 			result = SUCCESS;
-			resultString = "差し戻しできました!";
+			resultString = "差し戻しました!";
 		}
 		return result;
 	}
@@ -100,11 +104,31 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 	/**
 	* 設定メソッド を設定
-	* @param permitStatus
+	* @param permitStatusJ
 	*/
 	public void setPermitStatus(int permitStatus) {
 		this.permitStatus = permitStatus;
 	}
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+
 
 	/**
 	* 取得メソッド 結果を取得

@@ -190,9 +190,6 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public int jPermiterId3;
 
 
-	private String resultString = "表示できません。";
-
-
 	/*
 	 * decisionList コレクションクラスのオブジェクト宣言
 	 * @author kota.miyazato
@@ -228,6 +225,10 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	 */
 	private ArrayList<DecisionDTO> jPermiter3nameList = new ArrayList<DecisionDTO>();
 
+	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "	表示できません。";
 
 	/**
      * DAOに入力されたデータを渡して、結果を返す
@@ -241,22 +242,33 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 		DecisionDAO dao = new DecisionDAO();
 
 		try {
-				decisionList=dao.select(decisionId);
-				nameList = dao.selectByIds(jDrafterId);
+		decisionList=dao.select(decisionId);
+		nameList = dao.selectByIds(jDrafterId);
+       } catch (UnknownException e) {
+		e.printStackTrace();
+       }
+		if(nameList != null){
+			int i =0;
+	try {
+
+       	jDrafterId = decisionList.get(i).getJDrafterId();
+				nameList=dao.selectByIds(jDrafterId);
 				jPermiter1nameList = dao.selectByJPermiterId1(jPermiterId1);
 				jPermiter2nameList = dao.selectByJPermiterId2(jPermiterId2);
 				jPermiter3nameList = dao.selectByJPermiterId3(jPermiterId3);
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
-
-
+		}
 
 		result=SUCCESS;
+		resultString ="表示しました。";
 
 		return result;
 
-		}
+       }
+
+
 
 
 	/**
@@ -475,22 +487,7 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	}
 
 
-	/**
-	* 取得メソッド を取得
-	* @return resultString
-	*/
-	public String getResultString() {
-		return resultString;
-	}
 
-
-	/**
-	* 設定メソッド を設定
-	* @param resultString
-	*/
-	public void setResultString(String resultString) {
-		this.resultString = resultString;
-	}
 
 
 	/**
@@ -598,6 +595,24 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	*/
 	public void setJPermiter3nameList(ArrayList<DecisionDTO> jPermiter3nameList) {
 		this.jPermiter3nameList = jPermiter3nameList;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 

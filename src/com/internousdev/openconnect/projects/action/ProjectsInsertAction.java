@@ -47,9 +47,37 @@ public class ProjectsInsertAction extends ActionSupport {
 	private String startDate;
 
 	/**
+	 * 人数
+	 */
+	private int memberNumber;
+
+	/**
 	 * 結果文字
 	 */
 	private String resultString = "";
+
+
+
+	/**
+	 * 管理者の姓
+	 */
+	private String managerFamilyName;
+
+	/**
+	 * 管理者の名
+	 */
+	private String managerGivenName;
+
+	/**
+	 * サブリーダーの姓
+	 */
+	private String subManagerFamilyName;
+
+	/**
+	 * サブリーダーの名
+	 */
+	private String subManagerGivenName;
+
 
 
 
@@ -64,9 +92,16 @@ public class ProjectsInsertAction extends ActionSupport {
 		String result = ERROR;
 		ProjectsInsertDAO dao = new ProjectsInsertDAO();
 
+		if(dao.managerIdFinder(managerFamilyName, managerGivenName) != 0 && dao.subManagerIdFinder(subManagerFamilyName, subManagerGivenName) != 0){
+			managerId = dao.managerIdFinder(managerFamilyName, managerGivenName);
+			subManagerId = dao.subManagerIdFinder(subManagerFamilyName, subManagerGivenName);
+		}
+
+
+
 
 		int count = 0;
-		count = dao.insert(projectName, managerId, subManagerId, startDate);
+		count = dao.insert(projectName, managerId, subManagerId, memberNumber, startDate);
 
 		if (count > 0) {
 			result = SUCCESS;
@@ -213,6 +248,86 @@ public class ProjectsInsertAction extends ActionSupport {
 	 */
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return memberNumber
+	*/
+	public int getMemberNumber() {
+		return memberNumber;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param memberNumber
+	*/
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return managerFamilyName
+	*/
+	public String getManagerFamilyName() {
+		return managerFamilyName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param managerFamilyName
+	*/
+	public void setManagerFamilyName(String managerFamilyName) {
+		this.managerFamilyName = managerFamilyName;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return managerGivenName
+	*/
+	public String getManagerGivenName() {
+		return managerGivenName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param managerGivenName
+	*/
+	public void setManagerGivenName(String managerGivenName) {
+		this.managerGivenName = managerGivenName;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return subManagerFamilyName
+	*/
+	public String getSubManagerFamilyName() {
+		return subManagerFamilyName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param subManagerFamilyName
+	*/
+	public void setSubManagerFamilyName(String subManagerFamilyName) {
+		this.subManagerFamilyName = subManagerFamilyName;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return subManagerGivenName
+	*/
+	public String getSubManagerGivenName() {
+		return subManagerGivenName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param subManagerGivenName
+	*/
+	public void setSubManagerGivenName(String subManagerGivenName) {
+		this.subManagerGivenName = subManagerGivenName;
 	}
 
 }

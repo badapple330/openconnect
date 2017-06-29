@@ -22,7 +22,7 @@ public class FollowListAddDAO {
 
 	  boolean followCheckFlag = false;
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
       String sql = "select * from follow where do = ? && done = ?";
@@ -63,7 +63,7 @@ public class FollowListAddDAO {
 		  boolean followFlag = false;
 
 
-			DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+			DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 			Connection con = db.getConnection();
 
 
@@ -101,7 +101,7 @@ public class FollowListAddDAO {
 		int result=0;
 		boolean insertFlag=false;
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","bulletinboard","root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
 	  String sql = "insert into post (receiver_id, sender_id, post_contents) values (?,?,?)";

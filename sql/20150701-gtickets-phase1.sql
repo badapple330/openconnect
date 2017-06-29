@@ -96,11 +96,27 @@ ALTER TABLE order_info
 ;
 
 
+
 ALTER TABLE order_info
 	ADD FOREIGN KEY (e_mail)
 	REFERENCES user_info(e_mail)
 	on update cascade on delete cascade
 ;
+
+/* クレジットカード情報テーブルの作成*/
+create table credit(
+user_id int not null comment 'ユーザーID',
+credit_type int not null comment 'クレジットの種類',
+credit_number varchar(16) not null comment 'カード番号',
+name_e varchar(50) not null comment '姓名（ローマ字）',
+security_code varchar(4) not null comment 'セキュリティコード',
+expiration_month varchar(2) not null comment '有効期限（月）',
+expiration_year varchar(2) not null comment '有効期限（年）',
+registration_date timestamp not null default current_timestamp comment '登録日',
+updated_date timestamp not null default current_timestamp on update current_timestamp comment '更新日'
+);
+
+
 insert into user_info value('aaa','あああ','aaaaaaaa','aaaaa@yahoo.co.jp','11111111111',1234567, 'aaaaaaaaaaaaaaa', '1');
 insert into user_info value('bbb','あべひろし','bbbbbbbb','bbbbb@yahoo.co.jp','11111111111',1234567, 'bbbbbbbbbbbbbbb', '2');
 insert into administer value('admin', 'admin', false);

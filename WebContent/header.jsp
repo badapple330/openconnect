@@ -27,10 +27,8 @@
 					<header id="headerSpace">
 						<div class="upperHeader">
 										<a href="applist.jsp" class="openConnect">Open Connect</a>
-							   <!-- internousdevのロゴ -->
-
-
-				               <a href=""><img class="dissappear" src="img/hd_logo.png"></a>
+						  <!-- internousdevのロゴ
+				             <a href=""><img class="dissappear" src="img/hd_logo.png"></a> -->
 
 						</div>
 						<nav id="primary_nav_wrap">
@@ -42,7 +40,7 @@
 							  </s:if>
 
 							  <s:if test="%{#session.userFlg >= 1}">
-							  <li><a href="#">■ Category</a>
+							  <li><a href="#" class= "header-menu">■ Category</a>
 							    <ul>
 							    <s:if test="%{#session.userFlg >= 2}">
 								  <li><a href="GoAdminAttendanceAction">勤怠確認</a></li>
@@ -62,7 +60,6 @@
 							      		<li><a href="GoScheduleSelectAction">スケジュール一覧</a></li>
 							      	</ul>
 							      </li>
-
 								  <s:if test="%{#session.userFlg >= 1}">
 								  	 <li><a href="#">決裁</a>
 								      	<ul>
@@ -81,12 +78,12 @@
 							  </s:if>
 
 							  <s:if test="%{#session.userFlg >= 1}">
-							    <li><a href="GoAttendanceAction">■ 勤怠報告</a></li>
+							    <li><a href="GoAttendanceAction" class= "header-menu">■ 勤怠報告</a></li>
 							  </s:if>
 
-							  <s:if test="%{#session.userFlg == 3}">
+							  <!-- <s:if test="%{#session.userFlg == 3}">
 							  <li><a href="GoAdminAction">■ 管理者 </a></li>
-							  </s:if>
+							  </s:if> -->
 
 
 

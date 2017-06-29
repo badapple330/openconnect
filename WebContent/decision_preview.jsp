@@ -4,10 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<LINK rel="stylesheet" type="text/css" href="css/style.css">
 <jsp:include page="header.jsp" />
-<LINK rel="stylesheet" type="text/css" href="css/decision_preview.css">
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="logo/oc.png">
 <link rel="apple-touch-icon" href="logo/oc.png">
@@ -16,19 +13,29 @@
 <script src="js/sendCheck.js"></script>
 <script type="text/javascript" src="js/decision_preview.js"></script>
 <title>決裁プレビュー</title>
+<link rel="stylesheet" type="text/css" href="css/decision_preview.css">
 </head>
 <body>
 	<s:if test="%{#session.userFlg >= 1}">
 
-		<h1 id="decisionTitle">決裁プレビュー画面</h1>
+
+	<s:iterator value="decisionPreviewList">
+
+		<h1 id="decisionTitle">
+			<s:if test="type == 1 ">実施決裁プレビュー画面</s:if>
+				<s:elseif test="type == 2">契約決裁プレビュー画面</s:elseif>
+					<s:elseif test="type == 3">実施兼契約決裁プレビュー画面</s:elseif>
+		</h1>
+
 		<br>
 		<br>
+
 		<s:if test="decisionPreviewList.size() == 0">
 				<h1>まだ何も編集されていません。</h1>
-	</s:if>
+		</s:if>
 	<s:property value="%{resultString}" /><br>
-		<s:iterator value="decisionPreviewList">
-			<div class="container">
+
+			<div class="container"  style="position:relative; z-index:-1;">
 				<div class="well well-sm">
 					<div class="row">
 						<div class="col-sm-12 col-xs-12">
@@ -36,8 +43,23 @@
 									<tr>
 										<td>
 											<div align="right">
-												日付
-												<s:property value="applyDay" />
+												<label>日付：</label>
+
+											<%-- 実施の場合 --%>
+											<s:if test="type == 1">
+												<s:property value="jApplyDay" />
+											</s:if>
+
+											<%-- 契約の場合 --%>
+											<s:if test="type == 2">
+												<s:property value="kApplyDay" />
+											</s:if>
+
+											<%-- 実施兼契約の場合 --%>
+											<s:if test="type == 3">
+												<s:property value="sApplyDay" />
+											</s:if>
+
 											</div>
 											<div class="row">
 												<div class="col-sm-12">
@@ -48,17 +70,29 @@
 
 											<div class="row">
 												<div class="col-sm-12">
-													<label>起案者</label>
+													<label>起案者：</label>
 													<br>
 												</div>
 											</div>
 
 											<div class="row">
 												<div class="col-sm-12">
-													<s:iterator value="nameList">
-													<label>氏名</label><s:property value="familyNameKanji" />
-													<s:property value="givenNameKanji" />
-													</s:iterator>
+
+												<%-- 実施の場合 --%>
+													<s:if test="type == 1">
+														<s:iterator value="JNameList">
+															<label>氏名：</label><s:property value="familyNameKanji" />
+																				<s:property value="givenNameKanji" />
+														</s:iterator>
+													</s:if>
+												<%-- 契約の場合 --%>
+													<s:if test="type == 2">
+														<s:iterator value="KNameList">
+															<label>氏名：</label><s:property value="familyNameKanji" />
+																				<s:property value="givenNameKanji" />
+														</s:iterator>
+													</s:if>
+
 												</div>
 											</div>
 
@@ -80,10 +114,10 @@
 											<br>
 											<div class="row">
 												<div class="col-sm-12">
-												<div class="center">
-													<h1>記</h1>
+													<div class="center">
+														<h1>記</h1>
+													</div>
 												</div>
-											</div>
 											</div>
 											<br>
 											<div class="row">
@@ -115,7 +149,11 @@
 
 											<div class="row">
 												<div class="col-sm-12">
-													<label>３）実施時期・実施期間</label>
+
+													<label>３）<s:if test="type == 1">実施時期・実施期間</s:if>
+																	<s:elseif test="type == 2">契約時期・実施期間</s:elseif>
+																		<s:elseif test="type == 3">実施兼契約時期・実施期間</s:elseif></label>
+
 													<br>
 													<s:property value="startDay" />～<s:property value="endDay" />
 													<br>
@@ -129,16 +167,42 @@
 											<div class="row">
 												<div class="col-sm-12 hidden-xs">
 													<table id="tableApproval">
-														<tr>
-															<td><div class="width4">―：<br><br></div></td>
-															<td><div class="width4">起案番号：<s:property value="jImpId" /><br><br></div></td>
-															<td><div class="width4">実施決裁番号：<s:property value="jDecId" /><br><br></div></td>
+														<tr style="width:70%;">
+															<td>―：<br><br></td>
+
+															<td><s:if test="type == 1">起案番号：<s:property value="jImpId" /></s:if>
+																	<s:elseif test="type == 2">契約番号：<s:property value="kImpId" /></s:elseif>
+																		<s:elseif test="type == 3">実施兼契約番号：<s:property value="jkImpId" /></s:elseif><br><br></td>
+
+															<td><div class="width4"><s:if test="type == 1">実施決裁番号：<s:property value="jDecId" /></s:if>
+																						<s:elseif test="type == 2">契約番号：<s:property value="kDecId" /></s:elseif>
+																							<s:elseif test="type == 3">実施兼契約番号：<s:property value="jkDecId" /></s:elseif><br><br></div></td>
+
 														</tr>
-														<tr>
-															<td><div class="width4"><label>承認者：</label><s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="jPermitDay1" /></div></td>
-															<td><div class="width4"><label>承認者：</label><s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="jPermitDay2" /></div></td>
-															<td><div class="width4"><label>承認者：</label><s:iterator value="jPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br><label>日付：</label><s:property value="jPermitDay3" /></div></td>
+
+
+														<tr style="height:100px;">
+
+														<%-- 実施の場合 --%>
+														<s:if test="type == 1">
+															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="jApplyDay" /></td>
+															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="jApplyDay" /></td>
+															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="jPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="jApplyDay" /></td>
+														</s:if>
+
+														<%-- 契約/実施兼契約の場合 --%>
+														<s:elseif test="type == 2 || type == 3">
+															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="kPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="kApplyDay" /></td>
+															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="kPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="kApplyDay" /></td>
+															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="kPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="kApplyDay" /></td>
+														</s:elseif>
+
+
 														</tr>
+
+
+
+
 													</table>
 												</div>
 												<%-- スマホの場合の表示 --%>
@@ -146,15 +210,47 @@
 													<table>
 														<tr>
 															<td>―：<br><br></td>
-															<th>承認者：<s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="jPermitDay1" /></th>
+
+															<%-- 実施の場合 --%>
+															<s:if test="type == 1">
+																<th>承認者：<s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br>日付：<s:property value="jSlashApplyDay" /></th>
+															</s:if>
+
+															<%-- 契約の場合 --%>
+															<s:elseif test="type == 2">
+																<th>承認者：<s:iterator value="kPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br>日付：<s:property value="kSlashApplyDay" /></th>
+															</s:elseif>
+
 														</tr>
 														<tr>
-															<td>起案番号：<s:property value="jImpId" /><br><br></td>
-															<th>承認者：<s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="jPermitDay2" /></th>
+
+															<%-- 実施の場合 --%>
+															<s:if test="type == 1">
+																<td>起案番号：<s:property value="jImpId" /><br><br></td>
+																<th>承認者：<s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="jSlashApplyDay" /></th>
+															</s:if>
+
+															<%-- 契約/実施兼契約の場合 --%>
+															<s:elseif test="type == 2 || type == 3">
+																<td>起案番号：<s:property value="kImpId" /><br><br></td>
+																<th>承認者：<s:iterator value="kPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="kSlashApplyDay" /></th>
+															</s:elseif>
+
 														</tr>
 														<tr>
-															<td>実施決裁番号：<s:property value="jDecId" /><br><br></td>
-															<th>承認者：<s:iterator value="jPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="jPermitDay3" /></th>
+
+															<%-- 実施の場合 --%>
+															<s:if test="type == 1">
+																<td>実施決裁番号：<s:property value="jDecId" /><br><br></td>
+																<th>承認者：<s:iterator value="jPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="jApplyDay" /></th>
+															</s:if>
+
+															<%-- 契約/実施兼契約の場合 --%>
+															<s:elseif test="type == 2 || type == 3">
+																<td>契約決裁番号：<s:property value="kDecId" /><br><br></td>
+																<th>承認者：<s:iterator value="kPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="kApplyDay" /></th>
+															</s:elseif>
+
 														</tr>
 													</table>
 												</div>
@@ -167,7 +263,9 @@
 							</div>
 						</div>
 				</div>
+			</div>
 
+			<div class="container">
 				<div class="well well-sm">
 					<div class="row">
 						<div class="col-sm-12 col-xs-12">
@@ -178,7 +276,14 @@
 										<td>
 										<div class="row">
 											<div class="col-sm-12 col-xs-12">
-												<h2>実施計画</h2>
+
+
+												<h2>
+												<s:if test="type == 1">実施計画</s:if>
+												<s:elseif test="type == 2">契約計画</s:elseif>
+												<s:elseif test="type == 3">実施兼契約計画</s:elseif>
+												</h2>
+
 												<br>
 											</div>
 										</div>
@@ -206,9 +311,8 @@
 									</tr>
 								</table>
 								<br>
-								<br>
 								<form>
-									<input class="center-block" type="button" value="戻る" onclick="history.back()">
+									<input class="btn btn-default center-block" type="button" value="戻る" onclick="history.back()" style="position:relative; z-index:1;">
 								</form>
 						</div>
 					</div>

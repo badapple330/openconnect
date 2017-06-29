@@ -58,6 +58,10 @@ public class StudentsSelectAction extends ActionSupport {
 	 * 名（ふりがな）
 	 */
 	private String givenNameKana;
+	/**
+	 * ユーザー名
+	 */
+	private String userName;
 
 
 
@@ -399,6 +403,25 @@ public class StudentsSelectAction extends ActionSupport {
 	 */
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
+	}
+	/**
+	 * チーム名を取得するためのメソッド
+	 *
+	 * @author TATSUHIRO SAITO
+	 * @return
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * チーム名を格納するためのメソッド
+	 *
+	 * @author TATSUHIRO SAITO
+	 * @param user_name
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 

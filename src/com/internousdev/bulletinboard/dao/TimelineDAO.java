@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.bulletinboard.dto.TimelineDTO;
+import com.internousdev.util.DBConnector;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
@@ -35,7 +36,7 @@ public class TimelineDAO {
 	 * @return
 	 */
 	public ArrayList<TimelineDTO> TimelineGet(){
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		ArrayList<TimelineDTO> tlList = new ArrayList<TimelineDTO>();
 		int senderId;
 
@@ -140,7 +141,7 @@ public class TimelineDAO {
 	  public int timelineSend(String sendContents, int reTimelineId){
 		  int inserted=0;
 
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 		  String sql = "insert into send_timeline (sender_id, send_contents, re_timeline_id) values (?,?,?)";
 
 		  try{
@@ -163,6 +164,46 @@ public class TimelineDAO {
 		     return inserted;
 		  }
 
+	  /**
+	   * 投稿するとポイントが50加算するメソッド
+	   * @param userId
+	   * @param
+	   */
+	  public int pointPlus(int userId){
+		  	int senderId = 0;
+
+			LvDAO Lv =new LvDAO();
+
+			DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+			Connection con=db.getConnection();
+			int inserted=0;
+
+			String sql = "update users set point = point+20 where user_id = ?";
+
+			try{
+				PreparedStatement ps= con.prepareStatement(sql);
+				ps.setInt(1,userId);
+			inserted=ps.executeUpdate();
+
+				ps.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}finally{
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+
+
+			//経験値が1000以上だった場合にレベルUP
+			senderId = userId;
+			Lv.Lv_up(senderId);
+			return inserted;
+
+		}
+
 
 	  /**
 	   * タイムラインの投稿を削除するメソッド
@@ -171,7 +212,7 @@ public class TimelineDAO {
 	   */
 	  public int timelineDelete(int timelineId){
 		  int deleted = 0;
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 
 		  String sql = "delete from send_timeline where timeline_id=?";
 
@@ -199,7 +240,7 @@ public class TimelineDAO {
 	   */
 	  public int goodDelete(int timelineId){
 		  int deleted = 0;
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 
 		  String sql = "delete from good where timeline_id=?";
 
@@ -219,6 +260,12 @@ public class TimelineDAO {
 			return deleted;
 		}
 
+	  /**
+	   * いいね情報を削除するメソッド
+	   * @param timelineId
+	   * @return
+	   */
+
 
 	  /**
 	   * 最新のタイムライン投稿情報をDTOにセットするメソッド
@@ -227,7 +274,7 @@ public class TimelineDAO {
 	   */
 	  public TimelineDTO timelineCheck(){
 		  TimelineDTO dto = new TimelineDTO();
-		  Connection con = new MySqlConnector("bulletinboard").getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 
 		  String sql = "select send_contents from send_timeline where sender_id = ? order by send_at desc limit 1";
 

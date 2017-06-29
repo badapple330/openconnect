@@ -13,10 +13,30 @@ public class DecisionDetailDTO {
 
 
 	/**
+	 * 決裁状況
+	 */
+	private String status;
+	/**
+	* 取得メソッド を取得
+	* @return status
+	*/
+	public String getStatus() {
+		return status;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param status
+	*/
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+
+	/**
 	 * 起案番号一時保管庫(DecisionDetailApplicationDAO)
 	 */
 	private String idNumAmount;
-
 	/**
 	* 取得メソッド を取得
 	* @return idNumAmount
@@ -80,21 +100,30 @@ public class DecisionDetailDTO {
 	 */
 	private int projectId;
 	/**
-	 *  申請日
+	 *  実施申請日
 	 */
-	private String applyDay;
+	private String jApplyDay;
+	/**
+	 *  契約/実施兼契約申請日
+	 */
+	private String kApplyDay;
+	/**
+	 *  遡求申請日
+	 */
+	private String sApplyDay;
 	/**
 	 *  決裁種類
 	 */
 	private String decisionType;
 	/**
-	 *  実施決裁状況
+	 *  決裁進捗状況
 	 */
-	private int decisionStatus1;
+	private int decisionStatus;
 	/**
-	 *  契約/実施兼契約決裁状況
+	 * 終了日
 	 */
-	private int decisionStatus2;
+	private String endDay;
+
 
 
 
@@ -113,9 +142,30 @@ public class DecisionDetailDTO {
 	 */
 	private String jkImpId;
 	/**
+	 * 実施決裁番号
+	 */
+	private String jDecId;
+	/**
+	 * 契約決裁番号
+	 */
+	private String kDecId;
+	/**
+	 * 実施兼契約決裁番号
+	 */
+	private String jkDecId;
+	/**
 	 * 承認状況
 	 */
 	private int permitStatus;
+	/**
+	 * 実施起案者ID
+	 */
+	private int jDrafterId;
+	/**
+	 * 契約/実施兼契約起案者ID
+	 */
+	private int kDrafterId;
+
 	/**
 	 * 実施_承認者ID(1人目:リーダー)
 	 */
@@ -223,17 +273,45 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @return applyDay
+	* @return jApplyDay
 	*/
-	public String getApplyDay() {
-		return applyDay;
+	public String getJApplyDay() {
+		return jApplyDay;
 	}
 	/**
 	* 設定メソッド を設定
-	* @param applyDay
+	* @param jApplyDay
 	*/
-	public void setApplyDay(String applyDay) {
-		this.applyDay = applyDay;
+	public void setJApplyDay(String jApplyDay) {
+		this.jApplyDay = jApplyDay;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return kApplyDay
+	*/
+	public String getKApplyDay() {
+		return kApplyDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kApplyDay
+	*/
+	public void setKApplyDay(String kApplyDay) {
+		this.kApplyDay = kApplyDay;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return sApplyDay
+	*/
+	public String getSApplyDay() {
+		return sApplyDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param sApplyDay
+	*/
+	public void setSApplyDay(String sApplyDay) {
+		this.sApplyDay = sApplyDay;
 	}
 	/**
 	* 取得メソッド を取得
@@ -251,31 +329,31 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @return decisionStatus1
+	* @return decisionStatus
 	*/
-	public int getDecisionStatus1() {
-		return decisionStatus1;
+	public int getDecisionStatus() {
+		return decisionStatus;
 	}
 	/**
 	* 設定メソッド を設定
-	* @param decisionStatus1
+	* @param decisionStatus
 	*/
-	public void setDecisionStatus1(int decisionStatus1) {
-		this.decisionStatus1 = decisionStatus1;
+	public void setDecisionStatus(int decisionStatus) {
+		this.decisionStatus = decisionStatus;
 	}
 	/**
 	* 取得メソッド を取得
-	* @return decisionStatus2
+	* @return endDay
 	*/
-	public int getDecisionStatus2() {
-		return decisionStatus2;
+	public String getEndDay() {
+		return endDay;
 	}
 	/**
 	* 設定メソッド を設定
-	* @param decisionStatus2
+	* @param endDay
 	*/
-	public void setDecisionStatus2(int decisionStatus2) {
-		this.decisionStatus2 = decisionStatus2;
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
 	}
 	/**
 	* 取得メソッド を取得
@@ -321,6 +399,48 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
+	* @return jDecId
+	*/
+	public String getJDecId() {
+		return jDecId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jDecId
+	*/
+	public void setJDecId(String jDecId) {
+		this.jDecId = jDecId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return kDecId
+	*/
+	public String getKDecId() {
+		return kDecId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kDecId
+	*/
+	public void setKDecId(String kDecId) {
+		this.kDecId = kDecId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return jkDecId
+	*/
+	public String getJkDecId() {
+		return jkDecId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jkDecId
+	*/
+	public void setJkDecId(String jkDecId) {
+		this.jkDecId = jkDecId;
+	}
+	/**
+	* 取得メソッド を取得
 	* @return permitStatus
 	*/
 	public int getPermitStatus() {
@@ -332,6 +452,34 @@ public class DecisionDetailDTO {
 	*/
 	public void setPermitStatus(int permitStatus) {
 		this.permitStatus = permitStatus;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return jDrafterId
+	*/
+	public int getJDrafterId() {
+		return jDrafterId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jDrafterId
+	*/
+	public void setJDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return kDrafterId
+	*/
+	public int getKDrafterId() {
+		return kDrafterId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kDrafterId
+	*/
+	public void setKDrafterId(int kDrafterId) {
+		this.kDrafterId = kDrafterId;
 	}
 	/**
 	* 取得メソッド を取得

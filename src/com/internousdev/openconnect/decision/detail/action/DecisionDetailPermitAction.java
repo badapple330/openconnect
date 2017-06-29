@@ -47,6 +47,10 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	 */
 	private int userId;
 	/**
+	 * 決裁状況
+	 */
+	private int decisionStatus;
+	/**
 	 * エラーメッセージ
 	 */
 	private String resultString = "承認できませんでした。もしくは承認済みです。";
@@ -95,73 +99,87 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		DecisionDetailApplicationDAO daoApp = new DecisionDetailApplicationDAO();
 
 
-		int jPermiterId3;
-		int kPermiterId3;
-		int jkPermiterId3;
 		String idNum = "";
 		int count = 0;
 
 
 		//リーダーの承認
-		if(permitStatus == 1 || permitStatus == 2) {
+		if( permitStatus == 0 || permitStatus == 1 ) {
+
 			count = daoPer.updateP(decisionType, permitStatus, userId, decisionId);
 		}
 
 
 		//先生の承認
-		if(permitStatus == 0) {
-            jPermiterId3 = userId;
-            kPermiterId3 = userId;
-			jkPermiterId3 = userId;
+		if( permitStatus == 2 ) {
+
 
 			//実施決裁の承認
 			if(decisionType.equals("実施")) {
 
-				idNum = jDecId;
-				idNumList = daoApp.select(decisionType, idNum);
-				if(idNumList.size() > 0) {
-					int a = idNumList.size() + 1;
-					String b = dformat.format(a);
-					jDecId = jDecId + b;
+				//変更時の承認
+				if(decisionStatus == 4) {
+					count = daoPer.updateChangePJ( userId, decisionId );
 				}
 				else {
-					jDecId = jDecId + "001";
+					idNum = jDecId;
+					idNumList = daoApp.select(decisionType, idNum);
+					if(idNumList.size() > 0) {
+						int a = idNumList.size() + 1;
+						String b = dformat.format(a);
+						jDecId = jDecId + b;
+					}
+					else {
+						jDecId = jDecId + "001";
+					}
+					count = daoPer.updatePJ( jDecId, userId, decisionId );
 				}
-				count = daoPer.updatePJ( jDecId, jPermiterId3, decisionId );//DAOでTypeを契約にする＋permitStatusを０にする＋decisionStatus1を２にする
 			}
 
 
 			//契約決裁の承認
 			else if(decisionType.equals("契約")) {
 
-				idNum = kDecId;
-				idNumList = daoApp.select(decisionType, idNum);
-				if(idNumList.size() > 0) {
-					int a = idNumList.size() + 1;
-					String b = dformat.format(a);
-					kDecId = kDecId + b;
+				//変更・遡求時の承認
+				if(decisionStatus == 4 || decisionStatus == 6) {
+					count = daoPer.updateChangePK( userId, decisionId );
 				}
 				else {
-					kDecId = kDecId + "001";
+					idNum = kDecId;
+					idNumList = daoApp.select(decisionType, idNum);
+					if(idNumList.size() > 0) {
+						int a = idNumList.size() + 1;
+						String b = dformat.format(a);
+						kDecId = kDecId + b;
+					}
+					else {
+						kDecId = kDecId + "001";
+					}
+					count = daoPer.updatePK( kDecId, userId, decisionId );
 				}
-				count = daoPer.updatePK( kDecId, kPermiterId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
 			}
 
 
 			//実施兼契約決裁の承認
 			else  {
 
-				idNum = jkDecId;
-				idNumList = daoApp.select(decisionType, idNum);
-				if(idNumList.size() > 0) {
-					int a = idNumList.size() + 1;
-					String b = dformat.format(a);
-					jkDecId = jkDecId + b;
+				//変更・遡求時の承認
+				if(decisionStatus == 4 || decisionStatus == 6) {
+					count = daoPer.updateChangePK( userId, decisionId );
 				}
 				else {
-					jkDecId = jkDecId + "001";
+					idNum = jkDecId;
+					idNumList = daoApp.select(decisionType, idNum);
+					if(idNumList.size() > 0) {
+						int a = idNumList.size() + 1;
+						String b = dformat.format(a);
+						jkDecId = jkDecId + b;
+					}
+					else {
+						jkDecId = jkDecId + "001";
+					}
+					count = daoPer.updatePJK( jkDecId, userId, decisionId );
 				}
-				count = daoPer.updatePJK( jkDecId, jkPermiterId3, decisionId );//DAOでpermitStatusを０にする＋decisionStatus2を２にする
 			}
 
 		}
@@ -200,10 +218,9 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	public int getPermitStatus() {
 		return permitStatus;
 	}
-
 	/**
 	* 設定メソッド を設定
-	* @param permitStatus
+	* @param permitStatusJ
 	*/
 	public void setPermitStatus(int permitStatus) {
 		this.permitStatus = permitStatus;
@@ -231,6 +248,22 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionStatus
+	*/
+	public int getDecisionStatus() {
+		return decisionStatus;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionStatus
+	*/
+	public void setDecisionStatus(int decisionStatus) {
+		this.decisionStatus = decisionStatus;
 	}
 
 	/**

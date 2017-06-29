@@ -2,6 +2,7 @@ package com.internousdev.openconnect.projects.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.internousdev.util.DBConnector;
@@ -25,21 +26,22 @@ public class ProjectsInsertDAO {
 	 * @return count
 	 */
 
-	public int insert(String projectName, int managerId, int subManagerId, String startDate) {
+	public int insert(String projectName, int managerId, int subManagerId, int memberNumber, String startDate) {
 
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection conn = db.getConnection();
-		String sql = "INSERT INTO projects(project_name,manager_id,sub_manager_id,start_date)VALUES(?, ?, ? ,?)";
+		String sql = "INSERT INTO projects(project_name,manager_id,sub_manager_id,member_number,start_date)VALUES(?, ?, ? ,?, ?)";
 
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, projectName);
 			ps.setInt(2, managerId);
 			ps.setInt(3, subManagerId);
-			ps.setString(4, startDate);
+			ps.setInt(4, memberNumber);
+			ps.setString(5, startDate);
 
 			count = ps.executeUpdate();
 
@@ -56,4 +58,72 @@ public class ProjectsInsertDAO {
 
 	}
 
+
+	public int managerIdFinder(String managerFamilyName, String managerGivenName){
+		int managerId = 0;
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection conn = db.getConnection();
+		String sql = "SELECT user_id FROM users WHERE family_name_kanji = ? and given_name_kanji = ?";
+
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, managerFamilyName);
+			ps.setString(2, managerGivenName);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+            	managerId = rs.getInt("user_id");
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return managerId;
+	}
+
+	public int subManagerIdFinder(String subManagerFamilyName, String subManagerGivenName){
+		int subManagerId = 0;
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection conn = db.getConnection();
+		String sql = "SELECT user_id FROM users WHERE family_name_kanji = ? and given_name_kanji = ?";
+
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, subManagerFamilyName);
+			ps.setString(2, subManagerGivenName);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+
+            	subManagerId = rs.getInt("user_id");
+
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return subManagerId;
+	}
+
+
+
+
+
 }
+
+
+

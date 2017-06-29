@@ -33,103 +33,17 @@ public class DecisionPreviewAction extends ActionSupport {
 	private int jDrafterId;
 
 	/**
+	 * 起案者ユーザーID
+	 *
+	 */
+	private int kDrafterId;
+
+	/**
 	 * ユーザーID
 	 */
 	private int userId;
 
-	/**
-	 * 案件名
-	 *
-	 */
-	private String decisionName;
 
-	/**
-	 * 実施起案番号
-	 *
-	 */
-	private String jImpId;
-	/**
-	 * 実施決裁番号
-	 *
-	 */
-	private String jDecId;
-	/**
-	 * 承認番号
-	 */
-	private String adminNum;
-
-	/**
-	 * 理由・目的
-	 */
-	public String cause;
-
-
-	/**
-	 * 	頭紙文章
-	 */
-	private String head;
-
-	/**
-	 * 建設費用
-	 */
-	private float bildCost;
-
-	/**
-	 * 損益費用
-	 */
-	private float benefit;
-
-	/**
-	 * 合計金額
-	 */
-	private float amountAll;
-
-	/**
-	 * 概要
-	 */
-	public String summary;
-
-	/**
-	 * 開始日
-	 */
-	public String startDay;
-
-	/**
-	 * 終了日
-	 */
-	public String endDay;
-
-
-	/**
-	 * 開発端末料
-	 */
-	public int prove;
-
-	/**
-	 * リリース環境使用料
-	 */
-	public float re;
-
-
-	/**
-	 *回線使用料
-	 */
-	public int line;
-
-	/**
-	 *施設使用料
-	 */
-	public float room;
-
-	/**
-	 *開発要員
-	 */
-	public int human;
-
-	/**
-	 *雑費
-	 */
-	public float etc;
 
 	/**
 	 *姓（漢字）
@@ -142,19 +56,61 @@ public class DecisionPreviewAction extends ActionSupport {
 	public String givenNameKanji;
 
 	/**
-	 *承認者ユーザーID1(リーダー)
+	 *実施承認者ユーザーID1(リーダー)
 	 */
 	public int jPermiterId1;
 
 	/**
-	 *承認者ユーザーID2(リーダー)
+	 *実施承認者ユーザーID2(リーダー)
 	 */
 	public int jPermiterId2;
 
 	/**
-	 *承認者ユーザーID3(先生)
+	 *実施承認者ユーザーID3(先生)
 	 */
 	public int jPermiterId3;
+
+	/**
+	 *実施兼契約承認者ユーザーID1(リーダー)
+	 */
+	public int kPermiterId1;
+
+	/**
+	 *実施兼契約承認者ユーザーID2(リーダー)
+	 */
+	public int kPermiterId2;
+
+	/**
+	 *実施兼契約承認者ユーザーID3(先生)
+	 */
+	public int kPermiterId3;
+
+	/**
+	 * 実施/契約/実施兼契約を判断するタイプ。
+	 */
+	public int type;
+
+
+	/**
+	* 取得メソッド を取得
+	* @return type
+	*/
+	public int getType() {
+		return type;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param type
+	*/
+	public void setType(int type) {
+		this.type = type;
+	}
+
+
 
 
 	/**
@@ -163,22 +119,40 @@ public class DecisionPreviewAction extends ActionSupport {
 	private ArrayList<DecisionDTO> decisionPreviewList = new  ArrayList<DecisionDTO>();
 
 	/**
-	 * 起案者の情報のリスト
+	 * 実施起案者の情報のリスト
 	 */
-	private ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
+	private ArrayList<DecisionDTO> JNameList = new ArrayList<DecisionDTO>();
 
 	/**
-	 * 承認者1人目の情報のリスト
+	 * 契約起案者の情報のリスト
+	 */
+	private ArrayList<DecisionDTO> KNameList = new ArrayList<DecisionDTO>();
+
+	/**
+	 * 実施承認者1人目の情報のリスト
 	 */
 	private ArrayList<DecisionDTO> jPermiter1nameList = new ArrayList<DecisionDTO>();
 	/**
-	 * 承認者2人目の情報のリスト
+	 * 実施承認者2人目の情報のリスト
 	 */
 	private ArrayList<DecisionDTO> jPermiter2nameList = new ArrayList<DecisionDTO>();
 	/**
-	 * 承認者3人目の情報のリスト
+	 * 実施承認者3人目の情報のリスト
 	 */
 	private ArrayList<DecisionDTO> jPermiter3nameList = new ArrayList<DecisionDTO>();
+
+	/**
+	 * 契約/実施兼契約承認者1人目の情報のリスト
+	 */
+	private ArrayList<DecisionDTO> kPermiter1nameList = new ArrayList<DecisionDTO>();
+	/**
+	 * 契約/実施兼契約承認者2人目の情報のリスト
+	 */
+	private ArrayList<DecisionDTO> kPermiter2nameList = new ArrayList<DecisionDTO>();
+	/**
+	 * 契約/実施兼契約承認者3人目の情報のリスト
+	 */
+	private ArrayList<DecisionDTO> kPermiter3nameList = new ArrayList<DecisionDTO>();
 
 	/**
 	 * セッション情報
@@ -190,30 +164,69 @@ public class DecisionPreviewAction extends ActionSupport {
 		String result = ERROR;
 		DecisionPreviewDAO dao = new DecisionPreviewDAO();
 		try {
-			decisionPreviewList=dao.select(decisionId);
+			decisionPreviewList=dao.select(decisionId,type);
 		} catch (UnknownException e) {
 		e.printStackTrace();
 		}
 
 		if(decisionPreviewList!=null){
 
-			try {
-				jDrafterId = decisionPreviewList.get(0).getJDrafterId();
-				nameList = dao.selectByIds(jDrafterId);
-				jPermiterId1 = decisionPreviewList.get(0).getJPermiterId1();
-				jPermiter1nameList = dao.selectByJPermiterId1(jPermiterId1);
-				jPermiterId2 = decisionPreviewList.get(0).getJPermiterId2();
-				jPermiter2nameList = dao.selectByJPermiterId2(jPermiterId2);
-				jPermiterId3 = decisionPreviewList.get(0).getJPermiterId3();
-				jPermiter3nameList = dao.selectByJPermiterId3(jPermiterId3);
-			} catch (UnknownException e) {
-				e.printStackTrace();
+				try {
+
+					// 実施決裁の起案者IDの数字を持ってくる
+					jDrafterId = decisionPreviewList.get(0).getJDrafterId();
+					JNameList = dao.selectByJDrafterIds(jDrafterId);
+
+					// 契約/実施兼契約決裁の起案者IDの数字を持ってくる
+					kDrafterId = decisionPreviewList.get(0).getKDrafterId();
+					KNameList = dao.selectByKDrafterIds(kDrafterId);
+
+					// 実施決裁の承認者IDの数字を持ってくる
+					jPermiterId1 = decisionPreviewList.get(0).getJPermiterId1();
+					jPermiter1nameList = dao.selectByJPermiterId1(jPermiterId1);
+					jPermiterId2 = decisionPreviewList.get(0).getJPermiterId2();
+					jPermiter2nameList = dao.selectByJPermiterId2(jPermiterId2);
+					jPermiterId3 = decisionPreviewList.get(0).getJPermiterId3();
+					jPermiter3nameList = dao.selectByJPermiterId3(jPermiterId3);
+
+					// 契約/実施兼契約決裁の承認者IDの数字を持ってくる
+					kPermiterId1 = decisionPreviewList.get(0).getKPermiterId1();
+					kPermiter1nameList = dao.selectByKPermiterId1(kPermiterId1);
+					kPermiterId2 = decisionPreviewList.get(0).getKPermiterId2();
+					kPermiter2nameList = dao.selectByKPermiterId2(kPermiterId2);
+					kPermiterId3 = decisionPreviewList.get(0).getKPermiterId3();
+					kPermiter3nameList = dao.selectByKPermiterId3(kPermiterId3);
+
+				} catch (UnknownException e) {
+					e.printStackTrace();
+				}
+			}
+
+		/**
+		if(decisionPreviewList!=null){
+
+			for(int i=0 ; i < decisionPreviewList.size(); i++){
+				try {
+					jDrafterId = decisionPreviewList.get(i).getJDrafterId();
+					nameList = dao.selectByIds(jDrafterId);
+					jPermiterId1 = decisionPreviewList.get(i).getJPermiterId1();
+					jPermiter1nameList = dao.selectByJPermiterId1(jPermiterId1);
+					jPermiterId2 = decisionPreviewList.get(i).getJPermiterId2();
+					jPermiter2nameList = dao.selectByJPermiterId2(jPermiterId2);
+					jPermiterId3 = decisionPreviewList.get(i).getJPermiterId3();
+					jPermiter3nameList = dao.selectByJPermiterId3(jPermiterId3);
+				} catch (UnknownException e) {
+					e.printStackTrace();
+				}
 			}
 		}
+		*/
 
 		result=SUCCESS;
 		return result;
 		}
+
+
 
 
 	/**
@@ -245,6 +258,28 @@ public class DecisionPreviewAction extends ActionSupport {
 
 	/**
 	* 取得メソッド を取得
+	* @return KDrafterId
+	*/
+	public int getKDrafterId() {
+		return kDrafterId;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param KDrafterId
+	*/
+	public void setKDrafterId(int kDrafterId) {
+		this.kDrafterId = kDrafterId;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
 	* @return userId
 	*/
 	public int getUserId() {
@@ -261,116 +296,7 @@ public class DecisionPreviewAction extends ActionSupport {
 	}
 
 
-	/**
-	 * @return decisionName
-	 */
-	public String getDecisionName() {
-		return decisionName;
-	}
 
-	/**
-	 * @param decisionName セットする decisionName
-	 */
-	public void setDecisionName(String decisionName) {
-		this.decisionName = decisionName;
-	}
-
-	/**
-	 * @return jImpId
-	 */
-	public String getjImpId() {
-		return jImpId;
-	}
-
-	/**
-	 * @param jImpId セットする jImpId
-	 */
-	public void setjImpId(String jImpId) {
-		this.jImpId = jImpId;
-	}
-
-	/**
-	 * @return jDecId
-	 */
-	public String getjDecId() {
-		return jDecId;
-	}
-
-	/**
-	 * @param jDecId セットする jDecId
-	 */
-	public void setjDecId(String jDecId) {
-		this.jDecId = jDecId;
-	}
-	/**
-	 * @return adminNum
-	 */
-	public String getAdminNum() {
-		return adminNum;
-	}
-
-	/**
-	 * @param adminNum セットする adminNum
-	 */
-	public void setAdminNum(String adminNum) {
-		this.adminNum = adminNum;
-	}
-
-	/**
-	 * @return head
-	 */
-	public String getHead() {
-		return head;
-	}
-
-	/**
-	 * @param head セットする head
-	 */
-	public void setHead(String head) {
-		this.head = head;
-	}
-
-	/**
-	 * @return bildCost
-	 */
-	public float getBildCost() {
-		return bildCost;
-	}
-
-	/**
-	 * @param bildCost セットする bildCost
-	 */
-	public void setBildCost(float bildCost) {
-		this.bildCost = bildCost;
-	}
-
-	/**
-	 * @return benefit
-	 */
-	public float getBenefit() {
-		return benefit;
-	}
-
-	/**
-	 * @param benefit セットする benefit
-	 */
-	public void setBenefit(float benefit) {
-		this.benefit = benefit;
-	}
-
-	/**
-	 * @return amountAll
-	 */
-	public float getAmountAll() {
-		return amountAll;
-	}
-
-	/**
-	 * @param amountAll セットする amountAll
-	 */
-	public void setAmountAll(float amountAll) {
-		this.amountAll = amountAll;
-	}
 
 	/**
 	 * 承認者1人目の情報のリストを取得します。
@@ -427,6 +353,72 @@ public class DecisionPreviewAction extends ActionSupport {
 
 
 	/**
+	* 取得メソッド を取得
+	* @return kPermiter1nameList
+	*/
+	public ArrayList<DecisionDTO> getKPermiter1nameList() {
+		return kPermiter1nameList;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kPermiter1nameList
+	*/
+	public void setKPermiter1nameList(ArrayList<DecisionDTO> kPermiter1nameList) {
+		this.kPermiter1nameList = kPermiter1nameList;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kPermiter2nameList
+	*/
+	public ArrayList<DecisionDTO> getKPermiter2nameList() {
+		return kPermiter2nameList;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kPermiter2nameList
+	*/
+	public void setKPermiter2nameList(ArrayList<DecisionDTO> kPermiter2nameList) {
+		this.kPermiter2nameList = kPermiter2nameList;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kPermiter3nameList
+	*/
+	public ArrayList<DecisionDTO> getKPermiter3nameList() {
+		return kPermiter3nameList;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kPermiter3nameList
+	*/
+	public void setKPermiter3nameList(ArrayList<DecisionDTO> kPermiter3nameList) {
+		this.kPermiter3nameList = kPermiter3nameList;
+	}
+
+
+
+
+	/**
 	 * @return session
 	 */
 	public Map<String,Object> getSession() {
@@ -463,7 +455,7 @@ public class DecisionPreviewAction extends ActionSupport {
 	* @return nameList
 	*/
 	public ArrayList<DecisionDTO> getNameList() {
-		return nameList;
+		return JNameList;
 	}
 
 	/**
@@ -471,198 +463,29 @@ public class DecisionPreviewAction extends ActionSupport {
 	* @author KOHEI NITABARU
 	* @param nameList
 	*/
-	public void setNameList(ArrayList<DecisionDTO> nameList) {
-		this.nameList = nameList;
+	public void setJNameList(ArrayList<DecisionDTO> JNameList) {
+		this.JNameList = JNameList;
 	}
 
 	/**
-	 * @return cause
-	 */
-	public String getCause() {
-		return cause;
-	}
-
-
-
-
-	/**
-	 * @param cause セットする cause
-	 */
-	public void setCause(String cause) {
-		this.cause = cause;
-	}
-
-
-
-	/**
-	 * @return summary
-	 */
-	public String getSummary() {
-		return summary;
-	}
-
-
-	/**
-	 * @param summary セットする summary
-	 */
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
-
-
-	/**
-	 * @return startDay
-	 */
-	public String getStartDay() {
-		return startDay;
-	}
-
-	/**
-	 * @param startDay セットする startDay
-	 */
-	public void setStartDay(String startDay) {
-		this.startDay = startDay;
-	}
-
-
-	/**
-	 * @return endDay
-	 */
-	public String getEndDay() {
-		return endDay;
-	}
-
-
-
-	/**
-	 * @param endDay セットする endDay
-	 */
-	public void setEndDay(String endDay) {
-		this.endDay = endDay;
-	}
-
-
-
-
-
-
-
-	/**
-	 * @return prove
-	 */
-	public int getProve() {
-		return prove;
+	* 取得メソッド を取得
+	* @return KNameList
+	*/
+	public ArrayList<DecisionDTO> getKNameList() {
+		return KNameList;
 	}
 
 
 
 
 	/**
-	 * @param prove セットする prove
-	 */
-	public void setProve(int prove) {
-		this.prove = prove;
+	* 設定メソッド を設定
+	* @param KNameList
+	*/
+	public void setKNameList(ArrayList<DecisionDTO> KNameList) {
+		this.KNameList = KNameList;
 	}
 
-
-
-
-	/**
-	 * @return re
-	 */
-	public float getRe() {
-		return re;
-	}
-
-
-
-
-	/**
-	 * @param re セットする re
-	 */
-	public void setRe(float re) {
-		this.re = re;
-	}
-
-
-
-
-	/**
-	 * @return line
-	 */
-	public int getLine() {
-		return line;
-	}
-
-
-
-
-	/**
-	 * @param line セットする line
-	 */
-	public void setLine(int line) {
-		this.line = line;
-	}
-
-
-
-
-	/**
-	 * @return room
-	 */
-	public float getRoom() {
-		return room;
-	}
-
-
-
-
-	/**
-	 * @param room セットする room
-	 */
-	public void setRoom(float room) {
-		this.room = room;
-	}
-
-
-
-
-	/**
-	 * @return human
-	 */
-	public int getHuman() {
-		return human;
-	}
-
-
-
-
-	/**
-	 * @param human セットする human
-	 */
-	public void setHuman(int human) {
-		this.human = human;
-	}
-
-
-
-
-	/**
-	 * @return etc
-	 */
-	public float getEtc() {
-		return etc;
-	}
-
-
-
-
-	/**
-	 * @param etc セットする etc
-	 */
-	public void setEtc(float etc) {
-		this.etc = etc;
-	}
 
 
 	/**
@@ -751,6 +574,72 @@ public class DecisionPreviewAction extends ActionSupport {
 	 */
 	public void setJPermiterId3(int jPermiterId3) {
 	    this.jPermiterId3 = jPermiterId3;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kPermiterId1
+	*/
+	public int getKPermiterId1() {
+		return kPermiterId1;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kPermiterId1
+	*/
+	public void setKPermiterId1(int kPermiterId1) {
+		this.kPermiterId1 = kPermiterId1;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kPermiterId2
+	*/
+	public int getKPermiterId2() {
+		return kPermiterId2;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kPermiterId2
+	*/
+	public void setKPermiterId2(int kPermiterId2) {
+		this.kPermiterId2 = kPermiterId2;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kPermiterId3
+	*/
+	public int getKPermiterId3() {
+		return kPermiterId3;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kPermiterId3
+	*/
+	public void setKPermiterId3(int kPermiterId3) {
+		this.kPermiterId3 = kPermiterId3;
 	}
 
 }

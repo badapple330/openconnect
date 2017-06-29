@@ -27,7 +27,7 @@ public class GoodDAO {
  */
 	public boolean isGood(int userId,int timelineId){
 
-	    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "bulletinboard", "root","mysql");
+	    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 	    Connection con = db.getConnection();
 	    ArrayList<GoodDTO> list=new ArrayList<GoodDTO>();
 	    boolean is =false;
@@ -58,7 +58,7 @@ public class GoodDAO {
 	  }
 
 	public int goodSet(int userId,int timelineId){
-	    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "bulletinboard", "root","mysql");
+	    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 	    Connection con = db.getConnection();
 
 	    int inserted=0;

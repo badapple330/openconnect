@@ -10,6 +10,9 @@ import java.util.List;
 
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.internousdev.util.DBConnector;
+
+
+
 /**
  * 決裁手続き一覧から更新したい内容を、DBへ転送する為のクラス
  * @author SOSHI AZUMA
@@ -92,7 +95,7 @@ public class DecisionDetailApplicationDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE decision SET decision_status1 = 1, j_imp_id = ?, apply_day = ? where decision_id = ?";
+		String sql = "UPDATE decision SET decision_status = 3, j_imp_id = ?, j_apply_day = ? where decision_id = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -134,7 +137,7 @@ public class DecisionDetailApplicationDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE decision SET decision_status2 = 1, k_imp_id = ?, apply_day = ? where decision_id = ?";
+		String sql = "UPDATE decision SET decision_status = 3, k_imp_id = ?, k_apply_day = ? where decision_id = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -176,7 +179,7 @@ public class DecisionDetailApplicationDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "UPDATE decision SET decision_status2 = 1, jk_imp_id = ?, apply_day = ? where decision_id = ?";
+		String sql = "UPDATE decision SET decision_status = 3, jk_imp_id = ?, k_apply_day = ? where decision_id = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -220,10 +223,10 @@ public class DecisionDetailApplicationDAO {
 		String sql;
 
 		if(decisionType.equals("実施")) {
-			sql = "UPDATE decision SET decision_status1 = 1, apply_day = ? where decision_id = ?";
+			sql = "UPDATE decision SET decision_status = 3, j_apply_day = ? where decision_id = ?";
 		}
 		else {
-			sql = "UPDATE decision SET decision_status2 = 1, apply_day = ? where decision_id = ?";
+			sql = "UPDATE decision SET decision_status = 3, k_apply_day = ? where decision_id = ?";
 		}
 
 		try {

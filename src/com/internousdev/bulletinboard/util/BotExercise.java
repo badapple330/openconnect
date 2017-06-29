@@ -1,8 +1,5 @@
 package com.internousdev.bulletinboard.util;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +7,6 @@ import org.atilika.kuromoji.Token;
 import org.atilika.kuromoji.Tokenizer;
 
 import com.internousdev.bulletinboard.dto.BotDTO;
-import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
  * botが文章を学習するためのクラス
@@ -64,69 +60,101 @@ public class BotExercise {
 		//単語の次に助詞・助動詞があった場合はくっつける
 		for(int i=0;i<(wordList.size()-1);i++){
 			if(wordList.get(i+1).getPartOfSpeech().contains("助詞") || wordList.get(i+1).getPartOfSpeech().contains("助動詞")){
-				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
-				wordList.remove(i+1);
+				//記号と助詞助動詞はくっつけない
+				if(!wordList.get(i).getPartOfSpeech().contains("記号")){
+					wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
+					wordList.remove(i+1);
+					i--;
+				}
 			}
 		}
 
 		return wordList;
 	}
-	
-	public ArrayList<BotDTO> bracketsConbine(ArrayList<BotDTO> wordList){
-		ArrayList<BotDTO> newWordList = new ArrayList<BotDTO>();
-		
-		for(int i=0;i<(wordList.size()-1);i++){
-			if(wordList.get(i).getPartOfSpeech().contains("(") || wordList.get(i).getPartOfSpeech().contains("（")){
-				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
-				wordList.get(i).setParts(wordList.get(i).getParts() + wordList.get(i+1).getParts());
-			}
-			if
-		}
-	}
+
 	/**
-	 * リストをもとに、単語とその前後関係をテーブルに書き込むメソッド
-	 * @return 成否を判断する変数
+	 * 空白などの余分なものを除去するメソッド
+	 * @param wordList
+	 * @return
 	 */
-	public int wordSet(){
-		ArrayList<BotDTO> wordList = new ArrayList<BotDTO>();
-		wordList = wordConbine();
-		int inserted = 0;
-		Connection con = new MySqlConnector("bulletinboard").getConnection();
-
-		String sql = "insert into word_analysis(word,parts,part_of_speech,dictionary,after_word,before_word) values(?,?,?,?,?,?)";
-
-	    try{
-	    	PreparedStatement ps = con.prepareStatement(sql);
-	    	for(int i=0;i<wordList.size();i++){
-	    		ps.setString(1, wordList.get(i).getWord());
-	    		ps.setString(2, wordList.get(i).getParts());
-	    		ps.setString(3, wordList.get(i).getPartOfSpeech());
-	    		ps.setBoolean(4, wordList.get(i).isDictionary());
-	    		if(i==0){
-	    			ps.setString(5, wordList.get(i+1).getWord());
-	    			ps.setString(6, null);
-	    		}else if((i+1)==wordList.size()){
-	    			ps.setString(5, null);
-	    			ps.setString(6, wordList.get(i-1).getWord());
-	    		}else{
-	    			ps.setString(5, wordList.get(i+1).getWord());
-	    			ps.setString(6, wordList.get(i-1).getWord());
-	    		}
-	    		inserted = ps.executeUpdate();
-	    	}
-
-
-	    	ps.close();
-	    }catch(SQLException e){
-	    	e.printStackTrace();
-	    }finally {
-			try{
-				con.close();
-			}catch(Exception e){
-				e.printStackTrace();
+	public ArrayList<BotDTO> wordRemover(ArrayList<BotDTO> wordList){
+		for(int i=0;i<(wordList.size()-1);i++){
+			if(wordList.get(i).getPartOfSpeech().contains("空白")){
+				wordList.remove(i);
+				i--;
+			}else if(wordList.get(i).getWord().equals("\r")){
+				wordList.remove(i);
+				i--;
+			}else if(wordList.get(i).getWord().equals("\n")){
+				wordList.remove(i);
+				i--;
 			}
 		}
-	return inserted;
+		return wordList;
+	}
+
+	/**
+	 * 読点をその前の言葉につなげるメソッド
+	 * @param wordList
+	 * @return
+	 */
+	public ArrayList<BotDTO> readingPointConbine(ArrayList<BotDTO> wordList){
+		for(int i=0;i<(wordList.size()-1);i++){
+			if(wordList.get(i+1).getPartOfSpeech().contains("読点")){
+				wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
+				wordList.remove(i+1);
+			}
+		}
+		return wordList;
+	}
+
+	/**
+	 * 括弧の開始から終わりまでを一つの文章として扱うメソッド
+	 * @param wordList
+	 * @return
+	 */
+	public ArrayList<BotDTO> bracketsConbine(ArrayList<BotDTO> wordList){
+
+		for(int i=0;i<(wordList.size()-1);i++){
+			if(wordList.get(i).getPartOfSpeech().contains("括弧開")){
+				while(!(wordList.get(i+1).getPartOfSpeech().contains("括弧閉"))){
+					wordList.get(i).setWord(wordList.get(i).getWord() + wordList.get(i+1).getWord());
+					wordList.remove(i+1);
+				}
+			}
+			if(wordList.get(i).getPartOfSpeech().contains("括弧閉")){
+				wordList.get(i-1).setWord(wordList.get(i-1).getWord() + wordList.get(i).getWord());
+				wordList.remove(i);
+				i--;
+			}
+		}
+		return wordList;
+	}
+
+	/**
+	 * 青空文庫のテキストを整えるメソッド
+	 * @param wordList
+	 * @return
+	 */
+	public ArrayList<BotDTO> aozoraRemover(ArrayList<BotDTO> wordList){
+		for(int i=0;i<(wordList.size()-1);i++){
+			if(wordList.get(i).getWord().contains("《")){
+				wordList.remove(i);
+				i--;
+			}else if(wordList.get(i).getWord().contains("［")){
+				wordList.remove(i);
+				while(!wordList.get(i).getWord().contains("］")){
+					wordList.remove(i);
+				}
+				wordList.remove(i);
+				while(!wordList.get(i).getWord().contains("］")){
+					wordList.remove(i);
+				}
+				wordList.remove(i);
+				i--;
+			}
+		}
+		return wordList;
 	}
 
 }

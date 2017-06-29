@@ -10,16 +10,56 @@
 	display:inline-block;
 }
 
+#main-box{
+}
 
+.print-page{
+}
 
 #operation{
-	height:100px;
 	width:700px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:500px;
-	margin-bottom:100px;
+	margin-bottom:30px;
 }
+
+#operation2{
+	width:700px;
+	margin-top:auto;
+	margin-bottom:auto;
+	margin-left:auto;
+	margin-right:auto;
+	clear:left;
+	clear:right;
+	clear:both;
+}
+
+.blockA{
+	float:left;
+	margin-left:30px;
+}
+
+.blockB{
+	float:right;
+	margin-right:30px;
+}
+
+.blockC{
+	text-align:right;
+	padding-top:30px;
+	clear:left;
+	clear:right;
+	clear:both;
+}
+
+footer{
+	clear:left;
+	clear:right;
+	clear:both;
+}
+
+
 
 /* モーダル コンテンツエリア */
 #modal-main {
@@ -72,7 +112,6 @@
 #calendar{
 	height:100px;
 	width:700px;
-	display:block;
 	margin-top:50px;
 	margin-left:auto;
 	margin-right:auto;
@@ -92,15 +131,25 @@
 	visibility: hidden;
 }
 
+/*印刷用css*/
+.off {
+	display: none;
+}
+
 
 @media only screen and (max-device-width : 640px){
 
         #calendar {
+        	margin-top:10px;
         	width: 100% !important;
         }
         #operation {
             width: 100%;
-            margin-top:300px;
+            margin-top:250px;
+        }
+
+         #operation2 {
+            width: 100%;
         }
         .scheduleStartdayList,
         .scheduleEnddayList {
@@ -113,5 +162,27 @@
         #schedule td:nth-child(5) {
             display: none;
         }
+
+        .blockA{
+	        margin-left:10px;
+        	float:left;
+        }
+
+        .blockB{
+        	margin-right:10px;
+        	float:right;
+        }
+
+        .blockC{
+        	width:350px;
+        	text-align:right;
+			clear:left;
+			clear:right;
+			clear:both;
+		}
+
+		.print-btn{
+			visibility:hidden;
+		}
 
 }

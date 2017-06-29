@@ -9,18 +9,13 @@ import java.util.ArrayList;
 import com.internousdev.bulletinboard.dto.StampDTO;
 import com.internousdev.bulletinboard.util.DBConnector;
 
-/**
- * チャット取得、格納に関するクラス
- * @author Ryo Maeda
- * @since 2017/06/05
- * @version 1.0
- *
- */
+
+
 public class StampDAO {
 
 	  public ArrayList<StampDTO> stampGet(int userId){
 
-		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "bulletinboard", "root","mysql");
+		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		    Connection con = db.getConnection();
 		    ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
 
