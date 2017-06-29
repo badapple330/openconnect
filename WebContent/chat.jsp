@@ -144,10 +144,11 @@
           <div style="clear:both"></div>
 
         </div>
-        <div class="modal-footer" style="position:relative">
+        <s:hidden name="groupId" />
+        <div class="modal-footer" >
             <s:token />
-            <s:hidden name="groupId" />
             <button type="submit" class="btn btn-primary">変更</button>
+
           </div>
          </s:form>
       </div>
