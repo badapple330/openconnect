@@ -617,7 +617,7 @@
 </action>
 
 <action name="FriendSearchAction" class="com.internousdev.bulletinboard.action.FriendSearchAction" method="execute">
-<result name="success"> FriendList.jsp</result>
+<result name="success">FriendList.jsp</result>
 <result name="error"> FriendList.jsp</result>
 </action>
 

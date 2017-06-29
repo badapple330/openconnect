@@ -38,7 +38,7 @@ created_at datetime not null  default current_timestamp comment '作成日'
 );
 
 create table word_analysis(
-sentence_id int not null primary key auto_increment comment '文章ID',
+sentence_id int not null comment '文章ID',
 word varchar(50) not null comment '単語',
 parts varchar(50) comment '単語の基本形（「行った」なら「行く」）',
 part_of_speech varchar(20) comment '品詞',
