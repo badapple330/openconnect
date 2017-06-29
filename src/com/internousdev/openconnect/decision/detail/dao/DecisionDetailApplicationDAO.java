@@ -86,7 +86,7 @@ public class DecisionDetailApplicationDAO {
      */
 	public int updateAJ( String jImpId, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -128,7 +128,7 @@ public class DecisionDetailApplicationDAO {
      */
 	public int updateAK( String kImpId, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -170,7 +170,7 @@ public class DecisionDetailApplicationDAO {
      */
 	public int updateAJK( String jkImpId, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -212,7 +212,7 @@ public class DecisionDetailApplicationDAO {
      */
 	public int updateSimple( String decisionType, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 

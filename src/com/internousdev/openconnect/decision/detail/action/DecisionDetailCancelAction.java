@@ -30,6 +30,10 @@ public class DecisionDetailCancelAction extends ActionSupport {
 	 */
 	private int decisionStatus;
 	/**
+	 * 決裁種類
+	 */
+	private String decisionType;
+	/**
 	 * 管理者権限メソッド
 	 */
 	public Map<String, Object> session;
@@ -53,7 +57,7 @@ public class DecisionDetailCancelAction extends ActionSupport {
 		int count = 0;
 
 
-		count = dao.cancel(decisionStatus, decisionId);
+		count = dao.cancel(decisionType, decisionStatus, decisionId);
 
 
 		if (count > 0 ) {
@@ -124,6 +128,26 @@ public class DecisionDetailCancelAction extends ActionSupport {
 	*/
 	public void setDecisionStatus(int decisionStatus) {
 		this.decisionStatus = decisionStatus;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionType
+	*/
+	public String getDecisionType() {
+		return decisionType;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionType
+	*/
+	public void setDecisionType(String decisionType) {
+		this.decisionType = decisionType;
 	}
 
 

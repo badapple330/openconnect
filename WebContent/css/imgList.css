@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+input[type="radio"]{
+	-webkit-appearance: none;
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	margin:5px;
+	 border-radius:50%;
+
+}
+

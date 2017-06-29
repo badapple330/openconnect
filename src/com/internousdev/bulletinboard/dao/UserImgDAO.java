@@ -18,7 +18,7 @@ import com.internousdev.bulletinboard.util.DBConnector;
  */
 public class UserImgDAO {
 
-		  public ArrayList<UserDTO> imageGet(){
+		  public ArrayList<UserDTO> imgGet(){
 
 			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			    Connection con = db.getConnection();
@@ -47,5 +47,32 @@ public class UserImgDAO {
 				}
 			     return userImgList;
 		  }
+
+		  public int setUserImg(int userId,String url){
+			  int inserted=0;
+
+			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+			    Connection con = db.getConnection();
+			    String sql="update user_master set user_img=? where user_id=?";
+
+			    /////////
+
+			    try{
+			    	PreparedStatement ps = con.prepareStatement(sql);
+			    	ps.setString(1, url);
+			    	ps.setInt(2, userId);
+			    	inserted=ps.executeUpdate();
+			    }catch(SQLException e){
+			    	e.printStackTrace();
+			    }finally {
+					try{
+						con.close();
+					}catch(Exception e){
+						e.printStackTrace();
+						}
+				}
+			     return inserted;
+		  }
 	}
+
 

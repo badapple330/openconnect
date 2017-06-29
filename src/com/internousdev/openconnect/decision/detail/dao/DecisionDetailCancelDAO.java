@@ -21,29 +21,35 @@ public class DecisionDetailCancelDAO {
 	/**
      * 申請取り消しボタン押下時メソッド  申請取り消しによる値の更新をする為のメソッド
      */
-	public int cancel(int decisionStatus, int decisionId ) {
+	public int cancel(String decisionType, int decisionStatus, int decisionId ) {
 
 		int count = 0;
 
-		//通常の申請の場合
-		if(decisionStatus == 3) {
-			decisionStatus = 0;
-		}
-		//変更・遡求時の申請の場合
-		else {
-			decisionStatus = 5;
-		}
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
-		String sql = "update decision set decision_status = ? where decision_id = ?";
+		String sql ="";
+
+				//通常の申請の場合
+				if(decisionStatus == 3) {
+					if(decisionType.equals("実施")) {
+
+						sql = "update decision set decision_status = 0, j_imp_id = null, j_apply_day = null where decision_id = ?";
+					}
+					else {
+						sql = "update decision set decision_status = 0, k_imp_id = null, jk_imp_id = null, k_apply_day = null where decision_id = ?";
+					}
+				}
+				//変更・遡求時の申請の場合
+				else {
+					sql = "update decision set decision_status = 5 where decision_id = ?";
+				}
 
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, decisionStatus);
-			ps.setInt(2, decisionId);
+			ps.setInt(1, decisionId);
 
 			count = ps.executeUpdate();
 
