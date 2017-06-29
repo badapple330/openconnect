@@ -32,7 +32,7 @@ public class DecisionDetailRejectDAO {
 			sql = "update decision set permit_status = 0, j_apply_day = null, decision_status = 2, j_imp_id = null, j_permiter_id1 = null, j_permiter_id2 = null where decision_id = ?";
 		}
 		else {
-			sql = "update decision set permit_status = 0, k_apply_day = null, decision_status = 2, k_imp_id = null, k_permiter_id1 = null, k_permiter_id2 = null where decision_id = ?";
+			sql = "update decision set permit_status = 0, k_apply_day = null, decision_status = 2, k_imp_id = null, jk_imp_id = null, k_permiter_id1 = null, k_permiter_id2 = null where decision_id = ?";
 		}
 
 		try {

@@ -23,7 +23,7 @@ public class DecisionDetailChangeDAO {
      */
 	public int change( String decisionType, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -34,9 +34,7 @@ public class DecisionDetailChangeDAO {
 		String sql;
 
 		if(decisionType.equals("実施")) {
-			sql = "UPDATE decision SET decision_status = 4, decision_type = '実施', k_apply_day = null, j_drafter_id = null, k_drafter_id = null"
-					+", j_permiter_id1 = null, j_permiter_id2 = null, j_permiter_id3 = null, k_permiter_id1 = null, k_permiter_id2 = null, k_permiter_id3 = null"
-					+", j_apply_day = ? where decision_id = ?";
+			sql = "UPDATE decision SET decision_status = 4, decision_type = '実施', j_apply_day = ? where decision_id = ?";
 		}
 		else {
 			sql = "UPDATE decision SET decision_status = 4, k_apply_day = ? where decision_id = ?";
@@ -46,7 +44,7 @@ public class DecisionDetailChangeDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, applyDay);
-			ps.setInt(1, decisionId);
+			ps.setInt(2, decisionId);
 
 			count =ps.executeUpdate();
 

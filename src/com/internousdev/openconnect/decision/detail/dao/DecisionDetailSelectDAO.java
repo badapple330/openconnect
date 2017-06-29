@@ -22,19 +22,6 @@ import com.internousdev.util.DBConnector;
  */
 public class DecisionDetailSelectDAO {
 
-	private int status;
-
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-	/*try {status = rs.getInt("decision_status");
-	if(status == 0) {statusMsg = "実施編集中";}
-	else if(status == 1) {statusMsg = "契約編集中";}
-	dto.setStatus(statusMsg);}catch(Exception e){}*/
 
 	/**
 	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
@@ -65,18 +52,13 @@ public class DecisionDetailSelectDAO {
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus(rs.getInt("decision_status"));
-
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setPermitStatus(rs.getInt("permit_status"));
-				dto.setJDrafterId(rs.getInt("j_drafter_id"));
-				dto.setKDrafterId(rs.getInt("k_drafter_id"));
 				dto.setJPermiterId1(rs.getInt("j_permiter_id1"));
-				dto.setJPermiterId2(rs.getInt("j_permiter_id2"));
-				dto.setJPermiterId3(rs.getInt("j_permiter_id3"));
 				dto.setKPermiterId1(rs.getInt("k_permiter_id1"));
-				dto.setKPermiterId2(rs.getInt("k_permiter_id2"));
-				dto.setKPermiterId3(rs.getInt("k_permiter_id3"));
+				dto.setJPermiterId1(rs.getInt("j_permiter_id3"));
+				dto.setKPermiterId1(rs.getInt("k_permiter_id3"));
 
 				decisionDetailList1.add( dto );
 			}
@@ -107,7 +89,7 @@ public class DecisionDetailSelectDAO {
 				+"where decision_status != 7 and ( manager_id = ? or sub_manager_id = ? )";
 
 		List<DecisionDetailDTO> decisionDetailList2  = new ArrayList<DecisionDetailDTO>();
-		//String statusMsg = "";
+
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -124,9 +106,9 @@ public class DecisionDetailSelectDAO {
 				dto.setProjectName(rs.getString("project_name"));
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus(rs.getInt("decision_status"));
-
-				dto.setManagerId(rs.getInt("manager_id"));
-				dto.setSubManagerId(rs.getInt("sub_manager_id"));
+				dto.setPermitStatus(rs.getInt("permit_status"));
+				dto.setJDrafterId(rs.getInt("j_drafter_id"));
+				dto.setKDrafterId(rs.getInt("k_drafter_id"));
 				dto.setJImpId(rs.getString("j_imp_id"));
 				dto.setKImpId(rs.getString("k_imp_id"));
 				dto.setJkImpId(rs.getString("jk_imp_id"));
@@ -210,7 +192,7 @@ public class DecisionDetailSelectDAO {
 
 		String sql = "select end_day from decision inner join projects on decision.project_id = projects.project_id where ( end_day < now() ) and ( manager_id = ? or sub_manager_id = ? )";
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
 		DecisionDetailDTO dto = new DecisionDetailDTO();
 

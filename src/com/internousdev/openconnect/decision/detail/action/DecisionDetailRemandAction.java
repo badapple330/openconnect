@@ -22,14 +22,6 @@ public class DecisionDetailRemandAction extends ActionSupport {
 	 */
 	private int decisionId;
 	/**
-	 * 決裁種類
-	 */
-	private String decisionType;
-	/**
-	 * 承認状況
-	 */
-	private int permitStatus;
-	/**
 	 * sessionから取得したログイン中ユーザーID
 	 */
 	private int userId;
@@ -58,7 +50,7 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 		int count = 0;
 
-		count = dao.remand( decisionType, permitStatus, decisionId );
+		count = dao.remand( decisionId );
 
 
 		if (count > 0 ) {
@@ -86,29 +78,6 @@ public class DecisionDetailRemandAction extends ActionSupport {
 		this.decisionId = decisionId;
 	}
 
-	public String getDecisionType() {
-		return decisionType;
-	}
-
-	public void setDecisionType(String decisionType) {
-		this.decisionType = decisionType;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return permitStatus
-	*/
-	public int getPermitStatus() {
-		return permitStatus;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param permitStatusJ
-	*/
-	public void setPermitStatus(int permitStatus) {
-		this.permitStatus = permitStatus;
-	}
 
 	/**
 	* 取得メソッド を取得
