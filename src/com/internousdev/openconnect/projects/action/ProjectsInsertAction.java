@@ -1,10 +1,12 @@
 package com.internousdev.openconnect.projects.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.project.status.dao.ProjectStatusInsertDAO;
 import com.internousdev.openconnect.projects.dao.ProjectsInsertDAO;
 import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
+import com.internousdev.openconnect.projects.dto.ProjectsListDTO;
 import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -78,27 +80,25 @@ public class ProjectsInsertAction extends ActionSupport {
 	 */
 	private String subManagerGivenName;
 
+	ArrayList<ProjectsListDTO> checkList = new ArrayList<ProjectsListDTO>();
 
 
-
-	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 *
-	 * @author YUICHI KIRIU
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
-	 */
 	public String execute() {
 
 		String result = ERROR;
 		ProjectsInsertDAO dao = new ProjectsInsertDAO();
 
+		//プロジェクト名二重チェックメソッド
+				checkList = dao.select(projectName);
+
+				if(checkList.size() > 0){
+					resultString = "--そのプロジェクト名は既に登録されています。--";
+				}else{
+
 		if(dao.managerIdFinder(managerFamilyName, managerGivenName) != 0 && dao.subManagerIdFinder(subManagerFamilyName, subManagerGivenName) != 0){
 			managerId = dao.managerIdFinder(managerFamilyName, managerGivenName);
 			subManagerId = dao.subManagerIdFinder(subManagerFamilyName, subManagerGivenName);
 		}
-
-
-
 
 		int count = 0;
 		count = dao.insert(projectName, managerId, subManagerId, memberNumber, startDate);
@@ -106,7 +106,7 @@ public class ProjectsInsertAction extends ActionSupport {
 		if (count > 0) {
 			result = SUCCESS;
 
-			resultString = "追加に成功しました";
+			resultString = "--追加に成功しました--";
 
 			int maxId = 0;
 
@@ -124,8 +124,9 @@ public class ProjectsInsertAction extends ActionSupport {
 
 			insertDao.insert(maxId);
 		} else {
-			resultString = "追加に失敗しました";
+			resultString = "--追加に失敗しました--";
 		}
+				}
 
 		return result;
 	}
@@ -329,5 +330,30 @@ public class ProjectsInsertAction extends ActionSupport {
 	public void setSubManagerGivenName(String subManagerGivenName) {
 		this.subManagerGivenName = subManagerGivenName;
 	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return checkList
+	*/
+	public ArrayList<ProjectsListDTO> getCheckList() {
+		return checkList;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param checkList
+	*/
+	public void setCheckList(ArrayList<ProjectsListDTO> checkList) {
+		this.checkList = checkList;
+	}
+
+	/**
+	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 *
+	 * @author YUICHI KIRIU
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 
 }

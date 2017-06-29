@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import com.internousdev.openconnect.projects.dto.ProjectsListDTO;
 import com.internousdev.util.DBConnector;
 
 /**
@@ -14,6 +16,43 @@ import com.internousdev.util.DBConnector;
  * @since 2016/09/07
  */
 public class ProjectsInsertDAO {
+
+	// プロジェクト名が二重に登録されていないかチェックするメソッド
+		public ArrayList<ProjectsListDTO> select(String projectName) {
+
+			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+					"mysql");
+			Connection conn = db.getConnection();
+			//String SearchName= "%"+ projectName + "%";
+
+			ArrayList<ProjectsListDTO> checkList = new ArrayList<ProjectsListDTO>();
+			String sql = "select project_name from projects where project_name= ? ";
+
+			try{
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ps.setString(1, projectName);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()){
+					ProjectsListDTO dto = new ProjectsListDTO();
+					dto.setProjectName(rs.getString("project_name"));
+					checkList.add(dto);
+				}
+			}
+
+			 catch (SQLException e ) {
+			   e.printStackTrace() ;
+			} finally {
+				try{
+					conn.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+
+		}
+			}
+			return checkList;
+		}
+
+
 
 	/**
 	 * 追加された情報をＤＢに追加するメソッド
