@@ -85,9 +85,9 @@
 							<td><div class="verysmallWidth"><s:property value="userId" /></div></td>
 
 
-							<td><div class="smallWidth"><input type="text" name="familyNameKanjiList"
-								value="<s:property value="familyNameKanji" />"
-								class="familyNameKanji maxText" maxlength="20" required></div></td>
+							<td><div class="smallWidth"><input type="text" name="userNameiList"
+								value="<s:property value="userName" />"
+								class="userName maxText" maxlength="20" required></div></td>
 
 							<td><div class="smallWidth"><input type="text" name="givenNameKanjiList"
 								value="<s:property value="givenNameKanji" />"

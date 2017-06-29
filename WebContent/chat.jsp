@@ -90,6 +90,8 @@
         <div class="collapse navbar-collapse" id="nav_target">
           <ul class="nav navbar-nav navbar-right">
             <li><a data-toggle="modal" class="cursor"
+              data-target="#groupImageChange">グループ画像変更</a></li>
+            <li><a data-toggle="modal" class="cursor"
               data-target="#groupMemberModal">メンバーを確認</a></li>
             <li class="dropdown"><a href="#"
               class="dropdown-toggle" data-toggle="dropdown">メンバーを追加
@@ -113,6 +115,29 @@
       </div>
     </nav>
   </s:else>
+  <!-- グループ画像変更画面 -->
+  <div class="modal fade" id="groupImageChange" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title">画像を変更する</h4>
+        </div>
+        <s:form action="">
+        <div class="modal-body">
+          <img src="<s:property value="groupImg"/>"   alt="" class="img-circle-ex">
+        </div>
+        <div class="modal-footer">
+            <s:token />
+            <button type="submit" class="btn btn-primary">変更</button>
+          </div>
+         </s:form>
+      </div>
+    </div>
+  </div>
+
   <!-- グループメンバーの確認画面 -->
   <div class="modal fade" id="groupMemberModal" tabindex="-1">
     <div class="modal-dialog">

@@ -76,36 +76,8 @@
 			<div class="modal-body">
 			<h5>グループ名</h5>
 			<input type="text" name="groupName" maxlength="50" required placeholder="グループ名を入力してください" class="groupName">
-			<h5>グループ画像</h5>
-			<a data-toggle="modal" data-target="#imageAdd" class="cursor"><img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex"></a>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-				<s:token/>
-				<button type="submit" class="btn btn-primary">グループを作る</button>
-			</div>
-			</s:form>
-		</div>
-	</div>
-</div>
-<div class="modal fade" id="imageAdd" tabindex="-1">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-				<h4 class="modal-title">グループ画像</h4>
-			</div>
-			<s:form action="GroupTokenAction">
 
-			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
-			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
-			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
-			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
-			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
-			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
-			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
-			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
-			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
+			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 				<s:token/>
@@ -115,6 +87,7 @@
 		</div>
 	</div>
 </div>
+
 
 
 

@@ -617,11 +617,16 @@
 </action>
 
 <action name="FriendSearchAction" class="com.internousdev.bulletinboard.action.FriendSearchAction" method="execute">
-<result name="success"> FriendList.jsp</result>
+<result name="success">FriendList.jsp</result>
 <result name="error"> FriendList.jsp</result>
 </action>
 
 <action name="BotExerciseAction" class="com.internousdev.bulletinboard.action.BotExerciseAction" method="execute">
+<result name="success">botResult.jsp</result>
+<result name="error">botResult.jsp</result>
+</action>
+
+<action name="BotSentenceDeleteAction" class="com.internousdev.bulletinboard.action.BotSentenceDeleteAction" method="execute">
 <result name="success">botResult.jsp</result>
 <result name="error">botResult.jsp</result>
 </action>

@@ -55,27 +55,6 @@ public class DecisionDetailDTO {
 
 
 	/**
-	 * 終了日比較結果(DecisionDetailSelectDAO)
-	 */
-	 private int compareDay;
-	/**
-	* 取得メソッド を取得
-	* @return compareDay
-	*/
-	public int getCompareDay() {
-		return compareDay;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param compareDay
-	*/
-	public void setCompareDay(int compareDay) {
-		this.compareDay = compareDay;
-	}
-
-
-
-	/**
 	 * sessionから取得したログイン中ユーザーID
 	 */
 	private int userId;
@@ -178,6 +157,15 @@ public class DecisionDetailDTO {
 	 * 承認状況
 	 */
 	private int permitStatus;
+	/**
+	 * 実施起案者ID
+	 */
+	private int jDrafterId;
+	/**
+	 * 契約/実施兼契約起案者ID
+	 */
+	private int kDrafterId;
+
 	/**
 	 * 実施_承認者ID(1人目:リーダー)
 	 */
@@ -464,6 +452,34 @@ public class DecisionDetailDTO {
 	*/
 	public void setPermitStatus(int permitStatus) {
 		this.permitStatus = permitStatus;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return jDrafterId
+	*/
+	public int getJDrafterId() {
+		return jDrafterId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jDrafterId
+	*/
+	public void setJDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return kDrafterId
+	*/
+	public int getKDrafterId() {
+		return kDrafterId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kDrafterId
+	*/
+	public void setKDrafterId(int kDrafterId) {
+		this.kDrafterId = kDrafterId;
 	}
 	/**
 	* 取得メソッド を取得

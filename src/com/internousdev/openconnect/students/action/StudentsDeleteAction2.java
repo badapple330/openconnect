@@ -45,7 +45,7 @@ public class StudentsDeleteAction2 extends ActionSupport {
         count = dao.delete2(month);
         if (count > 0) {
             result = SUCCESS;
-            resultString = "削除に成功しました。";
+            resultString = "非表示に成功しました。";
         }
         return result;
     }

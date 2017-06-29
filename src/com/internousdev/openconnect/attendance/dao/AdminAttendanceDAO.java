@@ -40,6 +40,7 @@ public class AdminAttendanceDAO {
 	 * @param givenNameKanji
 	 * @param attendance
 	 * @param teamName
+	 * @param reason
 	 * @return searchList
 	 */
 	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String familyNameKanji,String givenNameKanji,String attendance, String teamName) {
@@ -66,11 +67,11 @@ public class AdminAttendanceDAO {
 
 		}
 
-//		/* 名が定義されたとき */
-//		if(!((givenNameKanji).equals(""))){
-//			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-//			whereState += "given_name_kanji='"+givenNameKanji+"'";
-//		}
+		//		/* 名が定義されたとき */
+		//		if(!((givenNameKanji).equals(""))){
+		//			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+		//			whereState += "given_name_kanji='"+givenNameKanji+"'";
+		//		}
 
 		/* チーム名が定義されたとき */
 		if(!((teamName).equals(""))){
@@ -80,46 +81,46 @@ public class AdminAttendanceDAO {
 		/* 勤怠状況定義時 */
 		if(!((attendance).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-			whereState += "attendance='"+attendance+"'";
-		}
-
-		/* sql文定義 */
-		if(!((whereState).equals(""))){
-			/*条件完全未定義時、任意の勤怠状況データを得る。 */
-//			sql = "select * from attendance left join users on attendance.user_id=users.user_id;";
-//		} else {
-			/* Where節 定義時 */
-			sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + "";
-		}
-
-		try {
-			statement = con.createStatement();
-			ResultSet rs = statement.executeQuery(sql); //SQL文の実行インターフェース。
-
-			while (rs.next()) {
-				AttendanceDTO dto = new AttendanceDTO();
-				dto.setAtDate(rs.getString("at_date"));
-				dto.setMonth(rs.getString("month"));
-				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
-				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
-				dto.setTeamName(rs.getString("team_name"));
-				dto.setAttendance(rs.getString("attendance"));
-				dto.setReason(rs.getString("reason"));
-				searchList.add(dto);
+			whereState += "attendance"+attendance;
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
+			/* sql文定義 */
+			if(!((whereState).equals(""))){
+				/*条件完全未定義時、任意の勤怠状況データを得る。 */
+				//			sql = "select * from attendance left join users on attendance.user_id=users.user_id;";
+				//		} else {
+				/* Where節 定義時 */
+				sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + ";";
+			}
+
 			try {
-				/* Close Resouces */
-				con.close();
-				statement.close();
+				statement = con.createStatement();
+				ResultSet rs = statement.executeQuery(sql); //SQL文の実行インターフェース。
+
+				while (rs.next()) {
+					AttendanceDTO dto = new AttendanceDTO();
+					dto.setAtDate(rs.getString("at_date"));
+					dto.setMonth(rs.getString("month"));
+					dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
+					dto.setGivenNameKanji(rs.getString("given_name_kanji"));
+					dto.setTeamName(rs.getString("team_name"));
+					dto.setAttendance(rs.getString("attendance"));
+					dto.setReason(rs.getString("reason"));
+					searchList.add(dto);
+				}
+
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				try {
+					/* Close Resouces */
+					con.close();
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
+			return searchList;
 		}
-		return searchList;
-	}
 
-}
+	}

@@ -50,6 +50,14 @@ public class DecisionDetailSelectAction extends ActionSupport {
 	 */
 	private int userId;
 	/**
+	 * 終了日と今日比較判定用変数
+	 */
+	private int time;
+	/**
+	 * 終了日
+	 */
+	private String endDay;
+	/**
 	 * 管理者権限メソッド
 	 */
 	private Map<String, Object> session;
@@ -81,9 +89,19 @@ public class DecisionDetailSelectAction extends ActionSupport {
 		decisionDetailList2 = dao.selectMyD( userId, userId1);
 		decisionBeginList = dao.selectBeginP( userId, userId1 );
 
-		//日付比較用
+		//遡求判定(日付比較)用
 		DecisionDetailDTO dto = new DecisionDetailDTO();
 		dto = dao.selectCompareDay( userId, userId1);
+		endDay = dto.getEndDay();
+
+		if(endDay != null) {
+			time = 1;//遡求申請可能
+		}
+		else {
+			time = 0;//不可
+		}
+
+
 
 
 		if( decisionDetailList1.size() == 0){
@@ -197,6 +215,46 @@ public class DecisionDetailSelectAction extends ActionSupport {
 	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return time
+	*/
+	public int getTime() {
+		return time;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param time
+	*/
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return endDay
+	*/
+	public String getEndDay() {
+		return endDay;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param endDay
+	*/
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
 	}
 
 

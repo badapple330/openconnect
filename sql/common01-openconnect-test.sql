@@ -273,6 +273,7 @@ manager_id int not null comment 'リーダーID',
 sub_manager_id int not null comment 'サブリーダーID',
 start_date date comment '開始日',
 end_date date comment '終了日',
+member_number int not null comment '人数',
 note varchar(255) comment 'メモ',
 foreign key(manager_id) references users(user_id) on update cascade on delete cascade,
 foreign key(sub_manager_id) references users(user_id) on update cascade on delete cascade
@@ -470,6 +471,14 @@ create table stamp(
 stamp_id int not null primary key auto_increment comment 'スタンプID',
 type_id int not null comment '種別ID',
 lv int not null default 1 comment '使用可能レベル',
+url varchar(255) not null
+);
+
+
+/*グループ画像
+ ****************************/
+create table group_img(
+img_id int not null primary key auto_increment comment '画像ID',
 url varchar(255) not null
 );
 
@@ -692,6 +701,21 @@ insert into stamp(type_id,lv,url) values
 (6,4,"pic/stamp/06_shiropuu/shiropuu_28.png"),
 (6,4,"pic/stamp/06_shiropuu/shiropuu_29.png"),
 (6,4,"pic/stamp/06_shiropuu/shiropuu_30.png");
+
+
+insert into group_img(url) values
+("pic/group_img/allStars.jpg"),
+("pic/group_compan.jpg"),
+("pic/group_img/earphone.jpg"),
+("pic/group_img/fire.jpg"),
+("pic/group_img/marlboro.jpg"),
+("pic/group_img/mouse.jpg"),
+("pic/group_img/papurika01.jpg"),
+("pic/group_img/sevenStars.jpg"),
+("pic/group_img/tomato01.jpg"),
+("pic/group_img/wallet.jpg"),
+("pic/group_img/watch.jpg");
+
 
 
 
