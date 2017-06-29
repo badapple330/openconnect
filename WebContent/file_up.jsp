@@ -55,7 +55,7 @@
 <!-- 戻る -->
 	<s:form action="DecisionSelectAction">
 	<input type="hidden" name="decisionId"value="<s:property value="decisionId"/>">
-<input type="hidden" name="jDrafterId"value="<s:property value="jDrafterId"/>">
+<input type="hidden" name="jDrafterId"value="<s:property value="#session.userId"/>">
 		<input type="submit" class="button" value="戻る">
 	</s:form>
 
