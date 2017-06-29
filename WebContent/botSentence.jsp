@@ -65,6 +65,7 @@ $(function() {
 <div class="outline">
 <br>
 <h3>覚えさせた文章</h3>
+
 <s:if test="sentenceId==0" >
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
     <thead>
@@ -87,7 +88,9 @@ $(function() {
     </tbody>
 </table>
 </s:if>
+
 <s:else>
+<button class="btn btn-danger" data-toggle="modal" data-target="#sentenceDelete">この文章を忘れさせる</button>
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
     <thead>
         <tr>
@@ -110,6 +113,27 @@ $(function() {
 </table>
 </s:else>
 
+	<!-- 投稿削除の確認画面 -->
+		<div class="modal fade" id="sentenceDelete" tabindex="-1">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+						<h4 class="modal-title">文章を忘れさせる</h4>
+					</div>
+					<s:form action="BotSentenceDeleteAction">
+						<div class="modal-body">
+							文章を忘れさせると戻すことはできません。よろしいですか？
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+							<s:hidden theme="simple" name="sentenceId" value="%{sentenceId}"></s:hidden>
+							<button type="submit" class="btn btn-danger">削除</button>
+						</div>
+					</s:form>
+				</div>
+			</div>
+		</div>
 </div>
 
 
