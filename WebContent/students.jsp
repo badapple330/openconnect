@@ -46,7 +46,7 @@
 				<td><input id="postBtn" type="submit" value="検索"></td>
 		</s:form>
 
-		</div>
+		</div></div>
 
 <br><br><br><br><br><br><br><br><br>
 			<br>
@@ -75,7 +75,7 @@
 							<th><div class="bigWidth">ユーザー種別</div></th>
 
 							<th><div class="verysmallWidth">編集</div></th>
-							<th><div class="verysmallWidth">削除</div></th>
+
 					<!--  	</s:if>-->
 					</tr>
 
@@ -127,8 +127,7 @@
 
 								<td><input type="button" class="button modal-update"
 									value="編集"></td>
-								<td><input type="button" class="button modal-delete"
-									value="削除"></td>
+
 						<!-- </s:if> -->
 						</tr>
 						<input type="hidden" name="userIdList"
@@ -136,49 +135,19 @@
 							</s:if>
 					</s:iterator>
 				</table>
-			</s:if></div>
-			<div id="modal-deleteMain">
-				id ：
-				<div class="deleteUserId modalString"></div>
-				<br> 受講年 ：
-				<div class="deleteYear modalString"></div>
-				<br> 受講開始月 ：
-				<div class="deleteMonth modalString"></div>
-				<br> 姓 ：
-				<div class="deleteFamilyName modalString"></div>
-				<br> 名 ：
-				<div class="deleteGivenName modalString"></div>
-				<br> <input type="button" class="delete-true button" value="削除">
-				<input type="button" class="modal-close button" value="閉じる">
-
-				<div class="delete-prepare">
-					本当に削除しますか？
-					<s:form action="StudentsDeleteAction">
-						<input type="hidden" name="userId" value=""
-							class="deleteUserId delete-true">
-						<input type="submit" class="delete-true button" value="はい">
-						<input type="button" class="modal-close button" value="いいえ">
-					</s:form>
-				</div>
-			</div>
+			</s:if>
 
 			<div id="modal-updateMain">
-				id ：
-				<div class="updateUserId modalString"></div>
-				<br> 受講年 ：
-				<div class="updateYear modalString"></div>
-				<br> 受講開始月 ：
-				<div class="updateMonth modalString"></div>
-				<br> 姓 ：
-				<div class="updateFamilyName modalString"></div>
-				<br> 名 ：
-				<div class="updateGivenName modalString"></div>
+
+				<br> ユーザー名 ：
+				<div class="updateuserName modalString"></div>
+
 				<br> チーム名 ：
 				<div class="updateteamName modalString"></div>
 				<br> <br> 上記の受講生の編集を行います。
 				<s:form action="StudentsUpdateAction">
 					<input type="hidden" name="userId" class="updateUserId" value="">
-
+					<input type="hidden" name="userName"class="updateuserName" value="">
 					<input type="hidden" name="familyNameKanji"
 						class="updateFamilyNameKanji" value="">
 
