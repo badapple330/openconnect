@@ -11,6 +11,7 @@
 
 .footer li a {
 	color: #192f60;
+    text-decoration: none;
 }
 
 /*footer*/
@@ -29,8 +30,8 @@
 .footer nav li {
 	display: inline;
 	/*border-right: solid 2px #ffffff;*/
-	padding-left: 50px;
-	padding-right: 50px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 /* company_overview */
@@ -85,4 +86,10 @@
 #map-canvas {
 	width: 550px ;
 	height: 550px ;
+}
+
+.copyright {
+	color:#fff;
+	text-align: center;
+	background-color:#333;
 }
