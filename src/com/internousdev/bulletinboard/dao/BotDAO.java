@@ -209,6 +209,11 @@ public class BotDAO {
 		return inserted;
 	}
 
+	/**
+	 * ラベルから文章IDを検索する
+	 * @param label
+	 * @return
+	 */
 	public int sentenceIdSearch(String label){
 		int sentenceId = 0;
 		Connection con = new MySqlConnector("bbbot").getConnection();
@@ -244,7 +249,7 @@ public class BotDAO {
 		wordList = bot.wordRemover(wordList);
 		wordList = bot.readingPointConbine(wordList);
 		wordList = bot.bracketsConbine(wordList);
-		wordList = bot.aozoraRemover(wordList);
+		//wordList = bot.aozoraRemover(wordList);
 		int inserted = 0;
 		Connection con = new MySqlConnector("bbbot").getConnection();
 
@@ -285,7 +290,10 @@ public class BotDAO {
 	return inserted;
 	}
 
-
+	/**
+	 * 学習マスターをリスト化するメソッド
+	 * @return
+	 */
 	public ArrayList<BotDTO> mastersearch(){
 		ArrayList<BotDTO> masterList = new ArrayList<BotDTO>();
 		Connection con = new MySqlConnector("bbbot").getConnection();
@@ -314,6 +322,11 @@ public class BotDAO {
 		  return masterList;
 	}
 
+	/**
+	 * 文章IDから文章を取得しリスト化するメソッド
+	 * @param sentenceId
+	 * @return
+	 */
 	public ArrayList<BotDTO> sentenceSearch(int sentenceId){
 		ArrayList<BotDTO> masterList = new ArrayList<BotDTO>();
 		Connection con = new MySqlConnector("bbbot").getConnection();
@@ -344,4 +357,55 @@ public class BotDAO {
 		  return masterList;
 	}
 
+	/**
+	 * 学習テーブルから文章を削除するメソッド
+	 * @param sentenceId 文章ID
+	 * @return 成否を判断する変数
+	 */
+	public int sentenceDelete(int sentenceId){
+		int deleted = 0;
+		Connection con = new MySqlConnector("bbbot").getConnection();
+
+		String sql = "delete from word_analysis where sentence_id=?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, sentenceId);
+			deleted = ps.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				con.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return deleted;
+	}
+
+	/**
+	 * 学習マスターテーブルから文章を削除するメソッド
+	 * @param sentenceId 文章ID
+	 * @return 成否を判断する変数
+	 */
+	public int masterDelete(int sentenceId){
+		int deleted = 0;
+		Connection con = new MySqlConnector("bbbot").getConnection();
+
+		String sql = "delete from word_analysis_master where sentence_id=?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, sentenceId);
+			deleted = ps.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				con.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return deleted;
+	}
 }

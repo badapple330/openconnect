@@ -5,38 +5,6 @@ create database if not exists baseballticket;
 use baseballticket;
 
 
-/***********************************************************
-* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
-***********************************************************/
-create table user (  /* ユーザーのテーブルを作る */
-user_id int not null auto_increment,  /* ユーザーに番号を割り振る、自動連番 */
-password varchar(255) not null,   /* ユーザーのログイン用パスワード */
-name varchar(255),  /* ユーザー名 */
-name_f varchar(255),  /* ユーザー名(ふりがな) */
-postal varchar(255) not null,/*郵便番号*/
-address varchar(255) not null,/*住所*/
-tel_number varchar(255) not null,/*電話番号*/
-email varchar(255) not null unique,/*メールアドレス*/
-sex varchar(10) not null,/*性別*/
-birthday date not null,/*生年月日*/
-handle_name varchar(16),
-register_day datetime not null,/*登録日*/
-update_day datetime not null,/*更新日*/
-userdel_flg boolean not null default FALSE,/*退会フラグ*/
-login_flg boolean not null default FALSE,/*ログインフラグ*/
-user_flg int not null,/*ユーザーを判別するフラグ 1.一般ユーザー 2.管理者 3.テストユーザー 4.出品者*/
-PRIMARY KEY (user_id)  /* idの重複、null禁止 */
-);
-
-/***********************************************************
-* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
-***********************************************************/
-/* ユーザー 一覧 / ユーザーID/パスワード/ユーザー名/ユーザー名(ふりがな)/郵便番号/住所/電話番号/メールアドレス/性別/生年月日/登録日/更新日/退会フラグ/ログインフラグ/ユーザーフラグ*/
-insert into user(user_id,password,name,name_f,postal,address,tel_number,email,sex,birthday,handle_name,register_day,update_day,userdel_flg,login_flg,user_flg)values
-(1,"12345678","テスト管理者","てすとかんりしゃ","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","0312345678","testadmin@gmail.com","男","1993-12-24","test","2016-07-01 13:00:00","2016-07-11 12:11:25",FALSE,FALSE,"2"),
-(2,"internous01","井上琢磨","いのうえたくま","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09012341234","takuma.inoue@gmail.com","男","1990-09-25","taku","2016-07-01 13:00:00","2016-07-11 13:54:20",FALSE,FALSE,"2"),
-(3,"internous01","原田美由貴","はらだみゆき","1130034","東京都文京区湯島3-2-12　御茶ノ水天神ビル","09045674567","miyuki.harada@gmail.com","女","1992-05-03","miyu","2016-07-01 13:00:00","2016-07-11 13:00:00",FALSE,FALSE,"2");
-
 #購入履歴
 create table history(
 user_id tinyint not null comment 'ユーザーID',
@@ -69,15 +37,6 @@ remaining_seats int(5) comment 'エリア残り席数',
 price int(5) not null comment '値段'
 );
 
-#コンビニ決済テーブル作成
-create table conv_store(
-user_id int not null comment 'ユーザーID',
-user_name varchar(100) not null comment '名前',
-user_home varchar(50) not null comment '住所',
-user_email varchar(50) not null comment 'メールアドレス',
-user_telephone varchar(100)  not null comment '電話番号',
-user_age int(4) not null comment '年齢'
-);
 
 #試合内容テーブル作成
 create table game(
@@ -87,13 +46,6 @@ team2_id tinyint not null comment '出場チーム2ID',
 stadium_id tinyint not null comment 'スタジアムID'
 );
 
-#管理テーブル作成
-create table administrator(
-admin_id varchar(30) primary key not null comment '管理者ID',
-admin_name varchar(30) not null comment '管理者名',
-admin_password varchar(16) not null comment 'パスワード',
-login boolean comment 'ログイン確認'
-);
 
 #チーム名とチームIDを入力
 insert into team values
@@ -128,11 +80,3 @@ insert into seating values
 (3, '阪神甲子園球場/Hanshin Koshien Kyujo', 2, 'C', 3600, 3600, 12000),
 (3, '阪神甲子園球場/Hanshin Koshien Kyujo', 2, 'D', 3600, 3600, 10500),
 (3, '阪神甲子園球場/Hanshin Koshien Kyujo', 2, 'E', 3600, 3600, 8700);
-
-#管理者情報入力
-insert into administrator values
-('abcdef', '山田太郎', '2015', false);
-
-#仮のコンビニ決済情報入力
-insert into conv_store values
-(1, '山田太郎', '東京都','ssskjkj@gmail.com','03458963561','22');

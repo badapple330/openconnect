@@ -216,16 +216,16 @@ public class DecisionDAO {
 	 * @param documentPath
 	 * @return 成否を格納する変数
 	 */
-	 public int insert(int documentId,String documentPath,String documentName){
+	 public int insert(int jDrafterId,String documentPath,String documentName){
 			DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			Connection con=db.getConnection();
 			int inserted=0;
-			String sql= "insert into img(document_id,document_path,document_name)"
+			String sql= "insert into document(j_drafter_id,document_path,document_name)"
 					+ "values(?,?,?)";
 
 			try{
 				PreparedStatement ps= con.prepareStatement(sql);
-				ps.setInt(1,documentId);
+				ps.setInt(1,jDrafterId);
 				ps.setString(2,documentPath);
 				ps.setString(3,documentName);
 				inserted=ps.executeUpdate();

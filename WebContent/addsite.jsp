@@ -11,6 +11,8 @@
 </head>
 <body>
 
+<jsp:include page="header.jsp" />
+
 <h1>URL登録フォーム</h1>
 <s:form action="AddURLAction" method="post" enctype="multipart/form-data">
 
@@ -41,7 +43,7 @@
 <input type="submit" value="アップロード">
 </s:form>
 
-<a href="login.jsp">前の画面に戻る</a>
+
 
 
 </body>

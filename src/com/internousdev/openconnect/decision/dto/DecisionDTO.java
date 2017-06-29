@@ -99,9 +99,29 @@ public class DecisionDTO {
 	public String summary;
 
 	/**
-	 * 申請日(日付)
+	 * 実施申請日(日付)
 	 */
-	public String applyDay;
+	public String jApplyDay;
+
+	/**
+	 * 実施申請日(承認者日付)
+	 */
+	public String jSlashApplyDay;
+
+	/**
+	 * 契約申請日(日付)
+	 */
+	public String kApplyDay;
+
+	/**
+	 * 契約申請日(承認者日付)
+	 */
+	public String kSlashApplyDay;
+
+	/**
+	 * 遡求申請日(日付)
+	 */
+	public String sApplyDay;
 
 	/**
 	 * 終了日
@@ -193,19 +213,6 @@ public class DecisionDTO {
 	private int jPermiterId3;
 
 	/**
-	* 実施_承認者の日付(1人目:リーダー)
-	*/
-	private String jPermitDay1;
-	/**
-	* 実施_承認者の日付(2人目:リーダー)
-	*/
-	private String jPermitDay2;
-	/**
-	* 実施_承認者の日付(3人目:先生)
-	*/
-	private String jPermitDay3;
-
-	/**
 	* 契約_承認者ID(1人目:リーダー)
 	*/
 	private int kPermiterId1;
@@ -217,19 +224,6 @@ public class DecisionDTO {
 	* 契約_承認者ID(3人目:先生)
 	*/
 	private int kPermiterId3;
-
-	/**
-	* 契約_承認者ID(1人目:リーダー)
-	*/
-	private String kPermitDay1;
-	/**
-	* 契約_承認者ID(2人目:リーダー)
-	*/
-	private String kPermitDay2;
-	/**
-	* 契約_承認者ID(3人目:先生)
-	*/
-	private String kPermitDay3;
 
 	/**
 	 *姓（漢字）
@@ -638,19 +632,79 @@ public class DecisionDTO {
 	public void setCause(String cause) {
 		this.cause = cause;
 	}
+
 		/**
-		 * 申請日(日付)を取得します。
-		 * @return 申請日(日付)
-		 */
-		public String getApplyDay() {
-		    return applyDay;
+		* 取得メソッド を取得
+		* @return jApplyDay
+		*/
+		public String getJApplyDay() {
+			return jApplyDay;
 		}
 		/**
-		 * 申請日(日付)を設定します。
-		 * @param applyDay 申請日(日付)
-		 */
-		public void setApplyDay(String applyDay) {
-		    this.applyDay = applyDay;
+		* 設定メソッド を設定
+		* @param jApplyDay
+		*/
+		public void setJApplyDay(String jApplyDay) {
+			this.jApplyDay = jApplyDay;
+		}
+
+		/**
+		* 取得メソッド を取得
+		* @return jSlashApplyDay
+		*/
+		public String getJSlashApplyDay() {
+			return jSlashApplyDay;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param jSlashApplyDay
+		*/
+		public void setJSlashApplyDay(String jSlashApplyDay) {
+			this.jSlashApplyDay = jSlashApplyDay;
+		}
+
+		/**
+		* 取得メソッド を取得
+		* @return kApplyDay
+		*/
+		public String getKApplyDay() {
+			return kApplyDay;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param kApplyDay
+		*/
+		public void setKApplyDay(String kApplyDay) {
+			this.kApplyDay = kApplyDay;
+		}
+
+		/**
+		* 取得メソッド を取得
+		* @return kSlashApplyDay
+		*/
+		public String getKSlashApplyDay() {
+			return kSlashApplyDay;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param kSlashApplyDay
+		*/
+		public void setKSlashApplyDay(String kSlashApplyDay) {
+			this.kSlashApplyDay = kSlashApplyDay;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return sApplyDay
+		*/
+		public String getSApplyDay() {
+			return sApplyDay;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param sApplyDay
+		*/
+		public void setSApplyDay(String sApplyDay) {
+			this.sApplyDay = sApplyDay;
 		}
 		/**
 		 * @return endDay
@@ -756,48 +810,7 @@ public class DecisionDTO {
 		    this.jPermiterId3 = jPermiterId3;
 		}
 
-		/**
-		* 取得メソッド を取得
-		* @return jPermitDay1
-		*/
-		public String getJPermitDay1() {
-			return jPermitDay1;
-		}
-		/**
-		* 設定メソッド を設定
-		* @param jPermitDay1
-		*/
-		public void setJPermitDay1(String jPermitDay1) {
-			this.jPermitDay1 = jPermitDay1;
-		}
-		/**
-		* 取得メソッド を取得
-		* @return jPermitDay2
-		*/
-		public String getJPermitDay2() {
-			return jPermitDay2;
-		}
-		/**
-		* 設定メソッド を設定
-		* @param jPermitDay2
-		*/
-		public void setJPermitDay2(String jPermitDay2) {
-			this.jPermitDay2 = jPermitDay2;
-		}
-		/**
-		* 取得メソッド を取得
-		* @return jPermitDay3
-		*/
-		public String getJPermitDay3() {
-			return jPermitDay3;
-		}
-		/**
-		* 設定メソッド を設定
-		* @param jPermitDay3
-		*/
-		public void setJPermitDay3(String jPermitDay3) {
-			this.jPermitDay3 = jPermitDay3;
-		}
+
 		/**
 		 * 契約_承認者ID(1人目:リーダー)を取得します。
 		 * @return 契約_承認者ID(1人目:リーダー)
@@ -840,48 +853,7 @@ public class DecisionDTO {
 		public void setKPermiterId3(int kPermiterId3) {
 		    this.kPermiterId3 = kPermiterId3;
 		}
-		/**
-		* 取得メソッド を取得
-		* @return kPermitDay1
-		*/
-		public String getKPermitDay1() {
-			return kPermitDay1;
-		}
-		/**
-		* 設定メソッド を設定
-		* @param kPermitDay1
-		*/
-		public void setKPermitDay1(String kPermitDay1) {
-			this.kPermitDay1 = kPermitDay1;
-		}
-		/**
-		* 取得メソッド を取得
-		* @return kPermitDay2
-		*/
-		public String getKPermitDay2() {
-			return kPermitDay2;
-		}
-		/**
-		* 設定メソッド を設定
-		* @param kPermitDay2
-		*/
-		public void setKPermitDay2(String kPermitDay2) {
-			this.kPermitDay2 = kPermitDay2;
-		}
-		/**
-		* 取得メソッド を取得
-		* @return kPermitDay3
-		*/
-		public String getKPermitDay3() {
-			return kPermitDay3;
-		}
-		/**
-		* 設定メソッド を設定
-		* @param kPermitDay3
-		*/
-		public void setKPermitDay3(String kPermitDay3) {
-			this.kPermitDay3 = kPermitDay3;
-		}
+
 		/**
 		* 取得メソッド を取得
 		* @author KOHEI NITABARU
@@ -984,6 +956,7 @@ public class DecisionDTO {
 		public void setType(int type) {
 			this.type = type;
 		}
+
 
 
 }

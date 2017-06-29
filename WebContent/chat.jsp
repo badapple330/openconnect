@@ -31,6 +31,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/toast.js"></script>
+<script src="js/radio.js"></script>
 <script type="text/javascript" src="js/jquery_elapse.js"></script>
 <!-- 自動リンクのプログラム -->
 <script src="js/autoLink.js"></script>
@@ -90,6 +91,8 @@
         <div class="collapse navbar-collapse" id="nav_target">
           <ul class="nav navbar-nav navbar-right">
             <li><a data-toggle="modal" class="cursor"
+              data-target="#groupImageChange">グループ画像変更</a></li>
+            <li><a data-toggle="modal" class="cursor"
               data-target="#groupMemberModal">メンバーを確認</a></li>
             <li class="dropdown"><a href="#"
               class="dropdown-toggle" data-toggle="dropdown">メンバーを追加
@@ -113,6 +116,38 @@
       </div>
     </nav>
   </s:else>
+  <!-- グループ画像変更画面 -->
+  <div class="modal fade" id="groupImageChange" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title">画像を変更する</h4>
+        </div>
+        <s:form action="">
+        <div class="modal-body">
+        	<s:iterator value="groupImgList" status="rs">
+        	<
+        	
+        	
+        	<div>
+        	<s:property value="#rs.count"/>
+          <input type="radio" name="img" value="<s:property />" ><img  id="<s:property value="#rs.index"/>" class="radio-group"  src="<s:property value="url"/>"   alt="" class="img-circle-ex"
+          width="70px" height="70px" style="border-radius: 50%; margin: 5px;">
+          </div>
+          </s:iterator>
+        </div>
+        <div class="modal-footer">
+            <s:token />
+            <button type="submit" class="btn btn-primary">変更</button>
+          </div>
+         </s:form>
+      </div>
+    </div>
+  </div>
+
   <!-- グループメンバーの確認画面 -->
   <div class="modal fade" id="groupMemberModal" tabindex="-1">
     <div class="modal-dialog">

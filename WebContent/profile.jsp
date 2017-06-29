@@ -21,13 +21,13 @@ pageEncoding="UTF-8"%>
 	<script type="text/javascript"></script>
 
 </head>
-<body style="background-color:beige;">
-
+<body style="background-color:<s:property value="#session.color"/>;">
+<div class ="kaito" style="background-color:rgba(255, 255, 255, 0.63);">
 
 <!-- ヘッダー -->
 <s:if test="%{#session.userId == viewId}">
 <nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid" style ="background-color:<s:property value="#session.color"/>;">
   <div class="navbar-header">
   <a class="navbar-brand" href="watch-position.jsp">おにいちゃんまっぷ</a>
 
@@ -316,6 +316,7 @@ FOLLOW</a>
  </div>
     </footer>
      -->
+</div>
 </div>
 </body>
 </html>

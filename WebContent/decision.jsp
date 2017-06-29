@@ -41,15 +41,16 @@
 							value="<s:property value="decisionId"/>">
 						<input type="hidden" name="jDrafterId"
 							value="<s:property value="jDrafterId"/>">
-						<input type="submit" value="表示">
+						<input type="hidden" value="表示">
 					</s:form>
 				</div>
 			</td>
 		</tr>
 	</table>
-	<s:form action="DecisionUpdateAction">
+
 
 		<%-- ↓PCの場合の表示↓ --%>
+		<s:form action="DecisionUpdateAction">
 		<table class="main hidden-xs" border="2">
 			<tr>
 				<td class="kian"><b>起案者名</b></td>
@@ -440,15 +441,27 @@
 		</table>
 
 		<input type="hidden" name="jDrafterId"
-			value="<s:property value="session.jDraftId" />">
+			value="<s:property value="#session.userId" />">
 		<input type="hidden" name="decisionId"
 			value="<s:property value="decisionId" />">
 		<input type="submit" value="編集を保存" class="hidden-xs">
+        </s:form>
+
+
+
+
+	<br><br><br>
 		<%-- ↑PCの場合の表示↑ --%>
 
 
 
+
+
+
+
+
 		<%-- ↓スマホの場合の表示↓ --%>
+		<s:form action="DecisionUpdateAction">
 		<table class="main visible-xs" border="2">
 			<tr>
 				<td class="kian"><b>起案者名</b></td>
@@ -838,23 +851,36 @@
 		</table>
 
 		<input type="hidden" name="jDrafterId"
-			value="<s:property value="session.jDraftId" />">
+			value="<s:property value="#session.userId" />">
 		<input type="hidden" name="decisionId"
 			value="<s:property value="decisionId" />">
 		<input type="submit" value="編集を保存" class="visible-xs">
+		</s:form>
 		<%-- ↑スマホの場合の表示↑ --%>
 
-	</s:form>
-	<br>
-	<br>
 
-	<h2>
-		<a href="./file_up.jsp" target="_blank">資料添付</a>
-	</h2>
+
+	<br>
+	<br><br>
+		<s:form action="GoDecisionFileEdit">
+		<input type="hidden" name="jDrafterId"
+			value="<s:property value="#session.userId" />">
+		<input type="hidden" name="decisionId"
+			value="<s:property value="decisionId" />">
+		<input type="submit" class="button" value="資料添付画面へ">
+	    </s:form>
+
+
+	<br><br><br>
 
 	<!-- 戻る -->
 	<s:form action="GetAddressAction">
 		<input type="submit" class="button" value="戻る">
 	</s:form>
-</body>
+
+	<br><br>
+
+<jsp:include page="footer.jsp" />
+
+	</body>
 </html>

@@ -168,6 +168,9 @@
 		</div>
 	</s:form>
 	<br>
+	<BR>
+	<BR>
+	<jsp:include page="footer.jsp" />
 
 </body>
 </html>

@@ -273,6 +273,7 @@ manager_id int not null comment 'リーダーID',
 sub_manager_id int not null comment 'サブリーダーID',
 start_date date comment '開始日',
 end_date date comment '終了日',
+member_number int not null comment '人数',
 note varchar(255) comment 'メモ',
 foreign key(manager_id) references users(user_id) on update cascade on delete cascade,
 foreign key(sub_manager_id) references users(user_id) on update cascade on delete cascade
@@ -474,6 +475,14 @@ url varchar(255) not null
 );
 
 
+/*グループ画像
+ ****************************/
+create table group_img(
+img_id int not null primary key auto_increment comment '画像ID',
+url varchar(255) not null
+);
+
+
 
 
 
@@ -513,14 +522,14 @@ insert into users values
 (27,'testuser','test','user','テスト','てすと','ユーザー4','ゆーざー4','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test4@gmail.com','09012345678','user.test4@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/syoki.png','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
 (28,'testuser','test','user','テスト','てすと','ユーザー5','ゆーざー5','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test5@gmail.com','09012345678','user.test5@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/syoki.png','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
 (29,'testuser','test','user','テスト','てすと','ユーザー6','ゆーざー6','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test6@gmail.com','09012345678','user.test6@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/syoki.png','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
-(30,'testuser','kikuchi','misa','菊地','きくち','未紗','みさ','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test7@gmail.com','09012345678','user.test7@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/music.jpg','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
-(31,'testuser','kishimoto','takuya','岸本','きしもと','拓也','たくや','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test8@gmail.com','09012345678','user.test8@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/syoki.png','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
-(32,'testuser','fukutani','kaito','福谷','ふくたに','海人','かいと','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test9@gmail.com','09012345678','user.test9@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/mukky.png','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
-(33,'testuser','maeda','ryo','前田','まえだ','涼','りょう','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test10@gmail.com','09012345678','user.test10@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/knight.gif','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
-(34,'testuser','fukuda','sayaka','福田','ふくだ','早矢加','さやか','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test11@gmail.com','09012345678','user.test11@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/sakura.jpg','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
-(35,'testuser','narita','junki','成田','なりた','潤生','じゅんき','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test12@gmail.com','09012345678','user.test12@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/dack.jpg','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
-(36,'testuser','adachi','takahiro','足立','あだち','貴宏','たかひろ','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test13@gmail.com','09012345678','user.test13@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/manami.jpg','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
-(37,'testuser','ide','takeshi','井出','いで','剛志','たけし','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test14@gmail.com','09012345678','user.test14@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/ao.jpg','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
+(30,'testuser','kikuchi','misa','菊地','きくち','未紗','みさ','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test7@gmail.com','09012345678','user.test7@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/music.jpg','菊地未紗','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
+(31,'testuser','kishimoto','takuya','岸本','きしもと','拓也','たくや','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test8@gmail.com','09012345678','user.test8@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/syoki.png','SLUGくん','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
+(32,'testuser','fukutani','kaito','福谷','ふくたに','海人','かいと','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test9@gmail.com','09012345678','user.test9@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/mukky.png','福谷海人','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
+(33,'testuser','maeda','ryo','前田','まえだ','涼','りょう','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test10@gmail.com','09012345678','user.test10@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/knight.gif','前田涼','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
+(34,'testuser','fukuda','sayaka','福田','ふくだ','早矢加','さやか','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test11@gmail.com','09012345678','user.test11@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/sakura.jpg','福田早矢加','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
+(35,'testuser','narita','junki','成田','なりた','潤生','じゅんき','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test12@gmail.com','09012345678','user.test12@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/duck.jpg','成田潤生','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
+(36,'testuser','adachi','takahiro','足立','あだち','貴宏','たかひろ','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test13@gmail.com','09012345678','user.test13@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/manami.jpg','足立貴宏','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
+(37,'testuser','ide','takeshi','井出','いで','剛志','たけし','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test14@gmail.com','09012345678','user.test14@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/ao.jpg','井出剛志','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
 (38,'testuser','test','user','テスト','てすと','ユーザー15','ゆーざー15','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test15@gmail.com','09012345678','user.test15@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/syoki.png','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
 (39,'testuser','test','user','テスト','てすと','ユーザー16','ゆーざー16','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test16@gmail.com','09012345678','user.test16@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/syoki.png','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
 (40,'testuser','test','user','テスト','てすと','ユーザー17','ゆーざー17','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','user.test17@gmail.com','09012345678','user.test17@ne.jp','男','1993-12-24',FALSE,FALSE,'1','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','TestTeam','pic/user_img/syoki.png','test','0','1','よろしくお願いします',FALSE,'#6ff5ef'),
@@ -692,6 +701,21 @@ insert into stamp(type_id,lv,url) values
 (6,4,"pic/stamp/06_shiropuu/shiropuu_28.png"),
 (6,4,"pic/stamp/06_shiropuu/shiropuu_29.png"),
 (6,4,"pic/stamp/06_shiropuu/shiropuu_30.png");
+
+
+insert into group_img(url) values
+("pic/group_img/allStars.jpg"),
+("pic/group_img/compan.jpg"),
+("pic/group_img/earphone.jpg"),
+("pic/group_img/fire.jpg"),
+("pic/group_img/marlboro.jpg"),
+("pic/group_img/mouse.jpg"),
+("pic/group_img/papurika01.jpg"),
+("pic/group_img/sevenStars.jpg"),
+("pic/group_img/tomato01.jpg"),
+("pic/group_img/wallet.jpg"),
+("pic/group_img/watch.jpg");
+
 
 
 

@@ -14,25 +14,6 @@ create table ticket_info(
 	stock int(3)
 );
 
-/***********************************************************
-* 将来はOPENCONNECT：USERSテーブルにて踏襲するため削除予定  **
-***********************************************************/
-/* 顧客情報テーブル	*/
-drop table if exists customer_info;
-create table customer_info(
-	id int(4) primary key auto_increment,
-	user_id varchar(30) unique,
-	user_pass varchar(30),
-	last_name varchar(30),
-	first_name varchar(30),
-	user_mail varchar(60),
-	gender int(1),
-	birthday date,
-	user_ip varchar(40),
-	register_date timestamp default current_timestamp on update current_timestamp,
-	update_date timestamp default current_timestamp on update current_timestamp,
-	delete_date date
-);
 
 /* 顧客住所情報テーブル */
 drop table if exists customer_address;
@@ -68,16 +49,6 @@ create table history(
 	order_day timestamp,
 	delete_day date
 );
-/*テスト登録者情報の挿入*/
-insert into customer_info (
-user_id,user_pass,last_name,first_name,user_mail,gender
-)value(
-'123',
-'123',
-'一二三',
-'四五郎',
-'hogehoge@gmail.com',
-1);
 
 
 /*商品情報のレコード挿入*/

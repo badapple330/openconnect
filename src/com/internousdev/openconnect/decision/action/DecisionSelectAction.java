@@ -242,27 +242,33 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 		DecisionDAO dao = new DecisionDAO();
 
 		try {
-				decisionList=dao.select(decisionId);
-				nameList = dao.selectByIds(jDrafterId);
+		decisionList=dao.select(decisionId);
+		nameList = dao.selectByIds(jDrafterId);
+       } catch (UnknownException e) {
+		e.printStackTrace();
+       }
+		if(nameList != null){
+			int i =0;
+	try {
+
+       	jDrafterId = decisionList.get(i).getJDrafterId();
+				nameList=dao.selectByIds(jDrafterId);
 				jPermiter1nameList = dao.selectByJPermiterId1(jPermiterId1);
 				jPermiter2nameList = dao.selectByJPermiterId2(jPermiterId2);
 				jPermiter3nameList = dao.selectByJPermiterId3(jPermiterId3);
 			} catch (UnknownException e) {
 				e.printStackTrace();
 			}
-
-
-
+		}
 
 		result=SUCCESS;
 		resultString ="表示しました。";
 
-
-
 		return result;
 
+       }
 
-		}
+
 
 
 	/**

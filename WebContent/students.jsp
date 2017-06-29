@@ -62,9 +62,9 @@
 
 						<th><div class="verysmallWidth">ID</div></th>
 
-						<th><div class="smallWidth">姓(漢字)</div></th>
+						<th><div class="bigWidth">ユーザー名</div></th>
 
-						<th><div class="smallWidth">名(漢字)</div></th>
+
 						<th><div class="smallWidth">チーム名</div></th>
 
 
@@ -80,18 +80,15 @@
 					</tr>
 
 					<s:iterator value="studentsList">
-
+<s:if test="%{userdelFlg==false}">
 						<tr>
 							<td><div class="verysmallWidth"><s:property value="userId" /></div></td>
 
 
-							<td><div class="smallWidth"><input type="text" name="familyNameKanjiList"
-								value="<s:property value="familyNameKanji" />"
-								class="familyNameKanji maxText" maxlength="20" required></div></td>
+							<td><div class="bigWidth"><input type="text" name="userNameiList"
+								value="<s:property value="userName" />"
+								class="userName maxText" maxlength="20" required></div></td>
 
-							<td><div class="smallWidth"><input type="text" name="givenNameKanjiList"
-								value="<s:property value="givenNameKanji" />"
-								class="givenNameKanji maxText" maxlength="20" required></div></td>
 
 							<td><div class="smallWidth"><input type="text" name="teamNameList"
 								value="<s:property value="teamName" />"
@@ -136,6 +133,7 @@
 						</tr>
 						<input type="hidden" name="userIdList"
 							value="<s:property value="userId" />" class="userId">
+							</s:if>
 					</s:iterator>
 				</table>
 			</s:if></div>
@@ -206,10 +204,10 @@
 		<div class="alldel">
 		<s:if test="%{#session.userFlg == 3}">
 			<s:form action="StudentsDeleteAction2">
-						<h5>開始月で丸ごと削除</h5>
+						<h5>卒業生を非表示（受講開始月を入力）</h5>
 					<td><input type="text" name="month" pattern="([0-1][0-9])"
 						maxlength="2" required title="08" placeholder="08" /></td>
-						<td><input id="postBtn" type="submit" value="丸ごと削除" onClick='return confirm("本当に削除しますか？")'></td>
+						<td><input id="postBtn" type="submit" value="非表示" onClick='return confirm("本当に非表示にしますか？")'></td>
 			</s:form></s:if><br><br><br></div>
 		<div class="back">
 		<s:form action="GetAddressAction">

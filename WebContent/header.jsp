@@ -71,6 +71,7 @@
 
 							<s:if test="%{#session.userFlg == 3}">
 							  <li><a href="GoRegisterAction">新規登録</a></li>
+							   <li><a href="addsite.jsp">サイト登録</a></li>
 							 </s:if>
 
 							    </ul>
