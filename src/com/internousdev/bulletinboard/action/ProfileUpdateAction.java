@@ -10,7 +10,6 @@ import com.internousdev.bulletinboard.dao.FollowerDAO;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.ProfileDAO;
 import com.internousdev.bulletinboard.dao.ProfileUpdateDAO;
-import com.internousdev.bulletinboard.dto.StampDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -57,7 +56,7 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 	/**
 	 * ポストリスト
 	 */
-	public ArrayList<StampDTO> profImgList = new ArrayList<StampDTO>();
+	public ArrayList<UserDTO> userImgList = new ArrayList<UserDTO>();
 
 
 	/**
@@ -415,18 +414,18 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 	}
 
 	/**
-	 * @return profImgList
+	 * @return userImgList
 	 */
-	public ArrayList<StampDTO> getProfImgList() {
-		return profImgList;
+	public ArrayList<UserDTO> getUserImgList() {
+		return userImgList;
 	}
 
 
 	/**
-	 * @param profImgList セットする profImgList
+	 * @param userImgList セットする profImgList
 	 */
-	public void setProfImgList(ArrayList<StampDTO> profImgList) {
-		this.profImgList = profImgList;
+	public void setUserImgList(ArrayList<UserDTO> userImgList) {
+		this.userImgList = userImgList;
 	}
 
 }

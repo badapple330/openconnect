@@ -239,7 +239,7 @@ FOLLOW</a>
         </div>
         <s:form action="">
         <div class="modal-body">
-        	<s:iterator value="profImgList" status="rs">
+        	<s:iterator value="userImgList" status="rs">
         	<
 
 
