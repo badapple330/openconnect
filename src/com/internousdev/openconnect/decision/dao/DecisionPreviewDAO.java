@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
@@ -46,6 +47,10 @@ public class DecisionPreviewDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy年MM月dd日");
+
 		ArrayList<DecisionDTO> decisionPreviewList = new ArrayList<DecisionDTO>();
 
 		String sql = "select * from decision where decision_id=?";
@@ -76,9 +81,13 @@ public class DecisionPreviewDAO {
 
 				dto.setCause(rs.getString("cause")); // 理由・目的
 
-				dto.setJApplyDay(rs.getString("j_apply_day")); //実施申請日（サイト上部日付）
+				try { dto.setJApplyDay(sdf.format(rs.getDate("j_apply_day")).toString()); }catch(Exception e){} //実施申請日（サイト上部日付）
 
-				dto.setKApplyDay(rs.getString("k_apply_day")); //契約申請日（サイト上部日付）
+				try { dto.setJSlashApplyDay(sdf2.format(rs.getDate("j_apply_day")).toString()); }catch(Exception e){} //実施承認者日付
+
+				try { dto.setKApplyDay(sdf.format(rs.getDate("k_apply_day")).toString()); }catch(Exception e){} //契約申請日（サイト上部日付）
+
+				try { dto.setKSlashApplyDay(sdf2.format(rs.getDate("k_apply_day")).toString()); }catch(Exception e){} //契約承認者日付
 
 				dto.setSApplyDay(rs.getString("s_apply_day")); //契約申請日（サイト上部日付）
 
