@@ -24,38 +24,12 @@
     ================================================== -->
     <script src="js/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" integrity="sha384-oFMgcGzKX7GaHtF4hx14KbxdsGjyfHK6m1comHjI1FH6g4m6qYre+4cnZbwaYbHD" crossorigin="anonymous"></script>
-	<script src="js/jquery.bootgrid.min.js"></script>
-
-<s:if test="sentenceId==0" >
-	<script>
-$(function() {
-	$("#grid-data").bootgrid({
-	    ajax: true,
-	    post: function ()
-	    {
-	        /* To accumulate custom parameter with the request object */
-	        return {
-	            id: "b0df282a-0d67-40e5-8558-c9e93b7befed"
-	        };
-	    },
-	    url: "/api/data/basic",
-	    formatters: {
-	        "link": function(column, row)
-	        {
-	            return "<a href=\"#\">" + column.id + ": " + row.id + "</a>";
-	        }
-	    }
-	});
-});
-</script>
-</s:if>
-<s:else>
+	<script src="js/jquery.bootgrid.js"></script>
 	<script>
 $(function() {
 	$("#grid-basic").bootgrid();
 });
 </script>
-</s:else>
 </head>
 
 <body>
@@ -68,6 +42,7 @@ $(function() {
 <!-- 学習マスターの画面 -->
 <s:if test="sentenceId==0" >
 <h3>覚えさせた文章</h3>
+
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
     <thead>
         <tr>
@@ -78,16 +53,21 @@ $(function() {
         </tr>
     </thead>
     <tbody>
-    	<s:iterator value="masterList" >
+    <s:iterator value="masterList">
+    <s:form action="BotSearchAction" name="sentenceForm">
+    <s:hidden theme="simple" name="sentenceId" value="%{sentenceId}"></s:hidden>
+	<s:hidden theme="simple" name="label" value="%{label}"></s:hidden>
         <tr>
             <td><s:property value="sentenceId"/></td>
             <td><s:property value="label"/></td>
             <td><s:property value="(createdAt.substring(0,16))"/></td>
-            <td><a href="<s:url action="BotSearchAction"><s:param name="sentenceId" value="%{sentenceId}"/><s:param name="label" value="%{label}"/></s:url>">文章を見る</a></td>
+            <td>link</td>
         </tr>
+        </s:form>
         </s:iterator>
     </tbody>
 </table>
+
 </s:if>
 
 <!-- 詳細の画面 -->
