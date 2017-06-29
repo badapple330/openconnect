@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+body {
+ width: 100% ;
+ padding: 0 ;
+}
+
+table.type12 {
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: center;
+	line-height: 1.5;
+}
+
+table.type12 th {
+	/* width: 155px; */
+	padding: 10px;
+	font-weight: bold;
+	color: #fff;
+	background: #3595db;
+}
+
+table.type12 td {
+	/* width: 155px; */
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	background: #eee;
+}
+
+th {
+	white-space: nowrap;
+	text-align: center !important;
+}
+
+td {
+	text-align: center !important;
+}
+
+table.atform{
+	table-layout: auto;
+	width:40%;
+	border-collapse: separate;
+	border-spacing: 0px 10px;
+}
