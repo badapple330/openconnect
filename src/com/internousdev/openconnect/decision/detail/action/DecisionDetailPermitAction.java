@@ -103,7 +103,7 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		int count = 0;
 
 
-		//リーダーの承認
+		//リーダーの承認(変更時含む)
 		if( permitStatus == 0 || permitStatus == 1 ) {
 
 			count = daoPer.updateP(decisionType, permitStatus, userId, decisionId);
@@ -140,9 +140,13 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 			//契約決裁の承認
 			else if(decisionType.equals("契約")) {
 
-				//変更・遡求時の承認
-				if(decisionStatus == 4 || decisionStatus == 6) {
+				//変更時の承認
+				if(decisionStatus == 4) {
 					count = daoPer.updateChangePK( userId, decisionId );
+				}
+				//遡求時の承認
+				else if(decisionStatus == 6) {
+					count = daoPer.updateRecoursePK( userId, decisionId );
 				}
 				else {
 					idNum = kDecId;
@@ -163,9 +167,13 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 			//実施兼契約決裁の承認
 			else  {
 
-				//変更・遡求時の承認
-				if(decisionStatus == 4 || decisionStatus == 6) {
+				//変更時の承認
+				if(decisionStatus == 4) {
 					count = daoPer.updateChangePK( userId, decisionId );
+				}
+				//遡求時の承認
+				else if(decisionStatus == 6) {
+					count = daoPer.updateRecoursePK( userId, decisionId );
 				}
 				else {
 					idNum = jkDecId;

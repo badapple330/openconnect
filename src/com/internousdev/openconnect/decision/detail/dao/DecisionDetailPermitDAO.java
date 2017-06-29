@@ -246,4 +246,38 @@ public class DecisionDetailPermitDAO {
 
 
 
+	/**
+     * [遡求]実施・契約・実施兼契約決裁の先生承認時メソッド  承認による値の更新と承認者ID(先生)の登録をする為のメソッド
+     */
+	public int updateRecoursePK( int userId, int decisionId ) {
+
+		int count = 0;
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
+		Connection con = db.getConnection();
+		String sql = "update decision set permit_status = 0, decision_status = 5, s_permiter_id3 = ? where decision_id = ?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, userId);
+			ps.setInt(2, decisionId);
+
+			count = ps.executeUpdate();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			try{
+				con.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return count;
+
+	}
+
+
+
 }

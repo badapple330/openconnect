@@ -22,6 +22,10 @@ public class DecisionDetailRemandAction extends ActionSupport {
 	 */
 	private int decisionId;
 	/**
+	 * 決裁種類
+	 */
+	private int decisionStatus;
+	/**
 	 * sessionから取得したログイン中ユーザーID
 	 */
 	private int userId;
@@ -50,7 +54,7 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 		int count = 0;
 
-		count = dao.remand( decisionId );
+		count = dao.remand( decisionStatus, decisionId );
 
 
 		if (count > 0 ) {
@@ -77,6 +81,18 @@ public class DecisionDetailRemandAction extends ActionSupport {
 	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
 	}
+
+
+	public int getDecisionStatus() {
+		return decisionStatus;
+	}
+
+
+
+	public void setDecisionStatus(int decisionStatus) {
+		this.decisionStatus = decisionStatus;
+	}
+
 
 
 	/**

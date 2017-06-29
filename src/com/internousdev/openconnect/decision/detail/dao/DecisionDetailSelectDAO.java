@@ -25,7 +25,7 @@ public class DecisionDetailSelectDAO {
 
 	/**
 	 * DAOに入力されたデータを元に検索を行いその結果をDTOに転送するメソッド
-	 * 自プロジェクト以外を呼び出す専用
+	 * 他プロジェクトを呼び出す専用
 	 * @author TATUHUMI ITOU, SOSHI AZUMA
 	 */
 	public List<DecisionDetailDTO> selectAnotherD( String searchString, int userId, int userId1 ){
@@ -57,8 +57,10 @@ public class DecisionDetailSelectDAO {
 				dto.setPermitStatus(rs.getInt("permit_status"));
 				dto.setJPermiterId1(rs.getInt("j_permiter_id1"));
 				dto.setKPermiterId1(rs.getInt("k_permiter_id1"));
-				dto.setJPermiterId1(rs.getInt("j_permiter_id3"));
-				dto.setKPermiterId1(rs.getInt("k_permiter_id3"));
+				dto.setJPermiterId3(rs.getInt("j_permiter_id3"));
+				dto.setKPermiterId3(rs.getInt("k_permiter_id3"));
+				dto.setKDecId(rs.getString("k_dec_id"));
+				dto.setJkDecId(rs.getString("jk_dec_id"));
 
 				decisionDetailList1.add( dto );
 			}
@@ -115,7 +117,6 @@ public class DecisionDetailSelectDAO {
 				dto.setJDecId(rs.getString("j_dec_id"));
 				dto.setKDecId(rs.getString("k_dec_id"));
 				dto.setJkDecId(rs.getString("jk_dec_id"));
-
 				dto.setKPermiterId3(rs.getInt("k_permiter_id3"));
 
 				decisionDetailList2.add( dto );

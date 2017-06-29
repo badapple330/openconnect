@@ -30,6 +30,10 @@ public class DecisionDetailRejectAction extends ActionSupport {
 	 */
 	private int userId;
 	/**
+	 * 決裁状況
+	 */
+	private int decisionStatus;
+	/**
 	 * 管理者権限メソッド
 	 */
 	public Map<String, Object> session;
@@ -52,7 +56,7 @@ public class DecisionDetailRejectAction extends ActionSupport {
 
 		int count = 0;
 
-		count = dao.reject( decisionType, decisionId );
+		count = dao.reject( decisionStatus, decisionType, decisionId );
 
 
 		if (count > 0 ) {
@@ -116,6 +120,18 @@ public class DecisionDetailRejectAction extends ActionSupport {
 	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+
+
+	public int getDecisionStatus() {
+		return decisionStatus;
+	}
+
+
+
+	public void setDecisionStatus(int decisionStatus) {
+		this.decisionStatus = decisionStatus;
 	}
 
 
