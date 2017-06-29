@@ -119,7 +119,7 @@
 				<s:if test="%{#session.userFlg == 3}">
 					<BR>
 					<div class="centered add">
-						<input type="submit" class="button fixedButton" value="編集完了" />
+						<input type="submit" class="button1 fixedButton" value="編集完了" />
 					</div>
 				</s:if>
 			</s:form>
@@ -166,7 +166,7 @@
 				</table>
 
 				<div class="centered add">
-					<br> <input type="submit" class="button fixedButton"
+					<br> <input type="submit" class="button1 fixedButton"
 						value="追加する">
 				</div>
 			</s:form>
