@@ -283,6 +283,8 @@
 			<result name="error">attendance.jsp</result>
 		</action>
 
+
+
 		<!--決裁編集画面表示  -->
 		<action name="DecisionSelectAction"
 			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
@@ -299,6 +301,29 @@
 			<result name="error">decision.jsp</result>
 		</action>
 
+			  <!-- 決裁添付資料追加 -->
+		<action name="DecisionFileUpdateAction"
+			class="com.internousdev.openconnect.decision.action.DecisionFileUpdateAction"
+			method="execute">
+			<result name="success">file_up.jsp</result>
+			<result name="error">file_up.jsp</result>
+		</action>
+
+          <!-- 決裁添付資料削除 -->
+		<action name="DecisionFileDeleteAction"
+			class="com.internousdev.openconnect.decision.action.DecisionFileDeleteAction"
+			method="execute">
+			<result name="success">file_up.jsp</result>
+			<result name="error">file_up.jsp</result>
+		</action>
+
+ <!-- 決裁資料添付画面へ -->
+		<action name="GoDecisionFileUpload"
+			class="com.internousdev.openconnect.decision.action.GoDecisionFileEdit"
+			method="execute">
+			<result name="success">file_up.jsp</result>
+			<result name="error">file_up.jsp</result>
+		</action>
 
 		<action name="DecisionPreviewAction"
 			class="com.internousdev.openconnect.decision.action.DecisionPreviewAction"
