@@ -1,12 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<!-- Stylesheet
+      ================================================== -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/decision_archive.css">
+<!-- Javascripts
+      ================================================== -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<title>完了済み決済</title>
+<script type="text/javascript">
+	//選択箇所全入力
+	$(function() {
+		$("#input").on("keyup change", function() {
+			$("#res,#lines,#c,#d").val($(this).val());
+		});
+	});
+</script>
+
+<jsp:include page="header.jsp" />
+
 </head>
 <body>
-完了済み決裁の一覧を表示予定
+	<div class="container">
+		<h2>完了済み決済一覧</h2>
+		<s:form action="DecisionArchiveAction">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>決済ID</th>
+						<th>プロジェクト名</th>
+						<th>プレビュー</th>
+				</thead>
+				<s:iterator value="archiveList">
+					<tbody>
+						<tr>
+							<td>
+							<s:property value="decisionId" />
+							</td>
+							<td>
+							<s:property value="decisionName" />
+							</td>
+							<td>プレビュー</td>
+						</tr>
+					</tbody>
+				</s:iterator>
+			</table>
+		</s:form>
+
+	</div>
 </body>
 </html>
