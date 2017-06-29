@@ -598,7 +598,7 @@
 		<table class="sub visible-xs" border="2">
 			<tr>
 				<th></th>
-				<th width="10px">単価(万円)</th>
+				<th>単価(万円)</th>
 				<th>個数</th>
 				<th>小計(万円)</th>
 			</tr>
