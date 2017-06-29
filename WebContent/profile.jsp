@@ -225,10 +225,10 @@ FOLLOW</a>
 
             	<img src="<s:property value="userImg"/>" class="edit_border_radius" alt="" /><br>
             	<a data-toggle="modal" class="cursor"
-              data-target="#profImageChange">アイコン画像変更</a>
+              data-target="#userImageChange">アイコン画像変更</a>
 
         	 <!-- アイコン画像変更画面 -->
-  <div class="modal fade" id="profImageChange" tabindex="-1">
+  <div class="modal fade" id="userImageChange" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
