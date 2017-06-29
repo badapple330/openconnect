@@ -28,7 +28,7 @@
 
 	<script>
 $(function() {
-	$("#grid-data").bootgrid({
+	$("#grid-selection").bootgrid({
 	    ajax: true,
 	    post: function ()
 	    {
@@ -38,12 +38,30 @@ $(function() {
 	        };
 	    },
 	    url: "/api/data/basic",
+	    selection: true,
+	    multiSelect: true,
 	    formatters: {
 	        "link": function(column, row)
 	        {
 	            return "<a href=\"#\">" + column.id + ": " + row.id + "</a>";
 	        }
 	    }
+	}).on("selected.rs.jquery.bootgrid", function(e, rows)
+	{
+	    var rowIds = [];
+	    for (var i = 0; i < rows.length; i++)
+	    {
+	        rowIds.push(rows[i].id);
+	    }
+	    alert("Select: " + rowIds.join(","));
+	}).on("deselected.rs.jquery.bootgrid", function(e, rows)
+	{
+	    var rowIds = [];
+	    for (var i = 0; i < rows.length; i++)
+	    {
+	        rowIds.push(rows[i].id);
+	    }
+	    alert("Deselect: " + rowIds.join(","));
 	});
 });
 </script>
@@ -57,27 +75,24 @@ $(function() {
 <div class="outline">
 <br>
 <h3>覚えさせた文章</h3>
-<table id="grid-basic" class="table table-condensed table-hover table-striped">
+<table id="grid-selection" class="table table-condensed table-hover table-striped">
     <thead>
         <tr>
-            <th data-column-id="id" data-type="numeric">ID</th>
-            <th data-column-id="sender">要約</th>
-            <th data-column-id="received" data-order="desc">覚えさせた日</th>
+            <th data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
+            <th data-column-id="sender">Sender</th>
+            <th data-column-id="received" data-order="desc">Received</th>
             <th data-column-id="link" data-formatter="link" data-sortable="false">Link</th>
         </tr>
     </thead>
-    <tbody>
-    	<s:iterator value="masterList" >
+        <tbody>
         <tr>
-            <td><s:property value="sentenceId"/></td>
-            <td><s:property value="label"/></td>
-            <td><s:property value="createdAt"/></td>
-            <td><a href="<s:url action="BotSearchAction"><s:param name="sentenceId" value="%{sentenceId}"/></s:url>">文章を見る</a></td>
+            <td>10238</td>
+            <td>eduardo@pingpong.com</td>
+            <td>14.10.2013</td>
+            <td>link</td>
         </tr>
-        </s:iterator>
     </tbody>
 </table>
-
 </div>
 
 
