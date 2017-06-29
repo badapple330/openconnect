@@ -705,7 +705,7 @@ insert into stamp(type_id,lv,url) values
 
 insert into group_img(url) values
 ("pic/group_img/allStars.jpg"),
-("pic/group_compan.jpg"),
+("pic/group_img/compan.jpg"),
 ("pic/group_img/earphone.jpg"),
 ("pic/group_img/fire.jpg"),
 ("pic/group_img/marlboro.jpg"),
