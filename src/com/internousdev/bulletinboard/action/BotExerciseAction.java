@@ -1,9 +1,18 @@
 package com.internousdev.bulletinboard.action;
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.internousdev.bulletinboard.dao.BotDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BotExerciseAction extends ActionSupport{
+public class BotExerciseAction extends ActionSupport implements SessionAware{
+
+	/**
+	 * ユーザーID
+	 */
+	private int userId;
 
 	/**
 	 * 文章
@@ -20,8 +29,23 @@ public class BotExerciseAction extends ActionSupport{
 	 */
 	private String resultSentence;
 
+	/**
+	 * セッション
+	 */
+	private Map<String,Object> session;
+
 	public String execute() {
 		String result = ERROR;
+
+		//ID-1でログインしているかの確認
+		if (session.containsKey("userId")) {
+			userId = (int) session.get("userId");
+		}
+		if(userId!=-1){
+			resultSentence = "文章を教えるにはbotくんのIDでログインする必要があります。";
+			return result;
+			}
+
 		BotDAO dao = new BotDAO();
 		//ラベルが重複してないかの確認
 		if(dao.labelCheck(label)){
@@ -90,6 +114,46 @@ public class BotExerciseAction extends ActionSupport{
 	*/
 	public void setResultSentence(String resultSentence) {
 		this.resultSentence = resultSentence;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param session
+	*/
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 

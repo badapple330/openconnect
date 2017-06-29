@@ -19,6 +19,13 @@ import com.internousdev.util.db.mysql.MySqlConnector;
 public class BotDAO {
 
 
+/********************************************************
+ *
+ * 文章自動生成系のメソッド
+ *
+ *******************************************************/
+
+
 	/**
 	 * 単語がテーブルに存在するか調べるメソッド
 	 * @param word 単語
@@ -117,41 +124,18 @@ public class BotDAO {
 		  return wordList;
 	}
 
-	/**
-	 * 印象テーブルの情報をリスト化するメソッド
-	 * @return
-	 */
-	public ArrayList<BotDTO> impressionSearch(){
-		ArrayList<BotDTO> impressionList = new ArrayList<BotDTO>();
-		Connection con = new MySqlConnector("bbbot").getConnection();
 
-		String sql = "select * from word_impression";
+/********************************************************
+ *
+ * 文章インサート系のメソッド
+ *
+ *******************************************************/
 
-		  try{
-			  PreparedStatement ps = con.prepareStatement(sql);
-			  ResultSet rs = ps.executeQuery();
-			  while(rs.next()){
-				  BotDTO dto = new BotDTO();
-				  dto.setWord(rs.getString("word"));
-				  dto.setImpression(rs.getInt("impression"));
-				  impressionList.add(dto);
-				  }
-			  }catch(SQLException e){
-		    	e.printStackTrace();
-		    	}finally {
-			try{
-				con.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-		  return impressionList;
-	}
 
 	/**
 	 * ラベルに重複がないかを調べるメソッド
-	 * @param label
-	 * @return
+	 * @param label どんな文章を教えるかの説明
+	 * @return 重複しなければtrue、重複したらfalse
 	 */
 	public boolean labelCheck(String label){
 		Connection con = new MySqlConnector("bbbot").getConnection();
@@ -184,8 +168,8 @@ public class BotDAO {
 
 	/**
 	 * 学習マスターテーブルにインサートするメソッド
-	 * @param label
-	 * @return
+	 * @param label どんな文章を教えるかの説明
+	 * @return 成否を判断する変数
 	 */
 	public int masterSet(String label){
 		int inserted = 0;
@@ -211,8 +195,8 @@ public class BotDAO {
 
 	/**
 	 * ラベルから文章IDを検索する
-	 * @param label
-	 * @return
+	 * @param label どんな文章を教えるかの説明
+	 * @return 文章ID
 	 */
 	public int sentenceIdSearch(String label){
 		int sentenceId = 0;
@@ -290,9 +274,17 @@ public class BotDAO {
 	return inserted;
 	}
 
+
+/********************************************************
+ *
+ * 文章閲覧系のメソッド
+ *
+ ********************************************************/
+
+
 	/**
 	 * 学習マスターをリスト化するメソッド
-	 * @return
+	 * @return 文章マスターリスト
 	 */
 	public ArrayList<BotDTO> mastersearch(){
 		ArrayList<BotDTO> masterList = new ArrayList<BotDTO>();
@@ -324,8 +316,8 @@ public class BotDAO {
 
 	/**
 	 * 文章IDから文章を取得しリスト化するメソッド
-	 * @param sentenceId
-	 * @return
+	 * @param sentenceId 文章ID
+	 * @return 文章リスト
 	 */
 	public ArrayList<BotDTO> sentenceSearch(int sentenceId){
 		ArrayList<BotDTO> masterList = new ArrayList<BotDTO>();
@@ -356,6 +348,11 @@ public class BotDAO {
 		}
 		  return masterList;
 	}
+/********************************************************
+ *
+ * 文章削除系のメソッド
+ *
+ *******************************************************/
 
 	/**
 	 * 学習テーブルから文章を削除するメソッド
@@ -407,5 +404,38 @@ public class BotDAO {
 			}
 		}
 		return deleted;
+	}
+
+
+
+	/**
+	 * 印象テーブルの情報をリスト化するメソッド（使ってない）
+	 * @return 印象リスト
+	 */
+	public ArrayList<BotDTO> impressionSearch(){
+		ArrayList<BotDTO> impressionList = new ArrayList<BotDTO>();
+		Connection con = new MySqlConnector("bbbot").getConnection();
+
+		String sql = "select * from word_impression";
+
+		  try{
+			  PreparedStatement ps = con.prepareStatement(sql);
+			  ResultSet rs = ps.executeQuery();
+			  while(rs.next()){
+				  BotDTO dto = new BotDTO();
+				  dto.setWord(rs.getString("word"));
+				  dto.setImpression(rs.getInt("impression"));
+				  impressionList.add(dto);
+				  }
+			  }catch(SQLException e){
+		    	e.printStackTrace();
+		    	}finally {
+			try{
+				con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		  return impressionList;
 	}
 }

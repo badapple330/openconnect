@@ -46,6 +46,6 @@
 </div>
 
 
-
+<jsp:include page="Bfooter.jsp" />
 </body>
 </html>
