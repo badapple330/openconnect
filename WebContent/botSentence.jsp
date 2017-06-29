@@ -64,9 +64,10 @@ $(function() {
 
 <div class="outline">
 <br>
-<h3>覚えさせた文章</h3>
 
+<!-- 学習マスターの画面 -->
 <s:if test="sentenceId==0" >
+<h3>覚えさせた文章</h3>
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
     <thead>
         <tr>
@@ -82,14 +83,16 @@ $(function() {
             <td><s:property value="sentenceId"/></td>
             <td><s:property value="label"/></td>
             <td><s:property value="(createdAt.substring(0,16))"/></td>
-            <td><a href="<s:url action="BotSearchAction"><s:param name="sentenceId" value="%{sentenceId}"/></s:url>">文章を見る</a></td>
+            <td><a href="<s:url action="BotSearchAction"><s:param name="sentenceId" value="%{sentenceId}"/><s:param name="label" value="%{label}"/></s:url>">文章を見る</a></td>
         </tr>
         </s:iterator>
     </tbody>
 </table>
 </s:if>
 
+<!-- 詳細の画面 -->
 <s:else>
+<h3><s:property value="label"/></h3>
 <button class="btn btn-danger" data-toggle="modal" data-target="#sentenceDelete">この文章を忘れさせる</button>
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
     <thead>
@@ -113,7 +116,7 @@ $(function() {
 </table>
 </s:else>
 
-	<!-- 投稿削除の確認画面 -->
+	<!-- 削除の確認画面 -->
 		<div class="modal fade" id="sentenceDelete" tabindex="-1">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
@@ -123,7 +126,7 @@ $(function() {
 					</div>
 					<s:form action="BotSentenceDeleteAction">
 						<div class="modal-body">
-							文章を忘れさせると戻すことはできません。よろしいですか？
+							この文章すべて忘れます。戻すことはできません。よろしいですか？
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
@@ -137,6 +140,6 @@ $(function() {
 </div>
 
 
-
+<jsp:include page="Bfooter.jsp" />
 </body>
 </html>

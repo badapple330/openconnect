@@ -23,10 +23,7 @@
 									&& ($("#givenForm").val() != ""))) {
 						alert('姓と名の両方を入力してください');
 						return false
-					} else if (($("#id_year").val() != "")
-							&& ($("#id_month").val() != "")
-							&& ($("#id_day").val() == "")
-							|| ($("#id_year").val() != "")
+					}else if (($("#id_year").val() != "")
 							&& ($("#id_month").val() == "")
 							&& ($("#id_day").val() != "")
 							|| ($("#id_year").val() != "")
@@ -41,7 +38,7 @@
 							|| ($("#id_year").val() == "")
 							&& ($("#id_month").val() == "")
 							&& ($("#id_day").val() != "")) {
-						alert('日付をすべて選択してください');
+						alert('年と月を入力してください');
 						return false
 					} else if (($("#id_year").val() == "")
 							&& ($("#id_month").val() == "")

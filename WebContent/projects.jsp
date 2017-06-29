@@ -221,18 +221,18 @@
 								name="managerId" placeholder="半角数字で入力" maxlength="10" required
 								max="userId"></td>  -->
 							<td><input type="text" name="managerFamilyName"
-								placeholder="漢字で入力" maxlength="10" required></td>
+								placeholder="【姓】漢字・平仮名で入力" maxlength="10" required></td>
 
 							<td><input type="text" name="managerGivenName"
-								placeholder="漢字で入力" maxlength="10" required></td>
+								placeholder="【名】漢字・平仮名で入力" maxlength="10" required></td>
 
 							<td><input type="text" name="subManagerFamilyName"
-								placeholder="漢字で入力" maxlength="10" required></td>
+								placeholder="【姓】漢字・平仮名で入力" maxlength="10" required></td>
 
 							<td><input type="text" name="subManagerGivenName"
-								placeholder="漢字で入力" maxlength="10" required></td>
+								placeholder="【名】漢字・平仮名で入力" maxlength="10" required></td>
 
-							<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
+							<td><input type="text" pattern="[1-9][0-9]*" maxlength='2' title="半角数字のみ"
 								name="memberNumber" placeholder="半角数字で入力" maxlength="10"
 								required></td>
 

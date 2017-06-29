@@ -21,9 +21,7 @@ public class AdminAttendanceDAO {
 
 
 
-	/**
-	 * 購入履歴を格納する
-	 */
+	/* 勤怠履歴を格納する */
 	public ArrayList<AttendanceDTO> searchList  = new ArrayList<AttendanceDTO>();
 
 	/**
@@ -55,29 +53,42 @@ public class AdminAttendanceDAO {
 		/* sql文生成に用いるWhere節文字列 */
 		String whereState = "";
 
-		/* 日付が定義されたとき */
-		if(atYear != 0 && atMonth != 0 && atDay != 0){
-			whereState += "at_year="+atYear +" AND at_month="+atMonth +" AND at_day="+atDay;
+		/* 年が定義されたとき */
+		if(atYear != 0){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "at_year="+atYear;
+		}
+
+		/* 月が定義されたとき */
+		if(atMonth != 0){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "at_month="+atMonth;
+		}
+
+		/* 日が定義されたとき */
+		if(atDay != 0){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "at_day="+atDay;
 		}
 
 		/* 姓と名が定義されたとき */
-		if(!((familyNameKanji).equals("")) && !((givenNameKanji).equals(""))){
+		if(!((familyNameKanji).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-			whereState += "family_name_kanji='"+familyNameKanji+"' AND given_name_kanji='"+givenNameKanji+"'";
-
+			whereState += "family_name_kanji='"+familyNameKanji+"'";
 		}
 
-		//		/* 名が定義されたとき */
-		//		if(!((givenNameKanji).equals(""))){
-		//			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-		//			whereState += "given_name_kanji='"+givenNameKanji+"'";
-		//		}
+		/* 名が定義されたとき */
+		if(!((givenNameKanji).equals(""))){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "given_name_kanji='"+givenNameKanji+"'";
+		}
 
 		/* チーム名が定義されたとき */
 		if(!((teamName).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
 			whereState += "team_name='"+teamName+"'";
 		}
+
 		/* 勤怠状況定義時 */
 		if(!((attendance).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。

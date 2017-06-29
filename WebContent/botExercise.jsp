@@ -45,8 +45,8 @@
 <input type="file" id="selfile">
 </div>
   <div class="form-group">
-    <label>覚えさせる文章（単語じゃなくて文章で教えてね）</label>
-    <textarea name="sentence" class="form-control" rows="10" cols="80%" id="sendContents" required></textarea>
+    <label>覚えさせる文章（2000字以内。単語じゃなくて文章で教えてね）</label>
+    <textarea name="sentence" class="form-control" rows="10" cols="80%" id="sendContents" required maxlength="2000" ></textarea>
     </div>
     <button type="submit" class="btn btn-primary">送信</button>
 </s:form>
@@ -75,5 +75,6 @@ obj1.addEventListener("change",function(evt){
     <div class="col-sm-1 visible-lg-block"></div>
 </div>
 </div>
+<jsp:include page="Bfooter.jsp" />
 </body>
 </html>
