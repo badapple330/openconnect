@@ -46,4 +46,30 @@ public class GroupImgDAO {
 				}
 			     return stampList;
 		  }
+
+		  public int setGroupImg(int groupId,String url){
+			  int inserted=0;
+
+			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
+			    Connection con = db.getConnection();
+			    String sql="update group_master set group_img=? where group_id=?";
+
+			    /////////
+
+			    try{
+			    	PreparedStatement ps = con.prepareStatement(sql);
+			    	ps.setString(1, url);
+			    	ps.setInt(2, groupId);
+			    	inserted=ps.executeUpdate();
+			    }catch(SQLException e){
+			    	e.printStackTrace();
+			    }finally {
+					try{
+						con.close();
+					}catch(Exception e){
+						e.printStackTrace();
+						}
+				}
+			     return inserted;
+		  }
 	}

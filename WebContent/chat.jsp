@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="css/style2.css">
 <link rel="stylesheet" href="css/modal.css">
 <link rel="stylesheet" href="css/chat.css">
+<link rel="stylesheet" href="css/imgList.css">
 
 
 <!-- Javascripts
@@ -31,7 +32,6 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/toast.js"></script>
-<script src="js/radio.js"></script>
 <script type="text/javascript" src="js/jquery_elapse.js"></script>
 <!-- 自動リンクのプログラム -->
 <script src="js/autoLink.js"></script>
@@ -126,21 +126,27 @@
           </button>
           <h4 class="modal-title">画像を変更する</h4>
         </div>
-        <s:form action="">
+        <s:form action="GroupImgUpdateAction">
         <div class="modal-body">
         	<s:iterator value="groupImgList" status="rs">
-        	<
-        	
-        	
-        	<div>
-        	<s:property value="#rs.count"/>
-          <input type="radio" name="img" value="<s:property />" ><img  id="<s:property value="#rs.index"/>" class="radio-group"  src="<s:property value="url"/>"   alt="" class="img-circle-ex"
-          width="70px" height="70px" style="border-radius: 50%; margin: 5px;">
+        	<s:if test="%{#rs.count%2==0}">
+			<div style="float:left">
+          <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
           </div>
+          </s:if><s:else>
+          <div style="float:left; background-color:#dddddd;" >
+          <input type="radio" name="url" value="<s:property value="url" />"style="background:url(./<s:property value="url"/>);background-size:100% 100%;" >
+          </div>
+
+
+          </s:else>
           </s:iterator>
+          <div style="clear:both"></div>
+
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" style="position:relative">
             <s:token />
+            <s:hidden name="groupId" />
             <button type="submit" class="btn btn-primary">変更</button>
           </div>
          </s:form>
