@@ -18,12 +18,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class DecisionFileUpdateAction extends ActionSupport implements SessionAware{
 
-
-
 	/**
-	 * 資料ID
+	 * 実施起案者ID
 	 */
-	private int documentId;
+	private int jDrafterId;
 
 	/**
 	 * セッション情報
@@ -40,7 +38,10 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 	 */
 	private String documentName;
 
-
+	/**
+	 * エラーメッセージ
+	 */
+	public String resultString = "追加できませんでした";
 
 	/**
 	 * 資料情報を追加する
@@ -56,15 +57,14 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 	        System.out.println(documentName);
 		DecisionDAO dao = new DecisionDAO();
 
-		inserted=dao.insert(documentId,documentPath,documentName);
+		inserted=dao.insert(jDrafterId,documentPath,documentName);
 
 		if(inserted>0){
 			result = SUCCESS;
+			resultString="追加しました。";
 		}
 		return result;
 	}
-
-
 
 	/**
 	 * 取得メソッド
@@ -85,23 +85,6 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-    /**
-     * 取得メソッド
-     * @autor Jun kikuchi
-     * @return articleId
-     */
-	public int getArticleId() {
-		return documentId;
-	}
-
-    /**
-     * 格納メソッド
-     * @autor Jun kikuchi
-     * @param documentId アーティクルID
-     */
-	public void setDocumentId(int documentId) {
-		this.documentId = documentId;
-	}
 
     /**
      * 取得メソッド
@@ -111,7 +94,6 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 	public String getDocumentPath() {
 		return documentPath;
 	}
-
 
     /**
      * 格納メソッド
@@ -131,8 +113,6 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 		return documentName;
 	}
 
-
-
 	/**
 	 * 格納メソッド
 	 * userIdを格納
@@ -141,6 +121,38 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 	 */
 	public void setDocumentName(String documentName) {
 		this.documentName = documentName;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return jDrafterId
+	*/
+	public int getJDrafterId() {
+		return jDrafterId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param jDrafterId
+	*/
+	public void setJDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
 	}
 
 }

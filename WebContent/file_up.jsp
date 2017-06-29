@@ -31,6 +31,8 @@
   </div>
 </s:form>
 
+<s:property value="%{resultString}" />
+
 		<h2>資料削除</h2>
 <s:form action="DecisionFileDeleteAction">
 <div class="contents-set">
@@ -42,8 +44,15 @@
   </div>
 </s:form>
 
-
-
+<br><br>
+<!-- 戻る -->
+	<s:form action="DecisionSelectAction">
+	<input type="hidden" name="decisionId"
+							value="<s:property value="decisionId"/>">
+						<input type="hidden" name="jDrafterId"
+							value="<s:property value="jDrafterId"/>">
+		<input type="submit" class="button" value="戻る">
+	</s:form>
 
 
 </body>

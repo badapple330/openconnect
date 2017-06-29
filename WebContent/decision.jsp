@@ -41,7 +41,7 @@
 							value="<s:property value="decisionId"/>">
 						<input type="hidden" name="jDrafterId"
 							value="<s:property value="jDrafterId"/>">
-						<input type="submit" value="表示">
+						<input type="hidden" value="表示">
 					</s:form>
 				</div>
 			</td>
@@ -444,6 +444,18 @@
 		<input type="hidden" name="decisionId"
 			value="<s:property value="decisionId" />">
 		<input type="submit" value="編集を保存" class="hidden-xs">
+
+
+		<s:form action="GoDecisionDecisionFileEdit">
+		<input type="submit" class="button" value="資料添付画面へ">
+	</s:form>
+
+<!-- 戻る -->
+	<s:form action="GetAddressAction">
+		<input type="submit" class="button" value="戻る">
+	</s:form>
+
+	<br><br><br>
 		<%-- ↑PCの場合の表示↑ --%>
 
 
@@ -848,9 +860,11 @@
 	<br>
 	<br>
 
-	<h2>
-		<a href="./file_up.jsp" target="_blank">資料添付</a>
-	</h2>
+	<s:form action="GoDecisionDecisionFileEdit">
+		<input type="submit" class="button" value="戻る">
+	</s:form>
+
+	<br><br><br>
 
 	<!-- 戻る -->
 	<s:form action="GetAddressAction">

@@ -19,23 +19,21 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DecisionFileDeleteAction extends ActionSupport {
 
 
-	/**
-	 * イメージID
-	 */
-	private int documentId;
 
 	/**
 	 * セッション情報
 	 */
 	private Map<String,Object> session;
 
-
-
-
 	/**
 	 * イメージネーム
 	 */
 	private String documentName;
+
+	/**
+	 * エラーメッセージ
+	 */
+	public String resultString="削除できませんでした。";
 
 
 
@@ -51,6 +49,7 @@ public class DecisionFileDeleteAction extends ActionSupport {
 
 		    if(deleted>0){
 		    	result = SUCCESS;
+		    	resultString="削除しました。";
 		    }
 		return result;
 
@@ -77,28 +76,6 @@ public class DecisionFileDeleteAction extends ActionSupport {
 		this.session = session;
 	}
 
-
-
-	/**
-	* 取得メソッド を取得
-	* @return documentId
-	*/
-	public int getDocumentId() {
-		return documentId;
-	}
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param documentId
-	*/
-	public void setDocumentId(int documentId) {
-		this.documentId = documentId;
-	}
-
-
-
 	/**
 	* 取得メソッド を取得
 	* @return documentName
@@ -106,8 +83,6 @@ public class DecisionFileDeleteAction extends ActionSupport {
 	public String getDocumentName() {
 		return documentName;
 	}
-
-
 
 	/**
 	* 設定メソッド を設定
