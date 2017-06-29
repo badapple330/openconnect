@@ -96,6 +96,16 @@
 				<h4 class="modal-title">グループ画像</h4>
 			</div>
 			<s:form action="GroupTokenAction">
+
+			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
+			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
+			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
+			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
+			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
+			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
+			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
+			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
+			<img src="pic/group_img/papurika01.jpg"   alt="" class="img-circle-ex">
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 				<s:token/>
