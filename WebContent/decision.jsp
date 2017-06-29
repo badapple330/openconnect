@@ -47,9 +47,10 @@
 			</td>
 		</tr>
 	</table>
-	<s:form action="DecisionUpdateAction">
+
 
 		<%-- ↓PCの場合の表示↓ --%>
+		<s:form action="DecisionUpdateAction">
 		<table class="main hidden-xs" border="2">
 			<tr>
 				<td class="kian"><b>起案者名</b></td>
@@ -440,27 +441,27 @@
 		</table>
 
 		<input type="hidden" name="jDrafterId"
-			value="<s:property value="session.jDraftId" />">
+			value="<s:property value="#session.userId" />">
 		<input type="hidden" name="decisionId"
 			value="<s:property value="decisionId" />">
 		<input type="submit" value="編集を保存" class="hidden-xs">
+        </s:form>
 
 
-		<s:form action="GoDecisionDecisionFileEdit">
-		<input type="submit" class="button" value="資料添付画面へ">
-	</s:form>
 
-<!-- 戻る -->
-	<s:form action="GetAddressAction">
-		<input type="submit" class="button" value="戻る">
-	</s:form>
 
 	<br><br><br>
 		<%-- ↑PCの場合の表示↑ --%>
 
 
 
+
+
+
+
+
 		<%-- ↓スマホの場合の表示↓ --%>
+		<s:form action="DecisionUpdateAction">
 		<table class="main visible-xs" border="2">
 			<tr>
 				<td class="kian"><b>起案者名</b></td>
@@ -598,7 +599,7 @@
 		<table class="sub visible-xs" border="2">
 			<tr>
 				<th></th>
-				<th>単価(万円)</th>
+				<th width="10px">単価(万円)</th>
 				<th>個数</th>
 				<th>小計(万円)</th>
 			</tr>
@@ -850,19 +851,25 @@
 		</table>
 
 		<input type="hidden" name="jDrafterId"
-			value="<s:property value="session.jDraftId" />">
+			value="<s:property value="#session.userId" />">
 		<input type="hidden" name="decisionId"
 			value="<s:property value="decisionId" />">
 		<input type="submit" value="編集を保存" class="visible-xs">
+		</s:form>
 		<%-- ↑スマホの場合の表示↑ --%>
 
-	</s:form>
-	<br>
-	<br>
 
-	<s:form action="GoDecisionDecisionFileEdit">
-		<input type="submit" class="button" value="戻る">
-	</s:form>
+
+	<br>
+	<br><br>
+		<s:form action="GoDecisionFileEdit">
+		<input type="hidden" name="jDrafterId"
+			value="<s:property value="#session.userId" />">
+		<input type="hidden" name="decisionId"
+			value="<s:property value="decisionId" />">
+		<input type="submit" class="button" value="資料添付画面へ">
+	    </s:form>
+
 
 	<br><br><br>
 
@@ -870,5 +877,10 @@
 	<s:form action="GetAddressAction">
 		<input type="submit" class="button" value="戻る">
 	</s:form>
-</body>
+
+	<br><br>
+
+<jsp:include page="footer.jsp" />
+
+	</body>
 </html>
