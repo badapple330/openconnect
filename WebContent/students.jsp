@@ -62,9 +62,9 @@
 
 						<th><div class="verysmallWidth">ID</div></th>
 
-						<th><div class="smallWidth">姓(漢字)</div></th>
+						<th><div class="bigWidth">ユーザー名</div></th>
 
-						<th><div class="smallWidth">名(漢字)</div></th>
+
 						<th><div class="smallWidth">チーム名</div></th>
 
 
@@ -85,13 +85,10 @@
 							<td><div class="verysmallWidth"><s:property value="userId" /></div></td>
 
 
-							<td><div class="smallWidth"><input type="text" name="userNameiList"
+							<td><div class="bigWidth"><input type="text" name="userNameiList"
 								value="<s:property value="userName" />"
 								class="userName maxText" maxlength="20" required></div></td>
 
-							<td><div class="smallWidth"><input type="text" name="givenNameKanjiList"
-								value="<s:property value="givenNameKanji" />"
-								class="givenNameKanji maxText" maxlength="20" required></div></td>
 
 							<td><div class="smallWidth"><input type="text" name="teamNameList"
 								value="<s:property value="teamName" />"
