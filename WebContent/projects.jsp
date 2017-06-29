@@ -29,7 +29,8 @@
 
 
 
-	<h1 class="centered1" align="center">プロジェクト一覧</h1><BR>
+	<h1 class="centered1" align="center">プロジェクト一覧</h1>
+	<BR>
 	<!--  class="page-header" align ="center" -->
 
 
@@ -109,34 +110,29 @@
 									class="projectNamelist" placeholder="例：rewrite"></td>
 
 								<td><input type="hidden" name="projectManagerIdList"
-									 value="<s:property value="ManagerId"/>"
-									class="projectManagerIdlist"
-									 ></td>
+									value="<s:property value="ManagerId"/>"
+									class="projectManagerIdlist"></td>
 
-								<td>
-								<input type="hidden" name="projectManagerNameList"
-									 value="<s:property value="managerFamilyNameKanji"/>"
-									class="projectManagerNameList"
-									 >
-								<s:property value="managerFamilyNameKanji" /> <s:property
+								<td><input type="hidden" name="projectManagerNameList"
+									value="<s:property value="managerFamilyNameKanji"/>"
+									class="projectManagerNameList"> <s:property
+										value="managerFamilyNameKanji" /> <s:property
 										value="managerGivenNameKanji" /></td>
 
 								<td><input type="hidden" name="projectSubManagerIdList"
-									 value="<s:property value="subManagerId"/>"
-									class="projectSubManagerIdlist"
-									 ></td>
+									value="<s:property value="subManagerId"/>"
+									class="projectSubManagerIdlist"></td>
 
 								<td><input type="hidden" name="projectSubManagerNameList"
-									 value="<s:property value="subManagerFamilyNameKanji"/>"
-									class="projectSubManagerNameList"
-									 >
-
-								<s:property value="subManagerFamilyNameKanji" /> <s:property
+									value="<s:property value="subManagerFamilyNameKanji"/>"
+									class="projectSubManagerNameList"> <s:property
+										value="subManagerFamilyNameKanji" /> <s:property
 										value="subManagerGivenNameKanji" /></td>
 
 								<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
-								name="projectMemberNumberList" placeholder="半角数字で入力" maxlength="10"
-								required value="<s:property value="memberNumber"/>"></td>
+									name="projectMemberNumberList" placeholder="半角数字で入力"
+									maxlength="10" required
+									value="<s:property value="memberNumber"/>"></td>
 
 
 								<td><input type="text" name="projectStartDateList"
@@ -182,7 +178,7 @@
 				</s:if>
 			</s:form>
 		</div>
-<BR>
+		<BR>
 		<!-- pagenation -->
 		<div id="pager" class="center  fixedButton">
 			<div id="page_ctrl" class="center">
@@ -199,7 +195,7 @@
 		<BR>
 		<!-- flg判定 -->
 		<s:if test="%{#session.userFlg == 3}">
-			 <div class="table-scroll">
+			<div class="table-scroll">
 				<s:form action="ProjectsInsertAction">
 
 
@@ -224,21 +220,17 @@
 							<!-- <td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
 								name="managerId" placeholder="半角数字で入力" maxlength="10" required
 								max="userId"></td>  -->
-							<td><input type="text"
-								name="managerFamilyName" placeholder="漢字で入力" maxlength="10" required
-								></td>
+							<td><input type="text" name="managerFamilyName"
+								placeholder="漢字で入力" maxlength="10" required></td>
 
-							<td><input type="text"
-								name="managerGivenName" placeholder="漢字で入力" maxlength="10" required
-								></td>
+							<td><input type="text" name="managerGivenName"
+								placeholder="漢字で入力" maxlength="10" required></td>
 
-							<td><input type="text"
-								name="subManagerFamilyName" placeholder="漢字で入力" maxlength="10" required
-								></td>
+							<td><input type="text" name="subManagerFamilyName"
+								placeholder="漢字で入力" maxlength="10" required></td>
 
-							<td><input type="text"
-								name="subManagerGivenName" placeholder="漢字で入力" maxlength="10" required
-								></td>
+							<td><input type="text" name="subManagerGivenName"
+								placeholder="漢字で入力" maxlength="10" required></td>
 
 							<td><input type="text" pattern="[1-9][0-9]*" title="半角数字のみ"
 								name="memberNumber" placeholder="半角数字で入力" maxlength="10"
@@ -288,7 +280,7 @@
 						</s:iterator>
 					</table>
 				</div>
-				</div>
+			</div>
 		</s:if>
 
 
@@ -296,39 +288,39 @@
 			<!-- #contents START -->
 			<div id="modal-style">
 				<br>
-				<div  class="modal_border responsive">
+				<div class="modal_border responsive">
 
-						【プロジェクト名】
-							<div class="delete-projectname modalDelete"></div>
-						【管理者(ﾘ-ﾀﾞｰ)】
-							<div class="delete-projectmanagername modalDelete"></div>
-						【管理者(ｻﾌﾞﾘｰﾀﾞｰ)】
-							<div class="delete-projectsubmanagername modalDelete"></div>
-						【開始日】
-							<div class="delete-projectstartdate modalDelete"></div>
-						【終了日】
-							<div class="delete-projectenddate modalDelete"></div>
-						【備考】
-							<div class="delete-projectnote modalDelete"></div>
+					【プロジェクト名】
+					<div class="delete-projectname modalDelete"></div>
+					【管理者(ﾘ-ﾀﾞｰ)】
+					<div class="delete-projectmanagername modalDelete"></div>
+					【管理者(ｻﾌﾞﾘｰﾀﾞｰ)】
+					<div class="delete-projectsubmanagername modalDelete"></div>
+					【開始日】
+					<div class="delete-projectstartdate modalDelete"></div>
+					【終了日】
+					<div class="delete-projectenddate modalDelete"></div>
+					【備考】
+					<div class="delete-projectnote modalDelete"></div>
 
 
-							<BR>
+					<BR> <input type="button" class="delete-true button"
+						value="削除"> <input type="button"
+						class="modal-close button" value="閉じる">
 
-				<input type="button" class="delete-true button" value="削除">
-				<input type="button" class="modal-close button" value="閉じる">
+					<div class="delete-prepare">
+						<p>本当に削除しますか。</p>
 
-				<div class="delete-prepare">
-					<p>本当に削除しますか。</p>
+						<s:form action="ProjectsDeleteAction">
+							<input type="hidden" name="projectId" value=""
+								class="true-delete">
+							<input type="submit" class="delete-true button" value="はい">
+							<input type="button" class="modal-close button" value="いいえ">
+						</s:form>
 
-					<s:form action="ProjectsDeleteAction">
-						<input type="hidden" name="projectId" value="" class="true-delete">
-						<input type="submit" class="delete-true button" value="はい">
-						<input type="button" class="modal-close button" value="いいえ">
-					</s:form>
-
+					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 
 		<div id="contents">
@@ -348,6 +340,9 @@
 		</div>
 	</s:form>
 	<BR>
+	<BR>
+	<BR>
+	<jsp:include page="footer.jsp" />
 
 
 

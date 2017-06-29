@@ -273,6 +273,7 @@ manager_id int not null comment 'リーダーID',
 sub_manager_id int not null comment 'サブリーダーID',
 start_date date comment '開始日',
 end_date date comment '終了日',
+member_number int not null comment '人数',
 note varchar(255) comment 'メモ',
 foreign key(manager_id) references users(user_id) on update cascade on delete cascade,
 foreign key(sub_manager_id) references users(user_id) on update cascade on delete cascade
