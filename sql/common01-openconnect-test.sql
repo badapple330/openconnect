@@ -475,6 +475,14 @@ url varchar(255) not null
 );
 
 
+/*グループ画像
+ ****************************/
+create table group_img(
+img_id int not null primary key auto_increment comment '画像ID',
+url varchar(255) not null
+);
+
+
 
 
 
@@ -693,6 +701,21 @@ insert into stamp(type_id,lv,url) values
 (6,4,"pic/stamp/06_shiropuu/shiropuu_28.png"),
 (6,4,"pic/stamp/06_shiropuu/shiropuu_29.png"),
 (6,4,"pic/stamp/06_shiropuu/shiropuu_30.png");
+
+
+insert into group_img(url) values
+("pic/group_img/allStars.jpg"),
+("pic/group_compan.jpg"),
+("pic/group_img/earphone.jpg"),
+("pic/group_img/fire.jpg"),
+("pic/group_img/marlboro.jpg"),
+("pic/group_img/mouse.jpg"),
+("pic/group_img/papurika01.jpg"),
+("pic/group_img/sevenStars.jpg"),
+("pic/group_img/tomato01.jpg"),
+("pic/group_img/wallet.jpg"),
+("pic/group_img/watch.jpg");
+
 
 
 
