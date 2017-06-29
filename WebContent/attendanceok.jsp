@@ -45,10 +45,12 @@
     </tr>
 
     <tr>
+    <s:if test= "%{attendance == '出席' }" />
+    <s:else>
     <th>  備  考  :</th>
     <td style="word-wrap:break-word;"><s:property value="reason"/></td>
+    </s:else>
     </tr>
-
     </table>
 
            <br>
