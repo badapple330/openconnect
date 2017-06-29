@@ -17,12 +17,6 @@ order_destination varchar(255) not null comment '届け先',
 order_day datetime not null default current_timestamp comment '購入先'
 ) comment="注文情報テーブル";
 
-create table admin_table(
-admin_id varchar(16) not null primary key comment '管理者ID',
-admin_pass varchar(16) not null comment '管理者パスワード',
-admin_name varchar(50) not null comment '管理者名'
-) comment="管理者テーブル";
-insert into admin_table(admin_id,admin_pass,admin_name) values ("12345678","commando","ジョンメイトリックス");
 
 create table  user_table(
 user_id varchar(16) not null primary key comment 'ユーザーID',
