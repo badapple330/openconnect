@@ -716,7 +716,18 @@ insert into group_img(url) values
 ("pic/group_img/wallet.jpg"),
 ("pic/group_img/watch.jpg");
 
-
+insert into prof_img(url) values
+("pic/prof_img/glass.jpg"),
+("pic/prof_img/koduck.jpg"),
+("pic/prof_img/nekoatsume.png"),
+("pic/prof_img/penguin.png"),
+("pic/prof_img/rakuseki.png"),
+("pic/prof_img/root.jpg"),
+("pic/prof_img/skull.png"),
+("pic/prof_img/tennosuke.png"),
+("pic/prof_img/union.jpg"),
+("pic/prof_img/rafureshia.jpg"),
+("pic/prof_img/hashibiro.jpg");
 
 
 

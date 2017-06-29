@@ -222,19 +222,48 @@ FOLLOW</a>
 <tr>
 <td>
  <div class="profile">
-        	<figure style="margin-left:30px;" style="clear:both;">
 
             	<img src="<s:property value="userImg"/>" class="edit_border_radius" alt="" /><br>
-            	<label for="file" class="file">
-            		<input class="imgeditbutton" type="file" id="file" style="display:none;">
-            		EDIT
-            		</label>
-            	<figcaption><h4 style="font-weight:bold;"></h4></figcaption>
-        	</figure>
+            	<a data-toggle="modal" class="cursor"
+              data-target="#profImageChange">アイコン画像変更</a>
+
+        	 <!-- アイコン画像変更画面 -->
+  <div class="modal fade" id="profImageChange" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title">画像を変更する</h4>
+        </div>
+        <s:form action="">
+        <div class="modal-body">
+        	<s:iterator value="profImgList" status="rs">
+        	<
+
+
+        	<div>
+        	<s:property value="#rs.count"/>
+          <input type="radio" name="img" value="<s:property />" ><img  id="<s:property value="#rs.index"/>" class="radio-group"  src="<s:property value="url"/>"   alt=""
+          width="70px" height="70px" style="border-radius: 50%; margin: 5px;">
+          </div>
+          </s:iterator>
+        </div>
+        <div class="modal-footer">
+            <s:token />
+            <button type="submit" class="btn btn-primary">変更</button>
+          </div>
+         </s:form>
+      </div>
+    </div>
+  </div>
         </div>
 
 
 </td>
+
+
 <td>
 
     <ul class="myDate">
