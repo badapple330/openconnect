@@ -24,7 +24,7 @@ public class StudentsDeleteDAO2 {
         DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
                 "mysql");
         Connection con = db.getConnection();
-        String sql = "delete from users where month = ?";
+        String sql = "update users set userdel_flg=true where month = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);

@@ -22,6 +22,10 @@ public class StudentsDeleteAction2 extends ActionSupport {
      * 開始月
      */
     private String month;
+    /**
+     * 退会フラグ
+     */
+    private Boolean userDelflg;
 
 
     /**
@@ -79,6 +83,23 @@ public class StudentsDeleteAction2 extends ActionSupport {
     */
     public void setMonth(String month) {
         this.month = month;
+    }
+    /**
+    * 取得メソッド ユーザーIDを取得
+    * @author TATSUHIRO SAITO
+    * @return userdelflg
+    */
+    public Boolean getuserDelflg() {
+        return userDelflg;
+    }
+
+    /**
+    * 設定メソッド ユーザーIDを設定
+    * @author KOHEI NITABARU
+    * @param userId
+    */
+    public void setuserDelflg(Boolean userDelflg) {
+        this.userDelflg = userDelflg;
     }
 
     /**

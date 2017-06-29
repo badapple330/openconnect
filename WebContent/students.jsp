@@ -80,7 +80,7 @@
 					</tr>
 
 					<s:iterator value="studentsList">
-
+<s:if test="%{userdelFlg==false}">
 						<tr>
 							<td><div class="verysmallWidth"><s:property value="userId" /></div></td>
 
@@ -136,6 +136,7 @@
 						</tr>
 						<input type="hidden" name="userIdList"
 							value="<s:property value="userId" />" class="userId">
+							</s:if>
 					</s:iterator>
 				</table>
 			</s:if></div>
