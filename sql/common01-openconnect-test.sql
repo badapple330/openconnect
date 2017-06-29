@@ -312,14 +312,6 @@ content varchar(100) comment '内容',
 team_name varchar(255) not null default '1stmonth' comment 'チーム名'
 );
 
-insert into schedule(id,start_day,end_day,title,content,team_name) values
-(1,"2017-06-15","2017-06-20","実装","実装","TestTeam"),
-(2,"2017-06-18","2017-06-25","実装2","実装2","AdminTeam");
-
-
-
-
-
 
 
 create table users (

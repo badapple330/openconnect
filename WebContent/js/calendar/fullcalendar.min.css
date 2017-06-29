@@ -6,7 +6,9 @@
  */.fc-icon,body
 
  /*文字の大きさの指定ができます*/
- .fc{font-size:1em;}.fc-button-group,.fc-icon{}.fc-bg,.fc-row .fc-bgevent-skeleton,.fc-row .fc-highlight-skeleton{bottom:0}.fc-icon,.fc-unselectable{-khtml-user-select:none;-webkit-touch-callout:none}
+ .fc{font-size:1em}
+
+ .fc-button-group,.fc-icon{}.fc-bg,.fc-row .fc-bgevent-skeleton,.fc-row .fc-highlight-skeleton{bottom:0}.fc-icon,.fc-unselectable{-khtml-user-select:none;-webkit-touch-callout:none}
 
  /*カレンダーに表示されるイベントや日別リストの文字の位置の指定ができます*/
  .fc{direction:ltr;text-align:left}
