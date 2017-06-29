@@ -31,6 +31,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/toast.js"></script>
+<script src="js/radio.js"></script>
 <script type="text/javascript" src="js/jquery_elapse.js"></script>
 <!-- 自動リンクのプログラム -->
 <script src="js/autoLink.js"></script>
@@ -127,9 +128,15 @@
         </div>
         <s:form action="">
         <div class="modal-body">
-        	<s:iterator value="groupImgList">
-          <img src="<s:property value="url"/>"   alt="" class="img-circle-ex"
-          width="50px" height="50px" style="border-radius: 50%; margin-left: 5px;">
+        	<s:iterator value="groupImgList" status="rs">
+        	<
+        	
+        	
+        	<div>
+        	<s:property value="#rs.count"/>
+          <input type="radio" name="img" value="<s:property />" ><img  id="<s:property value="#rs.index"/>" class="radio-group"  src="<s:property value="url"/>"   alt="" class="img-circle-ex"
+          width="70px" height="70px" style="border-radius: 50%; margin: 5px;">
+          </div>
           </s:iterator>
         </div>
         <div class="modal-footer">
