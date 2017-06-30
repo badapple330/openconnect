@@ -40,7 +40,7 @@
 						<input type="hidden" name="decisionId"
 							value="<s:property value="decisionId"/>">
 						<input type="hidden" name="jDrafterId"
-							value="<s:property value="jDrafterId"/>">
+							value="<s:property value="#session.userId"/>">
 						<input type="hidden" value="表示">
 					</s:form>
 				</div>

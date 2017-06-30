@@ -35,6 +35,10 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 	private Map<String,Object> session;
 
 
+	/**
+	 * 起案者Id
+	 */
+	private int decisionId;
 
 	/**
 	 * 資料名
@@ -71,7 +75,7 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 			int inserted=0;
 			DecisionDAO dao = new DecisionDAO();
 
-			inserted=dao.insert(jDrafterId,myFileFileName,documentName);
+			inserted=dao.insert(jDrafterId,myFileFileName,documentName,decisionId);
 
 			if(inserted>0){
 				result = SUCCESS;
@@ -101,6 +105,22 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 		this.session = session;
 	}
 
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionId
+	*/
+	public int getDecisionId() {
+		return decisionId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionId
+	*/
+	public void setDecisionId(int decisionId) {
+		this.decisionId = decisionId;
+	}
 
 	/**
 	 * 取得メソッド
