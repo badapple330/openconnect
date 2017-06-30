@@ -14,7 +14,7 @@
 <jsp:include page="header.jsp" />
 
 <h1>URL登録フォーム</h1>
-<s:form action="AddURLAction" method="post" enctype="multipart/form-data">
+<s:form action="AddsiteAction" method="post" enctype="multipart/form-data">
 
 <table>
 <tr>

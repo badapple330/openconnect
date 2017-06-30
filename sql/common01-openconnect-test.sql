@@ -31,7 +31,7 @@ use openconnect;
 create table site(
 site_id int primary key not null auto_increment comment 'サイトID',
 site_name varchar(100) not null comment 'サイト名',
-site_url varchar(255) not null unique comment 'サイトURL',
+site_url varchar(255) not null comment 'サイトURL',
 picture varchar(255) comment '画像',
 year int comment '作成年度'
 ) comment='サイト情報格納テーブル';
