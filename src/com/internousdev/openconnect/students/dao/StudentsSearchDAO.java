@@ -91,6 +91,7 @@ public class StudentsSearchDAO {
 				dto.setLoginFlg(rs.getBoolean("login_flg"));
 				dto.setUserFlg(rs.getInt("user_flg"));
 				dto.setTeamName(rs.getString("team_name"));
+				dto.setUserName(rs.getString("user_name"));
 
 
 

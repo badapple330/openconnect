@@ -61,6 +61,10 @@ public class StudentsSearchAction extends ActionSupport {
 	 * チーム名
 	 */
 	private String team_name;
+	/**
+	 * チーム名
+	 */
+	private String user_name;
 
 
 
@@ -404,6 +408,21 @@ public class StudentsSearchAction extends ActionSupport {
 		 */
 		public void setTeamName(String team_name) {
 			this.team_name = team_name;
+		}
+		/**
+		 * チーム名を取得するメソッド
+		 * @return registerDay　登録日
+		 */
+		public String getUserName() {
+			return user_name;
+		}
+
+		/**
+		 * チーム名を格納するメソッド
+		 * @param registerDay　セットする registerDay
+		 */
+		public void setUserName(String user_name) {
+			this.user_name = user_name;
 		}
 
 
