@@ -114,7 +114,7 @@
 						<div class="glyphicon glyphicon-share-alt" aria-hidden="true" id="receive" data-toggle="modal" data-target="#timelineReceive<s:property value="timelineId"/>"></div>
 						<div class="text">返信する</div>
 						<div style="clear:both;"></div>
-							<pre id="sendcontents"><s:property value="sendContents" /></pre>
+						<pre id="sendcontents"><s:property value="sendContents" /></pre>
 					</div>
 					<div class="btn-area">
 						<div style="text-align:right">

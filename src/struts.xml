@@ -48,6 +48,24 @@
 			<result name="success">admin_attendance.jsp</result>
 			<result name="error">admin_attendance.jsp</result>
 		</action>
+		<action name="GoAdminAttendanceLeaderAction" method="execute"
+			class="com.internousdev.openconnect.attendance.action.GoAdminAttendanceLeaderAction">
+
+			<result name="success">admin_attendance_leader.jsp</result>
+
+			<result name="error">admin_attendance_leader.jsp</result>
+
+		</action>
+
+
+		<action name="AdminAttendanceLeaderAction" method="execute"
+			class="com.internousdev.openconnect.attendance.action.AdminAttendanceLeaderAction">
+
+			<result name="success">admin_attendance_leader.jsp</result>
+
+			<result name="error">admin_attendance_leader.jsp</result>
+
+		</action>
 
 		<action name="GoAdminAttendanceAction"
 			class="com.internousdev.openconnect.attendance.action.GoAdminAttendanceAction"
@@ -285,7 +303,7 @@
 
 
 
-		<!--決裁編集画面表示  -->
+		<!--決裁編集画面表示 -->
 		<action name="DecisionSelectAction"
 			class="com.internousdev.openconnect.decision.action.DecisionSelectAction"
 			method="execute">
@@ -293,7 +311,7 @@
 			<result name="error">decision.jsp</result>
 		</action>
 
-			<!-- 決裁編集画面更新 -->
+		<!-- 決裁編集画面更新 -->
 		<action name="DecisionUpdateAction"
 			class="com.internousdev.openconnect.decision.action.DecisionUpdateAction"
 			method="execute">
@@ -301,7 +319,7 @@
 			<result name="error">decision.jsp</result>
 		</action>
 
-			  <!-- 決裁添付資料追加 -->
+		<!-- 決裁添付資料追加 -->
 		<action name="DecisionFileUpdateAction"
 			class="com.internousdev.openconnect.decision.action.DecisionFileUpdateAction"
 			method="execute">
@@ -309,7 +327,7 @@
 			<result name="error">file_up.jsp</result>
 		</action>
 
-          <!-- 決裁添付資料削除 -->
+		<!-- 決裁添付資料削除 -->
 		<action name="DecisionFileDeleteAction"
 			class="com.internousdev.openconnect.decision.action.DecisionFileDeleteAction"
 			method="execute">
@@ -317,7 +335,7 @@
 			<result name="error">file_up.jsp</result>
 		</action>
 
- <!-- 決裁資料添付画面へ -->
+		<!-- 決裁資料添付画面へ -->
 		<action name="GoDecisionFileEdit"
 			class="com.internousdev.openconnect.decision.action.GoDecisionFileEdit"
 			method="execute">
@@ -351,7 +369,8 @@
 		<action name="DecisionDetailInsertAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailInsertAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="success" type="chain">DecisionDetailSelectAction
+			</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
@@ -362,7 +381,8 @@
 			<interceptor-ref name="defaultStack" />
 			<!-- tokenのinterceptor -->
 			<interceptor-ref name="token" />
-			<result name="invalid.token" type="chain">DecisionDetailSelectAction</result>
+			<result name="invalid.token" type="chain">DecisionDetailSelectAction
+			</result>
 			<result type="chain">DecisionDetailSelectAction</result>
 		</action>
 
@@ -373,49 +393,56 @@
 			<interceptor-ref name="defaultStack" />
 			<!-- tokenのinterceptor -->
 			<interceptor-ref name="token" />
-			<result name="invalid.token" type="chain">DecisionDetailSelectAction</result>
+			<result name="invalid.token" type="chain">DecisionDetailSelectAction
+			</result>
 			<result type="chain">DecisionDetailSelectAction</result>
 		</action>
 
 		<action name="DecisionDetailRemandAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRemandAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="success" type="chain">DecisionDetailSelectAction
+			</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailRejectAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRejectAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="success" type="chain">DecisionDetailSelectAction
+			</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailChangeAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailChangeAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="success" type="chain">DecisionDetailSelectAction
+			</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailRecourseAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailRecourseAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="success" type="chain">DecisionDetailSelectAction
+			</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailCompleteAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailCompleteAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="success" type="chain">DecisionDetailSelectAction
+			</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
 		<action name="DecisionDetailCancelAction"
 			class="com.internousdev.openconnect.decision.detail.action.DecisionDetailCancelAction"
 			method="execute">
-			<result name="success" type="chain">DecisionDetailSelectAction</result>
+			<result name="success" type="chain">DecisionDetailSelectAction
+			</result>
 			<result name="error">decision_detail.jsp</result>
 		</action>
 
@@ -461,8 +488,8 @@
 		<action name="GoScheduleSelectAction"
 			class="com.internousdev.openconnect.schedule.action.GoScheduleSelectAction"
 			method="execute">
-			<result name="success" type = "chain">ScheduleSelectAction</result>
-			<result name="error" type = "chain">ScheduleSelectAction</result>
+			<result name="success" type="chain">ScheduleSelectAction</result>
+			<result name="error" type="chain">ScheduleSelectAction</result>
 		</action>
 
 		<action name="ScheduleSelectAction"
@@ -510,183 +537,238 @@
 		</action>
 
 
-<!-- チャット画面への遷移 -->
-<action name="GoPostAction" class="com.internousdev.bulletinboard.action.GoPostAction" method="execute">
-<result name="success" type="redirectAction">PostAction</result>
-<result name="error">login.jsp</result>
-</action>
+		<!-- チャット画面への遷移 -->
+		<action name="GoPostAction"
+			class="com.internousdev.bulletinboard.action.GoPostAction" method="execute">
+			<result name="success" type="redirectAction">PostAction</result>
+			<result name="error">login.jsp</result>
+		</action>
 
-<!-- チャット画面 -->
-<action name="PostAction" class="com.internousdev.bulletinboard.action.PostAction" method="execute">
-<result name="success"> chat.jsp</result>
-<result name="error">login.jsp</result>
-</action>
+		<!-- チャット画面 -->
+		<action name="PostAction" class="com.internousdev.bulletinboard.action.PostAction"
+			method="execute">
+			<result name="success"> chat.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
 
-<!-- チャット画面チャット送信時 -->
-<action name="PostSetAction" class="com.internousdev.bulletinboard.action.PostSetAction" method="execute">
-<result name="success" type="redirectAction">PostAction</result>
-<result name="error">login.jsp</result>
-</action>
+		<!-- チャット画面チャット送信時 -->
+		<action name="PostSetAction"
+			class="com.internousdev.bulletinboard.action.PostSetAction" method="execute">
+			<result name="success" type="redirectAction">PostAction</result>
+			<result name="error">login.jsp</result>
+		</action>
 
-<!-- タイムライン画面への遷移 -->
-<action name="GoTimelineAction" class="com.internousdev.bulletinboard.action.GoTimelineAction" method="execute">
-<result name="success"> timeline.jsp</result>
-<result name="error"> login.jsp</result>
-</action>
+		<!-- タイムライン画面への遷移 -->
+		<action name="GoTimelineAction"
+			class="com.internousdev.bulletinboard.action.GoTimelineAction"
+			method="execute">
+			<result name="success"> timeline.jsp</result>
+			<result name="error"> login.jsp</result>
+		</action>
 
-<!-- タイムラインの投稿 -->
-<action name="SendTimelineAction" class="com.internousdev.bulletinboard.action.SendTimelineAction" method="execute">
-<result name="success"  type="redirectAction">GoTimelineAction</result>
-<result name="error" type="redirectAction">GoTimelineAction</result>
-</action>
+		<!-- タイムラインの投稿 -->
+		<action name="SendTimelineAction"
+			class="com.internousdev.bulletinboard.action.SendTimelineAction"
+			method="execute">
+			<result name="success" type="redirectAction">GoTimelineAction</result>
+			<result name="error" type="redirectAction">GoTimelineAction</result>
+		</action>
 
-<!-- プロフィールページ関連 -->
-<action name="ProfileAction" class="com.internousdev.bulletinboard.action.ProfileAction" method="execute">
-<result name="success"> profile.jsp</result>
-<result name="error">login.jsp</result>
-</action>
+		<!-- プロフィールページ関連 -->
+		<action name="ProfileAction"
+			class="com.internousdev.bulletinboard.action.ProfileAction" method="execute">
+			<result name="success"> profile.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
 
-<action name="ProfileUpdateAction" class="com.internousdev.bulletinboard.action.ProfileUpdateAction" method="execute">
-<result name="success"> profile.jsp</result>
-<result name="error"> profile.jsp</result>
-</action>
+		<action name="ProfileUpdateAction"
+			class="com.internousdev.bulletinboard.action.ProfileUpdateAction"
+			method="execute">
+			<result name="success"> profile.jsp</result>
+			<result name="error"> profile.jsp</result>
+		</action>
 
-<action name="ProfileSessionAction" class="com.internousdev.bulletinboard.action.ProfileSessionAction" method="execute">
-<result name="success" type="redirectAction">ProfileUpdateAction</result>
-<result name="error"> profile.jsp</result>
-</action>
+		<action name="ProfileSessionAction"
+			class="com.internousdev.bulletinboard.action.ProfileSessionAction"
+			method="execute">
+			<result name="success" type="redirectAction">ProfileUpdateAction</result>
+			<result name="error"> profile.jsp</result>
+		</action>
 
-<!-- タイムラインの削除 -->
-<action name="DeleteTimelineAction" class="com.internousdev.bulletinboard.action.DeleteTimelineAction" method="execute">
-<result name="success"  type="redirectAction">GoTimelineAction</result>
-<result name="error"> timeline.jsp</result>
-</action>
+		<!-- タイムラインの削除 -->
+		<action name="DeleteTimelineAction"
+			class="com.internousdev.bulletinboard.action.DeleteTimelineAction"
+			method="execute">
+			<result name="success" type="redirectAction">GoTimelineAction</result>
+			<result name="error"> timeline.jsp</result>
+		</action>
 
-<!-- タイムラインいいね -->
-<action name="btnAction" method="execute" class="com.internousdev.bulletinboard.action.btnAction">
-<result name="success" type="redirectAction">GoTimelineAction</result>
-<result name="error" type="redirectAction">GoTimelineAction</result>
-</action>
+		<!-- タイムラインいいね -->
+		<action name="btnAction" method="execute"
+			class="com.internousdev.bulletinboard.action.btnAction">
+			<result name="success" type="redirectAction">GoTimelineAction</result>
+			<result name="error" type="redirectAction">GoTimelineAction</result>
+		</action>
 
-<!-- グループ画面の遷移 -->
-<action name="GoGroupAction" class="com.internousdev.bulletinboard.action.GoGroupAction" method="execute">
-<result name="success"> group.jsp</result>
-<result name="error"> login.jsp</result>
-</action>
+		<!-- グループ画面の遷移 -->
+		<action name="GoGroupAction"
+			class="com.internousdev.bulletinboard.action.GoGroupAction" method="execute">
+			<result name="success"> group.jsp</result>
+			<result name="error"> login.jsp</result>
+		</action>
 
-<!-- グループの追加 -->
-<action name="GroupAddAction" class="com.internousdev.bulletinboard.action.GroupAddAction" method="execute">
-<result name="success" type="redirectAction">GoGroupAction</result>
-<result name="error" type="redirectAction">GoGroupAction</result>
-</action>
+		<!-- グループの追加 -->
+		<action name="GroupAddAction"
+			class="com.internousdev.bulletinboard.action.GroupAddAction" method="execute">
+			<result name="success" type="redirectAction">GoGroupAction</result>
+			<result name="error" type="redirectAction">GoGroupAction</result>
+		</action>
 
 
-<!-- グループメンバー確認画面への遷移 -->
-<action name="GoGroupMemberAction" class="com.internousdev.bulletinboard.action.GoGroupMemberAction" method="execute">
-  <result name="success"> groupMember.jsp</result>
-  <result name="error">login.jsp</result>
-</action>
+		<!-- グループメンバー確認画面への遷移 -->
+		<action name="GoGroupMemberAction"
+			class="com.internousdev.bulletinboard.action.GoGroupMemberAction"
+			method="execute">
+			<result name="success"> groupMember.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
 
-<!-- グループメンバー追加画面への遷移 -->
-<action name="GoGroupMemberAddAction" class="com.internousdev.bulletinboard.action.GoGroupMemberAddAction" method="execute">
-<result name="success">groupMemberAdd.jsp</result>
-<result name="error" type="redirectAction">GoPostAction</result>
-</action>
+		<!-- グループメンバー追加画面への遷移 -->
+		<action name="GoGroupMemberAddAction"
+			class="com.internousdev.bulletinboard.action.GoGroupMemberAddAction"
+			method="execute">
+			<result name="success">groupMemberAdd.jsp</result>
+			<result name="error" type="redirectAction">GoPostAction</result>
+		</action>
 
-<!-- グループメンバー追加 -->
-<action name="GroupMemberAddAction" class="com.internousdev.bulletinboard.action.GroupMemberAddAction" method="execute">
-<result name="success" type="redirectAction">PostAction</result>
-<result name="error" type="redirectAction">PostAction</result>
-</action>
+		<!-- グループメンバー追加 -->
+		<action name="GroupMemberAddAction"
+			class="com.internousdev.bulletinboard.action.GroupMemberAddAction"
+			method="execute">
+			<result name="success" type="redirectAction">PostAction</result>
+			<result name="error" type="redirectAction">PostAction</result>
+		</action>
 
-<!-- グループの画像更新 -->
-<action name="GroupImgUpdateAction" class="com.internousdev.bulletinboard.action.GroupImgUpdateAction" method="execute">
-<result name="success" type="redirectAction">PostAction</result>
-<result name="error" type="redirectAction">PostAction</result>
-</action>
+		<!-- グループの画像更新 -->
+		<action name="GroupImgUpdateAction"
+			class="com.internousdev.bulletinboard.action.GroupImgUpdateAction"
+			method="execute">
+			<result name="success" type="redirectAction">PostAction</result>
+			<result name="error" type="redirectAction">PostAction</result>
+		</action>
 
-<!-- グループメンバー削除 -->
-<action name="MemberRemoveAction" class="com.internousdev.bulletinboard.action.MemberRemoveAction" method="execute">
-<result name="success" type="redirectAction">GoGroupAction</result>
-<result name="error" type="redirectAction">GoGroupAction</result>
-</action>
+		<!-- グループメンバー削除 -->
+		<action name="MemberRemoveAction"
+			class="com.internousdev.bulletinboard.action.MemberRemoveAction"
+			method="execute">
+			<result name="success" type="redirectAction">GoGroupAction</result>
+			<result name="error" type="redirectAction">GoGroupAction</result>
+		</action>
 
-<!-- フォロー関連 -->
-<action name="FollowListAddAction" class="com.internousdev.bulletinboard.action.FollowListAddAction" method="execute">
-<result name="success" type="redirectAction">ProfileUpdateAction</result>
-<result name="error" type="redirectAction">ProfileUpdateAction</result>
-<result name="GoTalk" type="redirectAction">FriendSearchSessionAction</result>
-</action>
+		<!-- フォロー関連 -->
+		<action name="FollowListAddAction"
+			class="com.internousdev.bulletinboard.action.FollowListAddAction"
+			method="execute">
+			<result name="success" type="redirectAction">ProfileUpdateAction</result>
+			<result name="error" type="redirectAction">ProfileUpdateAction</result>
+			<result name="GoTalk" type="redirectAction">FriendSearchSessionAction</result>
+		</action>
 
-<action name="FriendSearchSessionAction" class="com.internousdev.bulletinboard.action.FriendSearchSessionAction" method="execute">
-<result name="success" type="redirectAction">FriendSearchAction</result>
-<result name="error" >login.jsp</result>
-</action>
+		<action name="FriendSearchSessionAction"
+			class="com.internousdev.bulletinboard.action.FriendSearchSessionAction"
+			method="execute">
+			<result name="success" type="redirectAction">FriendSearchAction</result>
+			<result name="error">login.jsp</result>
+		</action>
 
-<action name="FollowListDeleteAction" class="com.internousdev.bulletinboard.action.FollowListDeleteAction" method="execute">
-<result name="success" type="chain">ProfileUpdateAction</result>
-<result name="error" type="chain">ProfileUpdateAction</result>
-</action>
+		<action name="FollowListDeleteAction"
+			class="com.internousdev.bulletinboard.action.FollowListDeleteAction"
+			method="execute">
+			<result name="success" type="chain">ProfileUpdateAction</result>
+			<result name="error" type="chain">ProfileUpdateAction</result>
+		</action>
 
-<action name="FollowListAction" class="com.internousdev.bulletinboard.action.FollowListAction" method="execute">
-<result name="success"> followlist.jsp</result>
-<result name="error"> followlist.jsp</result>
-</action>
+		<action name="FollowListAction"
+			class="com.internousdev.bulletinboard.action.FollowListAction"
+			method="execute">
+			<result name="success"> followlist.jsp</result>
+			<result name="error"> followlist.jsp</result>
+		</action>
 
-<action name="FollowListSessionAction" class="com.internousdev.bulletinboard.action.FollowListSessionAction" method="execute">
-<result name="success" type="redirectAction">FollowListAddAction</result>
-<result name="error" type="redirectAction">FollowListAddAction</result>
-</action>
+		<action name="FollowListSessionAction"
+			class="com.internousdev.bulletinboard.action.FollowListSessionAction"
+			method="execute">
+			<result name="success" type="redirectAction">FollowListAddAction</result>
+			<result name="error" type="redirectAction">FollowListAddAction</result>
+		</action>
 
-<action name="SendProfileAction" class="com.internousdev.bulletinboard.action.SendProfileAction" method="execute">
-<result name="success"  type="redirectAction">ProfileUpdateAction</result>
-<result name="error"> profile.jsp</result>
-</action>
+		<action name="SendProfileAction"
+			class="com.internousdev.bulletinboard.action.SendProfileAction"
+			method="execute">
+			<result name="success" type="redirectAction">ProfileUpdateAction</result>
+			<result name="error"> profile.jsp</result>
+		</action>
 
-<action name="GoTalkListAction" class="com.internousdev.bulletinboard.action.GoTalkListAction" method="execute">
-<result name="success" > TalkMember.jsp</result>
-<result name="error">login.jsp</result>
-</action>
+		<action name="GoTalkListAction"
+			class="com.internousdev.bulletinboard.action.GoTalkListAction"
+			method="execute">
+			<result name="success"> TalkMember.jsp</result>
+			<result name="error">login.jsp</result>
+		</action>
 
-<action name="FriendSearchAction" class="com.internousdev.bulletinboard.action.FriendSearchAction" method="execute">
-<result name="success">FriendList.jsp</result>
-<result name="error"> FriendList.jsp</result>
-</action>
+		<action name="FriendSearchAction"
+			class="com.internousdev.bulletinboard.action.FriendSearchAction"
+			method="execute">
+			<result name="success">FriendList.jsp</result>
+			<result name="error"> FriendList.jsp</result>
+		</action>
 
-<action name="BotExerciseAction" class="com.internousdev.bulletinboard.action.BotExerciseAction" method="execute">
-<result name="success">botResult.jsp</result>
-<result name="error">botResult.jsp</result>
-</action>
+		<action name="BotExerciseAction"
+			class="com.internousdev.bulletinboard.action.BotExerciseAction"
+			method="execute">
+			<result name="success">botResult.jsp</result>
+			<result name="error">botResult.jsp</result>
+		</action>
 
-<action name="BotSentenceDeleteAction" class="com.internousdev.bulletinboard.action.BotSentenceDeleteAction" method="execute">
-<result name="success">botResult.jsp</result>
-<result name="error">botResult.jsp</result>
-</action>
+		<action name="BotSentenceDeleteAction"
+			class="com.internousdev.bulletinboard.action.BotSentenceDeleteAction"
+			method="execute">
+			<result name="success">botResult.jsp</result>
+			<result name="error">botResult.jsp</result>
+		</action>
 
-<action name="BotSearchAction" class="com.internousdev.bulletinboard.action.BotSearchAction" method="execute">
-<result name="success">botSentence.jsp</result>
-<result name="error">botMaintenance.jsp</result>
-</action>
+		<action name="BotSearchAction"
+			class="com.internousdev.bulletinboard.action.BotSearchAction" method="execute">
+			<result name="success">botSentence.jsp</result>
+			<result name="error">botMaintenance.jsp</result>
+		</action>
 
-<action name="AddsiteAction" class="com.internousdev.openconnect.addsite.action.AddsiteAction" method="execute">
-<result name="success">addsite.jsp</result>
-<result name="error">addsite.jsp</result>
-</action>
+		<action name="AddsiteAction"
+			class="com.internousdev.openconnect.addsite.action.AddsiteAction"
+			method="execute">
+			<result name="success">addsite.jsp</result>
+			<result name="error">addsite.jsp</result>
+		</action>
 
-<action name="colorChangeAction" class="com.internousdev.bulletinboard.action.colorChangeAction" method="execute">
-<result name="success" type="redirectAction">ProfileUpdateAction</result>
-<result name="error">login.jsp</result>
-</action>
+		<action name="colorChangeAction"
+			class="com.internousdev.bulletinboard.action.colorChangeAction"
+			method="execute">
+			<result name="success" type="redirectAction">ProfileUpdateAction</result>
+			<result name="error">login.jsp</result>
+		</action>
 
-<!-- グループ新規作成の二重投稿を防止するアクション -->
-<action name="GroupTokenAction" class="com.internousdev.bulletinboard.action.GroupTokenAction">
-    <!-- デフォルトinterceptor -->
-    <interceptor-ref name="defaultStack"/>
-    <!-- tokenのinterceptor -->
-    <interceptor-ref name="token"/>
-    <result name="invalid.token" type="redirectAction">GoGroupAction</result>
-    <result type="chain">GroupAddAction</result>
-</action>
+		<!-- グループ新規作成の二重投稿を防止するアクション -->
+		<action name="GroupTokenAction"
+			class="com.internousdev.bulletinboard.action.GroupTokenAction">
+			<!-- デフォルトinterceptor -->
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="redirectAction">GoGroupAction</result>
+			<result type="chain">GroupAddAction</result>
+		</action>
+
+
 
 
 	</package>

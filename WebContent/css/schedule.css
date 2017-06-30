@@ -22,6 +22,8 @@
 	margin-right:auto;
 	margin-top:500px;
 	margin-bottom:30px;
+	/*印刷するとき、直前に改ページする*/
+	page-break-before: always;
 }
 
 #operation2{
@@ -161,7 +163,26 @@ footer{
 }
 
 
+/*印刷するときに適用されるCSS*/
+@media print{
+	#calendar{
+		font-size:15px;
+	}
+
+	#operation{
+		width:700px;
+		margin:auto;
+	}
+
+
+}
+
+/*widthが640px以下のデバイス(スマホなど)で反映されるCSS*/
 @media only screen and (max-device-width : 640px){
+
+		h1{
+			font-size:20px;
+		}
 
         #calendar {
         	margin-top:10px;
