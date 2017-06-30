@@ -253,6 +253,8 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 
 		try{
 			nameList = decisionDAO.selectByIds(jDrafterId);
+			
+			
 		}catch (UnknownException e) {
 			e.printStackTrace();
 		}

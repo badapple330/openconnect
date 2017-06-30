@@ -75,7 +75,7 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 			int inserted=0;
 			DecisionDAO dao = new DecisionDAO();
 
-			inserted=dao.insert(jDrafterId,myFileFileName,documentName,decisionId);
+			inserted=dao.insert(myFileFileName,documentName,decisionId);
 
 			if(inserted>0){
 				result = SUCCESS;
