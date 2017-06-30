@@ -19,10 +19,6 @@ public class AddAttendanceAction{
 
 	private final int hourOfDay, minute, second;
 
-	public static void main(String[] args) {
-		AddAttendanceAction addTime = new AddAttendanceAction(17, 05, 0);
-		addTime.start();
-		}
 	/**
 	 * ユーザーID
 	 * joinでuser_nameを引っ張って来たい
@@ -106,7 +102,10 @@ public class AddAttendanceAction{
 		}, new DailyIterator(hourOfDay, minute, second));
 		}
 
-
+	public static void main(String[] args) {
+		AddAttendanceAction addattendanceaction = new AddAttendanceAction(17, 05, 0);
+		addattendanceaction.start();
+		}
 
 	/**
 	* 取得メソッド を取得
