@@ -334,8 +334,6 @@ public class BotDAO {
 		return deleted;
 	}
 
-
-
 	/**
 	 * 印象テーブルの情報をリスト化するメソッド（使ってない）
 	 * @return 印象リスト
