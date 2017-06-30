@@ -81,33 +81,36 @@ pageEncoding="UTF-8"%>
  <div class="profile">
         	<figure style="margin-left:5%;" style="clear:both;">
             	<img src="<s:property value="userImg"/>" class="border_radius" alt="">
+            	<div align = "center">
             	<div class="fontsize"><s:property value="userName"/></div>
+            	</div>
         	</figure>
         	<s:if test="userId==-1"><a href="botMaintenance.jsp">メンテナンスページへ</a></s:if>
         </div>
 
      <!-- フォロー・削除ボタン -->
 
+
+<div align ="center">
 <s:if test="checkValue==1">
-<div style="margin-left:30px;">
 <div class="square_btn" >
 <a href="<s:url action="FollowListDeleteAction"><s:param name="viewId" value="%{userId}"/></s:url>">
 REMOVE</a>
 </div>
-</div>
 </s:if>
+
+
 
 <s:else>
 <s:if test="%{#session.userId != userId}">
-<div style="margin-left:30px;">
+
 <div class="square_btn">
 <a href="<s:url action="FollowListSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>">
 FOLLOW</a>
 </div>
-</div>
 </s:if>
 </s:else>
-
+</div>
 </td>
 
 <td>
@@ -154,7 +157,7 @@ FOLLOW</a>
 					<div class="friends-container">
 
                    <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                   <img src="<s:property value="userImg"/>" class="border_radius" alt="" width="50" height="50">
+                   <img src="<s:property value="userImg"/>" style="height:50px; width:50px;"  class="border_radius" alt="" width="50" height="50">
                     <s:property value="userName"/>
                     	Lv:<s:property value="lv " />
                     </a>
@@ -191,7 +194,7 @@ FOLLOW</a>
 					<div class="friends-container">
 
                     <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                   <img src="<s:property value="userImg"/>" class="border_radius" alt="" width="50" height="50">
+                   <img src="<s:property value="userImg"/>" style="height:50px; width:50px;" class="border_radius" alt="" width="50" height="50">
                     <s:property value="userName"/>
                     	Lv:<s:property value="lv " />
                     </a>
