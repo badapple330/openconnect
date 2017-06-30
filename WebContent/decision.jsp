@@ -30,17 +30,16 @@
 </head>
 <body>
 
-	<h1 align=center>実施決裁</h1>
-	<s:property value="%{resultString}" />
+	<h1 align=center>
+	実施決裁</h1>
+
 	<table>
 		<tr>
 			<td>
 				<div>
 					<s:form action="DecisionSelectAction">
-						<input type="hidden" name="decisionId"
-							value="<s:property value="decisionId"/>">
-						<input type="hidden" name="jDrafterId"
-							value="<s:property value="#session.userId"/>">
+						<input type="hidden" name="decisionId" value="<s:property value="decisionId"/>">
+						<input type="hidden" name="jDrafterId" value="<s:property value="jdrafterId"/>">
 						<input type="hidden" value="表示">
 					</s:form>
 				</div>
@@ -863,10 +862,8 @@
 	<br>
 	<br><br>
 		<s:form action="GoDecisionFileEdit">
-		<input type="hidden" name="jDrafterId"
-			value="<s:property value="#session.userId" />">
-		<input type="hidden" name="decisionId"
-			value="<s:property value="decisionId" />">
+		<input type="hidden" name="jDrafterId" value="<s:property value="#session.userId" />">
+		<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 		<input type="submit" class="button" value="資料添付画面へ">
 	    </s:form>
 

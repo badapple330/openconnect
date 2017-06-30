@@ -19,7 +19,7 @@
 
 
 <div class="container">
-	<div class="title">
+	<div class="title" align="center">
 		<h1>受講生一覧</h1></div><br><br><br><br>
 
 		<%-- <s:if test="%{#session.userFlg >= 1}"> --%>
@@ -29,24 +29,24 @@
 
 		<h3>受講開始年月から検索</h3>
 
-		<s:form action="StudentsSearchAction">
+				<s:form action="StudentsSearchAction" >
 
-			<tr>
+					<tr>
 					<th>受講年</th>
 					<td><input type="text" name="year" pattern="([1-2][0-9]{3})"
 						maxlength="4" required title="2016" placeholder="2016" /></td>
-			</tr>
+					</tr>
 
 
-				<tr>
+					<tr>
 					<th>受講開始月</th>
 					<td><input type="text" name="month" pattern="([0-1][0-9])"
 						maxlength="2" required title="08" placeholder="08" /></td>
-				</tr>
+					</tr>
 				<td><input id="postBtn" type="submit" value="検索"></td>
-		</s:form>
+				</s:form>
+			</div>
 
-		</div></div>
 
 <br><br><br><br><br><br><br><br><br>
 			<br>
@@ -55,81 +55,64 @@
 
 			<br>
 <div class="table">
-			<s:if test="%{studentsList.size() >0}">
+	<s:if test="%{studentsList.size() >0}">
+		<table border="1"class="table table-striped" align="center">
 
-				<table border="1"class="demo3">
-					<tr>
-
-						<th><div class="verysmallWidth">ID</div></th>
-
-						<th><div class="bigWidth">ユーザー名</div></th>
-
-
-						<th><div class="smallWidth">チーム名</div></th>
+				<tr class="info">
+					<th><div class="verysmallWidth">ID</div></th>
+					<th><div class="bigWidth">ユーザー名</div></th>
+					<th><div class="bigWidth">チーム名</div></th>
 
 
 					<!-- 	<s:if test="%{#session.userFlg == 3}">-->
-
-
-
-							<th><div class="bigWidth">ユーザー種別</div></th>
-
-							<th><div class="verysmallWidth">編集</div></th>
+					<th><div class="bigWidth">ユーザー種別</div></th>
+					<th><div class="verysmallWidth">編集</div></th>
 
 					<!--  	</s:if>-->
-					</tr>
-
-					<s:iterator value="studentsList">
-<s:if test="%{userdelFlg==false}">
-						<tr>
-							<td><div class="verysmallWidth"><s:property value="userId" /></div></td>
-
-
-							<td><div class="bigWidth"><input type="text" name="userNameiList"
+				</tr>
+				<s:iterator value="studentsList">
+					<s:if test="%{userdelFlg==false}">
+						<s:if test="%{userFlg==1}"><tr class="success"></s:if>
+						<s:if test="%{userFlg==2}"><tr class="warning"></s:if>
+						<s:if test="%{userFlg==3}"><tr class="danger"></s:if>
+						<td><div class="verysmallWidth"><s:property value="userId" /></div></td>
+						<td><div class="bigWidth"><input type="text" name="userNameiList"
 								value="<s:property value="userName" />"
 								class="userName maxText" maxlength="20" required></div></td>
 
 
-							<td><div class="smallWidth"><input type="text" name="teamNameList"
+						<td><div class="bigWidth"><input type="text" name="teamNameList"
 								value="<s:property value="teamName" />"
 								class="teamName maxText" maxlength="20" required></div></td>
 
 
 						<!-- 	<s:if test="%{#session.userFlg == 3}">-->
 
-
-
-
-
-
-
-
-
-								<td><s:if test="%{userFlg==1}">
-										<select name="userFlg" class="userFlg maxText">
-											<option value="1" selected>メンバー</option>
-											<option value="2">リーダー</option>
-											<option value="3">管理者</option>
-										</select>
-									</s:if> <s:elseif test="%{userFlg==2}">
-										<select name="userFlg" class="userFlg maxText">
-											<option value="1">メンバー</option>
-											<option value="2" selected>リーダー</option>
-											<option value="3">管理者</option>
-										</select>
+						<td><s:if test="%{userFlg==1}">
+							<select name="userFlg" class="userFlg maxText">
+								<option value="1" selected>メンバー</option>
+								<option value="2">リーダー</option>
+								<option value="3">管理者</option>
+							</select>
+							</s:if> <s:elseif test="%{userFlg==2}">
+							<select name="userFlg" class="userFlg maxText">
+								<option value="1">メンバー</option>
+								<option value="2" selected>リーダー</option>
+								<option value="3">管理者</option>
+							</select>
 									</s:elseif> <s:else>
-										<select name="userFlg" class="userFlg maxText">
-											<option value="1">メンバー</option>
-											<option value="2">リーダー</option>
-											<option value="3" selected>管理者</option>
-										</select>
-									</s:else></td>
+							<select name="userFlg" class="userFlg maxText">
+								<option value="1">メンバー</option>
+								<option value="2">リーダー</option>
+								<option value="3" selected>管理者</option>
+							</select>
+							</s:else></td>
 
-								<td><input type="button" class="button modal-update"
+						<td><input type="button" class="button modal-update"
 									value="編集"></td>
 
 						<!-- </s:if> -->
-						</tr>
+
 						<input type="hidden" name="userIdList"
 							value="<s:property value="userId" />" class="userId">
 							</s:if>

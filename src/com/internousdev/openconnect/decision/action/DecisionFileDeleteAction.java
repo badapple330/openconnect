@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
- * 画像を削除するクラス
+ * ファイルを削除するクラス
  * @author Kikuchi Jun
  * @since 2017/06/09
  * @version 1.0
@@ -54,7 +54,7 @@ public class DecisionFileDeleteAction extends ActionSupport {
 
 	    DecisionDAO dao= new DecisionDAO();
 
-		    deleted=dao.delete(documentName,jDrafterId,decisionId);
+		    deleted=dao.delete(documentName);
 
 		    if(deleted>0){
 		    	result = SUCCESS;
@@ -107,7 +107,7 @@ public class DecisionFileDeleteAction extends ActionSupport {
 	* 取得メソッド を取得
 	* @return jDrafterId
 	*/
-	public int getjDrafterId() {
+	public int getJDrafterId() {
 		return jDrafterId;
 	}
 
@@ -117,7 +117,7 @@ public class DecisionFileDeleteAction extends ActionSupport {
 	* 設定メソッド を設定
 	* @param jDrafterId
 	*/
-	public void setjDrafterId(int jDrafterId) {
+	public void setJDrafterId(int jDrafterId) {
 		this.jDrafterId = jDrafterId;
 	}
 

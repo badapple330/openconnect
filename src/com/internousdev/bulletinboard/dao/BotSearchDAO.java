@@ -144,4 +144,33 @@ public class BotSearchDAO {
 		  return sentenceId;
 	}
 
+	/**
+	 * 文章IDからラベルを取得する
+	 * @param sentenceId
+	 * @return
+	 */
+	public String labelCheck(int sentenceId){
+		String label = null;
+		Connection con = new MySqlConnector("bbbot").getConnection();
+
+		String sql = "select label from word_analysis_master where sentence_id = ?";
+
+		  try{
+			  PreparedStatement ps = con.prepareStatement(sql);
+			  ps.setInt(1, sentenceId);
+			  ResultSet rs = ps.executeQuery();
+			  while(rs.next()){
+				  label = rs.getString("label");
+				  }
+			  }catch(SQLException e){
+		    	e.printStackTrace();
+		    	}finally {
+			try{
+				con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		  return label;
+	}
 }
