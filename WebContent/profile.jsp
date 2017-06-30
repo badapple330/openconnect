@@ -332,14 +332,39 @@ FOLLOW</a>
 <div class="modal-body">
 			<form action="colorChangeAction">
 <div class="form-group">
-<label style="width:200px;">色を指定する</label>
-<input class="jscolor  {hash:true}" name="color" value="<s:property value="#session.color"/>">
-<br />クリックするとカラーピッカーが開きます<br />
+<label style="width:200px;">ヘッダー</label>
+<input class="jscolor  {hash:true}" name="hColor" value="<s:property value="#session.color"/>">
+
 </div>
-<div style="margin-top:150px;">
-<p id="backColor" style="margin-top:10px;padding:10px;font-weight:bold;font-size:1.5em;color:#ffffff;background-color:#f00">文字は白　背景色変更テスト</p>
+
+<div class="form-group">
+<label style="width:200px;">ボディ</label>
+<input class="jscolor  {hash:true}" name="bColor" value="<s:property value="#session.color"/>">
+
 </div>
+
+<div class="form-group">
+<label style="width:200px;">フッター</label>
+<input class="jscolor  {hash:true}" name="fColor" value="<s:property value="#session.color"/>">
+
+</div>
+
 <input type="submit"  value="送信">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </form>
 			</div>
 		</div>
