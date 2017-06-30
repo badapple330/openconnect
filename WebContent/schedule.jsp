@@ -101,7 +101,7 @@
 									title="年-月-日で入力してください。" placeholder="終了日を入力"><div class="hidden"><s:property value="endDay" />T00:01:00</div></td>
 								<td><input type="text" name="scheduleTitleList"
 									value="<s:property value="title" />" class="scheduleTitleList"
-									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
+									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="teamName" />:<s:property value="title" /></div></td>
 								<td>
 
 								<input type="text" name="teamName[<s:property value="#st.index" />]"value="<s:property value="teamName" />"class="teamList" readonly><div class="hidden"><s:property value="teamName" /></div>
