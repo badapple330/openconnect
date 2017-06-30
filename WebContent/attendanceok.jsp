@@ -13,6 +13,7 @@
 <script src="js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="js/attendance.js"></script>
 <link rel="stylesheet" href="css/attendance.css">
+<script src="js/footerFixed.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- ヘッダー-->
@@ -63,5 +64,8 @@
 	<a href="applist.jsp" >Topに戻る</a>
 	</div>
 </div>
+
+<jsp:include page="footer.jsp" />
+
 </body>
 </html>
