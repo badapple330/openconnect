@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,19 +37,16 @@
 						<th>プロジェクト名</th>
 						<th>プレビュー</th>
 				</thead>
-				<s:iterator value="archiveList">
-					<tbody>
+
+				<tbody>
+					<s:iterator value="archiveList">
 						<tr>
-							<td>
-							<s:property value="decisionId" />
-							</td>
-							<td>
-							<s:property value="decisionName" />
-							</td>
+							<td><s:property value="siteId" /></td>
+							<td><s:property value="siteName" /></td>
 							<td>プレビュー</td>
 						</tr>
-					</tbody>
-				</s:iterator>
+					</s:iterator>
+				</tbody>
 			</table>
 		</s:form>
 

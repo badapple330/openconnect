@@ -257,6 +257,17 @@ public class DecisionDTO {
 	public String documentPath;
 
 
+	/**
+	 * サイトID
+	 */
+	public int siteId;
+
+	/**
+	 * サイト名
+	 */
+	public String siteName;
+
+
 
     /** 取得メソッド を取得
 	* @return person
@@ -956,6 +967,34 @@ public class DecisionDTO {
 		*/
 		public void setDecisionPath(String decisionPath) {
 			this.decisionPath = decisionPath;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return siteId
+		*/
+		public int getSiteId() {
+			return siteId;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param siteId
+		*/
+		public void setSiteId(int siteId) {
+			this.siteId = siteId;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return siteName
+		*/
+		public String getSiteName() {
+			return siteName;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param siteName
+		*/
+		public void setSiteName(String siteName) {
+			this.siteName = siteName;
 		}
 
 
