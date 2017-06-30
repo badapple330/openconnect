@@ -4,10 +4,6 @@ package com.internousdev.openconnect.attendance.action;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-
 import com.internousdev.openconnect.attendance.dao.AddAttendanceDAO;
 import com.internousdev.openconnect.util.DailyIterator;
 import com.internousdev.openconnect.util.Scheduler;
@@ -18,19 +14,15 @@ import com.internousdev.openconnect.util.SchedulerTask;
  * @since  2017/06/27
  * @version 1.0
  */
-public class AddAttendanceAction extends HttpServlet {
+public class AddAttendanceAction{
 	private final Scheduler scheduler = new Scheduler();
-
 
 	private final int hourOfDay, minute, second;
 
-
-	/**
-	 * シリアルID
-	 */
-	private static final long serialVersionUID = -5350844672857079386L;
-
-
+	public static void main(String[] args) {
+		AddAttendanceAction addTime = new AddAttendanceAction(17, 05, 0);
+		addTime.start();
+		}
 	/**
 	 * ユーザーID
 	 * joinでuser_nameを引っ張って来たい
@@ -84,12 +76,6 @@ public class AddAttendanceAction extends HttpServlet {
 	}
 
 
-
-	public void init(ServletConfig config) throws ServletException {
-		//HttpServletに合わせてタスクを開始
-		start();
-		}
-
 	public void start() {
 
 		scheduler.schedule(new SchedulerTask() {
@@ -120,10 +106,7 @@ public class AddAttendanceAction extends HttpServlet {
 		}, new DailyIterator(hourOfDay, minute, second));
 		}
 
-	public static void main(String[] args) {
-		AddAttendanceAction addTime = new AddAttendanceAction(17, 00, 0);
-		addTime.start();
-		}
+
 
 	/**
 	* 取得メソッド を取得
