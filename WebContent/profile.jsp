@@ -351,19 +351,6 @@ FOLLOW</a>
 <input type="submit"  value="送信">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 </form>
 			</div>
 		</div>
@@ -411,6 +398,6 @@ FOLLOW</a>
     </footer>
      -->
 </div>
-</div>
+
 </body>
 </html>
