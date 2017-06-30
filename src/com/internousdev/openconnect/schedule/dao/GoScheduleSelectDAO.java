@@ -59,15 +59,16 @@ public class GoScheduleSelectDAO{
 	}
 
 
-		public List<ScheduleDTO> select2(){
+		public List<ScheduleDTO> select2(int userId){
 
 			DBConnector db2 = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 			Connection conn2 = db2.getConnection();
 			//DISTINCTは重複した情報があったときにそれを統一するsql文
-			String sql = "SELECT DISTINCT team_name FROM users ORDER BY team_name ASC";
+			String sql = "SELECT DISTINCT team_name FROM users WHERE user_id = ?  ORDER BY team_name ASC";
 
 			try {
 				PreparedStatement ps2 = conn2.prepareStatement(sql);
+				ps2.setInt(1,userId);
 				ResultSet rs2 = ps2.executeQuery();
 
 				while(rs2.next()) {
