@@ -5,7 +5,6 @@ package com.internousdev.bulletinboard.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * @author internousdev
@@ -39,7 +38,7 @@ public class SentenceCheck {
     public boolean checkDate() {
 		try {
 		    SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		    Date date = sdFormat.parse(sentences);
+		    sdFormat.parse(sentences);
 		    return true;
 		} catch (ParseException e) {
 		    e.printStackTrace();

@@ -75,6 +75,5 @@ obj1.addEventListener("change",function(evt){
     <div class="col-sm-1 visible-lg-block"></div>
 </div>
 </div>
-<jsp:include page="Bfooter.jsp" />
 </body>
 </html>

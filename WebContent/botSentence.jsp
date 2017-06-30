@@ -72,7 +72,30 @@ $(function() {
 <!-- 詳細の画面 -->
 <s:else>
 <h3><s:property value="label"/></h3>
+
 <button class="btn btn-danger" data-toggle="modal" data-target="#sentenceDelete">文章を忘れさせる</button>
+	<!-- 削除の確認画面 -->
+		<div class="modal fade" id="sentenceDelete" tabindex="-1">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+						<h4 class="modal-title">文章を忘れさせる</h4>
+					</div>
+					<s:form action="BotSentenceDeleteAction">
+						<div class="modal-body">
+							この文章すべて忘れます。戻すことはできません。よろしいですか？
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+							<s:hidden theme="simple" name="sentenceId" value="%{sentenceId}"></s:hidden>
+							<button type="submit" class="btn btn-danger">削除</button>
+						</div>
+					</s:form>
+				</div>
+			</div>
+		</div>
+
 <table id="grid-basic" class="table table-condensed table-hover table-striped">
     <thead>
         <tr>
@@ -95,30 +118,8 @@ $(function() {
 </table>
 </s:else>
 
-	<!-- 削除の確認画面 -->
-		<div class="modal fade" id="sentenceDelete" tabindex="-1">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-						<h4 class="modal-title">文章を忘れさせる</h4>
-					</div>
-					<s:form action="BotSentenceDeleteAction">
-						<div class="modal-body">
-							この文章すべて忘れます。戻すことはできません。よろしいですか？
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
-							<s:hidden theme="simple" name="sentenceId" value="%{sentenceId}"></s:hidden>
-							<button type="submit" class="btn btn-danger">削除</button>
-						</div>
-					</s:form>
-				</div>
-			</div>
-		</div>
+
 </div>
 
-
-<jsp:include page="Bfooter.jsp" />
 </body>
 </html>

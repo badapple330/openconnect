@@ -46,16 +46,24 @@ public class BotSearchAction extends ActionSupport{
 		//文章を見るをクリックしたときの処理
 		if(sentences!=null){
 			SentenceCheck check = new SentenceCheck(sentences);
+			//値が文章IDのとき
 			if(check.isNum()){
 				masterList = dao.sentenceSearch(Integer.parseInt(sentences));
+				label = dao.labelCheck(Integer.parseInt(sentences));
 				result = SUCCESS;
+
+				//値が覚えさせた日のとき
 			}else if(check.checkDate()){
 				sentenceId = dao.sentenceSearchByAt(sentences);
 				masterList = dao.sentenceSearch(sentenceId);
+				label = dao.labelCheck(sentenceId);
 				result = SUCCESS;
+
+				//値が覚えさせた文章の説明のとき
 			}else{
 				sentenceId = dao.sentenceSearchByLabel(sentences);
 				masterList = dao.sentenceSearch(sentenceId);
+				label = dao.labelCheck(sentenceId);
 				result = SUCCESS;
 			}
 
