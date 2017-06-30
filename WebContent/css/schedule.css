@@ -22,8 +22,7 @@
 	margin-right:auto;
 	margin-top:500px;
 	margin-bottom:30px;
-	/*印刷するとき、直前に改ページする*/
-	page-break-before: always;
+	text-align:center;
 }
 
 #operation2{
@@ -112,11 +111,12 @@ footer{
 
 /* ここからカレンダー用 */
 #calendar{
-	height:100px;
-	width:700px;
+	height:200px;
+	width:800px;
 	margin-top:50px;
 	margin-left:auto;
 	margin-right:auto;
+	page-break-after: always;
 }
 
 /*土曜日と日曜日の色を変更*/
@@ -145,7 +145,7 @@ footer{
   	width:75px;
 	height:75px;
  	text-align:center;
- 	background-color:black;
+ 	background-color:#2a82a3;
  	border-radius: 50%;
  	-webkit-border-radius: 50%;
  	-moz-border-radius: 50%;
@@ -166,7 +166,7 @@ footer{
 /*印刷するときに適用されるCSS*/
 @media print{
 	#calendar{
-		font-size:15px;
+		font-size:18px;
 	}
 
 	#operation{

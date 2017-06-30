@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/students.css">
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/students.js"></script>
+<script src="js/footerFixed.js" type="text/javascript"></script>
 </head>
 <body>
 

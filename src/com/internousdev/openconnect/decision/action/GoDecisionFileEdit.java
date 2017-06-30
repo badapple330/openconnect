@@ -31,7 +31,7 @@ public class GoDecisionFileEdit extends ActionSupport implements SessionAware{
 	 */
 	private int decisionId;
 
-	private int userId;
+	private int type;
 
 	private ArrayList<DecisionDTO> decisionList = new  ArrayList<DecisionDTO>();
 
@@ -51,7 +51,7 @@ public class GoDecisionFileEdit extends ActionSupport implements SessionAware{
 		DecisionDAO dao = new DecisionDAO();
 
 		try {
-		decisionList=dao.select(decisionId);
+		decisionList=dao.select(decisionId,type);
 		nameList = dao.selectByIds(jDrafterId);
        } catch (UnknownException e) {
 		e.printStackTrace();
@@ -112,34 +112,6 @@ public class GoDecisionFileEdit extends ActionSupport implements SessionAware{
 	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
 	}
-
-
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @return userId
-	*/
-	public int getUserId() {
-		return userId;
-	}
-
-
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param userId
-	*/
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-
-
-
 
 	/**
 	* 取得メソッド を取得
