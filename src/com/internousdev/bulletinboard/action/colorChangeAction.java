@@ -18,7 +18,11 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 
-	private String color;
+	private String hColor;
+
+	private String bColor;
+
+	private String fColor;
 
 
 	private Map<String,Object> session;
@@ -34,8 +38,10 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 		if(userId==0){return result;}
 
 
-		dao.colorChange( userId, color);
-		session.put("color", dao.getColor(userId));
+		dao.colorChange( userId, hColor,bColor,fColor);
+		session.put("hColor", dao.getColor(userId).gethColor());
+		session.put("bColor", dao.getColor(userId).getbColor());
+		session.put("fColor",dao.getColor(userId).getfColor());
 		result=SUCCESS;
 		return result;
 	}
@@ -53,15 +59,6 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 	}
 
 
-	public String getColor() {
-		return color;
-	}
-
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
 
 	public Map<String, Object> getSession() {
 		return session;
@@ -70,6 +67,72 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return hColor
+	*/
+	public String gethColor() {
+		return hColor;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param hColor
+	*/
+	public void sethColor(String hColor) {
+		this.hColor = hColor;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return bColor
+	*/
+	public String getbColor() {
+		return bColor;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param bColor
+	*/
+	public void setbColor(String bColor) {
+		this.bColor = bColor;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return fColor
+	*/
+	public String getfColor() {
+		return fColor;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param fColor
+	*/
+	public void setfColor(String fColor) {
+		this.fColor = fColor;
 	}
 
 }
