@@ -36,6 +36,10 @@
 	clear:both;
 }
 
+#schedule,th{
+	text-align:center;
+}
+
 .blockA{
 	float:left;
 	margin-left:30px;

@@ -73,7 +73,7 @@
 			<s:form action="ScheduleUpdateAction">
 				<table id = "schedule" border=1 style="">
 					<tbody>
-						<tr>
+						<tr style="text-align:center">
 							<th>ID</th>
 							<th>start</th>
 							<th>end</th>
