@@ -15,9 +15,9 @@
 <title>決裁プレビュー</title>
 <link rel="stylesheet" type="text/css" href="css/decision_preview.css">
 </head>
-<body>
+<body style="font-size:17px;">
 
-<%-- type == 1：実施	type == 2：契約		type == 3：実施兼契約 --%>
+<%-- type == 1：実施	type == 2：契約		type == 3：実施兼契約 type == 4:実施変更プレビュー type == 5:契約変更プレビュー type == 6：実施兼契約変更プレビュー decision_detailのボタンで判断 --%>
 
 
 	<s:if test="%{#session.userFlg >= 1}">
@@ -26,9 +26,9 @@
 	<s:iterator value="decisionPreviewList">
 
 		<h1 id="decisionTitle">
-			<s:if test="type == 1 ">実施決裁プレビュー画面</s:if>
-				<s:elseif test="type == 2">契約決裁プレビュー画面</s:elseif>
-					<s:elseif test="type == 3">実施兼契約決裁プレビュー画面</s:elseif>
+			<s:if test="type == 1 || type == 4">実施決裁プレビュー画面</s:if>
+				<s:elseif test="type == 2 || type == 5">契約決裁プレビュー画面</s:elseif>
+					<s:elseif test="type == 3 || type ==6">実施兼契約決裁プレビュー画面</s:elseif>
 		</h1>
 
 		<br>
@@ -40,7 +40,7 @@
 	<s:property value="%{resultString}" /><br>
 
 			<div class="container"  style="position:relative; z-index:-1;">
-				<div class="well well-sm">
+				<div class="well">
 					<div class="row">
 						<div class="col-sm-12 col-xs-12">
 								<table class="table-responsive">
@@ -50,12 +50,12 @@
 												<label>日付：</label>
 
 											<%-- 実施の場合 --%>
-											<s:if test="type == 1">
+											<s:if test="type == 1 || type ==4">
 												<s:property value="jApplyDay" />
 											</s:if>
 
 											<%-- 契約/実施兼契約の場合 --%>
-											<s:if test="type == 2 || type == 3">
+											<s:if test="type == 2 || type == 3 || type == 5 || type == 6">
 												<s:property value="kApplyDay" />
 											</s:if>
 
@@ -65,17 +65,17 @@
 													<label>決裁分類：</label>
 
 													<%-- 実施の場合 --%>
-													<s:if test="type == 1">
+													<s:if test="type == 1 || type == 4">
 														実施
 													</s:if>
 
 													<%-- 契約の場合 --%>
-													<s:if test="type == 2">
+													<s:if test="type == 2 || type == 5">
 														契約
 													</s:if>
 
 													<%-- 実施兼契約の場合 --%>
-													<s:if test="type == 3">
+													<s:if test="type == 3 || type == 6">
 														実施兼契約
 													</s:if>
 
@@ -94,14 +94,14 @@
 												<div class="col-sm-12">
 
 												<%-- 実施の場合 --%>
-													<s:if test="type == 1">
+													<s:if test="type == 1 || type == 4">
 														<s:iterator value="jNameList">
 															<label>氏名：</label><s:property value="familyNameKanji" />
 																				<s:property value="givenNameKanji" />
 														</s:iterator>
 													</s:if>
 												<%-- 契約/実施兼契約の場合 --%>
-													<s:if test="type == 2 || type == 3">
+													<s:if test="type == 2 || type == 3 || type == 5 || type == 6">
 														<s:iterator value="kNameList">
 															<label>氏名：</label><s:property value="familyNameKanji" />
 																				<s:property value="givenNameKanji" />
@@ -121,12 +121,13 @@
 											<div class="row">
 												<div class="col-sm-12">
 													<label>概要：</label>
-													<br><s:property value="summary" />
+													<br><div style="word-break:break-all"><s:property value="summary" /></div>
 												</div>
 											</div>
 
 
-											<br>
+											<div style="margin-top:50px;"></div>
+
 											<div class="row">
 												<div class="col-sm-12">
 													<div class="center">
@@ -134,11 +135,13 @@
 													</div>
 												</div>
 											</div>
-											<br>
+
+											<div style="margin-bottom:50px;"></div>
+
 											<div class="row">
 												<div class="col-sm-12">
 													<label>１）理由・目的</label>
-													<br><s:property value="cause" />
+													<br><div style="word-break:break-all"><s:property value="cause" /></div>
 												</div>
 											</div>
 
@@ -165,9 +168,9 @@
 											<div class="row">
 												<div class="col-sm-12">
 
-													<label>３）<s:if test="type == 1">実施時期・実施期間</s:if>
-																	<s:elseif test="type == 2">契約時期・契約期間</s:elseif>
-																		<s:elseif test="type == 3">実施兼契約時期・実施兼契約期間</s:elseif></label>
+													<label>３）<s:if test="type == 1 || type == 4">実施時期・実施期間</s:if>
+																	<s:elseif test="type == 2 || type == 5">契約時期・契約期間</s:elseif>
+																		<s:elseif test="type == 3 || type == 6">実施兼契約時期・実施兼契約期間</s:elseif></label>
 
 													<br>
 													<s:property value="startDay" />～<s:property value="endDay" />
@@ -185,13 +188,13 @@
 														<tr style="width:70%;">
 															<td>―：<br><br></td>
 
-															<td><s:if test="type == 1">起案番号：<s:property value="jImpId" /></s:if>
-																	<s:elseif test="type == 2">契約番号：<s:property value="kImpId" /></s:elseif>
-																		<s:elseif test="type == 3">実施兼契約番号：<s:property value="jkImpId" /></s:elseif><br><br></td>
+															<td><s:if test="type == 1 || type == 4">起案番号：<s:property value="jImpId" /></s:if>
+																	<s:elseif test="type == 2 || type == 5">契約番号：<s:property value="kImpId" /></s:elseif>
+																		<s:elseif test="type == 3 || type == 6">実施兼契約番号：<s:property value="jkImpId" /></s:elseif><br><br></td>
 
-															<td><div class="width4"><s:if test="type == 1">実施決裁番号：<s:property value="jDecId" /></s:if>
-																						<s:elseif test="type == 2">契約番号：<s:property value="kDecId" /></s:elseif>
-																							<s:elseif test="type == 3">実施兼契約番号：<s:property value="jkDecId" /></s:elseif><br><br></div></td>
+															<td><div class="width4"><s:if test="type == 1 || type == 4">実施決裁番号：<s:property value="jDecId" /></s:if>
+																						<s:elseif test="type == 2 || type == 5">契約番号：<s:property value="kDecId" /></s:elseif>
+																							<s:elseif test="type == 3 || type == 6">実施兼契約番号：<s:property value="jkDecId" /></s:elseif><br><br></div></td>
 
 														</tr>
 
@@ -199,14 +202,14 @@
 														<tr style="height:100px;">
 
 														<%-- 実施の場合 --%>
-														<s:if test="type == 1">
+														<s:if test="type == 1 || type == 4">
 															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="jSlashApplyDay" /></td>
 															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="jSlashApplyDay" /></td>
 															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="jPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="jSlashApplyDay" /></td>
 														</s:if>
 
 														<%-- 契約/実施兼契約の場合 --%>
-														<s:elseif test="type == 2 || type == 3">
+														<s:elseif test="type == 2 || type == 3 || type == 5 || type == 6">
 															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="kPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="kSlashApplyDay" /></td>
 															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="kPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="kSlashApplyDay" /></td>
 															<td><label style="margin-bottom:20px; margin-left:5px;">承認者：</label><s:iterator value="kPermiter3nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br><label style="margin-left:5px;">日付：</label><s:property value="kSlashApplyDay" /></td>
@@ -227,12 +230,12 @@
 															<td>―：<br><br></td>
 
 															<%-- 実施の場合 --%>
-															<s:if test="type == 1">
+															<s:if test="type == 1 || type == 4">
 																<th>承認者：<s:iterator value="jPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br>日付：<s:property value="jSlashApplyDay" /></th>
 															</s:if>
 
 															<%-- 契約の場合 --%>
-															<s:elseif test="type == 2 || type == 3">
+															<s:elseif test="type == 2 || type == 3 || type ==5 || type == 6">
 																<th>承認者：<s:iterator value="kPermiter1nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br>日付：<s:property value="kSlashApplyDay" /></th>
 															</s:elseif>
 
@@ -240,7 +243,7 @@
 														<tr>
 
 															<%-- 実施の場合 --%>
-															<s:if test="type == 1">
+															<s:if test="type == 1 ">
 																<td>起案番号：<s:property value="jImpId" /><br><br></td>
 																<th>承認者：<s:iterator value="jPermiter2nameList"><s:property value="familyNameKanji" /><s:property value="givenNameKanji" /></s:iterator><br> <br>日付：<s:property value="jSlashApplyDay" /></th>
 															</s:if>
@@ -286,11 +289,12 @@
 				</div>
 			</div>
 
+		<div style="margin-top:100px;"></div>
+
 			<div class="container">
-				<div class="well well-sm">
+				<div class="well">
 					<div class="row">
 						<div class="col-sm-12 col-xs-12">
-								<br>
 								<br>
 								<table class="table-responsive">
 									<tr>
@@ -300,9 +304,9 @@
 
 
 												<h2>
-												<s:if test="type == 1">実施計画</s:if>
-													<s:elseif test="type == 2">契約計画</s:elseif>
-														<s:elseif test="type == 3">実施兼契約計画</s:elseif>
+												<s:if test="type == 1 || type == 4">実施計画</s:if>
+													<s:elseif test="type == 2 || type == 5">契約計画</s:elseif>
+														<s:elseif test="type == 3 || type == 6">実施兼契約計画</s:elseif>
 												</h2>
 
 												<br>
@@ -310,17 +314,17 @@
 										</div>
 
 										<%-- 実施の場合 --%>
-										<s:if test="type == 1">
+										<s:if test="type == 1 || type == 4">
 											<p>以下の通り、当該開発計画を実施して良いかお伺いしたい。</p>
 										</s:if>
 
 										<%-- 契約の場合 --%>
-										<s:if test="type == 2">
+										<s:if test="type == 2 || type == 5">
 											<p>以下の通り、当該開発計画を契約して良いかお伺いしたい。</p>
 										</s:if>
 
 										<%-- 実施兼契約の場合 --%>
-										<s:if test="type == 3">
+										<s:if test="type == 3 || type == 6">
 											<p>以下の通り、当該開発計画を実施兼契約して良いかお伺いしたい。</p>
 										</s:if>
 

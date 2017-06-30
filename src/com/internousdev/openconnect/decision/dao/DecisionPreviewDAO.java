@@ -77,6 +77,14 @@ public class DecisionPreviewDAO {
 
 				dto.setJDecId(rs.getString("j_dec_id")); // 実施決裁番号
 
+				dto.setKImpId(rs.getString("k_imp_id")); // 契約起案番号
+
+				dto.setKDecId(rs.getString("k_dec_id")); // 契約決裁番号
+
+				dto.setJkImpId(rs.getString("jk_imp_id")); // 実施兼契約起案番号
+
+				dto.setJkDecId(rs.getString("jk_dec_id")); // 実施兼契約決裁番号
+
 				dto.setSummary(rs.getString("summary")); // 概要
 
 				dto.setCause(rs.getString("cause")); // 理由・目的
