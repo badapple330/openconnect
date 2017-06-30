@@ -104,7 +104,7 @@
                   <form name="memberform"
                     action="GoGroupMemberAddAction">
                     <s:hidden theme="simple" name="groupId"
-                      value="%{groupId}"></s:hidden>
+                      value="%{groupId}"><s:hidden name="groupName"></s:hidden></s:hidden>
                   </form></li>
                 <li><a href="#" data-toggle="modal"
                   data-target="#memberAdd">ユーザー検索でメンバーを追加</a></li>
