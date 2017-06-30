@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +17,7 @@ public class GoScheduleSelectDAO{
 
 	private int teamName;
 
-	public List<ScheduleDTO> select(int userId){
-
+	/*public List<ScheduleDTO> select(int userId)
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost","openconnect","root","mysql");
 		Connection con = db.getConnection();
 		ArrayList<ScheduleDTO> scheduleList = new ArrayList<ScheduleDTO>();
@@ -56,7 +54,7 @@ public class GoScheduleSelectDAO{
 			}
 		}
 		return scheduleList;
-	}
+	}*/
 
 
 		public List<ScheduleDTO> select2(int userId){
