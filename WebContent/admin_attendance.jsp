@@ -58,6 +58,7 @@
 </script>
 
 <script type="text/javascript" src="js/admin_attendance.js"></script>
+<script src="js/footerFixed.js" type="text/javascript"></script>
 
 </head>
 
