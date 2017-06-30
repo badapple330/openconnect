@@ -159,19 +159,22 @@ button.good {
   width: 40px;
   height: 40px;
 }
-@media screen and min-width(480px) {
-    #receive:hover + .text {
-      display: block;
-    }
-]
+
 
 @media only screen and (max-width: 750px) {
 
 .img-rounded-ex {
   border-radius: 6px;
-  width: 10px;
-  height: 10px;
+  width: 30px;
+  height: 30px;
 }
+
+.img-rounded-re {
+  border-radius: 6px;
+  width: 15px;
+  height: 15px;
+}
+
 .timeimg{
 	float:left;
 	width:35px;
