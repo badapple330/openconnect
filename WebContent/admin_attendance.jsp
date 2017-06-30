@@ -58,6 +58,7 @@
 </script>
 
 <script type="text/javascript" src="js/admin_attendance.js"></script>
+<script src="js/footerFixed.js" type="text/javascript"></script>
 
 </head>
 
@@ -282,6 +283,8 @@
 		</div>-->
 	</div>
 	</div>
+
+	<footer><s:include value="footer.jsp" /></footer>
 
 
 	<script src="js/jquery.ymdpulldown.js"></script>

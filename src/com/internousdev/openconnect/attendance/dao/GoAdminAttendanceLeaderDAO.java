@@ -19,7 +19,7 @@ import com.internousdev.util.DBConnector;
 public class GoAdminAttendanceLeaderDAO {
 
 
-	public ArrayList<AttendanceDTO> atUserList = new ArrayList<AttendanceDTO>();
+	public ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
 
 	public ArrayList<AttendanceDTO> select(int userId){
 
@@ -27,7 +27,7 @@ public class GoAdminAttendanceLeaderDAO {
 			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 			Connection con = db.getConnection();
 
-			ArrayList<AttendanceDTO> atUserList = new ArrayList<AttendanceDTO>();
+			ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
 
 			String sql = "SELECT * FROM users WHERE user_id = ?";
 			try{PreparedStatement ps = con.prepareStatement(sql);
@@ -37,9 +37,9 @@ public class GoAdminAttendanceLeaderDAO {
 
 			while(rs.next()){
 				AttendanceDTO dto = new AttendanceDTO();
-				dto.setTeamName(rs.getString("teamName"));
+				dto.setTeamName(rs.getString("team_name"));
 
-                atUserList.add(dto);
+                atTeamList.add(dto);
 			}
 			rs.close();
 			ps.close();
@@ -54,7 +54,7 @@ public class GoAdminAttendanceLeaderDAO {
 			e.printStackTrace();
 		}
 	}
-	return atUserList;
+	return atTeamList;
 }
 }
 

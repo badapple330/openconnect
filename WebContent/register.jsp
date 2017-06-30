@@ -15,6 +15,7 @@
 <%-- <script src="//code.jquery.com/jquery-2.1.0.min.js"></script> --%>
 <%-- <script src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script> --%>
 <%-- <script src="js/register.js"></script> --%>
+<script src="js/footerFixed.js" type="text/javascript"></script>
 
 <script src="js/ajaxzip3.js" charset="UTF-8"></script>
 
@@ -114,7 +115,7 @@
 		</s:form>
 	</div>
 
-
+<jsp:include page="footer.jsp" />
 
 </body>
 </html>

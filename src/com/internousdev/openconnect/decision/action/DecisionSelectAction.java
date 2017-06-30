@@ -25,10 +25,17 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	private int decisionId;
 
 	/**
-	 * 起案者ユーザーID
+	 * 実施起案者ユーザーID
 	 *
 	 */
 	private int jDrafterId;
+
+	/**
+	 * 契約起案者ユーザーID
+	 *
+	 */
+	private int kDrafterId;
+
 
 	/**
 	 * 案件名
@@ -190,6 +197,26 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public int jPermiterId3;
 
 
+	/**
+	 *実施兼契約承認者ユーザーID1(リーダー)
+	 */
+	public int kPermiterId1;
+
+	/**
+	 *実施兼契約承認者ユーザーID2(リーダー)
+	 */
+	public int kPermiterId2;
+
+	/**
+	 *実施兼契約承認者ユーザーID3(先生)
+	 */
+	public int kPermiterId3;
+
+	/**
+	 * 決裁タイプ
+	 */
+	private int type;
+
 	/*
 	 * decisionList コレクションクラスのオブジェクト宣言
 	 * @author kota.miyazato
@@ -203,9 +230,14 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	private ArrayList<DecisionDTO> decisionList = new  ArrayList<DecisionDTO>();
 
 	/**
-	 * 起案者の情報のリスト
+	 * 実施起案者の情報のリスト
 	 */
 	private ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
+
+	/**
+	 * 契約起案者の情報のリスト
+	 */
+	private ArrayList<DecisionDTO> kNameList = new ArrayList<DecisionDTO>();
 
 	/**
 	 * セッション情報
@@ -213,20 +245,33 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	private Map<String,Object> session;
 
 	/**
-	 * 承認者1人目の情報のリスト
+	 * 実施承認者1人目の情報のリスト
 	 */
 	private ArrayList<DecisionDTO> jPermiter1nameList = new ArrayList<DecisionDTO>();
 	/**
-	 * 承認者2人目の情報のリスト
+	 * 実施承認者2人目の情報のリスト
 	 */
 	private ArrayList<DecisionDTO> jPermiter2nameList = new ArrayList<DecisionDTO>();
 	/**
-	 * 承認者3人目の情報のリスト
+	 * 実施承認者3人目の情報のリスト
 	 */
 	private ArrayList<DecisionDTO> jPermiter3nameList = new ArrayList<DecisionDTO>();
 
 	/**
-	 * エラーメッセージ
+	 * 契約/実施兼契約承認者1人目の情報のリスト
+	 */
+	private ArrayList<DecisionDTO> kPermiter1nameList = new ArrayList<DecisionDTO>();
+	/**
+	 * 契約/実施兼契約承認者2人目の情報のリスト
+	 */
+	private ArrayList<DecisionDTO> kPermiter2nameList = new ArrayList<DecisionDTO>();
+	/**
+	 * 契約/実施兼契約承認者3人目の情報のリスト
+	 */
+	private ArrayList<DecisionDTO> kPermiter3nameList = new ArrayList<DecisionDTO>();
+
+	/**
+K	 * エラーメッセージ
 	 */
 	private String resultString = "	表示できません。";
 
@@ -242,7 +287,7 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 		DecisionDAO dao = new DecisionDAO();
 
 		try {
-		decisionList=dao.select(decisionId);
+		decisionList=dao.select(decisionId,type);
 
        } catch (UnknownException e) {
 		e.printStackTrace();
@@ -253,6 +298,14 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 
 		try{
 			nameList = decisionDAO.selectByIds(jDrafterId);
+			kNameList = decisionDAO.selectByK(kDrafterId);
+			jPermiter1nameList = dao.selectByJPermiterId1(jPermiterId1);
+			jPermiter2nameList = dao.selectByJPermiterId2(jPermiterId2);
+			jPermiter3nameList = dao.selectByJPermiterId3(jPermiterId3);
+			kPermiter1nameList = dao.selectByKPermiterId1(kPermiterId1);
+			kPermiter2nameList = dao.selectByKPermiterId2(kPermiterId2);
+			kPermiter3nameList = dao.selectByKPermiterId3(kPermiterId3);
+
 		}catch (UnknownException e) {
 			e.printStackTrace();
 		}
@@ -525,6 +578,29 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	}
 
 
+
+	/**
+	* 取得メソッド を取得
+	* @return KnameList
+	*/
+	public ArrayList<DecisionDTO> getKNameList() {
+		return kNameList;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param KnameList
+	*/
+	public void setKNameList(ArrayList<DecisionDTO> kNameList) {
+		this.kNameList = kNameList;
+	}
+
+
+
+
 	/**
 	* 取得メソッド を取得
 	* @return session
@@ -613,6 +689,95 @@ public class DecisionSelectAction extends ActionSupport implements SessionAware{
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kPermiter1nameList
+	*/
+	public ArrayList<DecisionDTO> getKPermiter1nameList() {
+		return kPermiter1nameList;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kPermiter1nameList
+	*/
+	public void setKPermiter1nameList(ArrayList<DecisionDTO> kPermiter1nameList) {
+		this.kPermiter1nameList = kPermiter1nameList;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kPermiter2nameList
+	*/
+	public ArrayList<DecisionDTO> getKPermiter2nameList() {
+		return kPermiter2nameList;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kPermiter2nameList
+	*/
+	public void setKPermiter2nameList(ArrayList<DecisionDTO> kPermiter2nameList) {
+		this.kPermiter2nameList = kPermiter2nameList;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kPermiter3nameList
+	*/
+	public ArrayList<DecisionDTO> getKPermiter3nameList() {
+		return kPermiter3nameList;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kPermiter3nameList
+	*/
+	public void setKPermiter3nameList(ArrayList<DecisionDTO> kPermiter3nameList) {
+		this.kPermiter3nameList = kPermiter3nameList;
+	}
+
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return type
+	*/
+	public int getType() {
+		return type;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param type
+	*/
+	public void setType(int type) {
+		this.type = type;
+	}
+
 
 
 }

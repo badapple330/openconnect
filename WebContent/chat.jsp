@@ -67,7 +67,7 @@
   <!-- 個人チャットの際のヘッダー -->
   <s:if test="groupId == 0">
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
         <div class="navbar-header">
           <a class="navbar-brand"
             href="<s:url action="GoTalkListAction"/>">&laquo;</a>
@@ -79,7 +79,7 @@
   <!-- グループチャットの際のヘッダー -->
   <s:else>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid" style="background-color:<s:property value="#session.hColor"/>;">
         <div class="navbar-header">
           <a class="navbar-brand" href="<s:url action="GoGroupAction"/>">&laquo;</a>
           <button type="button" class="navbar-toggle collapsed"
@@ -104,7 +104,7 @@
                   <form name="memberform"
                     action="GoGroupMemberAddAction">
                     <s:hidden theme="simple" name="groupId"
-                      value="%{groupId}"></s:hidden>
+                      value="%{groupId}"><s:hidden name="groupName"></s:hidden></s:hidden>
                   </form></li>
                 <li><a href="#" data-toggle="modal"
                   data-target="#memberAdd">ユーザー検索でメンバーを追加</a></li>

@@ -5,86 +5,104 @@ package com.internousdev.openconnect.decision.detail.action;
 
 import java.util.ArrayList;
 
+import com.internousdev.openconnect.decision.detail.dao.DecisionArchiveDAO;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionArchiveAction extends ActionSupport {
 
-	private static final long serialVersionUID = 6045130027645771884L; //シリアルID
+	/**
+	 * シリアルID
+	 */
+	private static final long serialVersionUID = 6045130027645771884L;
 
 	/**
 	 * 決済ID
 	 */
-	private int decisionId;
+	private int siteId;
 
 	/**
 	 * 案件名
 	 */
-	private String decisionName;
+	private String siteName;
 
 	/**
 	 * 決裁手続きの情報をリスト化
 	 */
 	private ArrayList<DecisionDTO> archiveList = new  ArrayList<DecisionDTO>();
 
+	/**
+	 * エラーメッセージ
+	 */
+	private String resultString = "失敗";
 
 
 	public String execute() {
 
 		String result=ERROR;
-		int count = 1;
-		if (count > 0 ) {
-			result = SUCCESS;
+		DecisionArchiveDAO dao = new DecisionArchiveDAO();
+
+		archiveList = dao.archive( siteId, siteName );
+		if(archiveList.size() > 0){
+			result=SUCCESS;
+			resultString="成功";
 		}
 		return result;
+
 	}
+
 
 	/**
 	* 取得メソッド を取得
-	* @return decisionId
+	* @return siteId
 	*/
-	public int getDecisionId() {
-		return decisionId;
+	public int getSiteId() {
+		return siteId;
 	}
+
 
 	/**
 	* 設定メソッド を設定
-	* @param decisionId
+	* @param siteId
 	*/
-	public void setDecisionId(int decisionId) {
-		this.decisionId = decisionId;
+	public void setSiteId(int siteId) {
+		this.siteId = siteId;
 	}
+
 
 	/**
 	* 取得メソッド を取得
-	* @return decisionName
+	* @return siteName
 	*/
-	public String getDecisionName() {
-		return decisionName;
+	public String getSiteName() {
+		return siteName;
 	}
+
 
 	/**
 	* 設定メソッド を設定
-	* @param decisionName
+	* @param siteName
 	*/
-	public void setDecisionName(String decisionName) {
-		this.decisionName = decisionName;
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
 	}
+
 
 	/**
 	* 取得メソッド を取得
-	* @return archiveList
+	* @return resultString
 	*/
-	public ArrayList<DecisionDTO> getArchiveList() {
-		return archiveList;
+	public String getResultString() {
+		return resultString;
 	}
+
 
 	/**
 	* 設定メソッド を設定
-	* @param archiveList
+	* @param resultString
 	*/
-	public void setArchiveList(ArrayList<DecisionDTO> archiveList) {
-		this.archiveList = archiveList;
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
 	}
 
 

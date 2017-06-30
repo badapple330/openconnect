@@ -43,9 +43,9 @@
 
 </head>
 
-<body>
+<body style="background-color:<s:property value="#session.bColor"/>;">>
 <nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
   <div class="navbar-header">
   <a class="navbar-brand" href="applist.jsp">Openconnect</a>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
@@ -79,7 +79,6 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 				<s:token/>
 				<button type="submit" class="btn btn-primary">グループを作る</button>
 			</div>

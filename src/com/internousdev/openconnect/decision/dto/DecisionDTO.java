@@ -30,6 +30,9 @@ public class DecisionDTO {
 	 */
 	private String decisionName;
 
+
+	private String decisionPath;
+
 	/**
 	 * 決裁種類
 	 *
@@ -241,10 +244,7 @@ public class DecisionDTO {
 	 */
 	public int persons;
 
-	/**
-	 * 資料ID
-	 */
-	public int documentId;
+
 
 	/**
 	 * 資料名
@@ -255,6 +255,17 @@ public class DecisionDTO {
 	 * 資料パス
 	 */
 	public String documentPath;
+
+
+	/**
+	 * サイトID
+	 */
+	public int siteId;
+
+	/**
+	 * サイト名
+	 */
+	public String siteName;
 
 
 
@@ -900,20 +911,7 @@ public class DecisionDTO {
 		public void setDecisionId(int decisionId) {
 			this.decisionId = decisionId;
 		}
-		/**
-		* 取得メソッド を取得
-		* @return documentId
-		*/
-		public int getDocumentId() {
-			return documentId;
-		}
-		/**
-		* 設定メソッド を設定
-		* @param documentId
-		*/
-		public void setDocumentId(int documentId) {
-			this.documentId = documentId;
-		}
+
 		/**
 		* 取得メソッド を取得
 		* @return documentName
@@ -955,6 +953,48 @@ public class DecisionDTO {
 		*/
 		public void setType(int type) {
 			this.type = type;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return decisionPath
+		*/
+		public String getDecisionPath() {
+			return decisionPath;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param decisionPath
+		*/
+		public void setDecisionPath(String decisionPath) {
+			this.decisionPath = decisionPath;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return siteId
+		*/
+		public int getSiteId() {
+			return siteId;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param siteId
+		*/
+		public void setSiteId(int siteId) {
+			this.siteId = siteId;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return siteName
+		*/
+		public String getSiteName() {
+			return siteName;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param siteName
+		*/
+		public void setSiteName(String siteName) {
+			this.siteName = siteName;
 		}
 
 

@@ -4,6 +4,7 @@
 package com.internousdev.openconnect.attendance.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,7 +22,43 @@ public class AdminAttendanceLeaderDAO {
 
 	/* 勤怠履歴を格納する */
 	public ArrayList<AttendanceDTO> searchList  = new ArrayList<AttendanceDTO>();
+	public ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
 
+	public ArrayList<AttendanceDTO> select2(int userId){
+
+
+			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
+			Connection con = db.getConnection();
+
+			ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
+
+			String sql = "SELECT * FROM users WHERE user_id = ?";
+			try{PreparedStatement ps = con.prepareStatement(sql);
+				ps.setInt(1, userId);
+
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+				AttendanceDTO dto2 = new AttendanceDTO();
+				dto2.setTeamName(rs.getString("team_name"));
+
+                atTeamList.add(dto2);
+			}
+			rs.close();
+			ps.close();
+
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	return atTeamList;
+}
 	/**
 	 *
 	 * @param atYear
@@ -33,7 +70,7 @@ public class AdminAttendanceLeaderDAO {
 	 * @param teamName
 	 * @return searchList
 	 */
-	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String attendance, String teamName) {
+	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String attendance) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 		Statement statement = null;
@@ -45,16 +82,46 @@ public class AdminAttendanceLeaderDAO {
 		/* sql文生成に用いるWhere節文字列 */
 		String whereState = "";
 
-		/* 自動で日付とチーム名を取得した値をwhereStateに格納 */
-		whereState += "at_year="+atYear +" AND at_month="+atMonth +" AND at_day="+atDay +" AND team_name="+teamName;
-
-		/* 勤怠状況を定義した時 */
-		if(!((attendance).equals(""))){
-			whereState += "AND " +"attendance"+attendance;
+		/* 年が定義されたとき */
+		if(atYear != 0){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "at_year="+atYear;
 		}
 
-		/* sql文定義 */
-		sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + ";";
+		/* 月が定義されたとき */
+		if(atMonth != 0){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "at_month="+atMonth;
+		}
+
+		/* 日が定義されたとき */
+		if(atDay != 0){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "at_day="+atDay;
+		}
+
+
+//		/* チーム名が定義されたとき */
+//		if(!((teamName).equals(""))){
+//			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+//			whereState += "team_name='"+teamName+"'";
+//		}
+
+		/* 勤怠状況定義時 */
+		if(!((attendance).equals(""))){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "attendance"+attendance;
+			}
+
+			/* sql文定義 */
+			if(!((whereState).equals(""))){
+				/*条件完全未定義時、任意の勤怠状況データを得る。 */
+				//			sql = "select * from attendance left join users on attendance.user_id=users.user_id;";
+				//		} else {
+				/* Where節 定義時 */
+				sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + "";
+			}
+
 
 	try {
 		statement = con.createStatement();

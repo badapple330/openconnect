@@ -13,6 +13,7 @@
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="js/attendance.js"></script>
 <link rel="stylesheet" href="css/attendance.css">
+<script src="js/footerFixed.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
 
 	<div  class="attendance" align="center">
 
-	<h1 align="center">勤怠更新</h1><hr>
+	<h1 align="center">勤怠報告</h1><hr>
 	<s:if test="%{#session.userFlg >= 1}">
 <p>
 
@@ -104,5 +105,6 @@ $(function() {
 });
 
 </script>
+ <jsp:include page="footer.jsp" />
 </body>
 </html>

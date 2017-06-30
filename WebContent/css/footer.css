@@ -1,21 +1,20 @@
-.footer {
+#footer .footer-link {
 	/*position:fixed; フッターを絶対配置に指定する設定*/
 	position: relative;
 	bottom: 0px;
-	height: 66.6px;
+	height: 40px;
 	width: 100%;
 	text-align: center;
-	padding-top: 20px;
 	background-color:#ffffff;
 }
 
-.footer li a {
+.footer-link li a {
 	color: #192f60;
     text-decoration: none;
 }
 
 /*footer*/
-.footer nav ul {
+.footer-link nav ul {
 	list-style-type: none;
 	margin-top: 10;
 	margin-bottom: 10;
@@ -27,7 +26,7 @@
 }
 
 /*footer*/
-.footer nav li {
+.footer-link nav li {
 	display: inline;
 	/*border-right: solid 2px #ffffff;*/
 	padding-left: 30px;

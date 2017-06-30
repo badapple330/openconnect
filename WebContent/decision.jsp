@@ -25,22 +25,41 @@
 		});
 	});
 </script>
-
+<script src="js/footerFixed.js" type="text/javascript"></script>
 <jsp:include page="header.jsp" />
 </head>
 <body>
 
-	<h1 align=center>実施決裁</h1>
-	<s:property value="%{resultString}" />
+	<h1 align=center>
+	<s:if test="type == 1">
+	実施決裁
+	</s:if>
+	<s:elseif test="type=2">
+	契約決裁
+	</s:elseif>
+	<s:elseif test="type=3">
+	実施兼契約決裁
+	</s:elseif>
+	<s:elseif test="type=4">
+	実施決裁（変更）
+	</s:elseif>
+	<s:elseif test="type=5">
+	契約決裁（変更）
+	</s:elseif>
+	<s:elseif test="type=6">
+	実施兼契約決裁（変更）
+	</s:elseif>
+	<s:elseif test="type=7">
+	遡及願い
+	</s:elseif></h1>
+
 	<table>
 		<tr>
 			<td>
 				<div>
 					<s:form action="DecisionSelectAction">
-						<input type="hidden" name="decisionId"
-							value="<s:property value="decisionId"/>">
-						<input type="hidden" name="jDrafterId"
-							value="<s:property value="#session.userId"/>">
+						<input type="hidden" name="decisionId" value="<s:property value="decisionId"/>">
+						<input type="hidden" name="jDrafterId" value="<s:property value="jdrafterId"/>">
 						<input type="hidden" value="表示">
 					</s:form>
 				</div>
@@ -158,25 +177,29 @@
 
 			<tr>
 				<td><b>承認者</b></td>
-				<td><s:if test="decisionType != '実施'">
+				<td><s:if test="decisionType = '実施'">
 						<s:property value="jPermiterId1" />
 						<br>
 						<s:property value="jPermiterId2" />
 						<br>
 						<s:property value="jPermiterId3" />
-					</s:if> <s:elseif test="decisionType != '契約'">
+					</s:if> <s:elseif test="decisionType = '契約'">
 						<s:property value="kPermiterId1" />
 						<br>
 						<s:property value="kPermiterId2" />
 						<br>
 						<s:property value="kPermiterId3" />
-					</s:elseif> <s:elseif test="decisionType != '実施' && decisionType != '契約'">
-遡及承認者1人
-</s:elseif> <s:else>
-承認者1<br>
-承認者2<br>
-承認者3
-</s:else></td>
+					</s:elseif> <s:elseif test="decisionType = '実施兼契約'">
+					    <s:property value="kPermiterId1" />
+						<br>
+						<s:property value="kPermiterId2" />
+						<br>
+						<s:property value="kPermiterId3" />
+
+                      </s:elseif>
+                      <s:else>
+                      遡及承認者1<br>
+                      </s:else></td>
 			</tr>
 
 		</table>
@@ -863,10 +886,8 @@
 	<br>
 	<br><br>
 		<s:form action="GoDecisionFileEdit">
-		<input type="hidden" name="jDrafterId"
-			value="<s:property value="#session.userId" />">
-		<input type="hidden" name="decisionId"
-			value="<s:property value="decisionId" />">
+		<input type="hidden" name="jDrafterId" value="<s:property value="#session.userId" />">
+		<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 		<input type="submit" class="button" value="資料添付画面へ">
 	    </s:form>
 

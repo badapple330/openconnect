@@ -16,19 +16,19 @@ pageEncoding="UTF-8"%>
 	  <link rel="stylesheet" href="css/prof.css">
 	<link rel="stylesheet" href="css/Bfooter.css">
 	<link rel="stylesheet" href="css/style2.css">
+	<link rel="stylesheet" href="css/imgList.css">
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript"></script>
 	<script type="text/javascript" src="js/jscolor.js"></script>
 
 </head>
-<body style="background-color:<s:property value="#session.color"/>;">
-<div class ="kaito" style="background-color:rgba(255, 255, 255, 0.63);">
+<body style="background-color:<s:property value="#session.bColor"/>;">
 
 <!-- ヘッダー -->
 <s:if test="%{#session.userId == viewId}">
 <nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid" style ="background-color:<s:property value="#session.color"/>;">
+<div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
   <div class="navbar-header">
 
 
@@ -82,33 +82,36 @@ pageEncoding="UTF-8"%>
  <div class="profile">
         	<figure style="margin-left:5%;" style="clear:both;">
             	<img src="<s:property value="userImg"/>" class="border_radius" alt="">
+            	<div align = "center">
             	<div class="fontsize"><s:property value="userName"/></div>
+            	</div>
         	</figure>
         	<s:if test="userId==-1"><a href="botMaintenance.jsp">メンテナンスページへ</a></s:if>
         </div>
 
      <!-- フォロー・削除ボタン -->
 
+
+<div align ="center">
 <s:if test="checkValue==1">
-<div style="margin-left:30px;">
 <div class="square_btn" >
 <a href="<s:url action="FollowListDeleteAction"><s:param name="viewId" value="%{userId}"/></s:url>">
 REMOVE</a>
 </div>
-</div>
 </s:if>
+
+
 
 <s:else>
 <s:if test="%{#session.userId != userId}">
-<div style="margin-left:30px;">
+
 <div class="square_btn">
 <a href="<s:url action="FollowListSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>">
 FOLLOW</a>
 </div>
-</div>
 </s:if>
 </s:else>
-
+</div>
 </td>
 
 <td>
@@ -127,7 +130,7 @@ FOLLOW</a>
 </tr>
 </table>
 <BR><BR>
-        <div class="textarea" style="center;width:60%;"><h3 class="fontsize" style="border-bottom: solid 1px black;">BIO</h3>
+        <div class="textarea" style="center;width:40%;"><h3 class="fontsize" style="border-bottom: solid 1px black;">BIO</h3>
 <div class="fontsize2"><pre><s:property value="profile"/></pre></div>
         </div>
 </s:iterator>
@@ -155,7 +158,7 @@ FOLLOW</a>
 					<div class="friends-container">
 
                    <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                   <img src="<s:property value="userImg"/>" class="border_radius" alt="" width="50" height="50">
+                   <img src="<s:property value="userImg"/>" style="height:50px; width:50px;"  class="border_radius" alt="" width="50" height="50">
                     <s:property value="userName"/>
                     	Lv:<s:property value="lv " />
                     </a>
@@ -192,7 +195,7 @@ FOLLOW</a>
 					<div class="friends-container">
 
                     <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                   <img src="<s:property value="userImg"/>" class="border_radius" alt="" width="50" height="50">
+                   <img src="<s:property value="userImg"/>" style="height:50px; width:50px;" class="border_radius" alt="" width="50" height="50">
                     <s:property value="userName"/>
                     	Lv:<s:property value="lv " />
                     </a>
@@ -215,7 +218,7 @@ FOLLOW</a>
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
 			</div>
 
-					<s:form action="SendProfileAction" name="tlSend" onSubmit="return check()" id="tl">
+
 
 
 
@@ -241,21 +244,26 @@ FOLLOW</a>
           </button>
           <h4 class="modal-title">画像を変更する</h4>
         </div>
-        <s:form action="">
+        <s:form action="UserImgUpdateAction">
         <div class="modal-body">
         	<s:iterator value="userImgList" status="rs">
-        	<
-
-
-        	<div>
-        	<s:property value="#rs.count"/>
-          <input type="radio" name="img" value="<s:property />" ><img  id="<s:property value="#rs.index"/>" class="radio-group"  src="<s:property value="url"/>"   alt=""
-          width="70px" height="70px" style="border-radius: 50%; margin: 5px;">
+        	<s:if test="%{#rs.count%2==0}">
+			<div style="float:left">
+          <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
           </div>
+          </s:if><s:else>
+          <div style="float:left; background-color:#dddddd;" >
+          <input type="radio" name="url" value="<s:property value="url" />"style="background:url(./<s:property value="url"/>);background-size:100% 100%;" >
+          </div>
+
+
+          </s:else>
           </s:iterator>
-        </div>
+        	<div style="clear:both"></div>
+     	</div>
+     	<s:hidden name="userId"/>
         <div class="modal-footer">
-            <s:token />
+
             <button type="submit" class="btn btn-primary">変更</button>
           </div>
          </s:form>
@@ -288,7 +296,7 @@ FOLLOW</a>
 
 <BR><BR>
 
-
+<s:form action="SendProfileAction" name="tlSend" onSubmit="return check()" id="tl">
 							<div class="panel panel-default">
 								<div class="panel-body">
 									<div class="form-group" style ="float:left;">
@@ -297,10 +305,10 @@ FOLLOW</a>
     										<!-- class="btn btn-primary" -->
 									</div>
 								</div>
-							</div>
+							</div></s:form>
 							</s:iterator>
 
-					</s:form>
+
 
 		</div>
 	</div>
@@ -327,20 +335,33 @@ FOLLOW</a>
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-				<h4 class="modal-title">仮</h4>
+				<h3 class="modal-title">カラー変更</h3>
 			</div>
 <div class="modal-body">
-			<form action="colorChangeAction">
+			<s:form action="colorChangeAction">
 <div class="form-group">
-<label style="width:200px;">色を指定する</label>
-<input class="jscolor  {hash:true}" name="color" value="<s:property value="#session.color"/>">
-<br />クリックするとカラーピッカーが開きます<br />
+<label style="width:200px;">ヘッダー</label>
+<input class="jscolor  {hash:true}" name="ColorH" value="<s:property value="#session.hColor"/>">
+
 </div>
-<div style="margin-top:150px;">
-<p id="backColor" style="margin-top:10px;padding:10px;font-weight:bold;font-size:1.5em;color:#ffffff;background-color:#f00">文字は白　背景色変更テスト</p>
+
+<div class="form-group">
+<label style="width:200px;">ボディ</label>
+<input class="jscolor  {hash:true}" name="ColorB" value="<s:property value="#session.bColor"/>">
+
 </div>
+
+<div class="form-group">
+<label style="width:200px;">フッター</label>
+<input class="jscolor  {hash:true}" name="ColorF" value="<s:property value="#session.fColor"/>">
+
+</div>
+
 <input type="submit"  value="送信">
-</form>
+</s:form>
+
+
+
 			</div>
 		</div>
 	</div>
@@ -387,6 +408,6 @@ FOLLOW</a>
     </footer>
      -->
 </div>
-</div>
+
 </body>
 </html>

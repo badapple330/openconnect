@@ -22,6 +22,7 @@
 	margin-right:auto;
 	margin-top:500px;
 	margin-bottom:30px;
+	text-align:center;
 }
 
 #operation2{
@@ -33,6 +34,10 @@
 	clear:left;
 	clear:right;
 	clear:both;
+}
+
+#schedule,th{
+	text-align:center;
 }
 
 .blockA{
@@ -110,11 +115,12 @@ footer{
 
 /* ここからカレンダー用 */
 #calendar{
-	height:100px;
-	width:700px;
+	height:200px;
+	width:800px;
 	margin-top:50px;
 	margin-left:auto;
 	margin-right:auto;
+	page-break-after: always;
 }
 
 /*土曜日と日曜日の色を変更*/
@@ -136,8 +142,51 @@ footer{
 	display: none;
 }
 
+.pagetop{
+	position:fixed;
+	bottom:100px;
+	right:40px;
+  	width:75px;
+	height:75px;
+ 	text-align:center;
+ 	background-color:#2a82a3;
+ 	border-radius: 50%;
+ 	-webkit-border-radius: 50%;
+ 	-moz-border-radius: 50%;
+}
 
+.pagetop-info{
+	padding-top:28px;
+	color:white;
+}
+
+.pagetop:hover {
+	background: #2a82a3;
+	color: #FFF;
+	border: 1px solid #FFF;
+}
+
+
+/*印刷するときに適用されるCSS*/
+@media print{
+	#calendar{
+		font-size:18px;
+	}
+
+	#operation{
+		width:700px;
+		margin:auto;
+	}
+
+
+}
+
+/*widthが640px以下のデバイス(スマホなど)で反映されるCSS*/
 @media only screen and (max-device-width : 640px){
+
+		h1{
+			font-size:20px;
+		}
 
         #calendar {
         	margin-top:10px;
@@ -145,7 +194,7 @@ footer{
         }
         #operation {
             width: 100%;
-            margin-top:250px;
+            margin-top:150px;
         }
 
          #operation2 {
@@ -179,11 +228,24 @@ footer{
 
         .blockC{
         	width:350px;
-        	text-align:right;
+        	text-align:center;
 			clear:left;
 			clear:right;
 			clear:both;
 		}
+
+		.pagetop{
+			width:50px;
+			height:50px;
+			right:20px;
+		}
+
+		.pagetop-info{
+			font-size:11px;
+			padding-top:18px;
+			color:white;
+		}
+
 
 		.print-btn{
 			visibility:hidden;

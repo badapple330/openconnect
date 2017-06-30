@@ -21,6 +21,19 @@
     ================================================== -->
     <script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+
+	<script>
+var submit = document.getElementByClassName('submit');
+function disableSubmit(button) {
+  setTimeout(function() {
+    button.disabled = true;
+  }, 10);
+  setTimeout(function() {
+    button.disabled = false;
+  }, 1000);
+}
+
+</script>
 </head>
 <body>
 <header><jsp:include page="botHeader.jsp" /></header>
@@ -37,7 +50,7 @@
 <br>
 <s:form action="BotExerciseAction" name="test">
   <div class="form-group">
-    <label>どんな言葉を覚えさせるかの要約（50文字以内）（重複NG）</label>
+    <label>どんな言葉を覚えさせるかの要約（50文字以内。重複NG）</label>
     <input type="text" class="form-control" maxlength="50" name="label" required>
   </div>
   <div class="form-group">
@@ -45,10 +58,10 @@
 <input type="file" id="selfile">
 </div>
   <div class="form-group">
-    <label>覚えさせる文章（2000字以内。単語じゃなくて文章で教えてね）</label>
-    <textarea name="sentence" class="form-control" rows="10" cols="80%" id="sendContents" required maxlength="2000" ></textarea>
+    <label>覚えさせる文章（4000字以内。単語じゃなくて文章で教えてね）</label>
+    <textarea name="sentence" class="form-control" rows="10" cols="80%" id="sendContents" required maxlength="4000"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">送信</button>
+    <button type="submit" class="btn btn-primary" onclick="disableSubmit(this);">送信</button>
 </s:form>
 <script>
 var obj1 = document.getElementById("selfile");
@@ -75,6 +88,5 @@ obj1.addEventListener("change",function(evt){
     <div class="col-sm-1 visible-lg-block"></div>
 </div>
 </div>
-<jsp:include page="Bfooter.jsp" />
 </body>
 </html>
