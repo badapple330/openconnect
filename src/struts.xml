@@ -531,7 +531,7 @@
 <!-- タイムライン画面への遷移 -->
 <action name="GoTimelineAction" class="com.internousdev.bulletinboard.action.GoTimelineAction" method="execute">
 <result name="success"> timeline.jsp</result>
-<result name="error"> timeline.jsp</result>
+<result name="error"> login.jsp</result>
 </action>
 
 <!-- タイムラインの投稿 -->
@@ -571,7 +571,7 @@
 <!-- グループ画面の遷移 -->
 <action name="GoGroupAction" class="com.internousdev.bulletinboard.action.GoGroupAction" method="execute">
 <result name="success"> group.jsp</result>
-<result name="error"> group.jsp</result>
+<result name="error"> login.jsp</result>
 </action>
 
 <!-- グループの追加 -->

@@ -37,7 +37,7 @@
 <br>
 <s:form action="BotExerciseAction" name="test">
   <div class="form-group">
-    <label>どんな言葉を覚えさせるかの要約（50文字以内）（重複NG）</label>
+    <label>どんな言葉を覚えさせるかの要約（50文字以内。重複NG）</label>
     <input type="text" class="form-control" maxlength="50" name="label" required>
   </div>
   <div class="form-group">
@@ -45,8 +45,8 @@
 <input type="file" id="selfile">
 </div>
   <div class="form-group">
-    <label>覚えさせる文章（2000字以内。単語じゃなくて文章で教えてね）</label>
-    <textarea name="sentence" class="form-control" rows="10" cols="80%" id="sendContents" required maxlength="2000" ></textarea>
+    <label>覚えさせる文章（4000字以内。単語じゃなくて文章で教えてね）</label>
+    <textarea name="sentence" class="form-control" rows="10" cols="80%" id="sendContents" required maxlength="4000" ></textarea>
     </div>
     <button type="submit" class="btn btn-primary">送信</button>
 </s:form>
