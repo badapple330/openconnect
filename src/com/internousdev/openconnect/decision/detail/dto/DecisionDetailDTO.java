@@ -137,6 +137,10 @@ public class DecisionDetailDTO {
 	 */
 	private int permitStatus;
 	/**
+	 * 変更/遡求状況
+	 */
+	private int optionStatus;
+	/**
 	 * 実施起案者ID
 	 */
 	private int jDrafterId;
@@ -431,6 +435,20 @@ public class DecisionDetailDTO {
 	*/
 	public void setPermitStatus(int permitStatus) {
 		this.permitStatus = permitStatus;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return optionStatus
+	*/
+	public int getOptionStatus() {
+		return optionStatus;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param optionStatus
+	*/
+	public void setOptionStatus(int optionStatus) {
+		this.optionStatus = optionStatus;
 	}
 	/**
 	* 取得メソッド を取得

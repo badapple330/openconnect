@@ -55,6 +55,7 @@ public class DecisionDetailSelectDAO {
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
 				dto.setPermitStatus(rs.getInt("permit_status"));
+				dto.setOptionStatus(rs.getInt("option_status"));
 				dto.setJPermiterId1(rs.getInt("j_permiter_id1"));
 				dto.setKPermiterId1(rs.getInt("k_permiter_id1"));
 				dto.setJPermiterId3(rs.getInt("j_permiter_id3"));
@@ -109,6 +110,7 @@ public class DecisionDetailSelectDAO {
 				dto.setDecisionType(rs.getString("decision_type"));
 				dto.setDecisionStatus(rs.getInt("decision_status"));
 				dto.setPermitStatus(rs.getInt("permit_status"));
+				dto.setOptionStatus(rs.getInt("option_status"));
 				dto.setJDrafterId(rs.getInt("j_drafter_id"));
 				dto.setKDrafterId(rs.getInt("k_drafter_id"));
 				dto.setJImpId(rs.getString("j_imp_id"));

@@ -12,6 +12,7 @@
 
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="css/team.css">
+<script src="js/footerFixed.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -63,6 +64,6 @@
 </div>
 	</s:form>
 	</div>
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -30,6 +30,7 @@
         <script src="js/calendar/fullcalendar.min.js"></script>
         <script src="js/calendar/gcal.js"></script>
         <script src="js/calendar/gcal.min.js"></script>
+        <script src="js/footerFixed.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -72,7 +73,7 @@
 			<s:form action="ScheduleUpdateAction">
 				<table id = "schedule" border=1 style="">
 					<tbody>
-						<tr>
+						<tr style="text-align:center">
 							<th>ID</th>
 							<th>start</th>
 							<th>end</th>
@@ -101,7 +102,7 @@
 									title="年-月-日で入力してください。" placeholder="終了日を入力"><div class="hidden"><s:property value="endDay" />T00:01:00</div></td>
 								<td><input type="text" name="scheduleTitleList"
 									value="<s:property value="title" />" class="scheduleTitleList"
-									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="title" /></div></td>
+									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="teamName" />:<s:property value="title" /></div></td>
 								<td>
 
 								<input type="text" name="teamName[<s:property value="#st.index" />]"value="<s:property value="teamName" />"class="teamList" readonly><div class="hidden"><s:property value="teamName" /></div>
@@ -238,6 +239,6 @@
 		<div>
 		</div>
 		<div class="pagetop"><div class = "pagetop-info"><b>PageTop</b></div></div>
-		 <footer><s:include value="footer.jsp" /></footer>
+		 <jsp:include page="footer.jsp" />
 </body>
 </html>

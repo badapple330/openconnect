@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.internousdev.bulletinboard.dao;
 
 import java.sql.Connection;
@@ -12,13 +9,9 @@ import java.util.ArrayList;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.internousdev.bulletinboard.util.DBConnector;
 
-/**
- *
- *
- */
 public class UserImgDAO {
 
-		  public ArrayList<UserDTO> imgGet(){
+		  public ArrayList<UserDTO> userImgGet(){
 
 			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			    Connection con = db.getConnection();
@@ -53,7 +46,7 @@ public class UserImgDAO {
 
 			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			    Connection con = db.getConnection();
-			    String sql="update user_master set user_img=? where user_id=?";
+			    String sql="update users set user_img=? where user_id=?";
 
 			    /////////
 
@@ -73,6 +66,6 @@ public class UserImgDAO {
 				}
 			     return inserted;
 		  }
-	}
+}
 
 

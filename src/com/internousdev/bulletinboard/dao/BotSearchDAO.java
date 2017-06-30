@@ -13,7 +13,8 @@ import com.internousdev.bulletinboard.dto.BotDTO;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
- * @author internousdev
+ * botメンテナンスページの「文章を閲覧する」に関するDAO
+ * @author Misa Kikuchi
  *
  */
 public class BotSearchDAO {

@@ -16,6 +16,7 @@ pageEncoding="UTF-8"%>
 	  <link rel="stylesheet" href="css/prof.css">
 	<link rel="stylesheet" href="css/Bfooter.css">
 	<link rel="stylesheet" href="css/style2.css">
+	<link rel="stylesheet" href="css/imgList.css">
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript"></script>
@@ -81,33 +82,36 @@ pageEncoding="UTF-8"%>
  <div class="profile">
         	<figure style="margin-left:5%;" style="clear:both;">
             	<img src="<s:property value="userImg"/>" class="border_radius" alt="">
+            	<div align = "center">
             	<div class="fontsize"><s:property value="userName"/></div>
+            	</div>
         	</figure>
         	<s:if test="userId==-1"><a href="botMaintenance.jsp">メンテナンスページへ</a></s:if>
         </div>
 
      <!-- フォロー・削除ボタン -->
 
+
+<div align ="center">
 <s:if test="checkValue==1">
-<div style="margin-left:30px;">
 <div class="square_btn" >
 <a href="<s:url action="FollowListDeleteAction"><s:param name="viewId" value="%{userId}"/></s:url>">
 REMOVE</a>
 </div>
-</div>
 </s:if>
+
+
 
 <s:else>
 <s:if test="%{#session.userId != userId}">
-<div style="margin-left:30px;">
+
 <div class="square_btn">
 <a href="<s:url action="FollowListSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>">
 FOLLOW</a>
 </div>
-</div>
 </s:if>
 </s:else>
-
+</div>
 </td>
 
 <td>
@@ -154,7 +158,7 @@ FOLLOW</a>
 					<div class="friends-container">
 
                    <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                   <img src="<s:property value="userImg"/>" class="border_radius" alt="" width="50" height="50">
+                   <img src="<s:property value="userImg"/>" style="height:50px; width:50px;"  class="border_radius" alt="" width="50" height="50">
                     <s:property value="userName"/>
                     	Lv:<s:property value="lv " />
                     </a>
@@ -191,7 +195,7 @@ FOLLOW</a>
 					<div class="friends-container">
 
                     <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                   <img src="<s:property value="userImg"/>" class="border_radius" alt="" width="50" height="50">
+                   <img src="<s:property value="userImg"/>" style="height:50px; width:50px;" class="border_radius" alt="" width="50" height="50">
                     <s:property value="userName"/>
                     	Lv:<s:property value="lv " />
                     </a>
@@ -214,7 +218,7 @@ FOLLOW</a>
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
 			</div>
 
-					<s:form action="SendProfileAction" name="tlSend" onSubmit="return check()" id="tl">
+
 
 
 
@@ -240,21 +244,26 @@ FOLLOW</a>
           </button>
           <h4 class="modal-title">画像を変更する</h4>
         </div>
-        <s:form action="">
+        <s:form action="UserImgUpdateAction">
         <div class="modal-body">
         	<s:iterator value="userImgList" status="rs">
-        	<
-
-
-        	<div>
-        	<s:property value="#rs.count"/>
-          <input type="radio" name="img" value="<s:property />" ><img  id="<s:property value="#rs.index"/>" class="radio-group"  src="<s:property value="url"/>"   alt=""
-          width="70px" height="70px" style="border-radius: 50%; margin: 5px;">
+        	<s:if test="%{#rs.count%2==0}">
+			<div style="float:left">
+          <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
           </div>
+          </s:if><s:else>
+          <div style="float:left; background-color:#dddddd;" >
+          <input type="radio" name="url" value="<s:property value="url" />"style="background:url(./<s:property value="url"/>);background-size:100% 100%;" >
+          </div>
+
+
+          </s:else>
           </s:iterator>
-        </div>
+        	<div style="clear:both"></div>
+     	</div>
+     	<s:hidden name="userId"/>
         <div class="modal-footer">
-            <s:token />
+
             <button type="submit" class="btn btn-primary">変更</button>
           </div>
          </s:form>
@@ -287,7 +296,7 @@ FOLLOW</a>
 
 <BR><BR>
 
-
+<s:form action="SendProfileAction" name="tlSend" onSubmit="return check()" id="tl">
 							<div class="panel panel-default">
 								<div class="panel-body">
 									<div class="form-group" style ="float:left;">
@@ -296,10 +305,10 @@ FOLLOW</a>
     										<!-- class="btn btn-primary" -->
 									</div>
 								</div>
-							</div>
+							</div></s:form>
 							</s:iterator>
 
-					</s:form>
+
 
 		</div>
 	</div>
