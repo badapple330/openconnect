@@ -329,26 +329,27 @@ FOLLOW</a>
 				<h3 class="modal-title">カラー変更</h3>
 			</div>
 <div class="modal-body">
-			<form action="colorChangeAction">
+			<s:form action="colorChangeAction">
 <div class="form-group">
 <label style="width:200px;">ヘッダー</label>
-<input class="jscolor  {hash:true}" name="hColor" value="<s:property value="#session.hColor"/>">
+<input class="jscolor  {hash:true}" name="ColorH" value="<s:property value="#session.hColor"/>">
 
 </div>
 
 <div class="form-group">
 <label style="width:200px;">ボディ</label>
-<input class="jscolor  {hash:true}" name="bColor" value="<s:property value="#session.bColor"/>">
+<input class="jscolor  {hash:true}" name="ColorB" value="<s:property value="#session.bColor"/>">
 
 </div>
 
 <div class="form-group">
 <label style="width:200px;">フッター</label>
-<input class="jscolor  {hash:true}" name="fColor" value="<s:property value="#session.fColor"/>">
+<input class="jscolor  {hash:true}" name="ColorF" value="<s:property value="#session.fColor"/>">
 
 </div>
 
 <input type="submit"  value="送信">
+</s:form>
 
 
 </form>
