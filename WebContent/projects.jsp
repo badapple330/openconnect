@@ -14,6 +14,7 @@
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/projects.js"></script>
 <script src="js/pagenation.js"></script>
+<script src="js/footerFixed.js" type="text/javascript"></script>
 
 
 <title>プロジェクト一覧</title>
