@@ -36,6 +36,15 @@ public class DecisionFileDeleteAction extends ActionSupport {
 	public String resultString="削除できませんでした。";
 
 
+	/**
+	 * 起案者ID
+	 */
+	private int jDrafterId;
+
+	/**
+	 * 決裁ID
+	 */
+	private int decisionId;
 
 
 	public String execute(){
@@ -45,7 +54,7 @@ public class DecisionFileDeleteAction extends ActionSupport {
 
 	    DecisionDAO dao= new DecisionDAO();
 
-		    deleted=dao.delete(documentName);
+		    deleted=dao.delete(documentName,jDrafterId,decisionId);
 
 		    if(deleted>0){
 		    	result = SUCCESS;
@@ -90,6 +99,46 @@ public class DecisionFileDeleteAction extends ActionSupport {
 	*/
 	public void setDocumentName(String documentName) {
 		this.documentName = documentName;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return jDrafterId
+	*/
+	public int getjDrafterId() {
+		return jDrafterId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param jDrafterId
+	*/
+	public void setjDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionId
+	*/
+	public int getDecisionId() {
+		return decisionId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionId
+	*/
+	public void setDecisionId(int decisionId) {
+		this.decisionId = decisionId;
 	}
 
 

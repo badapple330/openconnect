@@ -28,16 +28,16 @@
     <label>資料ファイル</label><br />
     <input type="file" size="35"name="myFile" required="required" multiple="multiple" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
   </div>
+  <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 	<input type="hidden" name="jDrafterId"
-			value="<s:property value="#session.userId" />">
-		<input type="hidden" name="decisionId"
-			value="<s:property value="decisionId" />">
+			value="<s:property value="jDrafterId" />">
   <div><input type="submit" class="submit" value="資料を追加する" /></div>
   </div>
 </s:form>
 
 
 <div align="center">
+<s:property value="decisionId"/>
 <s:property value="%{resultString}" />
 </div>
 		<h2 align="center">資料削除</h2>
@@ -47,15 +47,24 @@
     <label>資料名</label><br />
     <input type="text" class="text" size="25" name="documentName" required="required" placeholder="資料名" />
   </div>
-  <div><input type="submit" class="submit" value="資料を削除する" /></div>
+  <div>
+   <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+	<input type="hidden" name="jDrafterId"
+			value="<s:property value="jDrafterId" />">
+  <input type="submit" class="submit" value="資料を削除する" /></div>
   </div>
 </s:form>
 
 <br><br>
 <!-- 戻る -->
 	<s:form action="DecisionSelectAction">
+<<<<<<< HEAD
+	<input type="hidden" name="jDrafterId" value="<s:property value="jDrafterId" />">
+		<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+=======
 	<input type="hidden" name="decisionId"value="<s:property value="decisionId"/>">
 <input type="hidden" name="jDrafterId"value="<s:property value="#session.userId"/>">
+>>>>>>> branch 'master' of https://github.com/internousdevwork/openconnect
 		<input type="submit" class="button" value="戻る">
 	</s:form>
 

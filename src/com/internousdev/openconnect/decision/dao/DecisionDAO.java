@@ -53,6 +53,7 @@ public class DecisionDAO {
 				DecisionDTO dto = new DecisionDTO();
 
 
+		        dto.setDecisionId(rs.getInt("decision_id")); // 	実施起案者ユーザーID
 
 				dto.setJDrafterId(rs.getInt("j_drafter_id")); // 	実施起案者ユーザーID
 
@@ -216,18 +217,19 @@ public class DecisionDAO {
 	 * @param documentPath
 	 * @return 成否を格納する変数
 	 */
-	 public int insert(int jDrafterId,String documentPath,String documentName){
+	 public int insert(int jDrafterId,String documentPath,String documentName,int decisionId){
 			DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			Connection con=db.getConnection();
 			int inserted=0;
-			String sql= "insert into document(j_drafter_id,document_path,document_name)"
-					+ "values(?,?,?)";
+			String sql= "insert into document(j_drafter_id,document_path,document_name,decision_id)"
+					+ "values(?,?,?,?)";
 
 			try{
 				PreparedStatement ps= con.prepareStatement(sql);
 				ps.setInt(1,jDrafterId);
 				ps.setString(2,documentPath);
 				ps.setString(3,documentName);
+				ps.setInt(4,decisionId);
 				inserted=ps.executeUpdate();
 
 
@@ -251,7 +253,7 @@ public class DecisionDAO {
 	 * @param imageName
 	 * @return
 	 */
-	public int delete(String documentName){
+	public int delete(String documentName,int jDrafterId,int decisionId){
 			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			Connection con = db.getConnection();
 			int deleted = 0;
@@ -260,6 +262,8 @@ public class DecisionDAO {
 			try{
 				PreparedStatement ps = con.prepareStatement(sql);
 				ps.setString(1,documentName);
+				ps.setInt(2,jDrafterId);
+				ps.setInt(3,decisionId);
 				deleted = ps.executeUpdate();
 
 				ps.close();
