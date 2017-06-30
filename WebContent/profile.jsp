@@ -22,13 +22,12 @@ pageEncoding="UTF-8"%>
 	<script type="text/javascript" src="js/jscolor.js"></script>
 
 </head>
-<body style="background-color:<s:property value="#session.color"/>;">
-<div class ="kaito" style="background-color:rgba(255, 255, 255, 0.63);">
+<body style="background-color:<s:property value="#session.bColor"/>;">
 
 <!-- ヘッダー -->
 <s:if test="%{#session.userId == viewId}">
 <nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid" style ="background-color:<s:property value="#session.color"/>;">
+<div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
   <div class="navbar-header">
 
 
@@ -327,20 +326,33 @@ FOLLOW</a>
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-				<h4 class="modal-title">仮</h4>
+				<h3 class="modal-title">カラー変更</h3>
 			</div>
 <div class="modal-body">
-			<form action="colorChangeAction">
+			<s:form action="colorChangeAction">
 <div class="form-group">
-<label style="width:200px;">色を指定する</label>
-<input class="jscolor  {hash:true}" name="color" value="<s:property value="#session.color"/>">
-<br />クリックするとカラーピッカーが開きます<br />
+<label style="width:200px;">ヘッダー</label>
+<input class="jscolor  {hash:true}" name="ColorH" value="<s:property value="#session.hColor"/>">
+
 </div>
-<div style="margin-top:150px;">
-<p id="backColor" style="margin-top:10px;padding:10px;font-weight:bold;font-size:1.5em;color:#ffffff;background-color:#f00">文字は白　背景色変更テスト</p>
+
+<div class="form-group">
+<label style="width:200px;">ボディ</label>
+<input class="jscolor  {hash:true}" name="ColorB" value="<s:property value="#session.bColor"/>">
+
 </div>
+
+<div class="form-group">
+<label style="width:200px;">フッター</label>
+<input class="jscolor  {hash:true}" name="ColorF" value="<s:property value="#session.fColor"/>">
+
+</div>
+
 <input type="submit"  value="送信">
-</form>
+</s:form>
+
+
+
 			</div>
 		</div>
 	</div>
@@ -387,6 +399,6 @@ FOLLOW</a>
     </footer>
      -->
 </div>
-</div>
+
 </body>
 </html>

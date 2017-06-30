@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/dropdown.css">
 
 
-<div class = "nonbs-send-form" style ="background-color:<s:property value="#session.color"/>;">
+<div class = "nonbs-send-form" style ="background-color:<s:property value="#session.fColor"/>;">
 
 <div class="nonbs-panel-body">
 <s:form action="PostSetAction">

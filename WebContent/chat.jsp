@@ -67,7 +67,7 @@
   <!-- 個人チャットの際のヘッダー -->
   <s:if test="groupId == 0">
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
         <div class="navbar-header">
           <a class="navbar-brand"
             href="<s:url action="GoTalkListAction"/>">&laquo;</a>

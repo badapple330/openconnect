@@ -275,79 +275,7 @@ public class BotDAO {
 	}
 
 
-/********************************************************
- *
- * 文章閲覧系のメソッド
- *
- ********************************************************/
 
-
-	/**
-	 * 学習マスターをリスト化するメソッド
-	 * @return 文章マスターリスト
-	 */
-	public ArrayList<BotDTO> mastersearch(){
-		ArrayList<BotDTO> masterList = new ArrayList<BotDTO>();
-		Connection con = new MySqlConnector("bbbot").getConnection();
-
-		String sql = "select * from word_analysis_master";
-
-		  try{
-			  PreparedStatement ps = con.prepareStatement(sql);
-			  ResultSet rs = ps.executeQuery();
-			  while(rs.next()){
-				  BotDTO dto = new BotDTO();
-				  dto.setSentenceId(rs.getInt("sentence_id"));
-				  dto.setLabel(rs.getString("label"));
-				  dto.setCreatedAt(rs.getString("created_at"));
-				  masterList.add(dto);
-				  }
-			  }catch(SQLException e){
-		    	e.printStackTrace();
-		    	}finally {
-			try{
-				con.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-		  return masterList;
-	}
-
-	/**
-	 * 文章IDから文章を取得しリスト化するメソッド
-	 * @param sentenceId 文章ID
-	 * @return 文章リスト
-	 */
-	public ArrayList<BotDTO> sentenceSearch(int sentenceId){
-		ArrayList<BotDTO> masterList = new ArrayList<BotDTO>();
-		Connection con = new MySqlConnector("bbbot").getConnection();
-
-		String sql = "select * from word_analysis where sentence_id = ?";
-
-		  try{
-			  PreparedStatement ps = con.prepareStatement(sql);
-			  ps.setInt(1, sentenceId);
-			  ResultSet rs = ps.executeQuery();
-			  while(rs.next()){
-				  BotDTO dto = new BotDTO();
-				  dto.setWord(rs.getString("word"));
-				  dto.setParts(rs.getString("parts"));
-				  dto.setPartOfSpeech(rs.getString("part_of_speech"));
-				  dto.setDictionary(rs.getBoolean("dictionary"));
-				  masterList.add(dto);
-				  }
-			  }catch(SQLException e){
-		    	e.printStackTrace();
-		    	}finally {
-			try{
-				con.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-		  return masterList;
-	}
 /********************************************************
  *
  * 文章削除系のメソッド
