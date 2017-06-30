@@ -25,7 +25,7 @@
 		});
 	});
 </script>
-
+<script src="js/footerFixed.js" type="text/javascript"></script>
 <jsp:include page="header.jsp" />
 </head>
 <body>

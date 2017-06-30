@@ -10,7 +10,7 @@
 <title>決裁手続き</title>
 <link rel="stylesheet" href="css/decision_detail.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script src="js/footerFixed.js" type="text/javascript"></script>
 <!-- 	ヘッダー読み込み -->
 <jsp:include page="header.jsp" />
 </head>

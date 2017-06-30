@@ -12,6 +12,7 @@
 <!-- Javascripts
       ================================================== -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="js/footerFixed.js" type="text/javascript"></script>
 
 <title>完了済み決済</title>
 <script type="text/javascript">
@@ -51,5 +52,6 @@
 		</s:form>
 
 	</div>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

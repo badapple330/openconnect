@@ -12,6 +12,7 @@
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/sendCheck.js"></script>
 <script type="text/javascript" src="js/decision_preview.js"></script>
+<script src="js/footerFixed.js" type="text/javascript"></script>
 <title>決裁プレビュー</title>
 <link rel="stylesheet" type="text/css" href="css/decision_preview.css">
 </head>
@@ -360,6 +361,6 @@
 			</div>
 		</s:iterator>
 	</s:if>
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>
