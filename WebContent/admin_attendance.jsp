@@ -283,6 +283,8 @@
 	</div>
 	</div>
 
+	<footer><s:include value="footer.jsp" /></footer>
+
 
 	<script src="js/jquery.ymdpulldown.js"></script>
 	<script>

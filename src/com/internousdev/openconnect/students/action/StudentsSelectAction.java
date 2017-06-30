@@ -105,7 +105,7 @@ public class StudentsSelectAction extends ActionSupport {
 
         if (studentsList.size() != 0) {
             result = SUCCESS;
-            resultSelect = "検索結果を表示しました。";
+            resultSelect = "検索結果を表示しました。(赤：管理者、黄：リーダー、緑：メンバー）";
             sort();
         }
 

@@ -237,6 +237,7 @@
 		<br>
 		<div>
 		</div>
+		<div class="pagetop"><div class = "pagetop-info"><b>PageTop</b></div></div>
 		 <footer><s:include value="footer.jsp" /></footer>
 </body>
 </html>

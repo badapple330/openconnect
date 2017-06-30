@@ -22,7 +22,7 @@
 
 	<div  class="attendance" align="center">
 
-	<h1 align="center">勤怠更新</h1><hr>
+	<h1 align="center">勤怠報告</h1><hr>
 	<s:if test="%{#session.userFlg >= 1}">
 <p>
 
@@ -104,5 +104,6 @@ $(function() {
 });
 
 </script>
+ <jsp:include page="footer.jsp" />
 </body>
 </html>

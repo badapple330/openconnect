@@ -716,6 +716,15 @@ insert into group_img(url) values
 ("pic/group_img/sevenStars.jpg"),
 ("pic/group_img/tomato01.jpg"),
 ("pic/group_img/wallet.jpg"),
+("pic/group_img/cat.jpg"),
+("pic/group_img/umbrella.jpg"),
+("pic/group_img/umbrella2.jpg"),
+("pic/group_img/raincoat.jpg"),
+("pic/group_img/fishing.jpg"),
+("pic/group_img/mountain.jpg"),
+("pic/group_img/winter_sports.jpg"),
+("pic/group_img/ski.jpg"),
+("pic/group_img/sea.gif"),
 ("pic/group_img/watch.jpg");
 
 insert into user_img(url) values
