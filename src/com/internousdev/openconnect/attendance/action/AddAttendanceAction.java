@@ -30,11 +30,6 @@ public class AddAttendanceAction{
 	 */
 	private String attendance="連絡なし";
 
-	/**
-	 * 備考欄
-	 */
-	private String reason;
-
 	Calendar cal = Calendar.getInstance();
 
 
@@ -107,108 +102,5 @@ public class AddAttendanceAction{
 		addattendanceaction.start();
 		}
 
-	/**
-	* 取得メソッド を取得
-	* @return userId
-	*/
-	public int getUserId() {
-		return userId;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param userId
-	*/
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return attendance
-	*/
-	public String getAttendance() {
-		return attendance;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param attendance
-	*/
-	public void setAttendance(String attendance) {
-		this.attendance = attendance;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return reason
-	*/
-	public String getReason() {
-		return reason;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param reason
-	*/
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return atYear
-	*/
-	public int getAtYear() {
-		return atYear;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param atYear
-	*/
-	public void setAtYear(int atYear) {
-		this.atYear = atYear;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return atMonth
-	*/
-	public int getAtMonth() {
-		return atMonth;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param atMonth
-	*/
-	public void setAtMonth(int atMonth) {
-		this.atMonth = atMonth;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return atDay
-	*/
-	public int getAtDay() {
-		return atDay;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param atDay
-	*/
-	public void setAtDay(int atDay) {
-		this.atDay = atDay;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return scheduler
-	*/
-	public Scheduler getScheduler() {
-		return scheduler;
-	}
 }
 
