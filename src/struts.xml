@@ -595,6 +595,11 @@
 			<result name="error"> profile.jsp</result>
 		</action>
 
+		<action name="UserImgUpdateAction" class="com.internousdev.bulletinboard.action.UserImgUpdateAction" method="execute">
+		<result name="success" type="redirectAction">ProfileUpdateAction</result>
+		<result name="error"> profile.jsp</result>
+		</action>
+
 		<!-- タイムラインの削除 -->
 		<action name="DeleteTimelineAction"
 			class="com.internousdev.bulletinboard.action.DeleteTimelineAction"
