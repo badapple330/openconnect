@@ -352,7 +352,7 @@ FOLLOW</a>
 </s:form>
 
 
-</form>
+
 			</div>
 		</div>
 	</div>
