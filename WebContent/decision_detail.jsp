@@ -10,7 +10,7 @@
 <title>決裁手続き</title>
 <link rel="stylesheet" href="css/decision_detail.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/footerFixed.js" type="text/javascript"></script>
+
 <!-- 	ヘッダー読み込み -->
 <jsp:include page="header.jsp" />
 </head>
@@ -190,22 +190,13 @@
                     </s:if>
                 <!-- 実施のプレビュー -->
 					<s:else>
-					<s:if test="optionStatus == 0 || optionStatus == 2">
 						<s:form action="DecisionPreviewAction">
                             <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                             <input type="hidden" name="type" value="1">
                                     <input type="submit" value="プレビュー" >
                         </s:form>
-                     </s:if>
 					</s:else>
-				<!-- [変更]実施プレビュー -->
-					<s:if test="optionStatus == 1">
-						<s:form action="DecisionPreviewAction">
-                            <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-                            <input type="hidden" name="type" value="4">
-                                    <input type="submit" value="[変更]実施プレビュー" >
-                        </s:form>
-					</s:if>
+
             </td>
             <td>
                 J<!-- 契約の編集 -->
@@ -222,13 +213,11 @@
                     </s:elseif>
                 <!-- 契約のプレビュー -->
 					<s:else>
-						<s:if test="optionStatus == 0 || optionStatus == 2">
 						<s:form action="DecisionPreviewAction">
                             <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                             <input type="hidden" name="type" value="2">
                                     <input type="submit" value="プレビュー" >
                         </s:form>
-                        </s:if>
 					</s:else>
 				<!-- [変更]契約プレビュー -->
 					<s:if test="optionStatus == 1">
@@ -455,28 +444,30 @@
 
                 	<!-- 申請中(変更・遡求申請含む)の時 -->
 					<s:else>
-						<!-- 1人目の承認をもらう前までは取り下げ可 -->
-							<s:if test="permitStatus == 0">
-								<s:form action="DecisionDetailCancelAction">
-				                    <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-				                    <input type="hidden" name="decisionStatus" value="<s:property value="decisionStatus" />">
-				                    <input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
-				                    <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
-			                    			<!-- 変更・遡求申請の時は取り消しできない(遡求はいきなり先生承認へいく) -->
-			                    			<s:if test="decisionStatus == 4">
-			                    				―
-			                    			</s:if>
-			                    			<s:else>
-			                    				<input type="submit" value="申請取り下げ" onclick='return confirm("よろしいですか？");'>
-			                    			</s:else>
+					<!-- 1人目の承認をもらう前までは取り下げ可 -->
+						<s:if test="permitStatus == 0">
+							<s:form action="DecisionDetailCancelAction">
 
-				                </s:form>
-							</s:if>
+			                    <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+			                    <input type="hidden" name="decisionStatus" value="<s:property value="decisionStatus" />">
+			                    <input type="hidden" name="decisionType" value="<s:property value="decisionType" />">
+			                    <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
 
-						<!-- それ以降は不可 -->
-							<s:else>
-								―
-							</s:else>
+                   			<!-- 変更・遡求申請の時は取り消しできない(遡求はいきなり先生承認へいく) -->
+                   			<s:if test="decisionStatus == 4">
+                   				―
+                   			</s:if>
+                   			<s:else>
+                   				<input type="submit" value="申請取り下げ" onclick='return confirm("よろしいですか？");'>
+                   			</s:else>
+
+			                </s:form>
+						</s:if>
+
+					<!-- それ以降は不可 -->
+						<s:else>
+							―
+						</s:else>
 					</s:else>
 
 				</s:if>
@@ -542,6 +533,18 @@
                 </s:else>
             </td>
         </tr>
+
+        <s:if test="optionStatus == 2 && decisionStatus == 5">
+	        <tr>
+	        	<td colspan="2">
+	        		<s:form action="DecisionPreviewAction">
+                        <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                        <input type="hidden" name="type" value="7">
+                                <input type="submit" value="遡求プレビュー" >
+                    </s:form>
+	        	</td><td colspan="3"></td>
+	        </tr>
+        </s:if>
 
     </table><br>
 
@@ -646,53 +649,38 @@
         <s:if test="%{decisionType == '実施' || decisionType == '契約'}">
             <td>
                 I<!-- 実施のプレビュー -->
-                <s:if test="optionStatus == 0">
+                <s:if test="optionStatus == 0 || optionStatus == 2">
 	                <s:form action="DecisionPreviewAction">
 	                    <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 	                    <input type="hidden" name="type" value="1">
 	                            <input type="submit" value="プレビュー" >
 	                </s:form>
                 </s:if>
-                <s:elseif test="optionStatus == 1">
+                <s:else>
                 	<s:form action="DecisionPreviewAction">
                         <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                         <input type="hidden" name="type" value="4">
                                 <input type="submit" value="[変更]実施プレビュー" >
                     </s:form>
-                </s:elseif>
-                <s:elseif test="optionStatus == 2">
-                	―
-                </s:elseif>
+                </s:else>
             </td>
             <td>
                 J<!-- 契約のプレビュー -->
                 <s:if test="%{decisionType == '契約'}">
-                <s:if test="optionStatus == 0">
+                <s:if test="optionStatus == 0 || optionStatus == 2">
                     <s:form action="DecisionPreviewAction">
                         <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                         <input type="hidden" name="type" value="2">
                                 <input type="submit" value="プレビュー" >
                     </s:form>
                 </s:if>
-                <s:elseif test="optionStatus == 1">
+                <s:else>
                 	<s:form action="DecisionPreviewAction">
                         <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
                         <input type="hidden" name="type" value="5">
                                 <input type="submit" value="[変更]契約プレビュー" >
                     </s:form>
-                </s:elseif>
-                <s:elseif test="optionStatus == 2">
-                	<s:form action="DecisionPreviewAction">
-                        <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-                        <input type="hidden" name="type" value="2">
-                                <input type="submit" value="契約プレビュー" >
-                    </s:form>
-                	<s:form action="DecisionPreviewAction">
-                        <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-                        <input type="hidden" name="type" value="7">
-                                <input type="submit" value="遡求プレビュー" >
-                    </s:form>
-                </s:elseif>
+                </s:else>
                 </s:if>
                 <s:else>
                     ―
@@ -702,32 +690,11 @@
             <s:else>
             <td colspan="2">
                 I+J<!-- 実施兼契約のプレビュー -->
-                <s:if test="optionStatus == 0">
 	                <s:form action="DecisionPreviewAction">
 	                    <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 	                    <input type="hidden" name="type" value="3">
 	                            <input type="submit" value="プレビュー" >
 	                </s:form>
-                </s:if>
-                <s:if test="optionStatus == 1">
-                	<s:form action="DecisionPreviewAction">
-                        <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-                        <input type="hidden" name="type" value="6">
-                                <input type="submit" value="[変更]実施兼契約プレビュー" >
-                    </s:form>
-                </s:if>
-                <s:if test="optionStatus == 2">
-                	<s:form action="DecisionPreviewAction">
-	                    <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-	                    <input type="hidden" name="type" value="3">
-	                            <input type="submit" value="実施兼契約プレビュー" >
-	                </s:form>
-	                <s:form action="DecisionPreviewAction">
-                        <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-                        <input type="hidden" name="type" value="7">
-                                <input type="submit" value="遡求プレビュー" >
-                    </s:form>
-                </s:if>
             </td>
             </s:else>
 
@@ -1022,6 +989,18 @@
         </s:if>
 
         </tr>
+
+        <s:if test="optionStatus == 2">
+	        <tr>
+	        	<td colspan="2">
+	        		<s:form action="DecisionPreviewAction">
+                        <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
+                        <input type="hidden" name="type" value="7">
+                                <input type="submit" value="遡求プレビュー" >
+                    </s:form>
+	        	</td><td colspan="3"></td>
+	        </tr>
+        </s:if>
 
     </table>
 
