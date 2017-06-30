@@ -51,13 +51,35 @@ public class AdminAttendanceLeaderAction extends ActionSupport implements Sessio
 	private String errorMsg;
 	/* ユーザーリスト */
 	private ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
+	/**
+	 * セッション
+	 */
+	private Map<String,Object> session;
+
+	/**
+	 * チームリスト
+	 */
+	private ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
+
+	/**
+	 * ユーザID
+	 */
+	private int userId;
+
+
+
+
 
 	public String execute(){
 
 		String result = ERROR;
 
 		AdminAttendanceLeaderDAO dao = new AdminAttendanceLeaderDAO();
-		searchList = dao.select(atYear,atMonth,atDay,attendance,teamName);
+		searchList = dao.select(atYear,atMonth,atDay,attendance);
+
+			int userId = (int) session.get("userId");
+			AdminAttendanceLeaderDAO dao2 = new AdminAttendanceLeaderDAO();
+		atTeamList = dao2.select2(userId);
 
 		for(int i = 0; i<searchList.size(); i++){
 			String attend = searchList.get(i).getAttendance();
@@ -78,8 +100,8 @@ public class AdminAttendanceLeaderAction extends ActionSupport implements Sessio
 		}
 		return result;
 
-	}
 
+	}
 
 	/**
 	 * atYearを取得します。
@@ -309,7 +331,49 @@ public class AdminAttendanceLeaderAction extends ActionSupport implements Sessio
 	public void setSearchList(ArrayList<AttendanceDTO> searchList) {
 	    this.searchList = searchList;
 	}
+	/**
+	* 取得メソッド を取得
+	* @return atTeamList
+	*/
+	public ArrayList<AttendanceDTO> getAtTeamList() {
+		return atTeamList;
+	}
 
+
+	/**
+	* 設定メソッド を設定
+	* @param atTeamList
+	*/
+	public void setAtTeamList(ArrayList<AttendanceDTO> atTeamList) {
+		this.atTeamList = atTeamList;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return session
+	*/
+	public Map<String, Object> getSession() {
+		return session;
+	}
 
 	/* (非 Javadoc)
 	 * @see org.apache.struts2.interceptor.SessionAware#setSession(java.util.Map)

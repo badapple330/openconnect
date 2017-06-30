@@ -8,7 +8,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.openconnect.attendance.dao.GoAttendanceDAO;
+import com.internousdev.openconnect.attendance.dao.GoAdminAttendanceLeaderDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -50,7 +50,7 @@ public String execute() {
 	if(session.get("userId") != null){
 		int userId = (int) session.get("userId");
 
-		GoAttendanceDAO dao = new GoAttendanceDAO();
+		GoAdminAttendanceLeaderDAO dao = new GoAdminAttendanceLeaderDAO();
 	atTeamList = dao.select(userId);
 
 	if(atTeamList.size() > 0){
