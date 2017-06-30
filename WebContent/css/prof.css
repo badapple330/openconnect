@@ -74,7 +74,7 @@ body{
 
 }
 .textarea{
-	width: 100%;
+	width: 40%;
 	height: 200px;
 	border: solid 1px brack;
 }
@@ -187,12 +187,10 @@ body{
 .panel-body{
 	padding: 0;
 }
-.square_btn{
-	width: 0px;
-	height: 0px;
-}
+
+
 .square_btn a{
-	font-size: 0px;
+	font-size: 15px;
 }
 
 .followIcon{
@@ -221,6 +219,13 @@ body{
 	padding: 1vw;
 }
 
+pre{
+	font-size:15px;
+}
+
+.textarea{
+	width: 80%;
+}
 }
 /*携帯ディスプレイverここまで---------------------------*/
 
