@@ -48,10 +48,12 @@ public class GoTalkListAction extends ActionSupport implements SessionAware{
 	if(userId==0){return result;}
 
 	colorChangeDAO cdao=new colorChangeDAO();
-
-	session.put("hColor", cdao.getColor(userId).gethColor());
-	session.put("bColor", cdao.getColor(userId).getbColor());
-	session.put("fColor", cdao.getColor(userId).getfColor());
+	String hColor=cdao.getColor(userId).gethColor();
+	String bColor=cdao.getColor(userId).getbColor();
+	String fColor= cdao.getColor(userId).getfColor();
+	session.put("hColor",hColor);
+	session.put("bColor",bColor);
+	session.put("fColor", fColor);
 
 
 

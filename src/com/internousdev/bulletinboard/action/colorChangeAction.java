@@ -18,11 +18,11 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 
-	private String hColor;
+	private String ColorH;
 
-	private String bColor;
+	private String ColorB;
 
-	private String fColor;
+	private String ColorF;
 
 
 	private Map<String,Object> session;
@@ -38,7 +38,7 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 		if(userId==0){return result;}
 
 
-		dao.colorChange( userId, hColor,bColor,fColor);
+		dao.colorChange( userId, ColorH,ColorB,ColorF);
 		session.put("hColor", dao.getColor(userId).gethColor());
 		session.put("bColor", dao.getColor(userId).getbColor());
 		session.put("fColor",dao.getColor(userId).getfColor());
@@ -74,21 +74,10 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 	/**
 	* 取得メソッド を取得
-	* @return hColor
+	* @return ColorH
 	*/
-	public String gethColor() {
-		return hColor;
-	}
-
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param hColor
-	*/
-	public void sethColor(String hColor) {
-		this.hColor = hColor;
+	public String getColorH() {
+		return ColorH;
 	}
 
 
@@ -96,21 +85,10 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 	/**
 	* 取得メソッド を取得
-	* @return bColor
+	* @return ColorB
 	*/
-	public String getbColor() {
-		return bColor;
-	}
-
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param bColor
-	*/
-	public void setbColor(String bColor) {
-		this.bColor = bColor;
+	public String getColorB() {
+		return ColorB;
 	}
 
 
@@ -118,10 +96,10 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 	/**
 	* 取得メソッド を取得
-	* @return fColor
+	* @return ColorF
 	*/
-	public String getfColor() {
-		return fColor;
+	public String getColorF() {
+		return ColorF;
 	}
 
 
@@ -129,11 +107,34 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 	/**
 	* 設定メソッド を設定
-	* @param fColor
+	* @param ColorH
 	*/
-	public void setfColor(String fColor) {
-		this.fColor = fColor;
+	public void setColorH(String colorH) {
+		ColorH = colorH;
 	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param ColorB
+	*/
+	public void setColorB(String colorB) {
+		ColorB = colorB;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param ColorF
+	*/
+	public void setColorF(String colorF) {
+		ColorF = colorF;
+	}
+
 
 }
 
