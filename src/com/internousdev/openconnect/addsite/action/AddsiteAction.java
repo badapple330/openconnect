@@ -70,7 +70,7 @@ public class AddsiteAction extends ActionSupport implements SessionAware{
 		String result =ERROR;
 		
 		 /* Copy file to a safe location */
-	      destPath = "C:/Users/internousdev.00174045469704.001/git/internousdev/WebContent/Upload/SiteImage/";
+	      destPath = "/opt/tomcat8/webapps/internousdev/Upload/SiteImage/";
 
 	      try{
 	     	 System.out.println("Src File name: " + myFile);
