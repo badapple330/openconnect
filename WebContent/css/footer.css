@@ -1,6 +1,5 @@
 .footer {
 	/*position:fixed; フッターを絶対配置に指定する設定*/
-	position: absolute;
 	bottom: 0px;
 	width: 100%;
 	text-align: center;
