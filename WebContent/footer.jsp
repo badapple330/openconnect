@@ -13,8 +13,8 @@
 				<li><a href="GoTalkListAction.action" target="blank">SNS</a></li>
 			</ul>
 		</nav>
-	</div>
-  <div class= "copyright">
+		<div class= "copyright">
    <small>Copyright © 2014-2017 ProgrammerCollege、all rights reserved.</small>
   </div>
+	</div>
 </footer>
