@@ -28,9 +28,9 @@ private static final long serialVersionUID = 1181846755041839614L;
 private Map<String,Object> session;
 
 /**
- * ユーザーリスト
+ * チームリスト
  */
-private ArrayList<AttendanceDTO> atUserList = new ArrayList<AttendanceDTO>();
+private ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
 
 /**
  * ユーザID
@@ -51,9 +51,9 @@ public String execute() {
 		int userId = (int) session.get("userId");
 
 		GoAttendanceDAO dao = new GoAttendanceDAO();
-	atUserList = dao.select(userId);
+	atTeamList = dao.select(userId);
 
-	if(atUserList.size() > 0){
+	if(atTeamList.size() > 0){
 		result=SUCCESS;
 	}
 	}
@@ -79,21 +79,28 @@ public void setSession(Map<String, Object> session) {
 	this.session = session;
 }
 
+
 /**
 * 取得メソッド を取得
-* @return atUserList
+* @return atTeamList
 */
-public ArrayList<AttendanceDTO> getAtUserList() {
-	return atUserList;
+public ArrayList<AttendanceDTO> getAtTeamList() {
+	return atTeamList;
 }
+
+
+
 
 /**
 * 設定メソッド を設定
-* @param atUserList
+* @param atTeamList
 */
-public void setAtUserList(ArrayList<AttendanceDTO> atUserList) {
-	this.atUserList = atUserList;
+public void setAtTeamList(ArrayList<AttendanceDTO> atTeamList) {
+	this.atTeamList = atTeamList;
 }
+
+
+
 
 /**
 * 取得メソッド を取得
