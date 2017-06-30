@@ -126,7 +126,7 @@ FOLLOW</a>
 </tr>
 </table>
 <BR><BR>
-        <div class="textarea" style="center;width:60%;"><h3 class="fontsize" style="border-bottom: solid 1px black;">BIO</h3>
+        <div class="textarea" style="center;width:40%;"><h3 class="fontsize" style="border-bottom: solid 1px black;">BIO</h3>
 <div class="fontsize2"><pre><s:property value="profile"/></pre></div>
         </div>
 </s:iterator>
