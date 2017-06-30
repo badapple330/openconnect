@@ -8,6 +8,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.TalkListDAO;
+import com.internousdev.bulletinboard.dao.colorChangeDAO;
 import com.internousdev.bulletinboard.dto.PostDTO;
 import com.internousdev.bulletinboard.util.GroupComparator;
 import com.opensymphony.xwork2.ActionSupport;
@@ -46,6 +47,10 @@ public class GoTalkListAction extends ActionSupport implements SessionAware{
 	}
 	if(userId==0){return result;}
 
+	colorChangeDAO cdao=new colorChangeDAO();
+
+	session.put("color", cdao.getColor(userId));
+
 
 
 
@@ -62,6 +67,10 @@ public class GoTalkListAction extends ActionSupport implements SessionAware{
 	FooterInfoDAO infodao = new FooterInfoDAO();
 	groupInfo=infodao.groupInfoGet(userId);
 	talkInfo=infodao.talkInfoGet(userId);
+
+
+
+
 
 
 
