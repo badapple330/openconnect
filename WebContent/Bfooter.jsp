@@ -29,7 +29,7 @@
 
 
 
-	<div class="color" style ="background-color:<s:property value="#session.color"/>;">
+	<div class="color" style ="background-color:<s:property value="#session.fColor"/>;">
 			<nav>
 				<div class="contents">
 					<div id="link"

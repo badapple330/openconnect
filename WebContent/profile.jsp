@@ -22,13 +22,12 @@ pageEncoding="UTF-8"%>
 	<script type="text/javascript" src="js/jscolor.js"></script>
 
 </head>
-<body style="background-color:<s:property value="#session.color"/>;">
-<div class ="kaito" style="background-color:rgba(255, 255, 255, 0.63);">
+<body style="background-color:<s:property value="#session.bColor"/>;">
 
 <!-- ヘッダー -->
 <s:if test="%{#session.userId == viewId}">
 <nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid" style ="background-color:<s:property value="#session.color"/>;">
+<div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
   <div class="navbar-header">
 
 
@@ -327,25 +326,25 @@ FOLLOW</a>
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-				<h4 class="modal-title">仮</h4>
+				<h3 class="modal-title">カラー変更</h3>
 			</div>
 <div class="modal-body">
 			<form action="colorChangeAction">
 <div class="form-group">
 <label style="width:200px;">ヘッダー</label>
-<input class="jscolor  {hash:true}" name="hColor" value="<s:property value="#session.color"/>">
+<input class="jscolor  {hash:true}" name="hColor" value="<s:property value="#session.hColor"/>">
 
 </div>
 
 <div class="form-group">
 <label style="width:200px;">ボディ</label>
-<input class="jscolor  {hash:true}" name="bColor" value="<s:property value="#session.color"/>">
+<input class="jscolor  {hash:true}" name="bColor" value="<s:property value="#session.bColor"/>">
 
 </div>
 
 <div class="form-group">
 <label style="width:200px;">フッター</label>
-<input class="jscolor  {hash:true}" name="fColor" value="<s:property value="#session.color"/>">
+<input class="jscolor  {hash:true}" name="fColor" value="<s:property value="#session.fColor"/>">
 
 </div>
 
