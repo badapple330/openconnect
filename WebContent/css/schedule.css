@@ -136,6 +136,30 @@ footer{
 	display: none;
 }
 
+.pagetop{
+	position:fixed;
+	bottom:100px;
+	right:40px;
+  	width:75px;
+	height:75px;
+ 	text-align:center;
+ 	background-color:black;
+ 	border-radius: 50%;
+ 	-webkit-border-radius: 50%;
+ 	-moz-border-radius: 50%;
+}
+
+.pagetop-info{
+	padding-top:28px;
+	color:white;
+}
+
+.pagetop:hover {
+	background: #2a82a3;
+	color: #FFF;
+	border: 1px solid #FFF;
+}
+
 
 @media only screen and (max-device-width : 640px){
 
@@ -179,11 +203,24 @@ footer{
 
         .blockC{
         	width:350px;
-        	text-align:right;
+        	text-align:center;
 			clear:left;
 			clear:right;
 			clear:both;
 		}
+
+		.pagetop{
+			width:50px;
+			height:50px;
+			right:20px;
+		}
+
+		.pagetop-info{
+			font-size:11px;
+			padding-top:18px;
+			color:white;
+		}
+
 
 		.print-btn{
 			visibility:hidden;
