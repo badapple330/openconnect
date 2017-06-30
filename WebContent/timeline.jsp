@@ -55,7 +55,7 @@
 	</script>
 	</s:iterator>
 	</head>
-<body>
+<body style="background-color:<s:property value="#session.bColor"/>;">>
 
 <div class="outline" >
 <nav class="navbar navbar-inverse navbar-fixed-top">
