@@ -14,6 +14,13 @@ import com.internousdev.openconnect.util.SchedulerTask;
  * @since  2017/06/27
  * @version 1.0
  */
+
+/* 「javaを実行」では起動するが、コマンドプロンプトではメインメソッドが発見されないエラーあり
+ * コマンドプロンプトでも動くようにする
+ * 場合によっては、時間のところを外しインサートの部分とLinuxのクーロンの時間指定で行う
+ * 余裕があれば引き継ぎお願いします。
+ */
+
 public class AddAttendanceAction{
 	private final Scheduler scheduler = new Scheduler();
 
