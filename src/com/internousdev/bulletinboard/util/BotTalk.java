@@ -84,7 +84,7 @@ public class BotTalk {
 			  ResultSet rs = ps.executeQuery();
 			  while(rs.next()){
 				  BotDTO dto = new BotDTO();
-				  dto.setResponseId(rs.getInt("response_id"));
+				  dto.setSentenceId(rs.getInt("response_id"));
 				  dto.setWord(rs.getString("word"));
 				  dto.setResponse(rs.getString("response"));
 

@@ -15,6 +15,8 @@ public class UserDTO {
 	 */
 	private String userImg;
 
+	private int imgId;
+
 	/**
 	 * 名前
 	 */
@@ -57,6 +59,9 @@ public class UserDTO {
 
 	private int Done;
 
+	//URL
+	private String url;
+
 
 	//以下アクセサリー
 
@@ -92,6 +97,14 @@ public class UserDTO {
 	 */
 	public void setUserImg(String userImg) {
 		this.userImg = userImg;
+	}
+
+	public int getImgId() {
+		return imgId;
+	}
+
+	public void setImgId(int imgId) {
+		this.imgId = imgId;
 	}
 
 	/**
@@ -224,5 +237,12 @@ public void setColor(String color) {
 	this.color = color;
 }
 
+public String getUrl() {
+	return url;
+}
+
+public void setUrl(String url) {
+	this.url = url;
+}
 
 }

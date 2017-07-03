@@ -20,7 +20,7 @@ public class DecisionDetailRejectDAO {
 	/**
      * 却下ボタン押下時メソッド  却下による値の更新をする為のメソッド
      */
-	public int reject( String decisionType, int decisionId ) {
+	public int reject( int decisionStatus, String decisionType, int decisionId ) {
 
 		int count = 0;
 
@@ -29,10 +29,24 @@ public class DecisionDetailRejectDAO {
 		String sql = "";
 
 		if(decisionType.equals("実施")) {
-			sql = "update decision set permit_statusJ = 0, j_apply_day = null, decision_status = 2, j_imp_id = null, j_permiter_id1 = null, j_permiter_id2 = null where decision_id = ?";
+
+			if(decisionStatus == 4) {
+				//変更時却下(起案・決裁番号は保持)、id3は既にnullなので記述しない
+				sql = "update decision set permit_status = 0, decision_status = 9, j_apply_day = null, k_apply_day = null, j_permiter_id1 = null"
+						+ ", j_permiter_id2 = null,  k_permiter_id1 = null, k_permiter_id2 = null where decision_id = ?";
+			}
+			else {
+				sql = "update decision set permit_status = 0, decision_status = 2, j_apply_day = null, j_imp_id = null, j_permiter_id1 = null, j_permiter_id2 = null where decision_id = ?";
+			}
 		}
 		else {
-			sql = "update decision set permit_statusK = 0, k_apply_day = null, decision_status = 2, k_imp_id = null, k_permiter_id1 = null, k_permiter_id2 = null where decision_id = ?";
+			//変更時却下(起案・決裁番号は保持)、id3は既にnullなので記述しない
+			if(decisionStatus == 4) {
+				sql = "update decision set permit_status = 0, decision_status = 9, k_apply_day = null, k_permiter_id1 = null, k_permiter_id2 = null where decision_id = ?";
+			}
+			else {
+				sql = "update decision set permit_status = 0, decision_status = 2, k_apply_day = null, k_imp_id = null, jk_imp_id = null, k_permiter_id1 = null, k_permiter_id2 = null where decision_id = ?";
+			}
 		}
 
 		try {

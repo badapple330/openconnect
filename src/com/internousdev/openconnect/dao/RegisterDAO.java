@@ -36,7 +36,7 @@ public class RegisterDAO {
 	 * @return result 挿入に成功したら1以上、失敗したら0
 	 */
 	public int insert(int userId, String password,  String familyNameKanji, String familyNameKana,
-			String givenNameKanji, String givenNameKana, String email,  int year, String month,int user_flg) {
+			String givenNameKanji, String givenNameKana, String email,  int year, String month,int user_flg, String userName) {
 		int result = 0;
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
@@ -48,7 +48,7 @@ public class RegisterDAO {
 
 		String sql = "insert into users(user_id, password, family_name_kanji, given_name_kanji,"
 +" family_name_kana, given_name_kana,phone_email,"
-+"  year, month,register_day,login_flg,user_flg)values(?,?,?,?,?,?,?,?,?,?,?,?)";
++"  year, month,register_day,login_flg,user_flg,user_name)values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String registerDay = sdf.format(System.currentTimeMillis());
@@ -68,6 +68,7 @@ public class RegisterDAO {
 			ps.setString(10,registerDay);
 			ps.setBoolean(11, false);
 			ps.setInt(12, 1);
+			ps.setString(13, userName);
 			result = ps.executeUpdate();
 
 		} catch (Exception e) {

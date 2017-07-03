@@ -42,7 +42,10 @@
 							  <s:if test="%{#session.userFlg >= 1}">
 							  <li><a href="#" class= "header-menu">■ Category</a>
 							    <ul>
-							    <s:if test="%{#session.userFlg >= 2}">
+							     <s:if test="%{#session.userFlg == 2}">
+								  <li><a href="GoAdminAttendanceLeaderAction">勤怠確認</a></li>
+								</s:if>
+							    <s:if test="%{#session.userFlg == 3}">
 								  <li><a href="GoAdminAttendanceAction">勤怠確認</a></li>
 								</s:if>
 							      <li><a href="GoTeamAction">チーム情報</a></li>
@@ -71,6 +74,7 @@
 
 							<s:if test="%{#session.userFlg == 3}">
 							  <li><a href="GoRegisterAction">新規登録</a></li>
+							   <li><a href="addsite.jsp">サイト登録</a></li>
 							 </s:if>
 
 							    </ul>

@@ -26,6 +26,14 @@ public class DecisionDetailRejectAction extends ActionSupport {
 	 */
 	private String decisionType;
 	/**
+	 * sessionから取得したログイン中ユーザーID
+	 */
+	private int userId;
+	/**
+	 * 決裁状況
+	 */
+	private int decisionStatus;
+	/**
 	 * 管理者権限メソッド
 	 */
 	public Map<String, Object> session;
@@ -48,7 +56,7 @@ public class DecisionDetailRejectAction extends ActionSupport {
 
 		int count = 0;
 
-		count = dao.reject( decisionType, decisionId );
+		count = dao.reject( decisionStatus, decisionType, decisionId );
 
 
 		if (count > 0 ) {
@@ -92,6 +100,38 @@ public class DecisionDetailRejectAction extends ActionSupport {
 	*/
 	public void setDecisionType(String decisionType) {
 		this.decisionType = decisionType;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+
+
+	public int getDecisionStatus() {
+		return decisionStatus;
+	}
+
+
+
+	public void setDecisionStatus(int decisionStatus) {
+		this.decisionStatus = decisionStatus;
 	}
 
 

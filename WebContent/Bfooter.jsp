@@ -6,12 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" href="css/Bfooter.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <style>
-.active {
-	background-color: rgb(111, 207, 245);
+.footerActive {
+	background-color: rgba(255, 255, 255, 0.6);
+	border-style:solid;
+	color:rgba(50, 50, 50, 0.6);
 }
 </style>
 
@@ -29,12 +29,12 @@
 
 
 
-		<div class="footer">
+	<div class="color" style ="background-color:<s:property value="#session.fColor"/>;">
 			<nav>
 				<div class="contents">
 					<div id="link"
 						<%if (fileName.endsWith("/profile.jsp")) {
-				out.print(" class=\"a active\" ");
+				out.print(" class=\"a footerActive\" ");
 			} else {
 				out.print(" class=\"a\" ");
 			}%>
@@ -46,7 +46,7 @@
 
 					<div id="link"
 						<%if (fileName.endsWith("/TalkMember.jsp")) {
-				out.print(" class=\"a active\" ");
+				out.print(" class=\"a footerActive\" ");
 			} else {
 				out.print(" class=\"a\" ");
 			}%>
@@ -64,7 +64,7 @@
 
 					<div id="link"
 						<%if (fileName.endsWith("/group.jsp")) {
-				out.print(" class=\"a active\" ");
+				out.print(" class=\"a footerActive\" ");
 			} else {
 				out.print(" class=\"a\" ");
 			}%>
@@ -82,7 +82,7 @@
 
 					<div id="link"
 						<%if (fileName.endsWith("/timeline.jsp")) {
-				out.print(" class=\"a active\" ");
+				out.print(" class=\"a footerActive\" ");
 			} else {
 				out.print(" class=\"a\" ");
 			}%>>

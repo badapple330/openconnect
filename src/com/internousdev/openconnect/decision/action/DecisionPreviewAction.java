@@ -85,6 +85,9 @@ public class DecisionPreviewAction extends ActionSupport {
 	 */
 	public int kPermiterId3;
 
+	/**
+	 * 実施/契約/実施兼契約を判断するタイプ。
+	 */
 	public int type;
 
 
@@ -118,12 +121,12 @@ public class DecisionPreviewAction extends ActionSupport {
 	/**
 	 * 実施起案者の情報のリスト
 	 */
-	private ArrayList<DecisionDTO> JNameList = new ArrayList<DecisionDTO>();
+	private ArrayList<DecisionDTO> jNameList = new ArrayList<DecisionDTO>();
 
 	/**
 	 * 契約起案者の情報のリスト
 	 */
-	private ArrayList<DecisionDTO> KNameList = new ArrayList<DecisionDTO>();
+	private ArrayList<DecisionDTO> kNameList = new ArrayList<DecisionDTO>();
 
 	/**
 	 * 実施承認者1人目の情報のリスト
@@ -172,11 +175,11 @@ public class DecisionPreviewAction extends ActionSupport {
 
 					// 実施決裁の起案者IDの数字を持ってくる
 					jDrafterId = decisionPreviewList.get(0).getJDrafterId();
-					JNameList = dao.selectByJDrafterIds(jDrafterId);
+					jNameList = dao.selectByJDrafterIds(jDrafterId);
 
 					// 契約/実施兼契約決裁の起案者IDの数字を持ってくる
 					kDrafterId = decisionPreviewList.get(0).getKDrafterId();
-					KNameList = dao.selectByKDrafterIds(kDrafterId);
+					kNameList = dao.selectByKDrafterIds(kDrafterId);
 
 					// 実施決裁の承認者IDの数字を持ってくる
 					jPermiterId1 = decisionPreviewList.get(0).getJPermiterId1();
@@ -451,8 +454,8 @@ public class DecisionPreviewAction extends ActionSupport {
 	* @author KOHEI NITABARU
 	* @return nameList
 	*/
-	public ArrayList<DecisionDTO> getNameList() {
-		return JNameList;
+	public ArrayList<DecisionDTO> getJNameList() {
+		return jNameList;
 	}
 
 	/**
@@ -460,8 +463,8 @@ public class DecisionPreviewAction extends ActionSupport {
 	* @author KOHEI NITABARU
 	* @param nameList
 	*/
-	public void setJNameList(ArrayList<DecisionDTO> JNameList) {
-		this.JNameList = JNameList;
+	public void setJNameList(ArrayList<DecisionDTO> jNameList) {
+		this.jNameList = jNameList;
 	}
 
 	/**
@@ -469,7 +472,7 @@ public class DecisionPreviewAction extends ActionSupport {
 	* @return KNameList
 	*/
 	public ArrayList<DecisionDTO> getKNameList() {
-		return KNameList;
+		return kNameList;
 	}
 
 
@@ -479,8 +482,8 @@ public class DecisionPreviewAction extends ActionSupport {
 	* 設定メソッド を設定
 	* @param KNameList
 	*/
-	public void setKNameList(ArrayList<DecisionDTO> KNameList) {
-		this.KNameList = KNameList;
+	public void setKNameList(ArrayList<DecisionDTO> kNameList) {
+		this.kNameList = kNameList;
 	}
 
 

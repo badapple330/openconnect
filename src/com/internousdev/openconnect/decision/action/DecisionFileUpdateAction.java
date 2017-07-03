@@ -4,8 +4,10 @@
 package com.internousdev.openconnect.decision.action;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.decision.dao.DecisionDAO;
@@ -18,29 +20,35 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class DecisionFileUpdateAction extends ActionSupport implements SessionAware{
 
-
-
+	 private File myFile;
+	   private String myFileContentType;
+	   private String myFileFileName;
+	   private String destPath;
 	/**
-	 * 資料ID
+	 * 実施起案者ID
 	 */
-	private int documentId;
+	private int jDrafterId;
 
 	/**
 	 * セッション情報
 	 */
 	private Map<String,Object> session;
 
+
 	/**
-	 * 資料パス
+	 * 起案者Id
 	 */
-	private String documentPath;
+	private int decisionId;
 
 	/**
 	 * 資料名
 	 */
 	private String documentName;
 
-
+	/**
+	 * エラーメッセージ
+	 */
+	public String resultString = "追加できませんでした";
 
 	/**
 	 * 資料情報を追加する
@@ -51,20 +59,31 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 	public String execute()throws Exception{
 		String result = ERROR;
 
-		int inserted=0;
-		 String documentName = new File(documentPath).getName();
-	        System.out.println(documentName);
-		DecisionDAO dao = new DecisionDAO();
+		 /* Copy file to a safe location */
+	      destPath = "C:/Users/internousdev.U103163798/Desktop/";
 
-		inserted=dao.insert(documentId,documentPath,documentName);
+	      try{
+	     	 System.out.println("Src File name: " + myFile);
+	     	 System.out.println("Dst File name: " + myFileFileName);
 
-		if(inserted>0){
-			result = SUCCESS;
-		}
+	     	 File destFile  = new File(destPath, myFileFileName);
+	    	 FileUtils.copyFile(myFile, destFile);
+
+	      }catch(IOException e){
+	         e.printStackTrace();
+	      }
+			int inserted=0;
+			DecisionDAO dao = new DecisionDAO();
+
+			inserted=dao.insert(myFileFileName,documentName,decisionId);
+
+			if(inserted>0){
+				result = SUCCESS;
+			}
+
+		resultString="追加しました。";
 		return result;
 	}
-
-
 
 	/**
 	 * 取得メソッド
@@ -85,42 +104,24 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-    /**
-     * 取得メソッド
-     * @autor Jun kikuchi
-     * @return articleId
-     */
-	public int getArticleId() {
-		return documentId;
-	}
-
-    /**
-     * 格納メソッド
-     * @autor Jun kikuchi
-     * @param documentId アーティクルID
-     */
-	public void setDocumentId(int documentId) {
-		this.documentId = documentId;
-	}
-
-    /**
-     * 取得メソッド
-     * @autor Jun kikuchi
-     * @return documentPath
-     */
-	public String getDocumentPath() {
-		return documentPath;
-	}
 
 
-    /**
-     * 格納メソッド
-     * @autor Jun kikuchi
-     * @param documentPath イメージパス
-     */
-	public void setDocumentPath(String documentPath) {
-		this.documentPath = documentPath;
+	/**
+	* 取得メソッド を取得
+	* @return decisionId
+	*/
+	public int getDecisionId() {
+		return decisionId;
 	}
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionId
+	*/
+	public void setDecisionId(int decisionId) {
+		this.decisionId = decisionId;
+	}
+
 	/**
 	 * 取得メソッド
 	 * userIdを取得
@@ -131,8 +132,6 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 		return documentName;
 	}
 
-
-
 	/**
 	 * 格納メソッド
 	 * userIdを格納
@@ -142,5 +141,102 @@ public class DecisionFileUpdateAction extends ActionSupport implements SessionAw
 	public void setDocumentName(String documentName) {
 		this.documentName = documentName;
 	}
+
+	/**
+	* 取得メソッド を取得
+	* @return resultString
+	*/
+	public String getResultString() {
+		return resultString;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param resultString
+	*/
+	public void setResultString(String resultString) {
+		this.resultString = resultString;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return jDrafterId
+	*/
+	public int getJDrafterId() {
+		return jDrafterId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param jDrafterId
+	*/
+	public void setJDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return myFile
+	*/
+	public File getMyFile() {
+		return myFile;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param myFile
+	*/
+	public void setMyFile(File myFile) {
+		this.myFile = myFile;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return myFileContentType
+	*/
+	public String getMyFileContentType() {
+		return myFileContentType;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param myFileContentType
+	*/
+	public void setMyFileContentType(String myFileContentType) {
+		this.myFileContentType = myFileContentType;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return myFileFileName
+	*/
+	public String getMyFileFileName() {
+		return myFileFileName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param myFileFileName
+	*/
+	public void setMyFileFileName(String myFileFileName) {
+		this.myFileFileName = myFileFileName;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return destPath
+	*/
+	public String getDestPath() {
+		return destPath;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param destPath
+	*/
+	public void setDestPath(String destPath) {
+		this.destPath = destPath;
+	}
+
 
 }

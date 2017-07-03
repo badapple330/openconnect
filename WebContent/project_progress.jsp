@@ -14,6 +14,7 @@
 
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/project_progress.js"></script>
+<script src="js/footerFixed.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -47,8 +48,7 @@
 				<input type="submit" value="検索" class="button0">
 			</s:form>
 
-			<br>
-			<BR> <font color="red"> <s:property
+			<br> <BR> <font color="red"> <s:property
 					value="%{resultString}" /> <s:property value="%{resultSelect}" />
 			</font>
 		</div>
@@ -120,25 +120,25 @@
 				<s:if test="%{#session.userFlg == 3}">
 					<BR>
 					<div class="centered add">
-						<input type="submit" class="button fixedButton" value="編集完了" />
+						<input type="submit" class="button1 fixedButton" value="編集完了" />
 					</div>
 				</s:if>
 			</s:form>
 		</div>
-<BR>
-						<br>
-				<div id="pager" class="centered">
-					<div id="page_ctrl">
-						<ul id="page_before">
-							<li id="page_prev">prev</li>
-						</ul>
-						<ul id="page_number"></ul>
-						<ul id="page_after">
-							<li id="page_next">next</li>
-						</ul>
-					</div>
-				</div>
-				<br>
+		<BR>
+		<br>
+		<div id="pager" class="centered">
+			<div id="page_ctrl">
+				<ul id="page_before">
+					<li id="page_prev">prev</li>
+				</ul>
+				<ul id="page_number"></ul>
+				<ul id="page_after">
+					<li id="page_next">next</li>
+				</ul>
+			</div>
+		</div>
+		<br>
 
 
 
@@ -167,7 +167,8 @@
 				</table>
 
 				<div class="centered add">
-					<br> <input type="submit" class="button fixedButton" value="追加する">
+					<br> <input type="submit" class="button1 fixedButton"
+						value="追加する">
 				</div>
 			</s:form>
 		</div>
@@ -196,8 +197,7 @@
 
 		<br>
 		<div id="modal-main" align="center">
-			<BR>
-			<BR>
+			<BR> <BR>
 			<table border="1">
 				<tr>
 					<td>プロジェクトID</td>
@@ -256,8 +256,10 @@
 			<button type="submit" class="button2">戻る</button>
 		</div>
 	</s:form>
+	<br>
 	<BR>
 	<BR>
+	<jsp:include page="footer.jsp" />
 
 </body>
 </html>

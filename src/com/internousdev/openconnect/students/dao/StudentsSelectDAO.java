@@ -32,7 +32,7 @@ public class StudentsSelectDAO {
 
         String sql;
 
-        sql="select * from users order by user_flg ";
+        sql="select * from users order by user_flg";
 
         try {
 
@@ -81,7 +81,7 @@ public class StudentsSelectDAO {
                 dto.setUserFlg(rs.getInt("user_flg"));
                 dto.setYear(rs.getString("year"));
                 dto.setMonth(rs.getString("month"));
-
+                dto.setUserName(rs.getString("user_name"));
 
                 searchList.add(dto);
             }

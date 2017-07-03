@@ -24,11 +24,11 @@ public class DecisionDetailRemandAction extends ActionSupport {
 	/**
 	 * 決裁種類
 	 */
-	private String decisionType;
+	private int decisionStatus;
 	/**
-	 * 承認状況
+	 * sessionから取得したログイン中ユーザーID
 	 */
-	private int permitStatus;
+	private int userId;
 	/**
 	 * 管理者権限メソッド
 	 */
@@ -54,12 +54,12 @@ public class DecisionDetailRemandAction extends ActionSupport {
 
 		int count = 0;
 
-		count = dao.remand( decisionType, permitStatus, decisionId );
+		count = dao.remand( decisionStatus, decisionId );
 
 
 		if (count > 0 ) {
 			result = SUCCESS;
-			resultString = "差し戻しできました!";
+			resultString = "差し戻しました!";
 		}
 		return result;
 	}
@@ -82,29 +82,38 @@ public class DecisionDetailRemandAction extends ActionSupport {
 		this.decisionId = decisionId;
 	}
 
-	public String getDecisionType() {
-		return decisionType;
+
+	public int getDecisionStatus() {
+		return decisionStatus;
 	}
 
-	public void setDecisionType(String decisionType) {
-		this.decisionType = decisionType;
+
+
+	public void setDecisionStatus(int decisionStatus) {
+		this.decisionStatus = decisionStatus;
 	}
+
+
 
 	/**
 	* 取得メソッド を取得
-	* @return permitStatus
+	* @return userId
 	*/
-	public int getPermitStatus() {
-		return permitStatus;
+	public int getUserId() {
+		return userId;
 	}
+
+
 
 	/**
 	* 設定メソッド を設定
-	* @param permitStatusJ
+	* @param userId
 	*/
-	public void setPermitStatus(int permitStatus) {
-		this.permitStatus = permitStatus;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
+
+
 
 	/**
 	* 取得メソッド 結果を取得

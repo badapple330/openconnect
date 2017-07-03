@@ -24,8 +24,7 @@ public class AdminAttendanceDeleteDAO {
 	 */
 	public int delete(int atMonth){
 		int list = 0;
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
-				"mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
 		String sql = "delete from attendance where at_month = ?";
 

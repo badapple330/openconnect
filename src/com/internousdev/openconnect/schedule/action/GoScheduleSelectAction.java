@@ -49,14 +49,21 @@ public class GoScheduleSelectAction extends ActionSupport implements SessionAwar
 	 */
 	private Map<String,Object> session;
 
+	/**
+	 * 初めはuserIdでsql検索し、usersテーブルとscheduleテーブルを
+	 * team_nameで紐付けて情報を結合して、サイトのテーブルに情報が表示できるようにしていた
+	 * しかしこれだとscheduleテーブルに情報が入っていないときにエラーが起きるので
+	 * GoScheduleSelectではusersテーブルからuserIdでteam_nameを持ってこれるようにして
+	 * 検索についてはSchduleSelectにすべて任せることにした
+	 * */
 	public String execute(){
 		String result = ERROR;
 		int userId = (int) session.get("userId");
-		GoScheduleSelectDAO dao = new GoScheduleSelectDAO();
+		/*GoScheduleSelectDAO dao = new GoScheduleSelectDAO();*/
 		GoScheduleSelectDAO dao2 = new GoScheduleSelectDAO();
-		scheduleList = dao.select(userId);
-		teamList = dao2.select2();
-		search = scheduleList.get(0).getTeamName();
+		/*scheduleList = dao.select(userId);*/
+		teamList = dao2.select2(userId);
+		search = teamList.get(0).getTeamName();
 		result = SUCCESS;
 
 

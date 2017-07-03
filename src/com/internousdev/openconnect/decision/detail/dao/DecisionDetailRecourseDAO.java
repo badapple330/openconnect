@@ -24,7 +24,7 @@ public class DecisionDetailRecourseDAO {
 	 */
 	public int recourse( int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 

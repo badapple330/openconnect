@@ -43,9 +43,9 @@
 
 </head>
 
-<body>
+<body style="background-color:<s:property value="#session.bColor"/>;">>
 <nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid">
+<div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
   <div class="navbar-header">
   <a class="navbar-brand" href="applist.jsp">Openconnect</a>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
@@ -76,9 +76,9 @@
 			<div class="modal-body">
 			<h5>グループ名</h5>
 			<input type="text" name="groupName" maxlength="50" required placeholder="グループ名を入力してください" class="groupName">
+
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 				<s:token/>
 				<button type="submit" class="btn btn-primary">グループを作る</button>
 			</div>
@@ -86,6 +86,10 @@
 		</div>
 	</div>
 </div>
+
+
+
+
 
 <div class="container">
   <div class="row">
@@ -98,7 +102,7 @@
 	<s:hidden theme="simple" name="groupId" value="%{groupId}"></s:hidden>
 	<s:hidden name="groupName"></s:hidden>
 	<button type="submit" class="group">
-	<img src="pic/group_img/<s:property value="groupImg"/>"   alt="" class="img-circle-ex">
+	<img src="<s:property value="groupImg"/>"   alt="" class="img-circle-ex">
 	<h3><s:property value="groupName"/></h3>
 	<p><s:property value="postContents" /></p>
 

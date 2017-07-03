@@ -71,16 +71,15 @@ public class GoTimelineAction extends ActionSupport implements SessionAware{
 			UserDAO msgDao = new UserDAO();
 			msgList = msgDao.msgSelect(userId);
 			msgDao.msgDelete(userId);
-			result = SUCCESS;
+
 		}
 
 		FooterInfoDAO infodao = new FooterInfoDAO();
 		setGroupInfo(infodao.groupInfoGet(userId));
 		setTalkInfo(infodao.talkInfoGet(userId));
 
-
-
-	return result;
+		result = SUCCESS;
+		return result;
 	}
 
 

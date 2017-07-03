@@ -3,9 +3,9 @@ package com.internousdev.bulletinboard.dto;
 public class BotDTO {
 
 	/**
-	 * レスポンスID
+	 * 文章ID
 	 */
-	private int responseId;
+	private int sentenceId;
 	/**
 	 * 反応する単語
 	 */
@@ -30,7 +30,14 @@ public class BotDTO {
 	 * 印象
 	 */
 	private int impression;
-
+	/**
+	 * どんな文章を覚えさせたかの説明
+	 */
+	private String label;
+	/**
+	 * 覚えさせた日
+	 */
+	private String createdAt;
 
 
 
@@ -45,12 +52,6 @@ public class BotDTO {
 	 */
 	public void setPartOfSpeech(String partOfSpeech) {
 		this.partOfSpeech = partOfSpeech;
-	}
-	public int getResponseId() {
-		return responseId;
-	}
-	public void setResponseId(int responseId) {
-		this.responseId = responseId;
 	}
 	public String getWord() {
 		return word;
@@ -101,6 +102,48 @@ public class BotDTO {
 	*/
 	public void setImpression(int impression) {
 		this.impression = impression;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return sentenceId
+	*/
+	public int getSentenceId() {
+		return sentenceId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param sentenceId
+	*/
+	public void setSentenceId(int sentenceId) {
+		this.sentenceId = sentenceId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return label
+	*/
+	public String getLabel() {
+		return label;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param label
+	*/
+	public void setLabel(String label) {
+		this.label = label;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return createdAt
+	*/
+	public String getCreatedAt() {
+		return createdAt;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param createdAt
+	*/
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
 	}
 
 }

@@ -1,90 +1,21 @@
 @CHARSET "UTF-8";
 
-.modal-open {
-	color: #cc0000;
-}
-
-.modal-open2 {
-	color: #cc0000;
-}
-
-.smallWidth {
-	width: 50px;
-	text-align: center;
-}
-
-.middleWidth {
-	width: 100px;
-	text-align: center;
-}
-
-.bigWidth {
-	width: 130px;
-	text-align: center;
-}
-
-#modal-edit-main {
-	display: none;
-	width: 500px;
-	height: 300px;
-	margin: 0;
-	padding: 0;
-	background-color: #ffffff;
-	color: #666666;
-	position: fixed;
-	z-index: 2;
-}
-
-/* モーダル コンテンツエリア */
-#modal-main {
-	display: none;
-	width: 500px;
-	height: 300px;
-	margin: 0;
-	padding: 0;
-	background-color: #ffffff;
-	color: #666666;
-	position: fixed;
-	z-index: 2;
-}
-/* モーダル 背景エリア */
-#modal-bg {
-	display: none;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.1);
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1;
-}
 
 td, th {
+	background-color: #f5f5f5;
 	text-align: center;
+
 }
 
-.delete {
-	display: none;
+th {
+	white-space: nowrap;
 }
 
-.delete-prepare {
-	display: none;
-}
-
-body {
-	background-color: #808080;
-}
-
-.header {
-	background-color: #ACAFD2;
-	height: 100px;
-	text-align: center;
-}
-
-.button {
+.return_btn {
 	height: 30px;
 	width: 60px;
 	background-color: #1987E5;
+	color: white;
 }
 
 .table {
@@ -92,20 +23,25 @@ body {
 	border-color: black;
 }
 
-.right {
-	width: 100%;
-	margin-right: auto;
+.t_right {
+	text-align: right;
 }
 
-input {
-	text-align: center;
-}
 
-.projectElement {
-	display: none;
-	z-index: 100;
-}
 
-#listButton {
+
+@media screen and (min-width:200px) {
+
+.pg_none {
 	display: inline;
+}
+
+}
+
+@media screen and (min-width:768px) {
+
+.pg_none {
+	display: none;
+}
+
 }

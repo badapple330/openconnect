@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
- * 画像を削除するクラス
+ * ファイルを削除するクラス
  * @author Kikuchi Jun
  * @since 2017/06/09
  * @version 1.0
@@ -19,25 +19,32 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DecisionFileDeleteAction extends ActionSupport {
 
 
-	/**
-	 * イメージID
-	 */
-	private int documentId;
 
 	/**
 	 * セッション情報
 	 */
 	private Map<String,Object> session;
 
-
-
-
 	/**
 	 * イメージネーム
 	 */
 	private String documentName;
 
+	/**
+	 * エラーメッセージ
+	 */
+	public String resultString="削除できませんでした。";
 
+
+	/**
+	 * 起案者ID
+	 */
+	private int jDrafterId;
+
+	/**
+	 * 決裁ID
+	 */
+	private int decisionId;
 
 
 	public String execute(){
@@ -51,6 +58,7 @@ public class DecisionFileDeleteAction extends ActionSupport {
 
 		    if(deleted>0){
 		    	result = SUCCESS;
+		    	resultString="削除しました。";
 		    }
 		return result;
 
@@ -77,28 +85,6 @@ public class DecisionFileDeleteAction extends ActionSupport {
 		this.session = session;
 	}
 
-
-
-	/**
-	* 取得メソッド を取得
-	* @return documentId
-	*/
-	public int getDocumentId() {
-		return documentId;
-	}
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param documentId
-	*/
-	public void setDocumentId(int documentId) {
-		this.documentId = documentId;
-	}
-
-
-
 	/**
 	* 取得メソッド を取得
 	* @return documentName
@@ -107,14 +93,52 @@ public class DecisionFileDeleteAction extends ActionSupport {
 		return documentName;
 	}
 
-
-
 	/**
 	* 設定メソッド を設定
 	* @param documentName
 	*/
 	public void setDocumentName(String documentName) {
 		this.documentName = documentName;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return jDrafterId
+	*/
+	public int getJDrafterId() {
+		return jDrafterId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param jDrafterId
+	*/
+	public void setJDrafterId(int jDrafterId) {
+		this.jDrafterId = jDrafterId;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionId
+	*/
+	public int getDecisionId() {
+		return decisionId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionId
+	*/
+	public void setDecisionId(int decisionId) {
+		this.decisionId = decisionId;
 	}
 
 
