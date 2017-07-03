@@ -11,6 +11,7 @@
 <link rel="apple-touch-icon" href="logo/oc.png">
 <script src="js/jquery-3.0.0.min.js"></script>
 <script src="js/sendCheck.js"></script>
+<script src="js/footerFixed.js" type="text/javascript"></script>
 <title>申請一覧</title>
 </head>
 <body>
@@ -77,6 +78,6 @@
 	<s:form action="GetAddressAction">
 		<s:submit value="戻る" class="button" />
 	</s:form>
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>

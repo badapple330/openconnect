@@ -45,6 +45,11 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	private List<Integer> projectSubManagerIdList = new ArrayList<Integer>();
 
 	/**
+	 * 人数
+	 */
+	private List<Integer> projectMemberNumberList = new ArrayList<Integer>();
+
+	/**
 	 * 開始日
 	 */
 	private List<String> projectStartDateList = new ArrayList<String>();
@@ -94,6 +99,7 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 					projectNameList.get(i),
 					projectManagerIdList.get(i),
 					projectSubManagerIdList.get(i),
+					projectMemberNumberList.get(i),
 					projectStartDateList.get(i),
 					projectEndDateList.get(i),
 					projectNoteList.get(i),
@@ -267,6 +273,22 @@ public class ProjectsUpdateAction extends ActionSupport implements SessionAware{
 	*/
 	public Map<String, Object> getSession() {
 		return session;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return projectMemberNumberList
+	*/
+	public List<Integer> getProjectMemberNumberList() {
+		return projectMemberNumberList;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param projectMemberNumberList
+	*/
+	public void setProjectMemberNumberList(List<Integer> projectMemberNumberList) {
+		this.projectMemberNumberList = projectMemberNumberList;
 	}
 
 

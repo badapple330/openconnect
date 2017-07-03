@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.bulletinboard.dao.GroupImgDAO;
 import com.internousdev.bulletinboard.dao.PostDAO;
 import com.internousdev.bulletinboard.dao.StampDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
@@ -84,6 +85,11 @@ public class PostAction extends ActionSupport implements SessionAware{
 	public ArrayList<PostDTO> postList = new ArrayList<PostDTO>();
 
 	/**
+	 * ポストリスト
+	 */
+	public ArrayList<StampDTO> groupImgList = new ArrayList<StampDTO>();
+
+	/**
 	 * スタンプリスト
 	 */
 	public ArrayList<StampTypeDTO> stList = new ArrayList<StampTypeDTO>();;
@@ -142,6 +148,10 @@ public class PostAction extends ActionSupport implements SessionAware{
 
 		setPostCount(postList.size());
 		result=SUCCESS;
+
+
+		GroupImgDAO groupdao=new GroupImgDAO();
+		groupImgList=groupdao.stampGet();
 
 		ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
 		StampDAO stampdao =new StampDAO();
@@ -414,6 +424,24 @@ public class PostAction extends ActionSupport implements SessionAware{
 	 */
 	public void setCount(int count) {
 		this.count = count;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return groupImgList
+	*/
+	public ArrayList<StampDTO> getGroupImgList() {
+		return groupImgList;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param groupImgList
+	*/
+	public void setGroupImgList(ArrayList<StampDTO> groupImgList) {
+		this.groupImgList = groupImgList;
 	}
 
 

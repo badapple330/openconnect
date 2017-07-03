@@ -77,6 +77,7 @@ $(function(){
 		$('.updateFamilyName').html( $('.familyNameKanji').eq(index).val() );
 		$('.updateGivenName').html( $('.givenNameKanji').eq(index).val() );
 		$('.updateteamName').html( $('.teamName').eq(index).val() );
+		$('.updateuserName').html( $('.userName').eq(index).val() );
 
 
 		// hiddenのvalue
@@ -84,6 +85,7 @@ $(function(){
 		$('.updateFamilyNameKanji').val( $('.familyNameKanji').eq(index).val() );
 		$('.updateGivenNameKanji').val( $('.givenNameKanji').eq(index).val() );
 		$('.updateteamName').val( $('.teamName').eq(index).val() );
+		$('.updateuserName').val( $('.userName').eq(index).val() );
 		$('.updateUserFlg').val( $('.userFlg').eq(index).val() );
 		$(".modal-close").click(function(){
 			$("#modal-updateMain,#modal-bg").fadeOut("slow",function(){

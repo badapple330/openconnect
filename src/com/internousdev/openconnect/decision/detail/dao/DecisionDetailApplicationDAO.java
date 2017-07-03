@@ -10,6 +10,9 @@ import java.util.List;
 
 import com.internousdev.openconnect.decision.detail.dto.DecisionDetailDTO;
 import com.internousdev.util.DBConnector;
+
+
+
 /**
  * 決裁手続き一覧から更新したい内容を、DBへ転送する為のクラス
  * @author SOSHI AZUMA
@@ -83,7 +86,7 @@ public class DecisionDetailApplicationDAO {
      */
 	public int updateAJ( String jImpId, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -125,7 +128,7 @@ public class DecisionDetailApplicationDAO {
      */
 	public int updateAK( String kImpId, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -167,7 +170,7 @@ public class DecisionDetailApplicationDAO {
      */
 	public int updateAJK( String jkImpId, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -209,7 +212,7 @@ public class DecisionDetailApplicationDAO {
      */
 	public int updateSimple( String decisionType, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 

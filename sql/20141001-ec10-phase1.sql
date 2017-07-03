@@ -5,12 +5,24 @@ create database ec;
 use ec;
 
 
-create table admin_table(
-admin_id varchar(16) not null primary key comment '管理者ID',
-admin_pass varchar(16) not null comment '管理者パスワード',
-admin_name varchar(50) not null comment '管理者名',
-) comment="管理者テーブル";
-insert into admin_table(admin_id,admin_pass,admin_name) values ("12345678","commando","ジョンメイトリックス");
+create table order_table(
+order_id int not null primary key auto_increment comment '注文ID',
+item_id int not null comment '商品ID',
+order_count int not null default "0" comment '注文数',
+order_customer varchar(50) not null comment '購入者',
+order_post varchar(7) not null comment '郵便番号',
+order_phone varchar(11) not null comment '電話番号',
+order_mail varchar(255) not null comment 'Eメールアドレス',
+order_destination varchar(255) not null comment '届け先',
+order_day datetime not null default current_timestamp comment '購入先'
+) comment="注文情報テーブル";
+
+
+create table  user_table(
+user_id varchar(16) not null primary key comment 'ユーザーID',
+user_pass varchar(16) not null comment 'ユーザーパスワード',
+user_name varchar(50) not null comment 'ユーザー名'
+) comment="ユーザーテーブル";
 
 create table item_table(
 item_id int not null primary key auto_increment comment '商品id',
@@ -20,7 +32,7 @@ item_stock int not null default "0" comment '在庫',
 item_img varchar(255) not null default "img/noimage.jpg" comment '画像パス'
 ) comment="商品テーブル";
 
-insert into item_table (item_name, item_price, item_stock, item_img)
+insert into item_table (item_name, item_price, item_stock, item_img) values
 ('獺祭', 2790, 27, 'img/liquor1.jpg'),
 ('鍋島', 2980, 12, 'img/liquor10.jpg'),
 ('久保田', 3900, 4, 'img/liquor2.jpg'),
@@ -72,27 +84,17 @@ insert into item_table (item_name, item_price, item_stock, item_img)
 ('真壽鏡', 490, 49,''),
 ('金剛', 2790, 13,'');
 
-create table order_table(
-order_id int not null primary key auto_increment comment '注文ID',
-item_id int not null comment '商品ID',
-order_count int not null default "0" comment '注文数',
-order_customer varchar(50) not null comment '購入者',
-order_post varchar(7) not null comment '郵便番号',
-order_phone varchar(11) not null comment '電話番号',
-order_mail varchar(255) not null comment 'Eメールアドレス',
-order_destination varchar(255) not null comment '届け先',
-order_day datetime not null default current_timestamp comment '購入先'
-) comment="注文情報テーブル";
+
 
 insert into order_table(item_id,order_count,order_customer,order_post,order_phone,order_mail,order_destination)
-values (1,2,"カービィ","1234567","00012345678","commando@ne.jp","愛知県"),
-values (2,4,"ジャクソン","1234567","00012345678","commando@ne.jp","静岡県"),
-values (3,6,"サリー","1234567","00012345678","commando@ne.jp","岐阜県"),
-values (4,1,"エンリスケ","1234567","00012345678","commando@ne.jp","三重県"),
-values (5,8,"ベネット","1234567","00012345678","commando@ne.jp","福井県"),
-values (6,30,"ハリス","1234567","00012345678","commando@ne.jp","富山県"),
-values (7,12,"ローソン","1234567","00012345678","commando@ne.jp","新潟県"),
-values (8,25,"フォレスタス","1234567","00012345678","commando@ne.jp","石川県"),
-values (9,27,"クック","1234567","00012345678","commando@ne.jp","長野県"),
-values (10,10,"シンディ","1234567","00012345678","commando@ne.jp","山梨県"
+ values(1,2,"カービィ","1234567","00012345678","commando@ne.jp","愛知県"),
+ (2,4,"ジャクソン","1234567","00012345678","commando@ne.jp","静岡県"),
+ (3,6,"サリー","1234567","00012345678","commando@ne.jp","岐阜県"),
+ (4,1,"エンリスケ","1234567","00012345678","commando@ne.jp","三重県"),
+ (5,8,"ベネット","1234567","00012345678","commando@ne.jp","福井県"),
+ (6,30,"ハリス","1234567","00012345678","commando@ne.jp","富山県"),
+ (7,12,"ローソン","1234567","00012345678","commando@ne.jp","新潟県"),
+ (8,25,"フォレスタス","1234567","00012345678","commando@ne.jp","石川県"),
+ (9,27,"クック","1234567","00012345678","commando@ne.jp","長野県"),
+ (10,10,"シンディ","1234567","00012345678","commando@ne.jp","山梨県"
 );

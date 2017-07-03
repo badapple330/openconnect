@@ -33,6 +33,10 @@ public class GoGroupMemberAddAction extends ActionSupport implements SessionAwar
 	private int groupId;
 
 
+
+	private String groupName;
+
+
 	public String execute() {
 		String result = ERROR;
 
@@ -40,6 +44,8 @@ public class GoGroupMemberAddAction extends ActionSupport implements SessionAwar
 			userId = (int) session.get("userId");
 		}
 		if(userId==0){return result;}
+		session.put("groupId", groupId);
+		session.put("groupName", groupName);
 
 		GroupDAO dao = new GroupDAO();
 		followList = dao.followGet(userId,groupId);
@@ -115,6 +121,24 @@ public class GoGroupMemberAddAction extends ActionSupport implements SessionAwar
 	 */
 	public void setGroupId(int groupId) {
 		this.groupId = groupId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return groupName
+	*/
+	public String getGroupName() {
+		return groupName;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param groupName
+	*/
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
 	}
 
 

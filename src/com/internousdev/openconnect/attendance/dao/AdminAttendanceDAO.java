@@ -21,9 +21,7 @@ public class AdminAttendanceDAO {
 
 
 
-	/**
-	 * 購入履歴を格納する
-	 */
+	/* 勤怠履歴を格納する */
 	public ArrayList<AttendanceDTO> searchList  = new ArrayList<AttendanceDTO>();
 
 	/**
@@ -40,6 +38,7 @@ public class AdminAttendanceDAO {
 	 * @param givenNameKanji
 	 * @param attendance
 	 * @param teamName
+	 * @param reason
 	 * @return searchList
 	 */
 	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String familyNameKanji,String givenNameKanji,String attendance, String teamName) {
@@ -54,72 +53,85 @@ public class AdminAttendanceDAO {
 		/* sql文生成に用いるWhere節文字列 */
 		String whereState = "";
 
-		/* 日付が定義されたとき */
-		if(atYear != 0 && atMonth != 0 && atDay != 0){
-			whereState += "at_year="+atYear +" AND at_month="+atMonth +" AND at_day="+atDay;
+		/* 年が定義されたとき */
+		if(atYear != 0){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "at_year="+atYear;
+		}
+
+		/* 月が定義されたとき */
+		if(atMonth != 0){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "at_month="+atMonth;
+		}
+
+		/* 日が定義されたとき */
+		if(atDay != 0){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "at_day="+atDay;
 		}
 
 		/* 姓と名が定義されたとき */
-		if(!((familyNameKanji).equals("")) && !((givenNameKanji).equals(""))){
+		if(!((familyNameKanji).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-			whereState += "family_name_kanji='"+familyNameKanji+"' AND given_name_kanji='"+givenNameKanji+"'";
-
+			whereState += "family_name_kanji='"+familyNameKanji+"'";
 		}
 
-//		/* 名が定義されたとき */
-//		if(!((givenNameKanji).equals(""))){
-//			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-//			whereState += "given_name_kanji='"+givenNameKanji+"'";
-//		}
+		/* 名が定義されたとき */
+		if(!((givenNameKanji).equals(""))){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "given_name_kanji='"+givenNameKanji+"'";
+		}
 
 		/* チーム名が定義されたとき */
 		if(!((teamName).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
 			whereState += "team_name='"+teamName+"'";
 		}
+
 		/* 勤怠状況定義時 */
 		if(!((attendance).equals(""))){
 			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-			whereState += "attendance='"+attendance+"'";
-		}
-
-		/* sql文定義 */
-		if(!((whereState).equals(""))){
-			/*条件完全未定義時、任意の勤怠状況データを得る。 */
-//			sql = "select * from attendance left join users on attendance.user_id=users.user_id;";
-//		} else {
-			/* Where節 定義時 */
-			sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + "";
-		}
-
-		try {
-			statement = con.createStatement();
-			ResultSet rs = statement.executeQuery(sql); //SQL文の実行インターフェース。
-
-			while (rs.next()) {
-				AttendanceDTO dto = new AttendanceDTO();
-				dto.setAtDate(rs.getString("at_date"));
-				dto.setMonth(rs.getString("month"));
-				dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
-				dto.setGivenNameKanji(rs.getString("given_name_kanji"));
-				dto.setTeamName(rs.getString("team_name"));
-				dto.setAttendance(rs.getString("attendance"));
-				dto.setReason(rs.getString("reason"));
-				searchList.add(dto);
+			whereState += "attendance"+attendance;
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
+			/* sql文定義 */
+			if(!((whereState).equals(""))){
+				/*条件完全未定義時、任意の勤怠状況データを得る。 */
+				//			sql = "select * from attendance left join users on attendance.user_id=users.user_id;";
+				//		} else {
+				/* Where節 定義時 */
+				sql = "select * from attendance left join users on attendance.user_id=users.user_id where " +whereState + ";";
+			}
+
 			try {
-				/* Close Resouces */
-				con.close();
-				statement.close();
+				statement = con.createStatement();
+				ResultSet rs = statement.executeQuery(sql); //SQL文の実行インターフェース。
+
+				while (rs.next()) {
+					AttendanceDTO dto = new AttendanceDTO();
+					dto.setAtDate(rs.getString("at_date"));
+					dto.setMonth(rs.getString("month"));
+					dto.setFamilyNameKanji(rs.getString("family_name_kanji"));
+					dto.setGivenNameKanji(rs.getString("given_name_kanji"));
+					dto.setTeamName(rs.getString("team_name"));
+					dto.setAttendance(rs.getString("attendance"));
+					dto.setReason(rs.getString("reason"));
+					searchList.add(dto);
+				}
+
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				try {
+					/* Close Resouces */
+					con.close();
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
+			return searchList;
 		}
-		return searchList;
-	}
 
-}
+	}

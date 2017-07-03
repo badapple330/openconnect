@@ -22,7 +22,8 @@ public class SessionListener implements HttpSessionListener{
 
 	/**
 	 * 自動ログアウトメソッド
-	 * セッションが破壊された場合、ユーザーのログアウト処理を行う
+	 * セ
+
 	 */
 	@Override
 	public void sessionDestroyed(HttpSessionEvent event) {

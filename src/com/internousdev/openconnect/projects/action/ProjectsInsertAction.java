@@ -1,10 +1,12 @@
 package com.internousdev.openconnect.projects.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.openconnect.project.status.dao.ProjectStatusInsertDAO;
 import com.internousdev.openconnect.projects.dao.ProjectsInsertDAO;
 import com.internousdev.openconnect.projects.dao.ProjectsSelectDAO;
+import com.internousdev.openconnect.projects.dto.ProjectsListDTO;
 import com.internousdev.openconnect.projects.dto.ProjectsSelectDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -47,6 +49,11 @@ public class ProjectsInsertAction extends ActionSupport {
 	private String startDate;
 
 	/**
+	 * 人数
+	 */
+	private int memberNumber;
+
+	/**
 	 * 結果文字
 	 */
 	private String resultString = "";
@@ -54,24 +61,52 @@ public class ProjectsInsertAction extends ActionSupport {
 
 
 	/**
-	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
-	 *
-	 * @author YUICHI KIRIU
-	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 * 管理者の姓
 	 */
+	private String managerFamilyName;
+
+	/**
+	 * 管理者の名
+	 */
+	private String managerGivenName;
+
+	/**
+	 * サブリーダーの姓
+	 */
+	private String subManagerFamilyName;
+
+	/**
+	 * サブリーダーの名
+	 */
+	private String subManagerGivenName;
+
+	ArrayList<ProjectsListDTO> checkList = new ArrayList<ProjectsListDTO>();
+
+
 	public String execute() {
 
 		String result = ERROR;
 		ProjectsInsertDAO dao = new ProjectsInsertDAO();
 
+		//プロジェクト名二重チェックメソッド
+				checkList = dao.select(projectName);
+
+				if(checkList.size() > 0){
+					resultString = "--そのプロジェクト名は既に登録されています。--";
+				}else{
+
+		if(dao.managerIdFinder(managerFamilyName, managerGivenName) != 0 && dao.subManagerIdFinder(subManagerFamilyName, subManagerGivenName) != 0){
+			managerId = dao.managerIdFinder(managerFamilyName, managerGivenName);
+			subManagerId = dao.subManagerIdFinder(subManagerFamilyName, subManagerGivenName);
+		}
 
 		int count = 0;
-		count = dao.insert(projectName, managerId, subManagerId, startDate);
+		count = dao.insert(projectName, managerId, subManagerId, memberNumber, startDate);
 
 		if (count > 0) {
 			result = SUCCESS;
 
-			resultString = "追加に成功しました";
+			resultString = "--追加に成功しました--";
 
 			int maxId = 0;
 
@@ -89,8 +124,9 @@ public class ProjectsInsertAction extends ActionSupport {
 
 			insertDao.insert(maxId);
 		} else {
-			resultString = "追加に失敗しました";
+			resultString = "--追加に失敗しました--";
 		}
+				}
 
 		return result;
 	}
@@ -214,5 +250,110 @@ public class ProjectsInsertAction extends ActionSupport {
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
+
+	/**
+	* 取得メソッド を取得
+	* @return memberNumber
+	*/
+	public int getMemberNumber() {
+		return memberNumber;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param memberNumber
+	*/
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return managerFamilyName
+	*/
+	public String getManagerFamilyName() {
+		return managerFamilyName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param managerFamilyName
+	*/
+	public void setManagerFamilyName(String managerFamilyName) {
+		this.managerFamilyName = managerFamilyName;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return managerGivenName
+	*/
+	public String getManagerGivenName() {
+		return managerGivenName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param managerGivenName
+	*/
+	public void setManagerGivenName(String managerGivenName) {
+		this.managerGivenName = managerGivenName;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return subManagerFamilyName
+	*/
+	public String getSubManagerFamilyName() {
+		return subManagerFamilyName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param subManagerFamilyName
+	*/
+	public void setSubManagerFamilyName(String subManagerFamilyName) {
+		this.subManagerFamilyName = subManagerFamilyName;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return subManagerGivenName
+	*/
+	public String getSubManagerGivenName() {
+		return subManagerGivenName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param subManagerGivenName
+	*/
+	public void setSubManagerGivenName(String subManagerGivenName) {
+		this.subManagerGivenName = subManagerGivenName;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return checkList
+	*/
+	public ArrayList<ProjectsListDTO> getCheckList() {
+		return checkList;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param checkList
+	*/
+	public void setCheckList(ArrayList<ProjectsListDTO> checkList) {
+		this.checkList = checkList;
+	}
+
+	/**
+	 * 実行メソッド DAOに入力されたデータを渡して、結果を返す
+	 *
+	 * @author YUICHI KIRIU
+	 * @return result データベースに格納できたらSUCCESS、失敗したらERROR
+	 */
 
 }

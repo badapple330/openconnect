@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="css/style2.css">
 <link rel="stylesheet" href="css/modal.css">
 <link rel="stylesheet" href="css/chat.css">
+<link rel="stylesheet" href="css/imgList.css">
 
 
 <!-- Javascripts
@@ -66,7 +67,7 @@
   <!-- 個人チャットの際のヘッダー -->
   <s:if test="groupId == 0">
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
         <div class="navbar-header">
           <a class="navbar-brand"
             href="<s:url action="GoTalkListAction"/>">&laquo;</a>
@@ -78,7 +79,7 @@
   <!-- グループチャットの際のヘッダー -->
   <s:else>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid" style="background-color:<s:property value="#session.hColor"/>;">
         <div class="navbar-header">
           <a class="navbar-brand" href="<s:url action="GoGroupAction"/>">&laquo;</a>
           <button type="button" class="navbar-toggle collapsed"
@@ -89,6 +90,8 @@
         </div>
         <div class="collapse navbar-collapse" id="nav_target">
           <ul class="nav navbar-nav navbar-right">
+            <li><a data-toggle="modal" class="cursor"
+              data-target="#groupImageChange">グループ画像変更</a></li>
             <li><a data-toggle="modal" class="cursor"
               data-target="#groupMemberModal">メンバーを確認</a></li>
             <li class="dropdown"><a href="#"
@@ -101,7 +104,7 @@
                   <form name="memberform"
                     action="GoGroupMemberAddAction">
                     <s:hidden theme="simple" name="groupId"
-                      value="%{groupId}"></s:hidden>
+                      value="%{groupId}"><s:hidden name="groupName"></s:hidden></s:hidden>
                   </form></li>
                 <li><a href="#" data-toggle="modal"
                   data-target="#memberAdd">ユーザー検索でメンバーを追加</a></li>
@@ -113,6 +116,45 @@
       </div>
     </nav>
   </s:else>
+  <!-- グループ画像変更画面 -->
+  <div class="modal fade" id="groupImageChange" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title">画像を変更する</h4>
+        </div>
+        <s:form action="GroupImgUpdateAction">
+        <div class="modal-body">
+        	<s:iterator value="groupImgList" status="rs">
+        	<s:if test="%{#rs.count%2==0}">
+			<div style="float:left">
+          <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
+          </div>
+          </s:if><s:else>
+          <div style="float:left; background-color:#dddddd;" >
+          <input type="radio" name="url" value="<s:property value="url" />"style="background:url(./<s:property value="url"/>);background-size:100% 100%;" >
+          </div>
+
+
+          </s:else>
+          </s:iterator>
+          <div style="clear:both"></div>
+
+        </div>
+        <s:hidden name="groupId" />
+        <div class="modal-footer" >
+            <s:token />
+            <button type="submit" class="btn btn-primary">変更</button>
+
+          </div>
+         </s:form>
+      </div>
+    </div>
+  </div>
+
   <!-- グループメンバーの確認画面 -->
   <div class="modal fade" id="groupMemberModal" tabindex="-1">
     <div class="modal-dialog">

@@ -10,25 +10,61 @@
 	display:inline-block;
 }
 
+#main-box{
+}
 
+.print-page{
+}
 
 #operation{
-	height:100px;
 	width:700px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:500px;
-	margin-bottom:100px;
+	margin-bottom:30px;
+	text-align:center;
 }
 
 #operation2{
-	height:100px;
 	width:700px;
+	margin-top:auto;
+	margin-bottom:auto;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:auto;
-	margin-bottom:100px;
+	clear:left;
+	clear:right;
+	clear:both;
 }
+
+#schedule,th{
+	text-align:center;
+}
+
+.blockA{
+	float:left;
+	margin-left:30px;
+}
+
+.blockB{
+	float:right;
+	margin-right:30px;
+}
+
+.blockC{
+	text-align:right;
+	padding-top:30px;
+	clear:left;
+	clear:right;
+	clear:both;
+}
+
+footer{
+	clear:left;
+	clear:right;
+	clear:both;
+}
+
+
 
 /* モーダル コンテンツエリア */
 #modal-main {
@@ -79,12 +115,12 @@
 
 /* ここからカレンダー用 */
 #calendar{
-	height:100px;
-	width:700px;
-	display:block;
+	height:200px;
+	width:800px;
 	margin-top:50px;
 	margin-left:auto;
 	margin-right:auto;
+	page-break-after: always;
 }
 
 /*土曜日と日曜日の色を変更*/
@@ -101,15 +137,68 @@
 	visibility: hidden;
 }
 
+/*印刷用css*/
+.off {
+	display: none;
+}
 
+.pagetop{
+	position:fixed;
+	bottom:100px;
+	right:40px;
+  	width:75px;
+	height:75px;
+ 	text-align:center;
+ 	background-color:#2a82a3;
+ 	border-radius: 50%;
+ 	-webkit-border-radius: 50%;
+ 	-moz-border-radius: 50%;
+}
+
+.pagetop-info{
+	padding-top:28px;
+	color:white;
+}
+
+.pagetop:hover {
+	background: #2a82a3;
+	color: #FFF;
+	border: 1px solid #FFF;
+}
+
+
+/*印刷するときに適用されるCSS*/
+@media print{
+	#calendar{
+		font-size:18px;
+	}
+
+	#operation{
+		width:700px;
+		margin:auto;
+	}
+
+
+}
+
+/*widthが640px以下のデバイス(スマホなど)で反映されるCSS*/
 @media only screen and (max-device-width : 640px){
 
+		h1{
+			font-size:20px;
+		}
+
         #calendar {
+        	margin-top:10px;
         	width: 100% !important;
         }
         #operation {
             width: 100%;
-            margin-top:300px;
+            margin-top:150px;
+        }
+
+         #operation2 {
+            width: 100%;
         }
         .scheduleStartdayList,
         .scheduleEnddayList {
@@ -123,11 +212,43 @@
             display: none;
         }
 
+        #modal-main{
+        	width: 100%;
+        }
+
+        .blockA{
+	        margin-left:10px;
+        	float:left;
+        }
+
+        .blockB{
+        	margin-right:10px;
+        	float:right;
+        }
+
+        .blockC{
+        	width:350px;
+        	text-align:center;
+			clear:left;
+			clear:right;
+			clear:both;
+		}
+
+		.pagetop{
+			width:50px;
+			height:50px;
+			right:20px;
+		}
+
+		.pagetop-info{
+			font-size:11px;
+			padding-top:18px;
+			color:white;
+		}
+
+
+		.print-btn{
+			visibility:hidden;
+		}
+
 }
-
-
-/*印刷用css*/
-.off {
-	display: none;
-}
-

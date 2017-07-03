@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/dropdown.css">
 
 
-<div class = "nonbs-send-form">
+<div class = "nonbs-send-form" style ="background-color:<s:property value="#session.fColor"/>;">
 
 <div class="nonbs-panel-body">
 <s:form action="PostSetAction">
@@ -22,10 +22,7 @@
 </div>
 </div>
 
-<!-- スタンプ -->
-<!-- スタンプを連打すると連投できてしまう不具合が解決していません。
-	onclick="disabled = true;" → ボタンを押せなくなるのが優先されるのでsubmitできない
-	onclick="style.display='none'" → なくなることでリストの次のスタンプが繰り上がってくるので結果的にさまざまなスタンプが連投されることになる -->
+
 <script>
 var submit = document.getElementByClassName('submit');
 function disableSubmit(button) {
@@ -50,7 +47,7 @@ function disableSubmit(button) {
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-				<h6 class="modal-title">スタンプ 連打は控えましょう</h6>
+				<h6 class="modal-title">スタンプ</h6>
 			</div>
 
 			<div class="m-http://localhost:8080/openconnect/PostAction.action#body">

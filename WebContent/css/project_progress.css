@@ -133,7 +133,7 @@ input {
 	margin: 0;
 	padding: 0;
 	background-color: #ffffff;
-	color: #666666;
+	color: #ff8080;
 	position: fixed;
 	z-index: 2;
 }
@@ -179,7 +179,7 @@ input {
   	}
 
   	/*inputのボタンデザイン*/
-.button {
+.button1 {
 	font-size: 1em;
 	padding: 10px 30px;
 	background-color: #248;
@@ -187,7 +187,7 @@ input {
 	border-style: none;
 }
 
-.button {
+.button1 {
 	background-color: #6dacfa;
 	color: #fff;
 }
@@ -233,14 +233,14 @@ input {
 	font-size: 10px;
 	}
 /*inputのボタンデザイン*/
-	.button {
+	.button1 {
 		font-size: 12px;
 		padding: 5px 15px;
 		background-color: #248;
 		color: #fff;
 		border-style: none;
 	}
-	.button {
+	.button1 {
 		background-color: #6dacfa;
 		color: #fff;
 	}

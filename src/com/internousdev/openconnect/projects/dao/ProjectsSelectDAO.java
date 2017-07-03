@@ -52,6 +52,7 @@ public class ProjectsSelectDAO {
 				dto.setNote(rs.getString("note"));
 				dto.setManagerId(rs.getInt("manager_id"));
 				dto.setSubManagerId(rs.getInt("sub_manager_id"));
+				dto.setMemberNumber(rs.getInt("member_number"));
 				dto.setManagerFamilyNameKanji(rs.getString("family_name_kanji"));
 				dto.setManagerGivenNameKanji(rs.getString("given_name_kanji"));
 				searchList.add(dto);

@@ -108,7 +108,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 						count = dao.updateAJ( jImpId, decisionId );
 					}
 					/*自プロジェクトの実施起案番号が既に発行済みの場合
-					(起案番号の発行を伴わない当日中の差し戻し、変更申請)*/
+					(起案番号の発行を伴わない当日中の差し戻し)*/
 					else {
 						count = dao.updateSimple(decisionType, decisionId);
 					}
@@ -137,7 +137,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 						count = dao.updateAK( kImpId, decisionId );
 					}
 					/*自プロジェクトの契約起案番号が既に発行済みの場合
-					(起案番号の発行を伴わない当日中の差し戻し、変更申請)*/
+					(起案番号の発行を伴わない当日中の差し戻し)*/
 					else {
 						count = dao.updateSimple(decisionType, decisionId);
 					}
@@ -166,7 +166,7 @@ public class DecisionDetailApplicationAction extends ActionSupport {
 						count = dao.updateAJK( jkImpId, decisionId );
 					}
 					/*自プロジェクトの実施兼契約起案番号が既に発行済みの場合
-					(起案番号の発行を伴わない当日中の差し戻し、変更申請)*/
+					(起案番号の発行を伴わない当日中の差し戻し)*/
 					else {
 						count = dao.updateSimple(decisionType, decisionId);
 					}

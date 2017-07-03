@@ -98,6 +98,10 @@ public class StudentsDTO {
      * チーム名
      */
     private String teamName;
+    /**
+     * チーム名
+     */
+    private String userName;
 
 
 
@@ -531,6 +535,23 @@ public class StudentsDTO {
     */
     public void setTeamName(String teamName) {
         this.teamName = teamName;
+    }
+    /**
+    * 取得メソッド チーム名を取得
+    * @author TATSUHIRO SAITO
+    * @return user_name
+    */
+    public String getUserName() {
+        return userName;
+    }
+
+    /**
+    * 設定メソッド 受講開始月を設定
+    * @author KOHEI NITABARU
+    * @param month
+    */
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
 
