@@ -267,6 +267,11 @@ public class DecisionDTO {
 	 */
 	public String siteName;
 
+	/**
+	 * サイトURL
+	 */
+	public String siteUrl;
+
 
 
     /** 取得メソッド を取得
