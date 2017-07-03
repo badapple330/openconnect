@@ -26,6 +26,10 @@ public class DecisionDetailChangeAction extends ActionSupport {
 	 */
 	private int decisionId;
 	/**
+	 * 承認状況
+	 */
+	private int permitStatus;
+	/**
 	 * 決裁種類
 	 */
 	private String decisionType;
@@ -57,7 +61,12 @@ public class DecisionDetailChangeAction extends ActionSupport {
 		int count = 0;
 
 
-		count = dao.change(decisionType, decisionId);
+		if(permitStatus == 0) {
+			count = dao.change(decisionType, decisionId);
+		}
+		else if(permitStatus >= 1) {
+			count = dao.changeRtime(decisionId);
+		}
 
 
 		if (count > 0 ) {
@@ -86,6 +95,26 @@ public class DecisionDetailChangeAction extends ActionSupport {
 	*/
 	public void setDecisionId(int decisionId) {
 		this.decisionId = decisionId;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return permitStatus
+	*/
+	public int getPermitStatus() {
+		return permitStatus;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param permitStatus
+	*/
+	public void setPermitStatus(int permitStatus) {
+		this.permitStatus = permitStatus;
 	}
 
 

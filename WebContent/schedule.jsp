@@ -30,6 +30,7 @@
         <script src="js/calendar/fullcalendar.min.js"></script>
         <script src="js/calendar/gcal.js"></script>
         <script src="js/calendar/gcal.min.js"></script>
+        <script src="js/footerFixed.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -72,7 +73,7 @@
 			<s:form action="ScheduleUpdateAction">
 				<table id = "schedule" border=1 style="">
 					<tbody>
-						<tr>
+						<tr style="text-align:center">
 							<th>ID</th>
 							<th>start</th>
 							<th>end</th>
@@ -238,6 +239,6 @@
 		<div>
 		</div>
 		<div class="pagetop"><div class = "pagetop-info"><b>PageTop</b></div></div>
-		 <footer><s:include value="footer.jsp" /></footer>
+		 <jsp:include page="footer.jsp" />
 </body>
 </html>

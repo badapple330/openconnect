@@ -14,15 +14,18 @@ import com.internousdev.openconnect.util.SchedulerTask;
  * @since  2017/06/27
  * @version 1.0
  */
+
+/* 「javaを実行」では起動するが、コマンドプロンプトではメインメソッドが発見されないエラーあり
+ * コマンドプロンプトでも動くようにする
+ * 場合によっては、時間のところを外しインサートの部分とLinuxのクーロンの時間指定で行う
+ * 余裕があれば引き継ぎお願いします。
+ */
+
 public class AddAttendanceAction{
 	private final Scheduler scheduler = new Scheduler();
 
 	private final int hourOfDay, minute, second;
 
-	public static void main(String[] args) {
-		AddAttendanceAction addTime = new AddAttendanceAction(17, 05, 0);
-		addTime.start();
-		}
 	/**
 	 * ユーザーID
 	 * joinでuser_nameを引っ張って来たい
@@ -33,11 +36,6 @@ public class AddAttendanceAction{
 	 * 出欠状況
 	 */
 	private String attendance="連絡なし";
-
-	/**
-	 * 備考欄
-	 */
-	private String reason;
 
 	Calendar cal = Calendar.getInstance();
 
@@ -106,110 +104,10 @@ public class AddAttendanceAction{
 		}, new DailyIterator(hourOfDay, minute, second));
 		}
 
+	public static void main(String[] args) {
+		AddAttendanceAction addattendanceaction = new AddAttendanceAction(17, 05, 0);
+		addattendanceaction.start();
+		}
 
-
-	/**
-	* 取得メソッド を取得
-	* @return userId
-	*/
-	public int getUserId() {
-		return userId;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param userId
-	*/
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return attendance
-	*/
-	public String getAttendance() {
-		return attendance;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param attendance
-	*/
-	public void setAttendance(String attendance) {
-		this.attendance = attendance;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return reason
-	*/
-	public String getReason() {
-		return reason;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param reason
-	*/
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return atYear
-	*/
-	public int getAtYear() {
-		return atYear;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param atYear
-	*/
-	public void setAtYear(int atYear) {
-		this.atYear = atYear;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return atMonth
-	*/
-	public int getAtMonth() {
-		return atMonth;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param atMonth
-	*/
-	public void setAtMonth(int atMonth) {
-		this.atMonth = atMonth;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return atDay
-	*/
-	public int getAtDay() {
-		return atDay;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param atDay
-	*/
-	public void setAtDay(int atDay) {
-		this.atDay = atDay;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @return scheduler
-	*/
-	public Scheduler getScheduler() {
-		return scheduler;
-	}
 }
 

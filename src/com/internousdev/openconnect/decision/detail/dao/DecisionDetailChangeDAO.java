@@ -23,7 +23,7 @@ public class DecisionDetailChangeDAO {
      */
 	public int change( String decisionType, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -47,6 +47,44 @@ public class DecisionDetailChangeDAO {
 
 			ps.setString(1, applyDay);
 			ps.setInt(2, decisionId);
+
+			count =ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+
+		}
+		return count;
+	}
+
+
+
+	/**
+     * [変更申請]起案番号発行を伴わない申請時の情報更新メソッド(差し戻し後用)  更新したい内容を、DBへ転送する為のメソッド
+     */
+	public int changeRtime( int decisionId ) {
+
+		int count = 0;
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
+				"mysql");
+		Connection con = db.getConnection();
+
+		String sql = "UPDATE decision SET decision_status = 4 where decision_id = ?";
+
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, decisionId);
 
 			count =ps.executeUpdate();
 

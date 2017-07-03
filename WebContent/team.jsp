@@ -14,6 +14,8 @@
 
 <link rel="stylesheet" href="css/team.css">
 
+<script src="js/footerFixed.js" type="text/javascript"></script>
+
 </head>
 <body>
 <!-- ヘッダー-->
@@ -59,5 +61,6 @@
 
 	</div>
 
+<jsp:include page="footer.jsp" />
 </body>
 </html>

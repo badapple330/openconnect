@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="js/footerFixed.js" type="text/javascript"></script>
 <title>登録フォーム</title>
 </head>
 <body>
@@ -48,6 +49,6 @@
 </div>
 </div>
 
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>

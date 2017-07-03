@@ -9,6 +9,7 @@
 <link rel="apple-touch-icon" href="logo/oc.png">
 <title>受講生一覧</title>
 <link rel="stylesheet" href="css/student_list.css">
+<script src="js/footerFixed.js" type="text/javascript"></script>
 </head>
 
 

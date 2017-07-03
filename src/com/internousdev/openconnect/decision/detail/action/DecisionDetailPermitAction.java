@@ -81,6 +81,10 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 
 		String result=ERROR;
 
+		DecisionDetailPermitDAO daoPer = new DecisionDetailPermitDAO();
+		DecisionDetailApplicationDAO daoApp = new DecisionDetailApplicationDAO();
+
+
 		//現在日時を取得する
         Calendar c = Calendar.getInstance();
         //フォーマットパターンを指定して表示する
@@ -95,24 +99,18 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 		//番号末尾を100桁表示に変換
 		DecimalFormat dformat = new DecimalFormat("000");
 
-		DecisionDetailPermitDAO daoPer = new DecisionDetailPermitDAO();
-		DecisionDetailApplicationDAO daoApp = new DecisionDetailApplicationDAO();
-
-
 		String idNum = "";
 		int count = 0;
 
 
 		//リーダーの承認(変更時含む)
 		if( permitStatus == 0 || permitStatus == 1 ) {
-
 			count = daoPer.updateP(decisionType, permitStatus, userId, decisionId);
 		}
 
 
 		//先生の承認
 		if( permitStatus == 2 ) {
-
 
 			//実施決裁の承認
 			if(decisionType.equals("実施")) {
@@ -124,11 +122,14 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 				else {
 					idNum = jDecId;
 					idNumList = daoApp.select(decisionType, idNum);
+
+					//本日発行された実施決裁番号がある場合
 					if(idNumList.size() > 0) {
 						int a = idNumList.size() + 1;
 						String b = dformat.format(a);
 						jDecId = jDecId + b;
 					}
+					//本日発行された実施決裁番号がない場合
 					else {
 						jDecId = jDecId + "001";
 					}
@@ -151,11 +152,14 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 				else {
 					idNum = kDecId;
 					idNumList = daoApp.select(decisionType, idNum);
+
+					//本日発行された契約決裁番号がある場合
 					if(idNumList.size() > 0) {
 						int a = idNumList.size() + 1;
 						String b = dformat.format(a);
 						kDecId = kDecId + b;
 					}
+					//本日発行された契約決裁番号がない場合
 					else {
 						kDecId = kDecId + "001";
 					}
@@ -178,11 +182,14 @@ public class DecisionDetailPermitAction extends ActionSupport implements Session
 				else {
 					idNum = jkDecId;
 					idNumList = daoApp.select(decisionType, idNum);
+
+					//本日発行された実施兼契約決裁番号がある場合
 					if(idNumList.size() > 0) {
 						int a = idNumList.size() + 1;
 						String b = dformat.format(a);
 						jkDecId = jkDecId + b;
 					}
+					//本日発行された実施兼契約決裁番号がない場合
 					else {
 						jkDecId = jkDecId + "001";
 					}
