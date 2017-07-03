@@ -653,6 +653,14 @@
 			<result name="success" type="redirectAction">PostAction</result>
 			<result name="error" type="redirectAction">PostAction</result>
 		</action>
+		
+		<!-- グループの名称更新 -->
+		<action name="GroupNameChangeAction"
+			class="com.internousdev.bulletinboard.action.GroupNameChangeAction"
+			method="execute">
+			<result name="success" type="redirectAction">PostAction</result>
+			<result name="error" type="redirectAction">PostAction</result>
+		</action>
 
 		<!-- グループの画像更新 -->
 		<action name="GroupImgUpdateAction"

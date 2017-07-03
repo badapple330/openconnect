@@ -106,7 +106,7 @@ public class PostAction extends ActionSupport implements SessionAware{
 	/**
 	 * グループ名
 	 */
-	private String groupName="（・ω・）" ;
+	private String groupName;
 
 	/**
 	 * 通知リスト
