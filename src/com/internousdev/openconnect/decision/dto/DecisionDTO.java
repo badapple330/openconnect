@@ -272,9 +272,28 @@ public class DecisionDTO {
 	 */
 	public String siteUrl;
 
+	/**
+	 * 作成年度
+	 */
+	public int year;
 
 
-    /**
+
+	/**
+	* 取得メソッド を取得
+	* @return year
+	*/
+	public int getYear() {
+		return year;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param year
+	*/
+	public void setYear(int year) {
+		this.year = year;
+	}
+	/**
 	* 取得メソッド を取得
 	* @return siteUrl
 	*/

@@ -34,17 +34,18 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>決済ID</th>
-						<th>プロジェクト名</th>
-						<th>プレビュー</th>
+						<th>サイトID</th>
+						<th>サイト名</th>
+						<th>作成年度</th>
+					</tr>
 				</thead>
 
 				<tbody>
 					<s:iterator value="archiveList">
 						<tr>
 							<td><s:property value="siteId" /></td>
-							<td><s:property value="siteName" /></td>
-							<td>プレビュー</td>
+							<td><a href="<s:property value="siteUrl" />"><s:property value="siteName" /></a></td>
+							<td><s:property value="year" /></td>
 						</tr>
 					</s:iterator>
 				</tbody>

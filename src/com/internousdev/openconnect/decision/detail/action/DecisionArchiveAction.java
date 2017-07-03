@@ -17,14 +17,27 @@ public class DecisionArchiveAction extends ActionSupport {
 	private static final long serialVersionUID = 6045130027645771884L;
 
 	/**
-	 * 決済ID
+	 * サイトID
 	 */
 	private int siteId;
 
 	/**
-	 * 案件名
+	 * サイト名
 	 */
 	private String siteName;
+
+	/**
+	 * サイトURL
+	 */
+	private String siteUrl;
+
+	/**
+	 * 作成年度
+	 */
+	private int year;
+
+
+
 
 	/**
 	 * 決裁手続きの情報をリスト化
@@ -42,13 +55,31 @@ public class DecisionArchiveAction extends ActionSupport {
 		String result=ERROR;
 		DecisionArchiveDAO dao = new DecisionArchiveDAO();
 
-		archiveList = dao.archive( siteId, siteName );
+		archiveList = dao.archive(siteId, siteName, siteUrl, year);
 		if(archiveList.size() > 0){
 			result=SUCCESS;
 			resultString="成功";
 		}
 		return result;
 
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return archiveList
+	*/
+	public ArrayList<DecisionDTO> getArchiveList() {
+		return archiveList;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param archiveList
+	*/
+	public void setArchiveList(ArrayList<DecisionDTO> archiveList) {
+		this.archiveList = archiveList;
 	}
 
 
@@ -85,6 +116,42 @@ public class DecisionArchiveAction extends ActionSupport {
 	*/
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return siteUrl
+	*/
+	public String getSiteUrl() {
+		return siteUrl;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param siteUrl
+	*/
+	public void setSiteUrl(String siteUrl) {
+		this.siteUrl = siteUrl;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return year
+	*/
+	public int getYear() {
+		return year;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param year
+	*/
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 
