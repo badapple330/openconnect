@@ -274,7 +274,22 @@ public class DecisionDTO {
 
 
 
-    /** 取得メソッド を取得
+    /**
+	* 取得メソッド を取得
+	* @return siteUrl
+	*/
+	public String getSiteUrl() {
+		return siteUrl;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param siteUrl
+	*/
+	public void setSiteUrl(String siteUrl) {
+		this.siteUrl = siteUrl;
+	}
+
+	/** 取得メソッド を取得
 	* @return person
 	*/
 	public int getPerson() {
