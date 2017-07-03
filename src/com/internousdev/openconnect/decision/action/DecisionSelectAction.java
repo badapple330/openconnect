@@ -305,6 +305,7 @@ K	 * エラーメッセージ
 			kPermiter1nameList = dao.selectByKPermiterId1(kPermiterId1);
 			kPermiter2nameList = dao.selectByKPermiterId2(kPermiterId2);
 			kPermiter3nameList = dao.selectByKPermiterId3(kPermiterId3);
+			dao.updateChangeRecourse(type, decisionId);//変更編集・遡求編集ボタン押下時に値を更新する為のもの
 
 		}catch (UnknownException e) {
 			e.printStackTrace();

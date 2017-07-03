@@ -491,7 +491,42 @@ public class DecisionDAO {
 
 
 
+	/**
+     * 変更編集・遡求編集ボタン押下時メソッド  編集開始による値(変更有無・遡求有無ステータス)の更新をする為のメソッド
+     * @author SOSHI AZUMA
+     */
+	public int updateChangeRecourse(int type, int decisionId ) {
 
+		int count = 0;
+
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
+		Connection con = db.getConnection();
+		String sql ="";
+
+			if(type == 4 || type == 5 || type == 6) {//変更編集ボタンが押された場合
+					sql = "update decision set change_status = 1, decision_status = 11 where decision_id = ?";
+			}
+			if(type == 7) {//遡求編集ボタンが押された場合
+					sql = "update decision set recourse_status = 1, decision_status = 12 where decision_id = ?";
+			}
+
+			try {
+				PreparedStatement ps = con.prepareStatement(sql);
+
+				ps.setInt(1, decisionId);
+				count = ps.executeUpdate();
+
+			} catch(SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					con.close();
+				} catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			return count;
+	}
 
 
 

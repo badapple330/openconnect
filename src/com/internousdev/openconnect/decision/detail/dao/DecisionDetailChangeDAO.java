@@ -23,7 +23,7 @@ public class DecisionDetailChangeDAO {
      */
 	public int change( String decisionType, int decisionId ) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String applyDay = sdf.format(System.currentTimeMillis());
 		int count = 0;
 
@@ -36,10 +36,10 @@ public class DecisionDetailChangeDAO {
 		if(decisionType.equals("実施")) {
 			//リーダーの承認ダブりif文に引っかかるので承認者をnullにする
 			sql = "UPDATE decision SET decision_status = 4, decision_type = '実施', j_permiter_id1 = null, j_permiter_id2 = null, j_permiter_id3 = null"
-					+ ", k_permiter_id1 = null, k_permiter_id2 = null, k_permiter_id3 = null, option_status = 1, j_apply_day = ? where decision_id = ?";
+					+ ", k_permiter_id1 = null, k_permiter_id2 = null, k_permiter_id3 = null, j_apply_day = ? where decision_id = ?";
 		}
 		else {
-			sql = "UPDATE decision SET decision_status = 4, k_permiter_id1 = null, k_permiter_id2 = null, k_permiter_id3 = null, option_status = 1, k_apply_day = ? where decision_id = ?";
+			sql = "UPDATE decision SET decision_status = 4, k_permiter_id1 = null, k_permiter_id2 = null, k_permiter_id3 = null, k_apply_day = ? where decision_id = ?";
 		}
 
 		try {

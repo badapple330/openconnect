@@ -79,25 +79,25 @@ public class DecisionDetailDTO {
 	 */
 	private int projectId;
 	/**
-	 *  実施申請日
-	 */
-	private String jApplyDay;
-	/**
-	 *  契約/実施兼契約申請日
-	 */
-	private String kApplyDay;
-	/**
-	 *  遡求申請日
-	 */
-	private String sApplyDay;
-	/**
 	 *  決裁種類
 	 */
 	private String decisionType;
 	/**
-	 *  決裁進捗状況
+	 *  決裁状況
 	 */
 	private int decisionStatus;
+	/**
+	 * 承認状況
+	 */
+	private int permitStatus;
+	/**
+	 * 変更有無
+	 */
+	private int changeStatus;
+	/**
+	 * 遡求有無
+	 */
+	private int recourseStatus;
 	/**
 	 * 終了日
 	 */
@@ -125,22 +125,6 @@ public class DecisionDetailDTO {
 	 */
 	private String jDecId;
 	/**
-	 * 契約決裁番号
-	 */
-	private String kDecId;
-	/**
-	 * 実施兼契約決裁番号
-	 */
-	private String jkDecId;
-	/**
-	 * 承認状況
-	 */
-	private int permitStatus;
-	/**
-	 * 変更/遡求状況
-	 */
-	private int optionStatus;
-	/**
 	 * 実施起案者ID
 	 */
 	private int jDrafterId;
@@ -148,31 +132,34 @@ public class DecisionDetailDTO {
 	 * 契約/実施兼契約起案者ID
 	 */
 	private int kDrafterId;
-
 	/**
 	 * 実施_承認者ID(1人目:リーダー)
 	 */
 	private int jPermiterId1;
 	/**
-	 * 実施_承認者ID(2人目:リーダー)
-	 */
-	private int jPermiterId2;
-	/**
-	 * 実施_承認者ID(3人目:先生)
-	 */
-	private int jPermiterId3;
-	/**
 	 * 契約_承認者ID(1人目:リーダー)
 	 */
 	private int kPermiterId1;
 	/**
-	 * 契約_承認者ID(2人目:リーダー)
-	 */
-	private int kPermiterId2;
-	/**
 	 * 契約_承認者ID(3人目:先生)
 	 */
 	private int kPermiterId3;
+	/**
+	 * 遡求承認者ID(先生)
+	 */
+	private int sPermiterId;
+	/**
+	 * 実施申請日
+	 */
+	private String jApplyDay;
+	/**
+	 * 契約/実施兼契約申請日
+	 */
+	private String kApplyDay;
+	/**
+	 * 遡求申請日
+	 */
+	private String sApplyDay;
 
 
 
@@ -256,48 +243,6 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @return jApplyDay
-	*/
-	public String getJApplyDay() {
-		return jApplyDay;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param jApplyDay
-	*/
-	public void setJApplyDay(String jApplyDay) {
-		this.jApplyDay = jApplyDay;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return kApplyDay
-	*/
-	public String getKApplyDay() {
-		return kApplyDay;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param kApplyDay
-	*/
-	public void setKApplyDay(String kApplyDay) {
-		this.kApplyDay = kApplyDay;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return sApplyDay
-	*/
-	public String getSApplyDay() {
-		return sApplyDay;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param sApplyDay
-	*/
-	public void setSApplyDay(String sApplyDay) {
-		this.sApplyDay = sApplyDay;
-	}
-	/**
-	* 取得メソッド を取得
 	* @return decisionType
 	*/
 	public String getDecisionType() {
@@ -323,6 +268,48 @@ public class DecisionDetailDTO {
 	*/
 	public void setDecisionStatus(int decisionStatus) {
 		this.decisionStatus = decisionStatus;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return permitStatus
+	*/
+	public int getPermitStatus() {
+		return permitStatus;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param permitStatus
+	*/
+	public void setPermitStatus(int permitStatus) {
+		this.permitStatus = permitStatus;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return changeStatus
+	*/
+	public int getChangeStatus() {
+		return changeStatus;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param changeStatus
+	*/
+	public void setChangeStatus(int changeStatus) {
+		this.changeStatus = changeStatus;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return recourseStatus
+	*/
+	public int getRecourseStatus() {
+		return recourseStatus;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param recourseStatus
+	*/
+	public void setRecourseStatus(int recourseStatus) {
+		this.recourseStatus = recourseStatus;
 	}
 	/**
 	* 取得メソッド を取得
@@ -396,62 +383,6 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @return kDecId
-	*/
-	public String getKDecId() {
-		return kDecId;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param kDecId
-	*/
-	public void setKDecId(String kDecId) {
-		this.kDecId = kDecId;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return jkDecId
-	*/
-	public String getJkDecId() {
-		return jkDecId;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param jkDecId
-	*/
-	public void setJkDecId(String jkDecId) {
-		this.jkDecId = jkDecId;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return permitStatus
-	*/
-	public int getPermitStatus() {
-		return permitStatus;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param permitStatus
-	*/
-	public void setPermitStatus(int permitStatus) {
-		this.permitStatus = permitStatus;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return optionStatus
-	*/
-	public int getOptionStatus() {
-		return optionStatus;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param optionStatus
-	*/
-	public void setOptionStatus(int optionStatus) {
-		this.optionStatus = optionStatus;
-	}
-	/**
-	* 取得メソッド を取得
 	* @return jDrafterId
 	*/
 	public int getJDrafterId() {
@@ -494,34 +425,6 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @return jPermiterId2
-	*/
-	public int getJPermiterId2() {
-		return jPermiterId2;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param jPermiterId2
-	*/
-	public void setJPermiterId2(int jPermiterId2) {
-		this.jPermiterId2 = jPermiterId2;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return jPermiterId3
-	*/
-	public int getJPermiterId3() {
-		return jPermiterId3;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param jPermiterId3
-	*/
-	public void setJPermiterId3(int jPermiterId3) {
-		this.jPermiterId3 = jPermiterId3;
-	}
-	/**
-	* 取得メソッド を取得
 	* @return kPermiterId1
 	*/
 	public int getKPermiterId1() {
@@ -536,20 +439,6 @@ public class DecisionDetailDTO {
 	}
 	/**
 	* 取得メソッド を取得
-	* @return kPermiterId2
-	*/
-	public int getKPermiterId2() {
-		return kPermiterId2;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param kPermiterId2
-	*/
-	public void setKPermiterId2(int kPermiterId2) {
-		this.kPermiterId2 = kPermiterId2;
-	}
-	/**
-	* 取得メソッド を取得
 	* @return kPermiterId3
 	*/
 	public int getKPermiterId3() {
@@ -561,6 +450,62 @@ public class DecisionDetailDTO {
 	*/
 	public void setKPermiterId3(int kPermiterId3) {
 		this.kPermiterId3 = kPermiterId3;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return sPermiterId
+	*/
+	public int getSPermiterId() {
+		return sPermiterId;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param sPermiterId
+	*/
+	public void setSPermiterId(int sPermiterId) {
+		this.sPermiterId = sPermiterId;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return jApplyDay
+	*/
+	public String getJApplyDay() {
+		return jApplyDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param jApplyDay
+	*/
+	public void setJApplyDay(String jApplyDay) {
+		this.jApplyDay = jApplyDay;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return kApplyDay
+	*/
+	public String getKApplyDay() {
+		return kApplyDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param kApplyDay
+	*/
+	public void setKApplyDay(String kApplyDay) {
+		this.kApplyDay = kApplyDay;
+	}
+	/**
+	* 取得メソッド を取得
+	* @return sApplyDay
+	*/
+	public String getSApplyDay() {
+		return sApplyDay;
+	}
+	/**
+	* 設定メソッド を設定
+	* @param sApplyDay
+	*/
+	public void setSApplyDay(String sApplyDay) {
+		this.sApplyDay = sApplyDay;
 	}
 
 
