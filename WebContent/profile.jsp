@@ -357,8 +357,14 @@ FOLLOW</a>
 
 </div>
 
-<input type="submit"  value="送信">
+<button type="submit">送信</button>
 </s:form>
+
+
+<s:form action="ColorDefaultAction">
+<button type="submit">リセット</button>
+</s:form>
+
 
 
 

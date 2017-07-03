@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package com.internousdev.bulletinboard.dao;
 
@@ -15,8 +15,7 @@ import com.internousdev.util.DBConnector;
  * @author internousdev
  *
  */
-public class colorChangeDAO {
-
+public class ColorDefaultDAO {
 	public ColorDTO getColor(int userId){
 		ColorDTO dto=new ColorDTO();
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
@@ -47,7 +46,7 @@ public class colorChangeDAO {
 
 	}
 
-		public boolean colorChange(int userId,String hColor,String bColor,String fColor){
+		public boolean colorDefault(int userId,String hColor,String bColor,String fColor){
 			DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			Connection con2=db.getConnection();
 			String sql2 = "update users set h_color =?,b_color =?,f_color =? where user_id =?";
