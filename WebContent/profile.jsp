@@ -31,7 +31,7 @@ pageEncoding="UTF-8"%>
 <div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
   <div class="navbar-header">
 
-
+<a class="navbar-brand" href="applist.jsp">Openconnect</a>
  <a class="talk_area" href="watch-position.jsp"><img src="pic/map_print.png" ></a>
  <a class="talk_area" href="web_speech.jsp"><img src="pic/user_img/syoki.png" ></a>
   <a class="talk_area" data-toggle="modal" data-target="#color" class="cursor"><img src="pic/peint.png" ></a>

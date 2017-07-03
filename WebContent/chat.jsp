@@ -91,6 +91,8 @@
         <div class="collapse navbar-collapse" id="nav_target">
           <ul class="nav navbar-nav navbar-right">
             <li><a data-toggle="modal" class="cursor"
+              data-target="#groupNameChange">グループ名変更</a></li>
+            <li><a data-toggle="modal" class="cursor"
               data-target="#groupImageChange">グループ画像変更</a></li>
             <li><a data-toggle="modal" class="cursor"
               data-target="#groupMemberModal">メンバーを確認</a></li>
@@ -116,6 +118,27 @@
       </div>
     </nav>
   </s:else>
+  <!-- グループ名変更画面 -->
+  <div class="modal fade" id="groupNameChange" tabindex="-1">
+  	<div class="modal-dialog">
+  	　<div class="modal-content">
+  	    <div class="modal-header">
+  	      <button type="button" class="close" data-dismiss="modal">
+  	        <span>&times;</span>
+  	      </button>
+  	      <h4 class="modal-title">グループ名更新(30字以内)</h4>
+  	    </div>
+  	    <s:form action="GroupNameChangeAction">
+  	    <div class="modal-body">
+  	    	<textarea name="groupName" class="form-control" rows="1" maxlength="30" style="list-area:none; resize:none;"><s:property value="groupName"/></textarea>
+  	    </div>
+  	    <div class="modal-footer">
+  	    	<button type="submit" class="btn btn-primary">更新</button>
+  	    </div>
+  	    </s:form>
+  	   </div>
+  	</div>
+  </div>
   <!-- グループ画像変更画面 -->
   <div class="modal fade" id="groupImageChange" tabindex="-1">
     <div class="modal-dialog">
