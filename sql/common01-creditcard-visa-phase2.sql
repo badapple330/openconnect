@@ -48,7 +48,7 @@ admin_flg boolean default false comment '管理者フラグ'
 /*管理者情報*/
 create table admin(
 admin_login_id varchar(20) primary key '管理者ログインID',
-admin_passward int not null '管理者パスワード'
+admin_password int not null '管理者パスワード'
 );
 
 
