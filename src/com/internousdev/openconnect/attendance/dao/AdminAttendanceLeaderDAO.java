@@ -4,7 +4,6 @@
 package com.internousdev.openconnect.attendance.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,43 +21,43 @@ public class AdminAttendanceLeaderDAO {
 
 	/* 勤怠履歴を格納する */
 	public ArrayList<AttendanceDTO> searchList  = new ArrayList<AttendanceDTO>();
-	public ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
-
-	public ArrayList<AttendanceDTO> select2(int userId){
-
-
-			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
-			Connection con = db.getConnection();
-
-			ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
-
-			String sql = "SELECT * FROM users WHERE user_id = ?";
-			try{PreparedStatement ps = con.prepareStatement(sql);
-				ps.setInt(1, userId);
-
-			ResultSet rs = ps.executeQuery();
-
-			while(rs.next()){
-				AttendanceDTO dto2 = new AttendanceDTO();
-				dto2.setTeamName(rs.getString("team_name"));
-
-                atTeamList.add(dto2);
-			}
-			rs.close();
-			ps.close();
-
-
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
-		try {
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	return atTeamList;
-}
+//	public ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
+//
+//	public ArrayList<AttendanceDTO> select2(int userId){
+//
+//
+//			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
+//			Connection con = db.getConnection();
+//
+//			ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
+//
+//			String sql = "SELECT * FROM users WHERE user_id = ?";
+//			try{PreparedStatement ps = con.prepareStatement(sql);
+//				ps.setInt(1, userId);
+//
+//			ResultSet rs = ps.executeQuery();
+//
+//			while(rs.next()){
+//				AttendanceDTO dto2 = new AttendanceDTO();
+//				dto2.setTeamName(rs.getString("team_name"));
+//
+//                atTeamList.add(dto2);
+//			}
+//			rs.close();
+//			ps.close();
+//
+//
+//	} catch (SQLException e) {
+//		e.printStackTrace();
+//	} finally {
+//		try {
+//			con.close();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//	return atTeamList;
+//}
 	/**
 	 *
 	 * @param atYear
@@ -70,7 +69,7 @@ public class AdminAttendanceLeaderDAO {
 	 * @param teamName
 	 * @return searchList
 	 */
-	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String attendance) {
+	public ArrayList<AttendanceDTO> select(int atYear,int atMonth,int atDay,String attendance,String teamName) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 		Statement statement = null;
@@ -101,11 +100,11 @@ public class AdminAttendanceLeaderDAO {
 		}
 
 
-//		/* チーム名が定義されたとき */
-//		if(!((teamName).equals(""))){
-//			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
-//			whereState += "team_name='"+teamName+"'";
-//		}
+		/* チーム名が定義されたとき */
+		if(!((teamName).equals(""))){
+			whereState += whereState.equals("") ? "": " AND "; //すでに条件文字列が存在するならANDを追加。
+			whereState += "team_name='"+teamName+"'";
+		}
 
 		/* 勤怠状況定義時 */
 		if(!((attendance).equals(""))){
