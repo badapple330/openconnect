@@ -4,7 +4,9 @@
 package com.internousdev.openconnect.attendance.action;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.function.UnaryOperator;
 
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -134,5 +136,29 @@ public void setTeamName(String teamName) {
 	this.teamName = teamName;
 }
 
+public List<String> getAllTeamNames(){
+	ArrayList<String> teamNames = new ArrayList<String>();
+	for (AttendanceDTO dto: this.getAtTeamList()){
+		teamNames.add(dto.getTeamName());
+	}
+	return teamNames;
+}
+
+public String getFormattedAllTeamNames(){
+	List<String> teamNameList = this.getAllTeamNames();
+	UnaryOperator<String> func = (String s) -> { return "'" +s +"'"; };
+	String formatted="";
+
+	for ( String name: teamNameList){
+		if (!formatted.equals("")){
+			formatted += ",";
+		} else {
+			formatted = "{";
+		}
+		formatted += func.apply(name);
+	}
+	System.out.println(formatted);
+	return formatted + "}";
+}
 
 }

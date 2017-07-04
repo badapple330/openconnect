@@ -20,12 +20,12 @@ public class DecisionArchiveDAO {
 
 	ArrayList<DecisionDTO> archiveList =new ArrayList<DecisionDTO>();
 
-	public  ArrayList<DecisionDTO> archive(int siteId, String siteName) {
+	public ArrayList<DecisionDTO> archive(int siteId, String siteName, String siteUrl, int year) {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
-		String sql ="select site_id,site_name from site";
+		String sql ="select site_id,site_name,site_url,year from site";
 
 		try {
 
@@ -33,12 +33,12 @@ public class DecisionArchiveDAO {
 			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
-
 			while (rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
 				dto.setSiteId(rs.getInt("site_id"));
 				dto.setSiteName(rs.getString("site_name"));
-
+				dto.setSiteUrl(rs.getString("site_url"));
+				dto.setYear(rs.getInt("year"));
 
 				archiveList.add(dto);
 			}
@@ -52,6 +52,7 @@ public class DecisionArchiveDAO {
 				e.printStackTrace();
 			}
 		}
+
 		return archiveList;
 	}
 

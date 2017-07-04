@@ -28,7 +28,7 @@ public class UserDAO {
 			while(rs.next()){
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setUserImg(rs.getString("user_img"));
-				dto.setUserName(rs.getString("family_name"));
+				dto.setUserName(rs.getString("user_name"));
 				dto.setPoint(rs.getInt("point"));
 				dto.setLv(rs.getInt("lv"));
 				dto.setProfile(rs.getString("profile"));

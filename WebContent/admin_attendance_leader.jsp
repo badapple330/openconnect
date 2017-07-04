@@ -39,9 +39,18 @@
 
 						<tr>
 							<th>チーム名：</th>
-							<td><s:iterator value="atTeamList">
-									<s:property value="teamName" />
-								</s:iterator></td>
+
+							<s:if test = "getAllTeamNames().equals('')">
+								<td><s:property value="teamName"/></td>
+							</s:if>
+							<s:else>
+							<s:iterator value="allTeamNames">
+							<td>
+								<input type="radio" name="teamName" value=<s:property/> checked="checked"><s:property/>
+							</td>
+							</s:iterator>
+							</s:else>
+
 						</tr>
 
 						<tr>
@@ -51,6 +60,11 @@
 							<th>日 時 ：</th>
 							<td class="ymd"></td>
 						</tr>
+<!-- 						<tr> -->
+<!-- 							<th>チーム名：</th> -->
+<!-- 							<td> <input type="text" class="form2" name="teamName" -->
+<!-- 							placeholder="チーム名" id="teamForm" title="チーム名" /></td> -->
+<!-- 						</tr> -->
 						<tr>
 						<tr id="tr_type">
 							<th>出欠確認：</th>
@@ -84,8 +98,11 @@
 						</tr>
 						<tr>
 					</table>
+
+
 					<input type="submit" class="form2" value="検索" class="search-btn"
-						id="searchButtun" />
+					id="searchButtun" />
+
 				</s:form>
 			</div>
 			<font color="red"><s:property value="errorMsg" /></font>

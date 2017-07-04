@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.openconnect.attendance.dao.AttendanceCheckDAO;
 import com.internousdev.openconnect.attendance.dao.AttendanceDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -82,6 +83,8 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	 */
 	private ArrayList<AttendanceDTO> atUserList = new ArrayList<AttendanceDTO>();
 
+	private ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
+
 	/**
 	 * 実行メソッド 出欠状況の送信処理をする
 	 * @author Teppei Matsumoto
@@ -90,9 +93,14 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	 */
 	public String execute(){
 		String result =ERROR;
+		int userId = (int) session.get("userId");
+		AttendanceCheckDAO dao2 = new AttendanceCheckDAO();
+		searchList = dao2.select(userId,atYear,atMonth,atDay);
 
-		if(session.get("userId") != null){
-			int userId = (int) session.get("userId");
+		if(searchList.size() > 0){
+			result = ERROR;
+		}
+		else if(session.get("userId") != null){
 			  AttendanceDAO dao=new AttendanceDAO();
 			  atUserList = dao.select(userId);
 
@@ -104,165 +112,115 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	* 取得メソッド を取得
-	* @author Teppei Matsumoto
-	* @return user_id
-	*/
+	 * ユーザーIDを取得します。
+	 * @return ユーザーID
+	 */
 	public int getUserId() {
 		return userId;
 	}
 
 	/**
-	* 設定メソッド を設定
-	* @author Teppei Matsumoto
-	* @param user_id
-	*/
+	 * ユーザーIDを設定します。
+	 * @param userId ユーザーID
+	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
 	/**
-	* 取得メソッド を取得
-	* @author Teppei Matsumoto
-	* @return attendance
-	*/
+	 * 出欠状況を取得します。
+	 * @return 出欠状況
+	 */
 	public String getAttendance() {
 		return attendance;
 	}
 
 	/**
-	* 設定メソッド を設定
-	* @author Teppei Matsumoto
-	* @param attendance
-	*/
+	 * 出欠状況を設定します。
+	 * @param attendance 出欠状況
+	 */
 	public void setAttendance(String attendance) {
 		this.attendance = attendance;
 	}
 
 	/**
-	* 取得メソッド を取得
-	* @author Teppei Matsumoto
-	* @return reason
-	*/
-	public String getReason() {
-		return reason;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @author Teppei Matsumoto
-	* @param reason
-	*/
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @author  Teppei Matsumoto
-	* @return atYear
-	*/
+	 * 報告年を取得します。
+	 * @return 報告年
+	 */
 	public int getAtYear() {
 		return atYear;
 	}
 
 	/**
-	* 設定メソッド を設定
-	* @author  Teppei Matsumoto
-	* @param atYear
-	*/
+	 * 報告年を設定します。
+	 * @param atYear 報告年
+	 */
 	public void setAtYear(int atYear) {
 		this.atYear = atYear;
 	}
 
 	/**
-	* 取得メソッド を取得
-	* @author  Teppei Matsumoto
-	* @return atMonth
-	*/
+	 * 報告月を取得します。
+	 * @return 報告月
+	 */
 	public int getAtMonth() {
 		return atMonth;
 	}
 
 	/**
-	* 設定メソッド を設定
-	* @author  Teppei Matsumoto
-	* @param atMonth
-	*/
+	 * 報告月を設定します。
+	 * @param atMonth 報告月
+	 */
 	public void setAtMonth(int atMonth) {
 		this.atMonth = atMonth;
 	}
 
 	/**
-	* 取得メソッド を取得
-	* @author  Teppei Matsumoto
-	* @return atDay
-	*/
-	public int getAtDay() {
-		return atDay;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @author  Teppei Matsumoto
-	* @param atDay
-	*/
-	public void setAtDay(int atDay) {
-		this.atDay = atDay;
-	}
-
-	/**
-	* 取得メソッド を取得
-	* @author Teppei Matsumoto
-	* @return familyNameKanji
-	*/
+	 * 漢字姓を取得します。
+	 * @return 漢字姓
+	 */
 	public String getFamilyNameKanji() {
 		return familyNameKanji;
 	}
 
 	/**
-	* 設定メソッド を設定
-	* @author Teppei Matsumoto
-	* @param familyNameKanji
-	*/
+	 * 漢字姓を設定します。
+	 * @param familyNameKanji 漢字姓
+	 */
 	public void setFamilyNameKanji(String familyNameKanji) {
 		this.familyNameKanji = familyNameKanji;
 	}
 
 	/**
-	* 取得メソッド を取得
-	* @author Teppei Matsumoto
-	* @return givenNameKanji
-	*/
+	 * 漢字名を取得します。
+	 * @return 漢字名
+	 */
 	public String getGivenNameKanji() {
 		return givenNameKanji;
 	}
 
 	/**
-	* 設定メソッド を設定
-	* @author Teppei Matsumoto
-	* @param givenNameKanji
-	*/
+	 * 漢字名を設定します。
+	 * @param givenNameKanji 漢字名
+	 */
 	public void setGivenNameKanji(String givenNameKanji) {
 		this.givenNameKanji = givenNameKanji;
 	}
 
 	/**
-	* 取得メソッド を取得
-	* @author Teppei Matsumoto
-	* @return atUserList
-	*/
-	public ArrayList<AttendanceDTO> getAtUserList() {
-		return atUserList;
+	 * 備考欄を取得します。
+	 * @return 備考欄
+	 */
+	public String getReason() {
+		return reason;
 	}
 
 	/**
-	* 設定メソッド を設定
-	* @author KOHEI NITABARU
-	* @param Teppei Matsumoto
-	*/
-	public void setAtUserList(ArrayList<AttendanceDTO> atUserList) {
-		this.atUserList = atUserList;
+	 * 備考欄を設定します。
+	 * @param reason 備考欄
+	 */
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 
 	/**
@@ -277,6 +235,22 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	/**
+	 * 報告日を取得します。
+	 * @return 報告日
+	 */
+	public int getAtDay() {
+		return atDay;
+	}
+
+	/**
+	 * 報告日を設定します。
+	 * @param atDay 報告日
+	 */
+	public void setAtDay(int atDay) {
+		this.atDay = atDay;
 	}
 
 	/**
@@ -295,6 +269,38 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	*/
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
+	}
+
+	/**
+	 * ユーザーリストを取得します。
+	 * @return ユーザーリスト
+	 */
+	public ArrayList<AttendanceDTO> getAtUserList() {
+		return atUserList;
+	}
+
+	/**
+	 * ユーザーリストを設定します。
+	 * @param atUserList ユーザーリスト
+	 */
+	public void setAtUserList(ArrayList<AttendanceDTO> atUserList) {
+		this.atUserList = atUserList;
+	}
+
+	/**
+	 * searchListを取得します。
+	 * @return searchList
+	 */
+	public ArrayList<AttendanceDTO> getSearchList() {
+	    return searchList;
+	}
+
+	/**
+	 * searchListを設定します。
+	 * @param searchList searchList
+	 */
+	public void setSearchList(ArrayList<AttendanceDTO> searchList) {
+	    this.searchList = searchList;
 	}
 
 }

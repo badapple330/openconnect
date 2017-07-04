@@ -73,13 +73,15 @@ public class AdminAttendanceLeaderAction extends ActionSupport implements Sessio
 	public String execute(){
 
 		String result = ERROR;
+		System.out.println("AAA");
+		System.out.println(this.getTeamName());
 
 		AdminAttendanceLeaderDAO dao = new AdminAttendanceLeaderDAO();
-		searchList = dao.select(atYear,atMonth,atDay,attendance);
+		searchList = dao.select(atYear,atMonth,atDay,attendance,teamName);
 
-			int userId = (int) session.get("userId");
-			AdminAttendanceLeaderDAO dao2 = new AdminAttendanceLeaderDAO();
-		atTeamList = dao2.select2(userId);
+//			int userId = (int) session.get("userId");
+//			AdminAttendanceLeaderDAO dao2 = new AdminAttendanceLeaderDAO();
+//		atTeamList = dao2.select2(userId);
 
 		for(int i = 0; i<searchList.size(); i++){
 			String attend = searchList.get(i).getAttendance();
@@ -382,6 +384,10 @@ public class AdminAttendanceLeaderAction extends ActionSupport implements Sessio
 	public void setSession(Map<String, Object> arg0) {
 		// TODO 自動生成されたメソッド・スタブ
 
+	}
+
+	public String getAllTeamNames(){
+		return "";
 	}
 
 

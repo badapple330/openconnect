@@ -63,8 +63,7 @@ commission int not null default '0' comment '手数料',
 delete_flg boolean default false comment '削除フラグ',
 cancel_flg boolean default false comment '返品フラグ',
 cancel_order_flg boolean default false comment '返品依頼フラグ',
-PRIMARY KEY (history_id),
-foreign key(login_id) references user(login_id)
+PRIMARY KEY (history_id)
 );
 
 /* クレジットカード情報
@@ -81,8 +80,7 @@ update_day datetime not null comment '更新日',
 delete_flg boolean default false comment '削除フラグ',
 expiration_year int(11) not null comment '有効期限（年）',
 expiration_month int(11) not null comment '有効期限（月）',
-spend int(11) default 0 comment 'ご利用金額',
-foreign key(login_id)references user(login_id)
+spend int(11) default 0 comment 'ご利用金額'
 );
 
 
@@ -108,7 +106,12 @@ update_day datetime not null default current_timestamp on update current_timesta
 delete_flg boolean default false comment '削除フラグ'
 );
 
-
+/*管理者情報*/
+create table admins(
+admin_id int primary key comment '管理者ログインID',
+admin_password varchar(100) not null comment '管理者パスワード',
+admin_name_e varchar(100) not null comment '管理者名'
+);
 
 
 /* 以下テスト用データ*/
@@ -141,8 +144,6 @@ replace into user(login_id,password,name,name_e,postal,address,email,tel_number,
 ('11','student6','霧生　雄一','kiryu yuichi','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','yuuichi.kiryuu@gmail.com','0123456789','09012345678','1990-04-01','男','1987654','1987651','5555'),
 ('12','student7','星達也','hoshi tathuya','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','tatsuya.hoshi@gmail.com','0123456789','09012345678','1990-04-01','男','2987654','2987652','5555'),
 ('13','student8','岩本　興明','iwamoto komei','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','koumei.iwamoto@gmail.com','0123456789','09012345678','1990-04-01','男','3987654','3987653','5555');
-
-
 
 
 /**
@@ -179,3 +180,16 @@ insert into credit_card(login_id,name_e,credit_number,security_code,id_number,cr
 insert into corporation(login_id,password,corporation_name,postal,address,capital,rep_name,charge,email,tel_number,employee,established,hp_url,judge_flg,register_day,update_day,delete_flg)values
 ("kudo","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","kudo@gmail.com","0311112222","800","50",null,'保留',20160617,20160617,false),
 ("hideki","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","hideki@gmail.com","0311112222","800","50",null,'認証',20160617,20160617,false);
+
+
+insert into admins(admin_id,admin_password,admin_name_e)values
+('1','test.user','takuma inoue'),
+('2','test.user','akira kazami'),
+('3','test.user','ak-47'),
+('4','test.user','black'),
+('5','test.user','type10tank'),
+('6','test.user','ryouma sakamoto');
+
+
+
+

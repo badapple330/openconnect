@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package com.internousdev.bulletinboard.action;
 
@@ -7,27 +7,27 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.colorChangeDAO;
+import com.internousdev.bulletinboard.dao.ColorDefaultDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internousdev
  *
  */
-public class colorChangeAction extends ActionSupport implements SessionAware{
+public class ColorDefaultAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 	
 	//ヘッダーの色
-	private String ColorH;
+	private String ColorH = "#333333";
 	
 	//ボディの色
-	private String ColorB;
+	private String ColorB = "#ffffff";
 	
 	//フッターの色
-	private String ColorF;
+	private String ColorF = "#6ff5ef";
 	
-	/*デフォルトの色
+	/**デフォルトの色
 	private String ColorD;
 	*/
 
@@ -37,20 +37,22 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 
 	public String execute() {
-		colorChangeDAO dao = new colorChangeDAO();
+		ColorDefaultDAO dao = new ColorDefaultDAO();
 		String result = ERROR;
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
 		}
-		if(userId==0){return result;}
+		
+		if(userId==0){return result;
+	}
 
-
-		dao.colorChange( userId, ColorH,ColorB,ColorF);
+		dao.colorDefault(userId, ColorH,ColorB,ColorF);
 		session.put("hColor", dao.getColor(userId).gethColor());
 		session.put("bColor", dao.getColor(userId).getbColor());
 		session.put("fColor",dao.getColor(userId).getfColor());
 		result=SUCCESS;
 		return result;
+		
 	}
 
 
@@ -143,4 +145,3 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 
 }
-
