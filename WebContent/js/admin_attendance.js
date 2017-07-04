@@ -155,6 +155,9 @@ $(".modal-update").click(function(){
 	// hiddenのvalue
 	$('.updateReason').val( $('.reason').eq(index).val() );
 	$('.updateUserId').val( $('.userId').eq(index).val() );
+	$('.updateAtYear').val( $('.atYear').eq(index).val() );
+	$('.updateAtMonth').val( $('.atMonth').eq(index).val() );
+	$('.updateAtDay').val( $('.atDay').eq(index).val() );
 	$(".modal-close").click(function(){
 		$("#modal-updateMain,#modal-bg").fadeOut("slow",function(){
 			//挿入した<div id="modal-bg"></div>を削除
