@@ -67,7 +67,7 @@
 <body>
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
-
+<s:if test="%{#session.userFlg == 2}">
 	<div class="container">
 		<div id="orver">
 			<!-- タイトル -->
@@ -328,11 +328,15 @@
 			<%-- 			</s:form> --%>
 
 			<!-- 		</div> -->
-			<!-- 		編集用のモーダル画面 -->
+
+
 
 		</div>
 	</div>
-
+</s:if>
+<s:else>
+	管理者ログイン後に表示します。
+	</s:else>
 	<footer>
 		<s:include value="footer.jsp" />
 	</footer>
