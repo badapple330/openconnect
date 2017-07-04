@@ -68,6 +68,15 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 */
 	private int early = 0;
 
+	/**
+	 * ユーザーID
+	 */
+	private int userId;
+
+
+
+
+
 	private String errorMsg;
 	/**
 	 * ユーザーリスト
@@ -426,6 +435,23 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 		this.errorMsg = errorMsg;
 	}
 
+	/**
+	* 取得メソッド を取得
+	* @return userId
+	*/
+	public int getUserId() {
+		return userId;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userId
+	*/
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 
 
