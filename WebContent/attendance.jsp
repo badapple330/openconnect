@@ -85,7 +85,6 @@
 <br>
 	<input type="submit"  value="送信" class="button" onClick="javascript:double(this)"/>
 
-
 	</s:form>
 
 	</s:if>
