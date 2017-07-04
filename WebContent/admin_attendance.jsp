@@ -67,7 +67,7 @@
 <body>
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
-<s:if test="%{#session.userFlg == 2}">
+<s:if test="%{#session.userFlg == 3}">
 	<div class="container">
 		<div id="orver">
 			<!-- タイトル -->
