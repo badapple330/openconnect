@@ -34,15 +34,19 @@
 
 </head>
 <body>
-<!-- アプリ一覧表示 -->
-<!-- S:ifで条件分岐 -->
+
 	<div class="container">
+
+	<!-- アプリ一覧表示 -->
 	<s:set name = "search" value="%{search}"/>
+
+	<!-- ifで条件分岐 -->
 	<s:if test="%{#search == ''}">
 		<h1 class="page-header">スケジュール一覧</h1>
 	</s:if>
+
 	<s:else>
-		<h1 class="page-header"><s:property value ="search" />さんのスケジュール</h1>
+		<h1 class="page-header"><s:property value ="search" />スケジュール</h1>
 	</s:else>
 
 	<div class = "print-btn" id="btn-print" style="text-align:right;"><input type="button" value ="印刷"></div>
@@ -59,9 +63,9 @@
 	</div>
 
 <div id = "main-box">
-<div class = "print-page">
-<div id ="calendar"></div>
-<div id="operation">
+		<div class = "print-page">
+		<div id ="calendar"></div>
+		<div id="operation">
 			<br>
 			<!-- 検索した後に表示するメッセージ -->
 			<s:property value="successMsg" />
@@ -71,6 +75,7 @@
 
 
 			<s:form action="ScheduleUpdateAction">
+
 				<table id = "schedule" border=1 style="">
 					<tbody>
 						<tr style="text-align:center">
@@ -78,105 +83,89 @@
 							<th>start</th>
 							<th>end</th>
 							<th>title</th>
-							<th>チーム名(編集不可)</th>
+							<th>チーム名</th>
 							<th>削除</th>
 							<th>編集</th>
 						</tr>
 
 						<!-- scheduleListに格納した情報をテーブルで表示 -->
 						<!-- カレンダーに渡すだけの情報は<div class="hidden">で囲ってcssで表示させないようにする -->
-						<!-- jsファイルに渡す情報としてstart,end,titleが必要なのでこのような記述となっている -->
-						<h5>start→開始日　end→終了日　title→作業内容</h5>
-						<s:iterator value="scheduleList" status="st">
-							<tr>
-								<td><s:property value="id" /></td>
-								<td><input type="text" name="scheduleStartdayList"
-									value="<s:property value="startDay" />"
-									class="scheduleStartdayList" type="date"
-									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
-									title="年-月-日で入力してください。" placeholder="開始日を入力" required><div class="hidden"><s:property value="startDay" /></div></td>
-								<td><input type="text" name="scheduleEnddayList"
-									value="<s:property value="endDay" />"
-									class="scheduleEnddayList"
-									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])"
-									title="年-月-日で入力してください。" placeholder="終了日を入力"><div class="hidden"><s:property value="endDay" />T00:01:00</div></td>
-								<td><input type="text" name="scheduleTitleList"
-									value="<s:property value="title" />" class="scheduleTitleList"
-									placeholder="件名を入力" maxlength=100 required><div class="hidden"><s:property value="teamName" />:<s:property value="title" /></div></td>
-								<td>
+						<!--  jsファイルに渡す情報としてstart,end,titleが必要なのでこのような記述となっている
+						<h5>start→開始日　end→終了日　title→作業内容</h5> -->
 
-								<input type="text" name="teamName[<s:property value="#st.index" />]"value="<s:property value="teamName" />"class="teamList" readonly><div class="hidden"><s:property value="teamName" /></div>
-								</td>
-								<td>
-										<input type="button" class="button modal-open" value="削除" />
-								</td>
-								<td>
-									<button type="submit" class="button" style="width:45px">編集</button>
-								</td>
-							</tr>
+				<s:iterator value="scheduleList" status="st">
+						<tr>
+							<td><s:property value="id" /></td>
+							<td><input type="text" name="scheduleStartdayList" value="<s:property value="startDay" />"class="scheduleStartdayList" type="date"
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])" title="年-月-日で入力してください。" placeholder="開始日を入力" required><div class="hidden"><s:property value="startDay" /></div></td>
+							<td><input type="text" name="scheduleEnddayList" value="<s:property value="endDay" />" class="scheduleEnddayList"
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])" title="年-月-日で入力してください。" placeholder="終了日を入力"><div class="hidden"><s:property value="endDay" />T00:01:00</div></td>
+							<td><input type="text" name="scheduleTitleList" value="<s:property value="title" />" class="scheduleTitleList"
+									placeholder="件名を入力" required><div class="hidden"><s:property value="teamName" />:<s:property value="title" /></div></td>
+							<td><input type="text" name="teamName[<s:property value="#st.index" />]"value="<s:property value="teamName" />"class="teamList" readonly><div class="hidden"><s:property value="teamName" /></div></td>
+							<td><input type="button" class="button modal-open" value="削除" /></td>
+							<td><button type="submit" class="button" style="width:45px">編集</button></td>
+						</tr>
 							<div class="hidden"><s:property value="search"/></div>
-							<!-- 削除機能で使用 -->
-							<input type="hidden" name="scheduleIdList"
-								value="<s:property value="id" />" class="scheduleIdList">
-							<input type="hidden" name="teamList2"
-								value="<s:property value="teamName" />" class="teamList2">
 
-						</s:iterator>
-					</tbody>
-				</table>
-			</s:form>
-</div></div>
+							<!-- 削除機能で使用 -->
+							<input type="hidden" name="scheduleIdList" value="<s:property value="id" />" class="scheduleIdList">
+							<input type="hidden" name="teamList2" value="<s:property value="teamName" />" class="teamList2">
+				</s:iterator>
+				</tbody>
+			</table>
+		 </s:form>
+	</div>
+</div>
+
+
 <div id="operation2">
-<div class = "blockA">
-<s:form action="ScheduleSelectAction">
-			<h5>【チーム名で検索】</h5>
+
+	<div class = "blockA">
+	<s:form action="ScheduleSelectAction">
+
+			<p>【チーム名で検索】</p>
 				<select name="search" required="required">
 								<option value="">以下から選択</option>
 								<option value="全件表示">全件表示</option>
 								<s:iterator value="teamList">
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
 								</s:iterator>
-							</select>
+				</select>
 				<s:submit value="検索"></s:submit>
-			</s:form>
-			<br>
-			</div>
+	</s:form>	<br>
+	</div>
 
-			<div class = "blockB">
-			【予定を登録】
-		<s:form action="ScheduleInsertAction">
-				<table border="0" style="">
+
+		<div class = "blockB">
+			<p>【予定を登録】</p>
+			<s:form action="ScheduleInsertAction">
+
+				<table>
 					<tbody>
 						<tr>
-							<td>
-							<s:if test="%{#search == ''}">
-							<select name="search" required="required">
-								<option value="">以下から選択</option>
-								<s:iterator value="teamList">
+							<td><s:if test="%{#search == ''}">
+									<select name="search" required="required">
+									<option value="">以下から選択</option>
+									<s:iterator value="teamList">
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
-								</s:iterator>
-							</select>
-							</s:if>
-							<s:else>
-							<div class="hidden"><input type="text" name="search" value = "<s:property value ="search" />"maxlength=100 readonly></div>チーム名:<s:property value ="search" />
-						</s:else>
-						</td>
+									</s:iterator></select></s:if><s:else>
+									<div class="hidden"><input type="text" name="search" value = "<s:property value ="search" />"maxlength=100 readonly></div>チーム名:<s:property value ="search" /></s:else>
+							</td>
+						</tr>
+
+						<tr>
+							<td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"　 required></td>
 						</tr>
 						<tr>
-							<td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"
-								maxlength=100 required></td>
+							<td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力" required></td>
 						</tr>
 						<tr>
-							<td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力"
-								maxlength=100 required></td>
-						</tr>
-							<td><input type="text" name="title" placeholder="件名を入力"
-								maxlength=100 required></td>
+							<td><input type="text" name="title" placeholder="件名を入力" required></td>
 						</tr>
 
 							<!-- tokenタグ -->
 								<s:token />
-						</tr>
 					</tbody>
 				</table>
 				<button type="submit" class="button" name="startDay">追加</button>
@@ -184,14 +173,52 @@
 			</div>
 
 
-			<!-- ロゴでも戻れるが、下にスクロールするとロゴが見えなくなるので一応配置 -->
-			<div class = "blockC">
-			<s:form action="GetAddressAction">
-				<button type="submit" class="button">トップへ戻る</button>
-			</s:form>
+	<div class="blockC">
+				<s:form action="MemoAction">
+
+					 <div class="searchFrame">
+					 	 <p>【メモ】</p>
+						 <p><textarea name="comment" cols="30" rows="3" id="MemoAction_comment" placeholder="連絡事項"></textarea></p>
+						 <p><input type="submit" value="保存"></p>
+					 </div>
+				</s:form>
+
+					<table class="memo">
+						<thead>
+							<tr>
+								<td>日時</td>
+								<td>メモ内容</td>
+								<td>削除</td>
+							</tr>
+						</thead>
+						<tbody>
+							<s:iterator value="memoList" status="i">
+								<tr>
+								<th scope="row">#<s:property value="#i.count" /></th>
+									<td><s:property value="memoList.get(#i.index).inquiryDate" /></td>
+									<td class="comment_area"><textarea class="comment"><s:property	value="memoList.get(#i.index).comment" /></textarea></td>
+									<td><input type="button" class="button modal-open" value="削除" /></td>
+
+<%-- 									<td><a href="<s:url action='MemoUpdateAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a> --%>
+<%-- 									    <a href="<s:url action='MemoDeleteAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a></td> --%>
+								</tr>
+							</s:iterator>
+						</tbody>
+					</table>
+			</div>
+
+
+<!-- 				ロゴでも戻れるが、下にスクロールするとロゴが見えなくなるので一応配置 -->
+<!-- 				<div class="blockD"> -->
+<%-- 					<s:form action="GetAddressAction"> --%>
+<!-- 						<button type="submit" class="button">トップへ戻る</button> -->
+<%-- 					</s:form> --%>
+<!-- 				</div> -->
 			</div>
 		</div>
-</div>
+		<div class="pagetop"><div class = "pagetop-info"><b>PageTop</b></div></div>
+
+
 				<div id="modal-main">
 				<!-- #contents START -->
 				<div id="modal-style">
