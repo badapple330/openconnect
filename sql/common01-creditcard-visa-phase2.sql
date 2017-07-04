@@ -109,8 +109,8 @@ delete_flg boolean default false comment '削除フラグ'
 /*管理者情報*/
 create table admins(
 admin_id int primary key comment '管理者ログインID',
-admin_password varchar(100) not null comment '管理者パスワード',
 admin_name_e varchar(100) not null comment '管理者名'
+admin_password  not null comment '管理者パスワード'
 );
 
 
@@ -143,8 +143,8 @@ replace into user(login_id,password,name,name_e,postal,address,email,tel_number,
 ('10','student5','堀口　謙一','horiguchi kenichi','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','kennichi.horiguchi@gmail.com','0123456789','09012345678','1990-04-01','男','0987654','0987650','5555'),
 ('11','student6','霧生　雄一','kiryu yuichi','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','yuuichi.kiryuu@gmail.com','0123456789','09012345678','1990-04-01','男','1987654','1987651','5555'),
 ('12','student7','星達也','hoshi tathuya','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','tatsuya.hoshi@gmail.com','0123456789','09012345678','1990-04-01','男','2987654','2987652','5555'),
-('13','student8','岩本　興明','iwamoto komei','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','koumei.iwamoto@gmail.com','0123456789','09012345678','1990-04-01','男','3987654','3987653','5555');
-
+('13','student8','岩本　興明','iwamoto komei','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','koumei.iwamoto@gmail.com','0123456789','09012345678','1990-04-01','男','3987654','3987653','5555'),
+('14','samurai','前田　利家','toshiie maeda','9200937','石川県金沢市丸の内1-1','toshiie.maeda@gmail.com','0123456789','09012345678','1539-07-05','男','3987654','3987653','5555');
 
 /**
  * 購入お支払い履歴
@@ -155,8 +155,9 @@ insert into user_history(login_id,name_e,corporation_name,use_day,division,split
 
 
 insert into user_history(login_id,name_e,corporation_name,use_day,payment_day,spend,payment)values
-('8','sunakawa minori','インターノウス','2017-01-27','2017-02-27','10000','10000');
 
+('8','sunakawa minori','インターノウス','2017-01-27','2017-02-27','10000','10000'),
+('14','toshiie maeda','金沢城','2017-07-03','2017-09-15','12700000','12700000');
 
 /**
  * クレジットカード情報
@@ -176,11 +177,11 @@ insert into credit_card(login_id,name_e,credit_number,security_code,id_number,cr
 ("12","testuser","4111111111111122","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
 ("13","testuser","4111111111111123","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000);
 
-/* 法人データ */
+/* 法人データ(法人ログイン時使用) */
 insert into corporation(login_id,password,corporation_name,postal,address,capital,rep_name,charge,email,tel_number,employee,established,hp_url,judge_flg,register_day,update_day,delete_flg)values
 ("kudo","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","kudo@gmail.com","0311112222","800","50",null,'保留',20160617,20160617,false),
-("hideki","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","hideki@gmail.com","0311112222","800","50",null,'認証',20160617,20160617,false);
-
+("hideki","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","hideki@gmail.com","0311112222","800","50",null,'認証',20160617,20160617,false),
+("jirou","ueda","株式会社どんとこい","1130034","東京都文京区湯島3-2-12","50000000","jirou","ueda","uedajirou@gnail.com","0311112222","800","50",null,'認証',20160617,20160617,false);
 
 insert into admins(admin_id,admin_password,admin_name_e)values
 ('1','test.user','takuma inoue'),
@@ -188,7 +189,8 @@ insert into admins(admin_id,admin_password,admin_name_e)values
 ('3','test.user','ak-47'),
 ('4','test.user','black'),
 ('5','test.user','type10tank'),
-('6','test.user','ryouma sakamoto');
+('6','nanzeyo?','ryouma sakamoto'),
+('7','tenkahubu','nobunaga oda');
 
 
 
