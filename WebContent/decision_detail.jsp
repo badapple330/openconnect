@@ -192,7 +192,8 @@
                         <s:form action="DecisionSelectAction">
                            		<input type="hidden" name="jDrafterId" value="<s:property value="jDrafterId" />">
                            			<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-                           				<button type="submit" >編集</button>
+                           				<input type="hidden" name="type" value="1">
+                           					<button type="submit" >編集</button>
                         		</s:form>
                     </s:if>
                 <!-- 実施のプレビュー -->
@@ -225,7 +226,8 @@
 			                        <s:form action="DecisionSelectAction">
 			                            <input type="hidden" name="kDrafterId" value="<s:property value="kDrafterId" />">
 			                            	<input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-			                                    <button type="submit" >編集</button>
+			                            		<input type="hidden" name="type" value="2">
+			                                    	<button type="submit" >編集</button>
 			                       		 </s:form>
 			                    </s:if>
 			                <!-- 契約のプレビュー -->
