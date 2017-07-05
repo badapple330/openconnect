@@ -46,13 +46,23 @@
 		})
 	</script>
 </head>
-<body>
-<div class="outline">
-	<h2>グループメンバーの追加</h2>
+<body style="background-color:<s:property value="#session.bColor"/>;">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="applist.jsp">Openconnect</a>
+    		</div>
+  		</div>
+	</nav>
+	
 	<br><br>
+	
+	<div class="outline" style="margin-left:20px;">
+		<h2>グループメンバーの追加</h2>
+			<br><br>
 
 	<form action="GroupMemberAddAction" id="memberSend" onSubmit="return check()">
-		<h4>左のセレクトボックスから、参加するメンバーを選択してください</h4>
+		<h4>左のセレクトボックスから、追加するメンバーを選択してください</h4>
 
 		<br><br>
 <select multiple="multiple" id="multi-select" name="addMemberList">
@@ -62,7 +72,7 @@
 </select>
   <br><br>
 <s:hidden theme="simple" name="groupId" value="%{groupId}"></s:hidden>
-  <button type="submit" class="btn btn-primary btn-lg">グループを作成</button>
+  <button type="submit" class="btn btn-primary btn-lg">グループに追加</button>
 </form>
 </div>
 

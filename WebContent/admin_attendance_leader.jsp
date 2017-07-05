@@ -37,21 +37,21 @@
 							<col style="width: 67%;">
 						</colgroup>
 
-						<tr>
-							<th>チーム名：</th>
+<!-- 						<tr> -->
+<!-- 							<th>チーム名：</th> -->
 
-							<s:if test = "getAllTeamNames().equals('')">
-								<td><s:property value="teamName"/></td>
-							</s:if>
-							<s:else>
-							<s:iterator value="allTeamNames">
-							<td>
-								<input type="radio" name="teamName" value=<s:property/> checked="checked"><s:property/>
-							</td>
-							</s:iterator>
-							</s:else>
+<%-- 							<s:if test = "getAllTeamNames().equals('')"> --%>
+<%-- 								<td><s:property value="teamName"/></td> --%>
+<%-- 							</s:if> --%>
+<%-- 							<s:else> --%>
+<%-- 							<s:iterator value="allTeamNames"> --%>
+<!-- 							<td> -->
+<%-- 								<input type="radio" name="teamName" value=<s:property/> checked="checked"><s:property/> --%>
+<!-- 							</td> -->
+<%-- 							</s:iterator> --%>
+<%-- 							</s:else> --%>
 
-						</tr>
+<!-- 						</tr> -->
 
 						<tr>
 							<!-- 表示用の日時 -->
@@ -60,11 +60,11 @@
 							<th>日 時 ：</th>
 							<td class="ymd"></td>
 						</tr>
-<!-- 						<tr> -->
-<!-- 							<th>チーム名：</th> -->
-<!-- 							<td> <input type="text" class="form2" name="teamName" -->
-<!-- 							placeholder="チーム名" id="teamForm" title="チーム名" /></td> -->
-<!-- 						</tr> -->
+						<tr>
+							<th>チーム名：</th>
+							<td> <input type="text" class="form2" name="teamName"
+							placeholder="チーム名" id="teamForm" title="チーム名" /></td>
+						</tr>
 						<tr>
 						<tr id="tr_type">
 							<th>出欠確認：</th>

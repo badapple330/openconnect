@@ -121,6 +121,7 @@ public class AdminAttendanceDAO {
 					dto.setAtYear(rs.getInt("at_year"));
 					dto.setAtMonth(rs.getInt("at_month"));
 					dto.setAtDay(rs.getInt("at_day"));
+					dto.setUserName(rs.getString("user_name"));
 					searchList.add(dto);
 				}
 

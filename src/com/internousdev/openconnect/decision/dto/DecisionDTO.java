@@ -258,55 +258,15 @@ public class DecisionDTO {
 
 
 	/**
-	 * サイトID
+	 * 決済ID
 	 */
-	public int siteId;
+	public int projectId;
 
 	/**
-	 * サイト名
+	 * プロジェクト名
 	 */
-	public String siteName;
+	public String projectName;
 
-	/**
-	 * サイトURL
-	 */
-	public String siteUrl;
-
-	/**
-	 * 作成年度
-	 */
-	public int year;
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @return year
-	*/
-	public int getYear() {
-		return year;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param year
-	*/
-	public void setYear(int year) {
-		this.year = year;
-	}
-	/**
-	* 取得メソッド を取得
-	* @return siteUrl
-	*/
-	public String getSiteUrl() {
-		return siteUrl;
-	}
-	/**
-	* 設定メソッド を設定
-	* @param siteUrl
-	*/
-	public void setSiteUrl(String siteUrl) {
-		this.siteUrl = siteUrl;
-	}
 
 	/** 取得メソッド を取得
 	* @return person
@@ -1007,35 +967,35 @@ public class DecisionDTO {
 		public void setDecisionPath(String decisionPath) {
 			this.decisionPath = decisionPath;
 		}
-		/**
-		* 取得メソッド を取得
-		* @return siteId
-		*/
-		public int getSiteId() {
-			return siteId;
-		}
-		/**
-		* 設定メソッド を設定
-		* @param siteId
-		*/
-		public void setSiteId(int siteId) {
-			this.siteId = siteId;
-		}
-		/**
-		* 取得メソッド を取得
-		* @return siteName
-		*/
-		public String getSiteName() {
-			return siteName;
-		}
-		/**
-		* 設定メソッド を設定
-		* @param siteName
-		*/
-		public void setSiteName(String siteName) {
-			this.siteName = siteName;
-		}
 
+		/**
+		* 取得メソッド を取得
+		* @return projectId
+		*/
+		public int getProjectId() {
+			return projectId;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param projectId
+		*/
+		public void setProjectId(int projectId) {
+			this.projectId = projectId;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return projectName
+		*/
+		public String getProjectName() {
+			return projectName;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param projectName
+		*/
+		public void setProjectName(String projectName) {
+			this.projectName = projectName;
+		}
 
 
 }
