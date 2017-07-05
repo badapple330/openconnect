@@ -193,7 +193,7 @@
 								class="modal-list">
 							<input type="hidden" name="userNameList"
 								value="<s:property value="userName" />" class="userName">
-							<input type="hidden" name="teameNameList"
+							<input type="hidden" name="teamNameList"
 								value="<s:property value="teamName" />" class="teamName">
 
 						</s:iterator>
