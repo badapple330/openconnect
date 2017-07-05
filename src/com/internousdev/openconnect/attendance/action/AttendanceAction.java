@@ -80,6 +80,12 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	private String givenNameKanji;
 
 	/**
+	 * エラーメッセージ
+	 */
+	private String errorMsg;
+
+
+	/**
 	 * ユーザーリスト
 	 */
 	private ArrayList<AttendanceDTO> atUserList = new ArrayList<AttendanceDTO>();
@@ -109,6 +115,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 
 		    if(dao.insert(userId,atYear,atMonth,atDay,attendance,reason) > 0 && atUserList.size() > 0){
 		      result = SUCCESS;
+		      this.errorMsg="１日１回しか報告できません。";
 				}
 		}
 		  return result;
@@ -305,5 +312,22 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	public void setSearchList(ArrayList<AttendanceDTO> searchList) {
 	    this.searchList = searchList;
 	}
+
+	/**
+	* 取得メソッド を取得
+	* @return errorMsg
+	*/
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param errorMsg
+	*/
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
+
 
 }
