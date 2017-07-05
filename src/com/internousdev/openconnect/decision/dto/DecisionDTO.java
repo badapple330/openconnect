@@ -257,7 +257,15 @@ public class DecisionDTO {
 	public String documentPath;
 
 
+	/**
+	 * 決済ID
+	 */
+	public int projectId;
 
+	/**
+	 * プロジェクト名
+	 */
+	public String projectName;
 
 
 	/** 取得メソッド を取得
