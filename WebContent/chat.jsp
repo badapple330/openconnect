@@ -62,7 +62,7 @@
     <s:property value="groupName" />
   </div>
 </s:else>
-<body style="background-color:<s:property value="#session.bColor"/>;">
+<body>
 
   <!-- 個人チャットの際のヘッダー -->
   <s:if test="groupId == 0">

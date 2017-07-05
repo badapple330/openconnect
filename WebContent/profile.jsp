@@ -123,7 +123,7 @@ FOLLOW</a>
         			background-color:#6495ed; color:#fff;"  data-toggle="modal" data-target="#sampleModal2">
         		Follower:<s:property value="followerNum"/></button></li>
         <li><p style="font-weight:bold; text-align:center; font-size:1.2em;">EXP:<s:property value="point"/></p></li>
-        <li><p style="font-weight:bold; text-align:center; font-size:1.2em;">LV <s:property value="Lv"/></p></li>
+        <li><p style="font-weight:bold; text-align:center; font-size:1.2em;">LV: <s:property value="Lv"/></p></li>
     </ul>
 
 </td>

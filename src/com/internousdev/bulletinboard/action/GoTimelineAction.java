@@ -21,37 +21,19 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoTimelineAction extends ActionSupport implements SessionAware{
-
-	/**
-	 * ユーザーID
-	 */
-	private int userId=0;
-
-	 /**
-	  * 通知リスト
-	  */
-	 ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
-
-
-	/**
-	 * 名前
-	 */
+	/** ユーザーID */
+	private int userId = 0;
+	/** 通知リスト */
+	private ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
+	/** 名前 */
 	private String userName;
-
-
 	private int talkInfo=0;
 	private int groupInfo=0;
-
-	/**
-	 * タイムラインのリスト
-	 */
+	/** タイムラインのリスト */
 	private ArrayList<TimelineDTO> tlList = new ArrayList<TimelineDTO>();
-
-	/**
-	 * セッション
-	 */
+	/** セッション */
 	private Map<String,Object> session;
-
+	
 	public String execute() {
 		String result = ERROR;
 
@@ -60,18 +42,14 @@ public class GoTimelineAction extends ActionSupport implements SessionAware{
 		}
 		if(userId==0){return result;}
 
-
-
 		TimelineDAO dao = new TimelineDAO(userId);
 		tlList = dao.TimelineGet();
 		if(tlList.size() != 0){
 			Collections.sort(tlList, new TimelineComparator());
-
 			//通知を追加
 			UserDAO msgDao = new UserDAO();
 			msgList = msgDao.msgSelect(userId);
 			msgDao.msgDelete(userId);
-
 		}
 
 		FooterInfoDAO infodao = new FooterInfoDAO();
@@ -82,124 +60,47 @@ public class GoTimelineAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-
-
-	/**
-	 * @return userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
-
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
-	/**
-	 * @return tlList
-	 */
 	public ArrayList<TimelineDTO> getTlList() {
 		return tlList;
 	}
-
-	/**
-	 * @param tlList セットする tlList
-	 */
 	public void setTlList(ArrayList<TimelineDTO> tlList) {
 		this.tlList = tlList;
 	}
-
-	/**
-	 * @return session
-	 */
-	public Map<String, Object> getSession() {
-		return session;
-	}
-
-	/**
-	 * @param session セットする session
-	 */
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
-
-
-
-	/**
-	 * @return userName
-	 */
 	public String getUserName() {
 		return userName;
 	}
-
-
-
-	/**
-	 * @param userName セットする userName
-	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
-
-
-
-	/**
-	 * @return msgList
-	 */
 	public ArrayList<UserDTO> getMsgList() {
 		return msgList;
 	}
-
-
-
-	/**
-	 * @param msgList セットする msgList
-	 */
 	public void setMsgList(ArrayList<UserDTO> msgList) {
 		this.msgList = msgList;
 	}
-
-
-
-	/**
-	 * @return talkInfo
-	 */
 	public int getTalkInfo() {
 		return talkInfo;
 	}
-
-
-
-	/**
-	 * @param talkInfo セットする talkInfo
-	 */
 	public void setTalkInfo(int talkInfo) {
 		this.talkInfo = talkInfo;
 	}
-
-
-
-	/**
-	 * @return groupInfo
-	 */
 	public int getGroupInfo() {
 		return groupInfo;
 	}
-
-
-
-	/**
-	 * @param groupInfo セットする groupInfo
-	 */
 	public void setGroupInfo(int groupInfo) {
 		this.groupInfo = groupInfo;
 	}
-
-
-
-
+	public Map<String, Object> getSession() {
+		return session;
+	}
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
 }

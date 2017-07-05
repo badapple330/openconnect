@@ -4,6 +4,10 @@
 package com.internousdev.openconnect.decision.detail.action;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+import org.apache.log4j.Logger;
 
 import com.internousdev.openconnect.decision.detail.dao.DecisionArchiveDAO;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
@@ -17,27 +21,19 @@ public class DecisionArchiveAction extends ActionSupport {
 	private static final long serialVersionUID = 6045130027645771884L;
 
 	/**
-	 * サイトID
+	 * 決済ID
 	 */
-	private int siteId;
+	private int projectId;
 
 	/**
-	 * サイト名
+	 * プロジェクト名
 	 */
-	private String siteName;
+	private String projectName;
 
 	/**
-	 * サイトURL
+	 * 決済種類
 	 */
-	private String siteUrl;
-
-	/**
-	 * 作成年度
-	 */
-	private int year;
-
-
-
+	private String decisionType;
 
 	/**
 	 * 決裁手続きの情報をリスト化
@@ -55,13 +51,65 @@ public class DecisionArchiveAction extends ActionSupport {
 		String result=ERROR;
 		DecisionArchiveDAO dao = new DecisionArchiveDAO();
 
-		archiveList = dao.archive(siteId, siteName, siteUrl, year);
+		archiveList = dao.archive(projectId, projectName, decisionType);
 		if(archiveList.size() > 0){
 			result=SUCCESS;
 			resultString="成功";
 		}
 		return result;
 
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return projectId
+	*/
+	public int getProjectId() {
+		return projectId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param projectId
+	*/
+	public void setProjectId(int projectId) {
+		this.projectId = projectId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return projectName
+	*/
+	public String getProjectName() {
+		return projectName;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param projectName
+	*/
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionType
+	*/
+	public String getDecisionType() {
+		return decisionType;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionType
+	*/
+	public void setDecisionType(String decisionType) {
+		this.decisionType = decisionType;
 	}
 
 
@@ -73,85 +121,12 @@ public class DecisionArchiveAction extends ActionSupport {
 		return archiveList;
 	}
 
-
 	/**
 	* 設定メソッド を設定
 	* @param archiveList
 	*/
 	public void setArchiveList(ArrayList<DecisionDTO> archiveList) {
 		this.archiveList = archiveList;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return siteId
-	*/
-	public int getSiteId() {
-		return siteId;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param siteId
-	*/
-	public void setSiteId(int siteId) {
-		this.siteId = siteId;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return siteName
-	*/
-	public String getSiteName() {
-		return siteName;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param siteName
-	*/
-	public void setSiteName(String siteName) {
-		this.siteName = siteName;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return siteUrl
-	*/
-	public String getSiteUrl() {
-		return siteUrl;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param siteUrl
-	*/
-	public void setSiteUrl(String siteUrl) {
-		this.siteUrl = siteUrl;
-	}
-
-
-	/**
-	* 取得メソッド を取得
-	* @return year
-	*/
-	public int getYear() {
-		return year;
-	}
-
-
-	/**
-	* 設定メソッド を設定
-	* @param year
-	*/
-	public void setYear(int year) {
-		this.year = year;
 	}
 
 
@@ -173,7 +148,32 @@ public class DecisionArchiveAction extends ActionSupport {
 	}
 
 
+	/*
+	 * 契約済みのDecisionのdtoリストを得る
+	 */
+	public List<DecisionDTO> getAc(){
+		Logger log = Logger.getLogger(DecisionArchiveAction.class.getName());
+		// dto List for return
+		List<DecisionDTO> dtoList = new ArrayList<DecisionDTO>();
 
+		// 条件判定関数。dtoを引数にとり、それが契約済みデータであるかどうか判定する。
+		Predicate<DecisionDTO> is_contracted = ( dto ) -> { return dto.getDecisionType().equals("契約"); };
 
+		// 所有するすべてのDTOについて、それが条件判定に合致するなら、そのセットをリストとしてリターン
+		for ( DecisionDTO dto : this.getArchiveList() ){;
+			log.error(dto);
+			if ( dto == null){
+				log.error("ああああああああ");
+			}
+			// 条件判断
+			else if ( dto != null && is_contracted.test(dto) ){
+
+				dtoList.add(dto);
+			}
+		}
+		log.error("EXIT");
+
+		return dtoList;
+	}
 
 }

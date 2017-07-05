@@ -80,7 +80,7 @@
 						<td>
 							<input type="hidden" name="projectId" value="<s:property value="projectId" />">
 							<input type="hidden" name="userId" value="<s:property value="#session.userId" />">
-							<input class="btn btn-default" type="submit" value="追加">
+							<input class="btn btn-default btn-lg center-block" type="submit" value="追加">
 						</td>
 					</tr>
 				</table>
