@@ -66,6 +66,12 @@
 			<result name="error">admin_attendance_leader.jsp</result>
 
 		</action>
+		<action name="AdminAttendanceUpdateAction"
+			class="com.internousdev.openconnect.attendance.action.AdminAttendanceUpdateAction"
+			method="execute">
+			<result name="success">admin_attendance.jsp</result>
+			<result name="error">admin_attendance.jsp</result>
+		</action>
 
 		<action name="GoAdminAttendanceAction"
 			class="com.internousdev.openconnect.attendance.action.GoAdminAttendanceAction"
@@ -653,7 +659,7 @@
 			<result name="success" type="redirectAction">PostAction</result>
 			<result name="error" type="redirectAction">PostAction</result>
 		</action>
-		
+
 		<!-- グループの名称更新 -->
 		<action name="GroupNameChangeAction"
 			class="com.internousdev.bulletinboard.action.GroupNameChangeAction"
@@ -769,7 +775,7 @@
 			<result name="success" type="redirectAction">ProfileUpdateAction</result>
 			<result name="error">login.jsp</result>
 		</action>
-		
+
 		<action name="ColorDefaultAction"
 			class="com.internousdev.bulletinboard.action.ColorDefaultAction"
 			method="execute">

@@ -129,7 +129,59 @@ $(function(){
 		}
 
 	});
+
+
+
+
+//編集ボタンをクリックしたら
+$(".modal-update").click(function(){
+	//body内の最後に<div id="modal-bg"></div>を挿入
+	$("body").append('<div id="modal-bg"></div>');
+	//画面中央を計算する関数を実行
+	modalResize();
+	//モーダルウィンドウを表示
+	$(".delete-prepare").hide();
+	$("#modal-bg,#modal-updateMain").fadeIn("slow");
+
+	var index = $('.modal-update').index($(this));
+
+	// 表示文字
+	$('.updateReason').html( $('.reason').eq(index).val() );
+	$('.updateFamilyName').html( $('.familyNameKanji').eq(index).val() );
+	$('.updateGivenName').html( $('.givenNameKanji').eq(index).val() );
+	$('.updateteamName').html( $('.teamName').eq(index).val() );
+	$('.updateuserName').html( $('.userName').eq(index).val() );
+
+	// hiddenのvalue
+	$('.updateReason').val( $('.reason').eq(index).val() );
+	$('.updateUserId').val( $('.userId').eq(index).val() );
+	$('.updateAtYear').val( $('.atYear').eq(index).val() );
+	$('.updateAtMonth').val( $('.atMonth').eq(index).val() );
+	$('.updateAtDay').val( $('.atDay').eq(index).val() );
+	$(".modal-close").click(function(){
+		$("#modal-updateMain,#modal-bg").fadeOut("slow",function(){
+			//挿入した<div id="modal-bg"></div>を削除
+			$('<div id="modal-bg"></div>').remove() ;
+		});
+	});
+
+	$(window).resize(modalResize);
+
+	function modalResize(){
+		var w = $(window).width();
+		var h = $(window).height();
+		var cw = $("#modal-updateMain").outerWidth();
+		var ch = $("#modal-updateMain").outerHeight();
+
+		//取得した値をcssに追加する
+		$("#modal-updateMain").css({
+			"left": ((w - cw)/2) + "px",
+			"top": "100px"
+		});
+	}
+});
+});
 });
 
 
-});
+

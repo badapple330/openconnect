@@ -117,6 +117,10 @@ public class AdminAttendanceDAO {
 					dto.setTeamName(rs.getString("team_name"));
 					dto.setAttendance(rs.getString("attendance"));
 					dto.setReason(rs.getString("reason"));
+					dto.setUserId(rs.getInt("user_Id"));
+					dto.setAtYear(rs.getInt("at_year"));
+					dto.setAtMonth(rs.getInt("at_month"));
+					dto.setAtDay(rs.getInt("at_day"));
 					searchList.add(dto);
 				}
 
