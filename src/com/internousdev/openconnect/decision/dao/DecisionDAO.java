@@ -198,14 +198,14 @@ public class DecisionDAO {
 	 *
 	 */
 
-	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll,int jDrafterId,int decisionId) {
+	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll,int jDrafterId,int kDrafterId,int decisionId) {
 		int count = 0;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id=? where decision_id=?";
+		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id=? , k_drafter_id=?,where decision_id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -226,7 +226,8 @@ public class DecisionDAO {
 			ps.setFloat(14, bildCost);
 			ps.setFloat(15, amountAll);
 			ps.setInt(16, jDrafterId);
-			ps.setInt(17, decisionId);
+			ps.setInt(17, kDrafterId);
+			ps.setInt(18, decisionId);
 
             count = ps.executeUpdate();
 
