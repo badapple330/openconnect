@@ -316,7 +316,8 @@ start_day date not null comment '開始日',
 end_day date comment '終了日',
 title varchar(100) not null comment '件名',
 content varchar(100) comment '内容',
-team_name varchar(255) not null default '1stmonth' comment 'チーム名'
+team_name varchar(255) not null default '1stmonth' comment 'チーム名',
+memo_text text comment 'メモ内容'
 );
 
 

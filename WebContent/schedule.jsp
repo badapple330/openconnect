@@ -155,11 +155,11 @@
 									<div class="hidden"><input type="text" name="search" value = "<s:property value ="search" />" readonly></div>チーム名:<s:property value ="search" /></s:else>
 							</td>
 						</tr>
-						<tr><td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"　 required></td></tr>
+						<tr><td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力" required></td></tr>
 						<tr><td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力" required></td></tr>
 						<tr><td><input type="text" name="title" placeholder="件名を入力" required></td></tr>
 						<tr><td><button type="submit" class="button" name="startDay">追加</button></td></tr>
-								<%--  tokenタグ <s:token /> --%>
+								<%--  tokenタグ--%> <s:token />
 					</tbody>
 				</table>
 			</s:form>
@@ -167,17 +167,15 @@
 
 
 	<div class="blockC">
-		<s:form action="MemoAction">
+		<s:form action="ScheduleMemoAction">
 				<table class="table">
 					<tr><td>【メモ】</td></tr>
-					<tr><td><textarea name="comment" cols="60" rows="5" id="MemoAction_comment" placeholder="連絡事項"></textarea></td></tr>
+					<tr><td><textarea name="comment" cols="60" rows="5" id="ScheduleMemoAction_comment" placeholder="連絡事項"></textarea></td></tr>
 					<tr><td><input type="submit" value="保存"></td></tr>
 				</table>
 		</s:form>
 	</div>
-
-
-					<table class="memo">
+		<table class="memo">
 						<thead>
 							<tr>
 								<th>日時</th>
@@ -185,16 +183,17 @@
 								<th>削除</th>
 							</tr>
 						</thead>
+
 						<tbody>
 							<s:iterator value="memoList" status="i">
 								<tr>
 								<th scope="row">#<s:property value="#i.count" /></th>
-									<td><s:property value="memoList.get(#i.index).inquiryDate" /></td>
+									<%-- <td><s:property value="memoList.get(#i.index).inquiryDate" /></td> --%>
 									<td class="comment_area"><textarea class="comment"><s:property	value="memoList.get(#i.index).comment" /></textarea></td>
 									<td><input type="button" class="button modal-open" value="削除" /></td>
 
-										<%-- <td><a href="<s:url action='MemoUpdateAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a> --%>
-										<%-- 	<a href="<s:url action='MemoDeleteAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a></td> --%>
+									<td><a href="<s:url action='MemoUpdateAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a>
+									<a href="<s:url action='MemoDeleteAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a></td>
 								</tr>
 							</s:iterator>
 						</tbody>

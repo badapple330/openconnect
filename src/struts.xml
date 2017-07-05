@@ -536,6 +536,20 @@
 			<result type="chain">ScheduleSelectAction</result>
 		</action>
 
+		<action name="ScheduleMemoAction"
+			class="com.internousdev.openconnect.schedule.action.ScheduleMemoAction"
+			method="execute">
+			<result name="success" >schedule.jsp</result>
+			<result name="error">/schedule.jsp</result>
+		</action>
+
+		<action name="ScheduleMemoDeleteAction"
+			class="com.internousdev.openconnect.schedule.action.ScheduleMemoDeleteAction"
+			method="execute">
+			<result name="success" type="redirect">schedule.jsp</result>
+			<result name="error" type="redirect">/schedule.jsp</result>
+		</action>
+
 		<action name="BackGoAction" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success">applist.jsp</result>

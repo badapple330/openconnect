@@ -155,7 +155,8 @@ id int primary key auto_increment comment 'スケジュールID',
 start_day date not null comment '開始日',
 end_day date comment '終了日',
 title varchar(100) not null comment '件名',
-content varchar(100) comment '内容'
+content varchar(100) comment '内容',
+memo_text text comment 'メモ内容'
 );
 
 insert into schedule(id,start_day,end_day,title,content) values

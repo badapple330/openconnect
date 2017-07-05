@@ -45,7 +45,11 @@ public class ScheduleDTO {
 	 */
 	private String teamName;
 
-
+	/**
+	 * メモのコメント
+	 * @author seiya takahashi
+	 */
+	private String comment;
 
 	/**
 	 * 取得メソッド IDを取得
@@ -163,10 +167,25 @@ public class ScheduleDTO {
 
 	/**
 	 * teamNameを設定します。
-	 * @param teamName teamName
+	 * @param teamName
 	 */
 	public void setTeamName(String teamName) {
 	    this.teamName = teamName;
 	}
 
+	/**
+	 * commentを取得
+	 * @return comment
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * commentを設定します。
+	 * @param comment
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 }
