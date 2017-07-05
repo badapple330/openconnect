@@ -78,7 +78,13 @@ public class AttendanceDTO {
 	 * 備考
 	 */
     private String reason;
+
     /**
+     * ユーザー名
+     */
+    private String userName;
+
+	/**
      * テストカウント
      */
     private int testCount;
@@ -402,5 +408,20 @@ public class AttendanceDTO {
 	public void setKesseki(int kesseki) {
 	    this.kesseki = kesseki;
 	}
+
+	 /**
+		* 取得メソッド を取得
+		* @return userName
+		*/
+		public String getUserName() {
+			return userName;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param userName
+		*/
+		public void setUserName(String userName) {
+			this.userName = userName;
+		}
 
 }
