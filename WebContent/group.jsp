@@ -44,6 +44,7 @@
 </head>
 
 <body style="background-color:<s:property value="#session.bColor"/>;">
+<br>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
   <div class="navbar-header">
@@ -75,7 +76,7 @@
 			<s:form action="GroupTokenAction">
 			<div class="modal-body">
 			<h5>グループ名</h5>
-			<input type="text" name="groupName" maxlength="50" required placeholder="グループ名を入力してください" class="groupName">
+				<input type="text" name="groupName" maxlength="50" required placeholder="グループ名を入力してください" class="groupName">
 
 			</div>
 			<div class="modal-footer">
