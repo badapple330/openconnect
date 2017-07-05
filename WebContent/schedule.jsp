@@ -2,19 +2,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page session="false"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html>
 <html>
 <head>
 <title>スケジュール一覧</title>
-<!-- ヘッダー読み込み -->
+
 	<jsp:include page="header.jsp" />
-	<!-- ヘッダーここまで -->
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<link href='css/schedule.css' rel='stylesheet' />
-        <link href='css/fullcalendar.min.css' rel='stylesheet' />
+       	<link href='css/fullcalendar.min.css' rel='stylesheet' />
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/start/jquery-ui.css">
         <link href='js/calendar/fullcalendar.min.css' rel='stylesheet' />
         <link href='js/calendar/fullcalendar.print.min.css' rel='stylesheet' media='print' />
@@ -31,10 +32,9 @@
         <script src="js/calendar/gcal.js"></script>
         <script src="js/calendar/gcal.min.js"></script>
         <script src="js/footerFixed.js" type="text/javascript"></script>
-
 </head>
-<body>
 
+<body>
 	<div class="container">
 
 	<!-- アプリ一覧表示 -->
@@ -65,6 +65,7 @@
 <div id = "main-box">
 		<div class = "print-page">
 		<div id ="calendar"></div>
+
 		<div id="operation">
 			<br>
 			<!-- 検索した後に表示するメッセージ -->
@@ -79,13 +80,11 @@
 				<table id = "schedule" border=1 style="">
 					<tbody>
 						<tr style="text-align:center">
-							<th>ID</th>
+							<th></th>
 							<th>start</th>
 							<th>end</th>
 							<th>title</th>
 							<th>チーム名</th>
-							<th>削除</th>
-							<th>編集</th>
 						</tr>
 
 						<!-- scheduleListに格納した情報をテーブルで表示 -->
@@ -103,10 +102,11 @@
 							<td><input type="text" name="scheduleTitleList" value="<s:property value="title" />" class="scheduleTitleList"
 									placeholder="件名を入力" required><div class="hidden"><s:property value="teamName" />:<s:property value="title" /></div></td>
 							<td><input type="text" name="teamName[<s:property value="#st.index" />]"value="<s:property value="teamName" />"class="teamList" readonly><div class="hidden"><s:property value="teamName" /></div></td>
-							<td><input type="button" class="button modal-open" value="削除" /></td>
-							<td><button type="submit" class="button" style="width:45px">編集</button></td>
+							<!-- <td><input type="button" class="button modal-open" value="削除" /></td>
+							<td><input  type="submit" class="button" value="編集"></td> -->
 						</tr>
-							<div class="hidden"><s:property value="search"/></div>
+
+							<%-- <div class="hidden"><s:property value="search"/></div> --%>
 
 							<!-- 削除機能で使用 -->
 							<input type="hidden" name="scheduleIdList" value="<s:property value="id" />" class="scheduleIdList">
@@ -114,16 +114,19 @@
 				</s:iterator>
 				</tbody>
 			</table>
+			<p><small>start→開始日　end→終了日　title→作業内容</small></p>
+			<input type="button" class="button modal-open" value="削除" />
+			<input  type="submit" class="button" value="編集"><hr>
 		 </s:form>
 	</div>
+</div>
 </div>
 
 
 <div id="operation2">
 
 	<div class = "blockA">
-	<s:form action="ScheduleSelectAction">
-
+	 <s:form action="ScheduleSelectAction">
 			<p>【チーム名で検索】</p>
 				<select name="search" required="required">
 								<option value="">以下から選択</option>
@@ -132,17 +135,16 @@
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
 								</s:iterator>
 				</select>
-				<s:submit value="検索"></s:submit>
-	</s:form>	<br>
+				<p><input  type="submit" class="button" value="検索"></p>
+	 </s:form>
 	</div>
 
 
 		<div class = "blockB">
-			<p>【予定を登録】</p>
 			<s:form action="ScheduleInsertAction">
-
-				<table>
+				<table class="table">
 					<tbody>
+						<tr><td>【予定を登録】</td></tr>
 						<tr>
 							<td><s:if test="%{#search == ''}">
 									<select name="search" required="required">
@@ -150,45 +152,37 @@
 									<s:iterator value="teamList">
 									<option value="<s:property value="teamName" />"><s:property value="teamName" /></option>
 									</s:iterator></select></s:if><s:else>
-									<div class="hidden"><input type="text" name="search" value = "<s:property value ="search" />"maxlength=100 readonly></div>チーム名:<s:property value ="search" /></s:else>
+									<div class="hidden"><input type="text" name="search" value = "<s:property value ="search" />" readonly></div>チーム名:<s:property value ="search" /></s:else>
 							</td>
 						</tr>
-
-						<tr>
-							<td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"　 required></td>
-						</tr>
-						<tr>
-							<td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力" required></td>
-						</tr>
-						<tr>
-							<td><input type="text" name="title" placeholder="件名を入力" required></td>
-						</tr>
-
-							<!-- tokenタグ -->
-								<s:token />
+						<tr><td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力"　 required></td></tr>
+						<tr><td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力" required></td></tr>
+						<tr><td><input type="text" name="title" placeholder="件名を入力" required></td></tr>
+						<tr><td><button type="submit" class="button" name="startDay">追加</button></td></tr>
+								<%--  tokenタグ <s:token /> --%>
 					</tbody>
 				</table>
-				<button type="submit" class="button" name="startDay">追加</button>
 			</s:form>
 			</div>
 
 
 	<div class="blockC">
-				<s:form action="MemoAction">
+		<s:form action="MemoAction">
+				<table class="table">
+					<tr><td>【メモ】</td></tr>
+					<tr><td><textarea name="comment" cols="60" rows="5" id="MemoAction_comment" placeholder="連絡事項"></textarea></td></tr>
+					<tr><td><input type="submit" value="保存"></td></tr>
+				</table>
+		</s:form>
+	</div>
 
-					 <div class="searchFrame">
-					 	 <p>【メモ】</p>
-						 <p><textarea name="comment" cols="30" rows="3" id="MemoAction_comment" placeholder="連絡事項"></textarea></p>
-						 <p><input type="submit" value="保存"></p>
-					 </div>
-				</s:form>
 
 					<table class="memo">
 						<thead>
 							<tr>
-								<td>日時</td>
-								<td>メモ内容</td>
-								<td>削除</td>
+								<th>日時</th>
+								<th>メモ内容</th>
+								<th>削除</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -199,23 +193,15 @@
 									<td class="comment_area"><textarea class="comment"><s:property	value="memoList.get(#i.index).comment" /></textarea></td>
 									<td><input type="button" class="button modal-open" value="削除" /></td>
 
-<%-- 									<td><a href="<s:url action='MemoUpdateAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a> --%>
-<%-- 									    <a href="<s:url action='MemoDeleteAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a></td> --%>
+										<%-- <td><a href="<s:url action='MemoUpdateAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a> --%>
+										<%-- 	<a href="<s:url action='MemoDeleteAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a></td> --%>
 								</tr>
 							</s:iterator>
 						</tbody>
 					</table>
-			</div>
-
-
-<!-- 				ロゴでも戻れるが、下にスクロールするとロゴが見えなくなるので一応配置 -->
-<!-- 				<div class="blockD"> -->
-<%-- 					<s:form action="GetAddressAction"> --%>
-<!-- 						<button type="submit" class="button">トップへ戻る</button> -->
-<%-- 					</s:form> --%>
-<!-- 				</div> -->
-			</div>
 		</div>
+
+
 		<div class="pagetop"><div class = "pagetop-info"><b>PageTop</b></div></div>
 
 

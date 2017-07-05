@@ -2,7 +2,7 @@ $(function() {
     var pageTop = $('.pagetop');
     pageTop.hide();
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 120) {
+        if ($(this).scrollTop() > 820) {
             pageTop.fadeIn();
         } else {
             pageTop.fadeOut();
