@@ -11,6 +11,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.attendance.dao.AttendanceCheckDAO;
 import com.internousdev.openconnect.attendance.dao.AttendanceDAO;
+import com.internousdev.openconnect.attendance.dao.GoAttendanceDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -98,6 +99,8 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 		searchList = dao2.select(userId,atYear,atMonth,atDay);
 
 		if(searchList.size() > 0){
+			GoAttendanceDAO dao3 = new GoAttendanceDAO();
+			atUserList = dao3.select(userId);
 			result = ERROR;
 		}
 		else if(session.get("userId") != null){
