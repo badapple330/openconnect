@@ -109,8 +109,8 @@ delete_flg boolean default false comment '削除フラグ'
 /*管理者情報*/
 create table admins(
 admin_id int primary key comment '管理者ログインID',
-admin_name_e varchar(100) not null comment '管理者名'
-admin_password  not null comment '管理者パスワード'
+admin_name_e varchar(100) not null comment '管理者名',
+admin_password  varchar(20) not null comment '管理者パスワード'
 );
 
 
@@ -189,7 +189,7 @@ insert into admins(admin_id,admin_password,admin_name_e)values
 ('3','test.user','ak-47'),
 ('4','test.user','black'),
 ('5','test.user','type10tank'),
-('6','nanzeyo?','ryouma sakamoto'),
+('6','nihonnoyoakezeyo?','ryouma sakamoto'),
 ('7','tenkahubu','nobunaga oda');
 
 
