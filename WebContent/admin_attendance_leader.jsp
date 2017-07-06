@@ -127,7 +127,9 @@
 
 			<!-- 印刷用モーダル表示ボタン -->
 			<input type="button" class="modal-open" id="modal-open" value="一覧表示" />
-
+			<s:form action="NotAttendanceAction">
+			<input type="button" value="一括挿入" class="insert-btn" id="insertButton"/>
+			</s:form>
 
 			<!-- 一覧表示 -->
 			<table style="margin-top: 10px;" class="type12">
