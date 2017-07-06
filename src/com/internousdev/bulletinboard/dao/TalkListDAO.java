@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.bulletinboard.dto.PostDTO;
+import com.internousdev.bulletinboard.dto.MessageDTO;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
 
@@ -17,9 +17,9 @@ public class TalkListDAO {
 	 * @param userId
 	 * @return
 	 */
-	  public ArrayList<PostDTO> talkGet(int userId){
+	  public ArrayList<MessageDTO> talkGet(int userId){
 		  Connection con = new MySqlConnector("openconnect").getConnection();
-		  ArrayList<PostDTO> talkList = new ArrayList<PostDTO>();
+		  ArrayList<MessageDTO> talkList = new ArrayList<MessageDTO>();
 
 
 		  //相互フォローしている人のIDを検索
@@ -49,7 +49,7 @@ public class TalkListDAO {
 
 					    	ResultSet rs3 = ps3.executeQuery();
 					    	while(rs3.next()){
-					    		PostDTO dto = new PostDTO();
+					    		MessageDTO dto = new MessageDTO();
 					    		dto.setReceiverId(rs3.getInt("done"));
 					    		dto.setGroupImg(rs3.getString("user_img"));
 					    		dto.setGroupName(rs3.getString("user_name"));

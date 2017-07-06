@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.ChatDAO;
-import com.internousdev.bulletinboard.dto.PostDTO;
+import com.internousdev.bulletinboard.dto.MessageDTO;
 import com.internousdev.bulletinboard.util.BotTalk;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -35,7 +35,7 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 	private String postAt ;
 	private Map<String,Object> session;
 	/** ポストリスト */
-	public ArrayList<PostDTO> postList = new ArrayList<PostDTO>();
+	public ArrayList<MessageDTO> chat = new ArrayList<MessageDTO>();
 	/** 投稿件数 */
 	private int postCount=0;
 	/** グループ名 */
@@ -123,8 +123,8 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> getSession() {
 		return session;
 	}
-	public ArrayList<PostDTO> getPostList() {
-		return postList;
+	public ArrayList<MessageDTO> getPostList() {
+		return chat;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
@@ -147,8 +147,8 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-	public void setPostList(ArrayList<PostDTO> postList) {
-		this.postList = postList;
+	public void setPostList(ArrayList<MessageDTO> postList) {
+		this.chat = postList;
 	}
 
 

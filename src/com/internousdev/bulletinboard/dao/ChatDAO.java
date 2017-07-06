@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.bulletinboard.dto.PostDTO;
+import com.internousdev.bulletinboard.dto.MessageDTO;
 import com.internousdev.bulletinboard.util.DBConnector;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
@@ -23,12 +23,12 @@ public class ChatDAO {
 	 */
 	public ChatDAO(){
 	}
-	  public ArrayList<PostDTO> postGet(int senderId, int receiverId, int groupId){
+	  public ArrayList<MessageDTO> postGet(int senderId, int receiverId, int groupId){
 		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		    Connection con = db.getConnection();
 		    Connection con2= db.getConnection();
 		    Connection con3 = db.getConnection();
-		    ArrayList<PostDTO> postList = new ArrayList<PostDTO>();
+		    ArrayList<MessageDTO> postList = new ArrayList<MessageDTO>();
 
 		    int k=0;
 		    String sql;
@@ -60,7 +60,7 @@ public class ChatDAO {
 		    	}
 		    	ResultSet rs = ps.executeQuery();
 		    	while(rs.next()){
-		    		PostDTO dto = new PostDTO();
+		    		MessageDTO dto = new MessageDTO();
 		    		dto.setPostId(rs.getInt("post_id")); //投稿ID
 		    		dto.setReceiverId(rs.getInt("receiver_id")); //受取人ID
 		    		dto.setSenderId(rs.getInt("sender_id")); //送信者ID

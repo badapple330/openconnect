@@ -10,7 +10,7 @@ import com.internousdev.bulletinboard.dao.ChatDAO;
 import com.internousdev.bulletinboard.dao.GroupImgDAO;
 import com.internousdev.bulletinboard.dao.StampDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
-import com.internousdev.bulletinboard.dto.PostDTO;
+import com.internousdev.bulletinboard.dto.MessageDTO;
 import com.internousdev.bulletinboard.dto.StampDTO;
 import com.internousdev.bulletinboard.dto.StampTypeDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
@@ -45,7 +45,7 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 	/** 投稿日時 */
 	private String postAt ;
 	/** ポストリスト */
-	public ArrayList<PostDTO> postList = new ArrayList<PostDTO>();
+	public ArrayList<MessageDTO> chat = new ArrayList<MessageDTO>();
 	/** ポストリスト */
 	public ArrayList<StampDTO> groupImgList = new ArrayList<StampDTO>();
 	/** スタンプリスト */
@@ -95,9 +95,9 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 
 		//チャット履歴取得
 		ChatDAO get = new ChatDAO();
-		postList = get.postGet(userId, receiverId, groupId);
+		chat = get.postGet(userId, receiverId, groupId);
 
-		setPostCount(postList.size());
+		setPostCount(chat.size());
 		result=SUCCESS;
 
 
@@ -112,6 +112,7 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 		StampIndex stInd= new StampIndex();
 		stList=stInd.StampOrder(stampList);
 		count=stList.size();
+		System.out.println("postContents" + postContents);
 	return result;
 	}
 
@@ -176,11 +177,11 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 	public void setPostAt(String postAt) {
 		this.postAt = postAt;
 	}
-	public ArrayList<PostDTO> getPostList() {
-		return postList;
+	public ArrayList<MessageDTO> getPostList() {
+		return chat;
 	}
-	public void setPostList(ArrayList<PostDTO> postList) {
-		this.postList = postList;
+	public void setPostList(ArrayList<MessageDTO> postList) {
+		this.chat = postList;
 	}
 	public ArrayList<StampDTO> getGroupImgList() {
 		return groupImgList;

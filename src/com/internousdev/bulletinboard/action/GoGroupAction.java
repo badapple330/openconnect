@@ -9,7 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.GroupDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
-import com.internousdev.bulletinboard.dto.PostDTO;
+import com.internousdev.bulletinboard.dto.MessageDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.internousdev.bulletinboard.util.GroupComparator;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,7 +20,7 @@ public class GoGroupAction extends ActionSupport implements SessionAware{
 	private int userId=0;
 
 	/** グループリスト */
-	public ArrayList<PostDTO> groupList = new ArrayList<PostDTO>();
+	public ArrayList<MessageDTO> groupList = new ArrayList<MessageDTO>();
 
 	/** 通知リスト */
 	ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
@@ -71,11 +71,11 @@ public class GoGroupAction extends ActionSupport implements SessionAware{
 		this.userId = userId;
 	}
 
-	public ArrayList<PostDTO> getGroupList() {
+	public ArrayList<MessageDTO> getGroupList() {
 		return groupList;
 	}
 
-	public void setGroupList(ArrayList<PostDTO> groupList) {
+	public void setGroupList(ArrayList<MessageDTO> groupList) {
 		this.groupList = groupList;
 	}
 
