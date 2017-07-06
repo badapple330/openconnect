@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BtnAction extends ActionSupport  implements SessionAware{
 
 	/** ユーザーID */
-	private int userId=0;
+	private int userId =0;
 
 	/** 送信者ID */
 	private int senderId;
@@ -27,6 +27,7 @@ public class BtnAction extends ActionSupport  implements SessionAware{
 	/** セッション */
 	private Map<String,Object> session;
 
+	
  BtnDAO dao = new BtnDAO();
  GoodDAO dao2 = new GoodDAO();
 
