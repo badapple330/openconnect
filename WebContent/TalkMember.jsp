@@ -102,7 +102,7 @@
     <div class="col-sm-10">
     <div class = "outline">
 <s:iterator value="talkList" >
-	<s:form action="GoPostAction">
+	<s:form action="GoChatAction">
 	<s:hidden theme="simple" name="receiverId" value="%{receiverId}"></s:hidden>
 	<s:hidden name="receiverName" value="%{groupName}"></s:hidden>
 	<button type="submit" class="group">
