@@ -10,21 +10,14 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MemberRemoveAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * ユーザーID
-	 */
+	/** ユーザーID */
 	private int userId=0;
 
-	/**
-	 * セッション
-	 */
+	/** セッション */
 	private Map<String,Object> session;
 
-	/**
-	 * グループID
-	 */
+	/** グループID */
 	private int groupId;
-
 
 
 	public String execute() {
@@ -52,55 +45,26 @@ public class MemberRemoveAction extends ActionSupport implements SessionAware{
 	}
 
 
-
-	/**
-	 * @return userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
 
-
-
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-
-
-	/**
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-
-
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-
-
-	/**
-	 * @return groupId
-	 */
 	public int getGroupId() {
 		return groupId;
 	}
 
-
-
-	/**
-	 * @param groupId セットする groupId
-	 */
 	public void setGroupId(int groupId) {
 		this.groupId = groupId;
 	}

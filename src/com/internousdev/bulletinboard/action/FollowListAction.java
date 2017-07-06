@@ -11,14 +11,19 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FollowListAction extends ActionSupport implements SessionAware{
 
+	/** セッション */
 	private Map<String,Object> session;
 
+	/** ユーザーid */
 	private int userId;
 
+	/** ユーザー名 */
 	private String userName;
 
+	/** ユーザー画像 */
 	private String userImg;
 
+	/** フォローID */
 	private int followId;
 
 	private int Do;

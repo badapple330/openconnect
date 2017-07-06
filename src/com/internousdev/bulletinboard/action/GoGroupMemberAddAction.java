@@ -12,28 +12,19 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoGroupMemberAddAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * ユーザーID
-	 */
+	/** ユーザーID */
 	private int userId=0;
 
-	/**
-	 * タイムラインのリスト
-	 */
+	/** タイムラインのリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
 
-	/**
-	 * セッション
-	 */
+	/** セッション */
 	private Map<String,Object> session;
 
-	/**
-	 * グループID
-	 */
+	/** グループID */
 	private int groupId;
-
-
-
+	
+	/** グループ名 */
 	private String groupName;
 
 
@@ -60,83 +51,42 @@ public class GoGroupMemberAddAction extends ActionSupport implements SessionAwar
 	}
 
 
-	/**
-	 * @return userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
 
-
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-
-	/**
-	 * @return followList
-	 */
 	public ArrayList<UserDTO> getFollowList() {
 		return followList;
 	}
 
-
-	/**
-	 * @param followList セットする followList
-	 */
 	public void setFollowList(ArrayList<UserDTO> followList) {
 		this.followList = followList;
 	}
 
-
-	/**
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-
-	/**
-	 * @return groupId
-	 */
 	public int getGroupId() {
 		return groupId;
 	}
 
-
-	/**
-	 * @param groupId セットする groupId
-	 */
 	public void setGroupId(int groupId) {
 		this.groupId = groupId;
 	}
 
-
-	/**
-	* 取得メソッド を取得
-	* @return groupName
-	*/
 	public String getGroupName() {
 		return groupName;
 	}
 
-
-	/**
-	* 設定メソッド を設定
-	* @param groupName
-	*/
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}

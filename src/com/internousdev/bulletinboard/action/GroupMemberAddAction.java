@@ -13,33 +13,22 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GroupMemberAddAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * ユーザーID
-	 */
+	/** ユーザーID */
 	private int userId=0;
 
-	/**
-	 * セッション
-	 */
+	/** セッション */
 	private Map<String,Object> session;
 
-	/**
-	 * グループID
-	 */
+	/** グループID */
 	private int groupId;
 
-	/**
-	 * グループ名
-	 */
+	/** グループ名 */
 	private String groupName;
-	/**
-	 * メンバーリスト
-	 */
+	
+	/** メンバーリスト */
 	private ArrayList<Integer> addMemberList = new ArrayList<Integer>();
 
-	/**
-	 * メンバーリスト
-	 */
+	/** メンバーリスト */
 	private ArrayList<UserDTO> memberList = new ArrayList<UserDTO>();
 
 
@@ -79,99 +68,53 @@ public class GroupMemberAddAction extends ActionSupport implements SessionAware{
 	}
 
 
-	/**
-	 * @return userId
-	 */
+
 	public int getUserId() {
 		return userId;
 	}
 
-
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-
-	/**
-	 * @return groupName
-	 */
 	public String getGroupName() {
 		return groupName;
 	}
 
-
-	/**
-	 * @param groupName セットする groupName
-	 */
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
 
-
-	/**
-	 * @return groupId
-	 */
 	public int getGroupId() {
 		return groupId;
 	}
 
-
-	/**
-	 * @param groupId セットする groupId
-	 */
 	public void setGroupId(int groupId) {
 		this.groupId = groupId;
 	}
 
-
-	/**
-	 * @return addMemberList
-	 */
 	public ArrayList<Integer> getAddMemberList() {
 		return addMemberList;
 	}
 
-
-	/**
-	 * @param addMemberList セットする addMemberList
-	 */
 	public void setAddMemberList(ArrayList<Integer> addMemberList) {
 		this.addMemberList = addMemberList;
 	}
 
-
-	/**
-	 * @return memberList
-	 */
 	public ArrayList<UserDTO> getMemberList() {
 		return memberList;
 	}
 
-
-	/**
-	 * @param memberList セットする memberList
-	 */
 	public void setMemberList(ArrayList<UserDTO> memberList) {
 		this.memberList = memberList;
 	}
-
 
 }

@@ -12,16 +12,16 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GroupNameChangeAction extends ActionSupport implements SessionAware{
 	
-	//グループID
+	/** グループID */
 	private int groupId;
 	
-	//グループ名
+	/** グループ名 */
 	private String groupName="";
 	
-	//セッション
+	/** セッション */
 	private Map<String,Object> session;
 	
-	//ユーザーのポストリストの生成メソッド
+	/** ユーザーのポストリストの生成メソッド */
 	
 	public String execute() {
 		String result = ERROR;

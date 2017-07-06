@@ -18,13 +18,13 @@ public class ColorDefaultAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 	
-	//ヘッダーの色
+	/** ヘッダーの色 */
 	private String ColorH = "#333333";
 	
-	//ボディの色
+	/** ボディの色 */
 	private String ColorB = "#ffffff";
 	
-	//フッターの色
+	/** フッターの色 */
 	private String ColorF = "#6ff5ef";
 	
 	/**デフォルトの色
@@ -61,87 +61,40 @@ public class ColorDefaultAction extends ActionSupport implements SessionAware{
 		return userId;
 	}
 
-
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
-
 
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @return ColorH
-	*/
 	public String getColorH() {
 		return ColorH;
 	}
 
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @return ColorB
-	*/
 	public String getColorB() {
 		return ColorB;
 	}
 
-
-
-
-	/**
-	* 取得メソッド を取得
-	* @return ColorF
-	*/
 	public String getColorF() {
 		return ColorF;
 	}
 
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param ColorH
-	*/
 	public void setColorH(String colorH) {
 		ColorH = colorH;
 	}
 
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param ColorB
-	*/
 	public void setColorB(String colorB) {
 		ColorB = colorB;
 	}
 
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param ColorF
-	*/
 	public void setColorF(String colorF) {
 		ColorF = colorF;
 	}
-
 
 }

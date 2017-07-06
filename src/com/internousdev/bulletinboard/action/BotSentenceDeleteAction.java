@@ -12,14 +12,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class BotSentenceDeleteAction extends ActionSupport{
 
-	/**
-	 * 文章ID
-	 */
+	/** 文章ID */
 	public int sentenceId;
 
-	/**
-	 * 結果の文章
-	 */
+	/** 結果の文章 */
 	private String resultSentence;
 
 	public String execute() {
@@ -38,34 +34,18 @@ public class BotSentenceDeleteAction extends ActionSupport{
 		return result;
 	}
 
-	/**
-	* 取得メソッド を取得
-	* @return sentenceId
-	*/
 	public int getSentenceId() {
 		return sentenceId;
 	}
 
-	/**
-	* 設定メソッド を設定
-	* @param sentenceId
-	*/
 	public void setSentenceId(int sentenceId) {
 		this.sentenceId = sentenceId;
 	}
 
-	/**
-	* 取得メソッド を取得
-	* @return resultSentence
-	*/
 	public String getResultSentence() {
 		return resultSentence;
 	}
 
-	/**
-	* 設定メソッド を設定
-	* @param resultSentence
-	*/
 	public void setResultSentence(String resultSentence) {
 		this.resultSentence = resultSentence;
 	}

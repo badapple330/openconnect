@@ -79,90 +79,53 @@ public class FollowListAddAction extends ActionSupport implements SessionAware{
 		return result;
 }
 
-
-	/**
-	 * @return session
-	 */
+	
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	/**
-	 * @return userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
 
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * @return do
-	 */
 	public int getDo() {
 		return Do;
 	}
 
-	/**
-	 * @param do1 セットする do
-	 */
 	public void setDo(int do1) {
 		Do = do1;
 	}
 
-	/**
-	 * @return done
-	 */
 	public int getDone() {
 		return done;
 	}
 
-	/**
-	 * @param done セットする done
-	 */
 	public void setDone(int done) {
 		this.done = done;
 	}
 
-	/**
-	 * @return viewId
-	 */
 	public int getViewId() {
 		return viewId;
 	}
 
-	/**
-	 * @param viewId セットする viewId
-	 */
 	public void setViewId(int viewId) {
 		this.viewId = viewId;
 	}
 
-/**
- * @return followNum
- */
-public int getFollowNum() {
-	return followNum;
-}
-
-
-/**
- * @param followNum セットする followNum
- */
-public void setFollowNum(int followNum) {
-	this.followNum = followNum;
-}
+	public int getFollowNum() {
+		return followNum;
+	}
+	
+	public void setFollowNum(int followNum) {
+		this.followNum = followNum;
+	}
 
 }

@@ -43,84 +43,46 @@ public class FriendSearchSessionAction extends ActionSupport implements SessionA
 	}
 
 
-	/**
-	 * @return talkflg
-	 */
+
 	public int getTalkflg() {
 		return talkflg;
 	}
 
-
-	/**
-	 * @param talkflg セットする talkflg
-	 */
 	public void setTalkflg(int talkflg) {
 		this.talkflg = talkflg;
 	}
 
-
-	/**
-	 * @return userName
-	 */
 	public String getUserName() {
 		return userName;
 	}
 
-
-	/**
-	 * @param userName セットする userName
-	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-
-	/**
-	 * @return userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
 
-
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-
-	/**
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	/**
-	 * @return viewId
-	 */
 	public int getViewId() {
 		return viewId;
 	}
 
-
-	/**
-	 * @param viewId セットする viewId
-	 */
 	public void setViewId(int viewId) {
 		this.viewId = viewId;
 	}
-
 
 
 }

@@ -9,30 +9,21 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BotExerciseAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * ユーザーID
-	 */
+	/** ユーザーID */
 	private int userId;
 
-	/**
-	 * 文章
-	 */
+	/** 文章 */
 	private String sentence;
 
-	/**
-	 * どんな文章を入れたのかの説明
-	 */
+	/** どんな文章を入れたのかの説明 */
 	private String label;
 
-	/**
-	 * 結果の文章
-	 */
+	/** 結果の文章 */
 	private String resultSentence;
 
-	/**
-	 * セッション
-	 */
+	/** セッション */
 	private Map<String,Object> session;
+	
 
 	public String execute() {
 		String result = ERROR;
@@ -69,92 +60,44 @@ public class BotExerciseAction extends ActionSupport implements SessionAware{
 	}
 
 
-
-	/**
-	 * @return sentence
-	 */
 	public String getSentence() {
 		return sentence;
 	}
 
-	/**
-	 * @param sentence セットする sentence
-	 */
 	public void setSentence(String sentence) {
 		this.sentence = sentence;
 	}
 
-	/**
-	* 取得メソッド を取得
-	* @return label
-	*/
 	public String getLabel() {
 		return label;
 	}
 
-	/**
-	* 設定メソッド を設定
-	* @param label
-	*/
 	public void setLabel(String label) {
 		this.label = label;
 	}
 
-	/**
-	* 取得メソッド を取得
-	* @return resultSentence
-	*/
 	public String getResultSentence() {
 		return resultSentence;
 	}
 
-	/**
-	* 設定メソッド を設定
-	* @param resultSentence
-	*/
 	public void setResultSentence(String resultSentence) {
 		this.resultSentence = resultSentence;
 	}
 
-
-
-	/**
-	* 取得メソッド を取得
-	* @return session
-	*/
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-
-
-	/**
-	* 設定メソッド を設定
-	* @param session
-	*/
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-
-
-	/**
-	* 取得メソッド を取得
-	* @return userId
-	*/
 	public int getUserId() {
 		return userId;
 	}
 
-
-
-	/**
-	* 設定メソッド を設定
-	* @param userId
-	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
 
 }
