@@ -7,14 +7,14 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.colorChangeDAO;
+import com.internousdev.bulletinboard.dao.ColorChangeDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author internousdev
  *
  */
-public class colorChangeAction extends ActionSupport implements SessionAware{
+public class ColorChangeAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 	
@@ -37,7 +37,7 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 
 
 	public String execute() {
-		colorChangeDAO dao = new colorChangeDAO();
+		ColorChangeDAO dao = new ColorChangeDAO();
 		String result = ERROR;
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
@@ -45,7 +45,7 @@ public class colorChangeAction extends ActionSupport implements SessionAware{
 		if(userId==0){return result;}
 
 
-		dao.colorChange( userId, ColorH,ColorB,ColorF);
+		dao.ColorChange( userId, ColorH,ColorB,ColorF);
 		session.put("hColor", dao.getColor(userId).gethColor());
 		session.put("bColor", dao.getColor(userId).getbColor());
 		session.put("fColor",dao.getColor(userId).getfColor());

@@ -783,8 +783,8 @@
 			<result name="error">addsite.jsp</result>
 		</action>
 
-		<action name="colorChangeAction"
-			class="com.internousdev.bulletinboard.action.colorChangeAction"
+		<action name="ColorChangeAction"
+			class="com.internousdev.bulletinboard.action.ColorChangeAction"
 			method="execute">
 			<result name="success" type="redirectAction">ProfileUpdateAction</result>
 			<result name="error">login.jsp</result>

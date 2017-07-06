@@ -43,6 +43,7 @@
 
 </head>
 
+<!-- ヘッダです -->
 <body style="background-color:<s:property value="#session.bColor"/>;">
 <br>
 <nav class="navbar navbar-inverse navbar-fixed-top">

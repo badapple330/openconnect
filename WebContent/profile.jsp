@@ -338,7 +338,7 @@ FOLLOW</a>
 				<h3 class="modal-title">カラー変更</h3>
 			</div>
 <div class="modal-body">
-			<s:form action="colorChangeAction">
+			<s:form action="ColorChangeAction">
 <div class="form-group">
 <label style="width:200px;">ヘッダー</label>
 <input class="jscolor  {hash:true}" name="ColorH" value="<s:property value="#session.hColor"/>">
