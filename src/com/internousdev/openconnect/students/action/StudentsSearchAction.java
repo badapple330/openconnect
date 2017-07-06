@@ -38,7 +38,7 @@ public class StudentsSearchAction extends ActionSupport {
 	/**
 	 *苗字(かな)
 	 */
-	private String familynamekana;
+	private String familyNameKana;
 
 	/**
 	 * 名前(漢字）
@@ -47,7 +47,7 @@ public class StudentsSearchAction extends ActionSupport {
 	/**
 	 *名前(かな)
 	 */
-	private String givennamekana;
+	private String givenNameKana;
 	/**
 	 * 受講年
 	 */
@@ -192,15 +192,15 @@ public class StudentsSearchAction extends ActionSupport {
 	 * @return birthday　誕生日
 	 */
 	public String getFamilyNameKana() {
-		return familynamekana;
+		return familyNameKana;
 	}
 
 	/**
 	 * 苗字(かな)を格納するメソッド
 	 * @param birthday　セットする birthday
 	 */
-	public void setFamilyNameKana(String familynamekana) {
-		this.familynamekana = familynamekana;
+	public void setFamilyNameKana(String familyNameKana) {
+		this.familyNameKana = familyNameKana;
 	}
 	/**
 	 * 名前(漢字)を取得するメソッド
@@ -223,16 +223,16 @@ public class StudentsSearchAction extends ActionSupport {
 	 *名前(かな)を取得するメソッド
 	 * @return birthday　誕生日
 	 */
-	public String getGivenNameKana() {
-		return givennamekana;
+	public String getgGivenNameKana() {
+		return givenNameKana;
 	}
 
 	/**
 	 * 名前(かな)を格納するメソッド
 	 * @param birthday　セットする birthday
 	 */
-	public void setGivenNameKana(String givennamekana) {
-		this.givennamekana = givennamekana;
+	public void setGivenNameKana(String givenNameKana) {
+		this.givenNameKana = givenNameKana;
 	}
 
 	/**

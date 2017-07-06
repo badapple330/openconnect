@@ -41,9 +41,21 @@ public class StudentsUpdateAction extends ActionSupport {
      */
     private String userName;
 
-
+    /**
+     * 姓(ふりがな)
+     */
+    private String familyNameKana;
 
     /**
+     * 名(ふりがな)
+     */
+    private String givenNameKana;
+
+
+
+
+
+	/**
      * ユーザーフラグ
      */
     private int userFlg;
@@ -63,10 +75,12 @@ public class StudentsUpdateAction extends ActionSupport {
     public String execute() throws SQLException {
 
         String result = ERROR;
+        userName = familyNameKanji + givenNameKanji;
         StudentsUpdateDAO dao = new StudentsUpdateDAO();
         int count = 0;
-        count = dao.update(familyNameKanji,givenNameKanji,teamName,userFlg,userName,userId);
+        count = dao.update(familyNameKanji,givenNameKanji,teamName,userFlg,userName,familyNameKana,givenNameKana,userId);
         if (count != 0) {
+
             result = SUCCESS;
             resultString = "更新に成功しました。";
         }
@@ -219,5 +233,37 @@ public class StudentsUpdateAction extends ActionSupport {
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
+    /**
+   	* 取得メソッド を取得
+   	* @return familyNameKana
+   	*/
+   	public String getFamilyNameKana() {
+   		return familyNameKana;
+   	}
+
+   	/**
+   	* 設定メソッド を設定
+   	* @param familyNameKana
+   	*/
+   	public void setFamilyNameKana(String familyNameKana) {
+   		this.familyNameKana = familyNameKana;
+   	}
+
+   	/**
+   	* 取得メソッド を取得
+   	* @return givenNameKana
+   	*/
+   	public String getGivenNameKana() {
+   		return givenNameKana;
+   	}
+
+   	/**
+   	* 設定メソッド を設定
+   	* @param givenNameKana
+   	*/
+   	public void setGivenNameKana(String givenNameKana) {
+   		this.givenNameKana = givenNameKana;
+   	}
+
 
 }
