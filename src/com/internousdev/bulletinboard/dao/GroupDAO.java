@@ -23,9 +23,9 @@ public class GroupDAO {
 		  ArrayList<MessageDTO> groupList = new ArrayList<MessageDTO>();
 
 		  String sql = "select * from groups join group_master on groups.group_id=group_master.group_id where user_id=?";
-		  String sql2 = "select * from post where group_id=? order by post_id desc limit 1";
-		  String sql3 = "select * from post where group_id=? and sender_id != ? order by post_id desc";
-		  String sql4 = "select * from read_flg where post_id=? and user_id=?";
+		  String sql2 = "select * from messages where group_id=? order by message_id desc limit 1";
+		  String sql3 = "select * from messages where group_id=? and sender_id != ? order by message_id desc";
+		  String sql4 = "select * from read_flg where message_id=? and user_id=?";
 
 		  try{
 		    	PreparedStatement ps = con.prepareStatement(sql);
@@ -43,8 +43,8 @@ public class GroupDAO {
 			    	ps2.setInt(1,dto.getGroupId());
 			    	ResultSet rs2 = ps2.executeQuery();
 			    	while(rs2.next()){
-			    		dto.setPostContents(rs2.getString("post_contents"));
-			    		dto.setPostAt(rs2.getString("post_at"));
+			    		dto.setPostContents(rs2.getString("body"));
+			    		dto.setPostAt(rs2.getString("created_at"));
 			    	}
 			    	PreparedStatement ps3 = con2.prepareStatement(sql3);
 			    	ps3.setInt(1,dto.getGroupId());
@@ -53,7 +53,7 @@ public class GroupDAO {
 			    	while(rs3.next()){
 			    		dto.setNotRead(dto.getNotRead()+1);
 			    		PreparedStatement ps4 = con.prepareStatement(sql4);
-			    		ps4.setInt(1,rs3.getInt("post_id"));
+			    		ps4.setInt(1,rs3.getInt("message_id"));
 			    		ps4.setInt(2, userId);
 			    		ResultSet rs4 = ps4.executeQuery();
 			    		while(rs4.next()){
@@ -120,7 +120,7 @@ public class GroupDAO {
 
 		String sql = "select group_id from group_master where group_name=? order by created_at desc limit 1";
 		String sql2 = "insert into groups (user_id,group_id) values (?,?)";
-		String sql3 = "insert into post (sender_id,group_id,post_contents) values (?,?,?)";
+		String sql3 = "insert into messages (sender_id,group_id,body) values (?,?,?)";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -239,7 +239,7 @@ public class GroupDAO {
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 
 		String sql = "select * from group_master where group_name = ?";
-		String sql2 = "select post_contents from post where group_id = ?";
+		String sql2 = "select body from messages where group_id = ?";
 		String sql3 = "select * from groups where group_id = ?";
 
 		  try{
@@ -259,7 +259,7 @@ public class GroupDAO {
 			    	ResultSet rs2 = ps2.executeQuery();
 			    	while(rs2.next()){
 			    		PostDTO dto2 = new PostDTO();
-			    		dto2.setPostContents(rs2.getString("post_contents"));
+			    		dto2.setPostContents(rs2.getString("body"));
 			    		contentsList.add(dto2);
 			    	}
 			    	if(contentsList.size() == 1){
@@ -340,7 +340,7 @@ public class GroupDAO {
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 
 		String sql = "select * from users where user_id=?";
-		String sql2 = "insert into post(sender_id,group_id,post_contents) values(?,?,?)";
+		String sql2 = "insert into messages(sender_id,group_id,body) values(?,?,?)";
 
 		  try{
 		    	PreparedStatement ps = con.prepareStatement(sql);
@@ -410,7 +410,7 @@ public class GroupDAO {
 		int inserted = 0;
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "insert into post(sender_id,group_id,post_contents) values(?,?,?)";
+		String sql = "insert into messages(sender_id,group_id,body) values(?,?,?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

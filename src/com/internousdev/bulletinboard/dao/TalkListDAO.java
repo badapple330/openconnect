@@ -39,9 +39,9 @@ public class TalkListDAO {
 				  while(rs2.next()){
 			//検索ここまで
 					  String sql3 = "select * from follow join users on follow.done=users.user_id where do=? and done=?";//相互フォロワーのユーザー情報取得
-					  String sql4 = "select * from post where  (sender_id=? or receiver_id=?) and(sender_id=? or receiver_id=?) order by post_id desc limit 1";//ある一人とのチャット履歴最新1件を取得
-					  String sql5 = "select * from post where receiver_id=? and sender_id=? order by post_id desc";//ある一人とのチャット履歴全てを取得
-					  String sql6 = "select * from read_flg where post_id=? and user_id=?";//投稿を自分が読んだ履歴を取得
+					  String sql4 = "select * from messages where  (sender_id=? or receiver_id=?) and(sender_id=? or receiver_id=?) order by message_id desc limit 1";//ある一人とのチャット履歴最新1件を取得
+					  String sql5 = "select * from messages where receiver_id=? and sender_id=? order by message_id desc";//ある一人とのチャット履歴全てを取得
+					  String sql6 = "select * from read_flg where message_id=? and user_id=?";//投稿を自分が読んだ履歴を取得
 
 					    	PreparedStatement ps3 = con.prepareStatement(sql3);
 					    	ps3.setInt(1,userId);
@@ -62,8 +62,8 @@ public class TalkListDAO {
 						    	ps4.setInt(4,dto.getReceiverId());
 						    	ResultSet rs4 = ps4.executeQuery();
 						    	while(rs4.next()){
-						    		dto.setPostContents(rs4.getString("post_contents"));
-						    		dto.setPostAt(rs4.getString("post_at"));
+						    		dto.setPostContents(rs4.getString("body"));
+						    		dto.setPostAt(rs4.getString("created_at"));
 						    	}
 
 						    	PreparedStatement ps5 = con.prepareStatement(sql5);
@@ -73,7 +73,7 @@ public class TalkListDAO {
 						    	while(rs5.next()){
 						    		dto.setNotRead(dto.getNotRead()+1);
 						    		PreparedStatement ps6 = con.prepareStatement(sql6);
-						    		ps6.setInt(1,rs5.getInt("post_id"));
+						    		ps6.setInt(1,rs5.getInt("message_id"));
 						    		ps6.setInt(2, userId);
 						    		ResultSet rs6=ps6.executeQuery();
 						    		while(rs6.next()){

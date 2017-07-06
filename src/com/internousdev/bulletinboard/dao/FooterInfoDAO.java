@@ -20,8 +20,8 @@ public class FooterInfoDAO {
 		int info=0;
 		Connection con= new MySqlConnector("openconnect").getConnection();
 		 String sql1 = "select group_id from groups where user_id=? order by group_id asc";
-		 String sql2 = "select post_id from post where group_id=? and sender_id != ? order by post_id asc";
-		 String sql3 = "select * from read_flg where post_id=? and user_id=?";
+		 String sql2 = "select message_id from messages where group_id=? and sender_id != ? order by message_id asc";
+		 String sql3 = "select * from read_flg where message_id=? and user_id=?";
 
 		 try{
 			 PreparedStatement ps1 = con.prepareStatement(sql1);
@@ -35,7 +35,7 @@ public class FooterInfoDAO {
 				 while(rs2.next()){
 					 info++;
 					 PreparedStatement ps3 = con.prepareStatement(sql3);
-					 ps3.setInt(1,rs2.getInt("post_id"));
+					 ps3.setInt(1,rs2.getInt("message_id"));
 					 ps3.setInt(2, userId);
 					 ResultSet rs3 = ps3.executeQuery();
 					 while(rs3.next()){
@@ -80,8 +80,8 @@ public class FooterInfoDAO {
 				ResultSet rsb = psb.executeQuery();
 				while(rsb.next()){
 		//検索ここまで
-					 String sql1 = "select post_id from post where sender_id=? and receiver_id = ? order by post_id asc";
-					 String sql2 = "select * from read_flg where post_id=? and user_id=?";
+					 String sql1 = "select message_id from messages where sender_id=? and receiver_id = ? order by message_id asc";
+					 String sql2 = "select * from read_flg where message_id=? and user_id=?";
 
 					 PreparedStatement ps1 = con.prepareStatement(sql1);
 					 ps1.setInt(1, rsa.getInt("done"));
@@ -90,7 +90,7 @@ public class FooterInfoDAO {
 					 while(rs1.next()){
 						 info++;
 						 PreparedStatement ps2 = con.prepareStatement(sql2);
-						 ps2.setInt(1, rs1.getInt("post_id"));
+						 ps2.setInt(1, rs1.getInt("message_id"));
 						 ps2.setInt(2,userId);
 						 ResultSet rs2 = ps2.executeQuery();
 						 while(rs2.next()){

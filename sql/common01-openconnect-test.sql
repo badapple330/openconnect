@@ -380,14 +380,14 @@ created_at datetime not null  default current_timestamp comment '作成日'
 
 /* 投稿情報
  **************************/
-create table post(
-post_id int not null primary key auto_increment comment '投稿ID',
+create table messages(
+message_id int not null primary key auto_increment comment '投稿ID',
 receiver_id int comment  '受取人ID',
 sender_id int not null comment '送信者ID',
 group_id int comment 'グループID',
-post_contents varchar(255) not null comment '送信内容',
+body varchar(255) not null comment '送信内容',
 img varchar(50) comment '添付画像',
-post_at timestamp not null default current_timestamp comment '投稿日時',
+created_at timestamp not null default current_timestamp comment '投稿日時',
 foreign key(receiver_id) references users(user_id),
 foreign key(sender_id) references users(user_id),
 foreign key(group_id) references group_master(group_id)
@@ -449,10 +449,10 @@ foreign key(timeline_id) references send_timeline(timeline_id)
 /* チャット既読情報
  **************************/
 create table read_flg(
-post_id int not null comment'投稿ID',
+message_id int not null comment'投稿ID',
 user_id int not null comment 'ユーザーID',
 foreign key(user_id) references users(user_id),
-foreign key(post_id) references post(post_id)
+foreign key(message_id) references messages(message_id)
 );
 
 
@@ -554,9 +554,9 @@ insert into group_master(group_name,group_img) values("legmina","pic/group_img/t
 
 insert into groups(user_id,group_id) values(30,1),(31,1),(32,1),(33,1),(34,1),(32,2),(35,2);
 
-insert into post(sender_id,group_id,post_contents) values(30,1,"グループを新設しました"),(35,2,"グループを新設しました");
+insert into messages(sender_id,group_id,body) values(30,1,"グループを新設しました"),(35,2,"グループを新設しました");
 
-insert into post(sender_id,receiver_id,post_contents) values(30,31,"（・ｘ・）"),(30,32,"｜ω：）"),(30,33,"（・ω｜"),(31,32,"（・ω・）"),(31,33,"（：：）"),(32,33,"v（・ω｜"),
+insert into messages(sender_id,receiver_id,body) values(30,31,"（・ｘ・）"),(30,32,"｜ω：）"),(30,33,"（・ω｜"),(31,32,"（・ω・）"),(31,33,"（：：）"),(32,33,"v（・ω｜"),
 (34,30,"v（・ω｜"),(34,31,"v（・ω｜"),(34,32,"v（・ω｜"),(34,33,"v（・ω｜"),
 (35,30,"v（・ω｜"),(35,31,"v（・ω｜"),(35,32,"v（・ω｜"),(35,33,"v（・ω｜"),(35,34,"v（・ω｜"),
 (36,30,"v（・ω｜"),(36,31,"v（・ω｜"),(36,32,"v（・ω｜"),(36,33,"v（・ω｜"),(36,34,"v（・ω｜"),(36,35,"v（・ω｜"),
