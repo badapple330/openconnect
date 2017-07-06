@@ -6,11 +6,11 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.GoodDAO;
-import com.internousdev.bulletinboard.dao.btnDAO;
+import com.internousdev.bulletinboard.dao.BtnDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class btnAction extends ActionSupport  implements SessionAware{
+public class BtnAction extends ActionSupport  implements SessionAware{
 
 	/** ユーザーID */
 	private int userId=0;
@@ -27,7 +27,7 @@ public class btnAction extends ActionSupport  implements SessionAware{
 	/** セッション */
 	private Map<String,Object> session;
 
- btnDAO dao = new btnDAO();
+ BtnDAO dao = new BtnDAO();
  GoodDAO dao2 = new GoodDAO();
 
  public String execute(){
@@ -41,7 +41,7 @@ public class btnAction extends ActionSupport  implements SessionAware{
 
 	 if(btn_flg==1){
 			if(!(good.isGood(userId,timelineId))){
-				btnDAO dao2 = new btnDAO();
+				BtnDAO dao2 = new BtnDAO();
 				GoodDAO dao3 = new GoodDAO();
 				dao2.pointPlus(senderId,timelineId);
 				dao3.goodSet(userId,timelineId);

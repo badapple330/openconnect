@@ -10,7 +10,7 @@ import com.internousdev.util.DBConnector;
 
 
 
-public class btnDAO {
+public class BtnDAO {
 
 
 

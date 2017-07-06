@@ -238,7 +238,7 @@
 					</div>
 				<!-- いいね前 -->
 					<s:else>
-						<s:form action="btnAction"><s:hidden name="userId" value="%{userId}"/><s:hidden name="senderId" value="%{senderId}"/><s:hidden name="timelineId" value="%{timelineId}"/><s:hidden name="btn_flg" value="1"/>
+						<s:form action="BtnAction"><s:hidden name="userId" value="%{userId}"/><s:hidden name="senderId" value="%{senderId}"/><s:hidden name="timelineId" value="%{timelineId}"/><s:hidden name="btn_flg" value="1"/>
 							<div style="text-align:right">
 								<button type="button" onClick="submit()" class="good"><img src="pic/fff.png" width= "20" height="20"></button>
 							</div>

@@ -11,7 +11,7 @@
 <body>
 
 <div >
-		<s:form action="btnAction">
+		<s:form action="BtnAction">
 	<button type="submit" class="del-btn">いとをかし</button>
 	</s:form>
 	</div>
