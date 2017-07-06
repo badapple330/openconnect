@@ -110,7 +110,8 @@ delete_flg boolean default false comment '削除フラグ'
 create table admins(
 admin_id int primary key comment '管理者ログインID',
 admin_name_e varchar(100) not null comment '管理者名',
-admin_password  varchar(20) not null comment '管理者パスワード'
+admin_password  varchar(20) not null comment '管理者パスワード',
+admin_phone_email varchar(100) not null comment '管理者Eメールアドレス'
 );
 
 
@@ -155,15 +156,19 @@ insert into user_history(login_id,name_e,corporation_name,use_day,division,split
 
 
 insert into user_history(login_id,name_e,corporation_name,use_day,payment_day,spend,payment)values
-
-('8','sunakawa minori','インターノウス','2017-01-27','2017-02-27','10000','10000'),
-('14','toshiie maeda','金沢城','2017-07-03','2017-09-15','12700000','12700000');
+('1','testuser','試験用紙100枚','2016-01-27','2016-02-27','100000','100000'),
+('2','internous01','資材','2016-01-27','2016-02-27','130000','130000'),
+('3','internous01','アクオス32型TV','2016-01-27','2016-02-27','32000','32000'),)
+('4','leader11','大漁旗','2016-01-27','2016-02-27','160000','160000'),
+('3','internous01','internouscompany','2016-01-27','2016-02-27','678000000','678000000'),
+('8','sunakawa minori','インターノウス','2016-01-27','2016-02-27','10000','10000'),
+('14','toshiie maeda','金沢城','2016-07-03','2016-09-15','12700000','12700000');
 
 /**
  * クレジットカード情報
  */
 insert into credit_card(login_id,name_e,credit_number,security_code,id_number,credit_limit,register_day,update_day,delete_flg,expiration_year,expiration_month,spend)values
-("1","testuser","4111111111111111","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
+("1","testuser","4123123441234123","123","1234","100000","2016-06-17 13:16:00","2016-07-17 13:25:00",false,2019,7,20000),
 ("2","testuser","4111111111111112","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
 ("3","testuser","4111111111111113","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
 ("4","testuser","4111111111111114","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
@@ -172,20 +177,20 @@ insert into credit_card(login_id,name_e,credit_number,security_code,id_number,cr
 ("7","testuser","4111111111111117","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
 ("8","testuser","4111111111111118","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
 ("9","testuser","4111111111111119","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
-("10","testuser","4111111111111120","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
-("11","testuser","4111111111111121","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
-("12","testuser","4111111111111122","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
-("13","testuser","4111111111111123","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000);
+("10","testuser","412312344123456","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
+("11","testuser","411111111111122","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
+("12","testuser","411111111111121","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000),
+("13","testuser","411111111111123","123","1234","100000","2016-06-17 13:16:00","2016-06-17 13:25:00",false,2019,7,20000);
 
 /* 法人データ(法人ログイン時使用) */
 insert into corporation(login_id,password,corporation_name,postal,address,capital,rep_name,charge,email,tel_number,employee,established,hp_url,judge_flg,register_day,update_day,delete_flg)values
 ("kudo","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","kudo@gmail.com","0311112222","800","50",null,'保留',20160617,20160617,false),
-("hideki","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","hideki@gmail.com","0311112222","800","50",null,'認証',20160617,20160617,false),
-("jirou","ueda","株式会社どんとこい","1130034","東京都文京区湯島3-2-12","50000000","jirou","ueda","uedajirou@gnail.com","0311112222","800","50",null,'認証',20160617,20160617,false);
+("hideki","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","hideki@gmail.com","0311112222","800","50",null,'承認',20160617,20160617,false),
+("jirou","ueda","株式会社どんとこい","1130034","東京都文京区湯島3-2-12","50000000","jirou","ueda","uedajirou@gnail.com","0311112222","800","50",null,'承認',20160617,20160617,false);
 
-insert into admins(admin_id,admin_password,admin_name_e)values
-('1','test.user','takuma inoue'),
-('2','test.user','akira kazami'),
+insert into admins(admin_id,admin_password,admin_name_e,admin_phone_email)values
+('1','internous01','takuma inoue','takuma.inoue@gmail.com'),
+('2','internous01','akira kazami'),
 ('3','test.user','ak-47'),
 ('4','test.user','black'),
 ('5','test.user','type10tank'),
