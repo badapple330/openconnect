@@ -250,7 +250,7 @@
   </div>
 
   <div class="outline">
-    <s:iterator value="postList">
+    <s:iterator value="chat">
 
       <!-- 自分の投稿内容 -->
       <s:if test="userId == senderId">
@@ -258,7 +258,7 @@
           <h6 class="name_right"><s:property value="senderName" /></h6>
           <div style="float: right; position: absolute; right: 0px;">
             <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
-            <h6 class="time" title="<s:property value="(postAt.substring(0,19))"/>"></h6>
+            <h6 class="timeArea" title="<s:property value="(postAt.substring(0,19))"/>"></h6>
           </div>
           <s:if test="img.startsWith('pic/stamp')">
             <img class="stamp_right" src="<s:property value="img"/>">
@@ -275,7 +275,7 @@
           <h6 class="name_left"><s:property value="senderName" /></h6>
           <div style="float: left; position: absolute;">
             <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
-            <h6 class="time" title="<s:property value="(postAt.substring(0,19))"/>"></h6>
+            <h6 class="timeArea" title="<s:property value="(postAt.substring(0,19))"/>"></h6>
           </div>
           <s:if test="img.startsWith('pic/stamp')">
             <img class="stamp_left" src="<s:property value="img"/>">

@@ -9,7 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.TalkListDAO;
 import com.internousdev.bulletinboard.dao.ColorChangeDAO;
-import com.internousdev.bulletinboard.dto.PostDTO;
+import com.internousdev.bulletinboard.dto.MessageDTO;
 import com.internousdev.bulletinboard.util.GroupComparator;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,7 +27,7 @@ public class GoTalkListAction extends ActionSupport implements SessionAware{
 	/**
 	 * グループリスト
 	 */
-	public ArrayList<PostDTO> talkList = new ArrayList<PostDTO>();
+	public ArrayList<MessageDTO> talkList = new ArrayList<MessageDTO>();
 
 
 
@@ -100,14 +100,14 @@ public class GoTalkListAction extends ActionSupport implements SessionAware{
 	/**
 	 * @return groupList
 	 */
-	public ArrayList<PostDTO> getTalkList() {
+	public ArrayList<MessageDTO> getTalkList() {
 		return talkList;
 	}
 
 	/**
 	 * @param groupList セットする groupList
 	 */
-	public void setTalkList(ArrayList<PostDTO> talkList) {
+	public void setTalkList(ArrayList<MessageDTO> talkList) {
 		this.talkList = talkList;
 	}
 

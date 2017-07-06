@@ -5,7 +5,7 @@ package com.internousdev.bulletinboard.dto;
 
 
 
-public class PostDTO {
+public class MessageDTO {
 
 
 	/**

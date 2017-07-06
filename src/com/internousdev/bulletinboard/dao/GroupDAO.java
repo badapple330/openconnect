@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.bulletinboard.dto.PostDTO;
+import com.internousdev.bulletinboard.dto.MessageDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
@@ -17,10 +17,10 @@ public class GroupDAO {
 	 * @param userId
 	 * @return
 	 */
-	  public ArrayList<PostDTO> groupGet(int userId){
+	  public ArrayList<MessageDTO> groupGet(int userId){
 		  Connection con = new MySqlConnector("openconnect").getConnection();
 		  Connection con2 = new MySqlConnector("openconnect").getConnection();
-		  ArrayList<PostDTO> groupList = new ArrayList<PostDTO>();
+		  ArrayList<MessageDTO> groupList = new ArrayList<MessageDTO>();
 
 		  String sql = "select * from groups join group_master on groups.group_id=group_master.group_id where user_id=?";
 		  String sql2 = "select * from post where group_id=? order by post_id desc limit 1";
@@ -33,7 +33,7 @@ public class GroupDAO {
 
 		    	ResultSet rs = ps.executeQuery();
 		    	while(rs.next()){
-		    		PostDTO dto = new PostDTO();
+		    		MessageDTO dto = new MessageDTO();
 		    		dto.setGroupId(rs.getInt("group_id"));
 		    		dto.setGroupImg(rs.getString("group_img"));
 		    		dto.setGroupName(rs.getString("group_name"));
