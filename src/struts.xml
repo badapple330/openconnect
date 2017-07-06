@@ -307,11 +307,11 @@
 			<result name="error">attendance.jsp</result>
 		</action>
 
-			<action name="NotAttendanceAction"
-		class="com.internousdev.openconnect.attendance.action.NotAttendanceAction"
-		method="execute">
-		<result name="success">admin_attendance_leader.jsp</result>
-		<result name="error">attendance.jsp</result>
+		<action name="NotAttendanceAction"
+			class="com.internousdev.openconnect.attendance.action.NotAttendanceAction"
+			method="execute">
+			<result name="success">admin_attendance_leader.jsp</result>
+			<result name="error">attendance.jsp</result>
 		</action>
 
 
