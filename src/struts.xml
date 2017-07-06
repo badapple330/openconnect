@@ -558,23 +558,16 @@
 
 
 		<!-- チャット画面への遷移 -->
-		<action name="GoPostAction"
-			class="com.internousdev.bulletinboard.action.GoPostAction" method="execute">
-			<result name="success" type="redirectAction">PostAction</result>
-			<result name="error">login.jsp</result>
-		</action>
-
-		<!-- チャット画面 -->
-		<action name="PostAction" class="com.internousdev.bulletinboard.action.PostAction"
-			method="execute">
-			<result name="success"> chat.jsp</result>
+		<action name="GoChatAction"
+			class="com.internousdev.bulletinboard.action.GoChatAction" method="execute">
+			<result name="success">chat.jsp</result>
 			<result name="error">login.jsp</result>
 		</action>
 
 		<!-- チャット画面チャット送信時 -->
 		<action name="PostSetAction"
 			class="com.internousdev.bulletinboard.action.PostSetAction" method="execute">
-			<result name="success" type="redirectAction">PostAction</result>
+			<result name="success" type="chain">GoChatAction</result>
 			<result name="error">login.jsp</result>
 		</action>
 

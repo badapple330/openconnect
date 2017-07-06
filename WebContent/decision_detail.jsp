@@ -16,37 +16,34 @@
 </head>
 <body>
 
-<div class="container">
+
 <s:if test="%{#session.userFlg >= 1 && #session.userId != null}">
 
 
-	<div class="row" style="position:relative; z-index:-1;">
-		<div class="col-sm-12">
-    		<h1>決裁手続き一覧</h1>
-    	</div>
-    </div>
+    		<h1 style="text-align:center;">決裁手続き一覧</h1>
 
-    <div class="row">
-    	<div class="col-sm-12">
+<div class="top-word" style="margin-left:150px; margin-top:25px; margin-bottom:25px;">
+
 		    <p style="position:relative; z-index:-1;">ログイン中ユーザーID:<s:property value="#session.userId" /></p>
 			    <s:form action="DecisionDetailSelectAction">
-			        <label style="position:relative; z-index:-1;">プロジェクト検索</label><span class="pg_none"><br></span>
-			        <input type="text" placeholder="例：legmina" name="searchString" maxlength=30>
-			        <input type="hidden" name="userId" value="<s:property value="#session.userId" />">
+
+			        		<label style="position:relative; z-index:-1;">プロジェクト検索　</label><span class="pg_none"><br></span>
+			        			<input type="text" placeholder="例：legmina" name="searchString" maxlength=30>
+			       				 <input type="hidden" name="userId" value="<s:property value="#session.userId" />">　
 			                <input class="btn btn-default" type="submit" value="検索" />
-			    </s:form>
+				</s:form>
 
 			    <br>
-			<p style="position:relative; z-index:-1;">
+			<p>
 			    <font color="red"><s:property value="%{resultString}" /></font><br>
 			    <s:property value="%{resultSelect1}" /><br>
 			    <s:property value="%{resultSelect2}" />
 		    </p>
 
 		    <p style="position:relative; z-index:-1;">現在進行中の決裁：全<s:property value="%{decisionDetailList1.size() + decisionDetailList2.size()}" />チーム</p>
-    	</div>
-    </div>
+</div>
 
+<div class="container">
 	<!-- リーダー自プロジェクト表示用 -->
 	<s:if test="%{#session.userFlg == 2}">
 
@@ -74,7 +71,7 @@
 						<td class="t_left"><s:property value="subManagerId" /></td>
 					</tr>
 					<tr>
-						<td>実施兼契約決裁で<br>行う場合のみ<br>チェック
+						<td>実施兼契約決裁で行う場合のみチェック
 							<input type="checkbox" name="decisionType" value="実施兼契約">
 						</td>
 						<td>
@@ -1093,7 +1090,7 @@
 			    </div>
 			</div>
 	</s:iterator>
-
+</div>
 
 
 <br><br>
@@ -1109,7 +1106,7 @@
 		<input type="submit" class="btn btn-primary return_btn" value="戻る">
 	</s:form>
 
-</div>
+
 
 
 
