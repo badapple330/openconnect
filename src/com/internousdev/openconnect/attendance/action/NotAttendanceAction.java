@@ -57,9 +57,10 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 		atUserList = dao3.select(userId);
 
 		NotAttendanceDAO dao = new NotAttendanceDAO();
-		usersIdList = dao.select2(attendanceIdList, teamName);
+		attendanceIdList = dao.select(atYear, atMonth, atDay);
+		usersIdList = dao. select2( attendanceIdList, teamName);
 
-		if(usersIdList.size() > 0){
+		if(dao.insert(atYear, atMonth, atDay, atDate, usersIdList, attendance) > 0){
 			result = SUCCESS;
 		}
 

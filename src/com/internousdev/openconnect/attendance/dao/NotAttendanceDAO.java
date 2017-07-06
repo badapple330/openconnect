@@ -93,7 +93,7 @@ public class NotAttendanceDAO {
 			idWhereState += gen_stateExpression.apply(dto.getUserId());
 		}
 
-		sql = "select * from users where team_name="+teamName +idWhereState +";";
+		sql = "select * from users where team_name='"+teamName +"'" +idWhereState +";";
 		System.out.println(sql);
 
 		try{
