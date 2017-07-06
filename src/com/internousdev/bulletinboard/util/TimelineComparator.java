@@ -2,12 +2,12 @@ package com.internousdev.bulletinboard.util;
 
 import java.util.Comparator;
 
-import com.internousdev.bulletinboard.dto.TimelineDTO;
+import com.internousdev.bulletinboard.dto.PostDTO;
 
-public class TimelineComparator implements Comparator<TimelineDTO>{
+public class TimelineComparator implements Comparator<PostDTO>{
 
 	@Override
-	public int compare(TimelineDTO o1, TimelineDTO o2) {
+	public int compare(PostDTO o1, PostDTO o2) {
 		int diff = o1.getSendAt().compareTo(o2.getSendAt());
 
 		if(diff > 0){

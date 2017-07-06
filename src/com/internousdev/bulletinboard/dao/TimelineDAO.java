@@ -6,40 +6,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.bulletinboard.dto.TimelineDTO;
+import com.internousdev.bulletinboard.dto.PostDTO;
 import com.internousdev.util.DBConnector;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
  * タイムライン取得、格納に関するクラス
- * 
+ *
  * @author Ryo Maeda
  * @since 2017/06/05
  * @version 1.0
  *
  */
 public class TimelineDAO {
-
 	int userId;
 
-	/**
-	 * タイムラインに必要な情報を取得する
-	 * 
-	 * @param userId
-	 */
 	public TimelineDAO(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * タイムライン情報をリスト化する
-	 * 
-	 * @param userId
-	 * @return
-	 */
-	public ArrayList<TimelineDTO> TimelineGet() {
+	public ArrayList<PostDTO> TimelineGet() {
 		Connection con = new MySqlConnector("openconnect").getConnection();
-		ArrayList<TimelineDTO> tlList = new ArrayList<TimelineDTO>();
+		ArrayList<PostDTO> timeline = new ArrayList<PostDTO>();
 		int senderId;
 
 		String sql = "select done from follow where do = ?";
@@ -59,7 +47,7 @@ public class TimelineDAO {
 				GoodDAO good = new GoodDAO();
 				ResultSet rs2 = ps2.executeQuery();
 				while (rs2.next()) {
-					TimelineDTO dto = new TimelineDTO();
+					PostDTO dto = new PostDTO();
 					dto.setTimelineId(rs2.getInt("timeline_id")); // タイムラインID
 					dto.setSenderId(rs2.getInt("sender_id")); // 送信者ID
 					dto.setSendContents(rs2.getString("send_contents")); // 送信内容
@@ -82,7 +70,7 @@ public class TimelineDAO {
 							dto.setReImg(rs3.getString("user_img"));
 						}
 					}
-					tlList.add(dto);
+					timeline.add(dto);
 				}
 			}
 			PreparedStatement ps2 = con.prepareStatement(sql2);
@@ -90,7 +78,7 @@ public class TimelineDAO {
 			GoodDAO good = new GoodDAO();
 			ResultSet rs2 = ps2.executeQuery();
 			while (rs2.next()) {
-				TimelineDTO dto = new TimelineDTO();
+				PostDTO dto = new PostDTO();
 				dto.setTimelineId(rs2.getInt("timeline_id")); // タイムラインID
 				dto.setSenderId(rs2.getInt("sender_id")); // 送信者ID
 				dto.setSendContents(rs2.getString("send_contents")); // 送信内容
@@ -114,7 +102,7 @@ public class TimelineDAO {
 					}
 				}
 
-				tlList.add(dto);
+				timeline.add(dto);
 			}
 
 		} catch (SQLException e) {
@@ -126,12 +114,12 @@ public class TimelineDAO {
 				e.printStackTrace();
 			}
 		}
-		return tlList;
+		return timeline;
 	}
 
 	/**
 	 * 投稿する情報をタイムライン投稿情報テーブルにインサートするメソッド
-	 * 
+	 *
 	 * @param userId
 	 * @param sendContents
 	 * @param img
@@ -165,7 +153,7 @@ public class TimelineDAO {
 
 	/**
 	 * 投稿するとポイントが50加算するメソッド
-	 * 
+	 *
 	 * @param userId
 	 * @param
 	 */
@@ -206,7 +194,7 @@ public class TimelineDAO {
 
 	/**
 	 * タイムラインの投稿を削除するメソッド
-	 * 
+	 *
 	 * @param timelineId
 	 * @return
 	 */
@@ -234,7 +222,7 @@ public class TimelineDAO {
 
 	/**
 	 * いいね情報を削除するメソッド
-	 * 
+	 *
 	 * @param timelineId
 	 * @return
 	 */
@@ -262,19 +250,19 @@ public class TimelineDAO {
 
 	/**
 	 * いいね情報を削除するメソッド
-	 * 
+	 *
 	 * @param timelineId
 	 * @return
 	 */
 
 	/**
 	 * 最新のタイムライン投稿情報をDTOにセットするメソッド
-	 * 
+	 *
 	 * @param userId
 	 * @return
 	 */
-	public TimelineDTO timelineCheck() {
-		TimelineDTO dto = new TimelineDTO();
+	public PostDTO timelineCheck() {
+		PostDTO dto = new PostDTO();
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = "select send_contents from send_timeline where sender_id = ? order by send_at desc limit 1";

@@ -9,7 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.TimelineDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
-import com.internousdev.bulletinboard.dto.TimelineDTO;
+import com.internousdev.bulletinboard.dto.PostDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.internousdev.bulletinboard.util.TimelineComparator;
 import com.opensymphony.xwork2.ActionSupport;
@@ -30,10 +30,10 @@ public class GoTimelineAction extends ActionSupport implements SessionAware{
 	private int talkInfo=0;
 	private int groupInfo=0;
 	/** タイムラインのリスト */
-	private ArrayList<TimelineDTO> tlList = new ArrayList<TimelineDTO>();
+	private ArrayList<PostDTO> timeline = new ArrayList<PostDTO>();
 	/** セッション */
 	private Map<String,Object> session;
-	
+
 	public String execute() {
 		String result = ERROR;
 
@@ -43,9 +43,9 @@ public class GoTimelineAction extends ActionSupport implements SessionAware{
 		if(userId==0){return result;}
 
 		TimelineDAO dao = new TimelineDAO(userId);
-		tlList = dao.TimelineGet();
-		if(tlList.size() != 0){
-			Collections.sort(tlList, new TimelineComparator());
+		timeline = dao.TimelineGet();
+		if(timeline.size() != 0){
+			Collections.sort(timeline, new TimelineComparator());
 			//通知を追加
 			UserDAO msgDao = new UserDAO();
 			msgList = msgDao.msgSelect(userId);
@@ -66,11 +66,11 @@ public class GoTimelineAction extends ActionSupport implements SessionAware{
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public ArrayList<TimelineDTO> getTlList() {
-		return tlList;
+	public ArrayList<PostDTO> getTimeline() {
+		return timeline;
 	}
-	public void setTlList(ArrayList<TimelineDTO> tlList) {
-		this.tlList = tlList;
+	public void setTimeline(ArrayList<PostDTO> timeline) {
+		this.timeline = timeline;
 	}
 	public String getUserName() {
 		return userName;

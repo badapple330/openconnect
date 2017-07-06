@@ -7,33 +7,24 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.TimelineDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
-import com.internousdev.bulletinboard.dto.TimelineDTO;
+import com.internousdev.bulletinboard.dto.PostDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class SendTimelineAction extends ActionSupport implements SessionAware{
-
+public class SubmitPostAction extends ActionSupport implements SessionAware{
 	/** ユーザーID */
 	private int userId;
-	
 	/** 送信内容 */
 	private String sendContents;
-	
 	/** 返信先のタイムラインID */
 	private int reTimelineId;
-	
 	/** 返信先のユーザー名 */
 	private String userName;
-	
 	/** 返信内容 */
 	private String reSendContents;
-	
 	/** セッション */
 	private Map<String,Object> session;
-	
 	/** タイムラインのリスト */
-	private ArrayList<TimelineDTO> followerList = new ArrayList<TimelineDTO>();
-
-
+	private ArrayList<PostDTO> followerList = new ArrayList<PostDTO>();
 
 	public String execute(){
 		String result = ERROR;
@@ -44,7 +35,7 @@ public class SendTimelineAction extends ActionSupport implements SessionAware{
 		if(userId==0){return result;}
 
 		TimelineDAO dao = new TimelineDAO(userId);
-		TimelineDTO dto = new TimelineDTO();
+		PostDTO dto = new PostDTO();
 		UserDAO msgDao = new UserDAO();
 
 		//返信の場合は「＠名前 内容」という形に変える
@@ -112,11 +103,11 @@ public class SendTimelineAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
-	public ArrayList<TimelineDTO> getFollowerList() {
+	public ArrayList<PostDTO> getFollowerList() {
 		return followerList;
 	}
 
-	public void setFollowerList(ArrayList<TimelineDTO> followerList) {
+	public void setFollowerList(ArrayList<PostDTO> followerList) {
 		this.followerList = followerList;
 	}
 

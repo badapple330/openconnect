@@ -78,7 +78,7 @@
 						<h4 class="modal-title">タイムラインを投稿する</h4>
 					</div>
 
-					<s:form action="SendTimelineAction" name="tlSend" onSubmit="return check()" id="tl">
+					<s:form action="SubmitPostAction" name="tlSend" onSubmit="return check()" id="tl">
 						<div class="modal-body">
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -98,7 +98,7 @@
 
 
 	<div class="outline" id="outline">
-		<s:iterator value="tlList">
+		<s:iterator value="timeline">
 		<!-- 自分の投稿内容 -->
  			<s:if test="userId==senderId" >
 				<div class="timeline" style="<s:if test="userId==reUserId">background-color: #daeaec;</s:if> border-left: solid 6px #f5504b;/*左線*/;">
@@ -130,7 +130,7 @@
 									<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
 									<h4 class="modal-title">この投稿に返信する</h4>
 								</div>
-								<s:form action="SendTimelineAction">
+								<s:form action="SubmitPostAction">
 									<div class="modal-body">
 										<pre class="sendcontents"><s:property value="sendContents" /></pre>
 										<textarea name="reSendContents" class="form-control" rows="10" cols="80%" maxlength="205"></textarea>
@@ -214,7 +214,7 @@
 								<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
 								<h4 class="modal-title">この投稿に返信する</h4>
 							</div>
-							<s:form action="SendTimelineAction">
+							<s:form action="SubmitPostAction">
 								<div class="modal-body">
 									<pre class="sendcontents"><s:property value="sendContents" /></pre>
 									<textarea name="reSendContents" class="form-control" rows="10" cols="80%" maxlength="205"></textarea>
@@ -271,7 +271,7 @@
 
 		<div style="clear:both;"></div>
 		</s:iterator>
- 		<s:if test="tlList.size()==0">
+ 		<s:if test="timeline.size()==0">
  			<h2>まだ投稿がありません</h2>
  			<p><a  href="#" data-toggle="modal" data-target="#sampleModal">投稿をする</a>か、他の人をフォローしましょう！</p>
  		</s:if>

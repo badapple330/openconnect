@@ -587,8 +587,8 @@
 		</action>
 
 		<!-- タイムラインの投稿 -->
-		<action name="SendTimelineAction"
-			class="com.internousdev.bulletinboard.action.SendTimelineAction"
+		<action name="SubmitPostAction"
+			class="com.internousdev.bulletinboard.action.SubmitPostAction"
 			method="execute">
 			<result name="success" type="redirectAction">GoTimelineAction</result>
 			<result name="error" type="redirectAction">GoTimelineAction</result>
@@ -663,31 +663,31 @@
 			class="com.internousdev.bulletinboard.action.GoGroupMemberAddAction"
 			method="execute">
 			<result name="success">groupMemberAdd.jsp</result>
-			<result name="error" type="redirectAction">PostAction</result>
+			<result name="error" type="redirectAction">GoChatAction</result>
 		</action>
 
 		<!-- グループメンバー追加 -->
 		<action name="GroupMemberAddAction"
 			class="com.internousdev.bulletinboard.action.GroupMemberAddAction"
 			method="execute">
-			<result name="success" type="redirectAction">PostAction</result>
-			<result name="error" type="redirectAction">PostAction</result>
+			<result name="success" type="redirectAction">GoChatAction</result>
+			<result name="error" type="redirectAction">GoChatAction</result>
 		</action>
 
 		<!-- グループの名称更新 -->
 		<action name="GroupNameChangeAction"
 			class="com.internousdev.bulletinboard.action.GroupNameChangeAction"
 			method="execute">
-			<result name="success" type="redirectAction">PostAction</result>
-			<result name="error" type="redirectAction">PostAction</result>
+			<result name="success" type="redirectAction">GoChatAction</result>
+			<result name="error" type="redirectAction">GoChatAction</result>
 		</action>
 
 		<!-- グループの画像更新 -->
 		<action name="GroupImgUpdateAction"
 			class="com.internousdev.bulletinboard.action.GroupImgUpdateAction"
 			method="execute">
-			<result name="success" type="redirectAction">PostAction</result>
-			<result name="error" type="redirectAction">PostAction</result>
+			<result name="success" type="redirectAction">GoChatAction</result>
+			<result name="error" type="redirectAction">GoChatAction</result>
 		</action>
 
 		<!-- グループメンバー削除 -->

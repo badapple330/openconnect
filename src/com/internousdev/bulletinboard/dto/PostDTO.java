@@ -1,6 +1,6 @@
 package com.internousdev.bulletinboard.dto;
 
-public class TimelineDTO {
+public class PostDTO {
 
 	/** タイムラインID */
 	private int timelineId;
