@@ -81,7 +81,7 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 		//スタンプだった場合にスタンプ送信
 		} else if(!url.equals("")) {
 			postContents="スタンプを投稿しました";
-			ChatDAO set = new ChatDAO(userId, receiverId, groupId, postContents, url);
+			ChatDAO set = new ChatDAO();
 			if(set.insertMessage(userId, receiverId, groupId, postContents, url) != 0){
 				if(receiverId < 0){
 					BotTalk bot = new BotTalk(receiverId,userId,postContents);

@@ -18,46 +18,12 @@ import com.internousdev.util.db.mysql.MySqlConnector;
  *
  */
 public class ChatDAO {
-	/** 送信者ID */
-	private int senderId;
-	/** 受取人ID */
-	private int receiverId = 0;
-	/** グループID */
-	private int groupId = 0;
-	/** 送信内容 */
-	private String postContents = "";
-	/** 添付画像 */
-	private String img = "";
-
-
-	/**
-	 * チャット送信用のコンストラクタ(グループ、1対1兼用）
-	 */
-	public ChatDAO(int senderId, int receiverId, int groupId, String postContents, String img){
-		this.senderId = senderId;
-		this.receiverId = receiverId;
-		this.groupId = groupId;
-		this.postContents = postContents;
-		this.img = img;
-		if(img == null){
-			this.img = "";
-		}
-	}
-
 	/*
 	 * チャット読み込み用のコンストラクタ(ユーザーId,相手のId,グループId）
 	 */
 	public ChatDAO(){
 	}
-	public ChatDAO(int senderId,int receiverId,int groupId){
-		this.senderId=senderId;
-		this.receiverId=receiverId;
-		this.groupId=groupId;
-	}
-
-
-	  public ArrayList<PostDTO> postGet(){
-
+	  public ArrayList<PostDTO> postGet(int senderId, int receiverId, int groupId){
 		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		    Connection con = db.getConnection();
 		    Connection con2= db.getConnection();

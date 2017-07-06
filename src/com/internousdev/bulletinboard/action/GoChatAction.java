@@ -94,8 +94,8 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 		msgDao.msgDelete(userId);
 
 		//チャット履歴取得
-		ChatDAO get = new ChatDAO(userId,receiverId,groupId);
-		postList = get.postGet();
+		ChatDAO get = new ChatDAO();
+		postList = get.postGet(userId, receiverId, groupId);
 
 		setPostCount(postList.size());
 		result=SUCCESS;
