@@ -47,7 +47,9 @@
     </script>
 </s:iterator>
 <script type="text/javascript">
-  setTimeout("location.reload()", 1000 * 30)
+	setTimeout(function() {
+		window.location.href = '<s:url action="GoChatAction" />';
+  }, 30000);
 </script>
 </head>
 <s:if test="groupId == 0">

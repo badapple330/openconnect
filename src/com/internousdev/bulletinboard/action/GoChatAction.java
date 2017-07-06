@@ -6,8 +6,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.bulletinboard.dao.ChatDAO;
 import com.internousdev.bulletinboard.dao.GroupImgDAO;
-import com.internousdev.bulletinboard.dao.PostDAO;
 import com.internousdev.bulletinboard.dao.StampDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
 import com.internousdev.bulletinboard.dto.PostDTO;
@@ -25,13 +25,13 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 	/** シリアルID */
 	private static final long serialVersionUID = -7129551593360374656L;
 	/** * ユーザーID */
-	private int userId=0;
+	private int userId = 0;
 	/** 受取人ID */
-	private int receiverId;
+	private int receiverId = 0;
 	/** 受取人名 */
 	private String receiverName="(・ω・）";
 	/** グループID */
-	private int groupId=0;
+	private int groupId = 0;
 	/** グループ名 */
 	private String groupName="（・ω・）" ;
 	/** 送信者名 */
@@ -76,10 +76,17 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 		System.out.println("receiverName" + receiverName);
 		System.out.println("groupId" + groupId);
 		System.out.println("groupName" + groupName);
-		session.put("receiverId", receiverId);
-		session.put("receiverName", receiverName);
-		session.put("groupId", groupId);
-		session.put("groupName", groupName);
+		if (receiverId == 0 && groupId == 0) {
+			receiverId = (int)session.get("receiverId");
+			receiverName = session.get("receiverName").toString();
+			groupId = (int)session.get("groupId");
+			groupName = session.get("groupName").toString();
+		} else {
+			session.put("receiverId", receiverId);
+			session.put("receiverName", receiverName);
+			session.put("groupId", groupId);
+			session.put("groupName", groupName);
+		}
 
 		//通知の確認
 		UserDAO msgDao = new UserDAO();
@@ -87,7 +94,7 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 		msgDao.msgDelete(userId);
 
 		//チャット履歴取得
-		PostDAO get = new PostDAO(userId,receiverId,groupId);
+		ChatDAO get = new ChatDAO(userId,receiverId,groupId);
 		postList = get.postGet();
 
 		setPostCount(postList.size());
