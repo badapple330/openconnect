@@ -35,8 +35,10 @@ public class UserDTO {
 	/** 通知文 */
 	private String msg;
 
+	/** フォローする側のID */
 	private int Do;
-
+	
+	/** フォローされる側のID */
 	private int Done;
 
 	/** URL */
@@ -123,7 +125,7 @@ public class UserDTO {
 
 
 	public void setDo(int do1) {
-		Do = do1;
+		this.Do = do1;
 	}
 	
 	

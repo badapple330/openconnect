@@ -11,20 +11,28 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UserAction extends ActionSupport implements SessionAware{
 
+	/** アクション */
 	private Map<String,Object> session;
 
+	/** ユーザー情報リスト */
 	private ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 
+	/** ユーザーID */
 	private int userId;
 
+	/** ユーザー名 */
 	private String userName;
 
+	/** EXP */
 	private int point;
 
+	/** LV */
 	private int lv;
 
+	/** BIO */
 	private String profile;
 
+	/** デリートフラグ */
 	private boolean deletflg;
 
 	public String execute(){

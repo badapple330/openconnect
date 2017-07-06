@@ -17,10 +17,13 @@ import com.opensymphony.xwork2.ActionSupport;
 //viewIdをsessionにputしなおすaction
 public class FollowListSessionAction extends ActionSupport implements SessionAware{
 
+	/** ユーザーID */
 	private int userId;
 
+	/**  */
 	private int viewId;
 
+	/**  */
 	private int talkflg;
 
 	private Map<String,Object> session;

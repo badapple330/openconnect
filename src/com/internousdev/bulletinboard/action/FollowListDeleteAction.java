@@ -17,8 +17,13 @@ import com.opensymphony.xwork2.ActionSupport;
 public class FollowListDeleteAction extends ActionSupport implements SessionAware {
 
 
+	/** セッション */
 	private Map<String, Object> session;
+	
+	/** ユーザーID */
 	private int userId;
+	
+	/** */
 	private int viewId;
 
 

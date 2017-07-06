@@ -29,8 +29,6 @@ public class SendProfileAction extends ActionSupport implements SessionAware{
 	/** セッション */
 	private Map<String,Object> session;
 
-
-
 	private ArrayList<UserDTO> profileData = new ArrayList<UserDTO>();
 
 	private ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();

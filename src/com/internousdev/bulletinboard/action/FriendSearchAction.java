@@ -11,27 +11,38 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FriendSearchAction extends ActionSupport implements SessionAware{
 
-private int userId;
+	/** ユーザーID */
+	private int userId;
 
-private int checkValue;
+	/**  */
+	private int checkValue;
 
-private int done;
+	/** フォローされる側のID */
+	private int done;
 
-private String userName;
+	/** ユーザー名 */
+	private String userName;
 
-private String userImg;
+	/** ユーザーアイコン */
+	private String userImg;
 
-private int Lv;
+	/** LV */
+	private int Lv;
 
-private int groupId;
+	/** グループID */
+	private int groupId;
 
-private ArrayList<UserDTO> usersList = new ArrayList<UserDTO>();//条件に一致したlist
+	/** 条件に一致したlist */
+	private ArrayList<UserDTO> usersList = new ArrayList<UserDTO>();
 
-private ArrayList<UserDTO> allList = new ArrayList<UserDTO>();//全部検索されたlist
+	/** 全部検索されたlist */
+	private ArrayList<UserDTO> allList = new ArrayList<UserDTO>();
 
-private ArrayList<UserDTO> checkList = new ArrayList<UserDTO>();//自分がふぉろーしているIDのlist
+	/** 自分がフォローしているIDのlist */
+	private ArrayList<UserDTO> checkList = new ArrayList<UserDTO>();
 
-private Map<String,Object> session;
+	/** セッション */
+	private Map<String,Object> session;
 
 
 

@@ -18,12 +18,16 @@ import com.opensymphony.xwork2.ActionSupport;
 //viewIdをsessionにputしなおすaction
 public class ProfileSessionAction extends ActionSupport implements SessionAware{
 
+	/** ユーザーID */
 	private int userId;
 
+	/**  */
 	private int viewId;
 
+	/** ユーザー名 */
 	private String userName;
 
+	/** セッション */
 	private Map<String,Object> session;
 
 

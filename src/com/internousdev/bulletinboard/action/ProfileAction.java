@@ -15,38 +15,49 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ProfileAction extends ActionSupport implements SessionAware{
 
 
-
+	/** セッション */
 	private Map<String,Object> session;
 
+	/** ユーザーID */
 	private int userId;
 
+	/** ユーザー名 */
 	private String userName;
 
+	/** ユーザーアイコン */
 	private String userImg;
 
+	/** フォローする側のID */
 	private int Do;
 
+	/** フォローされる側のID */
 	private int done;
 
+	/** フォロー番号 */
 	private int followNum;
 
+	/** フォロワー番号 */
 	private int followerNum;
 
+	/** EXP */
 	private int point;
 
+	/** LV */
 	private int lv;
 
+	/** BIO */
 	private String profile;
 
 	private int talkInfo=0;
 	private int groupInfo=0;
 
+	/** プロフィール情報 */
 	private ArrayList<UserDTO> myDate = new ArrayList<UserDTO>();
 
-
-
+	/** フォローリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
 
+	/** フォロワーリスト */
 	private ArrayList<UserDTO> followerList = new ArrayList<UserDTO>();
 
 	

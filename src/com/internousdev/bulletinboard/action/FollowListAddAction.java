@@ -18,16 +18,22 @@ public class FollowListAddAction extends ActionSupport implements SessionAware{
 
 
 
+	/** セッション */
 	private Map<String,Object> session;
 
+	/** ユーザーID */
 	private int userId;
 
+	/** フォローする側のID */
 	private int Do;
 
+	/** フォローされる側のID */
 	private int done;
 
+	/**  */
 	private int viewId;
-
+	
+	/** フォロー番号 */
 	private int followNum;
 
 	public String execute(){
@@ -101,7 +107,7 @@ public class FollowListAddAction extends ActionSupport implements SessionAware{
 	}
 
 	public void setDo(int do1) {
-		Do = do1;
+		this.Do = do1;
 	}
 
 	public int getDone() {

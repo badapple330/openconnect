@@ -8,14 +8,19 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FriendSearchSessionAction extends ActionSupport implements SessionAware{
 
+	/** トークフラグ */
 	private int talkflg;
 
+	/** ユーザー名 */
 	private String userName;
 
+	/** ユーザーID */
 	private int userId;
 
+	/** */
 	private int viewId;
 
+	/** セッション */
 	private Map<String,Object> session;
 
 

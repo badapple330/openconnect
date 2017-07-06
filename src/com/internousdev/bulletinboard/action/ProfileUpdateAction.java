@@ -18,40 +18,56 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 
 
 
+	/** セッション */
 	private Map<String,Object> session;
 
+	/** ユーザーID */
 	private int userId;
 
+	/** ユーザー名 */
 	private String userName;
 
+	/** ユーザーアイコン */
 	private String userImg;
 
+	/** フォローする側のアイコン */
 	private int Do;
 
+	/** フォローされる側のアイコン */
 	private int done;
 
+	/** フォロー番号 */
 	private int followNum;
 
+	/** フォロワー番号 */
 	private int followerNum;
 
+	/** EXP */
 	private int point;
 
+	/** LV */
 	private int lv;
 
+	/**  */
 	private int viewId;
 
+	/** BIO */
 	private String profile;
 
+	/**  */
 	private int checkValue;
 
 
 	private int talkInfo=0;
 	private int groupInfo=0;
 
+	/** プロフィールリスト */
 	private ArrayList<UserDTO> myDate = new ArrayList<UserDTO>();
 
+	/** フォローリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
 
+	/** フォロワーリスト */
 	private ArrayList<UserDTO> followerList = new ArrayList<UserDTO>();
 
 	/** ポストリスト　*/
