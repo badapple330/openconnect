@@ -98,13 +98,13 @@
 						</select>
 
 						<div class="container">
-							<span> 姓：</span> <input type="text" class="form1"
+							<span>　　　姓：</span> <input type="text" class="form1"
 								name="familyNameKanji" id="familyForm" placeholder="名字"
 								title="名字" />
 						</div>
 
 						<div class="container">
-							<span> 名：</span> <input type="text" class="form2"
+							<span>　　　名：</span> <input type="text" class="form2"
 								name="givenNameKanji" id="givenForm" placeholder="名前" title="名前" />
 						</div>
 
@@ -191,6 +191,11 @@
 								value="<s:property value="atDay" />" class="atDay">
 							<input type="hidden" name="modalList" value="searchList"
 								class="modal-list">
+							<input type="hidden" name="userNameList"
+								value="<s:property value="userName" />" class="userName">
+							<input type="hidden" name="teamNameList"
+								value="<s:property value="teamName" />" class="teamName">
+
 						</s:iterator>
 
 
@@ -199,15 +204,18 @@
 				</table>
 				<!-- 			ここから編集モーダルの表示の中身 -->
 				<div id="modal-updateMain"
-					style="display: none; width: 300px; height: 300px; margin: 0; padding: 0; background-color: #ffffff; color: #666666; position: fixed; z-index: 2;">
+					style="display: none; width: 400px; height: 400px; margin: 0; padding: 0; background-color: #ffffff; color: #666666; position: fixed; z-index: 2;">
 
 					<br> ユーザー名 ：
-					<div class="updateuserName modalString"></div>
+					<div class="updateuserName modalString" style="display: inline;"></div>
 
 					<br> チーム名 ：
-					<div class="updateteamName modalString"></div>
-					<br> <br> 上記の編集を行います。
+					<div class="updateteamName modalString" style="display: inline;"></div>
+					<br> <br> 上記のユーザーの編集を行います。
 					<s:form action="AdminAttendanceUpdateAction">
+						<input type="hidden" name="userName" class="updateuserName"
+							value="">
+						<input type="hidden" name="teamName" class="updateteam" value="">
 						<input type="hidden" name="userId" class="updateUserId"
 							value="userId">
 						<input type="hidden" name="atYear" class="updateAtYear"
@@ -216,21 +224,36 @@
 							value="atMonth">
 						<input type="hidden" name="atDay" class="updateAtDay"
 							value="atDay">
-						<input type="text" name="reason" value="" width="80%" height="30%">
+						<table>
+							<tr id="tr_type">
+								<th>出欠確認：</th>
+								<td><select name="attendance" style="width: 60px;"
+									required="required">
 
-				出欠確認：
-					<td><select name="attendance" style="width: 60px;"
-							required="required">
-								<option class="atslc" value="出席">出席</option>
-								<option class="atslc" value="欠席">欠席</option>
-								<option class="atslc" value="遅刻">遅刻</option>
-								<option class="atslc" value="早退">早退</option>
-						</select> <input type="submit" class="delete-true button" value="編集">
+										<option class="atslc" value="出席">出席</option>
+										<option class="atslc" value="欠席">欠席</option>
+										<option class="atslc" value="遅刻">遅刻</option>
+										<option class="atslc" value="早退">早退</option>
+
+								</select></td>
+							</tr>
+
+							<tr id="tr_reason">
+								<th>備 考 ：</th>
+								<td><s:textarea id="reason" name="reason" maxlength="200"
+										disabled="disabled" rows="6" cols="30"></s:textarea></td>
+							</tr>
+						</table>
+						<div style="text-align: right;; margin-right: 20px;">
+							<input type="submit" class="delete-true button" value="編集">
+						</div>
 					</s:form>
-
-					<input type="button" class="modal-close button" value="閉じる">
+					<div style="text-align: right;; margin-right: 20px;">
+						<input type="button" class="modal-close button" value="閉じる">
+					</div>
 				</div>
 			</div>
+
 			<!-- 		ここまで -->
 
 			<!-- 一覧モーダル -->

@@ -16,28 +16,20 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoGroupAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * ユーザーID
-	 */
+	/** ユーザーID */
 	private int userId=0;
 
-	/**
-	 * グループリスト
-	 */
+	/** グループリスト */
 	public ArrayList<PostDTO> groupList = new ArrayList<PostDTO>();
 
-	 /**
-	  * 通知リスト
-	  */
-	 ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
+	/** 通知リスト */
+	ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
 
 
 		private int talkInfo=0;
 		private int groupInfo=0;
 
-	/**
-	 * セッション
-	 */
+	/** セッション */
 	private Map<String,Object> session;
 
 	public String execute() {
@@ -70,91 +62,52 @@ public class GoGroupAction extends ActionSupport implements SessionAware{
 	return result;
 	}
 
-	/**
-	 * @return userId
-	 */
+	
 	public int getUserId() {
 		return userId;
 	}
 
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * @return groupList
-	 */
 	public ArrayList<PostDTO> getGroupList() {
 		return groupList;
 	}
 
-	/**
-	 * @param groupList セットする groupList
-	 */
 	public void setGroupList(ArrayList<PostDTO> groupList) {
 		this.groupList = groupList;
 	}
 
-	/**
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	/**
-	 * @return msgList
-	 */
 	public ArrayList<UserDTO> getMsgList() {
 		return msgList;
 	}
 
-	/**
-	 * @param msgList セットする msgList
-	 */
 	public void setMsgList(ArrayList<UserDTO> msgList) {
 		this.msgList = msgList;
 	}
 
-	/**
-	 * @return talkInfo
-	 */
 	public int getTalkInfo() {
 		return talkInfo;
 	}
 
-	/**
-	 * @param talkInfo セットする talkInfo
-	 */
 	public void setTalkInfo(int talkInfo) {
 		this.talkInfo = talkInfo;
 	}
 
-	/**
-	 * @return groupInfo
-	 */
 	public int getGroupInfo() {
 		return groupInfo;
 	}
 
-	/**
-	 * @param groupInfo セットする groupInfo
-	 */
 	public void setGroupInfo(int groupInfo) {
 		this.groupInfo = groupInfo;
 	}
-
-
-
-
 }

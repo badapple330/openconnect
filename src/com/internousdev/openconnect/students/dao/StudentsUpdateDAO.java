@@ -29,13 +29,13 @@ public class StudentsUpdateDAO {
      * @param userFlg
 
      */
-    public int update(String familyNameKanji,String givenNameKanji,String teamName,int userFlg,String userName,int userId) {
+    public int update(String familyNameKanji,String givenNameKanji,String teamName,int userFlg,String userName,String familyNameKana,String givenNameKana,int userId) {
 
 
         DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/", "openconnect","root","mysql");
         Connection con = db.getConnection();
         int result = 0;
-        String sql = "update users set family_name_kanji=?,given_name_kanji=?,team_name=?,user_flg=?,user_name=? where user_id=? ";
+        String sql = "update users set family_name_kanji=?,given_name_kanji=?,team_name=?,user_flg=?,user_name=?,family_name_kana=?,given_name_kana=? where user_id=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, familyNameKanji);
@@ -43,7 +43,9 @@ public class StudentsUpdateDAO {
             ps.setString(3, teamName);
             ps.setInt(4, userFlg);
             ps.setString(5, userName);
-            ps.setInt(6, userId);
+            ps.setString(6, familyNameKana);
+            ps.setString(7, givenNameKana);
+            ps.setInt(8, userId);
 
             result = ps.executeUpdate();
             ps.close();

@@ -74,6 +74,14 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	private int userId;
 
 
+	/**
+	 * ユーザー名
+	 */
+	private String userName;
+
+
+
+
 
 
 
@@ -451,6 +459,24 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return userName
+	*/
+	public String getUserName() {
+		return userName;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param userName
+	*/
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 

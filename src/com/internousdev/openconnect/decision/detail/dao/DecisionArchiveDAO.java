@@ -13,19 +13,21 @@ import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
 
 /**
- * @author internousdev
+ * @author ShouheiKato
+ * @since 2017/07/03
  *
  */
 public class DecisionArchiveDAO {
 
 	ArrayList<DecisionDTO> archiveList =new ArrayList<DecisionDTO>();
 
-	public ArrayList<DecisionDTO> archive(int siteId, String siteName, String siteUrl, int year) {
+	public ArrayList<DecisionDTO> archive(int projectId, String projectName, String decisionType) {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
-		String sql ="select site_id,site_name,site_url,year from site";
+		String sql ="select projects.project_id, projects.project_name, decision.decision_type from projects"
+				+ " left outer join decision on projects.project_id = decision.decision_id";
 
 		try {
 
@@ -35,10 +37,9 @@ public class DecisionArchiveDAO {
 
 			while (rs.next()) {
 				DecisionDTO dto = new DecisionDTO();
-				dto.setSiteId(rs.getInt("site_id"));
-				dto.setSiteName(rs.getString("site_name"));
-				dto.setSiteUrl(rs.getString("site_url"));
-				dto.setYear(rs.getInt("year"));
+				dto.setProjectId(rs.getInt("project_id"));
+				dto.setProjectName(rs.getString("project_name"));
+				dto.setDecisionType(rs.getString("decision_type"));
 
 				archiveList.add(dto);
 			}

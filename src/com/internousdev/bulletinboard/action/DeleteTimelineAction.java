@@ -10,15 +10,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteTimelineAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * ユーザーID
-	 */
+	/** ユーザーID */
 	private int userId;
 
+	/** タイムラインID */
 	private int timelineId;
-	/**
-	 * セッション
-	 */
+	
+	/** セッション */
 	private Map<String,Object> session;
 
 	public String execute() {
@@ -37,48 +35,29 @@ public class DeleteTimelineAction extends ActionSupport implements SessionAware{
 	return result;
 	}
 
-	/**
-	 * @return userId
-	 */
+
 	public int getUserId() {
 		return userId;
 	}
 
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * @return timelineId
-	 */
 	public int getTimelineId() {
 		return timelineId;
 	}
 
-	/**
-	 * @param timelineId セットする timelineId
-	 */
 	public void setTimelineId(int timelineId) {
 		this.timelineId = timelineId;
 	}
 
-	/**
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
 
 }

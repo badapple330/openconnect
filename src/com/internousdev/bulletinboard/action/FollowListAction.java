@@ -11,22 +11,31 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FollowListAction extends ActionSupport implements SessionAware{
 
+	/** セッション */
 	private Map<String,Object> session;
 
+	/** ユーザーid */
 	private int userId;
 
+	/** ユーザー名 */
 	private String userName;
 
+	/** ユーザー画像 */
 	private String userImg;
 
+	/** フォローID */
 	private int followId;
 
+	/** フォローするほうのID */
 	private int Do;
 
+	/** フォローされるほうのID */
 	private int done;
 
+	/** プロフィール情報リスト */
 	private ArrayList<UserDTO> myDate = new ArrayList<UserDTO>();
 
+	/** フォローリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
 
 	public String execute(){
@@ -50,95 +59,59 @@ public class FollowListAction extends ActionSupport implements SessionAware{
 	return result;
 
 }
-	/**
-	 * @return session
-	 */
+	
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	/**
-	 * @return userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
 
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * @return userImg
-	 */
 	public String getUserImg() {
 		return userImg;
 	}
-	/**
-	 * @param userImg セットする userImg
-	 */
+
 	public void setUserImg(String userImg) {
 		this.userImg = userImg;
 	}
-	/**
-	 * @return userName
-	 */
+
 	public String getUserName() {
 		return userName;
 	}
-	/**
-	 * @param userName セットする userName
-	 */
+	
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	/**
-	 * @return followId
-	 */
 	public int getFollowId() {
 		return followId;
 	}
 
-	/**
-	 * @param followId セットする followId
-	 */
 	public void setFollowId(int followId) {
 		this.followId = followId;
 	}
 
-	/**
-	 * @return do
-	 */
 	public int getDo() {
 		return Do;
 	}
-	/**
-	 * @param do1 セットする do
-	 */
+	
 	public void setDo(int Do) {
 		this.Do = Do;
 	}
-	/**
-	 * @return done
-	 */
+	
 	public int getDone() {
 		return done;
 	}
 
-	/**
-	 * @param done セットする done
-	 */
 	public void setDone(int done) {
 		this.done = done;
 	}
@@ -149,17 +122,13 @@ public class FollowListAction extends ActionSupport implements SessionAware{
 	public void setMyDate(ArrayList<UserDTO> myDate) {
 		this.myDate = myDate;
 	}
-	/**
-	 * @return followList
-	 */
+
 	public ArrayList<UserDTO> getFollowList() {
 		return followList;
 	}
 
-	/**
-	 * @param followList セットする followList
-	 */
+
 	public void setFollowList(ArrayList<UserDTO> followList) {
 		this.followList = followList;
 	}
-	}
+}

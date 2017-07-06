@@ -257,7 +257,15 @@ public class DecisionDTO {
 	public String documentPath;
 
 
+	/**
+	 * 決済ID
+	 */
+	public int projectId;
 
+	/**
+	 * プロジェクト名
+	 */
+	public String projectName;
 
 
 	/** 取得メソッド を取得
@@ -960,7 +968,34 @@ public class DecisionDTO {
 			this.decisionPath = decisionPath;
 		}
 
-
+		/**
+		* 取得メソッド を取得
+		* @return projectId
+		*/
+		public int getProjectId() {
+			return projectId;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param projectId
+		*/
+		public void setProjectId(int projectId) {
+			this.projectId = projectId;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return projectName
+		*/
+		public String getProjectName() {
+			return projectName;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param projectName
+		*/
+		public void setProjectName(String projectName) {
+			this.projectName = projectName;
+		}
 
 
 }

@@ -11,7 +11,7 @@
 <div class = "nonbs-send-form" style ="background-color:<s:property value="#session.fColor"/>;">
 
 <div class="nonbs-panel-body">
-<s:form action="PostSetAction">
+<s:form action="SubmitMessageAction">
 	<div class="nonbs-form-group">
     	<textarea name="postContents" class="nonbs-form-control" maxlength="255" ></textarea>
 	</div><s:hidden name="receiverId" /><s:hidden name="groupId" /><s:hidden name="groupName" /><s:hidden name="friendsName" />
@@ -56,7 +56,7 @@ function disableSubmit(button) {
 					<li><a href="#"><img src="<s:property value="typeUrl"/>" height="50px"></a>
   						<div class="stamps">
   						<s:iterator value="typedStampList">
-     						<s:form action="PostSetAction">
+     						<s:form action="SubmitMessageAction">
 								<s:hidden name="receiverId" /><s:hidden name="groupId" /><s:hidden name="groupName" /><s:hidden name="friendsName" />
 								<s:hidden name="url" />
 								<button type="submit" onclick="disableSubmit(this);"><img class="imgzoon" src="<s:property value="url"/>"></button>

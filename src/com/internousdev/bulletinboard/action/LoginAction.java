@@ -19,20 +19,19 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 
 
-	/**
-	 * シリアルID
-	 */
+	/** シリアルID */
 		private static final long serialVersionUID = 1960678948564666991L;
 
+	/** ユーザーID */	
 	private int userId;
-	/**
-	 * セッション情報（ユーザーID）
-	 */
+	
+	/** セッション情報（ユーザーID） */
 	private Map<String, Object> session;
 
 	/**
 	 * ログインするための実行メソッド
 	 * @return ログイン成功 =SUCCESS 失敗 =ERROR 	 */
+	
 	public String execute() {
 		String ret = SUCCESS;
 
@@ -44,40 +43,20 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 
 
-	/**
-	 * セッション情報を取得するメソッド
-	 * @return session　セッション情報
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	/**
-	 * セッション情報を格納するメソッド
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-
-
-	/**
-	 * @return userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
 
-
-
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
-
 
 }

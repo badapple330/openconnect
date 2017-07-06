@@ -17,10 +17,13 @@ import com.opensymphony.xwork2.ActionSupport;
 //viewIdをsessionにputしなおすaction
 public class FollowListSessionAction extends ActionSupport implements SessionAware{
 
+	/** ユーザーID */
 	private int userId;
 
+	/**  */
 	private int viewId;
 
+	/**  */
 	private int talkflg;
 
 	private Map<String,Object> session;
@@ -43,44 +46,27 @@ public class FollowListSessionAction extends ActionSupport implements SessionAwa
 		return result;
 	}
 
-	/**
-	 * @return userId
-	 */
+	
 	public int getUserId() {
 		return userId;
 	}
 
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * @return viewId
-	 */
 	public int getViewId() {
 		return viewId;
 	}
 
-	/**
-	 * @param viewId セットする viewId
-	 */
 	public void setViewId(int viewId) {
 		this.viewId = viewId;
 	}
 
-	/**
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

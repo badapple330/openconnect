@@ -43,7 +43,8 @@
 
 </head>
 
-<body style="background-color:<s:property value="#session.bColor"/>;">>
+<body style="background-color:<s:property value="#session.bColor"/>;">
+<br>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
   <div class="navbar-header">
@@ -72,10 +73,10 @@
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
 				<h4 class="modal-title">友達を検索する</h4>
 			</div>
-<s:form action="FriendSearchAction">
-<s:hidden name="viewId"></s:hidden>
+			<s:form action="FriendSearchAction">
+			<s:hidden name="viewId"></s:hidden>
 			<div class="modal-body">
-			<input type="text" name="userName" maxlength="50" required placeholder="名前を入力してください" class="groupName">
+				<input type="text" name="userName" maxlength="50" required placeholder="名前を入力してください" class="groupName">
 			</div>
 			<div class="modal-footer">
 				<s:token/>
@@ -83,13 +84,13 @@
 				<button type="submit" class="btn btn-primary" >検索</button>
 
 				<div class="modal fade" id="sampleModal" tabindex="-1">
-	<div class="modal-dialog">
+					<div class="modal-dialog">
 
-	</div>
-</div>
+					</div>
+				</div>
 
 			</div>
-</s:form>
+			</s:form>
 		</div>
 	</div>
 </div>
@@ -101,7 +102,7 @@
     <div class="col-sm-10">
     <div class = "outline">
 <s:iterator value="talkList" >
-	<s:form action="GoPostAction">
+	<s:form action="GoChatAction">
 	<s:hidden theme="simple" name="receiverId" value="%{receiverId}"></s:hidden>
 	<s:hidden name="receiverName" value="%{groupName}"></s:hidden>
 	<button type="submit" class="group">

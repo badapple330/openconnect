@@ -81,7 +81,7 @@
 	        <tr>
 
 	</table>
-
+<div align="center"><font color="red"><s:property value="errorMsg" /></font></div>
 <br>
 	<input type="submit"  value="送信" class="button" onClick="javascript:double(this)"/>
 

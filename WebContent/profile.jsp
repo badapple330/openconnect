@@ -123,7 +123,7 @@ FOLLOW</a>
         			background-color:#6495ed; color:#fff;"  data-toggle="modal" data-target="#sampleModal2">
         		Follower:<s:property value="followerNum"/></button></li>
         <li><p style="font-weight:bold; text-align:center; font-size:1.2em;">EXP:<s:property value="point"/></p></li>
-        <li><p style="font-weight:bold; text-align:center; font-size:1.2em;">LV <s:property value="Lv"/></p></li>
+        <li><p style="font-weight:bold; text-align:center; font-size:1.2em;">LV: <s:property value="Lv"/></p></li>
     </ul>
 
 </td>
@@ -286,7 +286,7 @@ FOLLOW</a>
         			data-toggle="modal" data-target="#sampleModal2">
         		Follower:<s:property value="followerNum"/></button></li>
         <li><p style="font-weight:bold; text-align:center; font-size:1.2em;">EXP:<s:property value="point"/></p></li>
-        <li><p style="font-weight:bold; text-align:center; font-size:1.2em;">LV <s:property value="Lv"/></p></li>
+        <li><p style="font-weight:bold; text-align:center; font-size:1.2em;">LV: <s:property value="Lv"/></p></li>
     </ul>
 
 </td>
@@ -338,7 +338,7 @@ FOLLOW</a>
 				<h3 class="modal-title">カラー変更</h3>
 			</div>
 <div class="modal-body">
-			<s:form action="colorChangeAction">
+			<s:form action="ColorChangeAction">
 <div class="form-group">
 <label style="width:200px;">ヘッダー</label>
 <input class="jscolor  {hash:true}" name="ColorH" value="<s:property value="#session.hColor"/>">

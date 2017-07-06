@@ -13,42 +13,25 @@ public class GoodDTO {
 	 */
 
 
-	/**
-	 * ユーザーID
-	 */
+	/** ユーザーID */
 	private int userId;
 
-	/**
-	 * タイムラインID
-	 */
+	/** タイムラインID */
 	private int timelineId;
 
 
-	/**
-	 * ユーザーIDを取得するメソッド
-	 * @return userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
-	/**
-	 * タイムラインIDを取得するメソッド
-	 * @return timelineId
-	 */
+
 	public int getTimelineId() {
 		return timelineId;
 	}
-	/**
-	 * ユーザーIDを格納するメソッド
-	 * @param userId セットする userId
-	 */
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	/**
-	 * タイムラインIDを格納するメソッド
-	 * @param gtimelineId セットする timelineId
-	 */
+
 	public void setTimelineId(int timelineId) {
 		this.timelineId = timelineId;
 	}

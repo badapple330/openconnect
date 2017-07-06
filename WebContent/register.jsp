@@ -42,7 +42,7 @@
 
 				<!------------------    名前(漢字)    ------------------->
 				<tr>
-					<th>名前（漢字）</th>
+					<th style="white-space: nowrap;">名前（漢字）</th>
 					<td><input type="text" name="familyNameKanji" value=""
 						placeholder="苗字" maxlength="24" required /> <input type="text"
 						name="givenNameKanji" value="" placeholder="名前" maxlength="25"
@@ -51,7 +51,7 @@
 
 				<!------------------    名前(ふりがな)    ------------------->
 				<tr>
-					<th>名前（ふりがな）</th>
+					<th style="white-space: nowrap;">名前（ふりがな）</th>
 					<td><input type="text" name="familyNameKana" value=""
 						placeholder="みょうじ" maxlength="24" required /> <input type="text"
 						name="givenNameKana" value="" placeholder="なまえ" maxlength="25"
@@ -61,7 +61,7 @@
 
 				<!------------------    メールアドレス    ------------------->
 				<tr>
-					<th>メールアドレス</th>
+					<th style="white-space: nowrap;">メールアドレス</th>
 					<td><input type="text" name="email"
 						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
 						required title="example@gmail.com" placeholder="example@gmail.com" /></td>
@@ -70,21 +70,21 @@
 
 				<!------------------    受講年    ------------------->
 				<tr>
-					<th>受講年</th>
+					<th style="white-space: nowrap;">受講年</th>
 					<td><input type="text" name="year" pattern="([1-2][0-9]{3})"
 						maxlength="4" required title="2016" placeholder="2016" /></td>
 				</tr>
 
 				<!------------------    受講年    ------------------->
 				<tr>
-					<th>受講開始月</th>
+					<th style="white-space: nowrap;">受講開始月</th>
 					<td><input type="text" name="month" pattern="([0-1][0-9])"
 						maxlength="2" required title="08" placeholder="08" /></td>
 				</tr>
 
 				<!------------------    パスワード    ------------------->
 				<tr>
-					<th>パスワード</th>
+					<th style="white-space: nowrap;">パスワード</th>
 					<td><input type="password" name="password" value="" size=50
 						maxlength=16 required placeholder="８～１６文字の半角英数字で入力してください"
 						pattern="^([a-zA-Z0-9]{8,})+$" title="８～１６文字の半角英数字で入力してください" /></td>
@@ -92,7 +92,7 @@
 
 				<!------------------    パスワード確認    ------------------->
 				<tr>
-					<th>パスワード確認</th>
+					<th style="white-space: nowrap;">パスワード確認</th>
 					<td><input type="password" name="passwordCheck" value=""
 						size=50 maxlength=16 required placeholder="８～１６文字の半角英数字で入力してください"
 						pattern="^([a-zA-Z0-9]{8,})+$" title="８～１６文字の半角英数字で入力してください" /></td>

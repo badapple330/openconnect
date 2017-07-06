@@ -11,27 +11,38 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FriendSearchAction extends ActionSupport implements SessionAware{
 
-private int userId;
+	/** ユーザーID */
+	private int userId;
 
-private int checkValue;
+	/**  */
+	private int checkValue;
 
-private int done;
+	/** フォローされる側のID */
+	private int done;
 
-private String userName;
+	/** ユーザー名 */
+	private String userName;
 
-private String userImg;
+	/** ユーザーアイコン */
+	private String userImg;
 
-private int Lv;
+	/** LV */
+	private int Lv;
 
-private int groupId;
+	/** グループID */
+	private int groupId;
 
-private ArrayList<UserDTO> usersList = new ArrayList<UserDTO>();//条件に一致したlist
+	/** 条件に一致したlist */
+	private ArrayList<UserDTO> usersList = new ArrayList<UserDTO>();
 
-private ArrayList<UserDTO> allList = new ArrayList<UserDTO>();//全部検索されたlist
+	/** 全部検索されたlist */
+	private ArrayList<UserDTO> allList = new ArrayList<UserDTO>();
 
-private ArrayList<UserDTO> checkList = new ArrayList<UserDTO>();//自分がふぉろーしているIDのlist
+	/** 自分がフォローしているIDのlist */
+	private ArrayList<UserDTO> checkList = new ArrayList<UserDTO>();
 
-private Map<String,Object> session;
+	/** セッション */
+	private Map<String,Object> session;
 
 
 
@@ -80,164 +91,98 @@ public String execute() {
 
 	if(usersList.size() != 0) {
 		result = SUCCESS;
-	}
+		}
 	return result;
 }
 
-/**
- * @return userId
- */
-public int getUserId() {
-	return userId;
-}
 
-/**
- * @param userId セットする userId
- */
-public void setUserId(int userId) {
-	this.userId = userId;
-}
-
-/**
- * @return userName
- */
-public String getUserName() {
-	return userName;
-}
-
-/**
- * @param userName セットする userName
- */
-public void setUserName(String userName) {
-	this.userName = userName;
-}
-
-/**
- * @return userImg
- */
-public String getUserImg() {
-	return userImg;
-}
-
-/**
- * @param userImg セットする userImg
- */
-public void setUserImg(String userImg) {
-	this.userImg = userImg;
-}
-
-/**
- * @return lv
- */
-public int getLv() {
-	return Lv;
-}
-
-/**
- * @param lv セットする lv
- */
-public void setLv(int lv) {
-	Lv = lv;
-}
-
-/**
- * @return usersList
- */
-public ArrayList<UserDTO> getUsersList() {
-	return usersList;
-}
-
-/**
- * @param usersList セットする usersList
- */
-public void setUsersList(ArrayList<UserDTO> usersList) {
-	this.usersList = usersList;
-}
-
-/**
- * @return done
- */
-public int getDone() {
-	return done;
-}
-
-/**
- * @param done セットする done
- */
-public void setDone(int done) {
-	this.done = done;
-}
-
-/**
- * @return session
- */
-public Map<String, Object> getSession() {
-	return session;
-}
-
-/**
- * @param session セットする session
- */
-
-public void setSession(Map<String, Object> session) {
-	this.session = session;
-}
-
-/**
- * @return checkValue
- */
-public int getCheckValue() {
-	return checkValue;
-}
-
-/**
- * @param checkValue セットする checkValue
- */
-public void setCheckValue(int checkValue) {
-	this.checkValue = checkValue;
-}
-
-/**
- * @return allList
- */
-public ArrayList<UserDTO> getAllList() {
-	return allList;
-}
-
-/**
- * @param allList セットする allList
- */
-public void setAllList(ArrayList<UserDTO> allList) {
-	this.allList = allList;
-}
-
-/**
- * @return checkList
- */
-public ArrayList<UserDTO> getCheckList() {
-	return checkList;
-}
-
-/**
- * @param checkList セットする checkList
- */
-public void setCheckList(ArrayList<UserDTO> checkList) {
-	this.checkList = checkList;
-}
-
-/**
- * @return groupId
- */
-public int getGroupId() {
-	return groupId;
-}
-
-/**
- * @param groupId セットする groupId
- */
-public void setGroupId(int groupId) {
-	this.groupId = groupId;
-}
-
-
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	public String getUserImg() {
+		return userImg;
+	}
+	
+	public void setUserImg(String userImg) {
+		this.userImg = userImg;
+	}
+	
+	public int getLv() {
+		return Lv;
+	}
+	
+	public void setLv(int lv) {
+		Lv = lv;
+	}
+	
+	public ArrayList<UserDTO> getUsersList() {
+		return usersList;
+	}
+	
+	public void setUsersList(ArrayList<UserDTO> usersList) {
+		this.usersList = usersList;
+	}
+	
+	public int getDone() {
+		return done;
+	}
+	
+	public void setDone(int done) {
+		this.done = done;
+	}
+	
+	public Map<String, Object> getSession() {
+		return session;
+	}
+	
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+	
+	public int getCheckValue() {
+		return checkValue;
+	}
+	
+	public void setCheckValue(int checkValue) {
+		this.checkValue = checkValue;
+	}
+	
+	public ArrayList<UserDTO> getAllList() {
+		return allList;
+	}
+	
+	public void setAllList(ArrayList<UserDTO> allList) {
+		this.allList = allList;
+	}
+	
+	public ArrayList<UserDTO> getCheckList() {
+		return checkList;
+	}
+	
+	public void setCheckList(ArrayList<UserDTO> checkList) {
+		this.checkList = checkList;
+	}
+	
+	public int getGroupId() {
+		return groupId;
+	}
+	
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
+	}
+	
+	
 }

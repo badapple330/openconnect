@@ -76,17 +76,23 @@ $(function(){
 		$('.updateUserId').html( $('.userId').eq(index).val() );
 		$('.updateFamilyName').html( $('.familyNameKanji').eq(index).val() );
 		$('.updateGivenName').html( $('.givenNameKanji').eq(index).val() );
+		$('.updateFamilyNameKana').html( $('.familyNameKana').eq(index).val() );
+		$('.updateGivenNameKana').html( $('.givenNameKana').eq(index).val() );
 		$('.updateteamName').html( $('.teamName').eq(index).val() );
-		$('.updateuserName').html( $('.userName').eq(index).val() );
+
+
 
 
 		// hiddenのvalue
 		$('.updateUserId').val( $('.userId').eq(index).val() );
 		$('.updateFamilyNameKanji').val( $('.familyNameKanji').eq(index).val() );
 		$('.updateGivenNameKanji').val( $('.givenNameKanji').eq(index).val() );
+		$('.updateFamilyNameKana').val( $('.familyNameKana').eq(index).val() );
+		$('.updateGivenNameKana').val( $('.givenNameKana').eq(index).val() );
 		$('.updateteamName').val( $('.teamName').eq(index).val() );
-		$('.updateuserName').val( $('.userName').eq(index).val() );
+
 		$('.updateUserFlg').val( $('.userFlg').eq(index).val() );
+
 		$(".modal-close").click(function(){
 			$("#modal-updateMain,#modal-bg").fadeOut("slow",function(){
 				//挿入した<div id="modal-bg"></div>を削除

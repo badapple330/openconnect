@@ -41,7 +41,9 @@
 							<th>チーム名：</th>
 
 							<s:if test = "getAllTeamNames().equals('')">
-								<td><s:property value="teamName"/></td>
+								<td>
+								<input type="radio" name="teamName" value=<s:property value="teamName"/> checked="checked"><s:property value="teamName"/>
+								</td>
 							</s:if>
 							<s:else>
 							<s:iterator value="allTeamNames">
@@ -126,6 +128,39 @@
 			<!-- 印刷用モーダル表示ボタン -->
 			<input type="button" class="modal-open" id="modal-open" value="一覧表示" />
 
+			<!-- 一括で連絡なしのユーザーを送信するボタン -->
+			<s:form action="NotAttendanceAction">
+
+			<tr style="display: none;">
+			<s:if test = "getAllTeamNames().equals('')">
+								<td>
+								<input type="radio" name="teamName" value=<s:property value="teamName"/> checked="checked"><s:property value="teamName"/>
+								</td>
+							</s:if>
+							<s:else>
+							<s:iterator value="allTeamNames">
+							<td>
+								<input type="radio" name="teamName" value=<s:property/> checked="checked"><s:property/>
+							</td>
+							</s:iterator>
+							</s:else>
+
+			<td><select style="width: 60px;" name="atYear" id="id_year2"
+								data-choice="year" required="required"></select> <span
+								style="margin-left: 3px; margin-right: 5px; display: inline-block;">年</span>
+
+								<select style="width: 45px;" name="atMonth" id="id_month2"
+								data-choice="month" required="required"></select> <span
+								style="margin-left: 3px; margin-right: 5px; display: inline-block;">月</span>
+
+								<select style="width: 45px;" name="atDay" id="id_day2"
+								data-choice="day" required="required"></select> <span
+								style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
+							</td>
+							</tr>
+
+			<input type="submit" value="一括挿入" class="insert-btn" id="insertButton"/>
+			</s:form>
 
 			<!-- 一覧表示 -->
 			<table style="margin-top: 10px;" class="type12">
@@ -236,6 +271,17 @@
 			});
 			$("#id_month").ymdpulldown();
 			$("#id_day").ymdpulldown();
+		});
+	</script>
+
+	<script src="js/jquery.ymdpulldown.js"></script>
+	<script>
+		$(function() {
+			$("#id_year2").ymdpulldown({
+				startyear : 2016,
+			});
+			$("#id_month2").ymdpulldown();
+			$("#id_day2").ymdpulldown();
 		});
 	</script>
  <jsp:include page="footer.jsp" />

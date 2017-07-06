@@ -12,14 +12,12 @@
 <!-- <meta http-equiv="refresh" content="1">-->
 <title>chat sample</title>
 
-<!-- Stylesheet
-    ================================================== -->
+<!-- ▼▼Stylesheet -->
 <link href="css/bootstrap3.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<link rel="stylesheet" href="css/Bfooter.css">
 <link rel="stylesheet" href="css/form.css">
 <link rel="stylesheet" href="css/style2.css">
 <link rel="stylesheet" href="css/modal.css">
@@ -27,8 +25,7 @@
 <link rel="stylesheet" href="css/imgList.css">
 
 
-<!-- Javascripts
-    ================================================== -->
+<!-- ▼▼JavaScript -->
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/toast.js"></script>
@@ -47,7 +44,9 @@
     </script>
 </s:iterator>
 <script type="text/javascript">
-  setTimeout("location.reload()", 1000 * 30)
+  setTimeout(function() {
+    window.location.href = '<s:url action="GoChatAction" />';
+  }, 30000);
 </script>
 </head>
 <s:if test="groupId == 0">
@@ -121,7 +120,7 @@
   <!-- グループ名変更画面 -->
   <div class="modal fade" id="groupNameChange" tabindex="-1">
   	<div class="modal-dialog">
-  	　<div class="modal-content">
+  	  <div class="modal-content">
   	    <div class="modal-header">
   	      <button type="button" class="close" data-dismiss="modal">
   	        <span>&times;</span>
@@ -153,7 +152,7 @@
         <div class="modal-body">
         	<s:iterator value="groupImgList" status="rs">
         	<s:if test="%{#rs.count%2==0}">
-			<div style="float:left">
+      <div style="float:left">
           <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
           </div>
           </s:if><s:else>
@@ -254,28 +253,15 @@
     <s:iterator value="postList">
 
       <!-- 自分の投稿内容 -->
-      <s:if test="userId==senderId">
-        <div align="right"
-          style="float: right; width: 100%; position: relative; min-height: 110px; margin-right: 10px;">
+      <s:if test="userId == senderId">
+        <div class="message_right">
+          <h6 class="name_right"><s:property value="senderName" /></h6>
           <div style="float: right; position: absolute; right: 0px;">
-            <img src="<s:property value="senderImg"/>" alt=""
-              width="50px" height="50px"
-              style="border-radius: 50%; margin-left: 5px;">
-            <h6 style="max-width: 50px; overflow: hidden;">
-              <s:property value="senderName" />
-            </h6>
-            <h6 style="max-width: 50px; overflow: hidden;">
-              <span class="timeArea"
-                title="<s:property value="(postAt.substring(0,19))"/>"></span>
-            </h6>
+            <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
+            <h6 class="time" title="<s:property value="(postAt.substring(0,19))"/>"></h6>
           </div>
-
           <s:if test="img.startsWith('pic/stamp')">
-            <div
-              style="width: 70%; float: right; margin-bottom: 10px; margin-right: 60px;">
-              <img src="<s:property value="img"/>"
-                style="border-radius: 8px; width: 50%; max-width: 300px;">
-            </div>
+            <img class="stamp_right" src="<s:property value="img"/>">
           </s:if>
           <s:else>
             <pre style="float: right; background-color: #9FF9FF; text-align: left; margin-right: 60px;"><s:property value="postContents" /></pre>
@@ -285,24 +271,14 @@
       </s:if>
       <!-- 他人の投稿内容 -->
       <s:else>
-        <div style="float: left; width: 100%; position: relative; min-height: 110px; margin-left: 10px;">
+        <div class="message_left">
+          <h6 class="name_left"><s:property value="senderName" /></h6>
           <div style="float: left; position: absolute;">
-            <img src="<s:property value="senderImg"/>" alt=""
-              width="50px" height="50px" style="border-radius: 50%;">
-            <h6 style="max-width: 50px; overflow: hidden">
-              <s:property value="senderName" />
-            </h6>
-            <h6 style="max-width: 50px; overflow: hidden;">
-              <span class="timeArea"
-                title="<s:property value="(postAt.substring(0,19))"/>"></span>
-            </h6>
+            <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
+            <h6 class="time" title="<s:property value="(postAt.substring(0,19))"/>"></h6>
           </div>
           <s:if test="img.startsWith('pic/stamp')">
-            <div
-              style="width: 70%; float: left; margin-bottom: 10px; margin-left: 60px;">
-              <img src="<s:property value="img"/>"
-                style="border-radius: 8px; width: 50%; max-width: 300px;">
-            </div>
+            <img class="stamp_left" src="<s:property value="img"/>">
           </s:if>
           <s:else>
             <pre style="float: left; margin-left: 60px;"><s:property value="postContents" /></pre>

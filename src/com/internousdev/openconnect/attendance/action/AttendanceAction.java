@@ -11,6 +11,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.openconnect.attendance.dao.AttendanceCheckDAO;
 import com.internousdev.openconnect.attendance.dao.AttendanceDAO;
+import com.internousdev.openconnect.attendance.dao.GoAttendanceDAO;
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -79,6 +80,12 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	private String givenNameKanji;
 
 	/**
+	 * エラーメッセージ
+	 */
+	private String errorMsg;
+
+
+	/**
 	 * ユーザーリスト
 	 */
 	private ArrayList<AttendanceDTO> atUserList = new ArrayList<AttendanceDTO>();
@@ -98,6 +105,8 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 		searchList = dao2.select(userId,atYear,atMonth,atDay);
 
 		if(searchList.size() > 0){
+			GoAttendanceDAO dao3 = new GoAttendanceDAO();
+			atUserList = dao3.select(userId);
 			result = ERROR;
 		}
 		else if(session.get("userId") != null){
@@ -106,6 +115,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 
 		    if(dao.insert(userId,atYear,atMonth,atDay,attendance,reason) > 0 && atUserList.size() > 0){
 		      result = SUCCESS;
+		      this.errorMsg="１日１回しか報告できません。";
 				}
 		}
 		  return result;
@@ -302,5 +312,22 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 	public void setSearchList(ArrayList<AttendanceDTO> searchList) {
 	    this.searchList = searchList;
 	}
+
+	/**
+	* 取得メソッド を取得
+	* @return errorMsg
+	*/
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param errorMsg
+	*/
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
+
 
 }

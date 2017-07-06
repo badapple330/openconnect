@@ -24,10 +24,16 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 	/**
-	 * 起案者ユーザーID
+	 * 実施起案者ユーザーID
 	 *
 	 */
 	private int jDrafterId;
+
+	/**
+	 * 契約/実施兼契約起案者ユーザーID
+	 *
+	 */
+	private int kDrafterId;
 
 	/**
 	 * 決裁ID
@@ -213,7 +219,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
          float amountAll = benefit + bildCost;
 
-         count=dao.update(decisionName,summary,cause,startDay,endDay,persons,totalProve,totalRe,totalLine,totalRoom,totalHuman,totalEtc,benefit,bildCost,amountAll,jDrafterId,decisionId);
+         count=dao.update(decisionName,summary,cause,startDay,endDay,persons,totalProve,totalRe,totalLine,totalRoom,totalHuman,totalEtc,benefit,bildCost,amountAll,jDrafterId,kDrafterId,decisionId);
 
 			if(count>0){
 				result = SUCCESS;
@@ -241,6 +247,24 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	*/
 	public void setJDrafterId(int jDrafterId) {
 		this.jDrafterId = jDrafterId;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kDrafterId
+	*/
+	public int getkDrafterId() {
+		return kDrafterId;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kDrafterId
+	*/
+	public void setkDrafterId(int kDrafterId) {
+		this.kDrafterId = kDrafterId;
 	}
 
 

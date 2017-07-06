@@ -13,24 +13,16 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GroupAddAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * ユーザーID
-	 */
+	/** ユーザーID */
 	private int userId=0;
 
-	/**
-	 * タイムラインのリスト
-	 */
+	/** タイムラインのリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
 
-	/**
-	 * セッション
-	 */
+	/** セッション */
 	private Map<String,Object> session;
 
-	/**
-	 * グループ名
-	 */
+	/** グループ名 */
 	private String groupName;
 
 
@@ -58,58 +50,35 @@ public class GroupAddAction extends ActionSupport implements SessionAware{
 	return result;
 	}
 
-	/**
-	 * @return userId
-	 */
+	
 	public int getUserId() {
 		return userId;
 	}
 
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	/**
-	 * @return groupName
-	 */
 	public String getGroupName() {
 		return groupName;
 	}
 
-	/**
-	 * @param groupName セットする groupName
-	 */
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
 
-	/**
-	 * @return followList
-	 */
 	public ArrayList<UserDTO> getFollowList() {
 		return followList;
 	}
 
-	/**
-	 * @param followList セットする followList
-	 */
 	public void setFollowList(ArrayList<UserDTO> followList) {
 		this.followList = followList;
 	}

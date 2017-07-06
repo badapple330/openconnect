@@ -18,10 +18,18 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 1.0
  */
 public class GoGroupMemberAction extends ActionSupport implements SessionAware {
+	
+	/** ユーザーID */
 	private int userId;
-	private int groupId;					/** グループid */
-	private ArrayList<UserDTO> memberList;	/** メンバー一覧 */
-	private Map<String,Object> session;		/** セッション */
+	
+	/** グループid */
+	private int groupId;
+	
+	/** メンバー一覧 */
+	private ArrayList<UserDTO> memberList;	
+	
+	/** セッション */
+	private Map<String,Object> session;		
 
 	@Override
 	public String execute() {

@@ -10,28 +10,17 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class AddimageAction extends ActionSupport implements SessionAware{
 
-		/**
-		 *シリアスコード
-		 */
+		/** シリアスコード */
 		private static final long serialVersionUID = 1L;
 
-		/**
-		 * ユーザーID
-		 */
+		/** ユーザーID */
 		private int userId;
 
-		/**
-		 * セッション情報
-		 */
+		/** セッション情報 */
 		private Map<String,Object> session;
 
-		/**
-		 * イメージパス
-		 */
+		/** イメージパス */
 		private String userImg;
-
-
-
 
 
 
@@ -58,79 +47,27 @@ public class AddimageAction extends ActionSupport implements SessionAware{
 		}
 
 
-
-
-
-
-		/**
-		 * @return userId
-		 */
 		public int getUserId() {
 			return userId;
 		}
 
-
-
-
-
-
-		/**
-		 * @param userId セットする userId
-		 */
 		public void setUserId(int userId) {
 			this.userId = userId;
 		}
 
-
-
-
-
-
-		/**
-		 * @return session
-		 */
 		public Map<String, Object> getSession() {
 			return session;
 		}
 
-
-
-
-
-
-		/**
-		 * @param session セットする session
-		 */
 		public void setSession(Map<String, Object> session) {
 			this.session = session;
 		}
 
-
-
-
-
-
-		/**
-		 * @return userImg
-		 */
 		public String getUserImg() {
 			return userImg;
 		}
 
-
-
-
-
-
-		/**
-		 * @param userImg セットする userImg
-		 */
 		public void setUserImg(String userImg) {
 			this.userImg = userImg;
 		}
-
-
-
-
-
 }

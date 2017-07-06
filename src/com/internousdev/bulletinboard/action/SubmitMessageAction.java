@@ -5,87 +5,41 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.PostDAO;
+import com.internousdev.bulletinboard.dao.ChatDAO;
 import com.internousdev.bulletinboard.dto.PostDTO;
 import com.internousdev.bulletinboard.util.BotTalk;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 
-public class PostSetAction extends ActionSupport implements SessionAware{
-	/**
-	 * シリアルID
-	 */
+public class SubmitMessageAction extends ActionSupport implements SessionAware{
+	/** シリアルID */
 	private static final long serialVersionUID = -7129551593360374656L;
-
-
-	/**
-	 * ユーザーID
-	 */
-	private int userId=0;
-
-
-	/**
-	 * 送信者名
-	 */
+	/** ユーザーID */
+	private int userId = 0;
+	/** 送信者名 */
 	private String senderName;
-
-	/**
-	 * 送信者画像
-	 */
+	/** 送信者画像 */
 	private String senderImg;
-
-
-	/**
-	 * 受取人ID
-	 */
+	/** 受取人ID */
 	private int receiverId;
-
-	/**
-	 * 受取人名
-	 */
+	/** 受取人名 */
 	private String receiverName;
-
-
-	/**
-	 * グループID
-	 */
+	/** グループID */
 	private int groupId;
-
-	/**
-	 * 送信内容
-	 */
+	/** 送信内容 */
 	private String postContents="";
-
-	/**
-	 * 添付画像
-	 */
+	/** 添付画像 */
 	private String url="";
-
-	/**
-	 * 投稿日時
-	 */
+	/** 投稿日時 */
 	private String postAt ;
-
-
 	private Map<String,Object> session;
-
-
-	/**
-	 * ポストリスト
-	 */
+	/** ポストリスト */
 	public ArrayList<PostDTO> postList = new ArrayList<PostDTO>();
-
-	/**
-	 * 投稿件数
-	 */
+	/** 投稿件数 */
 	private int postCount=0;
-	/**
-	 * グループ名
-	 */
+	/** グループ名 */
 	private String groupName="（・ω・）" ;
-
-
 
 	/**
 	 *ユーザーのポストリストの生成メソッド
@@ -98,20 +52,21 @@ public class PostSetAction extends ActionSupport implements SessionAware{
 
 		if(session.containsKey("receiverId")){
 			receiverId = (int) session.get("receiverId");
-			setReceiverName((String) session.get("receiverName"));
+			receiverName = session.get("receiverName").toString();
 			groupId = (int) session.get("groupId");
-			groupName=(String) session.get("groupName");
+			groupName = session.get("groupName").toString();
+		}
+
+		if(userId == 0){
+			return result;
 		}
 
 
-
-		if(userId==0){return result;}
-
-
 		//送信内容がある場合に送信内容送信
-		if(!postContents.equals("")){
-			PostDAO set = new PostDAO(userId,receiverId,groupId,postContents,url);
-			if(set.postSet() != 0){
+		if (!postContents.equals("")){
+			ChatDAO chatDAO = new ChatDAO();
+			if(chatDAO.insertMessage(userId, receiverId, groupId, postContents, url) != 0){
+				//botと話す場合の処理
 				if(receiverId < 0){
 					BotTalk bot = new BotTalk(receiverId,userId,postContents);
 					String response = bot.talkContents();
@@ -124,10 +79,10 @@ public class PostSetAction extends ActionSupport implements SessionAware{
 				}
 			}
 		//スタンプだった場合にスタンプ送信
-		}else if(!url.equals("")){
+		} else if(!url.equals("")) {
 			postContents="スタンプを投稿しました";
-			PostDAO set = new PostDAO(userId,receiverId,groupId,postContents,url);
-			if(set.postSet() != 0){
+			ChatDAO set = new ChatDAO();
+			if(set.insertMessage(userId, receiverId, groupId, postContents, url) != 0){
 				if(receiverId < 0){
 					BotTalk bot = new BotTalk(receiverId,userId,postContents);
 					String response = bot.talkContents();
@@ -147,132 +102,51 @@ public class PostSetAction extends ActionSupport implements SessionAware{
 	}
 
 
-
-
-
-	/**
-	 * @return userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
-
-
-	/**
-	 * @return receiverId
-	 */
 	public int getReceiverId() {
 		return receiverId;
 	}
-
-
-	/**
-	 * @return groupId
-	 */
 	public int getGroupId() {
 		return groupId;
 	}
-
-
-	/**
-	 * @return postContents
-	 */
 	public String getPostContents() {
 		return postContents;
 	}
-
-
-	/**
-	 * @return img
-	 */
 	public String getUrl() {
 		return url;
 	}
-
-
-	/**
-	 * @return postAt
-	 */
 	public String getPostAt() {
 		return postAt;
 	}
-
-
-	/**
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
-
-	/**
-	 * @return postList
-	 */
 	public ArrayList<PostDTO> getPostList() {
 		return postList;
 	}
-
-
-	/**
-	 * @param userId セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
-
-	/**
-	 * @param receiverId セットする receiverId
-	 */
 	public void setReceiverId(int receiverId) {
 		this.receiverId = receiverId;
 	}
-
-
-	/**
-	 * @param groupId セットする groupId
-	 */
 	public void setGroupId(int groupId) {
 		this.groupId = groupId;
 	}
-
-
-	/**
-	 * @param postContents セットする postContents
-	 */
 	public void setPostContents(String postContents) {
 		this.postContents = postContents;
 	}
-
-
-	/**
-	 * @param url セットする url
-	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
-
-	/**
-	 * @param postAt セットする postAt
-	 */
 	public void setPostAt(String postAt) {
 		this.postAt = postAt;
 	}
-
-
-	/**
-	 * @param session セットする session
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
-	/**
-	 * @param postList セットする postList
-	 */
 	public void setPostList(ArrayList<PostDTO> postList) {
 		this.postList = postList;
 	}

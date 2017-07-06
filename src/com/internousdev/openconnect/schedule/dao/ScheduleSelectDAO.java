@@ -55,8 +55,12 @@ public class ScheduleSelectDAO {
 			while(rs.next()) {
 				ScheduleDTO dto = new ScheduleDTO();
 				dto.setId(rs.getInt("id"));
-				try { dto.setStartDay(sdf.format(rs.getDate("start_day")).toString()); }catch(Exception e){}
-				try { dto.setEndDay(sdf.format(rs.getDate("end_day")).toString()); }catch(Exception e){}
+				try{
+					dto.setStartDay(sdf.format(rs.getDate("start_day")).toString()); 
+					}catch(Exception e){}
+				
+				try { dto.setEndDay(sdf.format(rs.getDate("end_day")).toString());
+				}catch(Exception e){}
 				dto.setTitle(rs.getString("title"));
 				dto.setTeamName(rs.getString("team_name"));
 				scheduleList.add(dto);

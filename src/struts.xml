@@ -307,6 +307,13 @@
 			<result name="error">attendance.jsp</result>
 		</action>
 
+		<action name="NotAttendanceAction"
+			class="com.internousdev.openconnect.attendance.action.NotAttendanceAction"
+			method="execute">
+			<result name="success">admin_attendance_leader.jsp</result>
+			<result name="error">attendance.jsp</result>
+		</action>
+
 
 
 		<!--決裁編集画面表示 -->
@@ -536,6 +543,20 @@
 			<result type="chain">ScheduleSelectAction</result>
 		</action>
 
+		<action name="ScheduleMemoAction"
+			class="com.internousdev.openconnect.schedule.action.ScheduleMemoAction"
+			method="execute">
+			<result name="success" >schedule.jsp</result>
+			<result name="error">/schedule.jsp</result>
+		</action>
+
+		<action name="ScheduleMemoDeleteAction"
+			class="com.internousdev.openconnect.schedule.action.ScheduleMemoDeleteAction"
+			method="execute">
+			<result name="success" type="redirect">schedule.jsp</result>
+			<result name="error" type="redirect">/schedule.jsp</result>
+		</action>
+
 		<action name="BackGoAction" class="com.internousdev.openconnect.action.JustGoAction"
 			method="execute">
 			<result name="success">applist.jsp</result>
@@ -544,23 +565,16 @@
 
 
 		<!-- チャット画面への遷移 -->
-		<action name="GoPostAction"
-			class="com.internousdev.bulletinboard.action.GoPostAction" method="execute">
-			<result name="success" type="redirectAction">PostAction</result>
-			<result name="error">login.jsp</result>
-		</action>
-
-		<!-- チャット画面 -->
-		<action name="PostAction" class="com.internousdev.bulletinboard.action.PostAction"
-			method="execute">
-			<result name="success"> chat.jsp</result>
+		<action name="GoChatAction"
+			class="com.internousdev.bulletinboard.action.GoChatAction" method="execute">
+			<result name="success">chat.jsp</result>
 			<result name="error">login.jsp</result>
 		</action>
 
 		<!-- チャット画面チャット送信時 -->
-		<action name="PostSetAction"
-			class="com.internousdev.bulletinboard.action.PostSetAction" method="execute">
-			<result name="success" type="redirectAction">PostAction</result>
+		<action name="SubmitMessageAction"
+			class="com.internousdev.bulletinboard.action.SubmitMessageAction" method="execute">
+			<result name="success" type="chain">GoChatAction</result>
 			<result name="error">login.jsp</result>
 		</action>
 
@@ -615,8 +629,8 @@
 		</action>
 
 		<!-- タイムラインいいね -->
-		<action name="btnAction" method="execute"
-			class="com.internousdev.bulletinboard.action.btnAction">
+		<action name="BtnAction" method="execute"
+			class="com.internousdev.bulletinboard.action.BtnAction">
 			<result name="success" type="redirectAction">GoTimelineAction</result>
 			<result name="error" type="redirectAction">GoTimelineAction</result>
 		</action>
@@ -769,8 +783,8 @@
 			<result name="error">addsite.jsp</result>
 		</action>
 
-		<action name="colorChangeAction"
-			class="com.internousdev.bulletinboard.action.colorChangeAction"
+		<action name="ColorChangeAction"
+			class="com.internousdev.bulletinboard.action.ColorChangeAction"
 			method="execute">
 			<result name="success" type="redirectAction">ProfileUpdateAction</result>
 			<result name="error">login.jsp</result>

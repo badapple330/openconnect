@@ -25,7 +25,7 @@
 	text-align:center;
 }
 
-#operation2{
+/* #operation2{
 	width:700px;
 	margin-top:auto;
 	margin-bottom:auto;
@@ -34,13 +34,13 @@
 	clear:left;
 	clear:right;
 	clear:both;
-}
+} */
 
-#schedule,th{
+#schedule{
 	text-align:center;
 }
 
-.blockA{
+/* .blockA{
 	float:left;
 	margin-left:30px;
 }
@@ -56,6 +56,9 @@
 	clear:left;
 	clear:right;
 	clear:both;
+} */
+#operation2{
+	text-align:center;
 }
 
 footer{
@@ -63,7 +66,14 @@ footer{
 	clear:right;
 	clear:both;
 }
-
+ tr, th,td {
+	background-color:transparent;
+	border: transparent 1px solid;
+	}
+.table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 
 /* モーダル コンテンツエリア */

@@ -17,24 +17,16 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class BotSearchAction extends ActionSupport{
 
-	/**
-	 * 文章を規定するもの
-	 */
+	/** 文章を規定するもの */
 	private String sentences;
 
-	/**
-	 * 文章ID
-	 */
+	/** 文章ID */
 	private int sentenceId;
 
-	/**
-	 * ラベル
-	 */
+	/** ラベル */
 	private String label;
 
-	/**
-	 * 学習マスターリスト
-	 */
+	/** 学習マスターリスト */
 	ArrayList<BotDTO> masterList = new ArrayList<BotDTO>();
 
 
@@ -78,85 +70,35 @@ public class BotSearchAction extends ActionSupport{
 	}
 
 
-
-	/**
-	* 取得メソッド を取得
-	* @return sentences
-	*/
 	public String getSentences() {
 		return sentences;
 	}
 
-
-
-	/**
-	* 設定メソッド を設定
-	* @param sentences
-	*/
 	public void setSentences(String sentences) {
 		this.sentences = sentences;
 	}
 
-
-
-	/**
-	* 取得メソッド を取得
-	* @return sentenceId
-	*/
 	public int getSentenceId() {
 		return sentenceId;
 	}
 
-
-
-	/**
-	* 設定メソッド を設定
-	* @param sentenceId
-	*/
 	public void setSentenceId(int sentenceId) {
 		this.sentenceId = sentenceId;
 	}
 
-
-
-	/**
-	* 取得メソッド を取得
-	* @return label
-	*/
 	public String getLabel() {
 		return label;
 	}
 
-
-
-	/**
-	* 設定メソッド を設定
-	* @param label
-	*/
 	public void setLabel(String label) {
 		this.label = label;
 	}
 
-
-
-	/**
-	* 取得メソッド を取得
-	* @return masterList
-	*/
 	public ArrayList<BotDTO> getMasterList() {
 		return masterList;
 	}
 
-
-
-	/**
-	* 設定メソッド を設定
-	* @param masterList
-	*/
 	public void setMasterList(ArrayList<BotDTO> masterList) {
 		this.masterList = masterList;
 	}
-
-
-
 }

@@ -153,6 +153,8 @@ $(".modal-update").click(function(){
 	$('.updateuserName').html( $('.userName').eq(index).val() );
 
 	// hiddenのvalue
+	$('.updateuserName').val( $('.userName').eq(index).val() );
+	$('.updateteamName').val( $('.teamName').eq(index).val() );
 	$('.updateReason').val( $('.reason').eq(index).val() );
 	$('.updateUserId').val( $('.userId').eq(index).val() );
 	$('.updateAtYear').val( $('.atYear').eq(index).val() );
