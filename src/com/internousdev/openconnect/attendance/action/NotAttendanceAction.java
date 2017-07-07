@@ -123,31 +123,17 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 			    this.atDay = atDay;
 			}
 		/**
-		 * atDateを取得します。
-		 * @return atDate
-		 */
-		public int getAtDate() {
-			    return atDate;
-			}
-		/**
-		 * atDateを設定します。
-		 * @param atDate atDate
-		 */
-		public void setAtDate(int atDate) {
-			    this.atDate = atDate;
-			}
-		/**
 		 * attendanceを取得します。
 		 * @return attendance
 		 */
-		public int getAttendance() {
+		public String getAttendance() {
 			    return attendance;
 			}
 		/**
 		 * attendanceを設定します。
 		 * @param attendance attendance
 		 */
-		public void setAttendance(int attendance) {
+		public void setAttendance(String attendance) {
 			    this.attendance = attendance;
 			}
 		/**
@@ -227,6 +213,20 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 		public void setSession(Map<String, Object> arg0) {
 			// TODO 自動生成されたメソッド・スタブ
 
+		}
+		/**
+		* 取得メソッド を取得
+		* @return atDate
+		*/
+		public int getAtDate() {
+			return atDate;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param atDate
+		*/
+		public void setAtDate(int atDate) {
+			this.atDate = atDate;
 		}
 
 }
