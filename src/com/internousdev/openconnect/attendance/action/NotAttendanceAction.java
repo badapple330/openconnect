@@ -33,7 +33,7 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 	/* 日付 */
 	private int atDate;
 	/* 勤怠 */
-	private int attendance;
+	private String attendance;
 	/* 備考 */
 	private int reason;
 	/* チームネーム */
@@ -60,7 +60,7 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 		attendanceIdList = dao.select(atYear, atMonth, atDay);
 		usersIdList = dao. select2( attendanceIdList, teamName);
 
-		if(dao.insert(atYear, atMonth, atDay, atDate, usersIdList, attendance) > 0){
+		if(dao.insert(atYear, atMonth, atDay, usersIdList, attendance) > 0){
 			result = SUCCESS;
 		}
 
