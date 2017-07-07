@@ -156,8 +156,8 @@ insert into user_history(login_id,name_e,corporation_name,use_day,division,split
 
 
 insert into user_history(login_id,name_e,corporation_name,use_day,payment_day,spend,payment)values
-('1','testuser','bulackcompany','2016-01-27','2016-02-27','100000','100000'),
-('2','inoue takuma','bulackcompany','2016-01-27','2016-02-27','130000','130000'),
+('1','testuser','株式会社どんとこい','2016-01-27','2016-02-27','100000','100000'),
+('2','inoue takuma','株式会社クドゥー','2016-01-27','2016-02-27','130000','130000'),
 ('3','harada miyuki','bulackcompany','2016-01-27','2016-02-27','32000','32000'),
 ('4','testleader1','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
 ('5','testleader2','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
@@ -193,7 +193,7 @@ insert into credit_card(login_id,name_e,credit_number,security_code,id_number,cr
 insert into corporation(login_id,password,corporation_name,postal,address,capital,rep_name,charge,email,tel_number,employee,established,hp_url,judge_flg,register_day,update_day,delete_flg)values
 ("kudo","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","kudo@gmail.com","0311112222","800","50",null,'保留',20160617,20160617,false),
 ("hideki","ikemen","株式会社クドゥー","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","hideki@gmail.com","0311112222","800","50",null,'承認',20160617,20160617,false),
-("jirou","ueda","株式会社どんとこい","1130034","東京都文京区湯島3-2-12","50000000","jirou","ueda","uedajirou@gnail.com","0311112222","800","50",null,'承認',20160617,20160617,false);
+("jirou","ueda","株式会社どんとこい","1130034","東京都文京区湯島3-2-12","50000000","jirou","ueda","uedajirou@gmail.com","0311112222","800","50",null,'承認',20160617,20160617,false);
 
 insert into admins(admin_id,admin_password,admin_name_e,admin_phone_email)values
 ('1','internous01','takuma.inoue','takuma.inoue@gmail.com'),
