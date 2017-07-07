@@ -110,7 +110,7 @@ public class ResponsiveTalk {
 		String result = null;
 		ArrayList<String> contentsList = new ArrayList<String>();
 		ArrayList<BotDTO> wordList = new ArrayList<BotDTO>();
-		contentsList = dao.getContents(userId);
+		contentsList = dao.getText(userId);
 		int maxCount = 0;
 		int maxId = 0;
 		int flgCount = 0;

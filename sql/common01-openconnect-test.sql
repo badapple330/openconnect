@@ -395,25 +395,25 @@ foreign key(group_id) references group_master(group_id)
 
 /* タイムライン投稿情報
  **************************/
-create table send_timeline(
-timeline_id int not null primary key auto_increment comment 'タイムラインID',
+create table posts(
+post_id int not null primary key auto_increment comment 'タイムラインID',
 sender_id varchar(50) not null comment '送信者ID',
-send_contents varchar(255) not null comment '送信内容',
+text varchar(255) not null comment '送信内容',
 img varchar(50) comment '添付画像',
-send_at timestamp not null default current_timestamp comment '送信日時',
-re_timeline_id int comment '返信する場合の、返信先のタイムラインID',
+created_at timestamp not null default current_timestamp comment '送信日時',
+re_post_id int comment '返信する場合の、返信先のタイムラインID',
 good int not null default 0 comment 'いいね'
 );
 
 /* タイムライン情報
  **************************/
 create table timeline(
-timeline_id int not null comment 'タイムラインID',
+post_id int not null comment 'タイムラインID',
 sender_id int not null comment '送信者ID',
 follower_id int comment 'フォロワーID',
 foreign key(sender_id) references users(user_id),
 foreign key(follower_id) references users(user_id),
-foreign key(timeline_id) references send_timeline(timeline_id)
+foreign key(post_id) references posts(post_id)
 
 );
 
@@ -441,9 +441,9 @@ foreign key(done) references users(user_id)
 create table good(
 good_num int not null primary key auto_increment comment'フォロー番号',
 user_id int not null comment 'ユーザーID',
-timeline_id int not null comment 'タイムラインID',
+post_id int not null comment 'タイムラインID',
 foreign key(user_id) references users(user_id),
-foreign key(timeline_id) references send_timeline(timeline_id)
+foreign key(post_id) references posts(post_id)
 );
 
 /* チャット既読情報

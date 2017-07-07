@@ -3,7 +3,7 @@ package com.internousdev.bulletinboard.dto;
 public class PostDTO {
 
 	/** タイムラインID */
-	private int timelineId;
+	private int postId;
 
 	/** 送信者ID */
 	private int senderId;
@@ -12,13 +12,13 @@ public class PostDTO {
 	private int followerId;
 
 	/** 送信内容 */
-	private  String sendContents;
+	private  String text;
 
 	/** 添付画像 */
 	private String img;
 
 	/** 送信日時 */
-	private String sendAt;
+	private String createdAt;
 
 	/** 名前 */
 	private String userName;
@@ -33,7 +33,7 @@ public class PostDTO {
 	private boolean goodFlg;
 
 	/** 返信先のタイムラインID */
-	private int reTimelineId;
+	private int rePostId;
 
 	/** 返信先のユーザーID　*/
 	private int reUserId;
@@ -42,22 +42,22 @@ public class PostDTO {
 	private String reUserName;
 
 	/** 返信先の投稿内容　*/
-	private String reSendContents;
+	private String reText;
 
 	/** 返信先の投稿日時　*/
-	private String reSendAt;
+	private String reCreatedAt;
 
 	/** 返信先の画像　*/
 	private String reImg;
 	
 	
 	
-	public int getTimelineId() {
-		return timelineId;
+	public int getPostId() {
+		return postId;
 	}
 
-	public void setTimelineId(int timelineId) {
-		this.timelineId = timelineId;
+	public void setPostId(int postId) {
+		this.postId = postId;
 	}
 
 	public int getSenderId() {
@@ -76,12 +76,12 @@ public class PostDTO {
 		this.followerId = followerId;
 	}
 
-	public String getSendContents() {
-		return sendContents;
+	public String getText() {
+		return text;
 	}
 
-	public void setSendContents(String sendContents) {
-		this.sendContents = sendContents;
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	public String getImg() {
@@ -92,12 +92,12 @@ public class PostDTO {
 		this.img = img;
 	}
 
-	public String getSendAt() {
-		return sendAt;
+	public String getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setSendAt(String sendAt) {
-		this.sendAt = sendAt;
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public String getUserName() {
@@ -132,12 +132,12 @@ public class PostDTO {
 		this.goodFlg = goodFlg;
 	}
 
-	public int getReTimelineId() {
-		return reTimelineId;
+	public int getRePostId() {
+		return rePostId;
 	}
 
-	public void setReTimelineId(int reTimelineId) {
-		this.reTimelineId = reTimelineId;
+	public void setRePostId(int rePostId) {
+		this.rePostId = rePostId;
 	}
 
 	public int getReUserId() {
@@ -156,20 +156,20 @@ public class PostDTO {
 		this.reUserName = reUserName;
 	}
 
-	public String getReSendContents() {
-		return reSendContents;
+	public String getReText() {
+		return reText;
 	}
 
-	public void setReSendContents(String reSendContents) {
-		this.reSendContents = reSendContents;
+	public void setReText(String reText) {
+		this.reText = reText;
 	}
 
-	public String getReSendAt() {
-		return reSendAt;
+	public String getReCreatedAt() {
+		return reCreatedAt;
 	}
 
-	public void setReSendAt(String reSendAt) {
-		this.reSendAt = reSendAt;
+	public void setReCreatedAt(String reCreatedAt) {
+		this.reCreatedAt = reCreatedAt;
 	}
 
 	public String getReImg() {
