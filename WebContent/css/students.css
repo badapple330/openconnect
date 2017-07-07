@@ -171,6 +171,8 @@ form {
 }
 
 
+.button-box{
+	display:flex;
 }
 
 

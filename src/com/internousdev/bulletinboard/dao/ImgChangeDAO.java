@@ -17,8 +17,13 @@ import com.internousdev.bulletinboard.util.DBConnector;
  * @version 1.0
  *
  */
+
+
 public class ImgChangeDAO {
-		  public ArrayList<StampDTO> groupImgGet(){
+		 
+		
+		/** グループアイコン変更 */
+		public ArrayList<StampDTO> groupImgGet(){
 
 			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			    Connection con = db.getConnection();

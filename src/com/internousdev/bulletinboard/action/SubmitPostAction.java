@@ -14,13 +14,13 @@ public class SubmitPostAction extends ActionSupport implements SessionAware{
 	/** ユーザーID */
 	private int userId;
 	/** 送信内容 */
-	private String sendContents;
+	private String text;
 	/** 返信先のタイムラインID */
-	private int reTimelineId;
+	private int rePostId;
 	/** 返信先のユーザー名 */
 	private String userName;
 	/** 返信内容 */
-	private String reSendContents;
+	private String reText;
 	/** セッション */
 	private Map<String,Object> session;
 	/** タイムラインのリスト */
@@ -39,21 +39,21 @@ public class SubmitPostAction extends ActionSupport implements SessionAware{
 		UserDAO msgDao = new UserDAO();
 
 		//返信の場合は「＠名前 内容」という形に変える
-		if(reTimelineId != 0){
-			sendContents = ("@" + userName + " " + reSendContents);
+		if(rePostId != 0){
+			text = ("@" + userName + " " + reText);
 		}
 
 		//同じ情報を連投してた場合の処理
-		dto = dao.timelineCheck();
-		if(dto.getSendContents() != null){
-			if(dto.getSendContents().equals(sendContents)){
+		dto = dao.selectLastPost();
+		if(dto.getText() != null){
+			if(dto.getText().equals(text)){
 				msgDao.msgSet(userId, "同じ内容は連投できません");
 				return result;
 			}
 		}
 
 		//タイムライン投稿情報にインサートする
-		if(dao.timelineSend(sendContents, reTimelineId) != 0){
+		if(dao.insertPost(text, rePostId) != 0){
 
 			//ポイントを20加算
 			if(dao.pointPlus(userId) != 0){
@@ -79,20 +79,20 @@ public class SubmitPostAction extends ActionSupport implements SessionAware{
 		this.userId = userId;
 	}
 
-	public String getSendContents() {
-		return sendContents;
+	public String getText() {
+		return text;
 	}
 
-	public void setSendContents(String sendContents) {
-		this.sendContents = sendContents;
+	public void setText(String text) {
+		this.text = text;
 	}
 
-	public int getReTimelineId() {
-		return reTimelineId;
+	public int getRePostId() {
+		return rePostId;
 	}
 
-	public void setReTimelineId(int reTimelineId) {
-		this.reTimelineId = reTimelineId;
+	public void setRePostId(int rePostId) {
+		this.rePostId = rePostId;
 	}
 
 	public Map<String, Object> getSession() {
@@ -119,12 +119,12 @@ public class SubmitPostAction extends ActionSupport implements SessionAware{
 		this.userName = userName;
 	}
 
-	public String getReSendContents() {
-		return reSendContents;
+	public String getReText() {
+		return reText;
 	}
 
-	public void setReSendContents(String reSendContents) {
-		this.reSendContents = reSendContents;
+	public void setReText(String reText) {
+		this.reText = reText;
 	}
 
 }

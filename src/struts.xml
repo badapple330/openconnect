@@ -621,8 +621,8 @@
 		</action>
 
 		<!-- タイムラインの削除 -->
-		<action name="DeleteTimelineAction"
-			class="com.internousdev.bulletinboard.action.DeleteTimelineAction"
+		<action name="DeletePostAction"
+			class="com.internousdev.bulletinboard.action.DeletePostAction"
 			method="execute">
 			<result name="success" type="redirectAction">GoTimelineAction</result>
 			<result name="error"> timeline.jsp</result>

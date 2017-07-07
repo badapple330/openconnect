@@ -98,13 +98,13 @@
 						</select>
 
 						<div class="container">
-							<span>　　　姓：</span> <input type="text" class="form1"
+							<span>　　姓：</span> <input type="text" class="form1"
 								name="familyNameKanji" id="familyForm" placeholder="名字"
 								title="名字" />
 						</div>
 
 						<div class="container">
-							<span>　　　名：</span> <input type="text" class="form2"
+							<span>　　名：</span> <input type="text" class="form2"
 								name="givenNameKanji" id="givenForm" placeholder="名前" title="名前" />
 						</div>
 
@@ -123,10 +123,11 @@
 
 				<table border="2px" width="30%" height="80">
 					<tr>
-						<td style="white-space: nowrap;">出席</td>
-						<td style="white-space: nowrap;">欠席</td>
-						<td style="white-space: nowrap;">遅刻</td>
-						<td style="white-space: nowrap;">早退</td>
+						<td style="white-space: nowrap; text-align: center;">出席</td>
+						<td style="white-space: nowrap; text-align: center;">欠席</td>
+						<td style="white-space: nowrap; text-align: center;">遅刻</td>
+						<td style="white-space: nowrap; text-align: center;">早退</td>
+						<td style="white-space: nowrap; text-align: center;">連絡なし</td>
 					</tr>
 
 					<tr align="center">
@@ -134,6 +135,7 @@
 						<td><s:property value="absent" /></td>
 						<td><s:property value="late" /></td>
 						<td><s:property value="early" /></td>
+						<td><s:property value="noContact" /></td>
 					</tr>
 				</table>
 

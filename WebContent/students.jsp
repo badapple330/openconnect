@@ -145,17 +145,20 @@
 				</table>
 			</s:if>
 
-			<div id="modal-updateMain">
+			<div id="modal-updateMain" style="text-align:center;">
 
-				<br> ユーザー名 ：
+				<br> ユーザー名:
 				<div class="updateFamilyName modalString"></div>
-				<div class="updateGivenName modalString"></div><br>
+				<div class="updateGivenName modalString"></div>
+				<br> ふりがな:
 				<div class="updateFamilyNameKana modalString"></div>
 				<div class="updateGivenNameKana modalString"></div>
 
-				<br> チーム名 ：
+				<br> チーム名:
 				<div class="updateteamName modalString"></div>
-				<br> <br> 上記の受講生の編集を行います。
+				<br>ユーザー種別:
+				<div class="updateUserFlg modalString"></div>
+				<br> <br> 上記のとおりに編集を行います。
 				<s:form action="StudentsUpdateAction">
 					<input type="hidden" name="userId" class="updateUserId" value="">
 
@@ -173,11 +176,13 @@
 						value="">
 					<input type="hidden" name="userFlg" class="updateUserFlg" value="">
 
-
-					<input type="submit" class="delete-true button" value="編集">
+<div class="button-box" style="text-align:center;margin-top:20px;">
+					<input type="submit" class="delete-true button" value="はい">
+					</div>
 				</s:form>
-
-				<input type="button" class="modal-close button" value="閉じる">
+<div class="button-box" style="text-align:center;margin-top:10px;">
+				<input type="button" class="modal-close button" value="いいえ">
+				</div>
 			</div>
 
 

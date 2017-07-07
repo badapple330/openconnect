@@ -4,11 +4,11 @@ import java.util.Comparator;
 
 import com.internousdev.bulletinboard.dto.PostDTO;
 
-public class TimelineComparator implements Comparator<PostDTO>{
+public class PostComparator implements Comparator<PostDTO>{
 
 	@Override
 	public int compare(PostDTO o1, PostDTO o2) {
-		int diff = o1.getSendAt().compareTo(o2.getSendAt());
+		int diff = o1.getCreatedAt().compareTo(o2.getCreatedAt());
 
 		if(diff > 0){
 			return -1;

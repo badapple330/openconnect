@@ -20,7 +20,7 @@ button.send:hover {
 }
 
 
-.timeline{
+.post{
 	margin-bottom: 5px;
 	display: inline-block;
     padding: 0.5em 1em;
@@ -42,7 +42,7 @@ button.send:hover {
 	width: 85%;
 	float:left;
 }
-.timeline pre{
+.post pre{
 	  overflow: visible;
 
 /* Mozilla */
@@ -80,7 +80,7 @@ button.good {
 
 }
 
-.timeline h4{
+.post h4{
 	float:left;
 	margin-right:5px;
 }
@@ -124,7 +124,7 @@ button.good {
 	color: #f5504b;
 }
 
-.reTimeline{
+.rePost{
 	margin: 5px;
 	display: inline-block;
     padding: 0.5em 1em;
@@ -134,13 +134,13 @@ button.good {
 	width:100%;
 	font-size:10px;
 }
-.reTimeline h4{
+.rePost h4{
 	float:left;
 	margin-right:5px;
 	font-size:16px;
 }
 
-.reTimeline pre{
+.rePost pre{
 	  overflow: visible;
 /* Mozilla */
     white-space: -moz-pre-wrap;
