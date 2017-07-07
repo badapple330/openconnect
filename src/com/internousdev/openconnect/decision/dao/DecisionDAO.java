@@ -64,6 +64,8 @@ public class DecisionDAO {
 
 				dto.setJDrafterId(rs.getInt("j_drafter_id")); // 	実施起案者ユーザーID
 
+				dto.setJDrafterId(rs.getInt("k_drafter_id")); // 	契約/実施兼契約起案者ユーザーID
+
 				dto.setDecisionType(rs.getString("decision_type")); // 決裁種類
 
 				dto.setDecisionName(rs.getString("decision_name")); // 案件名
