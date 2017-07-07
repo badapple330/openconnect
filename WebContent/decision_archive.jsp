@@ -30,33 +30,48 @@
 <body>
 	<div class="container">
 		<h2>完了済み決済一覧</h2>
-		<s:form action="DecisionArchiveAction">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>決済ID</th>
-						<th>プロジェクト名</th>
-						<th>決済の種類</th>
-						<th>実施決済プレビュー</th>
-						<th>契約決済プレビュー</th>
-					</tr>
-				</thead>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>決済ID</th>
+					<th>プロジェクト名</th>
+					<th>決済の種類</th>
+					<th>実施決済プレビュー</th>
+					<th>契約決済プレビュー</th>
+					<th>実施兼契約決済プレビュー</th>
+				</tr>
+			</thead>
 
-				<tbody>
-					<s:iterator value="archiveList">
-						<tr>
-							<td><s:property value="projectId" /></td>
-							<td><s:property value="projectName" /></td>
-							<td><s:property value="decisionType" /></td>
+			<tbody>
+				<s:iterator value="contractedArchiveList">
+
+					<tr>
+						<td><s:property value="decisionId" /></td>
+						<td><s:property value="projectName" /></td>
+						<td><s:property value="decisionType" /></td>
+						<s:form action="DecisionPreviewAction">
 							<td><input type="hidden" name="decisionId"
 								value="<s:property value="decisionId" />"> <input
 								type="hidden" name="type" value="1">
 								<button class="btn btn-default" type="submit">Preview</button></td>
-						</tr>
-					</s:iterator>
-				</tbody>
-			</table>
-		</s:form>
+						</s:form>
+						<s:form action="DecisionPreviewAction">
+							<td><input type="hidden" name="decisionId"
+								value="<s:property value="decisionId" />"> <input
+								type="hidden" name="type" value="2">
+								<button class="btn btn-default" type="submit">Preview</button></td>
+						</s:form>
+						<s:form action="DecisionPreviewAction">
+							<td><input type="hidden" name="decisionId"
+								value="<s:property value="decisionId" />"> <input
+								type="hidden" name="type" value="3">
+								<button class="btn btn-default" type="submit">Preview</button></td>
+						</s:form>
+					</tr>
+				</s:iterator>
+			</tbody>
+		</table>
+
 
 	</div>
 	<jsp:include page="footer.jsp" />

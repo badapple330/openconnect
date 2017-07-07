@@ -396,13 +396,23 @@ foreign key(group_id) references group_master(group_id)
 /* タイムライン投稿情報
  **************************/
 create table posts(
-post_id int not null primary key auto_increment comment 'タイムラインID',
+post_id int not null primary key auto_increment comment 'ポストID',
 sender_id varchar(50) not null comment '送信者ID',
 text varchar(255) not null comment '送信内容',
 img varchar(50) comment '添付画像',
+is_reply boolean default false comment 'リプライかどうか',
 created_at timestamp not null default current_timestamp comment '送信日時',
-re_post_id int comment '返信する場合の、返信先のタイムラインID',
+re_post_id int comment '返信する場合の、返信先のポストID',
 good int not null default 0 comment 'いいね'
+);
+
+create table replys(
+post_id int not null comment 'ポストID',
+root_post_id int not null comment '大元の投稿のポストID（＠がついてないもの）',
+area_l float not null,
+area_r float not null,
+foreign key(post_id) references posts(post_id),
+foreign key(root_post_id) references posts(post_id)
 );
 
 /* タイムライン情報
@@ -429,7 +439,6 @@ foreign key(group_id) references group_master(group_id)
 /* フォロー情報
  **************************/
 create table follow(
-follow_num int not null primary key auto_increment comment'フォロー番号',
 do int not null comment 'する側ID',
 done int not null comment 'される側ID',
 foreign key(do) references users(user_id),
@@ -439,7 +448,6 @@ foreign key(done) references users(user_id)
 /* いいね情報
  **************************/
 create table good(
-good_num int not null primary key auto_increment comment'フォロー番号',
 user_id int not null comment 'ユーザーID',
 post_id int not null comment 'タイムラインID',
 foreign key(user_id) references users(user_id),
