@@ -8,9 +8,9 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.bulletinboard.dao.FollowListDAO;
 import com.internousdev.bulletinboard.dao.FollowerDAO;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
+import com.internousdev.bulletinboard.dao.ImgChangeDAO;
 import com.internousdev.bulletinboard.dao.ProfileDAO;
 import com.internousdev.bulletinboard.dao.ProfileUpdateDAO;
-import com.internousdev.bulletinboard.dao.UserImgDAO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -119,7 +119,7 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 		setGroupInfo(infodao.groupInfoGet(userId));
 		setTalkInfo(infodao.talkInfoGet(userId));
 
-		UserImgDAO udao = new UserImgDAO();
+		ImgChangeDAO udao = new ImgChangeDAO();
 		userImgList = udao.userImgGet();
 
 			return result;

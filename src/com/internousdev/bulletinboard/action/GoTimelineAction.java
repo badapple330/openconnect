@@ -11,7 +11,7 @@ import com.internousdev.bulletinboard.dao.TimelineDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
 import com.internousdev.bulletinboard.dto.PostDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
-import com.internousdev.bulletinboard.util.TimelineComparator;
+import com.internousdev.bulletinboard.util.PostComparator;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -43,9 +43,9 @@ public class GoTimelineAction extends ActionSupport implements SessionAware{
 		if(userId==0){return result;}
 
 		TimelineDAO dao = new TimelineDAO(userId);
-		timeline = dao.TimelineGet();
+		timeline = dao.selectTimeline();
 		if(timeline.size() != 0){
-			Collections.sort(timeline, new TimelineComparator());
+			Collections.sort(timeline, new PostComparator());
 			//通知を追加
 			UserDAO msgDao = new UserDAO();
 			msgList = msgDao.msgSelect(userId);

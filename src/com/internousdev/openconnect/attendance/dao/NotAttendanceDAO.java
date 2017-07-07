@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.internousdev.util.DBConnector;
@@ -134,6 +135,9 @@ public class NotAttendanceDAO {
 		Connection con =db.getConnection();
 		int ret = 0;
 
+		// Util func
+		UnaryOperator<String> presetIfNull = (attend) -> { return ( attend == null ? "'連絡なし'" : attend ); };
+
 		/*
 		/* valuesの後に続くsql文 */
 		String valueState = "";
@@ -143,12 +147,11 @@ public class NotAttendanceDAO {
 					Integer.toString(atMonth),
 					Integer.toString(atDay),
 					Integer.toString(userId),
-					attendance
+					presetIfNull.apply(attendance)
 					};
 			return "(" + String.join(",", array) +")";
 		};
 
-		//(2017,7,7,userId,'連絡なし')
 		for (AttendanceDTO userId : usersIdList){
 			if (!valueState.equals("")){
 				valueState += ",";
@@ -157,7 +160,7 @@ public class NotAttendanceDAO {
 		}
 		/* valueStateに値が入っているとき */
 		if(!((valueState).equals(""))){
-			sql = "insert into attendance (at_year,at_month,at_day,at_date,user_id,attendance) values "+valueState;
+			sql = "insert into attendance (at_year,at_month,at_day,user_id,attendance) values "+valueState;
 			System.out.println(sql);
 		}
 

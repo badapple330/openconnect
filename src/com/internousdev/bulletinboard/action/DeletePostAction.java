@@ -8,13 +8,13 @@ import com.internousdev.bulletinboard.dao.TimelineDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DeleteTimelineAction extends ActionSupport implements SessionAware{
+public class DeletePostAction extends ActionSupport implements SessionAware{
 
 	/** ユーザーID */
 	private int userId;
 
 	/** タイムラインID */
-	private int timelineId;
+	private int postId;
 	
 	/** セッション */
 	private Map<String,Object> session;
@@ -26,8 +26,8 @@ public class DeleteTimelineAction extends ActionSupport implements SessionAware{
 			userId = (int) session.get("userId");
 		}
 		if(userId==0){return result;}
-		dao.goodDelete(timelineId);
-		if(dao.timelineDelete(timelineId) != 0){
+		dao.goodDelete(postId);
+		if(dao.deletePost(postId) != 0){
 			UserDAO msgDao = new UserDAO();
 			msgDao.msgSet(userId, "ツイートを削除しました");
 			result = SUCCESS;
@@ -44,12 +44,12 @@ public class DeleteTimelineAction extends ActionSupport implements SessionAware{
 		this.userId = userId;
 	}
 
-	public int getTimelineId() {
-		return timelineId;
+	public int getPostId() {
+		return postId;
 	}
 
-	public void setTimelineId(int timelineId) {
-		this.timelineId = timelineId;
+	public void setPostId(int postId) {
+		this.postId = postId;
 	}
 
 	public Map<String, Object> getSession() {

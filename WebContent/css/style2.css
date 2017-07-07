@@ -15,6 +15,12 @@ textarea {
 }
 
 /* ヘッダー・フッターにコンテンツがかぶらないようにするためのdiv */
+.timeline{
+	margin-top:50px;
+	margin-bottom:70px;
+	width:100%;
+
+}
 .outline{
 	margin-top:50px;
 	margin-bottom:70px;

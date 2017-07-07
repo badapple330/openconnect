@@ -65,19 +65,19 @@ public class BotDAO {
 	 * @param userId ユーザーID
 	 * @return タイムラインの投稿内容のリスト
 	 */
-	public ArrayList<String> getContents(int userId){
+	public ArrayList<String> getText(int userId){
 		 Connection con = new MySqlConnector("bbbot").getConnection();
-		 ArrayList<String> contentsList = new ArrayList<String>();
+		 ArrayList<String> textList = new ArrayList<String>();
 
-		 String sql = "select send_contents from send_timeline where sender_id = ?";
+		 String sql = "select text from posts where sender_id = ?";
 
 		  try{
 			  PreparedStatement ps = con.prepareStatement(sql);
 			  ps.setInt(1,userId);
 			  ResultSet rs = ps.executeQuery();
 			  while(rs.next()){
-				  String contents = rs.getString("send_contents");
-				  contentsList.add(contents);
+				  String text = rs.getString("test");
+				  textList.add(text);
 				  }
 			  }catch(SQLException e){
 		    	e.printStackTrace();
@@ -88,7 +88,7 @@ public class BotDAO {
 				e.printStackTrace();
 			}
 		}
-		  return contentsList;
+		  return textList;
 	}
 
 

@@ -12,29 +12,23 @@ public class GoodDTO {
 	 *
 	 */
 
-
 	/** ユーザーID */
 	private int userId;
 
 	/** タイムラインID */
-	private int timelineId;
+	private int postId;
 
 
 	public int getUserId() {
 		return userId;
 	}
-
-	public int getTimelineId() {
-		return timelineId;
-	}
-
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
-	public void setTimelineId(int timelineId) {
-		this.timelineId = timelineId;
+	public int getPostId() {
+		return postId;
 	}
-
-
+	public void setPostId(int postId) {
+		this.postId = postId;
+	}
 }

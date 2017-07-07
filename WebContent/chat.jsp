@@ -61,7 +61,7 @@
     <s:property value="groupName" />
   </div>
 </s:else>
-<body>
+<body style="background-color:<s:property value="#session.bColor"/>;">
 
   <!-- 個人チャットの際のヘッダー -->
   <s:if test="groupId == 0">
@@ -117,6 +117,7 @@
       </div>
     </nav>
   </s:else>
+  
   <!-- グループ名変更画面 -->
   <div class="modal fade" id="groupNameChange" tabindex="-1">
   	<div class="modal-dialog">
@@ -138,6 +139,7 @@
   	   </div>
   	</div>
   </div>
+  
   <!-- グループ画像変更画面 -->
   <div class="modal fade" id="groupImageChange" tabindex="-1">
     <div class="modal-dialog">

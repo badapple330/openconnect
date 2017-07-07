@@ -47,6 +47,8 @@ public class AdminAttendanceLeaderAction extends ActionSupport implements Sessio
 	private int late = 0;
 	/* 早退数 */
 	private int early = 0;
+	/* 連絡なし数 */
+	private int noContact = 0;
 	/* エラーメッセージ */
 	private String errorMsg;
 	/* ユーザーリスト */
@@ -93,8 +95,11 @@ public class AdminAttendanceLeaderAction extends ActionSupport implements Sessio
 				late = late + 1;
 			} else if(attend.equals("早退")){
 				early = early + 1;
+			}  else if(attend.equals("連絡なし")){
+				noContact = noContact + 1;
 			}
 		}
+
 		if(searchList.size() > 0){
 			result = SUCCESS;
 		}else{
@@ -388,6 +393,22 @@ public class AdminAttendanceLeaderAction extends ActionSupport implements Sessio
 
 	public String getAllTeamNames(){
 		return "";
+	}
+
+	/**
+	* 取得メソッド を取得
+	* @return noContact
+	*/
+	public int getNoContact() {
+		return noContact;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param noContact
+	*/
+	public void setNoContact(int noContact) {
+		this.noContact = noContact;
 	}
 
 

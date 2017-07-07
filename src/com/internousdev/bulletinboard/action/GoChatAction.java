@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.ChatDAO;
-import com.internousdev.bulletinboard.dao.GroupImgDAO;
+import com.internousdev.bulletinboard.dao.ImgChangeDAO;
 import com.internousdev.bulletinboard.dao.StampDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
 import com.internousdev.bulletinboard.dto.MessageDTO;
@@ -98,8 +98,8 @@ public class GoChatAction extends ActionSupport implements SessionAware {
 		setMsgCount(chat.size());
 		result = SUCCESS;
 
-		GroupImgDAO groupdao = new GroupImgDAO();
-		groupImgList = groupdao.stampGet();
+		ImgChangeDAO ICdao = new ImgChangeDAO();
+		groupImgList = ICdao.groupImgGet();
 
 		ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
 		StampDAO stampdao = new StampDAO();
