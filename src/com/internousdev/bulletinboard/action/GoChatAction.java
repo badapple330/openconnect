@@ -98,8 +98,8 @@ public class GoChatAction extends ActionSupport implements SessionAware {
 		setMsgCount(chat.size());
 		result = SUCCESS;
 
-		ImgChangeDAO groupdao = new ImgChangeDAO();
-		groupImgList = groupdao.stampGet();
+		ImgChangeDAO ICdao = new ImgChangeDAO();
+		groupImgList = ICdao.groupImgGet();
 
 		ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
 		StampDAO stampdao = new StampDAO();
