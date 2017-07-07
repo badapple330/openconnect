@@ -6,8 +6,7 @@ package com.internousdev.openconnect.decision.detail.action;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-
-import org.apache.log4j.Logger;
+import java.util.function.UnaryOperator;
 
 import com.internousdev.openconnect.decision.detail.dao.DecisionArchiveDAO;
 import com.internousdev.openconnect.decision.dto.DecisionDTO;
@@ -19,11 +18,6 @@ public class DecisionArchiveAction extends ActionSupport {
 	 * シリアルID
 	 */
 	private static final long serialVersionUID = 6045130027645771884L;
-
-	/**
-	 * 決済ID
-	 */
-	private int projectId;
 
 	/**
 	 * プロジェクト名
@@ -50,42 +44,22 @@ public class DecisionArchiveAction extends ActionSupport {
 	 */
 	private String resultString = "失敗";
 
-	/**
-	 * 実施/契約/実施兼契約を判断するタイプ
-	 */
-	private int type;
 
 	public String execute() {
 
 		String result=ERROR;
 		DecisionArchiveDAO dao = new DecisionArchiveDAO();
 
-		archiveList = dao.archive(projectId, projectName, decisionId, decisionType, type);
+		archiveList = dao.archive(decisionId, projectName, decisionType);
 		if(archiveList.size() > 0){
 			result=SUCCESS;
 			resultString="成功";
 		}
+
 		return result;
-
 	}
 
 
-
-	/**
-	* 取得メソッド を取得
-	* @return projectId
-	*/
-	public int getProjectId() {
-		return projectId;
-	}
-
-	/**
-	* 設定メソッド を設定
-	* @param projectId
-	*/
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
-	}
 
 
 	/**
@@ -174,49 +148,31 @@ public class DecisionArchiveAction extends ActionSupport {
 	}
 
 
-	/**
-	* 取得メソッド を取得
-	* @return type
-	*/
-	public int getType() {
-		return type;
-	}
-
-
-
-	/**
-	* 設定メソッド を設定
-	* @param type
-	*/
-	public void setType(int type) {
-		this.type = type;
-	}
 
 
 	/*
 	 * 契約済みのDecisionのdtoリストを得る
 	 */
-	public List<DecisionDTO> getAc(){
-		Logger log = Logger.getLogger(DecisionArchiveAction.class.getName());
+	public List<DecisionDTO> getContractedArchiveList(){
 		// dto List for return
 		List<DecisionDTO> dtoList = new ArrayList<DecisionDTO>();
 
 		// 条件判定関数。dtoを引数にとり、それが契約済みデータであるかどうか判定する。
-		Predicate<DecisionDTO> is_contracted = ( dto ) -> { return dto.getDecisionType().equals("契約"); };
+		UnaryOperator<String> emptyIfNull = (obj) -> { return ( obj != null ? obj : "" ); };
+		Predicate<DecisionDTO> is_contracted = ( dto ) -> {
+			String decisionType = emptyIfNull.apply(dto.getDecisionType());
+			return decisionType.equals("契約") || decisionType.equals("実施兼契約") ;
+			};
+
 
 		// 所有するすべてのDTOについて、それが条件判定に合致するなら、そのセットをリストとしてリターン
 		for ( DecisionDTO dto : this.getArchiveList() ){;
-			log.error(dto);
-			if ( dto == null){
-				log.error("ああああああああ");
-			}
 			// 条件判断
-			else if ( dto != null && is_contracted.test(dto) ){
+			if ( dto != null && is_contracted.test(dto) ){
 
 				dtoList.add(dto);
 			}
 		}
-		log.error("EXIT");
 
 		return dtoList;
 	}

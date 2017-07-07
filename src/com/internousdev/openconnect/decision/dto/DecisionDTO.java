@@ -523,6 +523,8 @@ public class DecisionDTO {
 	public String getDecisionType() {
 		return decisionType;
 	}
+
+
 	/**
 	* 設定メソッド を設定
 	* @param decisionType
