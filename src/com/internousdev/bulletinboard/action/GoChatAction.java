@@ -16,12 +16,10 @@ import com.internousdev.bulletinboard.dto.StampTypeDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
-
-public class GoChatAction extends ActionSupport implements SessionAware{
-///ユーザー一覧またはグループ一覧から
-///ユーザーID,受取人ID,受け取り人名,または
-///ユーザーID,グループID,グループ名,を取得する。
+public class GoChatAction extends ActionSupport implements SessionAware {
+	/// ユーザー一覧またはグループ一覧から
+	/// ユーザーID,受取人ID,受け取り人名,または
+	/// ユーザーID,グループID,グループ名,を取得する。
 	/** シリアルID */
 	private static final long serialVersionUID = -7129551593360374656L;
 	/** * ユーザーID */
@@ -29,21 +27,21 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 	/** 受取人ID */
 	private int receiverId = 0;
 	/** 受取人名 */
-	private String receiverName="(・ω・）";
+	private String receiverName = "(・ω・）";
 	/** グループID */
 	private int groupId = 0;
 	/** グループ名 */
-	private String groupName="（・ω・）" ;
+	private String groupName = "（・ω・）";
 	/** 送信者名 */
 	private String senderName;
 	/** 送信者画像 */
 	private String senderImg;
 	/** 送信内容 */
-	private String postContents="";
+	private String body = "";
 	/** 添付画像 */
-	private String img="";
+	private String img = "";
 	/** 投稿日時 */
-	private String postAt ;
+	private String createdAt;
 	/** ポストリスト */
 	public ArrayList<MessageDTO> chat = new ArrayList<MessageDTO>();
 	/** ポストリスト */
@@ -53,21 +51,21 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 	/** スタンプ種類 */
 	public int count = 0;
 	/** 投稿件数 */
-	private int postCount=0;
+	private int msgCount = 0;
 	/** 通知リスト */
 	public ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
-	private Map<String,Object> session;
-
+	private Map<String, Object> session;
 
 	/**
-	 *チャット画面遷移時に、送信内容をセッションに追加するメソッド。
+	 * チャット画面遷移時に、送信内容をセッションに追加するメソッド。
 	 */
+	@Override
 	public String execute() {
 		String result = ERROR;
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
 		}
-		if(userId == 0){
+		if (userId == 0) {
 			return result;
 		}
 
@@ -77,9 +75,9 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 		System.out.println("groupId" + groupId);
 		System.out.println("groupName" + groupName);
 		if (receiverId == 0 && groupId == 0) {
-			receiverId = (int)session.get("receiverId");
+			receiverId = (int) session.get("receiverId");
 			receiverName = session.get("receiverName").toString();
-			groupId = (int)session.get("groupId");
+			groupId = (int) session.get("groupId");
 			groupName = session.get("groupName").toString();
 		} else {
 			session.put("receiverId", receiverId);
@@ -88,34 +86,30 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 			session.put("groupName", groupName);
 		}
 
-		//通知の確認
+		// 通知の確認
 		UserDAO msgDao = new UserDAO();
 		msgList = msgDao.msgSelect(userId);
 		msgDao.msgDelete(userId);
 
-		//チャット履歴取得
+		// チャット履歴取得
 		ChatDAO get = new ChatDAO();
-		chat = get.postGet(userId, receiverId, groupId);
+		chat = get.selectChat(userId, receiverId, groupId);
 
-		setPostCount(chat.size());
-		result=SUCCESS;
+		setMsgCount(chat.size());
+		result = SUCCESS;
 
-
-		GroupImgDAO groupdao=new GroupImgDAO();
-		groupImgList=groupdao.stampGet();
+		GroupImgDAO groupdao = new GroupImgDAO();
+		groupImgList = groupdao.stampGet();
 
 		ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
-		StampDAO stampdao =new StampDAO();
-		stampList=stampdao.stampGet(userId);
+		StampDAO stampdao = new StampDAO();
+		stampList = stampdao.stampGet(userId);
 
-
-		StampIndex stInd= new StampIndex();
-		stList=stInd.StampOrder(stampList);
-		count=stList.size();
-		System.out.println("postContents" + postContents);
-	return result;
+		StampIndex stInd = new StampIndex();
+		stList = stInd.StampOrder(stampList);
+		count = stList.size();
+		return result;
 	}
-
 
 	public int getUserId() {
 		return userId;
@@ -159,11 +153,11 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 	public void setSenderImg(String senderImg) {
 		this.senderImg = senderImg;
 	}
-	public String getPostContents() {
-		return postContents;
+	public String getBody() {
+		return body;
 	}
-	public void setPostContents(String postContents) {
-		this.postContents = postContents;
+	public void setBody(String body) {
+		this.body = body;
 	}
 	public String getImg() {
 		return img;
@@ -171,17 +165,17 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public String getPostAt() {
-		return postAt;
+	public String getCreatedAt() {
+		return createdAt;
 	}
-	public void setPostAt(String postAt) {
-		this.postAt = postAt;
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
 	}
-	public ArrayList<MessageDTO> getPostList() {
+	public ArrayList<MessageDTO> getChat() {
 		return chat;
 	}
-	public void setPostList(ArrayList<MessageDTO> postList) {
-		this.chat = postList;
+	public void setChat(ArrayList<MessageDTO> chat) {
+		this.chat = chat;
 	}
 	public ArrayList<StampDTO> getGroupImgList() {
 		return groupImgList;
@@ -201,11 +195,11 @@ public class GoChatAction extends ActionSupport implements SessionAware{
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public int getPostCount() {
-		return postCount;
+	public int getMsgCount() {
+		return msgCount;
 	}
-	public void setPostCount(int postCount) {
-		this.postCount = postCount;
+	public void setMsgCount(int msgCount) {
+		this.msgCount = msgCount;
 	}
 	public ArrayList<UserDTO> getMsgList() {
 		return msgList;

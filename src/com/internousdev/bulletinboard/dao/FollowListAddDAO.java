@@ -95,7 +95,7 @@ public class FollowListAddDAO {
 
 
 
-	//postテーブルに通知を送るメソッド
+	//messagesテーブルに通知を送るメソッド
 	public boolean insertString(int userId, int viewId){
 
 		int result=0;
@@ -104,7 +104,7 @@ public class FollowListAddDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
-	  String sql = "insert into post (receiver_id, sender_id, post_contents) values (?,?,?)";
+	  String sql = "insert into messages (receiver_id, sender_id, body) values (?,?,?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

@@ -258,13 +258,13 @@
           <h6 class="name_right"><s:property value="senderName" /></h6>
           <div style="float: right; position: absolute; right: 0px;">
             <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
-            <h6 class="timeArea" title="<s:property value="(postAt.substring(0,19))"/>"></h6>
+            <h6 class="timeArea" title="<s:property value="(createdAt.substring(0,19))"/>"></h6>
           </div>
           <s:if test="img.startsWith('pic/stamp')">
             <img class="stamp_right" src="<s:property value="img"/>">
           </s:if>
           <s:else>
-            <pre style="float: right; background-color: #9FF9FF; text-align: left; margin-right: 60px;"><s:property value="postContents" /></pre>
+            <pre style="float: right; background-color: #9FF9FF; text-align: left; margin-right: 60px;"><s:property value="body" /></pre>
           </s:else>
         </div>
         <div style="clear: both;"></div>
@@ -275,13 +275,13 @@
           <h6 class="name_left"><s:property value="senderName" /></h6>
           <div style="float: left; position: absolute;">
             <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
-            <h6 class="timeArea" title="<s:property value="(postAt.substring(0,19))"/>"></h6>
+            <h6 class="timeArea" title="<s:property value="(createdAt.substring(0,19))"/>"></h6>
           </div>
           <s:if test="img.startsWith('pic/stamp')">
             <img class="stamp_left" src="<s:property value="img"/>">
           </s:if>
           <s:else>
-            <pre style="float: left; margin-left: 60px;"><s:property value="postContents" /></pre>
+            <pre style="float: left; margin-left: 60px;"><s:property value="body" /></pre>
           </s:else>
           <s:if test="readFlg==0">
             <span style="color: red; position: absolute; top: -10px; left: 50px;" id="targ">new!</span>

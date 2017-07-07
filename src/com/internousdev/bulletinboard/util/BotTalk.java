@@ -18,7 +18,7 @@ public class BotTalk {
 	/**
 	 * もらった発言
 	 */
-	private String postContents;
+	private String body;
 	/**
 	 * 送り先のユーザーID
 	 */
@@ -27,12 +27,12 @@ public class BotTalk {
 	/**
 	 * 必要な情報を取得する
 	 * @param botId ボットのID（-1～）
-	 * @param postContents もらった発言
+	 * @param body もらった発言
 	 */
-	public BotTalk(int botId, int receiverId, String postContents){
+	public BotTalk(int botId, int receiverId, String body){
 		this.botId = botId;
 		this.receiverId = receiverId;
-		this.postContents = postContents;
+		this.body = body;
 	}
 
 
@@ -46,8 +46,8 @@ public class BotTalk {
 
 		//botのIDと、予期していない反応が来たときの対応を記入する
 		if(botId == -1){
-			ResponsiveTalk talk = new ResponsiveTalk(postContents);
-			if(postContents.matches(".*" + "タイムライン" + ".*")){
+			ResponsiveTalk talk = new ResponsiveTalk(body);
+			if(body.matches(".*" + "タイムライン" + ".*")){
 				result=talk.timelineAnalysis(receiverId); //タイムラインの分析を返す
 			}else{
 				result=talk.responseGenerate(); //学習をもとにした自動返信
@@ -121,7 +121,7 @@ public class BotTalk {
 		}
 		//検索
 		for(int i=0;i<responseList.size();i++){
-			if (postContents.matches(".*" + responseList.get(i).getWord() + ".*")) {
+			if (body.matches(".*" + responseList.get(i).getWord() + ".*")) {
 				//あったら反応を返す
 				result = responseList.get(i).getResponse();
 				if(result.matches(".*" + "特殊処理" + ".*")){
@@ -140,20 +140,20 @@ public class BotTalk {
 	/**
 	 * 返信するメソッド
 	 * @param receiverId
-	 * @param postContents
+	 * @param body
 	 * @return
 	 */
-	  public int botSet(int receiverId,String postContents){
+	  public int botSet(int receiverId,String body){
 		  int inserted = 0;
 		  Connection con = new MySqlConnector("openconnect").getConnection();
 
-		  String sql = "insert into post (sender_id,receiver_id,post_contents,img) values (?,?,?,'') ";
+		  String sql = "insert into messages (sender_id,receiver_id,body,img) values (?,?,?,'') ";
 		    try{
 		    	PreparedStatement ps = con.prepareStatement(sql);
 
 		    		ps.setInt(1, botId);
 		    		ps.setInt(2,receiverId);
-		    		ps.setString(3,postContents);
+		    		ps.setString(3,body);
 
 		    	inserted = ps.executeUpdate();
 
