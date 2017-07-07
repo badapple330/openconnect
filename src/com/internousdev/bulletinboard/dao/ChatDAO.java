@@ -22,9 +22,9 @@ public class ChatDAO {
 	 */
 	public ChatDAO(){
 	}
-	  public ArrayList<MessageDTO> postGet(int senderId, int receiverId, int groupId){
+	  public ArrayList<MessageDTO> selectChat(int senderId, int receiverId, int groupId){
 		    Connection con = new MySqlConnector("openconnect").getConnection();
-		    ArrayList<MessageDTO> postList = new ArrayList<MessageDTO>();
+		    ArrayList<MessageDTO> chat = new ArrayList<MessageDTO>();
 
 		    int k=0;
 		    String sql;
@@ -57,21 +57,21 @@ public class ChatDAO {
 		    	ResultSet rs = ps.executeQuery();
 		    	while(rs.next()){
 		    		MessageDTO dto = new MessageDTO();
-		    		dto.setPostId(rs.getInt("message_id")); //投稿ID
+		    		dto.setMessageId(rs.getInt("message_id")); //投稿ID
 		    		dto.setReceiverId(rs.getInt("receiver_id")); //受取人ID
 		    		dto.setSenderId(rs.getInt("sender_id")); //送信者ID
 		    		dto.setSenderName(rs.getString("user_name"));//送信者名
 		    		dto.setSenderImg(rs.getString("user_img"));//送信者画像
 		    		dto.setGroupId(rs.getInt("group_id"));
-		    		dto.setPostContents(rs.getString("body")); //送信内容
+		    		dto.setBody(rs.getString("body")); //送信内容
 		    		dto.setImg(rs.getString("img")); //添付画像
 		    		if((dto.getImg())==null){
 		    			dto.setImg("");
 		    		}
-		    		dto.setPostAt(rs.getString("created_at")); //投稿日時
+		    		dto.setCreatedAt(rs.getString("created_at")); //投稿日時
 
 		    		PreparedStatement ps2 = con.prepareStatement(sql2);
-		    		ps2.setInt(1,dto.getPostId());
+		    		ps2.setInt(1,dto.getMessageId());
 		    		ps2.setInt(2,senderId);
 		    		ResultSet rs2= ps2.executeQuery();
 		    		while (rs2.next()){
@@ -79,13 +79,13 @@ public class ChatDAO {
 		    		}
 		    		if(dto.getReadFlg()==0){//既読がついてない場合に既読をつける
 		    			PreparedStatement ps3 = con.prepareStatement(sql3);
-		    			ps3.setInt(1,dto.getPostId());
+		    			ps3.setInt(1,dto.getMessageId());
 		    			ps3.setInt(2,senderId);
 		    			ps3.executeUpdate();
 		    		}
 
 
-		    		postList.add(dto);
+		    		chat.add(dto);
 
 		    	}
 		    }catch(SQLException e){
@@ -97,7 +97,7 @@ public class ChatDAO {
 					e.printStackTrace();
 					}
 			}
-		     return postList;
+		     return chat;
 		  }
 
 

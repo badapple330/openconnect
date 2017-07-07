@@ -62,8 +62,8 @@ public class TalkListDAO {
 						    	ps4.setInt(4,dto.getReceiverId());
 						    	ResultSet rs4 = ps4.executeQuery();
 						    	while(rs4.next()){
-						    		dto.setPostContents(rs4.getString("body"));
-						    		dto.setPostAt(rs4.getString("created_at"));
+						    		dto.setBody(rs4.getString("body"));
+						    		dto.setCreatedAt(rs4.getString("created_at"));
 						    	}
 
 						    	PreparedStatement ps5 = con.prepareStatement(sql5);

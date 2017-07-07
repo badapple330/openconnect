@@ -43,8 +43,8 @@ public class GroupDAO {
 			    	ps2.setInt(1,dto.getGroupId());
 			    	ResultSet rs2 = ps2.executeQuery();
 			    	while(rs2.next()){
-			    		dto.setPostContents(rs2.getString("body"));
-			    		dto.setPostAt(rs2.getString("created_at"));
+			    		dto.setBody(rs2.getString("body"));
+			    		dto.setCreatedAt(rs2.getString("created_at"));
 			    	}
 			    	PreparedStatement ps3 = con2.prepareStatement(sql3);
 			    	ps3.setInt(1,dto.getGroupId());

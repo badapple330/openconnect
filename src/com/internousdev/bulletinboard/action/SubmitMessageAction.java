@@ -27,23 +27,24 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 	private String receiverName;
 	/** グループID */
 	private int groupId;
+	/** グループ名 */
+	private String groupName="（・ω・）" ;
 	/** 送信内容 */
-	private String postContents="";
+	private String body="";
 	/** 添付画像 */
 	private String url="";
 	/** 投稿日時 */
-	private String postAt ;
-	private Map<String,Object> session;
+	private String createdAt ;
 	/** ポストリスト */
 	public ArrayList<MessageDTO> chat = new ArrayList<MessageDTO>();
 	/** 投稿件数 */
-	private int postCount=0;
-	/** グループ名 */
-	private String groupName="（・ω・）" ;
+	private int msgCount=0;
+	private Map<String,Object> session;
 
 	/**
 	 *ユーザーのポストリストの生成メソッド
 	 */
+	@Override
 	public String execute() {
 		String result = ERROR;
 		if (session.containsKey("userId")) {
@@ -63,12 +64,12 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 
 
 		//送信内容がある場合に送信内容送信
-		if (!postContents.equals("")){
+		if (!body.equals("")){
 			ChatDAO chatDAO = new ChatDAO();
-			if(chatDAO.insertMessage(userId, receiverId, groupId, postContents, url) != 0){
+			if(chatDAO.insertMessage(userId, receiverId, groupId, body, url) != 0){
 				//botと話す場合の処理
 				if(receiverId < 0){
-					BotTalk bot = new BotTalk(receiverId,userId,postContents);
+					BotTalk bot = new BotTalk(receiverId,userId,body);
 					String response = bot.talkContents();
 					if(response != null){
 						bot.botSet(userId,response);
@@ -80,11 +81,11 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 			}
 		//スタンプだった場合にスタンプ送信
 		} else if(!url.equals("")) {
-			postContents="スタンプを投稿しました";
+			body="スタンプを投稿しました";
 			ChatDAO set = new ChatDAO();
-			if(set.insertMessage(userId, receiverId, groupId, postContents, url) != 0){
+			if(set.insertMessage(userId, receiverId, groupId, body, url) != 0){
 				if(receiverId < 0){
-					BotTalk bot = new BotTalk(receiverId,userId,postContents);
+					BotTalk bot = new BotTalk(receiverId,userId,body);
 					String response = bot.talkContents();
 					if(response != null){
 						bot.botSet(userId,response);
@@ -100,148 +101,82 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 		}
 		return result;
 	}
-
-
 	public int getUserId() {
 		return userId;
-	}
-	public int getReceiverId() {
-		return receiverId;
-	}
-	public int getGroupId() {
-		return groupId;
-	}
-	public String getPostContents() {
-		return postContents;
-	}
-	public String getUrl() {
-		return url;
-	}
-	public String getPostAt() {
-		return postAt;
-	}
-	public Map<String, Object> getSession() {
-		return session;
-	}
-	public ArrayList<MessageDTO> getPostList() {
-		return chat;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+	public String getSenderName() {
+		return senderName;
+	}
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
+	}
+	public String getSenderImg() {
+		return senderImg;
+	}
+	public void setSenderImg(String senderImg) {
+		this.senderImg = senderImg;
+	}
+	public int getReceiverId() {
+		return receiverId;
+	}
 	public void setReceiverId(int receiverId) {
 		this.receiverId = receiverId;
+	}
+	public String getReceiverName() {
+		return receiverName;
+	}
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
+	}
+	public int getGroupId() {
+		return groupId;
 	}
 	public void setGroupId(int groupId) {
 		this.groupId = groupId;
 	}
-	public void setPostContents(String postContents) {
-		this.postContents = postContents;
+	public String getGroupName() {
+		return groupName;
+	}
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
+	public String getBody() {
+		return body;
+	}
+	public void setBody(String body) {
+		this.body = body;
+	}
+	public String getUrl() {
+		return url;
 	}
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public void setPostAt(String postAt) {
-		this.postAt = postAt;
+	public String getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
+	public ArrayList<MessageDTO> getChat() {
+		return chat;
+	}
+	public void setChat(ArrayList<MessageDTO> chat) {
+		this.chat = chat;
+	}
+	public int getMsgCount() {
+		return msgCount;
+	}
+	public void setMsgCount(int msgCount) {
+		this.msgCount = msgCount;
+	}
+	public Map<String, Object> getSession() {
+		return session;
 	}
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-	public void setPostList(ArrayList<MessageDTO> postList) {
-		this.chat = postList;
-	}
-
-
-	/**
-	 * @return senderName
-	 */
-	public String getSenderName() {
-		return senderName;
-	}
-
-
-	/**
-	 * @return senderImg
-	 */
-	public String getSenderImg() {
-		return senderImg;
-	}
-
-
-	/**
-	 * @param senderName セットする senderName
-	 */
-	public void setSenderName(String senderName) {
-		this.senderName = senderName;
-	}
-
-
-	/**
-	 * @param senderImg セットする senderImg
-	 */
-	public void setSenderImg(String senderImg) {
-		this.senderImg = senderImg;
-	}
-
-
-	/**
-	 * @return postCount
-	 */
-	public int getPostCount() {
-		return postCount;
-	}
-
-
-	/**
-	 * @param postCount セットする postCount
-	 */
-	public void setPostCount(int postCount) {
-		this.postCount = postCount;
-	}
-
-
-
-
-	/**
-	 * @return groupName
-	 */
-	public String getGroupName() {
-		return groupName;
-	}
-
-
-	/**
-	 * @param groupName セットする groupName
-	 */
-	public void setGroupName(String groupName) {
-		this.groupName = groupName;
-	}
-
-
-
-
-	/**
-	 * @return receiverName
-	 */
-	public String getReceiverName() {
-		return receiverName;
-	}
-
-
-	/**
-	 * @param receiverName セットする receiverName
-	 */
-	public void setReceiverName(String receiverName) {
-		this.receiverName = receiverName;
-	}
-
-
-
-
-
-
-
-
-
-
 }

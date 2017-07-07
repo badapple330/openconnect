@@ -129,7 +129,7 @@ public class NotAttendanceDAO {
 	 * @param attendance
 	 * @return ret
 	 */
-	public int insert(int atYear, int atMonth, int atDay, String atDate, List<Integer> usersIdList, String attendance){
+	public int insert(int atYear, int atMonth, int atDay, ArrayList<AttendanceDTO> usersIdList, String attendance){
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con =db.getConnection();
 		int ret = 0;
@@ -142,17 +142,18 @@ public class NotAttendanceDAO {
 					Integer.toString(atYear),
 					Integer.toString(atMonth),
 					Integer.toString(atDay),
-					atDate,
 					Integer.toString(userId),
 					attendance
 					};
 			return "(" + String.join(",", array) +")";
 		};
-		for (int userId : usersIdList){
+
+		//(2017,7,7,userId,'連絡なし')
+		for (AttendanceDTO userId : usersIdList){
 			if (!valueState.equals("")){
 				valueState += ",";
 			}
-			valueState += gen_stateExpr.apply(userId);
+			valueState += gen_stateExpr.apply(userId.getUserId());
 		}
 		/* valueStateに値が入っているとき */
 		if(!((valueState).equals(""))){
