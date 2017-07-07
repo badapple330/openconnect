@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.UserImgDAO;
+import com.internousdev.bulletinboard.dao.ImgChangeDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -38,7 +38,7 @@ public class UserImgUpdateAction extends ActionSupport implements SessionAware{
 			if(userId==0){return result;}
 
 
-				UserImgDAO set = new UserImgDAO();
+				ImgChangeDAO set = new ImgChangeDAO();
 				if(0<set.setUserImg(userId,url)){
 					result=SUCCESS;
 				}

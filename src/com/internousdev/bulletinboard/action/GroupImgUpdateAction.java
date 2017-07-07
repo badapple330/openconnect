@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.GroupImgDAO;
+import com.internousdev.bulletinboard.dao.ImgChangeDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -49,13 +49,15 @@ public class GroupImgUpdateAction extends ActionSupport implements SessionAware{
 		if(userId==0){return result;}
 
 
-			GroupImgDAO set = new GroupImgDAO();
+			ImgChangeDAO set = new ImgChangeDAO();
 			if(0<set.setGroupImg(groupId,url)){
 				result=SUCCESS;
 			}
 
 		return result;
 	}
+	
+	
 
 
 
