@@ -37,6 +37,8 @@
 						<th>決済ID</th>
 						<th>プロジェクト名</th>
 						<th>決済の種類</th>
+						<th>実施決済プレビュー</th>
+						<th>契約決済プレビュー</th>
 					</tr>
 				</thead>
 
@@ -46,6 +48,10 @@
 							<td><s:property value="projectId" /></td>
 							<td><s:property value="projectName" /></td>
 							<td><s:property value="decisionType" /></td>
+							<td><input type="hidden" name="decisionId"
+								value="<s:property value="decisionId" />"> <input
+								type="hidden" name="type" value="1">
+								<button class="btn btn-default" type="submit">Preview</button></td>
 						</tr>
 					</s:iterator>
 				</tbody>

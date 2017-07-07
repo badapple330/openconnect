@@ -31,6 +31,11 @@ public class DecisionArchiveAction extends ActionSupport {
 	private String projectName;
 
 	/**
+	 * 決済ID
+	 */
+	private int decisionId;
+
+	/**
 	 * 決済種類
 	 */
 	private String decisionType;
@@ -45,13 +50,17 @@ public class DecisionArchiveAction extends ActionSupport {
 	 */
 	private String resultString = "失敗";
 
+	/**
+	 * 実施/契約/実施兼契約を判断するタイプ
+	 */
+	private int type;
 
 	public String execute() {
 
 		String result=ERROR;
 		DecisionArchiveDAO dao = new DecisionArchiveDAO();
 
-		archiveList = dao.archive(projectId, projectName, decisionType);
+		archiveList = dao.archive(projectId, projectName, decisionId, decisionType, type);
 		if(archiveList.size() > 0){
 			result=SUCCESS;
 			resultString="成功";
@@ -93,6 +102,23 @@ public class DecisionArchiveAction extends ActionSupport {
 	*/
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return decisionId
+	*/
+	public int getDecisionId() {
+		return decisionId;
+	}
+
+	/**
+	* 設定メソッド を設定
+	* @param decisionId
+	*/
+	public void setDecisionId(int decisionId) {
+		this.decisionId = decisionId;
 	}
 
 
@@ -145,6 +171,25 @@ public class DecisionArchiveAction extends ActionSupport {
 	*/
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
+	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return type
+	*/
+	public int getType() {
+		return type;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param type
+	*/
+	public void setType(int type) {
+		this.type = type;
 	}
 
 

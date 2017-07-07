@@ -13,20 +13,27 @@ import com.internousdev.openconnect.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
 
 /**
+ * 完了済み決済画面に表示したい内容を、DBから取り出しDTOへ転送する為のクラス
  * @author ShouheiKato
- * @since 2017/07/03
+ * @since 2017/06/30
  *
  */
 public class DecisionArchiveDAO {
 
-	ArrayList<DecisionDTO> archiveList =new ArrayList<DecisionDTO>();
+	/**
+	 * 検索結果情報をリスト化して抽出し、DTOに格納する
+	 */
+	public ArrayList<DecisionDTO> archiveList =new ArrayList<DecisionDTO>();
 
-	public ArrayList<DecisionDTO> archive(int projectId, String projectName, String decisionType) {
+	/**
+	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+	 */
+	public ArrayList<DecisionDTO> archive(int projectId, String projectName,int decisionId, String decisionType, int type) {
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
-		String sql ="select projects.project_id, projects.project_name, decision.decision_type from projects"
+		String sql ="select projects.project_id, projects.project_name, decision.decision_id, decision.decision_type from projects"
 				+ " left outer join decision on projects.project_id = decision.decision_id";
 
 		try {
@@ -39,7 +46,9 @@ public class DecisionArchiveDAO {
 				DecisionDTO dto = new DecisionDTO();
 				dto.setProjectId(rs.getInt("project_id"));
 				dto.setProjectName(rs.getString("project_name"));
+				dto.setDecisionId(rs.getInt("decision_id"));
 				dto.setDecisionType(rs.getString("decision_type"));
+				dto.setType(type);
 
 				archiveList.add(dto);
 			}
