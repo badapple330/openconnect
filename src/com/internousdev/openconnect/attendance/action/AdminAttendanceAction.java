@@ -67,6 +67,10 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	 * 早退数
 	 */
 	private int early = 0;
+	/**
+	 * 連絡なし数
+	 */
+	private int noContact = 0;
 
 	/**
 	 * ユーザーID
@@ -114,8 +118,11 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 				late = late + 1;
 			} else if(attend.equals("早退")){
 				early = early + 1;
+			} else if(attend.equals("連絡なし")){
+				noContact = noContact + 1;
 			}
 		}
+
 		if(searchList.size() > 0){
 			result=SUCCESS;
 		}else{this.errorMsg="*入力に間違いがあるか報告がありません";}
@@ -477,6 +484,26 @@ public class AdminAttendanceAction extends ActionSupport implements SessionAware
 	*/
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+
+
+	/**
+	* 取得メソッド を取得
+	* @return noContact
+	*/
+	public int getNoContact() {
+		return noContact;
+	}
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param noContact
+	*/
+	public void setNoContact(int noContact) {
+		this.noContact = noContact;
 	}
 
 
