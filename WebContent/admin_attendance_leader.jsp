@@ -76,6 +76,7 @@
 									<option value="='欠席'">欠席</option>
 									<option value="='遅刻'">遅刻</option>
 									<option value="='早退'">早退</option>
+									<option value="='連絡なし'">連絡なし</option>
 									<option value=" in ('欠席','遅刻','早退')">出席以外</option>
 							</select></td>
 						</tr>
