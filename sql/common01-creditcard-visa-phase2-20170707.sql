@@ -111,7 +111,7 @@ create table admins(
 admin_id int primary key comment '管理者ログインID',
 admin_name_e varchar(100) not null comment '管理者名',
 admin_password  varchar(20) not null comment '管理者パスワード',
-admin_phone_email varchar(100) not null comment '管理者Eメールアドレス'
+admin_phone_email varchar(200) not null comment '管理者Eメールアドレス'
 );
 
 
@@ -156,13 +156,20 @@ insert into user_history(login_id,name_e,corporation_name,use_day,division,split
 
 
 insert into user_history(login_id,name_e,corporation_name,use_day,payment_day,spend,payment)values
-('1','testuser','試験用紙100枚','2016-01-27','2016-02-27','100000','100000'),
-('2','internous01','資材','2016-01-27','2016-02-27','130000','130000'),
-('3','internous01','アクオス32型TV','2016-01-27','2016-02-27','32000','32000'),)
-('4','leader11','大漁旗','2016-01-27','2016-02-27','160000','160000'),
-('3','internous01','internouscompany','2016-01-27','2016-02-27','678000000','678000000'),
-('8','sunakawa minori','インターノウス','2016-01-27','2016-02-27','10000','10000'),
-('14','toshiie maeda','金沢城','2016-07-03','2016-09-15','12700000','12700000');
+('1','testuser','bulackcompany','2016-01-27','2016-02-27','100000','100000'),
+('2','inoue takuma','bulackcompany','2016-01-27','2016-02-27','130000','130000'),
+('3','harada miyuki','bulackcompany','2016-01-27','2016-02-27','32000','32000'),
+('4','testleader1','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
+('5','testleader2','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
+('6','nitabaru kouhei','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
+('7','ito tathuhumi','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
+('8','sunakawa minori','bulackcompany','2016-01-27','2016-02-27','10000','10000'),
+('9','keduka masahiro','黒色グループ','2016-01-27','2016-02-27','710000','710000'),
+('10','horiguchi kenichi','暗井洞建設','2016-01-27','2016-02-27','6710000','6710000'),
+('11','kiryu yuichi','手招世界警備','2016-01-27','2016-02-27','90000','90000'),
+('12','hoshi tathuya','痛井歯科','2016-01-27','2016-02-27','5600','5600'),
+('13','iwamoto komei','底野企業','2016-01-27','2016-02-27','65600','65600'),
+('14','toshiie maeda','金沢城保守企業','2016-07-03','2016-09-15','12700000','12700000');
 
 /**
  * クレジットカード情報
@@ -189,13 +196,13 @@ insert into corporation(login_id,password,corporation_name,postal,address,capita
 ("jirou","ueda","株式会社どんとこい","1130034","東京都文京区湯島3-2-12","50000000","jirou","ueda","uedajirou@gnail.com","0311112222","800","50",null,'承認',20160617,20160617,false);
 
 insert into admins(admin_id,admin_password,admin_name_e,admin_phone_email)values
-('1','internous01','takuma inoue','takuma.inoue@gmail.com'),
-('2','internous01','akira kazami'),
-('3','test.user','ak-47'),
-('4','test.user','black'),
-('5','test.user','type10tank'),
-('6','nihonnoyoakezeyo?','ryouma sakamoto'),
-('7','tenkahubu','nobunaga oda');
+('1','internous01','takuma.inoue','takuma.inoue@gmail.com'),
+('2','internous01','akira.kazami','takuma.kazami@gmail.com'),
+('3','testuser','kubi','kubin@gmail.com'),
+('4','testuser','sora','howait@gmail.com'),
+('5','testuser','type10tank','tankatack@gmail.com'),
+('6','nihonnoyoakezeyo?','ryouma sakamoto','isin@gmail.com'),
+('7','tenkahubu','nobunaga.oda','toworld@gmail.com');
 
 
 
