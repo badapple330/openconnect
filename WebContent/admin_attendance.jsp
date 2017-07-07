@@ -99,7 +99,7 @@
 						</select>
 
 						<div class="container">
-							<span>　　姓：</span> <input type="text" class="form1"
+							<span>　　姓：</span> <input type="text" class="form2"
 								name="familyNameKanji" id="familyForm" placeholder="名字"
 								title="名字" />
 						</div>
