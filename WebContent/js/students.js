@@ -79,6 +79,9 @@ $(function(){
 		$('.updateFamilyNameKana').html( $('.familyNameKana').eq(index).val() );
 		$('.updateGivenNameKana').html( $('.givenNameKana').eq(index).val() );
 		$('.updateteamName').html( $('.teamName').eq(index).val() );
+		$('.updateUserFlg').html( $('[name=userFlg] option:selected').eq(index).text() );
+
+
 
 
 
