@@ -1,6 +1,6 @@
 package com.internousdev.bulletinboard.dto;
 
-public class GoodDTO {
+public class LikeDTO {
 
 
 	/**

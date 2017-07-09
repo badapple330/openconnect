@@ -6,8 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.bulletinboard.dto.GoodDTO;
-import com.internousdev.bulletinboard.util.DBConnector;
+import com.internousdev.bulletinboard.dto.LikeDTO;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
@@ -17,7 +16,7 @@ import com.internousdev.util.db.mysql.MySqlConnector;
  * @version 1.0
  *
  */
-public class GoodDAO {
+public class LikeDAO {
 
 /**
  * 	ユーザIDとタイムラインIDから、その人がすでにいいねをしているか
@@ -26,19 +25,19 @@ public class GoodDAO {
  * @param postId
  * @return
  */
-	public boolean isGood(int userId,int postId){
+	public boolean isLiked(int userId,int postId){
 	    Connection con = new MySqlConnector("openconnect").getConnection();
-	    ArrayList<GoodDTO> list=new ArrayList<GoodDTO>();
+	    ArrayList<LikeDTO> list=new ArrayList<LikeDTO>();
 	    boolean is =false;
-	    String sql="select * from good where user_id=? and post_id=?";
+	    String sql="select * from likes where user_id = ? and post_id = ?";
 
 	    try{
 	    	PreparedStatement ps = con.prepareStatement(sql);
-	    		ps.setInt(1,userId);
-	    		ps.setInt(2,postId);
+	    		ps.setInt(1, userId);
+	    		ps.setInt(2, postId);
 	    	ResultSet rs = ps.executeQuery();
 	    	while(rs.next()){
-	    		GoodDTO dto = new GoodDTO();
+	    		LikeDTO dto = new LikeDTO();
 	    		dto.setUserId(rs.getInt("user_id")); //ユーザーID
 	    		dto.setPostId(rs.getInt("post_id")); //タイムラインID;
 	    		list.add(dto);
@@ -56,18 +55,17 @@ public class GoodDAO {
 	     return is;
 	  }
 
-	public int goodSet(int userId,int postId){
-	    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-	    Connection con = db.getConnection();
+	public int insertLike(int userId,int postId){
+	    Connection con = new MySqlConnector("openconnect").getConnection();
 
-	    int inserted=0;
-	    String sql = "insert into good (user_id,post_id) values (?,?)";
+	    int inserted = 0;
+	    String sql = "insert into likes (user_id, post_id) values (?, ?)";
 
 
 	    try{
 	    	PreparedStatement ps = con.prepareStatement(sql);
-	    		ps.setInt(1,userId);
-	    		ps.setInt(2,postId);
+	    		ps.setInt(1, userId);
+	    		ps.setInt(2, postId);
 	    	inserted= ps.executeUpdate();
 	    }catch(SQLException e){
 	    	e.printStackTrace();

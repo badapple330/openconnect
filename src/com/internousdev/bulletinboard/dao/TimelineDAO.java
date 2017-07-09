@@ -28,83 +28,100 @@ public class TimelineDAO {
 	public ArrayList<PostDTO> selectTimeline() {
 		Connection con = new MySqlConnector("openconnect").getConnection();
 		ArrayList<PostDTO> timeline = new ArrayList<PostDTO>();
-		int senderId;
 
-		String sql = "select done from follow where do = ?";
-		String sql2 = "select * from posts join users on posts.sender_id = users.user_id where sender_id=? order by post_id desc";
-		String sql3 = "select * from posts join users on posts.sender_id = users.user_id where post_id = ?";
 
+		String sql = ""
+				+"SELECT p.*, re_sender_id, re_user_name, re_user_img, re_text, re_created_at FROM("
+				+	"SELECT post_id, sender_id, user_name, user_img, text, like_count, created_at, re_post_id FROM ("
+				+		"SELECT post_id, sender_id, text, like_count, created_at, re_post_id FROM posts "
+				+		"WHERE sender_id IN ("
+				+			"SELECT * FROM ("
+				+				"SELECT user_id AS done FROM users WHERE user_id = ?"
+				+			") AS id UNION ("
+				+				"SELECT done FROM follow WHERE do = ?"
+				+			")"
+				+		")"
+				+	") AS p "
+				+	"INNER JOIN ( "
+				+		"SELECT user_id, user_name, user_img FROM users "
+				+		"WHERE user_id IN ("
+				+			"SELECT * FROM ("
+				+				"SELECT user_id AS done FROM users WHERE user_id = ?"
+				+			") AS id UNION ("
+				+				"SELECT done FROM follow WHERE do = ?"
+				+			")"
+				+		")"
+				+	") AS u "
+				+	"ON p.sender_id = u.user_id"
+				+") AS p "
+				+"LEFT JOIN ("
+				+	"SELECT post_id, sender_id AS re_sender_id, user_name AS re_user_name, "
+				+	"user_img AS re_user_img, text AS re_text, created_at AS re_created_at FROM ("
+				+		"SELECT post_id, sender_id, text, created_at FROM posts "
+				+		"WHERE post_id IN ("
+				+			"SELECT re_post_id FROM posts WHERE sender_id IN("
+				+				"SELECT * FROM ("
+				+					"SELECT user_id AS done FROM users WHERE user_id = ?"
+				+				") AS id UNION ("
+				+					"SELECT done FROM follow WHERE do = ?"
+				+				")"
+				+			")"
+				+		")"
+				+	") AS p "
+				+	"INNER JOIN ("
+				+		"SELECT user_id, user_name, user_img FROM users "
+				+		"WHERE user_id IN ("
+				+			"SELECT sender_id FROM posts WHERE post_id IN ("
+				+				"SELECT re_post_id FROM posts WHERE sender_id IN("
+				+					"SELECT * FROM ("
+				+						"SELECT user_id AS done FROM users WHERE user_id = ?"
+				+					") AS id UNION ("
+				+						"SELECT done FROM follow WHERE do = ?"
+				+					")"
+				+				")"
+				+			")"
+				+		")"
+				+	") AS u "
+				+	"ON p.sender_id = u.user_id "
+				+") AS r "
+				+"ON p.re_post_id = r.post_id "
+				+"ORDER BY p.post_id DESC";
+
+		System.out.println(sql);
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, userId);
+			ps.setInt(2, userId);
+			ps.setInt(3, userId);
+			ps.setInt(4, userId);
+			ps.setInt(5, userId);
+			ps.setInt(6, userId);
+			ps.setInt(7, userId);
+			ps.setInt(8, userId);
 
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				senderId = rs.getInt("done"); // フォローしてる人のID
-
-				PreparedStatement ps2 = con.prepareStatement(sql2);
-				ps2.setInt(1, senderId);
-				GoodDAO good = new GoodDAO();
-				ResultSet rs2 = ps2.executeQuery();
-				while (rs2.next()) {
-					PostDTO dto = new PostDTO();
-					dto.setPostId(rs2.getInt("post_id")); // タイムラインID
-					dto.setSenderId(rs2.getInt("sender_id")); // 送信者ID
-					dto.setText(rs2.getString("text")); // 送信内容
-					dto.setImg(rs2.getString("img")); // 添付画像
-					dto.setCreatedAt(rs2.getString("created_at"));// 送信日時
-					dto.setUserName(rs2.getString("user_name")); // 名前
-					dto.setUserImg(rs2.getString("user_img")); // 写真
-					dto.setPoint(rs2.getInt("good")); // ポイント
-					dto.setGoodFlg(good.isGood(userId, rs2.getInt("post_id")));// グッドふらぐ
-					dto.setRePostId(rs2.getInt("re_post_id")); // 返信先のタイムラインID
-					if (dto.getRePostId() != 0) {
-						PreparedStatement ps3 = con.prepareStatement(sql3);
-						ps3.setInt(1, dto.getRePostId());
-						ResultSet rs3 = ps3.executeQuery();
-						while (rs3.next()) {
-							dto.setReUserId(rs3.getInt("user_id")); // 返信先のユーザーID
-							dto.setReUserName(rs3.getString("user_name")); // 返信先のユーザー名
-							dto.setReText(rs3.getString("text")); // 返信先の送信内容
-							dto.setReCreatedAt(rs3.getString("created_at")); // 返信先の送信日時
-							dto.setReImg(rs3.getString("user_img"));
-						}
-					}
-					timeline.add(dto);
-				}
-			}
-			PreparedStatement ps2 = con.prepareStatement(sql2);
-			ps2.setInt(1, userId);
-			GoodDAO good = new GoodDAO();
-			ResultSet rs2 = ps2.executeQuery();
-			while (rs2.next()) {
+				LikeDAO like = new LikeDAO();
 				PostDTO dto = new PostDTO();
-				dto.setPostId(rs2.getInt("post_id")); // タイムラインID
-				dto.setSenderId(rs2.getInt("sender_id")); // 送信者ID
-				dto.setText(rs2.getString("text")); // 送信内容
-				dto.setImg(rs2.getString("img")); // 添付画像
-				dto.setCreatedAt(rs2.getString("created_at"));// 送信日時
-				dto.setUserName(rs2.getString("user_name")); // 名前
-				dto.setUserImg(rs2.getString("user_img")); // 写真
-				dto.setPoint(rs2.getInt("good")); // ポイント
-				dto.setGoodFlg(good.isGood(userId, rs2.getInt("post_id")));// グッドふらぐ
-				dto.setRePostId(rs2.getInt("re_post_id")); // 返信先のタイムラインID
+				dto.setPostId(rs.getInt("post_id")); // タイムラインID
+				dto.setSenderId(rs.getInt("sender_id")); // 送信者ID
+				dto.setText(rs.getString("text")); // 送信内容
+//				dto.setImg(rs.getString("img")); // 添付画像
+				dto.setCreatedAt(rs.getString("created_at"));// 送信日時
+				dto.setUserName(rs.getString("user_name")); // 名前
+				dto.setUserImg(rs.getString("user_img")); // 写真
+				dto.setLikeCount(rs.getInt("like_count")); // ポイント
+				dto.setIsLiked(like.isLiked(userId, dto.getPostId()));// グッドふらぐ
+				dto.setRePostId(rs.getInt("re_post_id")); // 返信先のタイムラインID
 				if (dto.getRePostId() != 0) {
-					PreparedStatement ps3 = con.prepareStatement(sql3);
-					ps3.setInt(1, dto.getRePostId());
-					ResultSet rs3 = ps3.executeQuery();
-					while (rs3.next()) {
-						dto.setReUserId(rs3.getInt("user_id")); // 返信先のユーザーID
-						dto.setReUserName(rs3.getString("user_name")); // 返信先のユーザー名
-						dto.setReText(rs3.getString("text")); // 返信先の送信内容
-						dto.setReCreatedAt(rs3.getString("created_at")); // 返信先の送信日時
-						dto.setReImg(rs3.getString("user_img"));
-					}
+					dto.setReUserId(rs.getInt("re_sender_id")); // 返信先のユーザーID
+					dto.setReUserName(rs.getString("re_user_name")); // 返信先のユーザー名
+					dto.setReImg(rs.getString("re_user_img"));
+					dto.setReText(rs.getString("re_text")); // 返信先の送信内容
+					dto.setReCreatedAt(rs.getString("re_created_at")); // 返信先の送信日時
 				}
-
 				timeline.add(dto);
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -226,11 +243,11 @@ public class TimelineDAO {
 	 * @param postId
 	 * @return
 	 */
-	public int goodDelete(int postId) {
+	public int deleteLike(int postId) {
 		int deleted = 0;
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "delete from good where post_id=?";
+		String sql = "delete from like_count where post_id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

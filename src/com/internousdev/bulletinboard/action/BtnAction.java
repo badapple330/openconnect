@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.BtnDAO;
-import com.internousdev.bulletinboard.dao.GoodDAO;
+import com.internousdev.bulletinboard.dao.LikeDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BtnAction extends ActionSupport implements SessionAware {
@@ -22,7 +22,7 @@ public class BtnAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	public String execute() {
-		GoodDAO good = new GoodDAO();
+		LikeDAO like = new LikeDAO();
 		String result = ERROR;
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
@@ -32,10 +32,10 @@ public class BtnAction extends ActionSupport implements SessionAware {
 		}
 
 		if (btn_flg == 1) {
-			if (!(good.isGood(userId, postId))) {
+			if (!(like.isLiked(userId, postId))) {
 				BtnDAO dao2 = new BtnDAO();
 				dao2.pointPlus(senderId, postId);
-				good.goodSet(userId, postId);
+				like.insertLike(userId, postId);
 				result = SUCCESS;
 			}
 		}

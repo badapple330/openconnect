@@ -15,7 +15,7 @@ public class DeletePostAction extends ActionSupport implements SessionAware{
 
 	/** タイムラインID */
 	private int postId;
-	
+
 	/** セッション */
 	private Map<String,Object> session;
 
@@ -26,7 +26,7 @@ public class DeletePostAction extends ActionSupport implements SessionAware{
 			userId = (int) session.get("userId");
 		}
 		if(userId==0){return result;}
-		dao.goodDelete(postId);
+		dao.deleteLike(postId);
 		if(dao.deletePost(postId) != 0){
 			UserDAO msgDao = new UserDAO();
 			msgDao.msgSet(userId, "ツイートを削除しました");

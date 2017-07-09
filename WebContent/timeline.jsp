@@ -117,7 +117,7 @@
           </div>
           <div class="btn-area">
             <div style="text-align:right">
-              <img src="pic/q.png" width= "13" height="13">x<s:property value="point"/>
+              <img src="pic/q.png" width= "13" height="13">x<s:property value="likeCount"/>
             </div>
           </div>
 
@@ -232,20 +232,20 @@
         <div class="btn-area">
         <!-- いいね後 -->
           <div style="text-align:right">
-            <s:if test="goodFlg"><button type="button" class="good"></button><img src="pic/q.png" width= "20" height="20">
+            <s:if test="isLiked"><button type="button" class="like"></button><img src="pic/q.png" width= "20" height="20">
             </s:if>
           </div>
         <!-- いいね前 -->
           <s:else>
             <s:form action="BtnAction"><s:hidden name="userId" value="%{userId}"/><s:hidden name="senderId" value="%{senderId}"/><s:hidden name="postId" value="%{postId}"/><s:hidden name="btn_flg" value="1"/>
               <div style="text-align:right">
-                <button type="button" onClick="submit()" class="good"><img src="pic/fff.png" width= "20" height="20"></button>
+                <button type="button" onClick="submit()" class="like"><img src="pic/fff.png" width= "20" height="20"></button>
               </div>
             </s:form>
           </s:else>
 
           <div style="text-align:right">
-            <img src="pic/q.png" width= "13" height="13">x<s:property value="point"/>
+            <img src="pic/q.png" width= "13" height="13">x<s:property value="likeCount"/>
           </div>
         </div>
 

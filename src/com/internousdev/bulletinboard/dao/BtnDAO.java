@@ -16,16 +16,16 @@ public class BtnDAO {
 		int inserted2=0;
 
 		String sql = "update users set point = point+100 where user_id = ?";
-		String sql2 ="update posts set good = good+1 where post_id = ?";
+		String sql2 ="update posts set like_count = like_count+1 where post_id = ?";
 
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
 			ps.setInt(1,senderId);
-			inserted=ps.executeUpdate();
+			inserted = ps.executeUpdate();
 
 			PreparedStatement ps2= con.prepareStatement(sql2);
 			ps2.setInt(1,postId);
-			inserted2=ps2.executeUpdate();
+			inserted2 = ps2.executeUpdate();
 
 			ps2.close();
 		}catch(SQLException e){

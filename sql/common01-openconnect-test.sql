@@ -363,14 +363,12 @@ comment = 'ユーザー情報格納テーブル';
 
 
 
-/* 以下、SNSサイトのDB
- **************************/
+/* 以下、SNSサイトのテーブル */
 
 
 
 
-/* グループマスター情報
- **************************/
+/* グループマスター情報 */
 create table group_master(
 group_id int not null primary key auto_increment comment 'グループID',
 group_name varchar(50) not null comment 'グループ名',
@@ -378,8 +376,7 @@ group_img varchar(50) default "pic/group_img/papurika01.jpg" comment 'グルー�
 created_at datetime not null  default current_timestamp comment '作成日'
 );
 
-/* 投稿情報
- **************************/
+/* チャット投稿情報 */
 create table messages(
 message_id int not null primary key auto_increment comment '投稿ID',
 receiver_id int comment  '受取人ID',
@@ -393,19 +390,19 @@ foreign key(sender_id) references users(user_id),
 foreign key(group_id) references group_master(group_id)
 );
 
-/* タイムライン投稿情報
- **************************/
+/* タイムライン投稿情報 */
 create table posts(
 post_id int not null primary key auto_increment comment 'ポストID',
 sender_id varchar(50) not null comment '送信者ID',
 text varchar(255) not null comment '送信内容',
 img varchar(50) comment '添付画像',
-is_reply boolean default false comment 'リプライかどうか',
+is_reply boolean default false comment 'このポストがリプライかどうか',
 created_at timestamp not null default current_timestamp comment '送信日時',
 re_post_id int comment '返信する場合の、返信先のポストID',
-good int not null default 0 comment 'いいね'
+like_count int not null default 0 comment 'いいね',
+index(sender_id)
 );
-
+/* リプライ情報(入れ子区間モデルの試験導入 by adachi) */
 create table replys(
 post_id int not null comment 'ポストID',
 root_post_id int not null comment '大元の投稿のポストID（＠がついてないもの）',
@@ -415,20 +412,17 @@ foreign key(post_id) references posts(post_id),
 foreign key(root_post_id) references posts(post_id)
 );
 
-/* タイムライン情報
- **************************/
+/* タイムライン情報 */
 create table timeline(
-post_id int not null comment 'タイムラインID',
+post_id int not null comment 'ポストID',
 sender_id int not null comment '送信者ID',
 follower_id int comment 'フォロワーID',
 foreign key(sender_id) references users(user_id),
 foreign key(follower_id) references users(user_id),
 foreign key(post_id) references posts(post_id)
-
 );
 
-/* グループ情報
- **************************/
+/* グループ情報 */
 create table groups(
 user_id int not null comment 'ユーザーID',
 group_id int not null comment 'グループID',
@@ -436,26 +430,25 @@ foreign key(user_id) references users(user_id),
 foreign key(group_id) references group_master(group_id)
 );
 
-/* フォロー情報
- **************************/
+/* フォロー情報 */
 create table follow(
 do int not null comment 'する側ID',
 done int not null comment 'される側ID',
 foreign key(do) references users(user_id),
-foreign key(done) references users(user_id)
+foreign key(done) references users(user_id),
+index(do),
+index(done)
 );
 
-/* いいね情報
- **************************/
-create table good(
+/* いいね情報 */
+create table likes(
 user_id int not null comment 'ユーザーID',
-post_id int not null comment 'タイムラインID',
+post_id int not null comment 'ポストID',
 foreign key(user_id) references users(user_id),
 foreign key(post_id) references posts(post_id)
 );
 
-/* チャット既読情報
- **************************/
+/* チャット既読情報 */
 create table read_flg(
 message_id int not null comment'投稿ID',
 user_id int not null comment 'ユーザーID',
@@ -464,8 +457,7 @@ foreign key(message_id) references messages(message_id)
 );
 
 
-/* 通知情報
- **************************/
+/* 通知情報 */
 create table message(
 user_id int not null comment 'ユーザーID',
 msg varchar(255) not null comment'通知文',
@@ -475,8 +467,7 @@ foreign key(user_id) references users(user_id)
 );
 
 
-/* スタンプ情報
- **************************/
+/* スタンプ情報 */
 create table stamp(
 stamp_id int not null primary key auto_increment comment 'スタンプID',
 type_id int not null comment '種別ID',
@@ -485,19 +476,18 @@ url varchar(255) not null
 );
 
 
-/*グループ画像
- ****************************/
+/* グループ画像 */
 create table group_img(
 img_id int not null primary key auto_increment comment '画像ID',
 url varchar(255) not null
 );
 
-/*ユーザー画像
- ****************************/
+/* ユーザー画像 */
 create table user_img(
 img_id int not null primary key auto_increment comment '画像ID',
 url varchar(255) not null
 );
+
 
 
 
