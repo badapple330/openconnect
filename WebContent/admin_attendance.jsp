@@ -237,6 +237,7 @@
 										<option class="atslc" value="欠席">欠席</option>
 										<option class="atslc" value="遅刻">遅刻</option>
 										<option class="atslc" value="早退">早退</option>
+										<option class="atslc" value="連絡なし">連絡なし</option>
 
 								</select></td>
 							</tr>
