@@ -40,17 +40,17 @@
 						<tr>
 							<th>チーム名：</th>
 
-							<s:if test = "getAllTeamNames().equals('')">
-								<td>
-								<input type="radio" name="teamName" value=<s:property value="teamName"/> checked="checked"><s:property value="teamName"/>
-								</td>
+							<s:if test="getAllTeamNames().equals('')">
+								<td><input type="radio" name="teamName"
+									value=<s:property value="teamName"/> checked="checked">
+								<s:property value="teamName" /></td>
 							</s:if>
 							<s:else>
-							<s:iterator value="allTeamNames">
-							<td>
-								<input type="radio" name="teamName" value=<s:property/> checked="checked"><s:property/>
-							</td>
-							</s:iterator>
+								<s:iterator value="allTeamNames">
+									<td><input type="radio" name="teamName"
+										value=<s:property/> checked="checked">
+									<s:property /></td>
+								</s:iterator>
 							</s:else>
 
 						</tr>
@@ -59,14 +59,14 @@
 							<!-- 表示用の日時 -->
 						<tr>
 							<!-- 表示用の日時 -->
-							<th>日 時 ：</th>
-							<td class="ymd"></td>
+							<th>　 日 時：</th>
+							<td class="ymd" style="white-space: nowrap;"></td>
 						</tr>
-<!-- 						<tr> -->
-<!-- 							<th>チーム名：</th> -->
-<!-- 							<td> <input type="text" class="form2" name="teamName" -->
-<!-- 							placeholder="チーム名" id="teamForm" title="チーム名" /></td> -->
-<!-- 						</tr> -->
+						<!-- 						<tr> -->
+						<!-- 							<th>チーム名：</th> -->
+						<!-- 							<td> <input type="text" class="form2" name="teamName" -->
+						<!-- 							placeholder="チーム名" id="teamForm" title="チーム名" /></td> -->
+						<!-- 						</tr> -->
 						<tr>
 						<tr id="tr_type">
 							<th>出欠確認：</th>
@@ -77,7 +77,7 @@
 									<option value="='遅刻'">遅刻</option>
 									<option value="='早退'">早退</option>
 									<option value="='連絡なし'">連絡なし</option>
-									<option value=" in ('欠席','遅刻','早退')">出席以外</option>
+									<option value=" in ('欠席','遅刻','早退','連絡なし')">出席以外</option>
 							</select></td>
 						</tr>
 
@@ -104,7 +104,7 @@
 
 
 					<input type="submit" class="form2" value="検索" class="search-btn"
-					id="searchButtun" />
+						id="searchButtun" />
 
 				</s:form>
 			</div>
@@ -128,45 +128,52 @@
 			</table>
 
 
-			<!-- 印刷用モーダル表示ボタン -->
-			<input type="button" class="modal-open" id="modal-open" value="一覧表示" />
+
+
 
 			<!-- 一括で連絡なしのユーザーを送信するボタン -->
-			<s:form action="NotAttendanceAction">
+			<s:form action="NotAttendanceAction"
+				style="margin-bottom:0;">
+				<!-- 印刷用モーダル表示ボタン -->
+				<div class="button-box" style="display:inline">
+			<input type="button" class="modal-open" id="modal-open" value="一覧表示"
+				style="text-align:left;" />
+				</div>
 
-			<tr style="display: none;">
-			<s:if test = "getAllTeamNames().equals('')">
-								<td>
-								<input type="radio" name="teamName" value=<s:property value="teamName"/> checked="checked"><s:property value="teamName"/>
-								</td>
-							</s:if>
-							<s:else>
-							<s:iterator value="allTeamNames">
-							<td>
-								<input type="radio" name="teamName" value=<s:property/> checked="checked"><s:property/>
-							</td>
-							</s:iterator>
-							</s:else>
+				<tr style="display: none;">
+					<s:if test="getAllTeamNames().equals('')">
+						<td><input type="radio" name="teamName"
+							value=<s:property value="teamName"/> checked="checked">
+						<s:property value="teamName" /></td>
+					</s:if>
+					<s:else>
+						<s:iterator value="allTeamNames">
+							<td><input type="radio" name="teamName" value=<s:property/>
+								checked="checked">
+							<s:property /></td>
+						</s:iterator>
+					</s:else>
 
-			<td><select style="width: 60px;" name="atYear" id="id_year2"
-								data-choice="year" required="required"></select> <span
-								style="margin-left: 3px; margin-right: 5px; display: inline-block;">年</span>
+					<td><select style="width: 60px;" name="atYear" id="id_year2"
+						data-choice="year" required="required"></select> <span
+						style="margin-left: 3px; margin-right: 5px; display: inline-block;">年</span>
 
-								<select style="width: 45px;" name="atMonth" id="id_month2"
-								data-choice="month" required="required"></select> <span
-								style="margin-left: 3px; margin-right: 5px; display: inline-block;">月</span>
+						<select style="width: 45px;" name="atMonth" id="id_month2"
+						data-choice="month" required="required"></select> <span
+						style="margin-left: 3px; margin-right: 5px; display: inline-block;">月</span>
 
-								<select style="width: 45px;" name="atDay" id="id_day2"
-								data-choice="day" required="required"></select> <span
-								style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
-							</td>
-							</tr>
-
-			<input type="submit" value="一括挿入" class="insert-btn" id="insertButton"/>
+						<select style="width: 45px;" name="atDay" id="id_day2"
+						data-choice="day" required="required"></select> <span
+						style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
+					</td>
+				</tr>
+<div class="button-box2" style="display:inline;arign:right;">
+				<input type="submit" value="一括挿入" class="insert-btn"
+					id="insertButton" />
+					</div>
 			</s:form>
-
 			<!-- 一覧表示 -->
-			<table style="margin-top: 10px;" class="type12">
+			<table class="type12">
 				<thead>
 					<tr>
 						<th>報告日時</th>
@@ -287,6 +294,6 @@
 			$("#id_day2").ymdpulldown();
 		});
 	</script>
- <jsp:include page="footer.jsp" />
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

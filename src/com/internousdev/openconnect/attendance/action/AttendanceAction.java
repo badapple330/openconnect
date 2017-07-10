@@ -107,6 +107,8 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 		if(searchList.size() > 0){
 			GoAttendanceDAO dao3 = new GoAttendanceDAO();
 			atUserList = dao3.select(userId);
+			  this.errorMsg="１日１回しか報告できません。";
+			  System.out.println("test");
 			result = ERROR;
 		}
 		else if(session.get("userId") != null){
@@ -115,7 +117,7 @@ public class AttendanceAction extends ActionSupport implements SessionAware {
 
 		    if(dao.insert(userId,atYear,atMonth,atDay,attendance,reason) > 0 && atUserList.size() > 0){
 		      result = SUCCESS;
-		      this.errorMsg="１日１回しか報告できません。";
+
 				}
 		}
 		  return result;
