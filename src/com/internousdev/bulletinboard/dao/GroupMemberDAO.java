@@ -21,7 +21,7 @@ public class GroupMemberDAO {
 		Connection con = new MySqlConnector("openconnect").getConnection();
 		ArrayList<UserDTO> memberList = new ArrayList<UserDTO>();
 
-		String sql = "SELECT groups.user_id, user_img, user_name, profile FROM groups INNER JOIN users "
+		String sql = "SELECT groups.user_id, user_icon, user_name, profile FROM groups INNER JOIN users "
 				+ "ON groups.user_id = users.user_id WHERE group_id = ?";
 
 		try{
@@ -32,7 +32,7 @@ public class GroupMemberDAO {
 			while(rs.next()){
 				UserDTO dto = new UserDTO();
 				dto.setUserId(rs.getInt("user_id"));
-				dto.setUserImg(rs.getString("user_img"));
+				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setProfile(rs.getString("profile"));
 				dto.setUserName(rs.getString("user_name"));
 				memberList.add(dto);

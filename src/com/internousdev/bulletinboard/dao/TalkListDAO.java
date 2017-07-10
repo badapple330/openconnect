@@ -51,7 +51,7 @@ public class TalkListDAO {
 					    	while(rs3.next()){
 					    		MessageDTO dto = new MessageDTO();
 					    		dto.setReceiverId(rs3.getInt("done"));
-					    		dto.setGroupImg(rs3.getString("user_img"));
+					    		dto.setGroupIcon(rs3.getString("user_icon"));
 					    		dto.setGroupName(rs3.getString("user_name"));
 					    		talkList.add(dto);
 

@@ -30,8 +30,8 @@ public class TimelineDAO {
 
 
 		String sql = ""
-				+"SELECT p.*, re_sender_id, re_user_name, re_sns_id, re_user_img, re_text, re_created_at FROM("
-				+	"SELECT post_id, sender_id, user_name, sns_id, user_img, text, like_count, created_at, re_post_id FROM ("
+				+"SELECT p.*, re_sender_id, re_user_name, re_sns_id, re_user_icon, re_text, re_created_at FROM("
+				+	"SELECT post_id, sender_id, user_name, sns_id, user_icon, text, like_count, created_at, re_post_id FROM ("
 				+		"SELECT post_id, sender_id, text, like_count, created_at, re_post_id FROM posts "
 				+		"WHERE sender_id IN ("
 				+			"SELECT done FROM follow WHERE do = ? "
@@ -40,7 +40,7 @@ public class TimelineDAO {
 				+		")"
 				+	") AS p "
 				+	"INNER JOIN ( "
-				+		"SELECT user_id, user_name, sns_id, user_img FROM users "
+				+		"SELECT user_id, user_name, sns_id, user_icon FROM users "
 				+		"WHERE user_id IN ("
 				+			"SELECT done FROM follow WHERE do = ? "
 				+			"UNION "
@@ -51,7 +51,7 @@ public class TimelineDAO {
 				+") AS p "
 				+"LEFT JOIN ("
 				+	"SELECT post_id, sender_id AS re_sender_id, user_name AS re_user_name, sns_id AS re_sns_id, "
-				+	"user_img AS re_user_img, text AS re_text, created_at AS re_created_at FROM ("
+				+	"user_icon AS re_user_icon, text AS re_text, created_at AS re_created_at FROM ("
 				+		"SELECT post_id, sender_id, text, created_at FROM posts "
 				+		"WHERE post_id IN ("
 				+			"SELECT re_post_id FROM posts WHERE sender_id IN("
@@ -62,7 +62,7 @@ public class TimelineDAO {
 				+		")"
 				+	") AS p "
 				+	"INNER JOIN ("
-				+		"SELECT user_id, user_name, sns_id, user_img FROM users "
+				+		"SELECT user_id, user_name, sns_id, user_icon FROM users "
 				+		"WHERE user_id IN ("
 				+			"SELECT sender_id FROM posts WHERE post_id IN ("
 				+				"SELECT re_post_id FROM posts WHERE sender_id IN("
@@ -94,24 +94,24 @@ public class TimelineDAO {
 			while (rs.next()) {
 				LikeDAO like = new LikeDAO();
 				PostDTO dto = new PostDTO();
-				dto.setPostId(rs.getInt("post_id")); // タイムラインID
-				dto.setSenderId(rs.getInt("sender_id")); // 送信者ID
-				dto.setText(rs.getString("text")); // 送信内容
-//				dto.setImg(rs.getString("img")); // 添付画像
-				dto.setCreatedAt(rs.getString("created_at"));// 送信日時
-				dto.setUserName(rs.getString("user_name")); // 名前
-				dto.setSnsId(rs.getString("sns_id")); // SNS用ID
-				dto.setUserImg(rs.getString("user_img")); // 写真
-				dto.setLikeCount(rs.getInt("like_count")); // ポイント
-				dto.setIsLiked(like.isLiked(userId, dto.getPostId()));// グッドふらぐ
-				dto.setRePostId(rs.getInt("re_post_id")); // 返信先のタイムラインID
+				dto.setPostId(rs.getInt("post_id"));			// ポストID
+				dto.setSenderId(rs.getInt("sender_id"));		// 投稿者のユーザーID
+				dto.setText(rs.getString("text"));				// 投稿内容
+//				dto.setImg(rs.getString("img"));				// 添付画像
+				dto.setCreatedAt(rs.getString("created_at"));	// 投稿日時
+				dto.setUserName(rs.getString("user_name")); 	// 投稿者の名前
+				dto.setSnsId(rs.getString("sns_id")); 			// 投稿者のSNS用ID
+				dto.setUserIcon(rs.getString("user_icon")); 		// 投稿者のアイコン
+				dto.setLikeCount(rs.getInt("like_count")); 		// ポイント
+				dto.setIsLiked(like.isLiked(userId, dto.getPostId()));	// いいねをしたかどうか
+				dto.setRePostId(rs.getInt("re_post_id")); 		// 返信先のポストID
 				if (dto.getRePostId() != 0) {
-					dto.setReUserId(rs.getInt("re_sender_id")); // 返信先のユーザーID
-					dto.setReUserName(rs.getString("re_user_name")); // 返信先のユーザー名
-					dto.setReSnsId(rs.getString("re_sns_id")); // 返信先のユーザー名
-					dto.setReImg(rs.getString("re_user_img"));
-					dto.setReText(rs.getString("re_text")); // 返信先の送信内容
-					dto.setReCreatedAt(rs.getString("re_created_at")); // 返信先の送信日時
+					dto.setReUserId(rs.getInt("re_sender_id"));			// 返信先のユーザーID
+					dto.setReUserName(rs.getString("re_user_name"));	// 返信先の名前
+					dto.setReSnsId(rs.getString("re_sns_id"));			// 返信先のSNS用ID
+					dto.setReUserIcon(rs.getString("re_user_icon"));			// 返信先のアイコン
+					dto.setReText(rs.getString("re_text"));				// 返信先の投稿内容
+					dto.setReCreatedAt(rs.getString("re_created_at"));	// 返信先の投稿日時
 				}
 				timeline.add(dto);
 			}

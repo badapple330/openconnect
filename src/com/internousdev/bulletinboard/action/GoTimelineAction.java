@@ -29,7 +29,7 @@ public class GoTimelineAction extends ActionSupport implements SessionAware{
 	private String userName;
 	private int talkInfo=0;
 	private int groupInfo=0;
-	/** タイムラインのリスト */
+	/** タイムライン */
 	private ArrayList<PostDTO> timeline = new ArrayList<PostDTO>();
 	/** セッション */
 	private Map<String,Object> session;

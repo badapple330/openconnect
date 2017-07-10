@@ -35,7 +35,7 @@ public class GroupDAO {
 		    	while(rs.next()){
 		    		MessageDTO dto = new MessageDTO();
 		    		dto.setGroupId(rs.getInt("group_id"));
-		    		dto.setGroupImg(rs.getString("group_img"));
+		    		dto.setGroupIcon(rs.getString("group_icon"));
 		    		dto.setGroupName(rs.getString("group_name"));
 		    		groupList.add(dto);
 

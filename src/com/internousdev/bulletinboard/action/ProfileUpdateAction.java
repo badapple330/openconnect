@@ -5,10 +5,10 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.bulletinboard.dao.ChangeIconDAO;
 import com.internousdev.bulletinboard.dao.FollowListDAO;
 import com.internousdev.bulletinboard.dao.FollowerDAO;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
-import com.internousdev.bulletinboard.dao.ImgChangeDAO;
 import com.internousdev.bulletinboard.dao.ProfileDAO;
 import com.internousdev.bulletinboard.dao.ProfileUpdateDAO;
 import com.internousdev.bulletinboard.dto.UserDTO;
@@ -28,7 +28,7 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 	private String userName;
 
 	/** ユーザーアイコン */
-	private String userImg;
+	private String userIcon;
 
 	/** フォローする側のアイコン */
 	private int Do;
@@ -71,7 +71,7 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 	private ArrayList<UserDTO> followerList = new ArrayList<UserDTO>();
 
 	/** ポストリスト　*/
-	public ArrayList<UserDTO> userImgList = new ArrayList<UserDTO>();
+	public ArrayList<UserDTO> userIconList = new ArrayList<UserDTO>();
 
 
 	public String execute(){
@@ -119,8 +119,8 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 		setGroupInfo(infodao.groupInfoGet(userId));
 		setTalkInfo(infodao.talkInfoGet(userId));
 
-		ImgChangeDAO udao = new ImgChangeDAO();
-		userImgList = udao.userImgGet();
+		ChangeIconDAO udao = new ChangeIconDAO();
+		userIconList = udao.getUserIcon();
 
 			return result;
 	}
@@ -157,12 +157,12 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 		this.userName = userName;
 	}
 
-	public String getUserImg() {
-		return userImg;
+	public String getUserIcon() {
+		return userIcon;
 	}
 
-	public void setUserImg(String userImg) {
-		this.userImg = userImg;
+	public void setUserIcon(String userIcon) {
+		this.userIcon = userIcon;
 	}
 
 	public int getFollowerNum() {
@@ -244,7 +244,7 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 	public void setFollowerList(ArrayList<UserDTO> followerList) {
 		this.followerList = followerList;
 	}
-	
+
 	public int getViewId() {
 		return viewId;
 	}
@@ -277,12 +277,12 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 		this.groupInfo = groupInfo;
 	}
 
-	public ArrayList<UserDTO> getUserImgList() {
-		return userImgList;
+	public ArrayList<UserDTO> getUserIconList() {
+		return userIconList;
 	}
 
-	public void setUserImgList(ArrayList<UserDTO> userImgList) {
-		this.userImgList = userImgList;
+	public void setUserIconList(ArrayList<UserDTO> userIconList) {
+		this.userIconList = userIconList;
 	}
 
 }

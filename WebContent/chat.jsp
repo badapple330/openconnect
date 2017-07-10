@@ -150,9 +150,9 @@
           </button>
           <h4 class="modal-title">画像を変更する</h4>
         </div>
-        <s:form action="GroupImgUpdateAction">
+        <s:form action="UpdateGroupIconAction">
         <div class="modal-body">
-        	<s:iterator value="groupImgList" status="rs">
+        	<s:iterator value="groupIconList" status="rs">
         	<s:if test="%{#rs.count%2==0}">
       <div style="float:left">
           <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">

@@ -20,7 +20,7 @@ public class AddImageDAO {
 				DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "internousdev", "root","mysql");
 				Connection con=db.getConnection();
 				int inserted=0;
-				String sql= "insert into img(user_id,user_img)"
+				String sql= "insert into img(user_id,user_icon)"
 						+ "values(?,?,?)";
 
 				try{

@@ -8,7 +8,7 @@ public class UserDTO {
 	/** ユーザーID */
 	private int userId;
 	/** 写真 */
-	private String userImg;
+	private String userIcon;
 	/** 変更画像のID */
 	private int imgId;
 	/** 名前 */
@@ -45,12 +45,12 @@ public class UserDTO {
 		this.userId = userId;
 	}
 
-	public String getUserImg() {
-		return userImg;
+	public String getUserIcon() {
+		return userIcon;
 	}
 
-	public void setUserImg(String userImg) {
-		this.userImg = userImg;
+	public void setUserIcon(String userIcon) {
+		this.userIcon = userIcon;
 	}
 
 	public int getImgId() {

@@ -46,7 +46,7 @@
 
                 <tr>
 
-                    <td><a href="group.jsp"><s:property value="groupImg" /></a></td>
+                    <td><a href="group.jsp"><s:property value="groupIcon" /></a></td>
                     <td><a href="group.jsp"><s:property value="groupName" /></a></td>
                     <td><a href="group.jsp"><s:property value="groupId" /></a></td>
 

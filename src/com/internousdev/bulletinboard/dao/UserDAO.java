@@ -27,7 +27,7 @@ public class UserDAO {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				dto.setUserId(rs.getInt("user_id"));
-				dto.setUserImg(rs.getString("user_img"));
+				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setUserName(rs.getString("user_name"));
 				dto.setPoint(rs.getInt("point"));
 				dto.setLv(rs.getInt("lv"));

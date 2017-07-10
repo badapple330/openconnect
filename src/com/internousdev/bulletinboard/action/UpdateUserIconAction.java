@@ -7,11 +7,11 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.ImgChangeDAO;
+import com.internousdev.bulletinboard.dao.ChangeIconDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class UserImgUpdateAction extends ActionSupport implements SessionAware{
+public class UpdateUserIconAction extends ActionSupport implements SessionAware{
 
 		/** シリアルID */
 		private static final long serialVersionUID = -7129551593360374656L;
@@ -20,11 +20,11 @@ public class UserImgUpdateAction extends ActionSupport implements SessionAware{
 		private int userId=0;
 
 		/** 画像URL */
-		private String url;
+		private String userIcon;
 
 		/** セッション */
 		private Map<String,Object> session;
-		
+
 
 		/** ユーザーのポストリストの生成メソッド */
 		public String execute() {
@@ -38,8 +38,8 @@ public class UserImgUpdateAction extends ActionSupport implements SessionAware{
 			if(userId==0){return result;}
 
 
-				ImgChangeDAO set = new ImgChangeDAO();
-				if(0<set.setUserImg(userId,url)){
+				ChangeIconDAO set = new ChangeIconDAO();
+				if(0<set.setUserIcon(userId,userIcon)){
 					result=SUCCESS;
 				}
 
@@ -54,8 +54,8 @@ public class UserImgUpdateAction extends ActionSupport implements SessionAware{
 			return userId;
 		}
 
-		public String getUrl() {
-			return url;
+		public String getUserIcon() {
+			return userIcon;
 		}
 
 		public Map<String, Object> getSession() {
@@ -66,8 +66,8 @@ public class UserImgUpdateAction extends ActionSupport implements SessionAware{
 			this.userId = userId;
 		}
 
-		public void setUrl(String url) {
-			this.url = url;
+		public void setUserIcon(String userIcon) {
+			this.userIcon = userIcon;
 		}
 
 		public void setSession(Map<String, Object> session) {

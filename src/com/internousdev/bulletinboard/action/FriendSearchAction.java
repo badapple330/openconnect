@@ -24,7 +24,7 @@ public class FriendSearchAction extends ActionSupport implements SessionAware{
 	private String userName;
 
 	/** ユーザーアイコン */
-	private String userImg;
+	private String userIcon;
 
 	/** LV */
 	private int Lv;
@@ -99,90 +99,90 @@ public String execute() {
 	public int getUserId() {
 		return userId;
 	}
-	
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	
+
 	public String getUserName() {
 		return userName;
 	}
-	
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
-	public String getUserImg() {
-		return userImg;
+
+	public String getUserIcon() {
+		return userIcon;
 	}
-	
-	public void setUserImg(String userImg) {
-		this.userImg = userImg;
+
+	public void setUserIcon(String userIcon) {
+		this.userIcon = userIcon;
 	}
-	
+
 	public int getLv() {
 		return Lv;
 	}
-	
+
 	public void setLv(int lv) {
 		Lv = lv;
 	}
-	
+
 	public ArrayList<UserDTO> getUsersList() {
 		return usersList;
 	}
-	
+
 	public void setUsersList(ArrayList<UserDTO> usersList) {
 		this.usersList = usersList;
 	}
-	
+
 	public int getDone() {
 		return done;
 	}
-	
+
 	public void setDone(int done) {
 		this.done = done;
 	}
-	
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
-	
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-	
+
 	public int getCheckValue() {
 		return checkValue;
 	}
-	
+
 	public void setCheckValue(int checkValue) {
 		this.checkValue = checkValue;
 	}
-	
+
 	public ArrayList<UserDTO> getAllList() {
 		return allList;
 	}
-	
+
 	public void setAllList(ArrayList<UserDTO> allList) {
 		this.allList = allList;
 	}
-	
+
 	public ArrayList<UserDTO> getCheckList() {
 		return checkList;
 	}
-	
+
 	public void setCheckList(ArrayList<UserDTO> checkList) {
 		this.checkList = checkList;
 	}
-	
+
 	public int getGroupId() {
 		return groupId;
 	}
-	
+
 	public void setGroupId(int groupId) {
 		this.groupId = groupId;
 	}
-	
-	
+
+
 }

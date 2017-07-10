@@ -615,7 +615,7 @@
 			<result name="error"> profile.jsp</result>
 		</action>
 
-		<action name="UserImgUpdateAction" class="com.internousdev.bulletinboard.action.UserImgUpdateAction" method="execute">
+		<action name="UpdateUserIconAction" class="com.internousdev.bulletinboard.action.UpdateUserIconAction" method="execute">
 		<result name="success" type="redirectAction">ProfileUpdateAction</result>
 		<result name="error"> profile.jsp</result>
 		</action>
@@ -683,8 +683,8 @@
 		</action>
 
 		<!-- グループの画像更新 -->
-		<action name="GroupImgUpdateAction"
-			class="com.internousdev.bulletinboard.action.GroupImgUpdateAction"
+		<action name="UpdateGroupIconAction"
+			class="com.internousdev.bulletinboard.action.UpdateGroupIconAction"
 			method="execute">
 			<result name="success" type="redirectAction">GoChatAction</result>
 			<result name="error" type="redirectAction">GoChatAction</result>

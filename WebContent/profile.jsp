@@ -33,7 +33,7 @@ pageEncoding="UTF-8"%>
 
 <a class="navbar-brand" href="applist.jsp">Openconnect</a>
  <a class="talk_area" href="watch-position.jsp"><img src="pic/map_print.png" ></a>
- <a class="talk_area" href="web_speech.jsp"><img src="pic/user_img/syoki.png" ></a>
+ <a class="talk_area" href="web_speech.jsp"><img src="pic/user_icon/syoki.png" ></a>
   <a class="talk_area" data-toggle="modal" data-target="#color" class="cursor"><img src="pic/peint.png" ></a>
 
 
@@ -81,7 +81,7 @@ pageEncoding="UTF-8"%>
 <td>
  <div class="profile">
         	<figure style="margin-left:5%;" style="clear:both;">
-            	<img src="<s:property value="userImg"/>" class="border_radius" alt="">
+            	<img src="<s:property value="userIcon"/>" class="border_radius" alt="">
             	<div align = "center">
             	<div class="fontsize"><s:property value="userName"/></div>
             	</div>
@@ -158,7 +158,7 @@ FOLLOW</a>
 					<div class="friends-container">
 
                    <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                   <img src="<s:property value="userImg"/>" style="height:50px; width:50px;"  class="border_radius" alt="" width="50" height="50">
+                   <img src="<s:property value="userIcon"/>" style="height:50px; width:50px;"  class="border_radius" alt="" width="50" height="50">
                     <s:property value="userName"/>
                     	Lv:<s:property value="lv " />
                     </a>
@@ -195,7 +195,7 @@ FOLLOW</a>
 					<div class="friends-container">
 
                     <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                   <img src="<s:property value="userImg"/>" style="height:50px; width:50px;" class="border_radius" alt="" width="50" height="50">
+                   <img src="<s:property value="userIcon"/>" style="height:50px; width:50px;" class="border_radius" alt="" width="50" height="50">
                     <s:property value="userName"/>
                     	Lv:<s:property value="lv " />
                     </a>
@@ -230,7 +230,7 @@ FOLLOW</a>
 <td>
  <div class="profile">
 
-            	<img src="<s:property value="userImg"/>" class="edit_border_radius" alt="" /><br>
+            	<img src="<s:property value="userIcon"/>" class="edit_border_radius" alt="" /><br>
             	<a data-toggle="modal" class="cursor"
               data-target="#userImageChange">アイコン画像変更</a>
 
@@ -244,9 +244,9 @@ FOLLOW</a>
           </button>
           <h4 class="modal-title">画像を変更する</h4>
         </div>
-        <s:form action="UserImgUpdateAction">
+        <s:form action="UpdateUserIconAction">
         <div class="modal-body">
-        	<s:iterator value="userImgList" status="rs">
+        	<s:iterator value="userIconList" status="rs">
         	<s:if test="%{#rs.count%2==0}">
 			<div style="float:left">
           <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">

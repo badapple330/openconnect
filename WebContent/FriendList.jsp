@@ -46,7 +46,7 @@
 							<div class="userbox">
 							<a
 								href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="usersList.get(#i.index).userId"/></s:url>">
-								<img class="profimg" src="<s:property value="usersList.get(#i.index).userImg"/>"
+								<img class="profimg" src="<s:property value="usersList.get(#i.index).userIcon"/>"
 								alt=""> <s:property
 									value="usersList.get(#i.index).userName" /> Lv:<s:property
 									value="usersList.get(#i.index).lv" />

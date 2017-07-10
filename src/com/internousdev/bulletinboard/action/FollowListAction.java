@@ -21,7 +21,7 @@ public class FollowListAction extends ActionSupport implements SessionAware{
 	private String userName;
 
 	/** ユーザー画像 */
-	private String userImg;
+	private String userIcon;
 
 	/** フォローID */
 	private int followId;
@@ -59,7 +59,7 @@ public class FollowListAction extends ActionSupport implements SessionAware{
 	return result;
 
 }
-	
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -76,18 +76,18 @@ public class FollowListAction extends ActionSupport implements SessionAware{
 		this.userId = userId;
 	}
 
-	public String getUserImg() {
-		return userImg;
+	public String getUserIcon() {
+		return userIcon;
 	}
 
-	public void setUserImg(String userImg) {
-		this.userImg = userImg;
+	public void setUserIcon(String userIcon) {
+		this.userIcon = userIcon;
 	}
 
 	public String getUserName() {
 		return userName;
 	}
-	
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -103,11 +103,11 @@ public class FollowListAction extends ActionSupport implements SessionAware{
 	public int getDo() {
 		return Do;
 	}
-	
+
 	public void setDo(int Do) {
 		this.Do = Do;
 	}
-	
+
 	public int getDone() {
 		return done;
 	}

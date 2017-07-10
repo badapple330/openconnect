@@ -31,7 +31,7 @@ public class FollowerDAO {
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setUserName(rs.getString("user_name"));
 				dto.setSnsId(rs.getString("sns_id"));
-				dto.setUserImg(rs.getString("user_img"));
+				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setPoint(rs.getInt("point"));
 				dto.setLv(rs.getInt("lv"));
 				dto.setProfile(rs.getString("profile"));

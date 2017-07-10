@@ -104,7 +104,7 @@
           <a href="#" data-toggle="modal" data-target="#timelineDelete<s:property value="postId"/>" id="deleteIcon"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
             <div class="timeimg">
               <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
-              <img src="<s:property value="userImg"/>"   alt="" class="img-rounded-ex"></a>
+              <img src="<s:property value="userIcon"/>"   alt="" class="img-rounded-ex"></a>
             </div>
           <div class="timetext">
             <h4><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
@@ -173,7 +173,7 @@
             <div class="rePost">
               <div class="timeimg">
                 <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
-                <img src="<s:property value="reImg"/>"   alt="" class="img-rounded-re"></a>
+                <img src="<s:property value="reUserIcon"/>"   alt="" class="img-rounded-re"></a>
               </div>
               <div class="timetext">
                 <h4><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
@@ -193,7 +193,7 @@
         <div class="post" <s:if test="userId==reUserId">style="background-color: #daeaec;"</s:if> >
           <div class="timeimg">
             <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
-            <img src="<s:property value="userImg"/>"   alt="" class="img-rounded-ex"    width="50" height="50"></a>
+            <img src="<s:property value="userIcon"/>"   alt="" class="img-rounded-ex"    width="50" height="50"></a>
           </div>
         <div class="timetext">
           <h4><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
@@ -254,7 +254,7 @@
           <div class="rePost">
             <div class="timeimg">
               <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
-              <img src="<s:property value="reImg"/>"   alt="" class="img-rounded-re"></a>
+              <img src="<s:property value="reUserIcon"/>"   alt="" class="img-rounded-re"></a>
             </div>
             <div class="timetext">
               <h4><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">

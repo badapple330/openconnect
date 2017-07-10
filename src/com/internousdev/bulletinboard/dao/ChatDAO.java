@@ -61,7 +61,7 @@ public class ChatDAO {
 		    		dto.setReceiverId(rs.getInt("receiver_id")); //受取人ID
 		    		dto.setSenderId(rs.getInt("sender_id")); //送信者ID
 		    		dto.setSenderName(rs.getString("user_name"));//送信者名
-		    		dto.setSenderImg(rs.getString("user_img"));//送信者画像
+		    		dto.setSenderImg(rs.getString("user_icon"));//送信者画像
 		    		dto.setGroupId(rs.getInt("group_id"));
 		    		dto.setText(rs.getString("text")); //送信内容
 		    		dto.setImg(rs.getString("img")); //添付画像

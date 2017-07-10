@@ -4,12 +4,12 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.ImgChangeDAO;
+import com.internousdev.bulletinboard.dao.ChangeIconDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 
-public class GroupImgUpdateAction extends ActionSupport implements SessionAware{
+public class UpdateGroupIconAction extends ActionSupport implements SessionAware{
 	
 	/** シリアルID */
 	private static final long serialVersionUID = -7129551593360374656L;
@@ -49,8 +49,8 @@ public class GroupImgUpdateAction extends ActionSupport implements SessionAware{
 		if(userId==0){return result;}
 
 
-			ImgChangeDAO set = new ImgChangeDAO();
-			if(0<set.setGroupImg(groupId,url)){
+			ChangeIconDAO set = new ChangeIconDAO();
+			if(0<set.setGroupIcon(groupId,url)){
 				result=SUCCESS;
 			}
 

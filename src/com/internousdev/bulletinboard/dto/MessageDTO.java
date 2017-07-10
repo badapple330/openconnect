@@ -29,7 +29,7 @@ public class MessageDTO {
 	/** 投稿日時 */
 	private String createdAt ;
 	/** グループイメージ */
-	private String groupImg;
+	private String groupIcon;
 	private int notRead=0;
 	private int readFlg=0;
 
@@ -94,11 +94,11 @@ public class MessageDTO {
 	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
-	public String getGroupImg() {
-		return groupImg;
+	public String getGroupIcon() {
+		return groupIcon;
 	}
-	public void setGroupImg(String groupImg) {
-		this.groupImg = groupImg;
+	public void setGroupIcon(String groupIcon) {
+		this.groupIcon = groupIcon;
 	}
 	public int getNotRead() {
 		return notRead;

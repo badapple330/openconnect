@@ -15,7 +15,7 @@ public class SendProfileAction extends ActionSupport implements SessionAware{
 	private int userId=0;
 
 	/** アイコン画像 */
-	private String userImg="";
+	private String userIcon="";
 
 	/** ユーザー名 */
 	private String userName;
@@ -25,7 +25,7 @@ public class SendProfileAction extends ActionSupport implements SessionAware{
 
 	/** デリートフラグ */
 	private int deleteFlg=1;
-	
+
 	/** セッション */
 	private Map<String,Object> session;
 
@@ -44,7 +44,7 @@ public class SendProfileAction extends ActionSupport implements SessionAware{
 		if(userId==0){
 			return result;
 		}
-			int updated=dao.profileSend(userId,profile,userImg);
+			int updated=dao.profileSend(userId,profile,userIcon);
 
 				if(updated>0){
 					result = SUCCESS;
@@ -64,12 +64,12 @@ public class SendProfileAction extends ActionSupport implements SessionAware{
 		this.userId = userId;
 	}
 
-	public String getUserImg() {
-		return userImg;
+	public String getUserIcon() {
+		return userIcon;
 	}
 
-	public void setUserImg(String userImg) {
-		this.userImg = userImg;
+	public void setUserIcon(String userIcon) {
+		this.userIcon = userIcon;
 	}
 
 	public String getUserName() {

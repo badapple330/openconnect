@@ -30,7 +30,7 @@ public class ProfileDAO {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				dto.setUserId(rs.getInt("user_id"));
-				dto.setUserImg(rs.getString("user_img"));
+				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setUserName(rs.getString("user_name"));
 				dto.setSnsId(rs.getString("sns_id"));
 				dto.setPoint(rs.getInt("point"));
@@ -71,7 +71,7 @@ public class ProfileDAO {
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setUserName(rs.getString("user_name"));
 				dto.setSnsId(rs.getString("sns_id"));
-				dto.setUserImg(rs.getString("user_img"));
+				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setPoint(rs.getInt("point"));
 				dto.setLv(rs.getInt("lv"));
 				dto.setProfile(rs.getString("profile"));
@@ -112,7 +112,7 @@ public class ProfileDAO {
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setUserName(rs.getString("user_name"));
 				dto.setSnsId(rs.getString("sns_id"));
-				dto.setUserImg(rs.getString("user_img"));
+				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setPoint(rs.getInt("point"));
 				dto.setLv(rs.getInt("lv"));
 				dto.setProfile(rs.getString("profile"));
@@ -135,7 +135,7 @@ public class ProfileDAO {
 	}
 
 
-	public int profileSend(int user_id,String profile,String user_img){
+	public int profileSend(int user_id,String profile,String user_icon){
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 		int inserted=0;
@@ -146,26 +146,26 @@ public class ProfileDAO {
 
 
 
-		if(profile.equals("") && user_img.equals("")){
+		if(profile.equals("") && user_icon.equals("")){
 			sql="";
 			k=-1;
 		}
 
 		if(profile.equals("")){
-			sql="update users set user_img=? where user_id=?";
+			sql="update users set user_icon=? where user_id=?";
 			k=0;
-		}else if(user_img.equals("")){
+		}else if(user_icon.equals("")){
 			sql="update users set profile=? where user_id=?";
 			k=1;
 		}else {
-			sql="update users set profile=?,user_img=? where user_id=?";
+			sql="update users set profile=?,user_icon=? where user_id=?";
 			k=2;
 		}
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			if(k==0){
-				ps.setString(c++,user_img);
+				ps.setString(c++,user_icon);
 				ps.setInt(c, user_id);
 			}
 			if(k==1){
@@ -174,7 +174,7 @@ public class ProfileDAO {
 			}
 			if(k==2){
 			ps.setString(c++,profile);
-			ps.setString(c++,user_img);
+			ps.setString(c++,user_icon);
 			ps.setInt(c, user_id);
 			}
 
@@ -196,17 +196,17 @@ public class ProfileDAO {
 
 	}
 
-	public int insert(int userId,String userImg,String profile){
+	public int insert(int userId,String userIcon,String profile){
 		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con=db.getConnection();
 		int inserted=0;
-		String sql= "insert into img(user_id,user_img,profile)"
+		String sql= "insert into img(user_id,user_icon,profile)"
 				+ "values(?,?,?)";
 
 		try{
 			PreparedStatement ps= con.prepareStatement(sql);
 			ps.setInt(1,userId);
-			ps.setString(2,userImg);
+			ps.setString(2,userIcon);
 			ps.setString(3,profile);
 			inserted=ps.executeUpdate();
 

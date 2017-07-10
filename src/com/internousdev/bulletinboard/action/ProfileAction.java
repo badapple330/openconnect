@@ -25,7 +25,7 @@ public class ProfileAction extends ActionSupport implements SessionAware{
 	private String userName;
 
 	/** ユーザーアイコン */
-	private String userImg;
+	private String userIcon;
 
 	/** フォローする側のID */
 	private int Do;
@@ -60,7 +60,7 @@ public class ProfileAction extends ActionSupport implements SessionAware{
 	/** フォロワーリスト */
 	private ArrayList<UserDTO> followerList = new ArrayList<UserDTO>();
 
-	
+
 	public String execute(){
 
 		String result = ERROR;
@@ -150,12 +150,12 @@ public class ProfileAction extends ActionSupport implements SessionAware{
 		this.userName = userName;
 	}
 
-	public String getUserImg() {
-		return userImg;
+	public String getuserIconn() {
+		return userIcon;
 	}
 
-	public void setUserImg(String userImg) {
-		this.userImg = userImg;
+	public void setUserIcon(String userIcon) {
+		this.userIcon = userIcon;
 	}
 
 	public int getFollowerNum() {

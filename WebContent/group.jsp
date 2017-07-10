@@ -104,7 +104,7 @@
 	<s:hidden theme="simple" name="groupId" value="%{groupId}"></s:hidden>
 	<s:hidden name="groupName"></s:hidden>
 	<button type="submit" class="group">
-	<img src="<s:property value="groupImg"/>"   alt="" class="img-circle-ex">
+	<img src="<s:property value="groupIcon"/>"   alt="" class="img-circle-ex">
 	<h3><s:property value="groupName"/></h3>
 	<p><s:property value="text" /></p>
 

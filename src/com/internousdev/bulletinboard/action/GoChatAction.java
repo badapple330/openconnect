@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.ChatDAO;
-import com.internousdev.bulletinboard.dao.ImgChangeDAO;
+import com.internousdev.bulletinboard.dao.ChangeIconDAO;
 import com.internousdev.bulletinboard.dao.StampDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
 import com.internousdev.bulletinboard.dto.MessageDTO;
@@ -45,7 +45,7 @@ public class GoChatAction extends ActionSupport implements SessionAware {
 	/** ポストリスト */
 	public ArrayList<MessageDTO> chat = new ArrayList<MessageDTO>();
 	/** ポストリスト */
-	public ArrayList<StampDTO> groupImgList = new ArrayList<StampDTO>();
+	public ArrayList<StampDTO> groupIconList = new ArrayList<StampDTO>();
 	/** スタンプリスト */
 	public ArrayList<StampTypeDTO> stList = new ArrayList<StampTypeDTO>();
 	/** スタンプ種類 */
@@ -98,8 +98,8 @@ public class GoChatAction extends ActionSupport implements SessionAware {
 		setMsgCount(chat.size());
 		result = SUCCESS;
 
-		ImgChangeDAO ICdao = new ImgChangeDAO();
-		groupImgList = ICdao.groupImgGet();
+		ChangeIconDAO ICdao = new ChangeIconDAO();
+		groupIconList = ICdao.getGroupIcon();
 
 		ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
 		StampDAO stampdao = new StampDAO();
@@ -177,11 +177,11 @@ public class GoChatAction extends ActionSupport implements SessionAware {
 	public void setChat(ArrayList<MessageDTO> chat) {
 		this.chat = chat;
 	}
-	public ArrayList<StampDTO> getGroupImgList() {
-		return groupImgList;
+	public ArrayList<StampDTO> getGroupIconList() {
+		return groupIconList;
 	}
-	public void setGroupImgList(ArrayList<StampDTO> groupImgList) {
-		this.groupImgList = groupImgList;
+	public void setGroupIconList(ArrayList<StampDTO> groupIconList) {
+		this.groupIconList = groupIconList;
 	}
 	public ArrayList<StampTypeDTO> getStList() {
 		return stList;

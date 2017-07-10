@@ -19,16 +19,14 @@ import com.internousdev.bulletinboard.util.DBConnector;
  */
 
 
-public class ImgChangeDAO {
-		 
-		
+public class ChangeIconDAO {
 		/** グループアイコン変更 */
-		public ArrayList<StampDTO> groupImgGet(){
+		public ArrayList<StampDTO> getGroupIcon(){
 
 			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			    Connection con = db.getConnection();
 			    ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
-			    String sql="select * from group_img";
+			    String sql="select * from group_icon";
 
 			    /////////
 
@@ -53,12 +51,12 @@ public class ImgChangeDAO {
 			     return stampList;
 		  }
 
-		  public int setGroupImg(int groupId,String url){
+		  public int setGroupIcon(int groupId,String url){
 			  int inserted=0;
 
 			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			    Connection con = db.getConnection();
-			    String sql="update group_master set group_img=? where group_id=?";
+			    String sql="update group_master set group_icon=? where group_id=?";
 
 			    /////////
 
@@ -78,14 +76,14 @@ public class ImgChangeDAO {
 				}
 			     return inserted;
 		  }
-		  
+
 		  /** ユーザーアイコン */
-		  public ArrayList<UserDTO> userImgGet(){
+		  public ArrayList<UserDTO> getUserIcon(){
 
 			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			    Connection con = db.getConnection();
-			    ArrayList<UserDTO> userImgList = new ArrayList<UserDTO>();
-			    String sql="select * from user_img";
+			    ArrayList<UserDTO> userIconList = new ArrayList<UserDTO>();
+			    String sql="select * from user_icon";
 
 			    /////////
 
@@ -96,7 +94,7 @@ public class ImgChangeDAO {
 			    		UserDTO dto = new UserDTO();
 			    		dto.setImgId(rs.getInt("img_id"));
 			   			dto.setUrl(rs.getString("url"));
-			   			userImgList.add(dto);
+			   			userIconList.add(dto);
 			   			}
 			    }catch(SQLException e){
 			    	e.printStackTrace();
@@ -107,15 +105,15 @@ public class ImgChangeDAO {
 						e.printStackTrace();
 						}
 				}
-			     return userImgList;
+			     return userIconList;
 		  }
 
-		  public int setUserImg(int userId,String url){
+		  public int setUserIcon(int userId,String url){
 			  int inserted=0;
 
 			    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 			    Connection con = db.getConnection();
-			    String sql="update users set user_img=? where user_id=?";
+			    String sql="update users set user_icon=? where user_id=?";
 
 			    /////////
 
