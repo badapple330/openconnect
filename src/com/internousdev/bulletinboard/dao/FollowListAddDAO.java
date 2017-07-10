@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.internousdev.bulletinboard.util.DBConnector;
+import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
  * @author internousdev
@@ -20,12 +20,11 @@ public class FollowListAddDAO {
 	//2重フォローをチェックするメソッド
 	public boolean select(int userId, int viewId){
 
-	  boolean followCheckFlag = false;
+		boolean followCheckFlag = false;
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
-      String sql = "select * from follow where do = ? && done = ?";
+		String sql = "select * from follow where do = ? && done = ?";
 
 		try {
 
@@ -59,15 +58,14 @@ public class FollowListAddDAO {
 	//↑チェックメソッドがtrueだった場合、自分のIDとフォローする側のIDをinsertするメソッド
 	public boolean insert(int userId, int viewId){
 
-		  int count = 0;
-		  boolean followFlag = false;
+		int count = 0;
+		boolean followFlag = false;
 
 
-			DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-			Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 
-	        String sql = "insert into follow (do, done) values (?,?)";
+		String sql = "insert into follow (do, done) values (?,?)";
 
 			try {
 
@@ -101,10 +99,9 @@ public class FollowListAddDAO {
 		int result=0;
 		boolean insertFlag=false;
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
-	  String sql = "insert into messages (receiver_id, sender_id, body) values (?,?,?)";
+	  String sql = "insert into messages (receiver_id, sender_id, text) values (?,?,?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

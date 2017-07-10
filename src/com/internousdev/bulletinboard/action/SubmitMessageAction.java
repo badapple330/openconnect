@@ -30,7 +30,7 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 	/** グループ名 */
 	private String groupName="（・ω・）" ;
 	/** 送信内容 */
-	private String body="";
+	private String text="";
 	/** 添付画像 */
 	private String url="";
 	/** 投稿日時 */
@@ -64,12 +64,12 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 
 
 		//送信内容がある場合に送信内容送信
-		if (!body.equals("")){
+		if (!text.equals("")){
 			ChatDAO chatDAO = new ChatDAO();
-			if(chatDAO.insertMessage(userId, receiverId, groupId, body, url) != 0){
+			if(chatDAO.insertMessage(userId, receiverId, groupId, text, url) != 0){
 				//botと話す場合の処理
 				if(receiverId < 0){
-					BotTalk bot = new BotTalk(receiverId,userId,body);
+					BotTalk bot = new BotTalk(receiverId,userId,text);
 					String response = bot.talkContents();
 					if(response != null){
 						bot.botSet(userId,response);
@@ -81,11 +81,11 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 			}
 		//スタンプだった場合にスタンプ送信
 		} else if(!url.equals("")) {
-			body="スタンプを投稿しました";
+			text="スタンプを投稿しました";
 			ChatDAO set = new ChatDAO();
-			if(set.insertMessage(userId, receiverId, groupId, body, url) != 0){
+			if(set.insertMessage(userId, receiverId, groupId, text, url) != 0){
 				if(receiverId < 0){
-					BotTalk bot = new BotTalk(receiverId,userId,body);
+					BotTalk bot = new BotTalk(receiverId,userId,text);
 					String response = bot.talkContents();
 					if(response != null){
 						bot.botSet(userId,response);
@@ -143,11 +143,11 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
-	public String getBody() {
-		return body;
+	public String getText() {
+		return text;
 	}
-	public void setBody(String body) {
-		this.body = body;
+	public void setText(String text) {
+		this.text = text;
 	}
 	public String getUrl() {
 		return url;

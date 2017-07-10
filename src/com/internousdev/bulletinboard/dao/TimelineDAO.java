@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.bulletinboard.dto.PostDTO;
-import com.internousdev.util.DBConnector;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
@@ -171,9 +170,7 @@ public class TimelineDAO {
 
 		LvDAO Lv = new LvDAO();
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
-				"mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		int inserted = 0;
 
 		String sql = "update users set point = point+20 where user_id = ?";

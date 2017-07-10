@@ -22,14 +22,14 @@ public class ResponsiveTalk {
 	/**
 	 * もらった発言
 	 */
-	private String body;
+	private String text;
 
 	/**
 	 * もらった発言をセットする
-	 * @param body 貰った発言
+	 * @param text 貰った発言
 	 */
-	public ResponsiveTalk(String body){
-		this.body = body;
+	public ResponsiveTalk(String text){
+		this.text = text;
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class ResponsiveTalk {
 		ArrayList<BotDTO> wordList = new ArrayList<BotDTO>();
 
 		Tokenizer tokenizer = Tokenizer.builder().build();
-		List<Token> tokens = tokenizer.tokenize(body);
+		List<Token> tokens = tokenizer.tokenize(text);
 
 		for (Token token : tokens) {
 			BotDTO dto = new BotDTO();

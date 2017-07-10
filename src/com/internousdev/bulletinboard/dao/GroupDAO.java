@@ -43,7 +43,7 @@ public class GroupDAO {
 			    	ps2.setInt(1,dto.getGroupId());
 			    	ResultSet rs2 = ps2.executeQuery();
 			    	while(rs2.next()){
-			    		dto.setBody(rs2.getString("body"));
+			    		dto.setText(rs2.getString("text"));
 			    		dto.setCreatedAt(rs2.getString("created_at"));
 			    	}
 			    	PreparedStatement ps3 = con2.prepareStatement(sql3);
@@ -120,7 +120,7 @@ public class GroupDAO {
 
 		String sql = "select group_id from group_master where group_name=? order by created_at desc limit 1";
 		String sql2 = "insert into groups (user_id,group_id) values (?,?)";
-		String sql3 = "insert into messages (sender_id,group_id,body) values (?,?,?)";
+		String sql3 = "insert into messages (sender_id,group_id,text) values (?,?,?)";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -239,7 +239,7 @@ public class GroupDAO {
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 
 		String sql = "select * from group_master where group_name = ?";
-		String sql2 = "select body from messages where group_id = ?";
+		String sql2 = "select text from messages where group_id = ?";
 		String sql3 = "select * from groups where group_id = ?";
 
 		  try{
@@ -259,7 +259,7 @@ public class GroupDAO {
 			    	ResultSet rs2 = ps2.executeQuery();
 			    	while(rs2.next()){
 			    		PostDTO dto2 = new PostDTO();
-			    		dto2.setPostContents(rs2.getString("body"));
+			    		dto2.setPostContents(rs2.getString("text"));
 			    		contentsList.add(dto2);
 			    	}
 			    	if(contentsList.size() == 1){
@@ -340,7 +340,7 @@ public class GroupDAO {
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 
 		String sql = "select * from users where user_id=?";
-		String sql2 = "insert into messages(sender_id,group_id,body) values(?,?,?)";
+		String sql2 = "insert into messages(sender_id,group_id,text) values(?,?,?)";
 
 		  try{
 		    	PreparedStatement ps = con.prepareStatement(sql);
@@ -410,7 +410,7 @@ public class GroupDAO {
 		int inserted = 0;
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "insert into messages(sender_id,group_id,body) values(?,?,?)";
+		String sql = "insert into messages(sender_id,group_id,text) values(?,?,?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

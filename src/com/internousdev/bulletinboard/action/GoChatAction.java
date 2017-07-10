@@ -37,7 +37,7 @@ public class GoChatAction extends ActionSupport implements SessionAware {
 	/** 送信者画像 */
 	private String senderImg;
 	/** 送信内容 */
-	private String body = "";
+	private String text = "";
 	/** 添付画像 */
 	private String img = "";
 	/** 投稿日時 */
@@ -153,11 +153,11 @@ public class GoChatAction extends ActionSupport implements SessionAware {
 	public void setSenderImg(String senderImg) {
 		this.senderImg = senderImg;
 	}
-	public String getBody() {
-		return body;
+	public String getText() {
+		return text;
 	}
-	public void setBody(String body) {
-		this.body = body;
+	public void setText(String text) {
+		this.text = text;
 	}
 	public String getImg() {
 		return img;

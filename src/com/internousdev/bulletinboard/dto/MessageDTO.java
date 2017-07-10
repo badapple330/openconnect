@@ -23,7 +23,7 @@ public class MessageDTO {
 	/** グループ名 */
 	private String groupName;
 	/** 送信内容 */
-	private String body;
+	private String text;
 	/** 添付画像 */
 	private String img;
 	/** 投稿日時 */
@@ -76,11 +76,11 @@ public class MessageDTO {
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
-	public String getBody() {
-		return body;
+	public String getText() {
+		return text;
 	}
-	public void setBody(String body) {
-		this.body = body;
+	public void setText(String text) {
+		this.text = text;
 	}
 	public String getImg() {
 		return img;

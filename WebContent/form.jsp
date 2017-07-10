@@ -13,7 +13,7 @@
 <div class="nonbs-panel-body">
 <s:form action="SubmitMessageAction">
 	<div class="nonbs-form-group">
-    	<textarea name="body" class="nonbs-form-control" maxlength="255" ></textarea>
+    	<textarea name="text" class="nonbs-form-control" maxlength="255" ></textarea>
 	</div><s:hidden name="receiverId" /><s:hidden name="groupId" /><s:hidden name="groupName" /><s:hidden name="friendsName" />
 <div class="nonbs-rightside">
 <button type="submit" class="btn btn-default" onclick="style.display='none'">送信</button>
@@ -50,7 +50,7 @@ function disableSubmit(button) {
 				<h6 class="modal-title">スタンプ</h6>
 			</div>
 
-			<div class="m-http://localhost:8080/openconnect/GoChatAction.action#body">
+			<div class="m-http://localhost:8080/openconnect/GoChatAction.action#text">
 				<ul id="normal" class="dropmenu">
 					<s:iterator value="stList">
 					<li><a href="#"><img src="<s:property value="typeUrl"/>" height="50px"></a>

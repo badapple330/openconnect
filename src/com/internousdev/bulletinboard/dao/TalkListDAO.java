@@ -62,7 +62,7 @@ public class TalkListDAO {
 						    	ps4.setInt(4,dto.getReceiverId());
 						    	ResultSet rs4 = ps4.executeQuery();
 						    	while(rs4.next()){
-						    		dto.setBody(rs4.getString("body"));
+						    		dto.setText(rs4.getString("text"));
 						    		dto.setCreatedAt(rs4.getString("created_at"));
 						    	}
 

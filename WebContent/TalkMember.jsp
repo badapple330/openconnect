@@ -108,7 +108,7 @@
 	<button type="submit" class="group">
 	<img src="<s:property value="groupImg"/>"   alt="" class="img-circle-ex">
 	<h3><s:property value="groupName"/></h3>
-	<p><s:property value="body" /></p>
+	<p><s:property value="text" /></p>
 
 	<s:if test="notRead > 0 and notRead<100">
 	<span class="tell"><s:property value="notRead" />

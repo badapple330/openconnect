@@ -63,7 +63,7 @@ public class ChatDAO {
 		    		dto.setSenderName(rs.getString("user_name"));//送信者名
 		    		dto.setSenderImg(rs.getString("user_img"));//送信者画像
 		    		dto.setGroupId(rs.getInt("group_id"));
-		    		dto.setBody(rs.getString("body")); //送信内容
+		    		dto.setText(rs.getString("text")); //送信内容
 		    		dto.setImg(rs.getString("img")); //添付画像
 		    		if((dto.getImg())==null){
 		    			dto.setImg("");
@@ -109,11 +109,11 @@ public class ChatDAO {
 		    String sql="";
 
 		    if(groupId !=0){
-		    	 sql = "insert into messages (sender_id,group_id,body,img) values (?,?,?,?)";
+		    	 sql = "insert into messages (sender_id,group_id,text,img) values (?,?,?,?)";
 		    	 k=1;
 		    }
 		    else if(receiverId != 0){
-		    	sql = "insert into messages (sender_id,receiver_id,body,img) values (?,?,?,?) ";
+		    	sql = "insert into messages (sender_id,receiver_id,text,img) values (?,?,?,?) ";
 		    	k=2;
 		    }
 

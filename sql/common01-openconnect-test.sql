@@ -382,7 +382,7 @@ message_id int not null primary key auto_increment comment '投稿ID',
 receiver_id int comment  '受取人ID',
 sender_id int not null comment '送信者ID',
 group_id int comment 'グループID',
-body varchar(255) not null comment '送信内容',
+text varchar(255) not null comment '送信内容',
 img varchar(50) comment '添付画像',
 created_at timestamp not null default current_timestamp comment '投稿日時',
 foreign key(receiver_id) references users(user_id),
@@ -552,9 +552,9 @@ insert into group_master(group_name,group_img) values("legmina","pic/group_img/t
 
 insert into groups(user_id,group_id) values(30,1),(31,1),(32,1),(33,1),(34,1),(32,2),(35,2);
 
-insert into messages(sender_id,group_id,body) values(30,1,"グループを新設しました"),(35,2,"グループを新設しました");
+insert into messages(sender_id,group_id,text) values(30,1,"グループを新設しました"),(35,2,"グループを新設しました");
 
-insert into messages(sender_id,receiver_id,body) values(30,31,"（・ｘ・）"),(30,32,"｜ω：）"),(30,33,"（・ω｜"),(31,32,"（・ω・）"),(31,33,"（：：）"),(32,33,"v（・ω｜"),
+insert into messages(sender_id,receiver_id,text) values(30,31,"（・ｘ・）"),(30,32,"｜ω：）"),(30,33,"（・ω｜"),(31,32,"（・ω・）"),(31,33,"（：：）"),(32,33,"v（・ω｜"),
 (34,30,"v（・ω｜"),(34,31,"v（・ω｜"),(34,32,"v（・ω｜"),(34,33,"v（・ω｜"),
 (35,30,"v（・ω｜"),(35,31,"v（・ω｜"),(35,32,"v（・ω｜"),(35,33,"v（・ω｜"),(35,34,"v（・ω｜"),
 (36,30,"v（・ω｜"),(36,31,"v（・ω｜"),(36,32,"v（・ω｜"),(36,33,"v（・ω｜"),(36,34,"v（・ω｜"),(36,35,"v（・ω｜"),

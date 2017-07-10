@@ -117,7 +117,7 @@
       </div>
     </nav>
   </s:else>
-  
+
   <!-- グループ名変更画面 -->
   <div class="modal fade" id="groupNameChange" tabindex="-1">
   	<div class="modal-dialog">
@@ -139,7 +139,7 @@
   	   </div>
   	</div>
   </div>
-  
+
   <!-- グループ画像変更画面 -->
   <div class="modal fade" id="groupImageChange" tabindex="-1">
     <div class="modal-dialog">
@@ -266,7 +266,7 @@
             <img class="stamp_right" src="<s:property value="img"/>">
           </s:if>
           <s:else>
-            <pre style="float: right; background-color: #9FF9FF; text-align: left; margin-right: 60px;"><s:property value="body" /></pre>
+            <pre style="float: right; background-color: #9FF9FF; text-align: left; margin-right: 60px;"><s:property value="text" /></pre>
           </s:else>
         </div>
         <div style="clear: both;"></div>
@@ -283,7 +283,7 @@
             <img class="stamp_left" src="<s:property value="img"/>">
           </s:if>
           <s:else>
-            <pre style="float: left; margin-left: 60px;"><s:property value="body" /></pre>
+            <pre style="float: left; margin-left: 60px;"><s:property value="text" /></pre>
           </s:else>
           <s:if test="readFlg==0">
             <span style="color: red; position: absolute; top: -10px; left: 50px;" id="targ">new!</span>
