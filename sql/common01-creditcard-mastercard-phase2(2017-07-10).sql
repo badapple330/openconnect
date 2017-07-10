@@ -63,8 +63,7 @@ commission int not null default '0' comment '手数料',
 delete_flg boolean default false comment '削除フラグ',
 cancel_flg boolean default false comment '返品フラグ',
 cancel_order_flg boolean default false comment '返品依頼フラグ',
-PRIMARY KEY (history_id),
-foreign key(login_id) references user(login_id)
+PRIMARY KEY (history_id)
 );
 
 /* クレジットカード情報
@@ -81,8 +80,7 @@ update_day datetime not null comment '更新日',
 delete_flg boolean default false comment '削除フラグ',
 expiration_year int(11) not null comment '有効期限（年）',
 expiration_month int(11) not null comment '有効期限（月）',
-spend int(11) default 0 comment 'ご利用金額',
-foreign key(login_id)references user(login_id)
+spend int(11) default 0 comment 'ご利用金額'
 );
 
 
@@ -106,6 +104,14 @@ judge_flg varchar(3) default '保留' comment '加盟店審査認証フラグ',
 register_day datetime not null default current_timestamp comment '登録日',
 update_day datetime not null default current_timestamp on update current_timestamp comment '更新日',
 delete_flg boolean default false comment '削除フラグ'
+);
+
+/*管理者情報*/
+create table admins(
+admin_id int primary key comment '管理者ログインID',
+admin_name_e varchar(100) not null comment '管理者名',
+admin_password  varchar(20) not null comment '管理者パスワード',
+admin_phone_email varchar(200) not null comment '管理者Eメールアドレス'
 );
 
 
@@ -143,7 +149,21 @@ insert into user(login_id,password,name,name_e,postal,address,email,tel_number,m
  * 購入お支払い履歴
  */
 insert into user_history(login_id,name_e,corporation_name,use_day,payment_day,spend,payment)values
-('8','sunakawa minori','インターノウス','2017-01-01','2017-02-01','10000','10000');
+('1','testuser','株式会社どんとこい','2016-01-27','2016-02-27','100000','100000'),
+('2','inoue takuma','株式会社クドゥー','2016-01-27','2016-02-27','130000','130000'),
+('3','harada miyuki','bulackcompany','2016-01-27','2016-02-27','32000','32000'),
+('4','testleader1','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
+('5','testleader2','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
+('6','nitabaru kouhei','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
+('7','ito tathuhumi','bulackcompany','2016-01-27','2016-02-27','160000','160000'),
+('8','sunakawa minori','bulackcompany','2016-01-27','2016-02-27','10000','10000'),
+('9','keduka masahiro','黒色グループ','2016-01-27','2016-02-27','710000','710000'),
+('10','horiguchi kenichi','暗井洞建設','2016-01-27','2016-02-27','6710000','6710000'),
+('11','kiryu yuichi','手招世界警備','2016-01-27','2016-02-27','90000','90000'),
+('12','hoshi tathuya','痛井歯科','2016-01-27','2016-02-27','5600','5600'),
+('13','iwamoto komei','底野企業','2016-01-27','2016-02-27','65600','65600'),
+('14','toshiie maeda','金沢城保守企業','2016-07-03','2016-09-15','12700000','12700000');
+
 
 
 /**
@@ -172,5 +192,16 @@ insert into corporation(login_id,password,corporation_name,postal,address,capita
 ("hideki","ikemen","tbox","1119898","東京都台東区上野1-1-1","50000000","工藤秀樹","倉地祥吾","hideki@gmail.com","0311112222","800","50","tbox@gmail.com","保留",20160617,20160617,false),
 ("yugo","ikemen","kinnosawa","1119898","東京都台東区上野1-1-1","50000000","丸井優吾","丸井優吾","yugoi@gmail.com","0311112222","800","50","tbox@gmail.com","不承認",20160617,20160617,false),
 ("asa","ikemen","ichigoichie","1119898","東京都台東区上野1-1-1","50000000","あさまさき","あさまさき","asamasaki@gmail.com","0311112222","800","50","asamasaki@gmail.com","保留",20160617,20160617,false),
-("morita","ikemen","gekidanroadshow","1119898","東京都台東区上野1-1-1","50000000","森田","直美","morita@gmail.com","0311112222","800","50","moritai@gmail.com","保留",20160617,20160617,false);
+("morita","ikemen","gekidanroadshow","1119898","東京都台東区上野1-1-1","50000000","森田","直美","morita@gmail.com","0311112222","800","50","moritai@gmail.com","保留",20160617,20160617,false),
+("jirou","ueda","株式会社どんとこい","1130034","東京都文京区湯島3-2-12","50000000","上田","次郎","uedajirou@gmail.com","0311112222","800","50","uedajirou@gmail.com","承認",20160617,20160617,false);
 
+
+/*管理者情報*/
+insert into admins(admin_id,admin_password,admin_name_e,admin_phone_email)values
+('1','internous01','takuma.inoue','takuma.inoue@gmail.com'),
+('2','internous01','akira.kazami','akira.kazami@gmail.com'),
+('3','testuser','kubi','kubin@gmail.com'),
+('4','testuser','sora','howait@gmail.com'),
+('5','testuser','type10tank','tankatack@gmail.com'),
+('6','nihonnoyoakezeyo?','ryouma sakamoto','isin@gmail.com'),
+('7','tenkahubu','nobunaga.oda','toworld@gmail.com');
