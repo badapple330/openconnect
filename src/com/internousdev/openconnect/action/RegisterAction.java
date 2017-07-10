@@ -86,6 +86,9 @@ public class RegisterAction extends ActionSupport  {
 	 * SNS用ユーザーネーム
 	 */
 	private String userName;
+	
+	/** SNS内の処理で使用するID */
+	private String snsId;
 
 
 	/**
@@ -97,6 +100,7 @@ public class RegisterAction extends ActionSupport  {
 	public String execute() {
 		String result = ERROR;
 		userName = familyNameKanji + givenNameKanji;
+		snsId = userId + ":" + familyNameKanji + givenNameKanji;
 		RegisterDAO dao = new RegisterDAO();
 		if(!(password.equals(passwordCheck))){
 			errorMsg = "パスワードが異なります";
@@ -104,7 +108,7 @@ public class RegisterAction extends ActionSupport  {
 			errorMsg = "入力されたメールアドレスは別のアカウントで使用されています";
 		}else if (dao.insert(
 				userId, password, familyNameKanji, familyNameKana,
-				givenNameKanji, givenNameKana, email, year, month,user_flg,userName) > 0) {
+				givenNameKanji, givenNameKana, email, year, month,user_flg,userName,snsId) > 0) {
 					result = SUCCESS;
 
 		} else {
@@ -345,6 +349,14 @@ public class RegisterAction extends ActionSupport  {
 	 */
 	public void setUserName(String userName) {
 	    this.userName = userName;
+	}
+	
+	public String getSnsId() {
+		return snsId;
+	}
+
+	public void setSnsId(String snsId) {
+		this.snsId = snsId;
 	}
 
 }
