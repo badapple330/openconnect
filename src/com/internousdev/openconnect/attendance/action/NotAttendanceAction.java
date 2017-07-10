@@ -38,6 +38,8 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 	private int reason;
 	/* チームネーム */
 	private String teamName;
+	/* エラーメッセージ */
+	private String errorMsg;
 	/**
 	 * チームリスト
 	 */
@@ -66,6 +68,8 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 
 		if(dao.insert(atYear, atMonth, atDay, usersIdList, attendance) > 0){
 			result = SUCCESS;
+		}else {
+			this.setErrorMsg("連絡なしはいません。");
 		}
 
 		return result;
@@ -248,6 +252,20 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 		*/
 		public void setAtTeamList(ArrayList<AttendanceDTO> atTeamList) {
 			this.atTeamList = atTeamList;
+		}
+		/**
+		* 取得メソッド を取得
+		* @return errorMsg
+		*/
+		public String getErrorMsg() {
+			return errorMsg;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param errorMsg
+		*/
+		public void setErrorMsg(String errorMsg) {
+			this.errorMsg = errorMsg;
 		}
 
 }

@@ -103,7 +103,7 @@ public class AdminAttendanceLeaderAction extends ActionSupport implements Sessio
 		if(searchList.size() > 0){
 			result = SUCCESS;
 		}else{
-			this.errorMsg="*報告がありません";
+			this.errorMsg="報告がありません。";
 		}
 		return result;
 
