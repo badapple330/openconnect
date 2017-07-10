@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.FollowListAddDAO;
+import com.internousdev.bulletinboard.dao.FollowDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -16,25 +16,18 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class FollowListAddAction extends ActionSupport implements SessionAware{
 
-
-
-	/** セッション */
-	private Map<String,Object> session;
-
 	/** ユーザーID */
 	private int userId;
-
 	/** フォローする側のID */
 	private int Do;
-
 	/** フォローされる側のID */
 	private int done;
-
 	/**  */
 	private int viewId;
-	
 	/** フォロー番号 */
 	private int followNum;
+	/** セッション */
+	private Map<String,Object> session;
 
 	public String execute(){
 
@@ -52,21 +45,17 @@ public class FollowListAddAction extends ActionSupport implements SessionAware{
             talkflg = (int) session.get("talkflg");
 		}
 
-			FollowListAddDAO dao=new FollowListAddDAO();
+			FollowDAO dao=new FollowDAO();
 
-			followCheckFlag = dao.select(userId, viewId);
-
-			if(!followCheckFlag){
-			followFlag = dao.insert(userId,viewId);
+		if(dao.follow(userId, viewId)) {
 			insertFlag = dao.insertString(userId,viewId);
 
 			if(viewId < 0){
-				if(!dao.select(viewId, userId)){
-					dao.insert(viewId, userId);
+				if(dao.follow(viewId, userId)){
 					dao.insertString(viewId, userId);
 				}
 			}
-			}
+		}
 			/* 失敗ならばERROR */
 			else{
 				if(followCheckFlag = true){
@@ -85,7 +74,7 @@ public class FollowListAddAction extends ActionSupport implements SessionAware{
 		return result;
 }
 
-	
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -129,7 +118,7 @@ public class FollowListAddAction extends ActionSupport implements SessionAware{
 	public int getFollowNum() {
 		return followNum;
 	}
-	
+
 	public void setFollowNum(int followNum) {
 		this.followNum = followNum;
 	}

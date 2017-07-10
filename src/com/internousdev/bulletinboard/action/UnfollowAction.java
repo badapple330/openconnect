@@ -14,7 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internousdev
  *
  */
-public class FollowListDeleteAction extends ActionSupport implements SessionAware {
+public class UnfollowAction extends ActionSupport implements SessionAware {
 
 
 	/** セッション */
