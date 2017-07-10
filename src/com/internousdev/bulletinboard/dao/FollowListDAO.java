@@ -26,11 +26,9 @@ public class FollowListDAO {
 
 			while(rs.next()){
 				UserDTO dto = new UserDTO();
-
 				dto.setUserId(rs.getInt("user_id"));
-
 				dto.setUserName(rs.getString("user_name"));
-
+				dto.setSnsId(rs.getString("sns_id"));
 				dto.setUserImg(rs.getString("user_img"));
 
 				dto.setPoint(rs.getInt("point"));

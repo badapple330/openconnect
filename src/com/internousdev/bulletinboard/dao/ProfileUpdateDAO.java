@@ -35,19 +35,14 @@ public class ProfileUpdateDAO {
 				UserDTO dto = new UserDTO();
 
 				dto.setUserId(rs.getInt("user_id"));
-
 				dto.setUserName(rs.getString("user_name"));
-
+				dto.setSnsId(rs.getString("sns_id"));
 				dto.setUserImg(rs.getString("user_img"));
-
 				dto.setPoint(rs.getInt("point"));
-
 				dto.setLv(rs.getInt("lv"));
-
 				dto.setProfile(rs.getString("profile"));
 
 				profileList.add(dto);
-
 			}
 
 			}catch(SQLException e){

@@ -32,7 +32,7 @@ public class FriendSearchDAO {
 			String sql3 ="select distinct users.*, follow.done from users inner join follow on users.user_id=follow.done where done in (?) && user_name  LIKE ?"; */
 
 
-			String sql ="select * from users where user_name  LIKE ? ";
+			String sql ="select * from users where user_name LIKE ? ";
 
 			try{
 				PreparedStatement ps = con.prepareStatement(sql);

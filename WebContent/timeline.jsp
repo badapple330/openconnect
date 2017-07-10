@@ -74,7 +74,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-            <h4 class="modal-title">タイムラインを投稿する</h4>
+            <h4 class="modal-title">ポストを投稿する</h4>
           </div>
 
           <s:form action="SubmitPostAction" name="tlSend" onSubmit="return check()" id="tl">
@@ -137,7 +137,7 @@
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
                     <s:hidden theme="simple" name="rePostId" value="%{postId}"></s:hidden>
-                    <s:hidden theme="simple" name="userName" value="%{userName}"></s:hidden>
+                    <s:hidden theme="simple" name="reSnsId" value="%{snsId}"></s:hidden>
                     <button type="submit" class="btn btn-primary">投稿</button>
                   </div>
                 </s:form>
@@ -221,7 +221,7 @@
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
                   <s:hidden theme="simple" name="rePostId" value="%{postId}"></s:hidden>
-                  <s:hidden theme="simple" name="userName" value="%{userName}"></s:hidden>
+                  <s:hidden theme="simple" name="reSnsId" value="%{snsId}"></s:hidden>
                   <button type="submit" class="btn btn-primary">投稿</button>
                 </div>
               </s:form>

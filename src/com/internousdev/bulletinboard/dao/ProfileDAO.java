@@ -32,6 +32,7 @@ public class ProfileDAO {
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setUserImg(rs.getString("user_img"));
 				dto.setUserName(rs.getString("user_name"));
+				dto.setSnsId(rs.getString("sns_id"));
 				dto.setPoint(rs.getInt("point"));
 				dto.setLv(rs.getInt("lv"));
 				dto.setProfile(rs.getString("profile"));
@@ -68,21 +69,13 @@ public class ProfileDAO {
 				UserDTO dto = new UserDTO();
 
 				dto.setUserId(rs.getInt("user_id"));
-
 				dto.setUserName(rs.getString("user_name"));
-
+				dto.setSnsId(rs.getString("sns_id"));
 				dto.setUserImg(rs.getString("user_img"));
-
 				dto.setPoint(rs.getInt("point"));
-
 				dto.setLv(rs.getInt("lv"));
-
 				dto.setProfile(rs.getString("profile"));
-
 				profileList.add(dto);
-
-
-
 			}
 
 			}catch(SQLException e){
@@ -117,21 +110,14 @@ public class ProfileDAO {
 				UserDTO dto = new UserDTO();
 
 				dto.setUserId(rs.getInt("user_id"));
-
 				dto.setUserName(rs.getString("user_name"));
-
+				dto.setSnsId(rs.getString("sns_id"));
 				dto.setUserImg(rs.getString("user_img"));
-
 				dto.setPoint(rs.getInt("point"));
-
 				dto.setLv(rs.getInt("lv"));
-
 				dto.setProfile(rs.getString("profile"));
 
 				profileList.add(dto);
-
-
-
 			}
 
 			}catch(SQLException e){
@@ -240,18 +226,18 @@ public class ProfileDAO {
 
 	/**
 	 * ユーザー名からユーザーIDを取得するメソッド
-	 * @param userName
+	 * @param snsId
 	 * @return
 	 */
-	public int viewIdGet(String userName){
+	public int getViewId(String snsId){
 		int viewId = 0;
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = " select user_id from users where user_name = ?";
+		String sql = " select user_id from users where sns_id = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,userName);
+			ps.setString(1, snsId);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				viewId = rs.getInt("user_id");

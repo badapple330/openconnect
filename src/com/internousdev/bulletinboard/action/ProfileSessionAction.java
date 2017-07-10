@@ -40,7 +40,7 @@ public class ProfileSessionAction extends ActionSupport implements SessionAware{
 
 		if(userName != null){
 			ProfileDAO dao = new ProfileDAO();
-			viewId = dao.viewIdGet(userName.substring(1));
+			viewId = dao.getViewId(userName.substring(1));
 		}
 		session.put("viewId", viewId);
 

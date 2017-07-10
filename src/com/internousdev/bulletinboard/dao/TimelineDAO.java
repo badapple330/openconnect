@@ -30,8 +30,8 @@ public class TimelineDAO {
 
 
 		String sql = ""
-				+"SELECT p.*, re_sender_id, re_user_name, re_user_img, re_text, re_created_at FROM("
-				+	"SELECT post_id, sender_id, user_name, user_img, text, like_count, created_at, re_post_id FROM ("
+				+"SELECT p.*, re_sender_id, re_user_name, re_sns_id, re_user_img, re_text, re_created_at FROM("
+				+	"SELECT post_id, sender_id, user_name, sns_id, user_img, text, like_count, created_at, re_post_id FROM ("
 				+		"SELECT post_id, sender_id, text, like_count, created_at, re_post_id FROM posts "
 				+		"WHERE sender_id IN ("
 				+			"SELECT done FROM follow WHERE do = ? "
@@ -40,7 +40,7 @@ public class TimelineDAO {
 				+		")"
 				+	") AS p "
 				+	"INNER JOIN ( "
-				+		"SELECT user_id, user_name, user_img FROM users "
+				+		"SELECT user_id, user_name, sns_id, user_img FROM users "
 				+		"WHERE user_id IN ("
 				+			"SELECT done FROM follow WHERE do = ? "
 				+			"UNION "
@@ -50,7 +50,7 @@ public class TimelineDAO {
 				+	"ON p.sender_id = u.user_id"
 				+") AS p "
 				+"LEFT JOIN ("
-				+	"SELECT post_id, sender_id AS re_sender_id, user_name AS re_user_name, "
+				+	"SELECT post_id, sender_id AS re_sender_id, user_name AS re_user_name, sns_id AS re_sns_id, "
 				+	"user_img AS re_user_img, text AS re_text, created_at AS re_created_at FROM ("
 				+		"SELECT post_id, sender_id, text, created_at FROM posts "
 				+		"WHERE post_id IN ("
@@ -62,7 +62,7 @@ public class TimelineDAO {
 				+		")"
 				+	") AS p "
 				+	"INNER JOIN ("
-				+		"SELECT user_id, user_name, user_img FROM users "
+				+		"SELECT user_id, user_name, sns_id, user_img FROM users "
 				+		"WHERE user_id IN ("
 				+			"SELECT sender_id FROM posts WHERE post_id IN ("
 				+				"SELECT re_post_id FROM posts WHERE sender_id IN("
@@ -100,6 +100,7 @@ public class TimelineDAO {
 //				dto.setImg(rs.getString("img")); // 添付画像
 				dto.setCreatedAt(rs.getString("created_at"));// 送信日時
 				dto.setUserName(rs.getString("user_name")); // 名前
+				dto.setSnsId(rs.getString("sns_id")); // SNS用ID
 				dto.setUserImg(rs.getString("user_img")); // 写真
 				dto.setLikeCount(rs.getInt("like_count")); // ポイント
 				dto.setIsLiked(like.isLiked(userId, dto.getPostId()));// グッドふらぐ
@@ -107,6 +108,7 @@ public class TimelineDAO {
 				if (dto.getRePostId() != 0) {
 					dto.setReUserId(rs.getInt("re_sender_id")); // 返信先のユーザーID
 					dto.setReUserName(rs.getString("re_user_name")); // 返信先のユーザー名
+					dto.setReSnsId(rs.getString("re_sns_id")); // 返信先のユーザー名
 					dto.setReImg(rs.getString("re_user_img"));
 					dto.setReText(rs.getString("re_text")); // 返信先の送信内容
 					dto.setReCreatedAt(rs.getString("re_created_at")); // 返信先の送信日時

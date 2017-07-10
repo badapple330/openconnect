@@ -17,8 +17,8 @@ public class SubmitPostAction extends ActionSupport implements SessionAware{
 	private String text;
 	/** 返信先のタイムラインID */
 	private int rePostId;
-	/** 返信先のユーザー名 */
-	private String userName;
+	/** 返信先のsnsId */
+	private String reSnsId;
 	/** 返信内容 */
 	private String reText;
 	/** セッション */
@@ -40,7 +40,7 @@ public class SubmitPostAction extends ActionSupport implements SessionAware{
 
 		//返信の場合は「＠名前 内容」という形に変える
 		if(rePostId != 0){
-			text = ("@" + userName + " " + reText);
+			text = ("@" + reSnsId + " " + reText);
 		}
 
 		//同じ情報を連投してた場合の処理
@@ -111,12 +111,12 @@ public class SubmitPostAction extends ActionSupport implements SessionAware{
 		this.followerList = followerList;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getReSnsId() {
+		return reSnsId;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setReSnsId(String reSnsId) {
+		this.reSnsId = reSnsId;
 	}
 
 	public String getReText() {

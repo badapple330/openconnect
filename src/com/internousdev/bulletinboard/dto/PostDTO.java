@@ -8,6 +8,8 @@ public class PostDTO {
 	private int senderId;
 	/** 名前 */
 	private String userName;
+	/** 名前 */
+	private String snsId;
 	/** 写真 */
 	private String userImg;
 	/** 送信内容 */
@@ -26,6 +28,8 @@ public class PostDTO {
 	private int reUserId;
 	/** 返信先のユーザー名 */
 	private String reUserName;
+	/** 返信先のSNS用ID */
+	private String reSnsId;
 	/** 返信先の投稿内容 */
 	private String reText;
 	/** 返信先の投稿日時 */
@@ -71,6 +75,12 @@ public class PostDTO {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	public String getSnsId() {
+		return snsId;
+	}
+	public void setSnsId(String snsId) {
+		this.snsId = snsId;
+	}
 	public String getUserImg() {
 		return userImg;
 	}
@@ -106,6 +116,12 @@ public class PostDTO {
 	}
 	public void setReUserName(String reUserName) {
 		this.reUserName = reUserName;
+	}
+	public String getReSnsId() {
+		return reSnsId;
+	}
+	public void setReSnsId(String reSnsId) {
+		this.reSnsId = reSnsId;
 	}
 	public String getReText() {
 		return reText;

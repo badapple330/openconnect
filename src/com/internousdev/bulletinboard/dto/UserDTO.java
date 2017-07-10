@@ -7,40 +7,30 @@ public class UserDTO {
 
 	/** ユーザーID */
 	private int userId;
-
 	/** 写真 */
 	private String userImg;
-
 	/** 変更画像のID */
 	private int imgId;
-
 	/** 名前 */
 	private String userName;
-
+	/** SNS用ID */
+	private String snsId;
 	/** ポイント */
 	private int point;
-
 	/** レベル */
 	private int lv;
-
 	/** プロフィール */
 	private String profile;
-
 	/** 削除フラグ */
 	private boolean deleteFlg;
-
 	/** 背景色 */
 	private String color;
-
 	/** 通知文 */
 	private String msg;
-
 	/** フォローする側のID */
 	private int Do;
-	
 	/** フォローされる側のID */
 	private int Done;
-
 	/** URL */
 	private String url;
 
@@ -77,6 +67,14 @@ public class UserDTO {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getSnsId() {
+		return snsId;
+	}
+
+	public void setSnsId(String snsId) {
+		this.snsId = snsId;
 	}
 
 	public int getPoint() {
@@ -127,29 +125,29 @@ public class UserDTO {
 	public void setDo(int do1) {
 		this.Do = do1;
 	}
-	
-	
+
+
 	public int getDone() {
 		return Done;
 	}
-	
-	
+
+
 	public void setDone(int done) {
 		Done = done;
 	}
-	
+
 	public String getColor() {
 		return color;
 	}
-	
+
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
+
 	public String getUrl() {
 		return url;
 	}
-	
+
 	public void setUrl(String url) {
 		this.url = url;
 	}
