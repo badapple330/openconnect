@@ -18,48 +18,42 @@ public class GoGroupAction extends ActionSupport implements SessionAware{
 
 	/** ユーザーID */
 	private int userId=0;
-
 	/** グループリスト */
 	public ArrayList<MessageDTO> groupList = new ArrayList<MessageDTO>();
-
 	/** 通知リスト */
-	ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
+	private ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
 
-
-		private int talkInfo=0;
-		private int groupInfo=0;
+	private int talkInfo=0;
+	private int groupInfo=0;
 
 	/** セッション */
 	private Map<String,Object> session;
 
 	public String execute() {
-
-
-
-	String result = ERROR;
-	if (session.containsKey("userId")) {
-		userId = (int) session.get("userId");
-	}
-	if(userId==0){return result;}
-
-	//通知の確認
-	UserDAO msgDao = new UserDAO();
-	msgList = msgDao.msgSelect(userId);
-	msgDao.msgDelete(userId);
-
-
-	GroupDAO dao = new GroupDAO();
-	groupList = dao.groupGet(userId);
-	if(groupList != null){
-		Collections.sort(groupList, new GroupComparator());
-		result =SUCCESS;
-	}
-
-	FooterInfoDAO infodao = new FooterInfoDAO();
-	setGroupInfo(infodao.groupInfoGet(userId));
-	setTalkInfo(infodao.talkInfoGet(userId));
-
-	return result;
+		String result = ERROR;
+		if (session.containsKey("userId")) {
+			userId = (int) session.get("userId");
+		}
+		if(userId==0){return result;}
+	
+		//通知の確認
+		UserDAO msgDao = new UserDAO();
+		msgList = msgDao.msgSelect(userId);
+		msgDao.msgDelete(userId);
+	
+	
+		GroupDAO dao = new GroupDAO();
+		groupList = dao.groupGet(userId);
+		if(groupList != null){
+			Collections.sort(groupList, new GroupComparator());
+			result = SUCCESS;
+		}
+	
+		FooterInfoDAO infodao = new FooterInfoDAO();
+		setGroupInfo(infodao.groupInfoGet(userId));
+		setTalkInfo(infodao.talkInfoGet(userId));
+	
+		return result;
 	}
 
 	

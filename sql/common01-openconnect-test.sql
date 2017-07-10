@@ -369,12 +369,20 @@ comment = 'ユーザー情報格納テーブル';
 
 
 
-/* グループマスター情報 */
+/* グループ情報 */
 create table group_master(
 group_id int not null primary key auto_increment comment 'グループID',
 group_name varchar(50) not null comment 'グループ名',
 group_icon varchar(50) default "pic/group_icon/papurika01.jpg" comment 'グループイメージ',
 created_at datetime not null  default current_timestamp comment '作成日'
+);
+
+/* グループメンバー情報 */
+create table groups(
+group_id int not null comment 'グループID',
+user_id int not null comment 'ユーザーID',
+foreign key(user_id) references users(user_id),
+foreign key(group_id) references group_master(group_id)
 );
 
 /* チャット投稿情報 */
@@ -421,14 +429,6 @@ follower_id int comment 'フォロワーID',
 foreign key(sender_id) references users(user_id),
 foreign key(follower_id) references users(user_id),
 foreign key(post_id) references posts(post_id)
-);
-
-/* グループ情報 */
-create table groups(
-user_id int not null comment 'ユーザーID',
-group_id int not null comment 'グループID',
-foreign key(user_id) references users(user_id),
-foreign key(group_id) references group_master(group_id)
 );
 
 /* フォロー情報 */

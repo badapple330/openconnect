@@ -33,7 +33,7 @@ public class FollowListAction extends ActionSupport implements SessionAware{
 	private int done;
 
 	/** プロフィール情報リスト */
-	private ArrayList<UserDTO> myDate = new ArrayList<UserDTO>();
+	private ArrayList<UserDTO> myData = new ArrayList<UserDTO>();
 
 	/** フォローリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
@@ -116,11 +116,11 @@ public class FollowListAction extends ActionSupport implements SessionAware{
 		this.done = done;
 	}
 
-	public ArrayList<UserDTO> getMyDate() {
-		return myDate;
+	public ArrayList<UserDTO> getMyData() {
+		return myData;
 	}
-	public void setMyDate(ArrayList<UserDTO> myDate) {
-		this.myDate = myDate;
+	public void setMyData(ArrayList<UserDTO> myData) {
+		this.myData = myData;
 	}
 
 	public ArrayList<UserDTO> getFollowList() {

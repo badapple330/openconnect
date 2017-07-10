@@ -52,7 +52,7 @@ public class ProfileAction extends ActionSupport implements SessionAware{
 	private int groupInfo=0;
 
 	/** プロフィール情報 */
-	private ArrayList<UserDTO> myDate = new ArrayList<UserDTO>();
+	private ArrayList<UserDTO> myData = new ArrayList<UserDTO>();
 
 	/** フォローリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
@@ -77,7 +77,7 @@ public class ProfileAction extends ActionSupport implements SessionAware{
 
 
 		ProfileDAO dao = new ProfileDAO();
-		setMyDate(dao.select(userId));
+		setMyData(dao.select(userId));
 
 		followList = dao.getFollow(userId);
 		setFollowNum((followList.size()));
@@ -214,12 +214,12 @@ public class ProfileAction extends ActionSupport implements SessionAware{
 		this.profile = profile;
 	}
 
-	public ArrayList<UserDTO> getMyDate() {
-		return myDate;
+	public ArrayList<UserDTO> getMyData() {
+		return myData;
 	}
 
-	public void setMyDate(ArrayList<UserDTO> myDate) {
-		this.myDate = myDate;
+	public void setMyData(ArrayList<UserDTO> myData) {
+		this.myData = myData;
 	}
 
 	public ArrayList<UserDTO> getFollowList() {

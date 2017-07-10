@@ -92,7 +92,7 @@ body{
 	float:left;
 }
 
-.myDate li{
+.myData li{
 	width: 100%;
 	height: 30px;
 	margin-top: 5px;
@@ -150,8 +150,8 @@ body{
 	font-weight:bold;
 }
 
-/*myDate‚Ì•¶Žš*/
-.myDate {
+/*myData‚Ì•¶Žš*/
+.myData {
 	font-size:10px;
 	margin-right:20px;
 	text-align:center;

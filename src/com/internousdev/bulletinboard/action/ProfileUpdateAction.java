@@ -62,7 +62,7 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 	private int groupInfo=0;
 
 	/** プロフィールリスト */
-	private ArrayList<UserDTO> myDate = new ArrayList<UserDTO>();
+	private ArrayList<UserDTO> myData = new ArrayList<UserDTO>();
 
 	/** フォローリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
@@ -100,7 +100,7 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 			}
 
 			ProfileDAO dao = new ProfileDAO();
-			setMyDate(dao.select(viewId));
+			setMyData(dao.select(viewId));
 
 			FollowListDAO fdao = new FollowListDAO();
 
@@ -221,12 +221,12 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 		this.profile = profile;
 	}
 
-	public ArrayList<UserDTO> getMyDate() {
-		return myDate;
+	public ArrayList<UserDTO> getMyData() {
+		return myData;
 	}
 
-	public void setMyDate(ArrayList<UserDTO> myDate) {
-		this.myDate = myDate;
+	public void setMyData(ArrayList<UserDTO> myData) {
+		this.myData = myData;
 	}
 
 	public ArrayList<UserDTO> getFollowList() {

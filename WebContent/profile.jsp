@@ -73,7 +73,7 @@ pageEncoding="UTF-8"%>
 <BR><BR>
 <h1 class="name">Profile</h1>
 
-<s:iterator value="myDate" >
+<s:iterator value="myData" >
 
 <BR>
 <table>
@@ -115,7 +115,7 @@ FOLLOW</a>
 </td>
 
 <td>
-    <ul class="myDate">
+    <ul class="myData">
         <li><button type="button" style="font-size:0.8em; font-weight:bold; padding:10px,30px; margin-left:10px;
         			margin-right:7px;background-color:#6495ed;color:#fff;"  data-toggle="modal" data-target="#sampleModal">
         		Follow:<s:property value="followNum"/></button></li>
@@ -222,7 +222,7 @@ FOLLOW</a>
 
 
 
-<s:iterator value="myDate" >
+<s:iterator value="myData" >
 
 <BR>
 <table>
@@ -230,7 +230,7 @@ FOLLOW</a>
 <td>
  <div class="profile">
 
-            	<img src="<s:property value="userIcon"/>" class="edit_border_radius" alt="" /><br>
+            	<img src="<s:property value="myData.userIcon"/>" class="edit_border_radius" alt="" /><br>
             	<a data-toggle="modal" class="cursor"
               data-target="#userImageChange">アイコン画像変更</a>
 
@@ -249,11 +249,11 @@ FOLLOW</a>
         	<s:iterator value="userIconList" status="rs">
         	<s:if test="%{#rs.count%2==0}">
 			<div style="float:left">
-          <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
+          <input type="radio" name="userIcon" value="<s:property value="userIcon"/>"  style="background:url(./<s:property value="userIcon"/>);background-size:100% 100%;">
           </div>
           </s:if><s:else>
           <div style="float:left; background-color:#dddddd;" >
-          <input type="radio" name="url" value="<s:property value="url" />"style="background:url(./<s:property value="url"/>);background-size:100% 100%;" >
+          <input type="radio" name="userIcon" value="<s:property value="userIcon" />"style="background:url(./<s:property value="userIcon"/>);background-size:100% 100%;" >
           </div>
 
 
@@ -278,7 +278,7 @@ FOLLOW</a>
 
 <td>
 
-    <ul class="myDate">
+    <ul class="myData">
         <li><button type="button"  disabled="disabled" style="font-size:0.8em; font-weight:bold; text-align:center; background-color:#6495ed; color:#fff;"
         			data-toggle="modal" data-target="#sampleModal">
         		Follow:<s:property value="followNum"/>　</button></li>
