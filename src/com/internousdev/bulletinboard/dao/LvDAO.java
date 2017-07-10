@@ -5,17 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.internousdev.bulletinboard.util.DBConnector;
+import com.internousdev.util.db.mysql.MySqlConnector;
 
 public class LvDAO {
-
-
-
 	public int Lv_up(int userId){
 
-		DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		Connection con=db.getConnection();
-		Connection con2=db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		int inserted= 0;
 		int ex=0;
 
@@ -28,10 +23,16 @@ public class LvDAO {
 			ps.setInt(1,userId);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
-			ex = rs.getInt("point");
+				ex = rs.getInt("point");
 			}
 			ps.close();
+			if(ex>=1000){
+				PreparedStatement ps2= con.prepareStatement(sql2);
+				ps2.setInt(1,userId);
+				inserted=ps2.executeUpdate();
 
+				ps2.close();
+			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
@@ -40,29 +41,7 @@ public class LvDAO {
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
-
-		}
-
-		if(ex>=1000){
-			try{
-				PreparedStatement ps2= con2.prepareStatement(sql2);
-				ps2.setInt(1,userId);
-				inserted=ps2.executeUpdate();
-
-				ps2.close();
-			}catch(SQLException e){
-				e.printStackTrace();
-			}finally{
-				try{
-					con2.close();
-				}catch(SQLException e){
-					e.printStackTrace();
-				}
-			}
-
 		}
 		return inserted;
-
 	}
-
 }

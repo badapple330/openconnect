@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.bulletinboard.dto.UserDTO;
-import com.internousdev.bulletinboard.util.DBConnector;
+import com.internousdev.util.db.mysql.MySqlConnector;
 
 
 
@@ -17,8 +17,7 @@ public class FriendSearchDAO {
 
         //userNameで検索されたusers情報をallListに格納
 		public ArrayList<UserDTO> select(String userName) {
-			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/","openconnect", "root","mysql");
-			Connection con = db.getConnection();
+			Connection con = new MySqlConnector("openconnect").getConnection();
 
 			String SearchName= "%"+ userName + "%";
 
@@ -64,8 +63,7 @@ public class FriendSearchDAO {
 
 
 		public ArrayList<UserDTO> check(int userId) {
-			DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/","openconnect", "root","mysql");
-			Connection con = db.getConnection();
+			Connection con = new MySqlConnector("openconnect").getConnection();
 
 			ArrayList<UserDTO>checkList = new ArrayList<UserDTO>();
 

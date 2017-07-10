@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.internousdev.bulletinboard.dto.LoginDTO;
-import com.internousdev.bulletinboard.util.DBConnector;
+import com.internousdev.util.db.mysql.MySqlConnector;
 
 
 
@@ -32,9 +32,7 @@ public class LoginDAO {
 	 */
 	public LoginDTO select(String phone_email, String password){
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		LoginDTO dto = new LoginDTO();
 
 		String sql = "select phone_email, password, user_id, login_flg, family_name, given_name, user_flg"
@@ -76,8 +74,7 @@ public class LoginDAO {
 	 */
 	public int update(String phoneEmail, String password){
 		int count=0;
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		String sql = "update users set login_flg = true where phone_email = ? and password = ?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

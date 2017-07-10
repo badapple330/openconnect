@@ -7,13 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.bulletinboard.dto.UserDTO;
-import com.internousdev.bulletinboard.util.DBConnector;
+import com.internousdev.util.db.mysql.MySqlConnector;
 
 public class FollowListDAO {
 
 	public ArrayList<UserDTO> getFollow(int userId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
 
@@ -30,11 +29,8 @@ public class FollowListDAO {
 				dto.setUserName(rs.getString("user_name"));
 				dto.setSnsId(rs.getString("sns_id"));
 				dto.setUserIcon(rs.getString("user_icon"));
-
 				dto.setPoint(rs.getInt("point"));
-
 				dto.setLv(rs.getInt("lv"));
-
 				dto.setProfile(rs.getString("profile"));
 
 				followList.add(dto);
@@ -43,17 +39,17 @@ public class FollowListDAO {
 
 			}
 
-			}catch(SQLException e){
-				e.printStackTrace();
+		}catch(SQLException e){
+			e.printStackTrace();
 
-			}finally{
+		}finally{
 			try{
 				con.close();
 			} catch(SQLException e){
 				e.printStackTrace();
 			}
-			}
-			return followList;
+		}
+		return followList;
 
 	}
 

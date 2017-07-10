@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.bulletinboard.dto.UserDTO;
-import com.internousdev.bulletinboard.util.DBConnector;
+import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
  * @author internousdev
@@ -19,8 +19,7 @@ import com.internousdev.bulletinboard.util.DBConnector;
 public class ProfileUpdateDAO {
 
 	public ArrayList<UserDTO> update(int viewId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
 
@@ -60,8 +59,7 @@ public class ProfileUpdateDAO {
 	}
 
 	public ArrayList<UserDTO> getFollow(int viewId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
 
@@ -109,8 +107,7 @@ public class ProfileUpdateDAO {
 
 
 	public ArrayList<UserDTO> getFollower(int viewId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
 
@@ -156,8 +153,7 @@ public class ProfileUpdateDAO {
 	}
 
 	public boolean checkId(int userId, int viewId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		boolean result = false;
 

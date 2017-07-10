@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.bulletinboard.dto.StampDTO;
-import com.internousdev.bulletinboard.util.DBConnector;
+import com.internousdev.util.db.mysql.MySqlConnector;
 
 
 
@@ -15,8 +15,7 @@ public class StampDAO {
 
 	  public ArrayList<StampDTO> stampGet(int userId){
 
-		    DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		    Connection con = db.getConnection();
+		  Connection con = new MySqlConnector("openconnect").getConnection();
 		    ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
 
 		    String sql1= "select lv from users where user_id=?";

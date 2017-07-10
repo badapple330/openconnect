@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.internousdev.util.DBConnector;
+import com.internousdev.util.db.mysql.MySqlConnector;
 
 
 public class AddImageDAO {
@@ -16,18 +16,16 @@ public class AddImageDAO {
 		 * @param imgPath
 		 * @return 成否を格納する変数
 		 */
-		 public int insert(int userId,String userImg){
-				DBConnector db=new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "internousdev", "root","mysql");
-				Connection con=db.getConnection();
-				int inserted=0;
-				String sql= "insert into img(user_id,user_icon)"
-						+ "values(?,?,?)";
+		 public int insert(int userId, String userImg){
+				Connection con = new MySqlConnector("openconnect").getConnection();
+				int inserted = 0;
+				String sql= "insert into img(user_id,user_icon) values(?,?,?)";
 
 				try{
 					PreparedStatement ps= con.prepareStatement(sql);
-					ps.setInt(1,userId);
-					ps.setString(2,userImg);
-					inserted=ps.executeUpdate();
+					ps.setInt(1, userId);
+					ps.setString(2, userImg);
+					inserted = ps.executeUpdate();
 
 
 					ps.close();

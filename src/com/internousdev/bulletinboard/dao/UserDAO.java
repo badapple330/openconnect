@@ -7,14 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.bulletinboard.dto.UserDTO;
-import com.internousdev.bulletinboard.util.DBConnector;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
 public class UserDAO {
 
 	public ArrayList<UserDTO> select(int userId){
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		UserDTO dto = new UserDTO();
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 

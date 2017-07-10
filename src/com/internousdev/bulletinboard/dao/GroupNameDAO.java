@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.internousdev.bulletinboard.dao;
 
@@ -10,14 +10,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.bulletinboard.dto.StampDTO;
-import com.internousdev.bulletinboard.util.DBConnector;
+import com.internousdev.util.db.mysql.MySqlConnector;
 
 
 public class GroupNameDAO {
 	public ArrayList<StampDTO> stampGet(){
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
 		String sql="select * from group_name";
 
@@ -47,8 +46,7 @@ public class GroupNameDAO {
 	public int setGroupName(String groupName, int groupId){
 		int updated=0;
 
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
-		Connection con = db.getConnection();
+		Connection con = new MySqlConnector("openconnect").getConnection();
 		String sql="update group_master set group_name=? where group_id=?";
 
 		/////////
