@@ -99,7 +99,7 @@ public class RegisterDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root", "mysql");
 		Connection con = db.getConnection();
 
-		String sql = "select * from user where email=?";
+		String sql = "select * from users where phone_email=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, email);
