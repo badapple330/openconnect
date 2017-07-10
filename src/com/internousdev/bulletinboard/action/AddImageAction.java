@@ -8,7 +8,7 @@ import com.internousdev.bulletinboard.dao.AddImageDAO;
 import com.internousdev.bulletinboard.dao.Base64DAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AddimageAction extends ActionSupport implements SessionAware{
+public class AddImageAction extends ActionSupport implements SessionAware{
 
 		/** シリアスコード */
 		private static final long serialVersionUID = 1L;
