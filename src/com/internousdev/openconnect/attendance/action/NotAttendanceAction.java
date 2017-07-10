@@ -38,6 +38,10 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 	private int reason;
 	/* チームネーム */
 	private String teamName;
+	/**
+	 * チームリスト
+	 */
+	private ArrayList<AttendanceDTO> atTeamList = new ArrayList<AttendanceDTO>();
 
 	/* ユーザーIDリスト */
 	private ArrayList<AttendanceDTO> usersIdList = new ArrayList<AttendanceDTO>();
@@ -227,6 +231,23 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 		*/
 		public void setAtDate(int atDate) {
 			this.atDate = atDate;
+		}
+		public String getAllTeamNames(){
+			return "";
+		}
+		/**
+		* 取得メソッド を取得
+		* @return atTeamList
+		*/
+		public ArrayList<AttendanceDTO> getAtTeamList() {
+			return atTeamList;
+		}
+		/**
+		* 設定メソッド を設定
+		* @param atTeamList
+		*/
+		public void setAtTeamList(ArrayList<AttendanceDTO> atTeamList) {
+			this.atTeamList = atTeamList;
 		}
 
 }
