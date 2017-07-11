@@ -280,9 +280,10 @@ K	 * エラーメッセージ
      * @author kota.miyazato
      * @since 2017/06/07
      * @version 1.0
+	 * @throws Exception
      */
 
-	public String execute(){
+	public String execute() throws Exception{
 		String result = ERROR;
 		DecisionDAO dao = new DecisionDAO();
 
@@ -297,13 +298,29 @@ K	 * エラーメッセージ
 			DecisionDAO decisionDAO = new DecisionDAO();
 
 		try{
+
+			jDrafterId = decisionList.get(0).getJDrafterId();
 			nameList = decisionDAO.selectByIds(jDrafterId);
+
+			kDrafterId = decisionList.get(0).getKDrafterId();
 			kNameList = decisionDAO.selectByK(kDrafterId);
+
+
+			// 実施決裁の承認者IDの数字を持ってくる
+			jPermiterId1 = decisionList.get(0).getJPermiterId1();
 			jPermiter1nameList = dao.selectByJPermiterId1(jPermiterId1);
+			jPermiterId2 = decisionList.get(0).getJPermiterId2();
 			jPermiter2nameList = dao.selectByJPermiterId2(jPermiterId2);
+			jPermiterId3 = decisionList.get(0).getJPermiterId3();
 			jPermiter3nameList = dao.selectByJPermiterId3(jPermiterId3);
+
+
+			// 契約/実施兼契約決裁の承認者IDの数字を持ってくる
+			kPermiterId1 = decisionList.get(0).getKPermiterId1();
 			kPermiter1nameList = dao.selectByKPermiterId1(kPermiterId1);
+			kPermiterId2 = decisionList.get(0).getKPermiterId2();
 			kPermiter2nameList = dao.selectByKPermiterId2(kPermiterId2);
+			kPermiterId3 = decisionList.get(0).getKPermiterId3();
 			kPermiter3nameList = dao.selectByKPermiterId3(kPermiterId3);
 			dao.updateChangeRecourse(type, decisionId);//変更編集・遡求編集ボタン押下時に値を更新する為のもの
 

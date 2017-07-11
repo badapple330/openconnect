@@ -198,6 +198,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	public String execute() {
 		String result =ERROR;
          DecisionDAO dao= new DecisionDAO();
+
          int count=0;
 
 

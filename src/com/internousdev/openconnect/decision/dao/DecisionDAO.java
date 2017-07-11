@@ -41,6 +41,7 @@ public class DecisionDAO {
 	public ArrayList<DecisionDTO> kPermiter2nameList = new ArrayList<DecisionDTO>();
 
 	public ArrayList<DecisionDTO> kPermiter3nameList = new ArrayList<DecisionDTO>();
+
 	public ArrayList<DecisionDTO> select(int decisionId, int type){
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
@@ -171,7 +172,7 @@ public class DecisionDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/",
 				"openconnect", "root", "mysql");
 		Connection con = db.getConnection();
-		ArrayList<DecisionDTO> nameList = new ArrayList<DecisionDTO>();
+		ArrayList<DecisionDTO> KnameList = new ArrayList<DecisionDTO>();
 		String sql = "select * from users where user_id=?";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -180,7 +181,7 @@ public class DecisionDAO {
 			while (rs.next()) {
 				dto.setFamilyNameKanji(rs.getString("family_name_kanji")); // 姓（漢字）
 				dto.setGivenNameKanji(rs.getString("given_name_kanji")); // 名（漢字）
-				nameList.add(dto);
+				KnameList.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -207,29 +208,29 @@ public class DecisionDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id=? , k_drafter_id=?,where decision_id=?";
+		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id=? , k_drafter_id=? where decision_id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, decisionName);
-			ps.setString(2, summary);
-			ps.setString(3, cause);
-			ps.setString(4, startDay);
-			ps.setString(5, endDay);
-			ps.setInt(6, persons);
-			ps.setInt(7, totalProve);
-			ps.setFloat(8, totalRe);
-			ps.setInt(9, totalLine);
-			ps.setFloat(10, totalRoom);
-			ps.setInt(11, totalHuman);
-			ps.setFloat(12, totalEtc);
-			ps.setFloat(13, benefit);
-			ps.setFloat(14, bildCost);
-			ps.setFloat(15, amountAll);
-			ps.setInt(16, jDrafterId);
-			ps.setInt(17, kDrafterId);
-			ps.setInt(18, decisionId);
+			ps.setString(1, decisionName); 	//案件名
+			ps.setString(2, summary);	//概要
+			ps.setString(3, cause);  //理由・目的
+			ps.setString(4, startDay); //開始日
+			ps.setString(5, endDay); //終了日
+			ps.setInt(6, persons); //人数
+			ps.setInt(7, totalProve);	 //合計開発端末料
+			ps.setFloat(8, totalRe); //合計リリース環境使用料
+			ps.setInt(9, totalLine); //合計回線使用料
+			ps.setFloat(10, totalRoom); //合計施設使用料
+			ps.setInt(11, totalHuman); //合計開発要員
+			ps.setFloat(12, totalEtc); //合計雑費
+			ps.setFloat(13, benefit); // 損益費用
+			ps.setFloat(14, bildCost); //建設費用
+			ps.setFloat(15, amountAll); //合計金額
+			ps.setInt(16, jDrafterId); //実施起案者ユーザーID
+			ps.setInt(17, kDrafterId);//契約兼実施契約起案者ユーザーID
+			ps.setInt(18, decisionId);// 決裁ID
 
             count = ps.executeUpdate();
 
@@ -497,8 +498,9 @@ public class DecisionDAO {
 	/**
      * 変更編集・遡求編集ボタン押下時メソッド  編集開始による値(変更有無・遡求有無ステータス)の更新をする為のメソッド
      * @author SOSHI AZUMA
+	 * @throws Exception
      */
-	public int updateChangeRecourse(int type, int decisionId ) {
+	public int updateChangeRecourse(int type, int decisionId ) throws Exception {
 
 		int count = 0;
 
@@ -506,12 +508,20 @@ public class DecisionDAO {
 		Connection con = db.getConnection();
 		String sql ="";
 
+			/*
+			if(type == 1 || type ==2 || type ==3){
+					sql = "update decision set change_status = 1, decision_status = 0 where decision_id = ?";
+			 *
+			 */
+
 			if(type == 4 || type == 5 || type == 6) {//変更編集ボタンが押された場合
 					sql = "update decision set change_status = 1, decision_status = 11 where decision_id = ?";
-			}
-			if(type == 7) {//遡求編集ボタンが押された場合
+			}else if(type == 7) {//遡求編集ボタンが押された場合
 					sql = "update decision set recourse_status = 1, decision_status = 12 where decision_id = ?";
+			}else{
+				throw new Exception("Invalid argment: type");
 			}
+
 
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);

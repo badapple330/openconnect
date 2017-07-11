@@ -202,6 +202,7 @@ public class DecisionDTO {
 	 */
 	public int type;
 
+
 	/**
 	* 実施_承認者ID(1人目:リーダー)
 	*/
@@ -998,6 +999,5 @@ public class DecisionDTO {
 		public void setProjectName(String projectName) {
 			this.projectName = projectName;
 		}
-
 
 }
