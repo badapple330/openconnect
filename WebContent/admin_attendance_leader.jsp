@@ -182,7 +182,7 @@
 						<th style="white-space: nowrap;">性</th>
 						<th style="white-space: nowrap;">名</th>
 						<th>出欠状況</th>
-						<th width="1000">備考</th>
+						<th style="width:1000px;">備考</th>
 					</tr>
 				</thead>
 
@@ -198,7 +198,7 @@
 							<td style="white-space: nowrap;"><s:property
 									value="givenNameKanji" /></td>
 							<td><s:property value="attendance" /></td>
-							<td width="1000"><s:property value="reason" /></td>
+							<td style="width:1000px;text-align:left !important;"><s:property value="reason" /></td>
 						</tr>
 
 						<input type="hidden" name="modalList" value="searchList"
@@ -234,7 +234,7 @@
 										<th style="white-space: nowrap;">性</th>
 										<th style="white-space: nowrap;">名</th>
 										<th>出欠状況</th>
-										<th width="1000">備考</th>
+										<th style="width:1000px;">備考</th>
 									</tr>
 								</thead>
 
@@ -250,7 +250,7 @@
 											<td style="white-space: nowrap;"><s:property
 													value="givenNameKanji" /></td>
 											<td><s:property value="attendance" /></td>
-											<td width="1000"><s:property value="reason" /></td>
+											<td style="width:1000px;text-align:left !important;"><s:property value="reason" /></td>
 										</tr>
 									</s:iterator>
 

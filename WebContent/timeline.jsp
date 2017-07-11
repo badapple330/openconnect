@@ -103,11 +103,11 @@
         <div class="post" style="<s:if test="userId==reUserId">background-color: #daeaec;</s:if> border-left: solid 6px #f5504b;/*左線*/;">
           <a href="#" data-toggle="modal" data-target="#timelineDelete<s:property value="postId"/>" id="deleteIcon"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
             <div class="timeimg">
-              <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
+              <a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
               <img src="<s:property value="userIcon"/>"   alt="" class="img-rounded-ex"></a>
             </div>
           <div class="timetext">
-            <h4><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
+            <h4><a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
             <s:property value="userName"/></a></h4>
             <span class="timeArea" title="<s:property value="(createdAt.substring(0,19))"/>"></span>
             <div class="glyphicon glyphicon-share-alt" aria-hidden="true" id="receive" data-toggle="modal" data-target="#timelineReceive<s:property value="postId"/>"></div>
@@ -172,11 +172,11 @@
           <s:if test="reText != null">
             <div class="rePost">
               <div class="timeimg">
-                <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
+                <a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
                 <img src="<s:property value="reUserIcon"/>"   alt="" class="img-rounded-re"></a>
               </div>
               <div class="timetext">
-                <h4><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
+                <h4><a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
                 <s:property value="reUserName"/></a></h4>
                 <span class="timeArea" title="<s:property value="(reCreatedAt.substring(0,19))"/>"></span>
                 <div style="clear:both;"></div>
@@ -192,11 +192,11 @@
        <s:else>
         <div class="post" <s:if test="userId==reUserId">style="background-color: #daeaec;"</s:if> >
           <div class="timeimg">
-            <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
+            <a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
             <img src="<s:property value="userIcon"/>"   alt="" class="img-rounded-ex"    width="50" height="50"></a>
           </div>
         <div class="timetext">
-          <h4><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
+          <h4><a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
           <s:property value="userName"/></a></h4>
           <span class="timeArea" title="<s:property value="(createdAt.substring(0,19))"/>"></span>
           <div class="glyphicon glyphicon-share-alt" aria-hidden="true" id="receive" data-toggle="modal" data-target="#timelineReceive<s:property value="postId"/>"></div>
@@ -253,11 +253,11 @@
         <s:if test="rePostId != 0">
           <div class="rePost">
             <div class="timeimg">
-              <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
+              <a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
               <img src="<s:property value="reUserIcon"/>"   alt="" class="img-rounded-re"></a>
             </div>
             <div class="timetext">
-              <h4><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
+              <h4><a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{senderId}"/></s:url>">
               <s:property value="reUserName"/></a></h4>
               <span class="timeArea" title="<s:property value="(reCreatedAt.substring(0,19))"/>"></span>
               <div style="clear:both;"></div>

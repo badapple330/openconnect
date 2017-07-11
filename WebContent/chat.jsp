@@ -52,7 +52,7 @@
 <s:if test="groupId == 0">
   <div class="chatroomname">
     <a style="color: white;"
-      href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{receiverId}"/></s:url>"><s:property
+      href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{receiverId}"/></s:url>"><s:property
         value="receiverName" /></a>
   </div>
 </s:if>

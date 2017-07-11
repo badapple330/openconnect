@@ -14,7 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internousdev
  *
  */
-public class FollowListAddAction extends ActionSupport implements SessionAware{
+public class FollowAction extends ActionSupport implements SessionAware{
 
 	/** ユーザーID */
 	private int userId;
@@ -38,6 +38,15 @@ public class FollowListAddAction extends ActionSupport implements SessionAware{
 		boolean followFlag = false; //true or false
 		boolean insertFlag =false;
 
+		if (session.containsKey("userId")) {
+			userId = (int) session.get("userId");
+		}
+		if(userId==0){return result;}
+
+		session.put("viewId", viewId);
+
+		if(talkflg==1){session.put("talkflg",talkflg);}
+		else{session.put("talkflg",0);}
 
 		if(session.containsKey("userId")){
 			userId = (int) session.get("userId");

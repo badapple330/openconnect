@@ -40,7 +40,7 @@
 			}%>
 						style="margin-right: 20px">
 						<a
-							href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><img
+							href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>"><img
 							class="pic" src="pic/profile.png"></a>
 					</div>
 

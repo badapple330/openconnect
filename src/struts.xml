@@ -601,22 +601,15 @@
 			<result name="error">login.jsp</result>
 		</action>
 
-		<action name="ProfileUpdateAction"
-			class="com.internousdev.bulletinboard.action.ProfileUpdateAction"
+		<action name="GoProfileAction"
+			class="com.internousdev.bulletinboard.action.GoProfileAction"
 			method="execute">
 			<result name="success"> profile.jsp</result>
 			<result name="error"> profile.jsp</result>
 		</action>
 
-		<action name="ProfileSessionAction"
-			class="com.internousdev.bulletinboard.action.ProfileSessionAction"
-			method="execute">
-			<result name="success" type="redirectAction">ProfileUpdateAction</result>
-			<result name="error"> profile.jsp</result>
-		</action>
-
 		<action name="UpdateUserIconAction" class="com.internousdev.bulletinboard.action.UpdateUserIconAction" method="execute">
-		<result name="success" type="redirectAction">ProfileUpdateAction</result>
+		<result name="success" type="redirectAction">GoProfileAction</result>
 		<result name="error"> profile.jsp</result>
 		</action>
 
@@ -699,11 +692,11 @@
 		</action>
 
 		<!-- フォロー関連 -->
-		<action name="FollowListAddAction"
-			class="com.internousdev.bulletinboard.action.FollowListAddAction"
+		<action name="FollowAction"
+			class="com.internousdev.bulletinboard.action.FollowAction"
 			method="execute">
-			<result name="success" type="redirectAction">ProfileUpdateAction</result>
-			<result name="error" type="redirectAction">ProfileUpdateAction</result>
+			<result name="success" type="redirectAction">GoProfileAction</result>
+			<result name="error" type="redirectAction">GoProfileAction</result>
 			<result name="GoTalk" type="redirectAction">FriendSearchSessionAction</result>
 		</action>
 
@@ -717,28 +710,14 @@
 		<action name="UnfollowAction"
 			class="com.internousdev.bulletinboard.action.UnfollowAction"
 			method="execute">
-			<result name="success" type="chain">ProfileUpdateAction</result>
-			<result name="error" type="chain">ProfileUpdateAction</result>
-		</action>
-
-		<action name="FollowListAction"
-			class="com.internousdev.bulletinboard.action.FollowListAction"
-			method="execute">
-			<result name="success"> followlist.jsp</result>
-			<result name="error"> followlist.jsp</result>
-		</action>
-
-		<action name="FollowListSessionAction"
-			class="com.internousdev.bulletinboard.action.FollowListSessionAction"
-			method="execute">
-			<result name="success" type="redirectAction">FollowListAddAction</result>
-			<result name="error" type="redirectAction">FollowListAddAction</result>
+			<result name="success" type="chain">GoProfileAction</result>
+			<result name="error" type="chain">GoProfileAction</result>
 		</action>
 
 		<action name="SendProfileAction"
 			class="com.internousdev.bulletinboard.action.SendProfileAction"
 			method="execute">
-			<result name="success" type="redirectAction">ProfileUpdateAction</result>
+			<result name="success" type="redirectAction">GoProfileAction</result>
 			<result name="error"> profile.jsp</result>
 		</action>
 
@@ -786,15 +765,15 @@
 		<action name="ColorChangeAction"
 			class="com.internousdev.bulletinboard.action.ColorChangeAction"
 			method="execute">
-			<result name="success" type="redirectAction">ProfileUpdateAction</result>
+			<result name="success" type="redirectAction">GoProfileAction</result>
 			<result name="error">login.jsp</result>
 		</action>
 
 		<action name="ColorDefaultAction"
 			class="com.internousdev.bulletinboard.action.ColorDefaultAction"
 			method="execute">
-			<result name="success" type="redirectAction">ProfileUpdateAction</result>
-			<result name="error" type="redirectAction">ProfileUpdateAction</result>
+			<result name="success" type="redirectAction">GoProfileAction</result>
+			<result name="error" type="redirectAction">GoProfileAction</result>
 		</action>
 
 		<!-- グループ新規作成の二重投稿を防止するアクション -->

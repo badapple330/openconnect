@@ -14,7 +14,7 @@ import com.internousdev.bulletinboard.dao.ProfileUpdateDAO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ProfileUpdateAction extends ActionSupport implements SessionAware{
+public class GoProfileAction extends ActionSupport implements SessionAware{
 
 
 
@@ -75,8 +75,18 @@ public class ProfileUpdateAction extends ActionSupport implements SessionAware{
 
 
 	public String execute(){
-
 		String result = ERROR;
+		if (session.containsKey("userId")) {
+			userId = (int) session.get("userId");
+		}
+		if(userId==0){return result;}
+
+		if(userName != null){
+			ProfileDAO dao = new ProfileDAO();
+			viewId = dao.getViewId(userName.substring(1));
+		}
+		session.put("viewId", viewId);
+
 		boolean checkIdFlag = false;
 
 		if(session.containsKey("userId")){

@@ -109,8 +109,7 @@
                 <s:if test="%{#session.userId != userId}">
 
                   <div class="square_btn">
-                    <a
-                      href="<s:url action="FollowListSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>">
+                    <a href="<s:url action="FollowAction"><s:param name="viewId" value="%{userId}"/></s:url>">
                       FOLLOW</a>
                   </div>
                 </s:if>
@@ -184,7 +183,7 @@
                     <div class="friends-container">
 
                       <a
-                        href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
+                        href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
                         <img src="<s:property value="userIcon"/>"
                         style="height: 50px; width: 50px;"
                         class="border_radius" alt="" width="50"
@@ -225,7 +224,7 @@
                     <div class="friends-container">
 
                       <a
-                        href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
+                        href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
                         <img src="<s:property value="userIcon"/>"
                         style="height: 50px; width: 50px;"
                         class="border_radius" alt="" width="50"
@@ -461,7 +460,7 @@
       <div  class = "footer">
  <nav>
  <div class = "contents" >
- <div class="a" style="margin-right:20px; background-color:rgb(111, 207, 245);"><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><img class="pic" src ="pic/profile.png" ></a></div>
+ <div class="a" style="margin-right:20px; background-color:rgb(111, 207, 245);"><a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>"><img class="pic" src ="pic/profile.png" ></a></div>
 
  <div class="a" style="margin-right:20px"><a href="<s:url action="GoTalkListAction"/>"><img class="pic" src ="pic/talk.png" >
  <s:if test="talkInfo > 0 and talkInfo <100"><span class="b"><s:property value="talkInfo" /></span></s:if>
