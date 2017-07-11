@@ -26,7 +26,7 @@
   </head>
   <body>
     <s:iterator value="memberList" status="i">
-      <a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="memberList.get(#i.index).userId"/></s:url>" target="_top">
+      <a href="<s:url action="GoProfileAction"><s:param name="viewId" value="memberList.get(#i.index).userId"/></s:url>" target="_top">
       <img src="<s:property value="memberList.get(#i.index).userIcon"/>" class="img-circle-ex"></a>
     </s:iterator>
   </body>

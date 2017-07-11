@@ -137,7 +137,7 @@
 <div  class = "footer">
  <nav>
  <div class = "contents" >
- <div class="a" style="margin-right:20px"><a href="<s:url action="ProfileSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>"><img class="pic" src ="pic/profile.png" ></a></div>
+ <div class="a" style="margin-right:20px"><a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>"><img class="pic" src ="pic/profile.png" ></a></div>
 
  <div class="a" style="margin-right:20px; background-color:rgb(111, 207, 245);"><a href="<s:url action="GoTalkListAction"/>"><img class="pic" src ="pic/talk.png" >
  <s:if test="talkInfo > 0 and talkInfo <100"><span class="b"><s:property value="talkInfo" /></span></s:if>
