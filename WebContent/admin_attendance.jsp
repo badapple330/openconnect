@@ -95,7 +95,7 @@
 							<option value="='遅刻'">遅刻</option>
 							<option value="='早退'">早退</option>
 							<option value="='連絡なし'">連絡なし</option>
-							<option value=" in ('欠席','遅刻','早退')">出席以外</option>
+							<option value=" in ('欠席','遅刻','早退','連絡なし')">出席以外</option>
 						</select>
 
 						<div class="container">
@@ -162,7 +162,7 @@
 							<th style="white-space: nowrap;">性</th>
 							<th style="white-space: nowrap;">名</th>
 							<th>出欠状況</th>
-							<th width="1000">備考</th>
+							<th style="width:1000px;">備考</th>
 							<th style="white-space: nowrap;">編集</th>
 						</tr>
 					</thead>
@@ -179,7 +179,7 @@
 								<td style="white-space: nowrap;"><s:property
 										value="givenNameKanji" /></td>
 								<td><s:property value="attendance" /></td>
-								<td width="1000"style="white-space:normal;"><s:property value="reason" /></td>
+								<td style="width:1000px;text-align:left !important;"><s:property value="reason" /></td>
 								<!-- 							編集のモーダルの表示ボタン -->
 								<td><input type="button" class="button modal-update"
 									value="編集"></td>
@@ -283,7 +283,7 @@
 										<th style="white-space: nowrap;">性</th>
 										<th style="white-space: nowrap;">名</th>
 										<th>出欠状況</th>
-										<th width="1000" >備考</th>
+										<th style="width:1000px;">備考</th>
 
 									</tr>
 								</thead>
@@ -300,7 +300,7 @@
 											<td style="white-space: nowrap;"><s:property
 													value="givenNameKanji" /></td>
 											<td><s:property value="attendance" /></td>
-											<td width="1000"style="word-wrap: break-word;"><s:property value="reason" /></td>
+											<td style="width:1000px;text-align:left !important;"><s:property value="reason" /></td>
 
 										</tr>
 									</s:iterator>
