@@ -63,7 +63,7 @@
 	<th>
 	  備  考  ：<span style="background-color: red; color: white; padding:1px 2px; border-radius:5px;">必須</span></th>
 	  <td>
-	<textarea id="reason" name="reason"  rows="6" cols="40" maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など" disabled="disabled"></textarea>
+	<textarea id="reason" name="reason"  rows="6" cols="40"  maxlength="200" placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など" disabled="disabled"></textarea>
 	</td></tr>
 
 	<tr style="display: none;"><!-- 日時のデータ送信用 選択させないため非表示 -->

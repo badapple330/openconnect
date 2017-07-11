@@ -179,7 +179,7 @@
 								<td style="white-space: nowrap;"><s:property
 										value="givenNameKanji" /></td>
 								<td><s:property value="attendance" /></td>
-								<td width="1000"><s:property value="reason" /></td>
+								<td width="1000"style=""><s:property value="reason" /></td>
 								<!-- 							編集のモーダルの表示ボタン -->
 								<td><input type="button" class="button modal-update"
 									value="編集"></td>
@@ -245,7 +245,7 @@
 							<tr id="tr_reason">
 								<th>備 考 ：</th>
 								<td><s:textarea id="reason" name="reason" maxlength="200"
-										disabled="disabled" rows="6" cols="30"></s:textarea></td>
+										disabled="disabled" rows="6" cols="30" ></s:textarea></td>
 							</tr>
 						</table>
 						<div style="text-align: right;; margin-right: 20px;">
@@ -283,7 +283,7 @@
 										<th style="white-space: nowrap;">性</th>
 										<th style="white-space: nowrap;">名</th>
 										<th>出欠状況</th>
-										<th width="1000">備考</th>
+										<th width="1000" >備考</th>
 
 									</tr>
 								</thead>
@@ -300,7 +300,7 @@
 											<td style="white-space: nowrap;"><s:property
 													value="givenNameKanji" /></td>
 											<td><s:property value="attendance" /></td>
-											<td width="1000"><s:property value="reason" /></td>
+											<td width="1000"style="word-wrap: break-word;"><s:property value="reason" /></td>
 
 										</tr>
 									</s:iterator>
@@ -317,10 +317,10 @@
 				</div>
 
 				<!-- <!-- 		 一括削除モーダル表示 -->
-				-->
+
 				<!-- 		<div id="modal-deleteMain"  align="center" > -->
 				<!-- <!-- 			 モーダル内で月のプルダウンメニュー -->
-				-->
+
 				<%-- 			<s:form action="AdminAttendanceDeleteAction"> --%>
 				<!-- 			<br> -->
 				<!-- 			<br> -->
