@@ -7,15 +7,15 @@ import java.sql.SQLException;
 
 import com.internousdev.util.db.mysql.MySqlConnector;
 
-public class LvDAO {
-	public int Lv_up(int userId){
+public class UserLevelDAO {
+	public int levelUp(int userId){
 
 		Connection con = new MySqlConnector("openconnect").getConnection();
 		int inserted= 0;
 		int ex=0;
 
 		String sql ="select point from users where user_id=?";
-		String sql2 ="update users set Lv = Lv+1,point =point-1000 where user_id = ?";
+		String sql2 ="update users set user_level = user_level + 1,point =point-1000 where user_id = ?";
 
 
 		try{

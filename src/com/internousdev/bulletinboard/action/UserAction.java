@@ -26,8 +26,8 @@ public class UserAction extends ActionSupport implements SessionAware{
 	/** EXP */
 	private int point;
 
-	/** LV */
-	private int lv;
+	/** レベル */
+	private int userLevel;
 
 	/** BIO */
 	private String profile;
@@ -93,12 +93,12 @@ public class UserAction extends ActionSupport implements SessionAware{
 		this.point = point;
 	}
 
-	public int getLv() {
-		return lv;
+	public int getUserLevel() {
+		return userLevel;
 	}
 
-	public void setLv(int lv) {
-		this.lv = lv;
+	public void setUserLevel(int userLevel) {
+		this.userLevel = userLevel;
 	}
 
 	public String getProfile() {

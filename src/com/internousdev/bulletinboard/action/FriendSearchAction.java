@@ -26,8 +26,8 @@ public class FriendSearchAction extends ActionSupport implements SessionAware{
 	/** ユーザーアイコン */
 	private String userIcon;
 
-	/** LV */
-	private int Lv;
+	/** レベル */
+	private int userLevel;
 
 	/** グループID */
 	private int groupId;
@@ -120,12 +120,12 @@ public String execute() {
 		this.userIcon = userIcon;
 	}
 
-	public int getLv() {
-		return Lv;
+	public int getUserLevel() {
+		return userLevel;
 	}
 
-	public void setLv(int lv) {
-		Lv = lv;
+	public void setUserLevel(int userLevel) {
+		this.userLevel = userLevel;
 	}
 
 	public ArrayList<UserDTO> getUsersList() {

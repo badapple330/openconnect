@@ -18,7 +18,7 @@ public class UserDTO {
 	/** ポイント */
 	private int point;
 	/** レベル */
-	private int lv;
+	private int userLevel;
 	/** プロフィール */
 	private String profile;
 	/** 削除フラグ */
@@ -85,12 +85,12 @@ public class UserDTO {
 		this.point = point;
 	}
 
-	public int getLv() {
-		return lv;
+	public int getUserLevel() {
+		return userLevel;
 	}
 
-	public void setLv(int lv) {
-		this.lv = lv;
+	public void setUserLevel(int userLevel) {
+		this.userLevel = userLevel;
 	}
 
 	public String getProfile() {

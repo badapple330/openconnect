@@ -170,7 +170,7 @@ public class TimelineDAO {
 	public int pointPlus(int userId) {
 		int senderId = 0;
 
-		LvDAO Lv = new LvDAO();
+		UserLevelDAO postPoint = new UserLevelDAO();
 
 		Connection con = new MySqlConnector("openconnect").getConnection();
 		int inserted = 0;
@@ -195,7 +195,7 @@ public class TimelineDAO {
 
 		// 経験値が1000以上だった場合にレベルUP
 		senderId = userId;
-		Lv.Lv_up(senderId);
+		postPoint.levelUp(senderId);
 		return inserted;
 
 	}

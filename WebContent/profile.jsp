@@ -140,7 +140,7 @@
               <li><p
                   style="font-weight: bold; text-align: center; font-size: 1.2em;">
                   LV:
-                  <s:property value="Lv" />
+                  <s:property value="userLevel" />
                 </p></li>
             </ul>
 
@@ -189,7 +189,7 @@
                         style="height: 50px; width: 50px;"
                         class="border_radius" alt="" width="50"
                         height="50"> <s:property value="userName" />
-                        Lv:<s:property value="lv " /> </a>
+                        Lv:<s:property value="userLevel " /> </a>
                     </div>
                   </s:iterator>
 
@@ -230,7 +230,7 @@
                         style="height: 50px; width: 50px;"
                         class="border_radius" alt="" width="50"
                         height="50"> <s:property value="userName" />
-                        Lv:<s:property value="lv " /> </a>
+                        Lv:<s:property value="userLevel " /> </a>
                     </div>
                   </s:iterator>
                 </div>
@@ -344,7 +344,7 @@
                     <li><p
                         style="font-weight: bold; text-align: center; font-size: 1.2em;">
                         LV:
-                        <s:property value="Lv" />
+                        <s:property value="userLevel" />
                       </p></li>
                   </ul>
 

@@ -18,8 +18,8 @@ public class StampDAO {
 		  Connection con = new MySqlConnector("openconnect").getConnection();
 		    ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
 
-		    String sql1= "select lv from users where user_id=?";
-		    String sql2="select * from stamp where lv <= ?";
+		    String sql1= "select user_level from users where user_id=?";
+		    String sql2="select * from stamp where user_level <= ?";
 
 		    /////////
 
@@ -29,13 +29,13 @@ public class StampDAO {
 		    	ResultSet rs1 = ps1.executeQuery();
 		    	while(rs1.next()){
 		    		PreparedStatement ps2=con.prepareStatement(sql2);
-		    		ps2.setInt(1,rs1.getInt("lv"));
+		    		ps2.setInt(1,rs1.getInt("user_level"));
 		    		ResultSet rs2= ps2.executeQuery();
 		    		while (rs2.next()){
 		    			StampDTO dto = new StampDTO();
 		    			dto.setStampId(rs2.getInt("stamp_id"));
 		    			dto.setTypeId(rs2.getInt("type_id"));
-		    			dto.setLv(rs2.getInt("lv"));
+		    			dto.setUserLevel(rs2.getInt("user_level"));
 		    			dto.setUrl(rs2.getString("url"));
 		    			stampList.add(dto);
 		    			}

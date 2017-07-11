@@ -32,7 +32,7 @@ public class ProfileDAO {
 				dto.setUserName(rs.getString("user_name"));
 				dto.setSnsId(rs.getString("sns_id"));
 				dto.setPoint(rs.getInt("point"));
-				dto.setLv(rs.getInt("lv"));
+				dto.setUserLevel(rs.getInt("user_level"));
 				dto.setProfile(rs.getString("profile"));
 				userList.add(dto);
 			}
@@ -70,7 +70,7 @@ public class ProfileDAO {
 				dto.setSnsId(rs.getString("sns_id"));
 				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setPoint(rs.getInt("point"));
-				dto.setLv(rs.getInt("lv"));
+				dto.setUserLevel(rs.getInt("user_level"));
 				dto.setProfile(rs.getString("profile"));
 				profileList.add(dto);
 			}
@@ -110,7 +110,7 @@ public class ProfileDAO {
 				dto.setSnsId(rs.getString("sns_id"));
 				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setPoint(rs.getInt("point"));
-				dto.setLv(rs.getInt("lv"));
+				dto.setUserLevel(rs.getInt("user_level"));
 				dto.setProfile(rs.getString("profile"));
 
 				profileList.add(dto);

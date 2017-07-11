@@ -9,7 +9,7 @@ public class StampDTO {
 	private int typeId;
 
 	/** 使用可能レベル */
-	private int lv;
+	private int userLevel;
 
 	/** URL */
 	private String url;
@@ -23,8 +23,8 @@ public class StampDTO {
 		return typeId;
 	}
 
-	public int getLv() {
-		return lv;
+	public int getUserLevel() {
+		return userLevel;
 	}
 
 	public String getUrl() {
@@ -39,8 +39,8 @@ public class StampDTO {
 		this.typeId = typeId;
 	}
 
-	public void setLv(int lv) {
-		this.lv = lv;
+	public void setUserLevel(int userLevel) {
+		this.userLevel = userLevel;
 	}
 
 	public void setUrl(String url) {

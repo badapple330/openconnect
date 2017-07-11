@@ -49,7 +49,7 @@
 								<img class="profimg" src="<s:property value="usersList.get(#i.index).userIcon"/>"
 								alt=""> <s:property
 									value="usersList.get(#i.index).userName" /> Lv:<s:property
-									value="usersList.get(#i.index).lv" />
+									value="usersList.get(#i.index).userLevel" />
 							</a>
 							</div>
 

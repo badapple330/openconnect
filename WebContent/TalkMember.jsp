@@ -94,6 +94,9 @@
 		</div>
 	</div>
 </div>
+<!-- モーダルここまで -->
+
+
 
 <div class="container">
   <div class="row">

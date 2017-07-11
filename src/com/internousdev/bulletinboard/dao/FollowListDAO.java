@@ -30,7 +30,7 @@ public class FollowListDAO {
 				dto.setSnsId(rs.getString("sns_id"));
 				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setPoint(rs.getInt("point"));
-				dto.setLv(rs.getInt("lv"));
+				dto.setUserLevel(rs.getInt("user_level"));
 				dto.setProfile(rs.getString("profile"));
 
 				followList.add(dto);

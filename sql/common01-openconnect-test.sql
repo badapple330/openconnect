@@ -354,7 +354,7 @@ user_icon varchar(50) default "pic/user_icon/syoki.png" comment '写真',
 user_name varchar(50) not null comment 'フルネーム',
 sns_id varchar(62) not null unique comment 'SNS用ID',
 point int not null default 0 comment 'ポイント',
-lv int not null default 1 comment 'レベル',
+user_level int not null default 1 comment 'レベル',
 profile varchar(150) comment 'プロフィール',
 delete_flg boolean not null default false comment '削除フラグ',
 h_color varchar(50) not null default '#333333' comment 'ヘッターカラー',
@@ -472,7 +472,7 @@ foreign key(user_id) references users(user_id)
 create table stamp(
 stamp_id int not null primary key auto_increment comment 'スタンプID',
 type_id int not null comment '種別ID',
-lv int not null default 1 comment '使用可能レベル',
+user_level int not null default 1 comment '使用可能レベル',
 url varchar(255) not null
 );
 
@@ -607,7 +607,7 @@ insert into stamp(type_id,url) values
 (2,"pic/stamp/02_lion/lion_15.jpg"),
 (2,"pic/stamp/02_lion/lion_16.jpg");
 
-insert into stamp(type_id,lv,url) values
+insert into stamp(type_id,user_level,url) values
 (3,2,"pic/stamp/03_ham/ham_01.jpg"),
 (3,2,"pic/stamp/03_ham/ham_02.jpg"),
 (3,2,"pic/stamp/03_ham/ham_03.jpg"),

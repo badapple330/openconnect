@@ -9,7 +9,7 @@ import com.internousdev.util.db.mysql.MySqlConnector;
 public class BtnDAO {
 	public int pointPlus(int senderId,int postId){
 
-		LvDAO Lv =new LvDAO();
+		UserLevelDAO Level =new UserLevelDAO();
 
 		Connection con = new MySqlConnector("openconnect").getConnection();
 		int inserted=0;
@@ -38,7 +38,7 @@ public class BtnDAO {
 			}
 		}
 		//経験値が1000以上だった場合にレベルUP
-		Lv.Lv_up(senderId);
+		Level.levelUp(senderId);
 		return inserted;
 
 	}

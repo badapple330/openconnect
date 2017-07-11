@@ -35,7 +35,7 @@
 
 					<div class="friends-container">
                     <a href="<s:url action="ProfileAction"/>"><div class="imgp"><img src="<s:property value="userIcon"/>" alt="" width="50" height="50"></div>
-                    <a class="nameposition"><s:property value="userName"/></a><p>Lv:<s:property value="lv " /></p></a></div>
+                    <a class="nameposition"><s:property value="userName"/></a><p>Lv:<s:property value="userLevel " /></p></a></div>
 
 
                    </s:iterator>

@@ -28,7 +28,7 @@ public class UserDAO {
 				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setUserName(rs.getString("user_name"));
 				dto.setPoint(rs.getInt("point"));
-				dto.setLv(rs.getInt("lv"));
+				dto.setUserLevel(rs.getInt("user_level"));
 				dto.setProfile(rs.getString("profile"));
 				userList.add(dto);
 			}

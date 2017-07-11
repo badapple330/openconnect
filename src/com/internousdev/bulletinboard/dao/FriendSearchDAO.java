@@ -42,7 +42,7 @@ public class FriendSearchDAO {
 					dto.setUserId(rs.getInt("user_id"));
 					dto.setUserName(rs.getString("user_name"));
 					dto.setUserIcon(rs.getString("user_icon"));
-					dto.setLv(rs.getInt("Lv"));
+					dto.setUserLevel(rs.getInt("user_level"));
 					allList.add(dto);
 				}
 			}
