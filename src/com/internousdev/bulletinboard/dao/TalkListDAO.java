@@ -24,21 +24,21 @@ public class TalkListDAO {
 
 		  //相互フォローしている人のIDを検索
 		  int id=0;
-		  String sql ="select * from follow where do=?";
-		  String sql2 ="select * from follow where do=? and done=?";
+		  String sql ="select * from follows where follower_id=?";
+		  String sql2 ="select * from follows where follower_id=? and followed_id=?";
 		  try{
 			  PreparedStatement ps = con.prepareStatement(sql);
 			  ps.setInt(1,userId);
 			  ResultSet rs=ps.executeQuery();
 			  while(rs.next()){
-				  id=rs.getInt("done");
+				  id=rs.getInt("followed_id");
 				  PreparedStatement ps2 = con.prepareStatement(sql2);
 				  ps2.setInt(1,id);
 				  ps2.setInt(2,userId);
 				  ResultSet rs2 =ps2.executeQuery();
 				  while(rs2.next()){
 			//検索ここまで
-					  String sql3 = "select * from follow join users on follow.done=users.user_id where do=? and done=?";//相互フォロワーのユーザー情報取得
+					  String sql3 = "select * from follows join users on follows.followed_id=users.user_id where follower_id=? and followed_id=?";//相互フォロワーのユーザー情報取得
 					  String sql4 = "select * from messages where  (sender_id=? or receiver_id=?) and(sender_id=? or receiver_id=?) order by message_id desc limit 1";//ある一人とのチャット履歴最新1件を取得
 					  String sql5 = "select * from messages where receiver_id=? and sender_id=? order by message_id desc";//ある一人とのチャット履歴全てを取得
 					  String sql6 = "select * from read_flg where message_id=? and user_id=?";//投稿を自分が読んだ履歴を取得
@@ -50,7 +50,7 @@ public class TalkListDAO {
 					    	ResultSet rs3 = ps3.executeQuery();
 					    	while(rs3.next()){
 					    		MessageDTO dto = new MessageDTO();
-					    		dto.setReceiverId(rs3.getInt("done"));
+					    		dto.setReceiverId(rs3.getInt("followed_id"));
 					    		dto.setGroupIcon(rs3.getString("user_icon"));
 					    		dto.setGroupName(rs3.getString("user_name"));
 					    		talkList.add(dto);

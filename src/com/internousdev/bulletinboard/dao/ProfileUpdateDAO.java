@@ -23,7 +23,7 @@ public class ProfileUpdateDAO {
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
 
-		String sql ="select * from users left join follow on users.user_id = follow.do where do=?";
+		String sql ="select * from users left join follows on users.user_id = follows.follower_id where follower_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -63,7 +63,7 @@ public class ProfileUpdateDAO {
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
 
-		String sql ="select * from users left join follow on users.user_id = follow.done where do=?";
+		String sql ="select * from users left join follows on users.user_id = follows.followed_id where follower_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -111,7 +111,7 @@ public class ProfileUpdateDAO {
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
 
-		String sql ="select * from users left join follow on users.user_id = follow.do where done=?";
+		String sql ="select * from users left join follows on users.user_id = follows.follower_id where followed_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -157,7 +157,7 @@ public class ProfileUpdateDAO {
 
 		boolean result = false;
 
-		String sql ="select done from follow where do=?";
+		String sql ="select followed_id from follows where follower_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -166,7 +166,7 @@ public class ProfileUpdateDAO {
 
 			while(rs.next()){
 
-				if (rs.getInt("done") == viewId) {
+				if (rs.getInt("followed_id") == viewId) {
 
 					result = true;
 					break;

@@ -163,7 +163,7 @@ public class GroupDAO {
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "select * from follow where do=? and not exists(select user_id from members where group_id =? and members.user_id=follow.done)";
+		String sql = "select * from follows where follower_id=? and not exists(select user_id from members where group_id =? and members.user_id=follows.followed_id)";
 		String sql2 = "select * from users where user_id=?";
 
 
@@ -175,7 +175,7 @@ public class GroupDAO {
 		    	ResultSet rs = ps.executeQuery();
 		    	while(rs.next()){
 		    		UserDTO dto = new UserDTO();
-		    		dto.setUserId(rs.getInt("done"));
+		    		dto.setUserId(rs.getInt("followed_id"));
 		    		userList.add(dto);
 		    		if(userList.size()!=0){
 			    		PreparedStatement ps2 = con.prepareStatement(sql2);

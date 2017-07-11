@@ -24,11 +24,11 @@ public class FriendSearchDAO {
 			ArrayList<UserDTO> allList = new ArrayList<UserDTO>();
 
 			/*1 自分のフォロワーをselect
-			String sql1 ="select done from follow where do =?";
-			/*2 自分のフォロワー以外のdoneをselect
-			String sql2 ="select distinct done from follow where done not in (?)";
-			/*3 ↑で取得したdoneで条件にし、users情報をselect + LIKEでuserName検索
-			String sql3 ="select distinct users.*, follow.done from users inner join follow on users.user_id=follow.done where done in (?) && user_name  LIKE ?"; */
+			String sql1 ="select followed_id from follows where follower_id =?";
+			/*2 自分のフォロワー以外のfollowed_idをselect
+			String sql2 ="select distinct followed_id from follows where followed_id not in (?)";
+			/*3 ↑で取得したfollowed_idで条件にし、users情報をselect + LIKEでuserName検索
+			String sql3 ="select distinct users.*, follows.followed_id from users inner join follows on users.user_id=follows.followed_id where followed_id in (?) && user_name  LIKE ?"; */
 
 
 			String sql ="select * from users where user_name LIKE ? ";
@@ -68,7 +68,7 @@ public class FriendSearchDAO {
 			ArrayList<UserDTO>checkList = new ArrayList<UserDTO>();
 
 
-			String sql ="select done from follow where do=?";
+			String sql ="select followed_id from follows where follower_id=?";
 
 			try{
 				PreparedStatement ps = con.prepareStatement(sql) ;
@@ -76,7 +76,7 @@ public class FriendSearchDAO {
 				ResultSet rs = ps.executeQuery();
 				while (rs.next()){
 					UserDTO dto = new UserDTO();
-					dto.setDone(rs.getInt("done"));
+					dto.setFollowedId(rs.getInt("followed_id"));
 
 					checkList.add(dto);
 				}

@@ -67,15 +67,15 @@ public class FooterInfoDAO {
 		Connection con= new MySqlConnector("openconnect").getConnection();
 
 		//相互フォローを検索
-		String sqla ="select done from follow where do=?";
-		String sqlb= "select * from follow where do=? and done = ?";
+		String sqla ="select followed_id from follows where follower_id=?";
+		String sqlb= "select * from follows where follower_id=? and followed_id = ?";
 		try{
 			PreparedStatement psa = con.prepareStatement(sqla);//フォロー一覧を取得
 			psa.setInt(1,userId);
 			ResultSet rsa = psa.executeQuery();
 			while(rsa.next()){
 				PreparedStatement psb = con.prepareStatement(sqlb);//その人にフォローされてるか確認
-				psb.setInt(1,rsa.getInt("done"));
+				psb.setInt(1,rsa.getInt("followed_id"));
 				psb.setInt(2, userId);
 				ResultSet rsb = psb.executeQuery();
 				while(rsb.next()){
@@ -84,7 +84,7 @@ public class FooterInfoDAO {
 					 String sql2 = "select * from read_flg where message_id=? and user_id=?";
 
 					 PreparedStatement ps1 = con.prepareStatement(sql1);
-					 ps1.setInt(1, rsa.getInt("done"));
+					 ps1.setInt(1, rsa.getInt("followed_id"));
 					 ps1.setInt(2, userId);
 					 ResultSet rs1 =ps1.executeQuery();//相手の投稿のIDを取得
 					 while(rs1.next()){

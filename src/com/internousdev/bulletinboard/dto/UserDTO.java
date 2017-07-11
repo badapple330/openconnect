@@ -28,9 +28,9 @@ public class UserDTO {
 	/** 通知文 */
 	private String msg;
 	/** フォローする側のID */
-	private int Do;
+	private int followerId;
 	/** フォローされる側のID */
-	private int Done;
+	private int followedId;
 	/** URL */
 	private String url;
 
@@ -117,23 +117,23 @@ public class UserDTO {
 	}
 
 
-	public int getDo() {
-		return Do;
+	public int getFollowerId() {
+		return followerId;
 	}
 
 
-	public void setDo(int do1) {
-		this.Do = do1;
+	public void setFollowerId(int followerId) {
+		this.followerId = followerId;
 	}
 
 
-	public int getDone() {
-		return Done;
+	public int getFollowedId() {
+		return followedId;
 	}
 
 
-	public void setDone(int done) {
-		Done = done;
+	public void setFollowedId(int followedId) {
+		this.followedId = followedId;
 	}
 
 	public String getColor() {

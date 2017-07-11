@@ -16,7 +16,7 @@ public class FollowListDAO {
 
 		ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
 
-		String sql ="select * from users left join follow on users.user_id = follow.done where do=?";
+		String sql ="select * from users left join follows on users.user_id = follows.followed_id where follower_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

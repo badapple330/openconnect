@@ -17,7 +17,7 @@ public class FollowDAO {
 	public boolean follow(int userId, int followId) {
 		boolean ret = false;
 		Connection con = new MySqlConnector("openconnect").getConnection();
-		String sql = "REPLACE INTO follow (do, done) VALUES (?, ?)";
+		String sql = "REPLACE INTO follows (follower_id, followed_id) VALUES (?, ?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

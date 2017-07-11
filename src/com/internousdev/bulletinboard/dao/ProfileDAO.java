@@ -55,7 +55,7 @@ public class ProfileDAO {
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
 
-		String sql ="select * from users left join follow on users.user_id = follow.done where do=?";
+		String sql ="select * from users left join follows on users.user_id = follows.followed_id where follower_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -95,7 +95,7 @@ public class ProfileDAO {
 
 		ArrayList<UserDTO> profileList = new ArrayList<UserDTO>();
 
-		String sql ="select * from users left join follow on users.user_id = follow.do where done=?";
+		String sql ="select * from users left join follows on users.user_id = follows.follower_id where followed_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

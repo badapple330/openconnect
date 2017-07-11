@@ -20,7 +20,7 @@ public class FollowListDeleteDAO {
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		int result=0;
-		String delete="delete from follow where do=? && done=?";
+		String delete="delete from follows where follower_id=? && followed_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(delete);
