@@ -263,7 +263,7 @@
                 <td>
                   <div class="profile">
 
-                    <img src="<s:property value="myData.userIcon"/>"
+                    <img src="<s:property value="userIcon"/>"
                       class="edit_border_radius" alt="" /><br> <a
                       data-toggle="modal" class="cursor"
                       data-target="#userImageChange">アイコン画像変更</a>
@@ -286,17 +286,17 @@
                                 status="rs">
                                 <s:if test="%{#rs.count%2==0}">
                                   <div style="float: left">
-                                    <input type="radio" name="userIcon"
-                                      value="<s:property value="userIcon"/>"
-                                      style="background:url(./<s:property value="userIcon"/>);background-size:100% 100%;">
+                                    <input type="radio" name="url"
+                                      value="<s:property value="url"/>"
+                                      style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
                                   </div>
                                 </s:if>
                                 <s:else>
                                   <div
                                     style="float: left; background-color: #dddddd;">
-                                    <input type="radio" name="userIcon"
-                                      value="<s:property value="userIcon" />"
-                                      style="background:url(./<s:property value="userIcon"/>);background-size:100% 100%;">
+                                    <input type="radio" name="url"
+                                      value="<s:property value="url" />"
+                                      style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
                                   </div>
 
 
