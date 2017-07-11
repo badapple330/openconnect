@@ -22,7 +22,7 @@ public class GroupDAO {
 		  Connection con2 = new MySqlConnector("openconnect").getConnection();
 		  ArrayList<MessageDTO> groupList = new ArrayList<MessageDTO>();
 
-		  String sql = "select * from groups join group_master on groups.group_id=group_master.group_id where user_id=?";
+		  String sql = "select * from members join groups on members.group_id=groups.group_id where user_id=?";
 		  String sql2 = "select * from messages where group_id=? order by message_id desc limit 1";
 		  String sql3 = "select * from messages where group_id=? and sender_id != ? order by message_id desc";
 		  String sql4 = "select * from read_flg where message_id=? and user_id=?";
@@ -86,7 +86,7 @@ public class GroupDAO {
 		int inserted = 0;
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "insert into group_master (group_name) values (?)";
+		String sql = "insert into groups (group_name) values (?)";
 
 		try{
 	    	PreparedStatement ps = con.prepareStatement(sql);
@@ -113,13 +113,13 @@ public class GroupDAO {
 	 * @param groupName
 	 * @return
 	 */
-	public int groupsAdd(int userId,String groupName){
+	public int createGroup(int userId, String groupName){
 		int inserted = 0;
 		int groupId = 0;
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "select group_id from group_master where group_name=? order by created_at desc limit 1";
-		String sql2 = "insert into groups (user_id,group_id) values (?,?)";
+		String sql = "select group_id from groups where group_name=? order by created_at desc limit 1";
+		String sql2 = "insert into members (user_id,group_id) values (?,?)";
 		String sql3 = "insert into messages (sender_id,group_id,text) values (?,?,?)";
 
 		try{
@@ -163,7 +163,7 @@ public class GroupDAO {
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "select * from follow where do=? and not exists(select user_id from groups where group_id =? and groups.user_id=follow.done)";
+		String sql = "select * from follow where do=? and not exists(select user_id from members where group_id =? and members.user_id=follow.done)";
 		String sql2 = "select * from users where user_id=?";
 
 
@@ -209,7 +209,7 @@ public class GroupDAO {
 		int deleted = 0;
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "delete from group_master where group_name = ? order by created_at desc limit 1";
+		String sql = "delete from groups where group_name = ? order by created_at desc limit 1";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -238,9 +238,9 @@ public class GroupDAO {
 		ArrayList<PostDTO> contentsList = new ArrayList<PostDTO>();
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
 
-		String sql = "select * from group_master where group_name = ?";
+		String sql = "select * from groups where group_name = ?";
 		String sql2 = "select text from messages where group_id = ?";
-		String sql3 = "select * from groups where group_id = ?";
+		String sql3 = "select * from members where group_id = ?";
 
 		  try{
 		    	PreparedStatement ps = con.prepareStatement(sql);
@@ -301,7 +301,7 @@ public class GroupDAO {
 		int[] intMemberList = new int[memberList.size()];
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "insert into groups(user_id,group_id) values(?,?)";
+		String sql = "insert into members(user_id,group_id) values(?,?)";
 
 		try{
 	    	PreparedStatement ps = con.prepareStatement(sql);
@@ -388,7 +388,7 @@ public class GroupDAO {
 		int deleted = 0;
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "delete from groups where user_id = ? and group_id=?";
+		String sql = "delete from members where user_id = ? and group_id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

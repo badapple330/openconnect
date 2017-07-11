@@ -16,11 +16,9 @@ public class GroupDTO {
 	/** グループID */
 	private int groupId;
 	/** グループ名 */
-	private String name;
-	/** グループ説明 */
-	private String profile;
+	private String groupName;
 	/** グループアイコン */
-	private String icon;
+	private String groupIcon;
 	/** 最後のメッセージの内容 */
 	private String lastMsg;
 	/** 最後のメッセージが送信された日時 */
@@ -49,23 +47,17 @@ public class GroupDTO {
 	public void setGroupId(int groupId) {
 		this.groupId = groupId;
 	}
-	public String getName() {
-		return name;
+	public String getGroupName() {
+		return groupName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
 	}
-	public String getProfile() {
-		return profile;
+	public String getGroupIcon() {
+		return groupIcon;
 	}
-	public void setProfile(String profile) {
-		this.profile = profile;
-	}
-	public String getIcon() {
-		return icon;
-	}
-	public void setIcon(String icon) {
-		this.icon = icon;
+	public void setGroupIcon(String groupIcon) {
+		this.groupIcon = groupIcon;
 	}
 	public String getLastMsg() {
 		return lastMsg;

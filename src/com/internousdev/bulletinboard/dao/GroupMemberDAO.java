@@ -21,8 +21,8 @@ public class GroupMemberDAO {
 		Connection con = new MySqlConnector("openconnect").getConnection();
 		ArrayList<UserDTO> memberList = new ArrayList<UserDTO>();
 
-		String sql = "SELECT groups.user_id, user_icon, user_name, profile FROM groups INNER JOIN users "
-				+ "ON groups.user_id = users.user_id WHERE group_id = ?";
+		String sql = "SELECT members.user_id, user_icon, user_name, profile FROM members INNER JOIN users "
+				+ "ON members.user_id = users.user_id WHERE group_id = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

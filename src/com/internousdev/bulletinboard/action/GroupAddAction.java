@@ -37,7 +37,7 @@ public class GroupAddAction extends ActionSupport implements SessionAware{
 		GroupDAO dao = new GroupDAO();
 
 		if(dao.groupmasterAdd(groupName)!=0){
-			if(dao.groupsAdd(userId, groupName)!= 0){
+			if(dao.createGroup(userId, groupName)!= 0){
 
 				UserDAO msgDao = new UserDAO();
 				msgDao.msgSet(userId, "グループを作成しました");

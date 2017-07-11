@@ -370,7 +370,7 @@ comment = 'ユーザー情報格納テーブル';
 
 
 /* グループ情報 */
-create table group_master(
+create table groups(
 group_id int not null primary key auto_increment comment 'グループID',
 group_name varchar(50) not null comment 'グループ名',
 group_icon varchar(50) default "pic/group_icon/papurika01.jpg" comment 'グループイメージ',
@@ -378,11 +378,12 @@ created_at datetime not null  default current_timestamp comment '作成日'
 );
 
 /* グループメンバー情報 */
-create table groups(
+create table members(
 group_id int not null comment 'グループID',
 user_id int not null comment 'ユーザーID',
-foreign key(user_id) references users(user_id),
-foreign key(group_id) references group_master(group_id)
+primary key(group_id, user_id),
+foreign key(group_id) references groups(group_id),
+foreign key(user_id) references users(user_id)
 );
 
 /* チャット投稿情報 */
@@ -396,7 +397,7 @@ img varchar(50) comment '添付画像',
 created_at timestamp not null default current_timestamp comment '投稿日時',
 foreign key(receiver_id) references users(user_id),
 foreign key(sender_id) references users(user_id),
-foreign key(group_id) references group_master(group_id)
+foreign key(group_id) references groups(group_id)
 );
 
 /* タイムライン投稿情報 */
@@ -549,9 +550,9 @@ insert into follow(do,done) values(30,31),(31,30),(30,32),(32,30),(31,32),(32,31
 (37,30),(30,37),(31,37),(37,31),(37,32),(32,37),(33,37),(37,33),(37,34),(34,37),(35,37),(37,35),(37,36),(36,37),
 (38,30),(30,38),(31,38),(38,31),(38,32),(32,38),(33,38),(38,33),(38,34),(34,38),(35,38),(38,35),(38,36),(36,38),(37,38),(38,37);
 
-insert into group_master(group_name,group_icon) values("legmina","pic/group_icon/tomato01.jpg"),("openconnect","pic/group_icon/tomato01.jpg"),("cetus","tomato030.jpg"),("bananalate","tomato030.jpg");
+insert into groups(group_name,group_icon) values("legmina","pic/group_icon/tomato01.jpg"),("openconnect","pic/group_icon/tomato01.jpg"),("cetus","tomato030.jpg"),("bananalate","tomato030.jpg");
 
-insert into groups(user_id,group_id) values(30,1),(31,1),(32,1),(33,1),(34,1),(32,2),(35,2);
+insert into members(group_id, user_id) values(1, 30),(1, 31),(1, 32),(1, 33),(1, 34),(2, 32),(2, 35);
 
 insert into messages(sender_id,group_id,text) values(30,1,"グループを新設しました"),(35,2,"グループを新設しました");
 

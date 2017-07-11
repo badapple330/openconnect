@@ -53,7 +53,7 @@ public class ChangeIconDAO {
 		int inserted=0;
 
 		Connection con = new MySqlConnector("openconnect").getConnection();
-		String sql="update group_master set group_icon=? where group_id=?";
+		String sql="update groups set group_icon=? where group_id=?";
 
 		/////////
 

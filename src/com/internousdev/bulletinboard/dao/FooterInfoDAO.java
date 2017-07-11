@@ -19,7 +19,7 @@ public class FooterInfoDAO {
 	public int groupInfoGet(int userId){
 		int info=0;
 		Connection con= new MySqlConnector("openconnect").getConnection();
-		 String sql1 = "select group_id from groups where user_id=? order by group_id asc";
+		 String sql1 = "select group_id from members where user_id=? order by group_id asc";
 		 String sql2 = "select message_id from messages where group_id=? and sender_id != ? order by message_id asc";
 		 String sql3 = "select * from read_flg where message_id=? and user_id=?";
 
