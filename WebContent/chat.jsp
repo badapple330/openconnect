@@ -190,8 +190,7 @@
           <h4 class="modal-title">メンバーを確認する</h4>
         </div>
         <div class="modal-body">
-          <iframe id="groupMember"
-            src="<s:url action="GoGroupMemberAction" />"></iframe>
+          <iframe id="groupMember" src="<s:url action="GoGroupMemberAction" />"></iframe>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default"
