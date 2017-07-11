@@ -422,24 +422,23 @@ foreign key(post_id) references posts(post_id),
 foreign key(root_post_id) references posts(post_id)
 );
 
-/* タイムライン情報 */
-create table timeline(
-post_id int not null comment 'ポストID',
-sender_id int not null comment '送信者ID',
-follower_id int comment 'フォロワーID',
-foreign key(sender_id) references users(user_id),
-foreign key(follower_id) references users(user_id),
-foreign key(post_id) references posts(post_id)
-);
+-- /* タイムライン情報 */
+-- create table timeline(
+-- post_id int not null comment 'ポストID',
+-- sender_id int not null comment '送信者ID',
+-- follower_id int comment 'フォロワーID',
+-- foreign key(sender_id) references users(user_id),
+-- foreign key(follower_id) references users(user_id),
+-- foreign key(post_id) references posts(post_id)
+-- );
 
 /* フォロー情報 */
-create table follow(
-do int not null comment 'する側ID',
-done int not null comment 'される側ID',
-foreign key(do) references users(user_id),
-foreign key(done) references users(user_id),
-index(do),
-index(done)
+create table follows(
+follower_id int not null comment 'する側ID',
+follow_id int not null comment 'される側ID',
+primary key(follower_id, follow_id),
+foreign key(follower_id) references users(user_id),
+foreign key(follow_id) references users(user_id)
 );
 
 /* いいね情報 */
@@ -546,7 +545,7 @@ insert into users values
 (41,'internous01','kazami','akira','風見','かざみ','顕','あきら','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','kazami@internous.co.jp','09012345678','kazami@internous.co.jp','男','2001-09-25',FALSE,FALSE,'3','2010','13','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00','AdminTeam','pic/user_icon/syoki.png','風見顕','41:風見顕','0','1','よろしくお願いします',FALSE,'#333333','#ffffff','#6ff5ef');
 
 
-insert into follow(do,done) values(30,31),(31,30),(30,32),(32,30),(31,32),(32,31),(30,33),(33,30),(31,33),(33,31),(32,33),(33,32),(33,34),(34,33),(30,34),(34,30),(31,34),(34,31),(32,34),(34,3),(35,30),(30,35),(31,35),(35,31),(35,32),(32,35),(33,35),(35,33),(35,34),(34,35),(36,30),(30,36),(31,36),(36,31),(36,32),(32,36),(33,36),(36,33),(36,34),(34,36),(35,36),(36,35),
+insert into follows(follower_id,follow_id) values(30,31),(31,30),(30,32),(32,30),(31,32),(32,31),(30,33),(33,30),(31,33),(33,31),(32,33),(33,32),(33,34),(34,33),(30,34),(34,30),(31,34),(34,31),(32,34),(34,3),(35,30),(30,35),(31,35),(35,31),(35,32),(32,35),(33,35),(35,33),(35,34),(34,35),(36,30),(30,36),(31,36),(36,31),(36,32),(32,36),(33,36),(36,33),(36,34),(34,36),(35,36),(36,35),
 (37,30),(30,37),(31,37),(37,31),(37,32),(32,37),(33,37),(37,33),(37,34),(34,37),(35,37),(37,35),(37,36),(36,37),
 (38,30),(30,38),(31,38),(38,31),(38,32),(32,38),(33,38),(38,33),(38,34),(34,38),(35,38),(38,35),(38,36),(36,38),(37,38),(38,37);
 
