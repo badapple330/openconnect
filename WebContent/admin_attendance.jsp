@@ -179,7 +179,7 @@
 								<td style="white-space: nowrap;"><s:property
 										value="givenNameKanji" /></td>
 								<td><s:property value="attendance" /></td>
-								<td width="1000"style=""><s:property value="reason" /></td>
+								<td width="1000"style="white-space:normal;"><s:property value="reason" /></td>
 								<!-- 							編集のモーダルの表示ボタン -->
 								<td><input type="button" class="button modal-update"
 									value="編集"></td>
@@ -230,7 +230,7 @@
 						<table>
 							<tr id="tr_type">
 								<th>出欠確認：</th>
-								<td><select name="attendance" style="width: 60px;"
+								<td><select name="attendance"
 									required="required">
 
 										<option class="atslc" value="出席">出席</option>
