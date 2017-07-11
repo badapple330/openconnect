@@ -19,10 +19,10 @@ public class UnfollowAction extends ActionSupport implements SessionAware {
 
 	/** セッション */
 	private Map<String, Object> session;
-	
+
 	/** ユーザーID */
 	private int userId;
-	
+
 	/** */
 	private int viewId;
 
@@ -30,11 +30,7 @@ public class UnfollowAction extends ActionSupport implements SessionAware {
 	public String execute(){
 
 		if(session.containsKey("userId")){
-
 			userId = (int) session.get("userId");
-			}
-		if(session.containsKey("viewId")){
-			viewId=(int) session.get("viewId");
 		}
 
 		FollowListDeleteDAO dao=new FollowListDeleteDAO();

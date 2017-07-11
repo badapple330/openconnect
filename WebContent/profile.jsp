@@ -360,10 +360,8 @@
               <div class="panel panel-default">
                 <div class="panel-body">
                   <div class="form-group" style="float: left;">
-                    <textarea name="profile" class="form-control"
-                      rows="7" cols="80%" maxlength="255"
-                      style="list-area: none; resize: none;"><s:property
-                        value="profile" /></textarea>
+                    <textarea name="profile" class="form-control" rows="7" cols="80%" maxlength="255"
+                      style="list-area: none; resize: none;"><s:property value="profile" /></textarea>
                     <BR>
                     <button class="btn btn-primary" type="submit">UPDATE</button>
                     <!-- class="btn btn-primary" -->

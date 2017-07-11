@@ -25,7 +25,7 @@ public class GoProfileAction extends ActionSupport implements SessionAware{
 	private int userId;
 
 	/** ユーザー名 */
-	private String userName;
+	private String snsId;
 
 	/** ユーザーアイコン */
 	private String userIcon;
@@ -78,28 +78,21 @@ public class GoProfileAction extends ActionSupport implements SessionAware{
 		String result = ERROR;
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
+		} else {
+			return result;
 		}
-		if(userId==0){return result;}
-
-		if(userName != null){
+		//@snsId のリンクから来た場合の処理
+		if(snsId != null){
 			ProfileDAO dao = new ProfileDAO();
-			viewId = dao.getViewId(userName.substring(1));
+			//substringで@を取り除く
+			viewId = dao.getViewId(snsId.substring(1));
 		}
-		session.put("viewId", viewId);
 
 		boolean checkIdFlag = false;
 
-		if(session.containsKey("userId")){
-
-			userId = (int) session.get("userId");
-			}
-		if(session.containsKey("viewId")){
-			viewId=(int) session.get("viewId");
+		if(viewId == 0){
+			viewId = userId;
 		}
-
-			if(userId == 0){
-				return result;
-			};
 
 			ProfileUpdateDAO pudao = new ProfileUpdateDAO();
 			if (pudao.checkId(userId,viewId)) {
@@ -159,12 +152,12 @@ public class GoProfileAction extends ActionSupport implements SessionAware{
 		this.userId = userId;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getSnsId() {
+		return snsId;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setSnsId(String snsId) {
+		this.snsId = snsId;
 	}
 
 	public String getUserIcon() {

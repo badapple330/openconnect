@@ -695,17 +695,10 @@
 		<action name="FollowAction"
 			class="com.internousdev.bulletinboard.action.FollowAction"
 			method="execute">
-			<result name="success" type="redirectAction">GoProfileAction</result>
-			<result name="error" type="redirectAction">GoProfileAction</result>
-			<result name="GoTalk" type="redirectAction">FriendSearchSessionAction</result>
-		</action>
-
-		<action name="FriendSearchSessionAction"
-			class="com.internousdev.bulletinboard.action.FriendSearchSessionAction"
-			method="execute">
-			<result name="success" type="redirectAction">FriendSearchAction</result>
-			<result name="error">login.jsp</result>
-		</action>
+			<result name="success" type="chain">GoProfileAction</result>
+			<result name="error" type="chain">GoProfileAction</result>
+			<result name="GoTalk" type="redirectAction">FriendSearchAction</result>
+    </action>
 
 		<action name="UnfollowAction"
 			class="com.internousdev.bulletinboard.action.UnfollowAction"
@@ -731,8 +724,8 @@
 		<action name="FriendSearchAction"
 			class="com.internousdev.bulletinboard.action.FriendSearchAction"
 			method="execute">
-			<result name="success">FriendList.jsp</result>
-			<result name="error"> FriendList.jsp</result>
+			<result name="success">friend_list.jsp</result>
+			<result name="error"> friend_list.jsp</result>
 		</action>
 
 		<action name="BotExerciseAction"

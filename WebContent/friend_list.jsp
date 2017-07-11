@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="css/follow.css">
 <link rel="stylesheet" href="css/Bfooter.css">
 <link href="css/bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" href="css/FriendList.css">
+<link rel="stylesheet" href="css/friend_list.css">
 
 
 </head>

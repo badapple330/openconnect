@@ -41,16 +41,15 @@ public class FollowAction extends ActionSupport implements SessionAware{
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
 		}
-		if(userId==0){return result;}
-
-		session.put("viewId", viewId);
+		if (userId == 0){
+			return result;
+		}
 
 		if(talkflg==1){session.put("talkflg",talkflg);}
 		else{session.put("talkflg",0);}
 
 		if(session.containsKey("userId")){
 			userId = (int) session.get("userId");
-            viewId = (int) session.get("viewId");
             talkflg = (int) session.get("talkflg");
 		}
 
