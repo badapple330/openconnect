@@ -109,8 +109,7 @@
                 <s:if test="%{#session.userId != userId}">
 
                   <div class="square_btn">
-                    <a
-                      href="<s:url action="FollowListSessionAction"><s:param name="viewId" value="%{userId}"/></s:url>">
+                    <a href="<s:url action="FollowAction"><s:param name="viewId" value="%{userId}"/></s:url>">
                       FOLLOW</a>
                   </div>
                 </s:if>

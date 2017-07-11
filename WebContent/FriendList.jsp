@@ -59,11 +59,11 @@
 								<s:if test="groupId == 0">
 										<div class="square_btn">
 											<a
-												href="<s:url action="FollowListSessionAction"><s:param name="viewId" value="usersList.get(#i.index).userId"/></s:url>">
+												href="<s:url action="FollowAction"><s:param name="viewId" value="usersList.get(#i.index).userId"/></s:url>">
 												フォローする</a>
 										</div>
 										<a
-											href="<s:url action="FollowListSessionAction"><s:param name="viewId" value="usersList.get(#i.index).userId"/></s:url>">
+											href="<s:url action="FollowAction"><s:param name="viewId" value="usersList.get(#i.index).userId"/></s:url>">
 												<img  class="followIcon" src="pic/follow.png" alt="フォロワーボタン" title="フォローする">
 											</a>
 									</s:if>

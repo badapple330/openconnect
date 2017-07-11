@@ -699,8 +699,8 @@
 		</action>
 
 		<!-- フォロー関連 -->
-		<action name="FollowListAddAction"
-			class="com.internousdev.bulletinboard.action.FollowListAddAction"
+		<action name="FollowAction"
+			class="com.internousdev.bulletinboard.action.FollowAction"
 			method="execute">
 			<result name="success" type="redirectAction">ProfileUpdateAction</result>
 			<result name="error" type="redirectAction">ProfileUpdateAction</result>
@@ -719,20 +719,6 @@
 			method="execute">
 			<result name="success" type="chain">ProfileUpdateAction</result>
 			<result name="error" type="chain">ProfileUpdateAction</result>
-		</action>
-
-		<action name="FollowListAction"
-			class="com.internousdev.bulletinboard.action.FollowListAction"
-			method="execute">
-			<result name="success"> followlist.jsp</result>
-			<result name="error"> followlist.jsp</result>
-		</action>
-
-		<action name="FollowListSessionAction"
-			class="com.internousdev.bulletinboard.action.FollowListSessionAction"
-			method="execute">
-			<result name="success" type="redirectAction">FollowListAddAction</result>
-			<result name="error" type="redirectAction">FollowListAddAction</result>
 		</action>
 
 		<action name="SendProfileAction"
