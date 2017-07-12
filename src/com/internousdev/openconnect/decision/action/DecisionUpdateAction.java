@@ -196,11 +196,11 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
      */
 
 	public String execute() {
+		
 		String result =ERROR;
          DecisionDAO dao= new DecisionDAO();
 
          int count=0;
-
 
          int totalProve = prove * persons;
 
@@ -255,7 +255,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	* 取得メソッド を取得
 	* @return kDrafterId
 	*/
-	public int getkDrafterId() {
+	public int getKDrafterId() {
 		return kDrafterId;
 	}
 
@@ -264,7 +264,7 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	* 設定メソッド を設定
 	* @param kDrafterId
 	*/
-	public void setkDrafterId(int kDrafterId) {
+	public void setKDrafterId(int kDrafterId) {
 		this.kDrafterId = kDrafterId;
 	}
 
@@ -753,18 +753,5 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 	public void setResultString(String resultString) {
 		this.resultString = resultString;
 	}
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
 

@@ -18,9 +18,14 @@
 /* なぜかCSSが適用されないためとりあえずここに書いてます。 スイマセン */
 
 #topWord {
-	margin-left: 150px;
-	margin-top: 25px;
+	margin-left: 175px;
+	margin-top: 100px;
 	margin-bottom: 25px;
+}
+
+td, th {
+	background-color: #f5f5f5;
+	text-align: center;
 }
 
 @media screen and (max-width:768px) {
@@ -29,6 +34,56 @@
 		margin-top: 100px;
 		margin-bottom: 10px;
 	}
+}
+
+th {
+	white-space: nowrap;
+	border:solid 1px;
+}
+
+td{
+	border:solid 1px;
+}
+
+.return_btn {
+	height: 30px;
+	width: 60px;
+	background-color: #1987E5;
+	color: white;
+}
+
+
+.table {
+	border: solid 2px;
+	border-color: black;
+}
+
+.t_right {
+	text-align: right;
+	width:24%;
+}
+
+.t_left{
+	width:80px;
+}
+
+
+
+
+@media screen and (min-width:200px) {
+
+.pg_none {
+	display: inline;
+}
+
+}
+
+@media screen and (min-width:768px) {
+
+.pg_none {
+	display: none;
+}
+
 }
 
 </style>
@@ -216,7 +271,7 @@
 															<input type="hidden" name="decisionId"
 																value="<s:property value="decisionId" />">
 															<input type="hidden" name="type" value="1">
-															<button class="btn btn-default" type="submit">編集</button>
+															<button class="btn btn-default center-block" type="submit">編集</button>
 														</s:form>
 													</s:if>
 													<!-- 実施のプレビュー -->
@@ -225,7 +280,7 @@
 															<input type="hidden" name="decisionId"
 																value="<s:property value="decisionId" />">
 															<input type="hidden" name="type" value="1">
-															<button class="btn btn-default" type="submit">Preview</button>
+															<button class="btn btn-default center-block" type="submit">Preview</button>
 														</s:form>
 													</s:else>
 												</s:if> <s:else>
@@ -236,7 +291,7 @@
 															<input type="hidden" name="decisionId"
 																value="<s:property value="decisionId" />">
 															<input type="hidden" name="type" value="4">
-															<button class="btn btn-default" type="submit">Preview</button>
+															<button class="btn btn-default center-block" type="submit">Preview</button>
 														</s:form>
 													</s:if>
 													<s:else>―</s:else>
@@ -251,7 +306,7 @@
 																<input type="hidden" name="decisionId"
 																	value="<s:property value="decisionId" />">
 																<input type="hidden" name="type" value="2">
-																<button class="btn btn-default" type="submit">編集</button>
+																<button class="btn btn-default center-block" type="submit">編集</button>
 															</s:form>
 														</s:if>
 														<!-- 契約のプレビュー -->
@@ -260,7 +315,7 @@
 																<input type="hidden" name="decisionId"
 																	value="<s:property value="decisionId" />">
 																<input type="hidden" name="type" value="2">
-																<button class="btn btn-default" type="submit">Preview</button>
+																<button class="btn btn-default center-block" type="submit">Preview</button>
 															</s:form>
 														</s:else>
 													</s:if>
@@ -273,7 +328,7 @@
 																<input type="hidden" name="decisionId"
 																	value="<s:property value="decisionId" />">
 																<input type="hidden" name="type" value="5">
-																<button class="btn btn-default" type="submit">Preview</button>
+																<button class="btn btn-default center-block" type="submit">Preview</button>
 															</s:form>
 														</s:if>
 														<s:else>―</s:else>
@@ -290,7 +345,7 @@
 															<input type="hidden" name="decisionId"
 																value="<s:property value="decisionId" />">
 															<input type="hidden" name="type" value="3">
-															<button class="btn btn-default" type="submit">編集</button>
+															<button class="btn btn-default center-block" type="submit">編集</button>
 														</s:form>
 													</s:if>
 													<!-- 実施兼契約のプレビュー -->
@@ -299,7 +354,7 @@
 															<input type="hidden" name="decisionId"
 																value="<s:property value="decisionId" />">
 															<input type="hidden" name="type" value="3">
-															<button class="btn btn-default" type="submit">Preview</button>
+															<button class="btn btn-default center-block" type="submit">Preview</button>
 														</s:form>
 													</s:else>
 												</s:if> <s:else>
@@ -310,7 +365,7 @@
 															<input type="hidden" name="decisionId"
 																value="<s:property value="decisionId" />">
 															<input type="hidden" name="type" value="6">
-															<button class="btn btn-default" type="submit">Preview</button>
+															<button class="btn btn-default center-block" type="submit">Preview</button>
 														</s:form>
 													</s:if>
 													<s:else>―</s:else>
@@ -332,11 +387,11 @@
 															value="<s:property value="kDrafterId" />">
 														<input type="hidden" name="type" value="7">
 														<s:if test="decisionStatus != 12">
-															<button class="btn btn-default" type="submit"
+															<button class="btn btn-default center-block" type="submit"
 																onclick='return confirm("遡求は一度編集を始めると取り消しができません。\n必ず先生の承認をもらい完了させてください。\nよろしいですか？");'>編集</button>
 														</s:if>
 														<s:else>
-															<button class="btn btn-default" type="submit">編集</button>
+															<button class="btn btn-default center-block" type="submit">編集</button>
 														</s:else>
 													</s:form>
 												</s:if>
@@ -353,7 +408,7 @@
 															<input type="hidden" name="kDrafterId"
 																value="<s:property value="kDrafterId" />">
 															<input type="hidden" name="type" value="7">
-															<button class="btn btn-default" type="submit">編集</button>
+															<button class="btn btn-default center-block" type="submit">編集</button>
 														</s:form>
 													</s:if>
 													<s:else>
@@ -368,14 +423,14 @@
 																		value="<s:property value="jDrafterId" />">
 																	<input type="hidden" name="type" value="4">
 																	<s:if test="decisionStatus != 11">
-																		<button class="btn btn-default" type="submit"
+																		<button class="btn btn-default center-block" type="submit"
 																			onclick='return confirm("変更は一度編集を始めると取り消しができません。\n必ず先生の承認をもらい完了させてください。\nよろしいですか？");'>
 																			実施<br>編集
 																		</button>
 																	</s:if>
 																	<s:else>
 																		<!-- 2回目以降 -->
-																		<button class="btn btn-default" type="submit">
+																		<button class="btn btn-default center-block" type="submit">
 																			実施<br>編集
 																		</button>
 
@@ -386,7 +441,7 @@
 																	<input type="hidden" name="kDrafterId"
 																		value="<s:property value="kDrafterId" />">
 																	<input type="hidden" name="type" value="5">
-																	<button class="btn btn-default" type="submit">
+																	<button class="btn btn-default center-block" type="submit">
 																		契約<br>編集
 																	</button>
 																</s:else>
@@ -396,7 +451,7 @@
 																<input type="hidden" name="jDrafterId"
 																	value="<s:property value="jDrafterId" />">
 																<input type="hidden" name="type" value="4">
-																<button class="btn btn-default" type="submit">
+																<button class="btn btn-default center-block" type="submit">
 																	実施<br>編集
 																</button>
 															</s:elseif>
@@ -406,14 +461,14 @@
 																	value="<s:property value="kDrafterId" />">
 																<input type="hidden" name="type" value="6">
 																<s:if test="decisionStatus != 11">
-																	<button class="btn btn-default" type="submit"
+																	<button class="btn btn-default center-block" type="submit"
 																		onclick='return confirm("変更は一度編集を始めると取り消しができません。\n必ず先生の承認をもらい完了させてください。\nよろしいですか？");'>
 																		実施兼契約<br>編集
 																	</button>
 																</s:if>
 																<s:else>
 																	<!-- 2回目以降 -->
-																	<button class="btn btn-default" type="submit">
+																	<button class="btn btn-default center-block" type="submit">
 																		実施兼契約<br>編集
 																	</button>
 																</s:else>
@@ -526,21 +581,21 @@
 														<s:if test="%{decisionType == '実施' }">
 															<input type="hidden" name="stringId"
 																value="<s:property value="jImpId" />">
-															<button class="btn btn-default" type="submit"
+															<button class="btn btn-default center-block" type="submit"
 																onclick='return confirm("よろしいですか？");'>実施申請</button>
 														</s:if>
 														<!-- 契約(差し戻し/却下時含む)の申請 -->
 														<s:elseif test="%{decisionType == '契約'}">
 															<input type="hidden" name="stringId"
 																value="<s:property value="kImpId" />">
-															<button class="btn btn-default" type="submit"
+															<button class="btn btn-default center-block" type="submit"
 																onclick='return confirm("よろしいですか？");'>契約申請</button>
 														</s:elseif>
 														<!-- 実施兼契約(差し戻し/却下時含む)の申請 -->
 														<s:else>
 															<input type="hidden" name="stringId"
 																value="<s:property value="jkImpId" />">
-															<button class="btn btn-default" type="submit"
+															<button class="btn btn-default center-block" type="submit"
 																onclick='return confirm("よろしいですか？");'>実施兼契約申請</button>
 														</s:else>
 													</s:form>
@@ -564,7 +619,7 @@
 															<!-- 変更・遡求申請の時は取り消しできない(遡求はいきなり先生承認へいく) -->
 															<s:if test="decisionStatus == 4">―</s:if>
 															<s:else>
-																<button class="btn btn-default" type="submit"
+																<button class="btn btn-default center-block" type="submit"
 																	onclick='return confirm("よろしいですか？");'>申請取り下げ</button>
 															</s:else>
 														</s:form>
@@ -587,14 +642,14 @@
 
 															<!-- 初回時 -->
 															<s:if test="decisionStatus == 12">
-																<button class="btn btn-default" type="submit"
+																<button class="btn btn-default center-block" type="submit"
 																	onclick='return confirm("遡求申請は申請の取り消しができません。\nよろしいですか？");'>
 																	遡求<br>申請
 																</button>
 															</s:if>
 															<!-- 2回目以降・差し戻し時 -->
 															<s:elseif test="decisionStatus == 10">
-																<button class="btn btn-default" type="submit"
+																<button class="btn btn-default center-block" type="submit"
 																	onclick='return confirm("よろしいですか？");'>遡求申請</button>
 															</s:elseif>
 															<!-- 遡求承認完了後の変更申請可時 -->
@@ -620,7 +675,7 @@
 															<!-- 実施の変更(初回時) -->
 															<s:if test="kPermiterId3 > 0 && decisionStatus == 11">
 																<input type="hidden" name="decisionType" value="実施">
-																<button class="btn btn-default" type="submit"
+																<button class="btn btn-default center-block" type="submit"
 																	onclick='return confirm("変更申請は申請の取り消しができません。\nよろしいですか？");'>実施変更申請</button>
 															</s:if>
 															<!-- 遡求・変更ともに完了時 -->
@@ -628,7 +683,7 @@
 															<!-- 契約の変更 -->
 															<s:else>
 																<input type="hidden" name="decisionType" value="契約">
-																<button class="btn btn-default" type="submit"
+																<button class="btn btn-default center-block" type="submit"
 																	onclick='return confirm("よろしいですか？");'>契約変更申請</button>
 															</s:else>
 														</s:form>
@@ -658,7 +713,7 @@
 															<input type="hidden" name="permitStatus"
 																value="<s:property value="permitStatus" />">
 															<input type="hidden" name="decisionType" value="実施兼契約">
-															<button class="btn btn-default" type="submit"
+															<button class="btn btn-default center-block" type="submit"
 																onclick='return confirm("変更申請は申請の取り消しができません。\nよろしいですか？");'>実施兼契約変更申請</button>
 														</s:form>
 													</s:else>
@@ -676,7 +731,7 @@
 													<input type="hidden" name="decisionId"
 														value="<s:property value="decisionId" />">
 													<input type="hidden" name="type" value="7">
-													<button class="btn btn-default" type="submit">遡求Preview</button>
+													<button class="btn btn-default center-block" type="submit">遡求Preview</button>
 												</s:form></td>
 											<td colspan="3">―</td>
 										</tr>
@@ -779,7 +834,7 @@
 												<input type="hidden" name="decisionId"
 													value="<s:property value="decisionId" />">
 												<input type="hidden" name="type" value="1">
-												<button class="btn btn-default" type="submit">Preview</button>
+												<button class="btn btn-default center-block" type="submit">Preview</button>
 											</s:form>
 										</s:if> <s:else>
 											<s:if test="%{jApplyDay != null}">
@@ -787,7 +842,7 @@
 													<input type="hidden" name="decisionId"
 														value="<s:property value="decisionId" />">
 													<input type="hidden" name="type" value="4">
-													<button class="btn btn-default" type="submit">Preview</button>
+													<button class="btn btn-default center-block" type="submit">Preview</button>
 												</s:form>
 											</s:if>
 											<!-- 変更編集中時 -->
@@ -801,7 +856,7 @@
 													<input type="hidden" name="decisionId"
 														value="<s:property value="decisionId" />">
 													<input type="hidden" name="type" value="2">
-													<button class="btn btn-default" type="submit">Preview</button>
+													<button class="btn btn-default center-block" type="submit">Preview</button>
 												</s:form>
 											</s:if>
 											<s:else>
@@ -810,7 +865,7 @@
 														<input type="hidden" name="decisionId"
 															value="<s:property value="decisionId" />">
 														<input type="hidden" name="type" value="5">
-														<button class="btn btn-default" type="submit">Preview</button>
+														<button class="btn btn-default center-block" type="submit">Preview</button>
 													</s:form>
 												</s:if>
 												<!-- 変更編集中時 -->
@@ -826,7 +881,7 @@
 												<input type="hidden" name="decisionId"
 													value="<s:property value="decisionId" />">
 												<input type="hidden" name="type" value="3">
-												<button class="btn btn-default" type="submit">Preview</button>
+												<button class="btn btn-default center-block" type="submit">Preview</button>
 											</s:form>
 										</s:if> <s:else>
 											<s:if test="decisionStatus != 11">
@@ -834,7 +889,7 @@
 													<input type="hidden" name="decisionId"
 														value="<s:property value="decisionId" />">
 													<input type="hidden" name="type" value="6">
-													<button class="btn btn-default" type="submit">Preview</button>
+													<button class="btn btn-default center-block" type="submit">Preview</button>
 												</s:form>
 											</s:if>
 											<!-- 変更編集中時 -->
@@ -864,7 +919,7 @@
 												<s:if test="%{#session.userFlg == 3}">
 													<!-- 先生が差し戻し可能な時 -->
 													<s:if test="permitStatus == 2">
-														<button class="btn btn-default" type="submit"
+														<button class="btn btn-default center-block" type="submit"
 															onclick='return confirm("よろしいですか？");'>差し戻し</button>
 														<%-- コメント送信フォームを入れる --%>
 													</s:if>
@@ -878,7 +933,7 @@
 														<s:if
 															test="%{(jPermiterId1 == #session.userId && decisionType == '実施') || (kPermiterId1 == #session.userId && decisionType == '契約') || (kPermiterId1 == #session.userId && decisionType == '実施兼契約')}">―</s:if>
 														<s:else>
-															<button class="btn btn-default" type="submit"
+															<button class="btn btn-default center-block" type="submit"
 																onclick='return confirm("よろしいですか？");'>差し戻し</button>
 															<%-- コメント送信フォームを入れる --%>
 														</s:else>
@@ -923,7 +978,7 @@
 												<s:if test="%{#session.userFlg == 3}">
 													<!-- 先生が却下可能な時 -->
 													<s:if test="permitStatus == 2">
-														<button class="btn btn-default" type="submit"
+														<button class="btn btn-default center-block" type="submit"
 															onclick='return confirm("よろしいですか？");'>却下</button>
 														<%-- コメント送信フォームを入れる --%>
 													</s:if>
@@ -938,7 +993,7 @@
 														<s:if
 															test="%{(jPermiterId1 == #session.userId && decisionType == '実施') || (kPermiterId1 == #session.userId && decisionType == '契約') || (kPermiterId1 == #session.userId && decisionType == '実施兼契約')}">―</s:if>
 														<s:else>
-															<button class="btn btn-default" type="submit"
+															<button class="btn btn-default center-block" type="submit"
 																onclick='return confirm("よろしいですか？");'>却下</button>
 															<%-- コメント送信フォームを入れる --%>
 														</s:else>
@@ -984,7 +1039,7 @@
 																value="<s:property value="#session.userId" />">
 															<s:token />
 															<input type="hidden" name="permitStatus" value="2">
-															<button class="btn btn-default" type="submit"
+															<button class="btn btn-default center-block" type="submit"
 																onclick='return confirm("よろしいですか？");'>実施承認3人目</button>
 														</s:form>
 													</s:if>
@@ -1009,7 +1064,7 @@
 																value="<s:property value="#session.userId" />">
 															<s:token />
 															<input type="hidden" name="permitStatus" value="0">
-															<button class="btn btn-default" type="submit"
+															<button class="btn btn-default center-block" type="submit"
 																onclick='return confirm("よろしいですか？");'>実施承認1人目</button>
 														</s:form>
 													</s:if>
@@ -1028,7 +1083,7 @@
 						                                    あなたが1人目の承認者
 						                                </s:if>
 															<s:else>
-																<button class="btn btn-default" type="submit"
+																<button class="btn btn-default center-block" type="submit"
 																	onclick='return confirm("よろしいですか？");'>実施承認2人目</button>
 															</s:else>
 														</s:form>
@@ -1060,21 +1115,21 @@
 															<input type="hidden" name="permitStatus" value="2">
 															<s:if test="%{decisionType == '契約'}">
 																<s:if test="decisionStatus == 6">
-																	<button class="btn btn-default" type="submit"
+																	<button class="btn btn-default center-block" type="submit"
 																		onclick='return confirm("よろしいですか？");'>遡求承認</button>
 																</s:if>
 																<s:else>
-																	<button class="btn btn-default" type="submit"
+																	<button class="btn btn-default center-block" type="submit"
 																		onclick='return confirm("よろしいですか？");'>契約承認3人目</button>
 																</s:else>
 															</s:if>
 															<s:elseif test="%{decisionType == '実施兼契約'}">
 																<s:if test="decisionStatus == 6">
-																	<button class="btn btn-default" type="submit"
+																	<button class="btn btn-default center-block" type="submit"
 																		onclick='return confirm("よろしいですか？");'>遡求承認</button>
 																</s:if>
 																<s:else>
-																	<button class="btn btn-default" type="submit"
+																	<button class="btn btn-default center-block" type="submit"
 																		onclick='return confirm("よろしいですか？");'>実施兼契約承認3人目</button>
 																</s:else>
 															</s:elseif>
@@ -1102,11 +1157,11 @@
 															<s:token />
 															<input type="hidden" name="permitStatus" value="0">
 															<s:if test="%{decisionType == '契約'}">
-																<button class="btn btn-default" type="submit"
+																<button class="btn btn-default center-block" type="submit"
 																	onclick='return confirm("よろしいですか？");'>契約承認1人目</button>
 															</s:if>
 															<s:elseif test="%{decisionType == '実施兼契約'}">
-																<button class="btn btn-default" type="submit"
+																<button class="btn btn-default center-block" type="submit"
 																	onclick='return confirm("よろしいですか？");'>実施兼契約承認1人目</button>
 															</s:elseif>
 														</s:form>
@@ -1127,11 +1182,11 @@
 						                                </s:if>
 															<s:else>
 																<s:if test="%{decisionType == '契約'}">
-																	<button class="btn btn-default" type="submit"
+																	<button class="btn btn-default center-block" type="submit"
 																		onclick='return confirm("よろしいですか？");'>契約承認2人目</button>/
 						                                    </s:if>
 																<s:elseif test="%{decisionType == '実施兼契約'}">
-																	<button class="btn btn-default" type="submit"
+																	<button class="btn btn-default center-block" type="submit"
 																		onclick='return confirm("よろしいですか？");'>実施兼契約承認2人目</button>
 																</s:elseif>
 															</s:else>
@@ -1163,7 +1218,7 @@
 							        		<s:form action="DecisionPreviewAction">
 							                        <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
 							                        	<input type="hidden" name="type" value="7">
-							                                <button class="btn btn-default" type="submit" >遡求Preview</button>
+							                                <button class="btn btn-default center-block" type="submit" >遡求Preview</button>
 						                    </s:form>
 				                    </s:if>
 				                    <s:else></s:else>
@@ -1172,7 +1227,7 @@
 					        		<s:if test="%{#session.userFlg == 3 && decisionStatus == 5 && time== 1}">
 					        				<s:form action="DecisionDetailCompleteAction">
 							                        <input type="hidden" name="decisionId" value="<s:property value="decisionId" />">
-							                        	<button class="btn btn-default" type="submit" >リリース完了</button>
+							                        	<button class="btn btn-default center-block" type="submit" >リリース完了</button>
 						                    </s:form>
 					        		</s:if>
 					        		<s:else></s:else>
@@ -1198,7 +1253,7 @@
 
 	<!-- 戻る -->
 	<s:form action="GetAddressAction">
-		<input type="submit" class="btn btn-primary return_btn" value="戻る">
+		<input type="submit" class="btn btn-primary return_btn  center-block" value="戻る">
 	</s:form>
 
 

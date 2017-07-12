@@ -322,7 +322,7 @@ K	 * エラーメッセージ
 			kPermiter2nameList = dao.selectByKPermiterId2(kPermiterId2);
 			kPermiterId3 = decisionList.get(0).getKPermiterId3();
 			kPermiter3nameList = dao.selectByKPermiterId3(kPermiterId3);
-			dao.updateChangeRecourse(type, decisionId);//変更編集・遡求編集ボタン押下時に値を更新する為のもの
+			//dao.updateChangeRecourse(type,decisionId);//変更編集・遡求編集ボタン押下時に値を更新する為のもの
 
 		}catch (UnknownException e) {
 			e.printStackTrace();
@@ -375,6 +375,28 @@ K	 * エラーメッセージ
 	public void setJDrafterId(int jDrafterId) {
 		this.jDrafterId = jDrafterId;
 	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return kDrafterId
+	*/
+	public int getKDrafterId() {
+		return kDrafterId;
+	}
+
+
+
+
+	/**
+	* 設定メソッド を設定
+	* @param kDrafterId
+	*/
+	public void setKDrafterId(int kDrafterId) {
+		this.kDrafterId = kDrafterId;
+	}
+
+
 
 
 	/**

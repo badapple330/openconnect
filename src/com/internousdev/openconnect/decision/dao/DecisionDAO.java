@@ -204,6 +204,7 @@ public class DecisionDAO {
 	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll,int jDrafterId,int kDrafterId,int decisionId) {
 		int count = 0;
 
+
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root",
 				"mysql");
 		Connection con = db.getConnection();
@@ -516,7 +517,7 @@ public class DecisionDAO {
 			}else if(type == 7) {//遡求編集ボタンが押された場合
 					sql = "update decision set recourse_status = 1, decision_status = 12 where decision_id = ?";
 			}else{
-				throw new Exception("Invalid argment: type"); 
+				throw new Exception("Invalid argment: type");
 			}
 
 
@@ -538,24 +539,4 @@ public class DecisionDAO {
 			return count;
 	}
 
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
