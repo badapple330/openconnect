@@ -21,10 +21,10 @@
 
 	<!-- ヘッダー-->
 	<jsp:include page="header.jsp" />
-	<div class="container">
-		<div class="attendance" align="center">
+	<div class="container" align="center">
+		<div class="attendance">
 
-			<h1 align="center">勤怠報告</h1>
+			<h1>勤怠報告</h1>
 			<hr>
 			<s:if test="%{#session.userFlg >= 1}">
 				<p>
