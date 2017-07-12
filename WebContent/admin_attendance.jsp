@@ -218,7 +218,8 @@
 					<s:form action="AdminAttendanceUpdateAction">
 						<input type="hidden" name="userName" class="updateuserName"
 							value="">
-						<input type="hidden" name="teamName" class="updateteam" value="">
+						<input type="hidden" name="teamName" class="updateteamName"
+							value="">
 						<input type="hidden" name="userId" class="updateUserId"
 							value="userId">
 						<input type="hidden" name="atYear" class="updateAtYear"
