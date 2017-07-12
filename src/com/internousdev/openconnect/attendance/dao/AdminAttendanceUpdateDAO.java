@@ -78,7 +78,7 @@ public class AdminAttendanceUpdateDAO {
 		 /* 検索結果格納DTO */
 		 ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
-		 String sql = "select * from attendance left join users on attendance.user_id=users.user_id where at_year="+ atYear+" and at_month="+ atMonth+" and at_day="+ atDay+" and team_name='"+ teamName+"'";
+		 String sql = "select * from attendance left join users on attendance.user_id=users.user_id where at_year="+ atYear+" and at_month="+ atMonth+" and at_day="+ atDay+" and team_name='"+ teamName+"' and attendance !='出席'";
 
 		 try {
 			 statement = con.createStatement();
