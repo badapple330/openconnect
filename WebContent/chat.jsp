@@ -93,7 +93,7 @@
               data-target="#groupNameChange">グループ名変更</a></li>
             <li><a data-toggle="modal" class="cursor"
               data-target="#groupImageChange">グループ画像変更</a></li>
-            <li><a data-toggle="modal" class="cursor"
+            <li><a href="<s:url action='GoGroupMemberAction' />" target="groupMember" data-toggle="modal" class="cursor"
               data-target="#groupMemberModal">メンバーを確認</a></li>
             <li class="dropdown"><a href="#"
               class="dropdown-toggle" data-toggle="dropdown">メンバーを追加
@@ -183,19 +183,7 @@
     <div class="modal fade" id="groupMemberModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">
-              <span>&times;</span>
-            </button>
-            <h4 class="modal-title">メンバーを確認する</h4>
-          </div>
-          <div class="modal-body">
-            <iframe id="groupMember" src="<s:url action="GoGroupMemberAction" />"></iframe>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default"
-              data-dismiss="modal">キャンセル</button>
-          </div>
+            <iframe id="groupMember" name="groupMember"></iframe>
         </div>
       </div>
     </div>

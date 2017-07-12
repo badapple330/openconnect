@@ -38,7 +38,7 @@ public class ChatDAO {
 			if(isGroupChat){
 				sql1 = ""
 						+"SELECT m.*, user_name, user_icon, coalesce(is_read, 0) AS is_read from ( "
-						+	"SELECT message_id, receiver_id, sender_id, group_id, text, created_at "
+						+	"SELECT message_id, receiver_id, sender_id, group_id, text, img, created_at "
 						+	"FROM messages WHERE group_id = ? "
 						+") AS m "
 						+"INNER JOIN ( "
@@ -62,10 +62,10 @@ public class ChatDAO {
 						+	"SELECT user_id, user_name, user_icon FROM users WHERE user_id = ? OR user_id = ? "
 						+") AS u "
 						+"INNER JOIN ( "
-						+	"SELECT message_id, receiver_id, sender_id, group_id, text, created_at FROM messages "
+						+	"SELECT message_id, receiver_id, sender_id, group_id, text, img, created_at FROM messages "
 						+	"WHERE receiver_id = ? AND sender_id = ? "
 						+	"UNION "
-						+	"SELECT message_id, receiver_id, sender_id, group_id, text, created_at FROM messages "
+						+	"SELECT message_id, receiver_id, sender_id, group_id, text, img, created_at FROM messages "
 						+	"WHERE receiver_id = ? AND sender_id = ? "
 						+") AS m "
 						+"ON u.user_id = m.sender_id "
@@ -94,10 +94,10 @@ public class ChatDAO {
 				dto.setSenderName(rs.getString("user_name"));//送信者名
 				dto.setSenderImg(rs.getString("user_icon"));//送信者画像
 				dto.setText(rs.getString("text")); //送信内容
-//				dto.setImg(rs.getString("img")); //添付画像
-//				if((dto.getImg()) == null){
-//					dto.setImg("");
-//				}
+				dto.setImg(rs.getString("img")); //添付画像・スタンプ
+				if((dto.getImg()) == null){
+					dto.setImg("");
+				}
 				dto.setCreatedAt(rs.getString("created_at")); //投稿日時
 				dto.setIsRead(rs.getBoolean("is_read"));//既読情報
 				chat.add(dto);
@@ -114,6 +114,10 @@ public class ChatDAO {
 						+") AS r "
 						+"ON m.message_id = r.message_id "
 						+"WHERE r.message_id IS NULL; ";
+				ps2 = con.prepareStatement(sql2);
+				ps2.setInt(1, senderId);
+				ps2.setInt(2, groupId);
+				ps2.setInt(3, senderId);
 			} else {
 				sql2 = ""
 						+"INSERT INTO read_flg "
@@ -126,18 +130,11 @@ public class ChatDAO {
 						+") AS r "
 						+"ON m.message_id = r.message_id "
 						+"WHERE r.message_id IS NULL; ";
-			}
-
-			ps2 = con.prepareStatement(sql2);
-			if(isGroupChat){
-				ps2.setInt(1, senderId);
-				ps2.setInt(2, groupId);
-				ps2.setInt(3, senderId);
-			} else {
+				ps2 = con.prepareStatement(sql2);
 				ps2.setInt(1, senderId);
 				ps2.setInt(2, receiverId);
 				ps2.setInt(3, senderId);
-				ps2.setInt(3, senderId);
+				ps2.setInt(4, senderId);
 			}
 			ps2.executeUpdate();
 		} catch(SQLException e) {
@@ -153,7 +150,7 @@ public class ChatDAO {
 	}
 
 
-  public int insertMessage(int senderId, int receiverId, int groupId, String postContents, String img){
+  public int insertMessage(int senderId, int receiverId, int groupId, String text, String img){
 	    Connection con = new MySqlConnector("openconnect").getConnection();
 
 	    int inserted=0;
@@ -161,35 +158,35 @@ public class ChatDAO {
 	    String sql="";
 
 	    if(groupId !=0){
-	    	 sql = "insert into messages (sender_id,group_id,text,img) values (?,?,?,?)";
+	    	 sql = "insert into messages (sender_id, group_id, text, img) values (?, ?, ?, ?)";
 	    	 k=1;
 	    }
 	    else if(receiverId != 0){
-	    	sql = "insert into messages (sender_id,receiver_id,text,img) values (?,?,?,?) ";
+	    	sql = "insert into messages (sender_id, receiver_id, text, img) values (?, ?, ?, ?) ";
 	    	k=2;
 	    }
 
-	    try{
+	    try {
 	    	PreparedStatement ps = con.prepareStatement(sql);
 
-	    	if(k==1){
-	    		ps.setInt(1,senderId);
-	    		ps.setInt(2,groupId);
-	    		ps.setString(3,postContents);
-	    		ps.setString(4,img);
+	    	if(k==1) {
+	    		ps.setInt(1, senderId);
+	    		ps.setInt(2, groupId);
+	    		ps.setString(3, text);
+	    		ps.setString(4, img);
 	    	}
-	    	if(k==2){
-	    		ps.setInt(1,senderId);
-	    		ps.setInt(2,receiverId);
-	    		ps.setString(3,postContents);
-	    		ps.setString(4,img);
+	    	if(k==2) {
+	    		ps.setInt(1, senderId);
+	    		ps.setInt(2, receiverId);
+	    		ps.setString(3, text);
+	    		ps.setString(4, img);
 	    	}
-	    	inserted= ps.executeUpdate();
+	    	inserted = ps.executeUpdate();
 
 	    	ps.close();
-	    }catch(SQLException e){
+	    } catch(SQLException e) {
 	    	e.printStackTrace();
-	    }finally {
+	    } finally {
 			try{
 				con.close();
 			}catch(Exception e){
@@ -198,5 +195,4 @@ public class ChatDAO {
 		}
 	return inserted;
 	}
-
 }

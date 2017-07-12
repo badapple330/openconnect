@@ -7,13 +7,10 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <!-- ▼▼Stylesheet -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/groupMember.css">
     <!-- ▼▼jQuery -->
-    <script src="js/jquery-3.2.1.min.js"></script>
     <!-- ▼▼他のjavascript -->
-    <script src="js/bootstrap.min.js"></script>
-    
+
     <script>
     // 読み込みが完了してから処理を行う
     $(window).on('load resize',function(){
@@ -25,9 +22,22 @@
     </script>
   </head>
   <body>
-    <s:iterator value="memberList" status="i">
-      <a href="<s:url action="GoProfileAction"><s:param name="viewId" value="memberList.get(#i.index).userId"/></s:url>" target="_top">
-      <img src="<s:property value="memberList.get(#i.index).userIcon"/>" class="img-circle-ex"></a>
-    </s:iterator>
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">
+        <span>&times;</span>
+      </button>
+      <h4 class="modal-title">メンバーを確認する</h4>
+    </div>
+    <div class="modal-body">
+      <s:iterator value="memberList" status="i">
+      <s:form action="GoProfileAction" target="_top">
+        <s:hidden name="viewId" value="%{memberList.get(#i.index).userId}" />
+        <input type="image" alt="" src="<s:property value="%{memberList.get(#i.index).userIcon}"/>" class="img-circle-ex">
+      </s:form>
+      </s:iterator>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+      </div>
   </body>
 </html>
