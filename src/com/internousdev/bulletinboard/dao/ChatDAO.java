@@ -17,134 +17,185 @@ import com.internousdev.util.db.mysql.MySqlConnector;
  *
  */
 public class ChatDAO {
-	/*
-	 * チャット読み込み用のコンストラクタ(ユーザーId,相手のId,グループId）
-	 */
-	public ChatDAO(){
-	}
-	  public ArrayList<MessageDTO> selectChat(int senderId, int receiverId, int groupId){
-		    Connection con = new MySqlConnector("openconnect").getConnection();
-		    ArrayList<MessageDTO> chat = new ArrayList<MessageDTO>();
-
-		    int k=0;
-		    String sql;
-		    String sql2="select * from read_flg where message_id=? and user_id=?";
-		    String sql3="insert into read_flg values(?,?)";
-
-		    if(groupId !=0){
-		    	 sql = "select * from users join messages on users.user_id=messages.sender_id where group_id=? order by created_at asc";
-		    	 k=1;
-		    }
-		    else if(receiverId != 0){
-		    	sql = "select * from users join messages on users.user_id=messages.sender_id where (sender_id=? or receiver_id=?) and (sender_id=? or receiver_id=?) order by created_at asc";
-		    	k=2;
-		    }
-		    else{sql="";}
-
-		    try{
-		    	PreparedStatement ps = con.prepareStatement(sql);
-
-		    	if(k==1){
-		    		ps.setInt(1,groupId);
-		    	}
-		    	if(k==2){
-		    		ps.setInt(1,senderId);
-		    		ps.setInt(2,senderId);
-		    		ps.setInt(3,receiverId);
-		    		ps.setInt(4,receiverId);
-
-		    	}
-		    	ResultSet rs = ps.executeQuery();
-		    	while(rs.next()){
-		    		MessageDTO dto = new MessageDTO();
-		    		dto.setMessageId(rs.getInt("message_id")); //投稿ID
-		    		dto.setReceiverId(rs.getInt("receiver_id")); //受取人ID
-		    		dto.setSenderId(rs.getInt("sender_id")); //送信者ID
-		    		dto.setSenderName(rs.getString("user_name"));//送信者名
-		    		dto.setSenderImg(rs.getString("user_icon"));//送信者画像
-		    		dto.setGroupId(rs.getInt("group_id"));
-		    		dto.setText(rs.getString("text")); //送信内容
-		    		dto.setImg(rs.getString("img")); //添付画像
-		    		if((dto.getImg())==null){
-		    			dto.setImg("");
-		    		}
-		    		dto.setCreatedAt(rs.getString("created_at")); //投稿日時
-
-		    		PreparedStatement ps2 = con.prepareStatement(sql2);
-		    		ps2.setInt(1,dto.getMessageId());
-		    		ps2.setInt(2,senderId);
-		    		ResultSet rs2= ps2.executeQuery();
-		    		while (rs2.next()){
-		    			dto.setReadFlg(1);//既読情報
-		    		}
-		    		if(dto.getReadFlg()==0){//既読がついてない場合に既読をつける
-		    			PreparedStatement ps3 = con.prepareStatement(sql3);
-		    			ps3.setInt(1,dto.getMessageId());
-		    			ps3.setInt(2,senderId);
-		    			ps3.executeUpdate();
-		    		}
-
-
-		    		chat.add(dto);
-
-		    	}
-		    }catch(SQLException e){
-		    	e.printStackTrace();
-		    }finally {
-				try{
-					con.close();
-				}catch(Exception e){
-					e.printStackTrace();
-					}
-			}
-		     return chat;
-		  }
-
-
-	  public int insertMessage(int senderId, int receiverId, int groupId, String postContents, String img){
-		    Connection con = new MySqlConnector("openconnect").getConnection();
-
-		    int inserted=0;
-		    int k=0;
-		    String sql="";
-
-		    if(groupId !=0){
-		    	 sql = "insert into messages (sender_id,group_id,text,img) values (?,?,?,?)";
-		    	 k=1;
-		    }
-		    else if(receiverId != 0){
-		    	sql = "insert into messages (sender_id,receiver_id,text,img) values (?,?,?,?) ";
-		    	k=2;
-		    }
-
-		    try{
-		    	PreparedStatement ps = con.prepareStatement(sql);
-
-		    	if(k==1){
-		    		ps.setInt(1,senderId);
-		    		ps.setInt(2,groupId);
-		    		ps.setString(3,postContents);
-		    		ps.setString(4,img);
-		    	}
-		    	if(k==2){
-		    		ps.setInt(1,senderId);
-		    		ps.setInt(2,receiverId);
-		    		ps.setString(3,postContents);
-		    		ps.setString(4,img);
-		    	}
-		    	inserted= ps.executeUpdate();
-
-		    	ps.close();
-		    }catch(SQLException e){
-		    	e.printStackTrace();
-		    }finally {
-				try{
-					con.close();
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-			}
-		return inserted;
+	public ArrayList<MessageDTO> selectChat(int senderId, int receiverId, int groupId){
+		Connection con = new MySqlConnector("openconnect").getConnection();
+		ArrayList<MessageDTO> chat = new ArrayList<MessageDTO>();
+		boolean isGroupChat;	/* グループチャットかどうか */
+		if(groupId != 0){
+			isGroupChat = true;
+		} else if(receiverId != 0){
+			isGroupChat = false;
+		} else {
+			return null;
 		}
+
+		String sql1 = "";
+		PreparedStatement ps1;
+		String sql2 = "";
+		PreparedStatement ps2;
+
+		try{
+			if(isGroupChat){
+				sql1 = ""
+						+"SELECT m.*, user_name, user_icon, coalesce(is_read, 0) AS is_read from ( "
+						+	"SELECT message_id, receiver_id, sender_id, group_id, text, created_at "
+						+	"FROM messages WHERE group_id = ? "
+						+") AS m "
+						+"INNER JOIN ( "
+						+	"SELECT user_id, user_name, user_icon FROM users WHERE user_id IN ( "
+						+		"SELECT user_id FROM members WHERE group_id = ? "
+						+	") "
+						+") AS u "
+						+"ON u.user_id = m.sender_id "
+						+"LEFT JOIN ( "
+						+	"SELECT *, true AS is_read FROM read_flg WHERE user_id = ? "
+						+") AS r "
+						+"ON m.message_id = r.message_id "
+						+"ORDER BY m.message_id ASC ";
+				ps1 = con.prepareStatement(sql1);
+				ps1.setInt(1, groupId);
+				ps1.setInt(2, groupId);
+				ps1.setInt(3, senderId);
+			} else {
+				sql1 = ""
+						+ "SELECT m.*, user_name, user_icon, coalesce(is_read, 0) AS is_read FROM ( "
+						+	"SELECT user_id, user_name, user_icon FROM users WHERE user_id = ? OR user_id = ? "
+						+") AS u "
+						+"INNER JOIN ( "
+						+	"SELECT message_id, receiver_id, sender_id, group_id, text, created_at FROM messages "
+						+	"WHERE receiver_id = ? AND sender_id = ? "
+						+	"UNION "
+						+	"SELECT message_id, receiver_id, sender_id, group_id, text, created_at FROM messages "
+						+	"WHERE receiver_id = ? AND sender_id = ? "
+						+") AS m "
+						+"ON u.user_id = m.sender_id "
+						+"LEFT JOIN ( "
+						+"	SELECT *, true AS is_read FROM read_flg WHERE user_id = ? "
+						+") AS r "
+						+"ON m.message_id = r.message_id "
+						+"ORDER BY m.message_id ASC;";
+				ps1 = con.prepareStatement(sql1);
+				ps1.setInt(1, senderId);
+				ps1.setInt(2, receiverId);
+				ps1.setInt(3, senderId);
+				ps1.setInt(4, receiverId);
+				ps1.setInt(5, receiverId);
+				ps1.setInt(6, senderId);
+				ps1.setInt(7, senderId);
+			}
+			ResultSet rs = ps1.executeQuery();
+
+			while(rs.next()){
+				MessageDTO dto = new MessageDTO();
+				dto.setMessageId(rs.getInt("message_id")); //投稿ID
+				dto.setReceiverId(rs.getInt("receiver_id")); //受取人ID
+				dto.setSenderId(rs.getInt("sender_id")); //送信者ID
+				dto.setGroupId(rs.getInt("group_id"));
+				dto.setSenderName(rs.getString("user_name"));//送信者名
+				dto.setSenderImg(rs.getString("user_icon"));//送信者画像
+				dto.setText(rs.getString("text")); //送信内容
+//				dto.setImg(rs.getString("img")); //添付画像
+//				if((dto.getImg()) == null){
+//					dto.setImg("");
+//				}
+				dto.setCreatedAt(rs.getString("created_at")); //投稿日時
+				dto.setIsRead(rs.getBoolean("is_read"));//既読情報
+				chat.add(dto);
+			}
+
+			if(isGroupChat){
+				sql2 = ""
+						+"INSERT INTO read_flg "
+						+"SELECT m.* FROM ( "
+						+	"SELECT message_id, ? AS user_id FROM messages WHERE group_id = ? "
+						+") AS m "
+						+"LEFT JOIN ( "
+						+	"SELECT message_id FROM read_flg WHERE user_id = ? "
+						+") AS r "
+						+"ON m.message_id = r.message_id "
+						+"WHERE r.message_id IS NULL; ";
+			} else {
+				sql2 = ""
+						+"INSERT INTO read_flg "
+						+"SELECT m.* FROM( "
+						+	"SELECT message_id, ? AS user_id FROM messages "
+						+	"WHERE sender_id = ? AND receiver_id = ? "
+						+") AS m "
+						+"LEFT JOIN ( "
+						+	"SELECT message_id FROM read_flg WHERE user_id = 36 "
+						+") AS r "
+						+"ON m.message_id = r.message_id "
+						+"WHERE r.message_id IS NULL; ";
+			}
+
+			ps2 = con.prepareStatement(sql2);
+			if(isGroupChat){
+				ps2.setInt(1, senderId);
+				ps2.setInt(2, groupId);
+				ps2.setInt(3, senderId);
+			} else {
+				ps2.setInt(1, senderId);
+				ps2.setInt(2, receiverId);
+				ps2.setInt(3, senderId);
+			}
+			ps2.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return chat;
+	}
+
+
+  public int insertMessage(int senderId, int receiverId, int groupId, String postContents, String img){
+	    Connection con = new MySqlConnector("openconnect").getConnection();
+
+	    int inserted=0;
+	    int k=0;
+	    String sql="";
+
+	    if(groupId !=0){
+	    	 sql = "insert into messages (sender_id,group_id,text,img) values (?,?,?,?)";
+	    	 k=1;
+	    }
+	    else if(receiverId != 0){
+	    	sql = "insert into messages (sender_id,receiver_id,text,img) values (?,?,?,?) ";
+	    	k=2;
+	    }
+
+	    try{
+	    	PreparedStatement ps = con.prepareStatement(sql);
+
+	    	if(k==1){
+	    		ps.setInt(1,senderId);
+	    		ps.setInt(2,groupId);
+	    		ps.setString(3,postContents);
+	    		ps.setString(4,img);
+	    	}
+	    	if(k==2){
+	    		ps.setInt(1,senderId);
+	    		ps.setInt(2,receiverId);
+	    		ps.setString(3,postContents);
+	    		ps.setString(4,img);
+	    	}
+	    	inserted= ps.executeUpdate();
+
+	    	ps.close();
+	    }catch(SQLException e){
+	    	e.printStackTrace();
+	    }finally {
+			try{
+				con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+	return inserted;
+	}
 
 }

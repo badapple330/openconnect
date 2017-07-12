@@ -18,21 +18,22 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 1.0
  */
 public class GoGroupMemberAction extends ActionSupport implements SessionAware {
-	
+
 	/** ユーザーID */
 	private int userId;
-	
+
 	/** グループid */
 	private int groupId;
-	
+
 	/** メンバー一覧 */
-	private ArrayList<UserDTO> memberList;	
-	
+	private ArrayList<UserDTO> memberList;
+
 	/** セッション */
-	private Map<String,Object> session;		
+	private Map<String,Object> session;
 
 	@Override
 	public String execute() {
+		System.out.println("GoGroupMemberActionに来たよ");
 		String result = ERROR;
 		GroupMemberDAO dao = new GroupMemberDAO();
 

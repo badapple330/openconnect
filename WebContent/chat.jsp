@@ -116,140 +116,140 @@
         </div>
       </div>
     </nav>
-  </s:else>
-
-  <!-- グループ名変更画面 -->
-  <div class="modal fade" id="groupNameChange" tabindex="-1">
-  	<div class="modal-dialog">
-  	  <div class="modal-content">
-  	    <div class="modal-header">
-  	      <button type="button" class="close" data-dismiss="modal">
-  	        <span>&times;</span>
-  	      </button>
-  	      <h4 class="modal-title">グループ名更新(30字以内)</h4>
-  	    </div>
-  	    <s:form action="GroupNameChangeAction">
-  	    <div class="modal-body">
-  	    	<textarea name="groupName" class="form-control" rows="1" maxlength="30" style="list-area:none; resize:none;"><s:property value="groupName"/></textarea>
-  	    </div>
-  	    <div class="modal-footer">
-  	    	<button type="submit" class="btn btn-primary">更新</button>
-  	    </div>
-  	    </s:form>
-  	   </div>
-  	</div>
-  </div>
-
-  <!-- グループ画像変更画面 -->
-  <div class="modal fade" id="groupImageChange" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-          <h4 class="modal-title">画像を変更する</h4>
-        </div>
-        <s:form action="UpdateGroupIconAction">
-        <div class="modal-body">
-        	<s:iterator value="groupIconList" status="rs">
-        	<s:if test="%{#rs.count%2==0}">
-      <div style="float:left">
-          <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
-          </div>
-          </s:if><s:else>
-          <div style="float:left; background-color:#dddddd;" >
-          <input type="radio" name="url" value="<s:property value="url" />"style="background:url(./<s:property value="url"/>);background-size:100% 100%;" >
-          </div>
 
 
-          </s:else>
-          </s:iterator>
-          <div style="clear:both"></div>
-
-        </div>
-        <s:hidden name="groupId" />
-        <div class="modal-footer" >
-            <s:token />
-            <button type="submit" class="btn btn-primary">変更</button>
-
-          </div>
-         </s:form>
-      </div>
+    <!-- グループ名変更画面 -->
+    <div class="modal fade" id="groupNameChange" tabindex="-1">
+    	<div class="modal-dialog">
+    	  <div class="modal-content">
+    	    <div class="modal-header">
+    	      <button type="button" class="close" data-dismiss="modal">
+    	        <span>&times;</span>
+    	      </button>
+    	      <h4 class="modal-title">グループ名更新(30字以内)</h4>
+    	    </div>
+    	    <s:form action="GroupNameChangeAction">
+    	    <div class="modal-body">
+    	    	<textarea name="groupName" class="form-control" rows="1" maxlength="30" style="list-area:none; resize:none;"><s:property value="groupName"/></textarea>
+    	    </div>
+    	    <div class="modal-footer">
+    	    	<button type="submit" class="btn btn-primary">更新</button>
+    	    </div>
+    	    </s:form>
+    	   </div>
+    	</div>
     </div>
-  </div>
 
-  <!-- グループメンバーの確認画面 -->
-  <div class="modal fade" id="groupMemberModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-          <h4 class="modal-title">メンバーを確認する</h4>
-        </div>
-        <div class="modal-body">
-          <iframe id="groupMember" src="<s:url action="GoGroupMemberAction" />"></iframe>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default"
-            data-dismiss="modal">キャンセル</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 検索画面 -->
-  <div class="modal fade" id="memberAdd" tabindex="-1">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            <span>×</span>
-          </button>
-          <h4 class="modal-title">友達を検索する</h4>
-        </div>
-        <s:form action="FriendSearchAction">
-          <s:hidden theme="simple" name="groupId" value="%{groupId}"></s:hidden>
+    <!-- グループ画像変更画面 -->
+    <div class="modal fade" id="groupImageChange" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <h4 class="modal-title">画像を変更する</h4>
+          </div>
+          <s:form action="UpdateGroupIconAction">
           <div class="modal-body">
-            <input type="text" name="userName" maxlength="50" required
-              placeholder="名前を入力してください" class="groupName">
+          	<s:iterator value="groupIconList" status="rs">
+          	<s:if test="%{#rs.count%2==0}">
+        <div style="float:left">
+            <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
+            </div>
+            </s:if><s:else>
+            <div style="float:left; background-color:#dddddd;" >
+            <input type="radio" name="url" value="<s:property value="url" />"style="background:url(./<s:property value="url"/>);background-size:100% 100%;" >
+            </div>
+
+
+            </s:else>
+            </s:iterator>
+            <div style="clear:both"></div>
+
           </div>
-          <div class="modal-footer">
-            <s:token />
-            <button type="submit" class="btn btn-primary">検索</button>
-          </div>
-        </s:form>
+          <s:hidden name="groupId" />
+          <div class="modal-footer" >
+              <s:token />
+              <button type="submit" class="btn btn-primary">変更</button>
+
+            </div>
+           </s:form>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- グループ脱退の確認画面 -->
-  <div class="modal fade" id="groupExit" tabindex="-1">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            <span>×</span>
-          </button>
-          <h4 class="modal-title">グループを脱退する</h4>
-        </div>
-        <s:form action="MemberRemoveAction">
+    <!-- グループメンバーの確認画面 -->
+    <div class="modal fade" id="groupMemberModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <h4 class="modal-title">メンバーを確認する</h4>
+          </div>
           <div class="modal-body">
-            <p>グループから脱退すると、これまでの投稿も閲覧できなくなります。よろしいですか？</p>
+            <iframe id="groupMember" src="<s:url action="GoGroupMemberAction" />"></iframe>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default"
               data-dismiss="modal">キャンセル</button>
-            <s:hidden theme="simple" name="groupId" value="%{groupId}"></s:hidden>
-            <button type="submit" class="btn btn-danger">グループから脱退</button>
           </div>
-        </s:form>
+        </div>
       </div>
     </div>
-  </div>
 
+    <!-- 検索画面 -->
+    <div class="modal fade" id="memberAdd" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>×</span>
+            </button>
+            <h4 class="modal-title">友達を検索する</h4>
+          </div>
+          <s:form action="FriendSearchAction">
+            <s:hidden theme="simple" name="groupId" value="%{groupId}"></s:hidden>
+            <div class="modal-body">
+              <input type="text" name="userName" maxlength="50" required
+                placeholder="名前を入力してください" class="groupName">
+            </div>
+            <div class="modal-footer">
+              <s:token />
+              <button type="submit" class="btn btn-primary">検索</button>
+            </div>
+          </s:form>
+        </div>
+      </div>
+    </div>
+
+    <!-- グループ脱退の確認画面 -->
+    <div class="modal fade" id="groupExit" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>×</span>
+            </button>
+            <h4 class="modal-title">グループを脱退する</h4>
+          </div>
+          <s:form action="MemberRemoveAction">
+            <div class="modal-body">
+              <p>グループから脱退すると、これまでの投稿も閲覧できなくなります。よろしいですか？</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default"
+                data-dismiss="modal">キャンセル</button>
+              <s:hidden theme="simple" name="groupId" value="%{groupId}"></s:hidden>
+              <button type="submit" class="btn btn-danger">グループから脱退</button>
+            </div>
+          </s:form>
+        </div>
+      </div>
+    </div>
+  </s:else>
   <div class="outline">
     <s:iterator value="chat">
 

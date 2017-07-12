@@ -31,7 +31,7 @@ public class MessageDTO {
 	/** グループイメージ */
 	private String groupIcon;
 	private int notRead=0;
-	private int readFlg=0;
+	private boolean isRead;
 
 
 	public int getMessageId() {
@@ -106,10 +106,10 @@ public class MessageDTO {
 	public void setNotRead(int notRead) {
 		this.notRead = notRead;
 	}
-	public int getReadFlg() {
-		return readFlg;
+	public boolean getIsRead() {
+		return isRead;
 	}
-	public void setReadFlg(int readFlg) {
-		this.readFlg = readFlg;
+	public void setIsRead(boolean isRead) {
+		this.isRead = isRead;
 	}
 }
