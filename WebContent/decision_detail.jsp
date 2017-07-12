@@ -12,6 +12,27 @@
 <jsp:include page="header.jsp" />
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/decision_detail.css">
+
+<style>
+
+/* なぜかCSSが適用されないためとりあえずここに書いてます。 スイマセン */
+
+#topWord {
+	margin-left: 150px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+@media screen and (max-width:768px) {
+	#topWord {
+		margin-left: auto;
+		margin-top: 100px;
+		margin-bottom: 10px;
+	}
+}
+
+</style>
+
 <script src="js/decision_detail.js"></script>
 
 <script
@@ -25,8 +46,7 @@
 
 		<h1 style="text-align: center;">決裁手続き一覧</h1>
 
-		<div class="top-word"
-			style="margin-left: 150px; margin-top: 25px; margin-bottom: 25px;">
+		<div class="col-sm-12" id="topWord">
 
 			<p style="position: relative; z-index: -1;">
 				ログイン中ユーザーID:
@@ -56,6 +76,7 @@
 					value="%{decisionDetailList1.size() + decisionDetailList2.size()}" />
 				チーム
 			</p>
+
 		</div>
 
 		<div class="container">
@@ -268,7 +289,7 @@
 																value="<s:property value="kDrafterId" />">
 															<input type="hidden" name="decisionId"
 																value="<s:property value="decisionId" />">
-																<input type="hidden" name="type" value="3">
+															<input type="hidden" name="type" value="3">
 															<button class="btn btn-default" type="submit">編集</button>
 														</s:form>
 													</s:if>

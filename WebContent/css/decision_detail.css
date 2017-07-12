@@ -22,8 +22,10 @@ td{
 	color: white;
 }
 
-.top-word{
-
+#topWord{
+	margin-left:150px;
+	margin-top:25px;
+	margin-bottom:25px;
 }
 
 .table {

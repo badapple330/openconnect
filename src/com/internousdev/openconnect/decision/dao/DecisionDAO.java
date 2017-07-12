@@ -508,18 +508,15 @@ public class DecisionDAO {
 		Connection con = db.getConnection();
 		String sql ="";
 
-			/*
-			if(type == 1 || type ==2 || type ==3){
-					sql = "update decision set change_status = 1, decision_status = 0 where decision_id = ?";
-			 *
-			 */
 
-			if(type == 4 || type == 5 || type == 6) {//変更編集ボタンが押された場合
+			if(type == 1 || type ==2 || type ==3){
+					sql = "update decision set permit_status = 0,1,2, decision_status = 0 where decision_id = ?";
+			}else if(type == 4 || type == 5 || type == 6) {//変更編集ボタンが押された場合
 					sql = "update decision set change_status = 1, decision_status = 11 where decision_id = ?";
 			}else if(type == 7) {//遡求編集ボタンが押された場合
 					sql = "update decision set recourse_status = 1, decision_status = 12 where decision_id = ?";
 			}else{
-				throw new Exception("Invalid argment: type");
+				throw new Exception("Invalid argment: type"); 
 			}
 
 
