@@ -5,6 +5,7 @@ body {
 }
 
 table.type12 {
+	width:1000px;
 	border-collapse: separate;
 	border-spacing: 1px;
 	text-align: center;
@@ -25,7 +26,9 @@ table.type12 td {
 	border-bottom: 1px solid #ccc;
 	background: #eee;
 }
-
+.date2{
+	width:185px;
+}
 th {
 	white-space: nowrap;
 	text-align: center !important;
@@ -128,3 +131,21 @@ table.atform{
 	height:120%;
 	background-color:rgba(0,0,0,0.75);
 }
+@media only screen and (max-width:420px){
+
+.necessary{
+	display:none;
+}
+
+.reason{
+	width:100px !important;
+}
+table.type12 {
+	width:500px;
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: center;
+	line-height: 1.5;
+}
+
+	}

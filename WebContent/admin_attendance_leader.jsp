@@ -43,13 +43,12 @@
 							<s:if test="getAllTeamNames().equals('')">
 								<td><input type="radio" name="teamName"
 									value=<s:property value="teamName"/> checked="checked">
-								<s:property value="teamName" /></td>
+									<s:property value="teamName" /></td>
 							</s:if>
 							<s:else>
 								<s:iterator value="allTeamNames">
 									<td><input type="radio" name="teamName"
-										value=<s:property/> checked="checked">
-									<s:property /></td>
+										value=<s:property/> checked="checked"> <s:property /></td>
 								</s:iterator>
 							</s:else>
 
@@ -59,7 +58,7 @@
 							<!-- 表示用の日時 -->
 						<tr>
 							<!-- 表示用の日時 -->
-							<th>　 日 時：</th>
+							<th>日 時：</th>
 							<td class="ymd" style="white-space: nowrap;"></td>
 						</tr>
 						<!-- 						<tr> -->
@@ -132,25 +131,23 @@
 
 
 			<!-- 一括で連絡なしのユーザーを送信するボタン -->
-			<s:form action="NotAttendanceAction"
-				style="margin-bottom:0;">
+			<s:form action="NotAttendanceAction" style="margin-bottom:0;">
 				<!-- 印刷用モーダル表示ボタン -->
-				<div class="button-box" style="display:inline">
-			<input type="button" class="modal-open" id="modal-open" value="一覧表示"
-				style="text-align:left;" />
+				<div class="button-box" style="display: inline">
+					<input type="button" class="modal-open" id="modal-open"
+						value="一覧表示" style="text-align: left;" />
 				</div>
 
 				<tr style="display: none;">
 					<s:if test="getAllTeamNames().equals('')">
 						<td><input type="radio" name="teamName"
-							value=<s:property value="teamName"/> checked="checked">
-						<s:property value="teamName" /></td>
+							value=<s:property value="teamName"/> checked="checked"> <s:property
+								value="teamName" /></td>
 					</s:if>
 					<s:else>
 						<s:iterator value="allTeamNames">
 							<td><input type="radio" name="teamName" value=<s:property/>
-								checked="checked">
-							<s:property /></td>
+								checked="checked"> <s:property /></td>
 						</s:iterator>
 					</s:else>
 
@@ -167,22 +164,22 @@
 						style="margin-left: 3px; margin-right: 5px; display: inline-block;">日</span>
 					</td>
 				</tr>
-<div class="button-box2" style="display:inline;arign:right;">
-				<input type="submit" value="一括挿入" class="insert-btn"
-					id="insertButton" />
-					</div>
+				<div class="button-box2" style="display: inline; arign: right;">
+					<input type="submit" value="一括挿入" class="insert-btn"
+						id="insertButton" />
+				</div>
 			</s:form>
 			<!-- 一覧表示 -->
 			<table class="type12">
 				<thead>
 					<tr>
-						<th>報告日時</th>
-						<th>受講開始月</th>
-						<th>チーム</th>
+						<th class="date2">報告日時</th>
+						<th class="necessary">受講開始月</th>
+						<th class="necessary">チーム</th>
 						<th style="white-space: nowrap;">性</th>
 						<th style="white-space: nowrap;">名</th>
 						<th>出欠状況</th>
-						<th style="width:1000px;">備考</th>
+						<th class="reason" style="width: 1000px;">備考</th>
 					</tr>
 				</thead>
 
@@ -190,15 +187,16 @@
 
 					<s:iterator value="searchList">
 						<tr>
-							<td><s:property value="atDate" /></td>
-							<td><s:property value="month" /></td>
-							<td><s:property value="teamName" /></td>
+							<td ><s:property value="atDate" /></td>
+							<td class="necessary"><s:property value="month" /></td>
+							<td class="necessary"><s:property value="teamName" /></td>
 							<td style="white-space: nowrap;"><s:property
 									value="familyNameKanji" /></td>
 							<td style="white-space: nowrap;"><s:property
 									value="givenNameKanji" /></td>
 							<td><s:property value="attendance" /></td>
-							<td style="width:1000px;text-align:left !important;"><s:property value="reason" /></td>
+							<td class="reason" style="width: 1000px; text-align: left !important;"><s:property
+									value="reason" /></td>
 						</tr>
 
 						<input type="hidden" name="modalList" value="searchList"
@@ -234,7 +232,7 @@
 										<th style="white-space: nowrap;">性</th>
 										<th style="white-space: nowrap;">名</th>
 										<th>出欠状況</th>
-										<th style="width:1000px;">備考</th>
+										<th style="width: 1000px;">備考</th>
 									</tr>
 								</thead>
 
@@ -250,7 +248,8 @@
 											<td style="white-space: nowrap;"><s:property
 													value="givenNameKanji" /></td>
 											<td><s:property value="attendance" /></td>
-											<td style="width:1000px;text-align:left !important;"><s:property value="reason" /></td>
+											<td style="width: 1000px; text-align: left !important;"><s:property
+													value="reason" /></td>
 										</tr>
 									</s:iterator>
 

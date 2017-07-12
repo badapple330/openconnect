@@ -156,13 +156,13 @@
 				<table style="margin-top: 10px;" class="type11">
 					<thead>
 						<tr>
-							<th>報告日時</th>
+							<th class="date">報告日時</th>
 							<th>受講開始月</th>
 							<th>チーム</th>
 							<th style="white-space: nowrap;">性</th>
 							<th style="white-space: nowrap;">名</th>
 							<th>出欠状況</th>
-							<th style="width:1000px;">備考</th>
+							<th class="reason2" style="width:1000px;">備考</th>
 							<th style="white-space: nowrap;">編集</th>
 						</tr>
 					</thead>
@@ -179,7 +179,7 @@
 								<td style="white-space: nowrap;"><s:property
 										value="givenNameKanji" /></td>
 								<td><s:property value="attendance" /></td>
-								<td style="width:1000px;text-align:left !important;"><s:property value="reason" /></td>
+								<td class="reason2" style="width:1000px;text-align:left !important;"><s:property value="reason" /></td>
 								<!-- 							編集のモーダルの表示ボタン -->
 								<td><input type="button" class="button modal-update"
 									value="編集"></td>

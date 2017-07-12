@@ -5,6 +5,7 @@ body {
 }
 
 table.type11 {
+	width:1000px;
 	border-collapse: separate;
 	border-spacing: 1px;
 	text-align: center;
@@ -18,7 +19,9 @@ table.type11 th {
 	color: #fff;
 	background: #3595db;
 }
-
+.date{
+	width:185px;
+}
 table.type11 td {
 	/* width: 155px; */
 	padding: 10px;
@@ -142,4 +145,19 @@ th {
 	top: 0;
 	left: 0;
 	z-index: 1;
+}
+
+@media only screen and (max-width:420px){
+
+	.reason2{
+width:100px  !important;
+	}
+	table.type11 {
+width:800px;
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: center;
+	line-height: 1.5;
+}
+
 }

@@ -60,14 +60,19 @@
 		margin-left: 0.7em;
     }
     .attendance th, td{
-		display: list-item;
+		display:block;
 		border: none;
+		text-align:center;
     }
     #tr_reason{
     	width:100%;
 		margin-bottom: 1.0em;
 		margin-left: 0.7em;
-    }
 
+    }
+    .attendance th{
+    background-color:#1e90ff;
+    color:#ffffff;
+    }
 
 }
