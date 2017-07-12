@@ -16,7 +16,11 @@
 				<li><a href="terms_of_use.jsp" target="blank">利用規約</a></li>
 
 				<li><a href="GoTalkListAction.action" target="blank">SNS</a></li>
+
+				<!-- テストサーバーにリンク -->
+				<li><a href="http://test.internousdev.com/internousdev/">internousdev(test)</a>
 			</ul>
+
 		</nav>
 	</div>
   <div class= "copyright">
