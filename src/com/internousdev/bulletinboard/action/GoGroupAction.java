@@ -1,7 +1,6 @@
 package com.internousdev.bulletinboard.action;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -9,9 +8,8 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.GroupDAO;
 import com.internousdev.bulletinboard.dao.UserDAO;
-import com.internousdev.bulletinboard.dto.MessageDTO;
+import com.internousdev.bulletinboard.dto.GroupDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
-import com.internousdev.bulletinboard.util.GroupComparator;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoGroupAction extends ActionSupport implements SessionAware{
@@ -19,7 +17,7 @@ public class GoGroupAction extends ActionSupport implements SessionAware{
 	/** ユーザーID */
 	private int userId=0;
 	/** グループリスト */
-	public ArrayList<MessageDTO> groupList = new ArrayList<MessageDTO>();
+	public ArrayList<GroupDTO> groupList = new ArrayList<GroupDTO>();
 	/** 通知リスト */
 	private ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
 
@@ -34,29 +32,30 @@ public class GoGroupAction extends ActionSupport implements SessionAware{
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
 		}
-		if(userId==0){return result;}
-	
+		if(userId == 0){
+			return result;
+		}
+
 		//通知の確認
 		UserDAO msgDao = new UserDAO();
 		msgList = msgDao.msgSelect(userId);
 		msgDao.msgDelete(userId);
-	
-	
+
+
 		GroupDAO dao = new GroupDAO();
-		groupList = dao.groupGet(userId);
+		groupList = dao.getGroups(userId);
 		if(groupList != null){
-			Collections.sort(groupList, new GroupComparator());
 			result = SUCCESS;
 		}
-	
+
 		FooterInfoDAO infodao = new FooterInfoDAO();
 		setGroupInfo(infodao.groupInfoGet(userId));
 		setTalkInfo(infodao.talkInfoGet(userId));
-	
+
 		return result;
 	}
 
-	
+
 	public int getUserId() {
 		return userId;
 	}
@@ -65,11 +64,11 @@ public class GoGroupAction extends ActionSupport implements SessionAware{
 		this.userId = userId;
 	}
 
-	public ArrayList<MessageDTO> getGroupList() {
+	public ArrayList<GroupDTO> getGroupList() {
 		return groupList;
 	}
 
-	public void setGroupList(ArrayList<MessageDTO> groupList) {
+	public void setGroupList(ArrayList<GroupDTO> groupList) {
 		this.groupList = groupList;
 	}
 

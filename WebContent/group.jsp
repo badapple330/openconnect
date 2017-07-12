@@ -101,26 +101,21 @@
       <div class="col-sm-1 visible-lg-block"></div>
 
       <div class="col-sm-10">
+      <s:property value="groupList.get(0).groupName" />
         <div class="outline">
           <s:iterator value="groupList">
             <s:form action="GoChatAction">
               <s:hidden theme="simple" name="groupId" value="%{groupId}"></s:hidden>
               <s:hidden name="groupName"></s:hidden>
               <button type="submit" class="group">
-                <img src="<s:property value="groupIcon"/>" alt=""
-                  class="img-circle-ex">
-                <h3>
-                  <s:property value="groupName" />
-                </h3>
-                <p>
-                  <s:property value="text" />
-                </p>
+                <img src="<s:property value="groupIcon"/>" alt="" class="img-circle-ex">
+                <h3><s:property value="groupName" /></h3>
+                <p><s:property value="lastMsg" /></p>
 
-                <s:if test="notRead > 0 and notRead<100">
-                  <span class="tell"><s:property value="notRead" />
-                  </span>
+                <s:if test="unreadCount > 0 && unreadCount < 100">
+                  <span class="tell"><s:property value="unreadCount" /></span>
                 </s:if>
-                <s:if test="notRead>=100">
+                <s:if test="unreadCount >= 100">
                   <span class="tellOver">100~ </span>
                 </s:if>
               </button>

@@ -27,6 +27,8 @@ public class GroupDTO {
 	private String lastMsgDate;
 	/** 最後のメッセージが送信された時間 */
 	private String lastMsgTime;
+	/** 未読件数 */
+	private int unreadCount;
 
 	private void culcLastMsgDate() {
 		SafeDateFormat.applyPattern("MM/dd(E)");
@@ -79,5 +81,11 @@ public class GroupDTO {
 	}
 	public String getLastMsgTime() {
 		return lastMsgTime;
+	}
+	public int getUnreadCount() {
+		return unreadCount;
+	}
+	public void setUnreadCount(int unreadCount) {
+		this.unreadCount = unreadCount;
 	}
 }

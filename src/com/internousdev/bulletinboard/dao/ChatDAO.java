@@ -122,7 +122,7 @@ public class ChatDAO {
 						+	"WHERE sender_id = ? AND receiver_id = ? "
 						+") AS m "
 						+"LEFT JOIN ( "
-						+	"SELECT message_id FROM read_flg WHERE user_id = 36 "
+						+	"SELECT message_id FROM read_flg WHERE user_id = ? "
 						+") AS r "
 						+"ON m.message_id = r.message_id "
 						+"WHERE r.message_id IS NULL; ";
@@ -136,6 +136,7 @@ public class ChatDAO {
 			} else {
 				ps2.setInt(1, senderId);
 				ps2.setInt(2, receiverId);
+				ps2.setInt(3, senderId);
 				ps2.setInt(3, senderId);
 			}
 			ps2.executeUpdate();

@@ -1,7 +1,6 @@
 package com.internousdev.bulletinboard.action;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -10,7 +9,6 @@ import com.internousdev.bulletinboard.dao.ColorChangeDAO;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.TalkListDAO;
 import com.internousdev.bulletinboard.dto.MessageDTO;
-import com.internousdev.bulletinboard.util.GroupComparator;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoTalkListAction extends ActionSupport implements SessionAware{
@@ -53,9 +51,6 @@ public class GoTalkListAction extends ActionSupport implements SessionAware{
 
 	TalkListDAO dao = new TalkListDAO();
 	talkList = dao.talkGet(userId);
-	if(talkList != null){
-		Collections.sort(talkList, new GroupComparator());
-	}
 
 	result =SUCCESS;
 

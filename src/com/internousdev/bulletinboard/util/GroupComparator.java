@@ -2,13 +2,13 @@ package com.internousdev.bulletinboard.util;
 
 import java.util.Comparator;
 
-import com.internousdev.bulletinboard.dto.MessageDTO;
+import com.internousdev.bulletinboard.dto.GroupDTO;
 
-public class GroupComparator implements Comparator<MessageDTO>{
+public class GroupComparator implements Comparator<GroupDTO>{
 
 	@Override
-	public int compare(MessageDTO o1, MessageDTO o2) {
-		int diff = o1.getCreatedAt().compareTo(o2.getCreatedAt());
+	public int compare(GroupDTO o1, GroupDTO o2) {
+		int diff = o1.getLastMsgAt().compareTo(o2.getLastMsgAt());
 
 		if(diff > 0){
 			return -1;

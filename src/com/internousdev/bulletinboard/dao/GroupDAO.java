@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.bulletinboard.dto.MessageDTO;
+import com.internousdev.bulletinboard.dto.GroupDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
@@ -17,62 +17,70 @@ public class GroupDAO {
 	 * @param userId
 	 * @return
 	 */
-	  public ArrayList<MessageDTO> groupGet(int userId){
-		  Connection con = new MySqlConnector("openconnect").getConnection();
-		  Connection con2 = new MySqlConnector("openconnect").getConnection();
-		  ArrayList<MessageDTO> groupList = new ArrayList<MessageDTO>();
+	  public ArrayList<GroupDTO> getGroups(int userId){
+		Connection con = new MySqlConnector("openconnect").getConnection();
+		ArrayList<GroupDTO> groupList = new ArrayList<GroupDTO>();
 
-		  String sql = "select * from members join groups on members.group_id=groups.group_id where user_id=?";
-		  String sql2 = "select * from messages where group_id=? order by message_id desc limit 1";
-		  String sql3 = "select * from messages where group_id=? and sender_id != ? order by message_id desc";
-		  String sql4 = "select * from read_flg where message_id=? and user_id=?";
+		String sql = ""
+				+ "SELECT g.group_id, group_name, group_icon, text, created_at, "
+				+ "coalesce(unread_count, 0) AS unread_count FROM ( "
+				+	"SELECT group_id, text, created_at FROM messages AS main "
+				+	"WHERE group_id IN ( "
+				+		"SELECT group_id FROM members WHERE user_id = ? "
+				+	") AND message_id = ( "
+				+		"SELECT MAX(message_id) FROM messages AS sub WHERE main.group_id = sub.group_id "
+				+	") "
+				+") AS m "
+				+"RIGHT JOIN ( "
+				+	"SELECT group_id, group_name, group_icon FROM groups WHERE group_id IN ( "
+				+		"SELECT group_id FROM members WHERE user_id = ? "
+				+	") "
+				+") AS g "
+				+"ON m.group_id = g.group_id "
+				+"LEFT JOIN ( "
+				+	"SELECT group_id, COUNT(*) AS unread_count FROM ( "
+				+		"SELECT message_id, group_id FROM messages WHERE group_id IN ( "
+				+			"SELECT group_id FROM members WHERE user_id = ? "
+				+		") "
+				+	") AS m "
+				+	"LEFT JOIN ( "
+				+		"SELECT message_id FROM read_flg WHERE user_id = ? "
+				+	") AS r "
+				+	"ON m.message_id = r.message_id "
+				+	"WHERE r.message_id IS NULL "
+				+	"GROUP BY group_id "
+				+") AS r "
+				+"ON g.group_id = r.group_id ;";
 
-		  try{
-		    	PreparedStatement ps = con.prepareStatement(sql);
-		    	ps.setInt(1,userId);
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, userId);
+			ps.setInt(2, userId);
+			ps.setInt(3, userId);
+			ps.setInt(4, userId);
 
-		    	ResultSet rs = ps.executeQuery();
-		    	while(rs.next()){
-		    		MessageDTO dto = new MessageDTO();
-		    		dto.setGroupId(rs.getInt("group_id"));
-		    		dto.setGroupIcon(rs.getString("group_icon"));
-		    		dto.setGroupName(rs.getString("group_name"));
-		    		groupList.add(dto);
-
-		    		PreparedStatement ps2 = con.prepareStatement(sql2);
-			    	ps2.setInt(1,dto.getGroupId());
-			    	ResultSet rs2 = ps2.executeQuery();
-			    	while(rs2.next()){
-			    		dto.setText(rs2.getString("text"));
-			    		dto.setCreatedAt(rs2.getString("created_at"));
-			    	}
-			    	PreparedStatement ps3 = con2.prepareStatement(sql3);
-			    	ps3.setInt(1,dto.getGroupId());
-			    	ps3.setInt(2,userId);
-			    	ResultSet rs3 = ps3.executeQuery();
-			    	while(rs3.next()){
-			    		dto.setNotRead(dto.getNotRead()+1);
-			    		PreparedStatement ps4 = con.prepareStatement(sql4);
-			    		ps4.setInt(1,rs3.getInt("message_id"));
-			    		ps4.setInt(2, userId);
-			    		ResultSet rs4 = ps4.executeQuery();
-			    		while(rs4.next()){
-			    			dto.setNotRead(dto.getNotRead()-1);
-			    		}
-			    	}
-
-		    	}
-		    }catch(SQLException e){
-		    	e.printStackTrace();
-		    }finally {
-				try{
-					con.close();
-				}catch(Exception e){
-					e.printStackTrace();
-					}
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				GroupDTO dto = new GroupDTO();
+				dto.setGroupId(rs.getInt("group_id"));
+				dto.setGroupName(rs.getString("group_name"));
+				dto.setGroupIcon(rs.getString("group_icon"));
+				dto.setLastMsg(rs.getString("text"));
+				dto.setLastMsgAt(rs.getDate("created_at"));
+				dto.setUnreadCount(rs.getInt("unread_count"));
+				groupList.add(dto);
 			}
-		     return groupList;
-		  }
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try{
+				con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return groupList;
+	}
 
 
 
