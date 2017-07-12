@@ -49,7 +49,7 @@ public class AdminAttendanceUpdateAction extends ActionSupport implements Sessio
 
 
     /* 検索結果 */
-    ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
+    private ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
     public String execute() throws SQLException {
 

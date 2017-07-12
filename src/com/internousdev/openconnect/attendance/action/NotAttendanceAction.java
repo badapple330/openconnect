@@ -32,11 +32,17 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 	private int atDay;
 	/* 日付 */
 	private int atDate;
+	/* 受講開始 月 */
+	private String month;
+	/* 漢字 姓 */
+	private String familyNameKanji;
+	/* 漢字 名 */
+	private String givenNameKanji;
 	/* 勤怠 */
 	private String attendance;
 	/* 備考 */
 	private int reason;
-	/* チームネーム */
+	/* チーム名 */
 	private String teamName;
 	/* エラーメッセージ */
 	private String errorMsg;
@@ -51,6 +57,8 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 	private ArrayList<AttendanceDTO> attendanceIdList = new ArrayList<AttendanceDTO>();
 	/* ユーザーリスト */
 	private ArrayList<AttendanceDTO> atUserList = new ArrayList<AttendanceDTO>();
+
+	private ArrayList<AttendanceDTO> searchList = new ArrayList<AttendanceDTO>();
 
 	/**
 	 * 実行メソッド、勤怠を送信してないユーザーの出欠状況の送信処理をする
@@ -67,6 +75,7 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 		usersIdList = dao. select2( attendanceIdList, teamName);
 
 		if(dao.insert(atYear, atMonth, atDay, usersIdList, attendance) > 0){
+			searchList = dao.select(atYear, atMonth, atDay, teamName);
 			result = SUCCESS;
 		}else {
 			this.setErrorMsg("連絡なしはいません。");
@@ -79,141 +88,141 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 		 * @return userId
 		 */
 		public int getUserId() {
-			    return userId;
-			}
+				    return userId;
+				}
 		/**
 		 * userIdを設定します。
 		 * @param userId userId
 		 */
 		public void setUserId(int userId) {
-			    this.userId = userId;
-			}
+				    this.userId = userId;
+				}
 		/**
 		 * atYearを取得します。
 		 * @return atYear
 		 */
 		public int getAtYear() {
-			    return atYear;
-			}
+				    return atYear;
+				}
 		/**
 		 * atYearを設定します。
 		 * @param atYear atYear
 		 */
 		public void setAtYear(int atYear) {
-			    this.atYear = atYear;
-			}
+				    this.atYear = atYear;
+				}
 		/**
 		 * atMonthを取得します。
 		 * @return atMonth
 		 */
 		public int getAtMonth() {
-			    return atMonth;
-			}
+				    return atMonth;
+				}
 		/**
 		 * atMonthを設定します。
 		 * @param atMonth atMonth
 		 */
 		public void setAtMonth(int atMonth) {
-			    this.atMonth = atMonth;
-			}
+				    this.atMonth = atMonth;
+				}
 		/**
-		 * atDayを取得します。
-		 * @return atDay
+		 * monthを取得します。
+		 * @return month
 		 */
-		public int getAtDay() {
-			    return atDay;
-			}
+		public String getMonth() {
+		    return month;
+		}
 		/**
-		 * atDayを設定します。
-		 * @param atDay atDay
+		 * monthを設定します。
+		 * @param month month
 		 */
-		public void setAtDay(int atDay) {
-			    this.atDay = atDay;
-			}
+		public void setMonth(String month) {
+		    this.month = month;
+		}
+		/**
+		 * familyNameKanjiを取得します。
+		 * @return familyNameKanji
+		 */
+		public String getFamilyNameKanji() {
+		    return familyNameKanji;
+		}
+		/**
+		 * familyNameKanjiを設定します。
+		 * @param familyNameKanji familyNameKanji
+		 */
+		public void setFamilyNameKanji(String familyNameKanji) {
+		    this.familyNameKanji = familyNameKanji;
+		}
+		/**
+		 * givenNameKanjiを取得します。
+		 * @return givenNameKanji
+		 */
+		public String getGivenNameKanji() {
+		    return givenNameKanji;
+		}
+		/**
+		 * givenNameKanjiを設定します。
+		 * @param givenNameKanji givenNameKanji
+		 */
+		public void setGivenNameKanji(String givenNameKanji) {
+		    this.givenNameKanji = givenNameKanji;
+		}
 		/**
 		 * attendanceを取得します。
 		 * @return attendance
 		 */
 		public String getAttendance() {
-			    return attendance;
-			}
+				    return attendance;
+				}
 		/**
 		 * attendanceを設定します。
 		 * @param attendance attendance
 		 */
 		public void setAttendance(String attendance) {
-			    this.attendance = attendance;
-			}
+				    this.attendance = attendance;
+				}
 		/**
 		 * reasonを取得します。
 		 * @return reason
 		 */
 		public int getReason() {
-			    return reason;
-			}
+				    return reason;
+				}
 		/**
 		 * reasonを設定します。
 		 * @param reason reason
 		 */
 		public void setReason(int reason) {
-			    this.reason = reason;
-			}
-		/**
-		 * teamNameを取得します。
-		 * @return teamName
-		 */
-		public String getTeamName() {
-			    return teamName;
-			}
-		/**
-		 * teamNameを設定します。
-		 * @param teamName teamName
-		 */
-		public void setTeamName(String teamName) {
-			    this.teamName = teamName;
-			}
+				    this.reason = reason;
+				}
 		/**
 		 * usersIdListを取得します。
 		 * @return usersIdList
 		 */
 		public ArrayList<AttendanceDTO> getUsersIdList() {
-			    return usersIdList;
-			}
+				    return usersIdList;
+				}
 		/**
 		 * usersIdListを設定します。
 		 * @param usersIdList usersIdList
 		 */
 		public void setUsersIdList(ArrayList<AttendanceDTO> usersIdList) {
-			    this.usersIdList = usersIdList;
-			}
+				    this.usersIdList = usersIdList;
+				}
 		/**
 		 * attendanceIdListを取得します。
 		 * @return attendanceIdList
 		 */
 		public ArrayList<AttendanceDTO> getAttendanceIdList() {
-			    return attendanceIdList;
-			}
+				    return attendanceIdList;
+				}
 		/**
 		 * attendanceIdListを設定します。
 		 * @param attendanceIdList attendanceIdList
 		 */
 		public void setAttendanceIdList(ArrayList<AttendanceDTO> attendanceIdList) {
-			    this.attendanceIdList = attendanceIdList;
-			}
-		/**
-		 * atUserListを取得します。
-		 * @return atUserList
-		 */
-		public ArrayList<AttendanceDTO> getAtUserList() {
-		    return atUserList;
-		}
-		/**
-		 * atUserListを設定します。
-		 * @param atUserList atUserList
-		 */
-		public void setAtUserList(ArrayList<AttendanceDTO> atUserList) {
-		    this.atUserList = atUserList;
-		}
+				    this.attendanceIdList = attendanceIdList;
+				}
 		/* (非 Javadoc)
 		 * @see org.apache.struts2.interceptor.SessionAware#setSession(java.util.Map)
 		 */
@@ -222,6 +231,20 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 			// TODO 自動生成されたメソッド・スタブ
 
 		}
+		/**
+		 * atDayを取得します。
+		 * @return atDay
+		 */
+		public int getAtDay() {
+				    return atDay;
+				}
+		/**
+		 * atDayを設定します。
+		 * @param atDay atDay
+		 */
+		public void setAtDay(int atDay) {
+				    this.atDay = atDay;
+				}
 		/**
 		* 取得メソッド を取得
 		* @return atDate
@@ -254,6 +277,20 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 			this.atTeamList = atTeamList;
 		}
 		/**
+		 * teamNameを取得します。
+		 * @return teamName
+		 */
+		public String getTeamName() {
+				    return teamName;
+				}
+		/**
+		 * teamNameを設定します。
+		 * @param teamName teamName
+		 */
+		public void setTeamName(String teamName) {
+				    this.teamName = teamName;
+				}
+		/**
 		* 取得メソッド を取得
 		* @return errorMsg
 		*/
@@ -267,5 +304,33 @@ public class NotAttendanceAction extends ActionSupport implements SessionAware {
 		public void setErrorMsg(String errorMsg) {
 			this.errorMsg = errorMsg;
 		}
+		/**
+		 * atUserListを取得します。
+		 * @return atUserList
+		 */
+		public ArrayList<AttendanceDTO> getAtUserList() {
+			    return atUserList;
+			}
+		/**
+		 * atUserListを設定します。
+		 * @param atUserList atUserList
+		 */
+		public void setAtUserList(ArrayList<AttendanceDTO> atUserList) {
+			    this.atUserList = atUserList;
+			}
+		/**
+		 * searchListを取得します。
+		 * @return searchList
+		 */
+		public ArrayList<AttendanceDTO> getSearchList() {
+				return searchList;
+			}
+		/**
+		 * searchListを設定します。
+		 * @param searchList searchList
+		 */
+		public void setSearchList(ArrayList<AttendanceDTO> searchList) {
+				this.searchList = searchList;
+			}
 
 }
