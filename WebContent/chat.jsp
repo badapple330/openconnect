@@ -243,8 +243,8 @@
   <div class="outline">
     <s:iterator value="chat">
 
-      <!-- 自分の投稿内容 -->
       <s:if test="userId == senderId">
+      <!-- 自分の投稿内容 -->
         <div class="message_right">
           <h6 class="name_right"><s:property value="senderName" /></h6>
           <div style="float: right; position: absolute; right: 0px;">
@@ -260,8 +260,8 @@
         </div>
         <div style="clear: both;"></div>
       </s:if>
-      <!-- 他人の投稿内容 -->
       <s:else>
+      <!-- 他人の投稿内容 -->
         <div class="message_left">
           <h6 class="name_left"><s:property value="senderName" /></h6>
           <div style="float: left; position: absolute;">
@@ -327,8 +327,10 @@ function disableSubmit(button) {
 </script>
 
 <div class="stamp-form">
-<a href='<s:url action='GoStampAction'></s:url>' target="stamp" class="stamp-btn" data-toggle="modal" data-target="#stampModal"> <img height=20px; src="pic/stamp/icon.png">
-</a>
+  <a href="<s:url action='GoStampAction'></s:url>" target="stamp" class="stamp-btn" data-toggle="modal"
+  data-target="#stampModal">
+    <img height=20px; src="pic/stamp/icon.png">
+  </a>
 </div>
 
 

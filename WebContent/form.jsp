@@ -10,8 +10,7 @@
 <div class="m-http://localhost:8080/openconnect/GoChatAction.action#text">
   <ul id="normal" class="dropmenu">
     <s:iterator value="stList">
-      <li><a href="#"><img src="<s:property value="typeUrl"/>"
-          height="50px"></a>
+      <li><a href="#"><img src="<s:property value="typeUrl"/>" height="50px"></a>
         <div class="stamps">
           <s:iterator value="typedStampList">
             <s:form action="SubmitMessageAction">
