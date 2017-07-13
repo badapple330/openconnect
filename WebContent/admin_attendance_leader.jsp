@@ -195,7 +195,7 @@
 							<td style="white-space: nowrap;"><s:property
 									value="givenNameKanji" /></td>
 							<td><s:property value="attendance" /></td>
-							<td class="reason" style="width: 1000px; text-align: left !important;"><s:property
+							<td class="reason" style="width: 1000px; text-align: left !important;word-break: break-all;"><s:property
 									value="reason" /></td>
 						</tr>
 

@@ -120,12 +120,12 @@
 								</div></td>
 
 							<td><s:if test="%{userFlg==1}">
-								<select name="userFlg" class="userFlg maxText">
-								<option value="1" selected>メンバー</option>
-								<option value="2">リーダー</option>
-								<option value="3">管理者</option>
-							</select>
-							</s:if> <s:elseif test="%{userFlg==2}">
+									<select name="userFlg" class="userFlg maxText">
+										<option value="1" selected>メンバー</option>
+										<option value="2">リーダー</option>
+										<option value="3">管理者</option>
+									</select>
+								</s:if> <s:elseif test="%{userFlg==2}">
 									<select name="userFlg" class="userFlg maxText">
 										<option value="1">メンバー</option>
 										<option value="2" selected>リーダー</option>
@@ -151,34 +151,56 @@
 				</table>
 			</s:if>
 
-			<div id="modal-updateMain" style="text-align:center;">
+			<div id="modal-updateMain" style="text-align: center;">
+				<table class="InModalTable">
+					<tr class="InModalTr">
+						<td class="InModalTd">　ユーザー名：</td>
+						<td class="InModalTd">
+							<div class="updateFamilyName modalString"></div>
+							<div class="updateGivenName modalString"></div>
+						</td>
+					</tr>
+					<tr class="InModalTr">
+						<td class="InModalTd">　　ふりがな：</td>
+						<td class="InModalTd">
+							<div class="updateFamilyNameKana modalString"></div>
+							<div class="updateGivenNameKana modalString"></div>
+						</td>
+					</tr>
+					<tr class="InModalTr">
+						<td class="InModalTd">　　チーム名：</td>
+						<td class="InModalTd">
+							<div class="updateteamName modalString"></div>
+						</td>
+					</tr>
+					<tr class="InModalTr">
+						<td class="InModalTd">ユーザー種別：</td>
+						<td class="InModalTd">
+							<div class="updateUserFlg modalString"></div>
+						</td>
+					</tr>
+					<tr class="InModalTr">
+						<td class="InModalTd" style="white-space: nowrap;">　　Ｅメール：</td>
+						<td class="InModalTd">
+							<div class="updatePhoneEmail modalString"></div>
+						</td>
+					</tr>
 
-				<br> ユーザー名:
-				<div class="updateFamilyName modalString"></div>
-				<div class="updateGivenName modalString"></div>
-				<br> ふりがな:
-				<div class="updateFamilyNameKana modalString"></div>
-				<div class="updateGivenNameKana modalString"></div>
 
-				<br> チーム名:
-				<div class="updateteamName modalString"></div>
-				<br>ユーザー種別:
-				<div class="updateUserFlg modalString"></div>
-				<br>Eメール:
-				<div class="updatePhoneEmail modalString"></div>
-				<br> <br> 上記のとおりに編集を行います。
+				</table>
+				<br> 上記のとおりに編集を行いますが<br>よろしいですか？
 				<s:form action="StudentsUpdateAction">
 					<input type="hidden" name="userId" class="updateUserId" value="">
 
 					<input type="hidden" name="familyNameKanji"
 						class="updateFamilyNameKanji" value="familyNameKanji">
-						<input type="hidden" name="familyNameKana"
+					<input type="hidden" name="familyNameKana"
 						class="updateFamilyNameKana" value="familyNameKana">
 
 
 					<input type="hidden" name="givenNameKanji"
 						class="updateGivenNameKanji" value="givenNameKanji">
-						<input type="hidden" name="givenNameKana"
+					<input type="hidden" name="givenNameKana"
 						class="updateGivenNameKana" value="givenNameKana">
 					<input type="hidden" name="teamName" class="updateteamName"
 						value="">
@@ -186,12 +208,14 @@
 					<input type="hidden" name="phoneEmail" class="updatePhoneEmail"
 						value="phoneEmail">
 
-<div class="button-box" style="text-align:center;margin-top:20px;">
-					<input type="submit" class="delete-true button" value="はい">
+					<div class="button-box"
+						style="text-align: center; margin-top: 20px;">
+						<input type="submit" class="delete-true button" value="はい">
 					</div>
 				</s:form>
-<div class="button-box" style="text-align:center;margin-top:10px;">
-				<input type="button" class="modal-close button" value="いいえ">
+				<div class="button-box"
+					style="text-align: center; margin-top: 10px;">
+					<input type="button" class="modal-close button" value="いいえ">
 				</div>
 			</div>
 
