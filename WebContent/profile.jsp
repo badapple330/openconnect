@@ -12,7 +12,7 @@
 <title>プロフィール</title>
 
 <link rel="stylesheet" href="css/normarize.css">
-<link href="css/bootstrap2.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="css/prof.css">
 <link rel="stylesheet" href="css/Bfooter.css">
 <link rel="stylesheet" href="css/style2.css">
@@ -148,13 +148,9 @@
       </table>
       <BR>
       <BR>
-      <div class="textarea" style="width: 40%;">
+      <div class="profile_container">
         <h3 class="fontsize" style="border-bottom: solid 1px black;">BIO</h3>
-        <div class="fontsize2">
-          <pre>
-            <s:property value="profile" />
-          </pre>
-        </div>
+        <pre id="profile"><s:property value="profile" /></pre>
       </div>
     </s:iterator>
 
@@ -282,12 +278,10 @@
                           </div>
                           <s:form action="UpdateUserIconAction">
                             <div class="modal-body">
-                              <s:iterator value="userIconList"
-                                status="rs">
+                              <s:iterator value="userIconList" status="rs">
                                 <s:if test="%{#rs.count%2==0}">
                                   <div style="float: left">
-                                    <input type="radio" name="url"
-                                      value="<s:property value="url"/>"
+                                    <input type="radio" name="url" value="<s:property value="url"/>"
                                       style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
                                   </div>
                                 </s:if>
@@ -355,8 +349,7 @@
             <BR>
             <BR>
 
-            <s:form action="SendProfileAction" name="tlSend"
-              onSubmit="return check()" id="tl">
+            <s:form action="SendProfileAction" name="tlSend" onSubmit="return check()" id="tl">
               <div class="panel panel-default">
                 <div class="panel-body">
                   <div class="form-group" style="float: left;">

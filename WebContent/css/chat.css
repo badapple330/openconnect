@@ -55,6 +55,9 @@ body{
   width: 50%;
   max-width: 300px;
 }
+#GoProfileAction{
+  display: inline-block;
+}
 @media(min-width:768px) {
   .navbar-header {
     float: none;

@@ -1,8 +1,10 @@
 @CHARSET "UTF-8";
 
-/* SNS側のstyle.cssです。
+/* SNS側のstyle.cssです。*/
 
-
+pre{
+  white-space: pre-wrap;
+}
 
 /* テキストエリアのリサイズを無効にする */
 textarea {
