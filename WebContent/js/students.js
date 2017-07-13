@@ -80,6 +80,7 @@ $(function(){
 		$('.updateGivenNameKana').html( $('.givenNameKana').eq(index).val() );
 		$('.updateteamName').html( $('.teamName').eq(index).val() );
 		$('.updateUserFlg').html( $('[name=userFlg] option:selected').eq(index).text() );
+		$('.updatePhoneEmail').html( $('.phoneEmail').eq(index).val() );
 
 
 
@@ -93,8 +94,8 @@ $(function(){
 		$('.updateFamilyNameKana').val( $('.familyNameKana').eq(index).val() );
 		$('.updateGivenNameKana').val( $('.givenNameKana').eq(index).val() );
 		$('.updateteamName').val( $('.teamName').eq(index).val() );
-
 		$('.updateUserFlg').val( $('.userFlg').eq(index).val() );
+		$('.updatePhoneEmail').val($('.phoneEmail').eq(index).val());
 
 		$(".modal-close").click(function(){
 			$("#modal-updateMain,#modal-bg").fadeOut("slow",function(){

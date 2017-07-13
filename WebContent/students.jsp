@@ -69,6 +69,7 @@
 
 
 						<!-- 	<s:if test="%{#session.userFlg == 3}">-->
+						<th><div class="emailWidth">Eメール</div>
 						<th><div class="bigWidth">ユーザー種別</div></th>
 						<th><div class="verysmallWidth">編集</div></th>
 
@@ -112,14 +113,19 @@
 
 
 							<!-- 	<s:if test="%{#session.userFlg == 3}">-->
+							<td><div class="emailWidth">
+									<input type="text" name="phoneEmailList"
+										value="<s:property value="phoneEmail"/>"
+										class="phoneEmail maxText" maxlength="20" required>
+								</div></td>
 
 							<td><s:if test="%{userFlg==1}">
-									<select name="userFlg" class="userFlg maxText">
-										<option value="1" selected>メンバー</option>
-										<option value="2">リーダー</option>
-										<option value="3">管理者</option>
-									</select>
-								</s:if> <s:elseif test="%{userFlg==2}">
+								<select name="userFlg" class="userFlg maxText">
+								<option value="1" selected>メンバー</option>
+								<option value="2">リーダー</option>
+								<option value="3">管理者</option>
+							</select>
+							</s:if> <s:elseif test="%{userFlg==2}">
 									<select name="userFlg" class="userFlg maxText">
 										<option value="1">メンバー</option>
 										<option value="2" selected>リーダー</option>
@@ -158,6 +164,8 @@
 				<div class="updateteamName modalString"></div>
 				<br>ユーザー種別:
 				<div class="updateUserFlg modalString"></div>
+				<br>Eメール:
+				<div class="updatePhoneEmail modalString"></div>
 				<br> <br> 上記のとおりに編集を行います。
 				<s:form action="StudentsUpdateAction">
 					<input type="hidden" name="userId" class="updateUserId" value="">
@@ -175,6 +183,8 @@
 					<input type="hidden" name="teamName" class="updateteamName"
 						value="">
 					<input type="hidden" name="userFlg" class="updateUserFlg" value="">
+					<input type="hidden" name="phoneEmail" class="updatePhoneEmail"
+						value="phoneEmail">
 
 <div class="button-box" style="text-align:center;margin-top:20px;">
 					<input type="submit" class="delete-true button" value="はい">
