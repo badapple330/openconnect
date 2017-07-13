@@ -18,7 +18,7 @@
 				<li><a href="GoTalkListAction.action" target="blank">SNS</a></li>
 
 				<!-- テストサーバーにリンク -->
-				<li><a href="http://test.internousdev.com/internousdev/">internousdev(test)</a>
+				<li><a href="http://test.internousdev.com/internousdev/">歴代サイトTOP(test)</a>
 			</ul>
 
 		</nav>
