@@ -23,6 +23,10 @@ public class StampDAO {
 
 		    /////////
 
+//SELECT type_id FROM stamp WHERE user_level <= (
+//	SELECT user_level FROM users WHERE user_id = 36
+//) GROUP BY type_id ORDER BY type_id ASC
+
 		    try{
 		    	PreparedStatement ps1 = con.prepareStatement(sql1);
 		    	ps1.setInt(1,userId);

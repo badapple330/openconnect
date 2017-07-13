@@ -473,7 +473,8 @@ create table stamp(
 stamp_id int not null primary key auto_increment comment 'スタンプID',
 type_id int not null comment '種別ID',
 user_level int not null default 1 comment '使用可能レベル',
-url varchar(255) not null
+url varchar(255) not null,
+index(user_level, type_id)
 );
 
 

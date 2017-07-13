@@ -34,9 +34,6 @@ public class GoStampAction extends ActionSupport implements SessionAware {
 	public ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
 	private Map<String, Object> session;
 
-	/**
-	 * チャット画面遷移時に、送信内容をセッションに追加するメソッド。
-	 */
 	@Override
 	public String execute() {
 		String result = ERROR;
