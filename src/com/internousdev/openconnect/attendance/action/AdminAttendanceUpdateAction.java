@@ -14,8 +14,10 @@ import com.internousdev.openconnect.attendance.dto.AttendanceDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @author internousdev
- *
+ * 管理者が勤怠の編集を行うためのクラス
+ * @author YURI.OTA
+ * @since 7/13
+ * @version 1.0.0
  */
 public class AdminAttendanceUpdateAction extends ActionSupport implements SessionAware{
 
@@ -28,7 +30,7 @@ public class AdminAttendanceUpdateAction extends ActionSupport implements Sessio
     private int userId;
 //    出欠
     private String attendance;
-//    備考
+//    備考 編集を行ったときの値の有無はgetter参照
     private String reason;
 //    年
     private int atYear;
@@ -105,11 +107,13 @@ public class AdminAttendanceUpdateAction extends ActionSupport implements Sessio
 
 	/**
 	 * reasonを取得します。
+	 * 編集モーダル内を実行した時に備考内容を返すならgetterを付ける
+	 * 備考内容を返さないのであれば、getterをcomment outする
 	 * @return reason
 	 */
-	public String getReason() {
-		return reason;
-	}
+//	public String getReason() {
+//		return reason;
+//	}
 
 
 	/**
