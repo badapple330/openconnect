@@ -207,15 +207,20 @@
 				</table>
 				<!-- 			ここから編集モーダルの表示の中身 -->
 				<div id="modal-updateMain"
-					style="display: none; width: 400px; height: 400px; margin: 0; padding: 0; background-color: #ffffff; color: #666666; position: fixed; z-index: 2;">
+					style="display: none;  margin: 0; padding: 0; background-color: #ffffff; color: #666666; position: fixed; z-index: 2;">
+					<table>
+					<tr style="">
+					 <td style="text-align:right;padding:10px;">ユーザー名：</td>
+					<td style="padding:10px;"><div class="updateuserName modalString" style="display: inline;"></div></td>
+					</tr>
+					<tr>
+					 <td style="text-align:right;padding:10px;">チーム名：</td>
+					<td style="padding:10px;"><div class="updateteamName modalString" style="display: inline;"></div></td>
+					</tr>
+					</table>
 
-					<br> ユーザー名 ：
-					<div class="updateuserName modalString" style="display: inline;"></div>
-
-					<br> チーム名 ：
-					<div class="updateteamName modalString" style="display: inline;"></div>
-					<br> <br> 上記のユーザーの編集を行います。
-					<s:form action="AdminAttendanceUpdateAction">
+					<s:form action="AdminAttendanceUpdateAction" style="text-align:center;">
+					<br><span class="span2">上記のユーザーの編集を行います</span>
 						<input type="hidden" name="userName" class="updateuserName"
 							value="">
 						<input type="hidden" name="teamName" class="updateteamName"
@@ -228,10 +233,10 @@
 							value="atMonth">
 						<input type="hidden" name="atDay" class="updateAtDay"
 							value="atDay">
-						<table>
+						<table style="width:100%">
 							<tr id="tr_type">
-								<th>出欠確認：</th>
-								<td><select name="attendance"
+								<td class="attendanceTd1" style="">出欠確認：</td>
+								<td class="attendanceTd2"><select name="attendance"
 									required="required">
 
 										<option class="atslc" value="出席">出席</option>
@@ -243,17 +248,17 @@
 								</select></td>
 							</tr>
 
-							<tr id="tr_reason">
-								<th>備 考 ：</th>
+							<tr id="tr_reason" style="">
+								<td class="reasonTd1" style="">備 考 ：</td>
 								<td><s:textarea id="reason" name="reason" maxlength="200"
-										disabled="disabled" rows="6" cols="30" ></s:textarea></td>
+										disabled="disabled" rows="6" width="100%" ></s:textarea></td>
 							</tr>
 						</table>
-						<div style="text-align: right;; margin-right: 20px;">
+						<div style="text-align:center;margin-top:10px;">
 							<input type="submit" class="delete-true button" value="編集">
 						</div>
 					</s:form>
-					<div style="text-align: right;; margin-right: 20px;">
+					<div style="text-align: center;;">
 						<input type="button" class="modal-close button" value="閉じる">
 					</div>
 				</div>

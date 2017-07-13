@@ -1,40 +1,39 @@
 @CHARSET "UTF-8";
 
-.id{
-	width:10px;
-}
-.sei{
-	width:30px;
+.id {
+	width: 10px;
 }
 
-.na{
-	width:30px;
+.sei {
+	width: 30px;
 }
 
+.na {
+	width: 30px;
+}
 
-
-.maxText{
+.maxText {
 	width: 100%;
 }
 
-.smallWidth{
+.smallWidth {
 	width: 27px;
 }
 
-.bigWidth{
+.bigWidth {
 	width: 100px;
 }
 
-.largeWidth{
+.largeWidth {
 	width: 150px;
 }
-.verysmallwidth{
+
+.verysmallwidth {
 	width: 60px;
 }
 
-
-.modalString{
-	display:inline;
+.modalString {
+	display: inline;
 }
 
 #modal-deleteMain {
@@ -48,6 +47,7 @@
 	position: fixed;
 	z-index: 2;
 }
+
 #modal-updateMain {
 	display: none;
 	width: 330px;
@@ -82,120 +82,122 @@
 	z-index: 1;
 }
 
-.inner{
-  position: relative;
-  top: 108px;
-  left: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-  transform: translateY(-50%) translateX(-50%);
-  padding: 20px;
-  border: 5px solid red;
-  height:200px;
-  width:320px;
-}
-.alldel{
+.inner {
 	position: relative;
-  top: 302%;
-  left: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-  transform: translateY(-50%) translateX(-50%);
-  padding: 3px;
-  border: 5px solid green;
-  height:100px;
-  width:300px;
+	top: 108px;
+	left: 50%;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+	padding: 20px;
+	border: 5px solid red;
+	height: 200px;
+	width: 320px;
 }
-.back{
-	left:33%;
-	top:300%;
+
+.alldel {
+	position: relative;
+	top: 302%;
+	left: 50%;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+	padding: 3px;
+	border: 5px solid green;
+	height: 100px;
+	width: 300px;
 }
-.table{
-	max-midth:100%;
+
+.back {
+	left: 33%;
+	top: 300%;
+}
+
+.table {
+	max-midth: 100%;
 	margin-botton: 20px;
 }
-.InModalTable{
-	width:100%;
+
+.InModalTable {
+	width: 100%;
 }
 
-.InModalTh{
+.InModalTd1 {
+	width: 30%;
+	text-align: right;
+	background-color: #1e90ff;
+	color: #ffffff;
+	font-weight: 600;
+	white-space: nowrap;
+}
 
+.InModalTd2 {
+	width: 70%;
+	text-align: left;
+	padding: 5px;
+	word-break: break-all;
+}
+
+.InModalTr {
+	width: 100%;
+	border-bottom:2px #eee solid;
 
 }
 
-.InModalTd{
-
-
-
-word-break: break-all;
-}
-.InModalTr{
-	display:block;
-	width:100%;
-	text-align:left !important;
-	margin-top:10px;
-
-}
-
-@media only screen and (max-device-width: 380px){
+@media only screen and (max-device-width: 380px) {
 	h1, .h1 {
-    font-size: 88px;
+		font-size: 88px;
+	}
+	h3, .h3 {
+		font-size: 47px;
+	}
+	body {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 38px;
+		line-height: 1.428571;
+		color: #333;
+		background-color: #fff;
+	}
+	.container {
+		width: 945px;
+	}
+	.inner {
+		position: absolute;
+		top: 336px;
+		left: 49%;
+		-webkit-transform: translateY(-50%) translateX(-50%);
+		transform: translateY(-50%) translateX(-50%);
+		padding: 24px;
+		border: 1px solid #ccc;
+		width: 292px;
+		height: 232px;
+	}
+	.container {
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 44px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.title {
+		margin-top: -18px;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	form {
+		display: block;
+		margin-top: 0em;
+		height: 130px;
+		width: 281px;
+		line-height: 41px;
+	}
+	.smallWidth {
+		width: 65px;
+	}
+	.bigWidth {
+		width: 75px;
+	}
+	.button-box {
+		display: flex;
+	}
 }
-h3, .h3 {
-    font-size: 47px;
-}
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 38px;
-    line-height: 1.428571;
-    color: #333;
-    background-color: #fff;
-}
-.container {
-    width: 945px;
-}
-.inner{
-	position: absolute;
-  top: 336px;
-  left: 49%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-  transform: translateY(-50%) translateX(-50%);
-  padding: 24px;
-  border: 1px solid #ccc;
-  width:292px;
-  height:232px;
-}
-.container {
-	width:100%;
-    padding-right: 15px;
-    padding-left: 44px;
-    margin-right: auto;
-    margin-left: auto;
-}
-.title {
-	margin-top:-18px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-form {
-    display: block;
-    margin-top: 0em;
-    height:130px;
-    width:281px;
-    line-height:41px;
-}
-.smallWidth{
-	width: 65px;
-}
-
-.bigWidth{
-	width: 75px;
-}
-
-
-.button-box{
-	display:flex;
-}
-
-
-

@@ -124,16 +124,37 @@ th {
 	position: fixed;
 	z-index: 2;
 }
+/*編集用モーダルのcss*/
 #modal-updateMain {
 	display: none;
-	width: 1000px;
-	height: 1000px;
+	width: 320px;
+	height: 450px;
 	margin: 0;
 	padding: 0;
 	background-color: #ffffff;
 	color: #666666;
 	position: fixed;
 	z-index: 2;
+}
+.attendanceTd1{
+width:30%;
+text-align:right;
+white-space: nowrap;
+padding:10px;
+}
+.attendanceTd2{
+width:70%;
+padding:10px;
+}
+.reasonTd1{
+width:30%;
+text-align:right;
+white-space: nowrap;
+padding:10px;
+}
+.reasonTd2{
+width:70%
+
 }
 /* モーダル 背景エリア */
 #modal-bg {
@@ -147,6 +168,10 @@ th {
 	z-index: 1;
 }
 
+.span2{
+	font-weight: 600;
+	color:#FF0000;
+}
 @media only screen and (max-width:420px){
 
 	.reason2{

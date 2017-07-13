@@ -154,34 +154,34 @@
 			<div id="modal-updateMain" style="text-align: center;">
 				<table class="InModalTable">
 					<tr class="InModalTr">
-						<td class="InModalTd">　ユーザー名：</td>
-						<td class="InModalTd">
+						<td class="InModalTd1">ユーザー名：</td>
+						<td class="InModalTd2">
 							<div class="updateFamilyName modalString"></div>
 							<div class="updateGivenName modalString"></div>
 						</td>
 					</tr>
 					<tr class="InModalTr">
-						<td class="InModalTd">　　ふりがな：</td>
-						<td class="InModalTd">
+						<td class="InModalTd1">ふりがな：</td>
+						<td class="InModalTd2">
 							<div class="updateFamilyNameKana modalString"></div>
 							<div class="updateGivenNameKana modalString"></div>
 						</td>
 					</tr>
 					<tr class="InModalTr">
-						<td class="InModalTd">　　チーム名：</td>
-						<td class="InModalTd">
+						<td class="InModalTd1">チーム名：</td>
+						<td class="InModalTd2">
 							<div class="updateteamName modalString"></div>
 						</td>
 					</tr>
 					<tr class="InModalTr">
-						<td class="InModalTd">ユーザー種別：</td>
-						<td class="InModalTd">
+						<td class="InModalTd1">ユーザー種別：</td>
+						<td class="InModalTd2">
 							<div class="updateUserFlg modalString"></div>
 						</td>
 					</tr>
 					<tr class="InModalTr">
-						<td class="InModalTd" style="white-space: nowrap;">　　Ｅメール：</td>
-						<td class="InModalTd">
+						<td class="InModalTd1">Ｅメール：</td>
+						<td class="InModalTd2">
 							<div class="updatePhoneEmail modalString"></div>
 						</td>
 					</tr>
