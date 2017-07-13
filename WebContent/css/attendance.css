@@ -1,79 +1,71 @@
 @CHARSET "UTF-8";
 
-
 /* submit送信ボタン */
-
-.attendance table{
-	table-layout: auto;
-	width:40%;
+.attendance table {
 	border-collapse: separate;
 	border-spacing: 0px 10px;
-	text-align:center;
+	text-align: center;
 }
 
-.attendance td,th{
-	font-weight:bold;
-	padding:  5px 10px;
-	width: auto;
-	height:auto;
+.attendance td, th {
+	font-weight: bold;
+	padding: 5px 10px;
 }
 
-.attendance textarea{
-	resize:none;
-}
+
 
 .attendance .button {
-	width:150px;
-	height:30px;
-	font-weight:bold;
-	color:#ffffff;
-	background-color:#51a7f9;
-	padding:5px 10px;
+	width: 150px;
+	height: 30px;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #51a7f9;
+	padding: 5px 10px;
 	box-shadow: 0px 3px #1e90ff;
-	border-radius:2px;
+	border-radius: 2px;
 	border-style: none;
-
-
 }
+
 .attendance .button:hover {
 	position: relative;
 	top: 3px;
 	box-shadow: none;
 }
 
-
-@media only screen and (max-width:420px){
-	.attendance h1{
-		font-size : 150% ;
-
+@media only screen and (max-width:420px) {
+	.attendance h1 {
+		font-size: 150%;
 		font-weight: bold;
 	}
-
-	.attendance table{
-		width:100%;
-		border-collapse:collapse;
+	.attendance table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size:15;
+	}
+	.attendance tr {
+		width: 100%;
+		border-bottom: 2px #eee solid;
+	}
+	.attendance th, td {
+		border: none;
+		text-align: center;
+	}
+	#tr_reason {
+display:inherit;
+	}
+	.attendance td {
 
 	}
-     .attendance tr{
-		display: block;
-		width:100%;
-		margin-bottom: 1.0em;
-		margin-left: 0.7em;
-    }
-    .attendance th, td{
-		display:block;
-		border: none;
-		text-align:center;
-    }
-    #tr_reason{
-
-		margin-bottom: 1.0em;
-		margin-left: 0.7em;
-
-    }
-    .attendance th{
-    background-color:#1e90ff;
-    color:#ffffff;
-    }
-
-}
+	.td1 {
+		text-align: right;
+		width: 30%;
+		background-color: #1e90ff;
+		color: #ffffff;
+	}
+	.td2 {
+		width: 70%;
+	}
+	.ymd {
+		width: 70%;
+	}
+	}

@@ -38,8 +38,8 @@
 							</colgroup>
 
 							<tr>
-								<th style="white-space: nowrap;">ユーザー名：</th>
-								<td style="white-space: nowrap;"><s:iterator
+								<td class="td1" style="white-space: nowrap;">ユーザー名：</td>
+								<td class="td2" style="white-space: nowrap;text-align:left;"><s:iterator
 										value="atUserList">
 										<s:property value="familyNameKanji" />
 										<s:property value="givenNameKanji" />
@@ -48,13 +48,13 @@
 
 							<tr>
 								<!-- 表示用の日時 -->
-								<th style="white-space: nowrap;">日 時：</th>
-								<td class="ymd"></td>
+								<td class="td1" style="white-space: nowrap;">日 時：</td>
+								<td style="text-align:left;"class="ymd"></td>
 							</tr>
 							<tr>
 							<tr id="tr_type">
-								<th style="white-space: nowrap;">出欠確認：</th>
-								<td style="white-space: nowrap;"><select name="attendance"
+								<td class="td1" style="white-space: nowrap;">出欠確認：</td>
+								<td class="td2" style="white-space: nowrap;text-align:left;"><select name="attendance"
 									required="required">
 
 										<option class="atslc" value="出席">出席</option>
@@ -65,10 +65,10 @@
 								</select></td>
 							</tr>
 
-							<tr id="tr_reason" style="display: none;" class="reason">
-								<th style="white-space: nowrap;">備 考：<span
-									style="background-color: red; color: white; padding: 1px 2px; border-radius: 5px;">必須</span></th>
-								<td style="white-space: nowrap;"><textarea id="reason"
+							<tr id="tr_reason" style="display:none;" class="reason">
+								<td class="td1" style="white-space: nowrap;">備 考：<span
+									style="background-color: red; color: white; padding: 1px 2px; border-radius: 5px;">必須</span></td>
+								<td class="td2" style="white-space: nowrap;text-align:left;"><textarea id="reason"
 										name="reason" rows="6" style="width: 100%;" maxlength="200"
 										placeholder="(例）病気のため欠席、電車遅延のため10分遅刻など" disabled="disabled"></textarea>
 							</tr>

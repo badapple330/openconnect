@@ -6,7 +6,7 @@ var w = $(window).width();
 		  $('#tr_type select[name="attendance"]').change(function() {
 		    if ($('select[name="attendance"] option:selected').val() != '出席'){
 		    	if (w <= x) {
-		    	$('#tr_reason').css('display','block');
+		    	$('#tr_reason').css('display','table-row');
 			    $('#reason').removeAttr("disabled").attr('required','true');
 		    	}else{
 		    	$('#tr_reason').css('display','table-row');
@@ -14,7 +14,8 @@ var w = $(window).width();
 		    	}}else{
 		    	$('#tr_reason').css('display','none');
 		    	$('#reason').attr('disabled', 'disabled');
-		    }
+		    	}
+
 		  });
 		});
 

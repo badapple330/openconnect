@@ -209,11 +209,11 @@
 				<div id="modal-updateMain"
 					style="display: none;  margin: 0; padding: 0; background-color: #ffffff; color: #666666; position: fixed; z-index: 2;">
 					<table>
-					<tr style="">
+					<tr style="border-bottom:2px #eee solid;">
 					 <td style="text-align:right;padding:10px;">ユーザー名：</td>
 					<td style="padding:10px;"><div class="updateuserName modalString" style="display: inline;"></div></td>
 					</tr>
-					<tr>
+					<tr style="border-bottom:2px #eee solid;">
 					 <td style="text-align:right;padding:10px;">チーム名：</td>
 					<td style="padding:10px;"><div class="updateteamName modalString" style="display: inline;"></div></td>
 					</tr>
