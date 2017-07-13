@@ -116,7 +116,7 @@
 							<td><div class="emailWidth">
 									<input type="text" name="phoneEmailList"
 										value="<s:property value="phoneEmail"/>"
-										class="phoneEmail maxText" maxlength="20" required>
+										class="phoneEmail maxText" maxlength="50" required>
 								</div></td>
 
 							<td><s:if test="%{userFlg==1}">
