@@ -14,7 +14,7 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/bb_style.css">
 <link rel="stylesheet" href="css/group.css">
 <link rel="stylesheet" href="css/Bfooter.css">
 
@@ -26,18 +26,17 @@
 <script src="js/toast.js"></script>
 <s:iterator value="msgList">
   <script type="text/javascript">
-			$(function() {
-				var toast = new Toast();
-				var msg = "<s:property value="msg"/>";
-				if (msg != "") {
-					toast.show(msg);
-				}
-
-			});
-		</script>
+      $(function() {
+        var toast = new Toast();
+        var msg = "<s:property value="msg"/>";
+        if (msg != "") {
+          toast.show(msg);
+        }
+      });
+    </script>
 </s:iterator>
 <script type="text/javascript">
-	setTimeout("location.reload()", 1000 * 60)
+  setTimeout("location.reload()", 1000 * 60)
 </script>
 
 </head>
@@ -50,8 +49,7 @@
       style="background-color:<s:property value="#session.hColor"/>;">
       <div class="navbar-header">
         <a class="navbar-brand" href="applist.jsp">Openconnect</a>
-        <button type="button" class="navbar-toggle"
-          data-toggle="collapse" data-target="#gnavi">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
           <span class="sr-only">メニュー</span> <span class="icon-bar"></span>
           <span class="icon-bar"></span> <span class="icon-bar"></span>
         </button>
@@ -97,9 +95,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-sm-1 visible-lg-block"></div>
 
-      <div class="col-sm-10">
       <s:property value="groupList.get(0).groupName" />
         <div class="outline">
           <s:iterator value="groupList">
@@ -122,15 +118,14 @@
           </s:iterator>
           <s:if test="groupList.size()==0">
             <div style="position: fixed; top: 40%; textalign: centger;">
-              <a data-toggle="modal" data-target="#groupAdd"
-                class="cursor">グループに参加していません。<br>グループを作成してみましょう。
+              <a data-toggle="modal" data-target="#groupAdd" class="cursor">
+                グループに参加していません。
+                <br>グループを作成してみましょう。
               </a>
             </div>
           </s:if>
         </div>
-      </div>
 
-      <div class="col-sm-1 visible-lg-block"></div>
     </div>
   </div>
   <jsp:include page="Bfooter.jsp" />

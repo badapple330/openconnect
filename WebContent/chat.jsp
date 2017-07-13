@@ -19,10 +19,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <link rel="stylesheet" href="css/form.css">
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/bb_style.css">
 <link rel="stylesheet" href="css/modal.css">
 <link rel="stylesheet" href="css/chat.css">
 <link rel="stylesheet" href="css/imgList.css">
+<!-- スタンプ系 -->
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/dropdown.css">
 
 
 <!-- ▼▼JavaScript -->
@@ -52,8 +55,8 @@
 <s:if test="groupId == 0">
   <div class="chatroomname">
     <a style="color: white;"
-      href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{receiverId}"/></s:url>"><s:property
-        value="receiverName" /></a>
+     href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{receiverId}"/></s:url>">
+      <s:property value="receiverName" /></a>
   </div>
 </s:if>
 <s:else>
@@ -81,8 +84,7 @@
       <div class="container-fluid" style="background-color:<s:property value="#session.hColor"/>;">
         <div class="navbar-header">
           <a class="navbar-brand" href="<s:url action="GoGroupAction"/>">&laquo;</a>
-          <button type="button" class="navbar-toggle collapsed"
-            data-toggle="collapse" data-target="#nav_target">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_target">
             <span class="icon-bar"></span> <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
@@ -183,7 +185,7 @@
     <div class="modal fade" id="groupMemberModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
-            <iframe id="groupMember" name="groupMember"></iframe>
+          <iframe id="groupMember" name="groupMember"></iframe>
         </div>
       </div>
     </div>
@@ -291,6 +293,52 @@
         window.scrollTo(0, positionY - 100);
       }
     </script>
-  <s:include value="form.jsp" />
+
+
+
+
+
+  <div class = "nonbs-send-form" style ="background-color:<s:property value="#session.fColor"/>;">
+
+<div class="nonbs-panel-body">
+<s:form action="SubmitMessageAction">
+  <div class="nonbs-form-group">
+      <textarea name="text" class="nonbs-form-control" maxlength="255" ></textarea>
+  </div><s:hidden name="receiverId" /><s:hidden name="groupId" /><s:hidden name="groupName" /><s:hidden name="friendsName" />
+<div class="nonbs-rightside">
+<button type="submit" class="btn btn-default" onclick="style.display='none'">送信</button>
+</div>
+</s:form>
+</div>
+</div>
+
+
+<script>
+var submit = document.getElementByClassName('submit');
+function disableSubmit(button) {
+  setTimeout(function() {
+    button.disabled = true;
+  }, 10);
+  setTimeout(function() {
+    button.disabled = false;
+  }, 1000);
+}
+
+</script>
+
+<div class="stamp-form">
+<a href='<s:url action='GoStampAction'></s:url>' target="stamp" class="stamp-btn" data-toggle="modal" data-target="#stampModal"> <img height=20px; src="pic/stamp/icon.png">
+</a>
+</div>
+
+
+<div class="modal fade" id="stampModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <iframe id="stamp" name="stamp"></iframe>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

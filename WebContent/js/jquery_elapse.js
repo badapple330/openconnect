@@ -2,9 +2,9 @@ function digit (num) {
     if (num < 10) {num = ' ' + num;}
     return num;
 }
-jQuery(document).ready(function(){
+$(function(){
     var currentDate = new Date();
-    jQuery('.timeArea').each(function(){
+    $('.timeArea').each(function(){
         var getEntryDate = jQuery(this).attr('title');
         getEntryDate = getEntryDate.replace( /-/g , ":" );
         getEntryDate = getEntryDate.replace( /\s+/g , ":" );

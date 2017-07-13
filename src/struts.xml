@@ -690,6 +690,13 @@
 			<result name="success" type="redirectAction">GoGroupAction</result>
 			<result name="error" type="redirectAction">GoGroupAction</result>
 		</action>
+    
+    <action name="GoStampAction"
+      class="com.internousdev.bulletinboard.action.GoStampAction"
+      method="execute">
+      <result name="success">form.jsp</result>
+      <result name="error">form.jsp</result>
+    </action>
 
 		<!-- フォロー関連 -->
 		<action name="FollowAction"

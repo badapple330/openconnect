@@ -15,7 +15,7 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="css/prof.css">
 <link rel="stylesheet" href="css/Bfooter.css">
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/bb_style.css">
 <link rel="stylesheet" href="css/imgList.css">
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
