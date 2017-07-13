@@ -33,13 +33,12 @@ public class DecisionArchiveDAO {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 		Connection con = db.getConnection();
 
-		String sql ="select projects.project_name, decision.decision_id, decision.decision_type from projects left outer join decision on projects.project_id = decision.decision_id";
+		String sql ="select decision.decision_id, projects.project_name, decision.decision_type from projects left outer join decision on projects.project_id = decision.decision_id";
 
 		try {
 
 			PreparedStatement ps = null;
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, decisionId);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -60,7 +59,6 @@ public class DecisionArchiveDAO {
 				e.printStackTrace();
 			}
 		}
-
 		return archiveList;
 	}
 

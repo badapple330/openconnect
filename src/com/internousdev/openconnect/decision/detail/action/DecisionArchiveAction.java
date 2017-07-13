@@ -14,10 +14,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DecisionArchiveAction extends ActionSupport {
 
+
 	/**
 	 * シリアルID
 	 */
 	private static final long serialVersionUID = 6045130027645771884L;
+
 
 	/**
 	 * プロジェクト名
@@ -58,6 +60,7 @@ public class DecisionArchiveAction extends ActionSupport {
 
 		return result;
 	}
+
 
 
 

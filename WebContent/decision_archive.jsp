@@ -49,25 +49,26 @@
 						<td><s:property value="decisionId" /></td>
 						<td><s:property value="projectName" /></td>
 						<td><s:property value="decisionType" /></td>
-						<s:form action="DecisionPreviewAction">
-							<td><input type="hidden" name="decisionId"
-								value="<s:property value="decisionId" />"> <input
-								type="hidden" name="type" value="1">
-								<button class="btn btn-default" type="submit">Preview</button></td>
-						</s:form>
-						<s:form action="DecisionPreviewAction">
-							<td><input type="hidden" name="decisionId"
-								value="<s:property value="decisionId" />"> <input
-								type="hidden" name="type" value="2">
-								<button class="btn btn-default" type="submit">Preview</button></td>
-						</s:form>
-						<s:form action="DecisionPreviewAction">
-							<td><input type="hidden" name="decisionId"
-								value="<s:property value="decisionId" />"> <input
-								type="hidden" name="type" value="3">
-								<button class="btn btn-default" type="submit">Preview</button></td>
-						</s:form>
+						<td><s:form action="DecisionPreviewAction">
+								<input type="hidden" name="decisionId"
+									value="<s:property value="decisionId" />">
+								<input type="hidden" name="type" value="1">
+								<button class="btn btn-default" type="submit">Preview</button>
+							</s:form></td>
+						<td><s:form action="DecisionPreviewAction">
+								<input type="hidden" name="decisionId"
+									value="<s:property value="decisionId" />">
+								<input type="hidden" name="type" value="2">
+								<button class="btn btn-default" type="submit">Preview</button>
+							</s:form></td>
+						<td><s:form action="DecisionPreviewAction">
+								<input type="hidden" name="decisionId"
+									value="<s:property value="decisionId" />">
+								<input type="hidden" name="type" value="3">
+								<button class="btn btn-default" type="submit">Preview</button>
+							</s:form></td>
 					</tr>
+
 				</s:iterator>
 			</tbody>
 		</table>
