@@ -201,7 +201,7 @@ public class DecisionDAO {
 	 *
 	 */
 
-	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll,int jDrafterId,int kDrafterId,int decisionId) {
+	public int update(String decisionName,String summary,String cause,String startDay,String endDay,int persons,int totalProve,float totalRe,int totalLine,float totalRoom,int totalHuman,float totalEtc,float benefit,float bildCost,float amountAll,int jDrafterId,int decisionId) {
 		int count = 0;
 
 
@@ -209,7 +209,7 @@ public class DecisionDAO {
 				"mysql");
 		Connection con = db.getConnection();
 
-		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id=? , k_drafter_id=? where decision_id=?";
+		String sql = "update decision set decision_name=?, summary=?, cause=?, start_day=?, end_day=?, persons=?, total_prove=?,total_re=?, total_line=?, total_room=?, total_human=?, total_etc=?, benefit=?, bild_cost=?, amount_all=?, j_drafter_id=? where decision_id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -230,8 +230,7 @@ public class DecisionDAO {
 			ps.setFloat(14, bildCost); //建設費用
 			ps.setFloat(15, amountAll); //合計金額
 			ps.setInt(16, jDrafterId); //実施起案者ユーザーID
-			ps.setInt(17, kDrafterId);//契約兼実施契約起案者ユーザーID
-			ps.setInt(18, decisionId);// 決裁ID
+			ps.setInt(17, decisionId);// 決裁ID
 
             count = ps.executeUpdate();
 

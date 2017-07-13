@@ -1,74 +1,48 @@
-.main{
-
-
-
-    margin-left: auto;
-    margin-right:auto;
-
-
-}
-
-
-.sub{
-
-
-
-	 margin-right:auto;
-    margin-left:auto;
-
-}
-
-.math{
-
-
-
-
+.main {
 	margin-left: auto;
-	 margin-right:auto;
-
-
-
+	margin-right: auto;
 }
 
-
-
-input{
-	border:none;
-
+.sub {
+	margin-right: auto;
+	margin-left: auto;
 }
 
-
-
-h2{
-    text-align:center;
-
-
+.math {
+	margin-left: auto;
+	margin-right: auto;
 }
 
-
-
-textarea{
-	text-align:left;
-
-	border:none;
+input {
+	border: none;
 }
 
-
-
-
-.file{
-	margin-left:auto;
-	margin-right:auto;
-	text-align:center;
+h2 {
+	text-align: center;
 }
 
-.save{
-	text-align:center;
-	border:1px;
+textarea {
+	text-align: left;
+	border: none;
 }
 
-.w67{
+.file {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.save {
+	text-align: center;
+	border: 1px;
+}
+
+.w67 {
 	width: 67px;
 }
 
-
+@media and screen(max 768px) {
+	textarea {
+		width:100%;
+	}
+}

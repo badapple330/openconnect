@@ -196,7 +196,6 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
      */
 
 	public String execute() {
-		
 		String result =ERROR;
          DecisionDAO dao= new DecisionDAO();
 
@@ -220,8 +219,8 @@ public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
          float amountAll = benefit + bildCost;
 
-         count=dao.update(decisionName,summary,cause,startDay,endDay,persons,totalProve,totalRe,totalLine,totalRoom,totalHuman,totalEtc,benefit,bildCost,amountAll,jDrafterId,kDrafterId,decisionId);
-
+         count=dao.update(decisionName,summary,cause,startDay,endDay,persons,totalProve,totalRe,totalLine,totalRoom,totalHuman,totalEtc,benefit,bildCost,amountAll,jDrafterId,decisionId);
+         System.out.println(count);
 			if(count>0){
 				result = SUCCESS;
 				resultString = "更新しました。";
