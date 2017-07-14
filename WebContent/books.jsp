@@ -550,6 +550,6 @@
     ================================================== -->
 	<script type="text/javascript" src="js/books.js"></script>
 	<script type="text/javascript" src="js/books-page-top.js"></script>
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>
