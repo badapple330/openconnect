@@ -42,13 +42,13 @@
 
 							<s:if test="getAllTeamNames().equals('')">
 								<td><input type="radio" name="teamName"
-									value=<s:property value="teamName"/> checked="checked">
+									value=<s:property value="teamName"/> checked="checked" style="display:none">
 									<s:property value="teamName" /></td>
 							</s:if>
 							<s:else>
 								<s:iterator value="allTeamNames">
 									<td><input type="radio" name="teamName"
-										value=<s:property/> checked="checked"> <s:property /></td>
+										value=<s:property/> checked="checked" style="display:none"> <s:property /></td>
 								</s:iterator>
 							</s:else>
 
