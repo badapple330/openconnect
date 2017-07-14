@@ -48,6 +48,16 @@ public class AdminAttendanceUpdateAction extends ActionSupport implements Sessio
     private String familyNameKanji;
 //    漢字名
     private String givenNameKanji;
+    /* 出席数 */
+	private int present = 0;
+	/* 欠席数 */
+	private int absent = 0;
+	/* 遅刻数 */
+	private int late = 0;
+	/* 早退数 */
+	private int early = 0;
+	/* 連絡なし数 */
+	private int noContact = 0;
 
 
     /* 検索結果 */
@@ -61,10 +71,27 @@ public class AdminAttendanceUpdateAction extends ActionSupport implements Sessio
         count = dao.update(userId,attendance,reason,atYear,atMonth,atDay);
 
         if (count != 0) {
-        	searchList = dao.select(atYear,atMonth,atDay,teamName);
             result = SUCCESS;
-
         }
+
+        searchList = dao.select(atYear,atMonth,atDay,teamName);
+
+        for(int i = 0; i<searchList.size(); i++){
+			String attend = searchList.get(i).getAttendance();
+			if(attend.equals("出席")){
+				present = present + 1;
+			} else if(attend.equals("欠席")){
+				absent = absent + 1;
+			} else if(attend.equals("遅刻")){
+				late = late + 1;
+			} else if(attend.equals("早退")){
+				early = early + 1;
+			} else if(attend.equals("連絡なし")){
+				noContact = noContact + 1;
+
+			}
+        }
+
         return result;
     }
 
@@ -114,6 +141,24 @@ public class AdminAttendanceUpdateAction extends ActionSupport implements Sessio
 //	public String getReason() {
 //		return reason;
 //	}
+
+
+	/**
+	 * reasonを取得します。
+	 * @return reason
+	 */
+	public String getReason() {
+	    return reason;
+	}
+
+
+	/**
+	 * reasonを設定します。
+	 * @param reason reason
+	 */
+	//    public String getReason() {
+	//		return reason;
+	//	}
 
 
 	/**
@@ -266,6 +311,96 @@ public class AdminAttendanceUpdateAction extends ActionSupport implements Sessio
 	 */
 	public void setGivenNameKanji(String givenNameKanji) {
 	    this.givenNameKanji = givenNameKanji;
+	}
+
+
+	/**
+	 * presentを取得します。
+	 * @return present
+	 */
+	public int getPresent() {
+	    return present;
+	}
+
+
+	/**
+	 * presentを設定します。
+	 * @param present present
+	 */
+	public void setPresent(int present) {
+	    this.present = present;
+	}
+
+
+	/**
+	 * absentを取得します。
+	 * @return absent
+	 */
+	public int getAbsent() {
+	    return absent;
+	}
+
+
+	/**
+	 * absentを設定します。
+	 * @param absent absent
+	 */
+	public void setAbsent(int absent) {
+	    this.absent = absent;
+	}
+
+
+	/**
+	 * lateを取得します。
+	 * @return late
+	 */
+	public int getLate() {
+	    return late;
+	}
+
+
+	/**
+	 * lateを設定します。
+	 * @param late late
+	 */
+	public void setLate(int late) {
+	    this.late = late;
+	}
+
+
+	/**
+	 * earlyを取得します。
+	 * @return early
+	 */
+	public int getEarly() {
+	    return early;
+	}
+
+
+	/**
+	 * earlyを設定します。
+	 * @param early early
+	 */
+	public void setEarly(int early) {
+	    this.early = early;
+	}
+
+
+	/**
+	 * noContactを取得します。
+	 * @return noContact
+	 */
+	public int getNoContact() {
+	    return noContact;
+	}
+
+
+	/**
+	 * noContactを設定します。
+	 * @param noContact noContact
+	 */
+	public void setNoContact(int noContact) {
+	    this.noContact = noContact;
 	}
 
 
