@@ -159,7 +159,7 @@
 							<th class="date">報告日時</th>
 							<th>受講開始月</th>
 							<th>チーム</th>
-							<th style="white-space: nowrap;">性</th>
+							<th style="white-space: nowrap;">姓</th>
 							<th style="white-space: nowrap;">名</th>
 							<th>出欠状況</th>
 							<th class="reason2" style="width:1000px;">備考</th>
@@ -286,7 +286,7 @@
 										<th>報告日時</th>
 										<th>受講開始月</th>
 										<th>チーム</th>
-										<th style="white-space: nowrap;">性</th>
+										<th style="white-space: nowrap;">姓</th>
 										<th style="white-space: nowrap;">名</th>
 										<th>出欠状況</th>
 										<th style="width:1000px;">備考</th>
