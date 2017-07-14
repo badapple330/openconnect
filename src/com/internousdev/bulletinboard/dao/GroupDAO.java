@@ -66,7 +66,7 @@ public class GroupDAO {
 				dto.setGroupName(rs.getString("group_name"));
 				dto.setGroupIcon(rs.getString("group_icon"));
 				dto.setLastMsg(rs.getString("text"));
-				dto.setLastMsgAt(rs.getDate("created_at"));
+				dto.setLastMsgAt(rs.getTimestamp("created_at"));
 				dto.setUnreadCount(rs.getInt("unread_count"));
 				groupList.add(dto);
 			}

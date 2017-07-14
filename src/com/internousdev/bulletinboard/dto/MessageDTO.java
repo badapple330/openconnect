@@ -1,5 +1,9 @@
 package com.internousdev.bulletinboard.dto;
 
+import java.util.Date;
+
+import com.internousdev.bulletinboard.util.SafeDateFormat;
+
 public class MessageDTO {
 	/**
 	 * 投稿情報に関するDTOクラス
@@ -29,12 +33,27 @@ public class MessageDTO {
 	/** スタンプ */
 	private String stamp;
 	/** 投稿日時 */
-	private String createdAt ;
+	private Date createdAt ;
+	private String creationDate;
+	private String creationTime;
 	/** グループイメージ */
 	private String groupIcon;
 	private int notRead=0;
 	private boolean isRead;
 
+
+	private void culcLastMsgDate() {
+		SafeDateFormat.applyPattern("MM/dd(E)");
+		if(!(this.createdAt == null)){
+			this.creationDate = SafeDateFormat.format(createdAt);
+		}
+	}
+	private void culcLastMsgTime() {
+		SafeDateFormat.applyPattern("HH:mm");
+		if(!(this.createdAt == null)){
+			this.creationTime = SafeDateFormat.format(createdAt);
+		}
+	}
 
 	public int getMessageId() {
 		return messageId;
@@ -96,11 +115,19 @@ public class MessageDTO {
 	public void setStamp(String stamp) {
 		this.stamp = stamp;
 	}
-	public String getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(String createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+		culcLastMsgDate();
+		culcLastMsgTime();
+	}
+	public String getCreationDate() {
+		return creationDate;
+	}
+	public String getCreationTime() {
+		return creationTime;
 	}
 	public String getGroupIcon() {
 		return groupIcon;

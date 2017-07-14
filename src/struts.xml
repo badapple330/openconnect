@@ -571,6 +571,12 @@
 			<result name="error">login.jsp</result>
 		</action>
 
+    <action name="GoChatAction2"
+      class="com.internousdev.bulletinboard.action.GoChatAction2" method="execute">
+      <result name="success">chat2.jsp</result>
+      <result name="error">login.jsp</result>
+    </action>
+
 		<!-- チャット画面チャット送信時 -->
 		<action name="SubmitMessageAction"
 			class="com.internousdev.bulletinboard.action.SubmitMessageAction" method="execute">
@@ -635,6 +641,12 @@
 			<result name="error"> login.jsp</result>
 		</action>
 
+    <action name="GoGroupAction2"
+      class="com.internousdev.bulletinboard.action.GoGroupAction" method="execute">
+      <result name="success"> group2.jsp</result>
+      <result name="error"> login.jsp</result>
+    </action>
+
 		<!-- グループの追加 -->
 		<action name="GroupAddAction"
 			class="com.internousdev.bulletinboard.action.GroupAddAction" method="execute">
@@ -690,7 +702,7 @@
 			<result name="success" type="redirectAction">GoGroupAction</result>
 			<result name="error" type="redirectAction">GoGroupAction</result>
 		</action>
-    
+
     <action name="GoStampAction"
       class="com.internousdev.bulletinboard.action.GoStampAction"
       method="execute">

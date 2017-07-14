@@ -40,7 +40,6 @@ public class ChatDAO {
 						+"SELECT m.*, user_name, user_icon, stamp, coalesce(is_read, 0) AS is_read from ( "
 						+	"SELECT message_id, receiver_id, sender_id, group_id, text, stamp_id, created_at "
 						+	"FROM messages WHERE group_id = ? "
-						+	"ORDER BY message_id ASC "
 						+") AS m "
 						+"LEFT JOIN ( "
 						+	"SELECT stamp_id, stamp FROM stamps WHERE stamp_id IN ( "
@@ -57,7 +56,8 @@ public class ChatDAO {
 						+"LEFT JOIN ( "
 						+	"SELECT *, true AS is_read FROM read_flg WHERE user_id = ? "
 						+") AS r "
-						+"ON m.message_id = r.message_id; ";
+						+"ON m.message_id = r.message_id "
+						+"ORDER BY message_id ASC; ";
 				ps1 = con.prepareStatement(sql1);
 				ps1.setInt(1, groupId);
 				ps1.setInt(2, groupId);
@@ -71,7 +71,6 @@ public class ChatDAO {
 						+	"UNION "
 						+	"SELECT message_id, receiver_id, sender_id, group_id, text, stamp_id, created_at FROM messages "
 						+	"WHERE receiver_id = ? AND sender_id = ? "
-						+	"ORDER BY message_id ASC "
 						+") AS m "
 						+"LEFT JOIN ( "
 						+	"SELECT stamp_id, stamp FROM stamps WHERE stamp_id IN ( "
@@ -88,7 +87,8 @@ public class ChatDAO {
 						+"LEFT JOIN ( "
 						+	"SELECT *, true AS is_read FROM read_flg WHERE user_id = ? "
 						+") AS r "
-						+"ON m.message_id = r.message_id ;";
+						+"ON m.message_id = r.message_id "
+						+"ORDER BY message_id ASC; ";
 
 				ps1 = con.prepareStatement(sql1);
 				ps1.setInt(1, senderId);
@@ -119,7 +119,7 @@ public class ChatDAO {
 				if((dto.getStamp()) == null){
 					dto.setStamp("");
 				}
-				dto.setCreatedAt(rs.getString("created_at")); //投稿日時
+				dto.setCreatedAt(rs.getTimestamp("created_at")); //投稿日時
 				dto.setIsRead(rs.getBoolean("is_read"));//既読情報
 				chat.add(dto);
 			}

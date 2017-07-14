@@ -52,7 +52,7 @@ public class ProfileAction extends ActionSupport implements SessionAware{
 	private int groupInfo=0;
 
 	/** プロフィール情報 */
-	private ArrayList<UserDTO> myData = new ArrayList<UserDTO>();
+	private UserDTO myData = new UserDTO();
 
 	/** フォローリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
@@ -214,11 +214,11 @@ public class ProfileAction extends ActionSupport implements SessionAware{
 		this.profile = profile;
 	}
 
-	public ArrayList<UserDTO> getMyData() {
+	public UserDTO getMyData() {
 		return myData;
 	}
 
-	public void setMyData(ArrayList<UserDTO> myData) {
+	public void setMyData(UserDTO myData) {
 		this.myData = myData;
 	}
 

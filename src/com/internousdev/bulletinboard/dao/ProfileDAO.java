@@ -14,7 +14,7 @@ import com.internousdev.util.db.mysql.MySqlConnector;
 public class ProfileDAO {
 
 
-	public ArrayList<UserDTO> select(int userId){
+	public UserDTO select(int userId){
 		Connection con = new MySqlConnector("openconnect").getConnection();
 		UserDTO dto = new UserDTO();
 		ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
@@ -26,7 +26,7 @@ public class ProfileDAO {
 			ps.setInt(1,userId);
 
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()){
+			if (rs.next()){
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setUserIcon(rs.getString("user_icon"));
 				dto.setUserName(rs.getString("user_name"));
@@ -34,7 +34,6 @@ public class ProfileDAO {
 				dto.setPoint(rs.getInt("point"));
 				dto.setUserLevel(rs.getInt("user_level"));
 				dto.setProfile(rs.getString("profile"));
-				userList.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -46,7 +45,7 @@ public class ProfileDAO {
 			catch(SQLException e){
 				e.printStackTrace();
 			}
-		}return userList;
+		}return dto;
 	}
 
 

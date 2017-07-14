@@ -7,8 +7,10 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.ColorChangeDAO;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
+import com.internousdev.bulletinboard.dao.ProfileDAO;
 import com.internousdev.bulletinboard.dao.TalkListDAO;
 import com.internousdev.bulletinboard.dto.MessageDTO;
+import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoTalkListAction extends ActionSupport implements SessionAware{
@@ -38,6 +40,11 @@ public class GoTalkListAction extends ActionSupport implements SessionAware{
 		userId = (int) session.get("userId");
 	}
 	if(userId==0){return result;}
+
+	ProfileDAO pdao = new ProfileDAO();
+	UserDTO myData = (pdao.select(userId));
+	session.put("userName", myData.getUserName());
+	session.put("userIcon", myData.getUserIcon());
 
 	ColorChangeDAO cdao=new ColorChangeDAO();
 	String hColor=cdao.getColor(userId).gethColor();

@@ -128,6 +128,7 @@
 
     </div>
   </div>
+  <a href="<s:url action='GoGroupAction2' />">テストチャット</a>
   <jsp:include page="Bfooter.jsp" />
 </body>
 </html>

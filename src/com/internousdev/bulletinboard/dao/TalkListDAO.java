@@ -63,7 +63,7 @@ public class TalkListDAO {
 						    	ResultSet rs4 = ps4.executeQuery();
 						    	while(rs4.next()){
 						    		dto.setText(rs4.getString("text"));
-						    		dto.setCreatedAt(rs4.getString("created_at"));
+						    		dto.setCreatedAt(rs4.getTimestamp("created_at"));
 						    	}
 
 						    	PreparedStatement ps5 = con.prepareStatement(sql5);
