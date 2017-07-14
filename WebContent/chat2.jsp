@@ -41,7 +41,11 @@
     var messageInput = document.getElementById('message_input');    //フォーム（入力領域）
     var messageSubmit = document.getElementById('message_submit');  //フォーム（送信ボタン）
 
-    webSocket = new WebSocket("ws://localhost:8080/webSocket/chat/" + groupId);
+    var anchor = document.createElement('a');
+    anchor.href = 'chat';   //例：http://localhost:8080/openconnect/chat
+    var uri = anchor.href.replace('http://', 'ws://').replace('https://', 'wss://').replace('openconnect', 'webSocket');
+    webSocket = new WebSocket(uri + '/' + groupId);
+
     var appendSystemMessage = function(msg, color) {
       var messageElement = document.createElement('div');
       messageElement.setAttribute('class', 'system_message');
