@@ -31,6 +31,8 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 	private String groupName="（・ω・）" ;
 	/** 送信内容 */
 	private String text="";
+	/** スタンプID */
+	private int stampId = 0;
 	/** 添付画像 */
 	private String url="";
 	/** 投稿日時 */
@@ -66,7 +68,7 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 		//送信内容がある場合に送信内容送信
 		if (!text.equals("")){
 			ChatDAO chatDAO = new ChatDAO();
-			if(chatDAO.insertMessage(userId, receiverId, groupId, text, url) != 0){
+			if(chatDAO.insertMessage(userId, receiverId, groupId, text, stampId) != 0){
 				//botと話す場合の処理
 				if(receiverId < 0){
 					BotTalk bot = new BotTalk(receiverId,userId,text);
@@ -80,10 +82,10 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 				}
 			}
 		//スタンプだった場合にスタンプ送信
-		} else if(!url.equals("")) {
+		} else if(stampId != 0) {
 			text="スタンプを投稿しました";
 			ChatDAO set = new ChatDAO();
-			if(set.insertMessage(userId, receiverId, groupId, text, url) != 0){
+			if(set.insertMessage(userId, receiverId, groupId, text, stampId) != 0){
 				if(receiverId < 0){
 					BotTalk bot = new BotTalk(receiverId,userId,text);
 					String response = bot.talkContents();
@@ -148,6 +150,12 @@ public class SubmitMessageAction extends ActionSupport implements SessionAware{
 	}
 	public void setText(String text) {
 		this.text = text;
+	}
+	public int getStampId() {
+		return stampId;
+	}
+	public void setStampId(int stampId) {
+		this.stampId = stampId;
 	}
 	public String getUrl() {
 		return url;

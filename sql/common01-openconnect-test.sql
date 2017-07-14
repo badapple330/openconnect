@@ -359,9 +359,9 @@ profile varchar(150) comment 'プロフィール',
 delete_flg boolean not null default false comment '削除フラグ',
 h_color varchar(50) not null default '#333333' comment 'ヘッターカラー',
 b_color varchar(50) not null default '#ffffff' comment 'ボディカラー',
-f_color varchar(50) not null default '#6ff5ef' comment 'フッターカラー'
-info_flg int not null default 1 comment 'お知らせフラグ')
-comment = 'ユーザー情報格納テーブル';
+f_color varchar(50) not null default '#6ff5ef' comment 'フッターカラー',
+info_flg int not null default 1 comment 'お知らせフラグ'
+) comment = 'ユーザー情報格納テーブル';
 
 
 
@@ -394,6 +394,7 @@ receiver_id int comment  '受取人ID',
 sender_id int not null comment '送信者ID',
 group_id int comment 'グループID',
 text varchar(255) not null comment '送信内容',
+stamp_id int comment 'スタンプID',
 img varchar(50) comment '添付画像',
 created_at timestamp not null default current_timestamp comment '投稿日時',
 foreign key(receiver_id) references users(user_id),

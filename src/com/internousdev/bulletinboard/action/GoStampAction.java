@@ -7,8 +7,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.StampDAO;
-import com.internousdev.bulletinboard.dto.StampDTO;
-import com.internousdev.bulletinboard.dto.StampTypeDTO;
+import com.internousdev.bulletinboard.dto.StampPackageDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -22,14 +21,8 @@ public class GoStampAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = -7129551593360374656L;
 	/** * ユーザーID */
 	private int userId = 0;
-	/** 受取人ID */
-	private int receiverId = 0;
-	/** スタンプリスト */
-	public ArrayList<StampTypeDTO> stList = new ArrayList<StampTypeDTO>();
-	/** スタンプ種類 */
-	public int count = 0;
-	/** 投稿件数 */
-	private int msgCount = 0;
+	/** スタンプパッケージリスト */
+	public ArrayList<StampPackageDTO> stampPackageList = new ArrayList<StampPackageDTO>();
 	/** 通知リスト */
 	public ArrayList<UserDTO> msgList = new ArrayList<UserDTO>();
 	private Map<String, Object> session;
@@ -44,13 +37,8 @@ public class GoStampAction extends ActionSupport implements SessionAware {
 			return result;
 		}
 
-		ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
-		StampDAO stampdao = new StampDAO();
-		stampList = stampdao.stampGet(userId);
-
-		StampIndex stInd = new StampIndex();
-		stList = stInd.StampOrder(stampList);
-		count = stList.size();
+		StampDAO dao = new StampDAO();
+		stampPackageList = dao.getStampPackageList(userId);
 		return result;
 	}
 
@@ -60,29 +48,11 @@ public class GoStampAction extends ActionSupport implements SessionAware {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public int getReceiverId() {
-		return receiverId;
+	public ArrayList<StampPackageDTO> getStList() {
+		return stampPackageList;
 	}
-	public void setReceiverId(int receiverId) {
-		this.receiverId = receiverId;
-	}
-	public ArrayList<StampTypeDTO> getStList() {
-		return stList;
-	}
-	public void setStList(ArrayList<StampTypeDTO> stList) {
-		this.stList = stList;
-	}
-	public int getCount() {
-		return count;
-	}
-	public void setCount(int count) {
-		this.count = count;
-	}
-	public int getMsgCount() {
-		return msgCount;
-	}
-	public void setMsgCount(int msgCount) {
-		this.msgCount = msgCount;
+	public void setStList(ArrayList<StampPackageDTO> stList) {
+		this.stampPackageList = stList;
 	}
 	public ArrayList<UserDTO> getMsgList() {
 		return msgList;

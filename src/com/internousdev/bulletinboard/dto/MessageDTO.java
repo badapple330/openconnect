@@ -24,8 +24,10 @@ public class MessageDTO {
 	private String groupName;
 	/** 送信内容 */
 	private String text;
-	/** 添付画像 */
-	private String img;
+	/** スタンプID */
+	private int stampId;
+	/** スタンプ */
+	private String stamp;
 	/** 投稿日時 */
 	private String createdAt ;
 	/** グループイメージ */
@@ -82,11 +84,17 @@ public class MessageDTO {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public String getImg() {
-		return img;
+	public int getStampId() {
+		return stampId;
 	}
-	public void setImg(String img) {
-		this.img = img;
+	public void setStampId(int stampId) {
+		this.stampId = stampId;
+	}
+	public String getStamp() {
+		return stamp;
+	}
+	public void setStamp(String stamp) {
+		this.stamp = stamp;
 	}
 	public String getCreatedAt() {
 		return createdAt;

@@ -251,8 +251,8 @@
             <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
             <h6 class="timeArea" title="<s:property value="(createdAt.substring(0,19))"/>"></h6>
           </div>
-          <s:if test="img.startsWith('pic/stamp')">
-            <img class="stamp_right" src="<s:property value="img"/>">
+          <s:if test="stamp.startsWith('pic/stamp')">
+            <img class="stamp_right" src="<s:property value="stamp"/>">
           </s:if>
           <s:else>
             <pre style="float: right; background-color: #9FF9FF; text-align: left; margin-right: 60px;"><s:property value="text" /></pre>
@@ -268,8 +268,8 @@
             <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
             <h6 class="timeArea" title="<s:property value="(createdAt.substring(0,19))"/>"></h6>
           </div>
-          <s:if test="img.startsWith('pic/stamp')">
-            <img class="stamp_left" src="<s:property value="img"/>">
+          <s:if test="stamp.startsWith('pic/stamp')">
+            <img class="stamp_left" src="<s:property value="stamp"/>">
           </s:if>
           <s:else>
             <pre style="float: left; margin-left: 60px;"><s:property value="text" /></pre>

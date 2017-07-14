@@ -37,10 +37,17 @@ public class ChatDAO {
 		try{
 			if(isGroupChat){
 				sql1 = ""
-						+"SELECT m.*, user_name, user_icon, coalesce(is_read, 0) AS is_read from ( "
-						+	"SELECT message_id, receiver_id, sender_id, group_id, text, img, created_at "
+						+"SELECT m.*, user_name, user_icon, stamp, coalesce(is_read, 0) AS is_read from ( "
+						+	"SELECT message_id, receiver_id, sender_id, group_id, text, stamp_id, created_at "
 						+	"FROM messages WHERE group_id = ? "
+						+	"ORDER BY message_id ASC "
 						+") AS m "
+						+"LEFT JOIN ( "
+						+	"SELECT stamp_id, stamp FROM stamps WHERE stamp_id IN ( "
+						+		"SELECT stamp_id FROM messages WHERE group_id = ? "
+						+	") "
+						+") AS s "
+						+"ON m.stamp_id = s.stamp_id "
 						+"INNER JOIN ( "
 						+	"SELECT user_id, user_name, user_icon FROM users WHERE user_id IN ( "
 						+		"SELECT user_id FROM members WHERE group_id = ? "
@@ -50,38 +57,51 @@ public class ChatDAO {
 						+"LEFT JOIN ( "
 						+	"SELECT *, true AS is_read FROM read_flg WHERE user_id = ? "
 						+") AS r "
-						+"ON m.message_id = r.message_id "
-						+"ORDER BY m.message_id ASC ";
+						+"ON m.message_id = r.message_id; ";
 				ps1 = con.prepareStatement(sql1);
 				ps1.setInt(1, groupId);
 				ps1.setInt(2, groupId);
-				ps1.setInt(3, senderId);
+				ps1.setInt(3, groupId);
+				ps1.setInt(4, senderId);
 			} else {
 				sql1 = ""
-						+ "SELECT m.*, user_name, user_icon, coalesce(is_read, 0) AS is_read FROM ( "
-						+	"SELECT user_id, user_name, user_icon FROM users WHERE user_id = ? OR user_id = ? "
-						+") AS u "
-						+"INNER JOIN ( "
-						+	"SELECT message_id, receiver_id, sender_id, group_id, text, img, created_at FROM messages "
+						+"SELECT m.*, user_name, user_icon, stamp, coalesce(is_read, 0) AS is_read FROM ( "
+						+	"SELECT message_id, receiver_id, sender_id, group_id, text, stamp_id, created_at FROM messages "
 						+	"WHERE receiver_id = ? AND sender_id = ? "
 						+	"UNION "
-						+	"SELECT message_id, receiver_id, sender_id, group_id, text, img, created_at FROM messages "
+						+	"SELECT message_id, receiver_id, sender_id, group_id, text, stamp_id, created_at FROM messages "
 						+	"WHERE receiver_id = ? AND sender_id = ? "
+						+	"ORDER BY message_id ASC "
 						+") AS m "
+						+"LEFT JOIN ( "
+						+	"SELECT stamp_id, stamp FROM stamps WHERE stamp_id IN ( "
+						+		"SELECT stamp_id FROM messages WHERE receiver_id = ? AND sender_id = ? "
+						+		"UNION "
+						+		"SELECT stamp_id FROM messages WHERE receiver_id = ? AND sender_id = ? "
+						+	") "
+						+") AS s "
+						+"ON m.stamp_id = s.stamp_id "
+						+"INNER JOIN ( "
+						+	"SELECT user_id, user_name, user_icon FROM users WHERE user_id = ? OR user_id = ? "
+						+") AS u "
 						+"ON u.user_id = m.sender_id "
 						+"LEFT JOIN ( "
-						+"	SELECT *, true AS is_read FROM read_flg WHERE user_id = ? "
+						+	"SELECT *, true AS is_read FROM read_flg WHERE user_id = ? "
 						+") AS r "
-						+"ON m.message_id = r.message_id "
-						+"ORDER BY m.message_id ASC;";
+						+"ON m.message_id = r.message_id ;";
+
 				ps1 = con.prepareStatement(sql1);
 				ps1.setInt(1, senderId);
 				ps1.setInt(2, receiverId);
-				ps1.setInt(3, senderId);
-				ps1.setInt(4, receiverId);
-				ps1.setInt(5, receiverId);
-				ps1.setInt(6, senderId);
-				ps1.setInt(7, senderId);
+				ps1.setInt(3, receiverId);
+				ps1.setInt(4, senderId);
+				ps1.setInt(5, senderId);
+				ps1.setInt(6, receiverId);
+				ps1.setInt(7, receiverId);
+				ps1.setInt(8, senderId);
+				ps1.setInt(9, senderId);
+				ps1.setInt(10, receiverId);
+				ps1.setInt(11, senderId);
 			}
 			ResultSet rs = ps1.executeQuery();
 
@@ -94,9 +114,10 @@ public class ChatDAO {
 				dto.setSenderName(rs.getString("user_name"));//送信者名
 				dto.setSenderImg(rs.getString("user_icon"));//送信者画像
 				dto.setText(rs.getString("text")); //送信内容
-				dto.setImg(rs.getString("img")); //添付画像・スタンプ
-				if((dto.getImg()) == null){
-					dto.setImg("");
+				dto.setStampId(rs.getInt("stamp_id")); //スタンプID
+				dto.setStamp(rs.getString("stamp")); //スタンプ
+				if((dto.getStamp()) == null){
+					dto.setStamp("");
 				}
 				dto.setCreatedAt(rs.getString("created_at")); //投稿日時
 				dto.setIsRead(rs.getBoolean("is_read"));//既読情報
@@ -150,7 +171,7 @@ public class ChatDAO {
 	}
 
 
-  public int insertMessage(int senderId, int receiverId, int groupId, String text, String img){
+  public int insertMessage(int senderId, int receiverId, int groupId, String text, int stampId){
 	    Connection con = new MySqlConnector("openconnect").getConnection();
 
 	    int inserted=0;
@@ -158,11 +179,11 @@ public class ChatDAO {
 	    String sql="";
 
 	    if(groupId !=0){
-	    	 sql = "insert into messages (sender_id, group_id, text, img) values (?, ?, ?, ?)";
+	    	 sql = "insert into messages (sender_id, group_id, text, stamp_id) values (?, ?, ?, ?)";
 	    	 k=1;
 	    }
 	    else if(receiverId != 0){
-	    	sql = "insert into messages (sender_id, receiver_id, text, img) values (?, ?, ?, ?) ";
+	    	sql = "insert into messages (sender_id, receiver_id, text, stamp_id) values (?, ?, ?, ?) ";
 	    	k=2;
 	    }
 
@@ -173,13 +194,13 @@ public class ChatDAO {
 	    		ps.setInt(1, senderId);
 	    		ps.setInt(2, groupId);
 	    		ps.setString(3, text);
-	    		ps.setString(4, img);
+	    		ps.setInt(4, stampId);
 	    	}
 	    	if(k==2) {
 	    		ps.setInt(1, senderId);
 	    		ps.setInt(2, receiverId);
 	    		ps.setString(3, text);
-	    		ps.setString(4, img);
+	    		ps.setInt(4, stampId);
 	    	}
 	    	inserted = ps.executeUpdate();
 

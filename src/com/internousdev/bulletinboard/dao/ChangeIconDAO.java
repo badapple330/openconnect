@@ -33,8 +33,7 @@ public class ChangeIconDAO {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				StampDTO dto = new StampDTO();
-				dto.setStampId(rs.getInt("img_id"));
-				dto.setUrl(rs.getString("url"));
+				dto.setStamp(rs.getString("url"));
 				stampList.add(dto);
 				}
 		}catch(SQLException e){
