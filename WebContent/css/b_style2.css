@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic,
+  "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.none{
+  display: none;
+}
+.user_icon{
+  height: 50px;
+  flex: 0 0 50px;
+  border-radius: 10%;
+}
+pre{
+  margin: 0;
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: break-word;
+  word-wrap: break-word;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic,
+  "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+}
+
+textarea {
+  resize: none;
+}
+.toast{
+    position: fixed;
+    bottom: 50px;
+    display: inline-block;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border-radius: 15px;
+    padding: 8px 15px;
+    border: none;
+    z-index: 1000;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    font-size:13px;
+}

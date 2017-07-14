@@ -1,0 +1,93 @@
+@CHARSET "UTF-8";
+.group_list{
+  max-width: 600px;
+  margin: 0 auto;
+}
+.group{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0px;
+  border: 0px;
+  border-bottom: 2px solid rgba(0,0,0,0.2);  /* 色！ */
+  background-color: silver;       /* 色！ */
+  border-radius: 1vw;
+}
+.group_icon{
+  height: 16vw;
+  width: 16vw;
+  margin: 2vw;
+  max-height: 96px;
+  max-width: 96px;
+  border-radius: 50%;
+}
+.group_body{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 20vw;
+  width: 60vw;
+  max-height: 120px;
+  max-width: 360px;
+  padding: 1vw;
+}
+.group_name{
+  font-size: 4.5vw;
+  text-align: left;
+}
+.last_msg{
+  font-size: 4vw;
+  text-align: left;
+  opacity: 0.7;
+  /* ▼▼はみ出した部分に三点リーダを表示する（ただし、一行になる） */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.group_info{
+  height: 20vw;
+  width: 20vw;
+  max-height: 120px;
+  max-width: 120px;
+  padding: 1vw;
+  text-align: right;
+}
+.last_msg_time{
+  vertical-align: top;
+  margin: 1vw 1vw auto auto;
+  font-size: 3vw;
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 600px){
+  .chat{
+    border-radius: 12px;
+  }
+  .group{
+    height: 122px;
+    border-radius: 6px;
+  }
+  .group_icon{
+    margin: 12px;
+  }
+  .group_body{
+    height: 120px;
+    width: 360px;
+    padding: 6px;
+  }
+  .group_name{
+    font-size: 27px;
+  }
+  .last_msg{
+    font-size: 24px;
+  }
+  .group_info{
+    height: 120px;
+    width: 120px;
+    padding: 6px;
+  }
+  .last_msg_time{
+    font-size: 18px;
+  }
+}

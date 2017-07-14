@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+#message_area{
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.system_message{
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 0.8em;
+  margin: 0.4em;
+  padding: 0.4em 0.8em;
+  border-radius: 0.8em;
+}
+.message_right{
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 1em 5px 1em 15px;
+}
+.message_left{
+  display: flex;
+  margin: 1em 15px 1em 5px;
+}
+.text_container_right{
+  margin: 0 10px 0 5px;
+}
+.text_container_left{
+  margin: 0 5px 0 10px;
+}
+.sender_name_right{
+  margin-bottom: 3px;
+  text-align: right;
+}
+.sender_name_left{
+  margin-bottom: 3px;
+  text-align: left;
+}
+/* 吹き出し共通 */
+.text {
+  max-width: calc(100vw - 150px);
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+}
+.text:after {
+  position: absolute;
+  content: " ";
+  height: 0;
+  width: 0;
+}
+/* 吹き出し右上 */
+.bubble_right {
+  background-color: #7CFC00;
+}
+.bubble_right:after {
+  right: -10px;
+  top: 5px;
+  border-top: 20px solid #7CFC00;
+  border-right: 20px solid transparent;
+}
+/* 吹き出し左上 */
+.bubble_left {
+  background-color: #FFFFFF;
+}
+.bubble_left:after {
+  left: -10px;
+  top: 5px;
+  border-top: 20px solid #FFFFFF;
+  border-left: 20px solid transparent;
+}
+.time{
+  align-self: flex-end;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background-color: gray;
+}
+#message_form{
+  padding: 3px;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 auto;
+  height: auto;
+}
+
+#message_input{
+  flex: 1;
+  line-height: 20px;
+  max-height: 75px;
+}
+@media screen and (min-width: 600px){
+  .text {
+    max-width: 450px;
+  }
+}
