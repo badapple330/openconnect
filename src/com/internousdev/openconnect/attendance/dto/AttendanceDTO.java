@@ -51,7 +51,7 @@ public class AttendanceDTO {
 	 */
 	private String givenNameKanji;
 	/**
-	 * かな性
+	 * かな姓
 	 */
 	private String familyNameKana;
 	/**
@@ -190,7 +190,7 @@ public class AttendanceDTO {
 		this.givenNameKanji = givenNameKanji;
 	}
 	/**
-	* 取得メソッド かな性を取得
+	* 取得メソッド かな姓を取得
 	* @author MINORI SUNAGAWA
 	* @return familyNameKana
 	*/
