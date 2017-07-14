@@ -58,7 +58,7 @@
 							<!-- 表示用の日時 -->
 						<tr>
 							<!-- 表示用の日時 -->
-							<th>日 時：</th>
+							<th>　　日時：</th>
 							<td class="ymd" style="white-space: nowrap;"></td>
 						</tr>
 						<!-- 						<tr> -->
