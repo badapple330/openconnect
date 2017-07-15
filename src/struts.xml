@@ -649,8 +649,8 @@
     </action>
 
 		<!-- グループの追加 -->
-		<action name="GroupAddAction"
-			class="com.internousdev.bulletinboard.action.GroupAddAction" method="execute">
+		<action name="CreateGroupAction"
+			class="com.internousdev.bulletinboard.action.CreateGroupAction" method="execute">
 			<result name="success" type="redirectAction">GoGroupAction</result>
 			<result name="error" type="redirectAction">GoGroupAction</result>
 		</action>
@@ -797,7 +797,7 @@
 			<!-- tokenのinterceptor -->
 			<interceptor-ref name="token" />
 			<result name="invalid.token" type="redirectAction">GoGroupAction</result>
-			<result type="chain">GroupAddAction</result>
+			<result type="chain">CreateGroupAction</result>
 		</action>
 
 
