@@ -11,7 +11,7 @@ import com.internousdev.bulletinboard.dao.ChangeIconDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class UpdateUserIconAction extends ActionSupport implements SessionAware{
+public class ChangeUserIconAction extends ActionSupport implements SessionAware{
 
 		/** シリアルID */
 		private static final long serialVersionUID = -7129551593360374656L;

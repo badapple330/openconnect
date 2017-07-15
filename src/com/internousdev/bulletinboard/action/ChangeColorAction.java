@@ -14,7 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internousdev
  *
  */
-public class ColorChangeAction extends ActionSupport implements SessionAware{
+public class ChangeColorAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 	

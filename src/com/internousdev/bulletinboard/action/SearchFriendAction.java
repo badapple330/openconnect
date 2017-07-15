@@ -9,7 +9,7 @@ import com.internousdev.bulletinboard.dao.FriendSearchDAO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class FriendSearchAction extends ActionSupport implements SessionAware{
+public class SearchFriendAction extends ActionSupport implements SessionAware{
 
 	/** ユーザーID */
 	private int userId;

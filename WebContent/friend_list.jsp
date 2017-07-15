@@ -70,7 +70,7 @@
 									<s:else>
 										<div class="square_btn">
 											<a
-												href="<s:url action="GroupMemberAddAction"><s:param name="addMemberList" value="usersList.get(#i.index).userId"/></s:url>">
+												href="<s:url action="AddGroupMemberAction"><s:param name="addMemberList" value="usersList.get(#i.index).userId"/></s:url>">
 												グループに追加する</a>
 										</div>
 									</s:else>

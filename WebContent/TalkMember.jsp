@@ -73,7 +73,7 @@
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
 				<h4 class="modal-title">友達を検索する</h4>
 			</div>
-			<s:form action="FriendSearchAction">
+			<s:form action="SearchFriendAction">
 			<s:hidden name="viewId"></s:hidden>
 			<div class="modal-body">
 				<input type="text" name="userName" maxlength="50" required placeholder="名前を入力してください" class="groupName">

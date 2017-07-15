@@ -61,7 +61,7 @@
 		<h2>グループメンバーの追加</h2>
 			<br><br>
 
-	<form action="GroupMemberAddAction" id="memberSend" onSubmit="return check()">
+	<form action="AddGroupMemberAction" id="memberSend" onSubmit="return check()">
 		<h4>左のセレクトボックスから、追加するメンバーを選択してください</h4>
 
 		<br><br>

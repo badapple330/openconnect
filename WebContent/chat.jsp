@@ -105,7 +105,7 @@
                 <li><a data-toggle="modal" class="cursor"
                   onclick="document.memberform.submit();return false;">フォローリストからメンバーを追加</a>
                   <form name="memberform"
-                    action="GoGroupMemberAddAction">
+                    action="GoAddGroupMemberAction">
                     <s:hidden theme="simple" name="groupId"
                       value="%{groupId}"><s:hidden name="groupName"></s:hidden></s:hidden>
                   </form></li>
@@ -130,7 +130,7 @@
     	      </button>
     	      <h4 class="modal-title">グループ名更新(30字以内)</h4>
     	    </div>
-    	    <s:form action="GroupNameChangeAction">
+    	    <s:form action="ChangeGroupNameAction">
     	    <div class="modal-body">
     	    	<textarea name="groupName" class="form-control" rows="1" maxlength="30" style="list-area:none; resize:none;"><s:property value="groupName"/></textarea>
     	    </div>
@@ -152,7 +152,7 @@
             </button>
             <h4 class="modal-title">画像を変更する</h4>
           </div>
-          <s:form action="UpdateGroupIconAction">
+          <s:form action="ChangeGroupIconAction">
           <div class="modal-body">
           	<s:iterator value="groupIconList" status="rs">
           	<s:if test="%{#rs.count%2==0}">
@@ -200,7 +200,7 @@
             </button>
             <h4 class="modal-title">友達を検索する</h4>
           </div>
-          <s:form action="FriendSearchAction">
+          <s:form action="SearchFriendAction">
             <s:hidden theme="simple" name="groupId" value="%{groupId}"></s:hidden>
             <div class="modal-body">
               <input type="text" name="userName" maxlength="50" required
@@ -225,7 +225,7 @@
             </button>
             <h4 class="modal-title">グループを脱退する</h4>
           </div>
-          <s:form action="MemberRemoveAction">
+          <s:form action="LeaveGroupAction">
             <div class="modal-body">
               <p>グループから脱退すると、これまでの投稿も閲覧できなくなります。よろしいですか？</p>
             </div>

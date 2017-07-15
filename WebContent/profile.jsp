@@ -276,7 +276,7 @@
                             </button>
                             <h4 class="modal-title">画像を変更する</h4>
                           </div>
-                          <s:form action="UpdateUserIconAction">
+                          <s:form action="ChangeUserIconAction">
                             <div class="modal-body">
                               <s:iterator value="userIconList" status="rs">
                                 <s:if test="%{#rs.count%2==0}">
@@ -396,7 +396,7 @@
             <h3 class="modal-title">カラー変更</h3>
           </div>
           <div class="modal-body">
-            <s:form action="ColorChangeAction">
+            <s:form action="ChangeColorAction">
               <div class="form-group">
                 <label style="width: 200px;">ヘッダー</label> <input
                   class="jscolor  {hash:true}" name="ColorH"

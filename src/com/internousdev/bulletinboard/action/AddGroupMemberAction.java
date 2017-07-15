@@ -11,7 +11,7 @@ import com.internousdev.bulletinboard.dao.UserDAO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GroupMemberAddAction extends ActionSupport implements SessionAware{
+public class AddGroupMemberAction extends ActionSupport implements SessionAware{
 
 	/** ユーザーID */
 	private int userId=0;

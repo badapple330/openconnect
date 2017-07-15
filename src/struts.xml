@@ -614,7 +614,7 @@
 			<result name="error"> profile.jsp</result>
 		</action>
 
-		<action name="UpdateUserIconAction" class="com.internousdev.bulletinboard.action.UpdateUserIconAction" method="execute">
+		<action name="ChangeUserIconAction" class="com.internousdev.bulletinboard.action.ChangeUserIconAction" method="execute">
 		<result name="success" type="redirectAction">GoProfileAction</result>
 		<result name="error"> profile.jsp</result>
 		</action>
@@ -665,40 +665,40 @@
 		</action>
 
 		<!-- グループメンバー追加画面への遷移 -->
-		<action name="GoGroupMemberAddAction"
-			class="com.internousdev.bulletinboard.action.GoGroupMemberAddAction"
+		<action name="GoAddGroupMemberAction"
+			class="com.internousdev.bulletinboard.action.GoAddGroupMemberAction"
 			method="execute">
-			<result name="success">groupMemberAdd.jsp</result>
+			<result name="success">add_group_member.jsp</result>
 			<result name="error" type="redirectAction">GoChatAction</result>
 		</action>
 
 		<!-- グループメンバー追加 -->
-		<action name="GroupMemberAddAction"
-			class="com.internousdev.bulletinboard.action.GroupMemberAddAction"
+		<action name="AddGroupMemberAction"
+			class="com.internousdev.bulletinboard.action.AddGroupMemberAction"
 			method="execute">
 			<result name="success" type="redirectAction">GoChatAction</result>
 			<result name="error" type="redirectAction">GoChatAction</result>
 		</action>
 
 		<!-- グループの名称更新 -->
-		<action name="GroupNameChangeAction"
-			class="com.internousdev.bulletinboard.action.GroupNameChangeAction"
+		<action name="ChangeGroupNameAction"
+			class="com.internousdev.bulletinboard.action.ChangeGroupNameAction"
 			method="execute">
 			<result name="success" type="redirectAction">GoChatAction</result>
 			<result name="error" type="redirectAction">GoChatAction</result>
 		</action>
 
 		<!-- グループの画像更新 -->
-		<action name="UpdateGroupIconAction"
-			class="com.internousdev.bulletinboard.action.UpdateGroupIconAction"
+		<action name="ChangeGroupIconAction"
+			class="com.internousdev.bulletinboard.action.ChangeGroupIconAction"
 			method="execute">
 			<result name="success" type="redirectAction">GoChatAction</result>
 			<result name="error" type="redirectAction">GoChatAction</result>
 		</action>
 
 		<!-- グループメンバー削除 -->
-		<action name="MemberRemoveAction"
-			class="com.internousdev.bulletinboard.action.MemberRemoveAction"
+		<action name="LeaveGroupAction"
+			class="com.internousdev.bulletinboard.action.LeaveGroupAction"
 			method="execute">
 			<result name="success" type="redirectAction">GoGroupAction</result>
 			<result name="error" type="redirectAction">GoGroupAction</result>
@@ -717,7 +717,7 @@
 			method="execute">
 			<result name="success" type="chain">GoProfileAction</result>
 			<result name="error" type="chain">GoProfileAction</result>
-			<result name="GoTalk" type="redirectAction">FriendSearchAction</result>
+			<result name="GoTalk" type="redirectAction">SearchFriendAction</result>
     </action>
 
 		<action name="UnfollowAction"
@@ -741,8 +741,8 @@
 			<result name="error">login.jsp</result>
 		</action>
 
-		<action name="FriendSearchAction"
-			class="com.internousdev.bulletinboard.action.FriendSearchAction"
+		<action name="SearchFriendAction"
+			class="com.internousdev.bulletinboard.action.SearchFriendAction"
 			method="execute">
 			<result name="success">friend_list.jsp</result>
 			<result name="error"> friend_list.jsp</result>
@@ -775,8 +775,8 @@
 			<result name="error">addsite.jsp</result>
 		</action>
 
-		<action name="ColorChangeAction"
-			class="com.internousdev.bulletinboard.action.ColorChangeAction"
+		<action name="ChangeColorAction"
+			class="com.internousdev.bulletinboard.action.ChangeColorAction"
 			method="execute">
 			<result name="success" type="redirectAction">GoProfileAction</result>
 			<result name="error">login.jsp</result>

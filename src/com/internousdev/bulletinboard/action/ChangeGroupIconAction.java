@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 
-public class UpdateGroupIconAction extends ActionSupport implements SessionAware{
+public class ChangeGroupIconAction extends ActionSupport implements SessionAware{
 	
 	/** シリアルID */
 	private static final long serialVersionUID = -7129551593360374656L;

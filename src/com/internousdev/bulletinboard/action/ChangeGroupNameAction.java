@@ -10,7 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.bulletinboard.dao.GroupNameDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GroupNameChangeAction extends ActionSupport implements SessionAware{
+public class ChangeGroupNameAction extends ActionSupport implements SessionAware{
 	
 	/** グループID */
 	private int groupId;
