@@ -13,7 +13,7 @@
       <li><a href="#"><img src="<s:property value="stampList.get(0).stamp"/>" height="50px"></a>
         <div class="stamps">
           <s:iterator value="stampList">
-            <s:form action="SubmitMessageAction">
+            <s:form action="SendMessageAction">
               <s:hidden name="receiverId" />
               <s:hidden name="groupId" />
               <s:hidden name="groupName" />

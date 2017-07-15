@@ -223,7 +223,7 @@
   </div>
   <footer>
     <s:set name="currentUserId" value="%{userId}"></s:set>
-    <s:form action="SubmitMessageAction" id="message_form" target="dummy_iframe">
+    <s:form action="SendMessageAction" id="message_form" target="dummy_iframe">
       <s:hidden name="groupId" value="%{groupId}"></s:hidden>
       <!-- 入力フォーム -->
       <textarea name="text" id="message_input" ></textarea>

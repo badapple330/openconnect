@@ -77,7 +77,7 @@
             <h4 class="modal-title">ポストを投稿する</h4>
           </div>
 
-          <s:form action="SubmitPostAction" name="tlSend" onSubmit="return check()" id="tl">
+          <s:form action="SendPostAction" name="tlSend" onSubmit="return check()" id="tl">
             <div class="modal-body">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -129,7 +129,7 @@
                   <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                   <h4 class="modal-title">この投稿に返信する</h4>
                 </div>
-                <s:form action="SubmitPostAction">
+                <s:form action="SendPostAction">
                   <div class="modal-body">
                     <pre class="text"><s:property value="text" /></pre>
                     <textarea name="reText" class="form-control" rows="10" cols="80%" maxlength="205"></textarea>
@@ -213,7 +213,7 @@
                 <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                 <h4 class="modal-title">この投稿に返信する</h4>
               </div>
-              <s:form action="SubmitPostAction">
+              <s:form action="SendPostAction">
                 <div class="modal-body">
                   <pre class="text"><s:property value="text" /></pre>
                   <textarea name="reText" class="form-control" rows="10" cols="80%" maxlength="205"></textarea>

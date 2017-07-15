@@ -301,7 +301,7 @@
   <div class = "nonbs-send-form" style ="background-color:<s:property value="#session.fColor"/>;">
 
 <div class="nonbs-panel-body">
-<s:form action="SubmitMessageAction">
+<s:form action="SendMessageAction">
   <div class="nonbs-form-group">
       <textarea name="text" class="nonbs-form-control" maxlength="255" ></textarea>
   </div><s:hidden name="receiverId" /><s:hidden name="groupId" /><s:hidden name="groupName" /><s:hidden name="friendsName" />

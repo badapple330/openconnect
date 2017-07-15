@@ -10,7 +10,7 @@ import com.internousdev.bulletinboard.dao.UserDAO;
 import com.internousdev.bulletinboard.dto.PostDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class SubmitPostAction extends ActionSupport implements SessionAware{
+public class SendPostAction extends ActionSupport implements SessionAware{
 	/** ユーザーID */
 	private int userId;
 	/** 送信内容 */

@@ -100,13 +100,6 @@ public class GoChatAction2 extends ActionSupport implements SessionAware {
 		ChangeIconDAO ICdao = new ChangeIconDAO();
 		groupIconList = ICdao.getGroupIcon();
 
-//		ArrayList<StampDTO> stampList = new ArrayList<StampDTO>();
-//		StampDAO stampdao = new StampDAO();
-//		stampList = stampdao.getStampPackageList(userId);
-
-//		StampIndex stInd = new StampIndex();
-//		stList = stInd.StampOrder(stampList);
-//		count = stList.size();
 		return result;
 	}
 

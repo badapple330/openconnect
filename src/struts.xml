@@ -578,8 +578,8 @@
     </action>
 
 		<!-- チャット画面チャット送信時 -->
-		<action name="SubmitMessageAction"
-			class="com.internousdev.bulletinboard.action.SubmitMessageAction" method="execute">
+		<action name="SendMessageAction"
+			class="com.internousdev.bulletinboard.action.SendMessageAction" method="execute">
 			<result name="success" type="chain">GoChatAction</result>
 			<result name="error">login.jsp</result>
 		</action>
@@ -593,8 +593,8 @@
 		</action>
 
 		<!-- タイムラインの投稿 -->
-		<action name="SubmitPostAction"
-			class="com.internousdev.bulletinboard.action.SubmitPostAction"
+		<action name="SendPostAction"
+			class="com.internousdev.bulletinboard.action.SendPostAction"
 			method="execute">
 			<result name="success" type="redirectAction">GoTimelineAction</result>
 			<result name="error" type="redirectAction">GoTimelineAction</result>
@@ -644,7 +644,8 @@
     <action name="GoGroupAction2"
       class="com.internousdev.bulletinboard.action.GoGroupAction" method="execute">
       <result name="success"> group2.jsp</result>
-      <result name="error"> login.jsp</result>
+      <result name="error"> group2.jsp</result>
+      <result name="login"> login.jsp</result>
     </action>
 
 		<!-- グループの追加 -->

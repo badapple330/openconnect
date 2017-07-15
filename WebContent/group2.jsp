@@ -25,7 +25,7 @@
       <button class="group" type="submit">
         <img class="group_icon" alt="グループアイコン" src="<s:property value="groupList.get(#i.index).groupIcon"/>">
         <div class="group_body">
-          <div class="group_name"><s:property value="groupList.get(#i.index).name"/></div>
+          <div class="group_name"><s:property value="groupList.get(#i.index).groupName"/></div>
             <s:if test="groupList.get(#i.index).lastMsg != null">
               <div class="last_msg">
                 <s:property value="groupList.get(#i.index).lastMsg" />
