@@ -178,13 +178,12 @@
                   <s:iterator value="followList">
                     <div class="friends-container">
 
-                      <a
-                        href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                        <img src="<s:property value="userIcon"/>"
-                        style="height: 50px; width: 50px;"
-                        class="border_radius" alt="" width="50"
-                        height="50"> <s:property value="userName" />
-                        Lv:<s:property value="userLevel " /> </a>
+                      <a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>">
+                        <BR>
+                        <img src="<s:property value="userIcon"/>" style="height: 50px; width: 50px;"
+                        class="border_radius" alt="" width="50" height="50"> <s:property value="userName" />
+                        Lv:<s:property value="userLevel " />
+                      </a>
                     </div>
                   </s:iterator>
 
@@ -219,13 +218,12 @@
                   <s:iterator value="followerList">
                     <div class="friends-container">
 
-                      <a
-                        href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>"><BR>
-                        <img src="<s:property value="userIcon"/>"
-                        style="height: 50px; width: 50px;"
-                        class="border_radius" alt="" width="50"
-                        height="50"> <s:property value="userName" />
-                        Lv:<s:property value="userLevel " /> </a>
+                      <a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>">
+                        <BR>
+                        <img src="<s:property value="userIcon"/>" style="height: 50px; width: 50px;"
+                        class="border_radius" alt="" width="50" height="50"> <s:property value="userName" />
+                        Lv:<s:property value="userLevel " />
+                      </a>
                     </div>
                   </s:iterator>
                 </div>
@@ -281,14 +279,18 @@
                               <s:iterator value="userIconList" status="rs">
                                 <s:if test="%{#rs.count%2==0}">
                                   <div style="float: left">
-                                    <input type="radio" name="icon" value="<s:property value="icon"/>"
-                                      style="background:url(<s:property value="icon"/>);background-size:100% 100%;">
+                                    <label>
+                                      <input type="radio" class="none" name="icon" value="<s:property value="icon"/>">
+                                      <span class="icon" style="background-image: url(<s:property value="icon"/>);" ></span>
+                                    </label>
                                   </div>
                                 </s:if>
                                 <s:else>
                                   <div style="float: left; background-color: #dddddd;">
-                                    <input type="radio" name="icon" value="<s:property value="icon" />"
-                                    src="<s:property value="icon"/>">
+                                    <label>
+                                      <input type="radio" class="none" name="icon" value="<s:property value="icon" />">
+                                      <span class="icon" style="background-image: url(<s:property value="icon"/>);" ></span>
+                                    </label>
                                   </div>
                                 </s:else>
                               </s:iterator>
