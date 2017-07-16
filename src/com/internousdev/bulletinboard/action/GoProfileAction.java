@@ -9,7 +9,6 @@ import com.internousdev.bulletinboard.dao.ChangeIconDAO;
 import com.internousdev.bulletinboard.dao.FollowDAO;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.ProfileDAO;
-import com.internousdev.bulletinboard.dao.UpdateProfileDAO;
 import com.internousdev.bulletinboard.dto.IconDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -44,7 +43,7 @@ public class GoProfileAction extends ActionSupport implements SessionAware {
 	/** BIO */
 	private String profile;
 	/**  */
-	private int checkValue;
+	private boolean isFollowing;
 	private int talkInfo = 0;
 	private int groupInfo = 0;
 	/** プロフィールリスト */
@@ -72,24 +71,15 @@ public class GoProfileAction extends ActionSupport implements SessionAware {
 			viewId = dao.getViewId(snsId.substring(1));
 		}
 
-		boolean checkIdFlag = false;
-
 		if (viewId == 0) {
 			viewId = userId;
 		}
 
-		UpdateProfileDAO pudao = new UpdateProfileDAO();
-		if (pudao.checkId(userId, viewId)) {
-			checkIdFlag = true;
-			checkValue = 1; //すでにフォロー済みの場合
-		} else {
-			checkValue = 0;//未フォローの場合
-		}
+		FollowDAO fdao = new FollowDAO();
+		isFollowing = fdao.chaeckIfFollowing(userId, viewId);
 
 		ProfileDAO dao = new ProfileDAO();
 		setMyData(dao.select(viewId));
-
-		FollowDAO fdao = new FollowDAO();
 
 		followList = fdao.getFollowList(viewId);
 		setFollowNum((followList.size()));
@@ -237,12 +227,12 @@ public class GoProfileAction extends ActionSupport implements SessionAware {
 		this.viewId = viewId;
 	}
 
-	public int getCheckValue() {
-		return checkValue;
+	public boolean getIsFollowing() {
+		return isFollowing;
 	}
 
-	public void setCheckValue(int checkValue) {
-		this.checkValue = checkValue;
+	public void setFollowing(boolean isFollowing) {
+		this.isFollowing = isFollowing;
 	}
 
 	public int getTalkInfo() {

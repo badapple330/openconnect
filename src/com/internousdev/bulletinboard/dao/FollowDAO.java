@@ -177,4 +177,38 @@ public class FollowDAO {
 		}
 		return followerList;
 	}
+	public boolean chaeckIfFollowing(int userId, int viewId){
+		Connection con = new MySqlConnector("openconnect").getConnection();
+
+		boolean result = false;
+
+		String sql ="select followed_id from follows where follower_id=?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,userId);
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+
+				if (rs.getInt("followed_id") == viewId) {
+
+					result = true;
+					break;
+				}
+			}
+
+				}catch(SQLException e){
+					e.printStackTrace();
+
+				}finally{
+				try{
+					con.close();
+				} catch(SQLException e){
+					e.printStackTrace();
+				}
+				}
+				return result;
+
+		}
 }
