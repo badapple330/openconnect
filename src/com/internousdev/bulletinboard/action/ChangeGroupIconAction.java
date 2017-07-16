@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 public class ChangeGroupIconAction extends ActionSupport implements SessionAware{
-	
+
 	/** シリアルID */
 	private static final long serialVersionUID = -7129551593360374656L;
 
@@ -32,7 +32,7 @@ public class ChangeGroupIconAction extends ActionSupport implements SessionAware
 
 
 	/** ユーザーのポストリストの生成メソッド */
-	
+
 	public String execute() {
 		String result = ERROR;
 		if (session.containsKey("userId")) {
@@ -41,7 +41,6 @@ public class ChangeGroupIconAction extends ActionSupport implements SessionAware
 
 		if(session.containsKey("groupId")){
 			groupId = (int) session.get("groupId");
-			groupName=(String) session.get("groupName");
 		}
 
 
@@ -53,11 +52,12 @@ public class ChangeGroupIconAction extends ActionSupport implements SessionAware
 			if(0<set.setGroupIcon(groupId,url)){
 				result=SUCCESS;
 			}
-
+			System.out.println(url);
+		System.out.println("ChangeGroupIcon:" + result);
 		return result;
 	}
-	
-	
+
+
 
 
 

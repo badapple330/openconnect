@@ -5,16 +5,15 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.BtnDAO;
 import com.internousdev.bulletinboard.dao.LikeDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BtnAction extends ActionSupport implements SessionAware {
+public class LikeAction extends ActionSupport implements SessionAware {
 	/** ユーザーID */
 	private int userId = 0;
 	/** 送信者ID */
 	private int senderId;
-	/** ポストID */
+	/** 投稿ID */
 	private int postId;
 	/** お気に入りフラグ */
 	private int btn_flg = 0;
@@ -22,7 +21,6 @@ public class BtnAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	public String execute() {
-		LikeDAO like = new LikeDAO();
 		String result = ERROR;
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
@@ -31,11 +29,11 @@ public class BtnAction extends ActionSupport implements SessionAware {
 			return result;
 		}
 
+		LikeDAO dao = new LikeDAO();
 		if (btn_flg == 1) {
-			if (!(like.isLiked(userId, postId))) {
-				BtnDAO dao2 = new BtnDAO();
-				dao2.pointPlus(senderId, postId);
-				like.insertLike(userId, postId);
+			if (!(dao.isLiked(userId, postId))) {
+				dao.pointPlus(senderId, postId);
+				dao.insertLike(userId, postId);
 				result = SUCCESS;
 			}
 		}

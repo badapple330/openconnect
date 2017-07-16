@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.internousdev.bulletinboard.dto.IconDTO;
 import com.internousdev.bulletinboard.dto.StampDTO;
-import com.internousdev.bulletinboard.dto.UserDTO;
 import com.internousdev.util.db.mysql.MySqlConnector;
 
 /**
@@ -74,10 +74,10 @@ public class ChangeIconDAO {
 	}
 
 	/** ユーザーアイコン */
-	public ArrayList<UserDTO> getUserIcon(){
+	public ArrayList<IconDTO> getUserIcon(){
 
 		Connection con = new MySqlConnector("openconnect").getConnection();
-		ArrayList<UserDTO> userIconList = new ArrayList<UserDTO>();
+		ArrayList<IconDTO> userIconList = new ArrayList<IconDTO>();
 		String sql="select * from user_icon";
 
 		/////////
@@ -86,9 +86,9 @@ public class ChangeIconDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
-				UserDTO dto = new UserDTO();
-				dto.setImgId(rs.getInt("img_id"));
-				dto.setUrl(rs.getString("url"));
+				IconDTO dto = new IconDTO();
+				dto.setIconId(rs.getInt("img_id"));
+				dto.setIcon(rs.getString("url"));
 				userIconList.add(dto);
 				}
 		}catch(SQLException e){

@@ -10,7 +10,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class AddImageAction extends ActionSupport implements SessionAware{
 
-		/** シリアスコード */
 		private static final long serialVersionUID = 1L;
 
 		/** ユーザーID */
@@ -30,7 +29,7 @@ public class AddImageAction extends ActionSupport implements SessionAware{
 		 * @since 2017/06/08
 		 * @version 1.0
 		 */
-		public String execute()throws Exception{
+		public String execute() throws Exception{
 			String result = ERROR;
 
 			int inserted=0;

@@ -23,15 +23,15 @@ public class FollowDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, userId);
 			ps.setInt(2, followId);
-			if(ps.executeUpdate() > 0){
+			if (ps.executeUpdate() > 0) {
 				ret = true;
 			}
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
 				con.close();
-			} catch(SQLException e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
@@ -39,14 +39,14 @@ public class FollowDAO {
 	}
 
 	//messagesテーブルに通知を送るメソッド
-	public boolean insertString(int userId, int viewId){
+	public boolean insertString(int userId, int viewId) {
 
-		int result=0;
-		boolean insertFlag=false;
+		int result = 0;
+		boolean insertFlag = false;
 
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-	  String sql = "insert into messages (receiver_id, sender_id, text) values (?,?,?)";
+		String sql = "insert into messages (receiver_id, sender_id, text) values (?,?,?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -54,20 +54,46 @@ public class FollowDAO {
 			ps.setInt(2, userId);
 			ps.setString(3, "フォローしました");
 
-		    result = ps.executeUpdate();
+			result = ps.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-			if (result > 0) {
-				insertFlag = true;
+		if (result > 0) {
+			insertFlag = true;
 		}
 		return insertFlag;
-		}
 	}
+
+	public boolean unfollow(int userId, int viewId) {
+
+		Connection con = new MySqlConnector("openconnect").getConnection();
+
+		boolean result = false;
+		String sql = "delete from follows where follower_id = ? && followed_id = ?";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, userId);
+			ps.setInt(2, viewId);
+			if (ps.executeUpdate() > 0) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+}

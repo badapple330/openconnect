@@ -10,7 +10,8 @@ import com.internousdev.bulletinboard.dao.FollowListDAO;
 import com.internousdev.bulletinboard.dao.FollowerDAO;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.ProfileDAO;
-import com.internousdev.bulletinboard.dao.ProfileUpdateDAO;
+import com.internousdev.bulletinboard.dao.UpdateProfileDAO;
+import com.internousdev.bulletinboard.dto.IconDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -71,7 +72,7 @@ public class GoProfileAction extends ActionSupport implements SessionAware{
 	private ArrayList<UserDTO> followerList = new ArrayList<UserDTO>();
 
 	/** ポストリスト　*/
-	public ArrayList<UserDTO> userIconList = new ArrayList<UserDTO>();
+	public ArrayList<IconDTO> userIconList = new ArrayList<IconDTO>();
 
 
 	public String execute(){
@@ -94,7 +95,7 @@ public class GoProfileAction extends ActionSupport implements SessionAware{
 			viewId = userId;
 		}
 
-			ProfileUpdateDAO pudao = new ProfileUpdateDAO();
+			UpdateProfileDAO pudao = new UpdateProfileDAO();
 			if (pudao.checkId(userId,viewId)) {
 			 checkIdFlag = true;
 			 checkValue = 1; //すでにフォロー済みの場合
@@ -280,11 +281,11 @@ public class GoProfileAction extends ActionSupport implements SessionAware{
 		this.groupInfo = groupInfo;
 	}
 
-	public ArrayList<UserDTO> getUserIconList() {
+	public ArrayList<IconDTO> getUserIconList() {
 		return userIconList;
 	}
 
-	public void setUserIconList(ArrayList<UserDTO> userIconList) {
+	public void setUserIconList(ArrayList<IconDTO> userIconList) {
 		this.userIconList = userIconList;
 	}
 

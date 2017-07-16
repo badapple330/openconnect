@@ -157,11 +157,11 @@
           	<s:iterator value="groupIconList" status="rs">
           	<s:if test="%{#rs.count%2==0}">
         <div style="float:left">
-            <input type="radio" name="url" value="<s:property value="url"/>"  style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
+            <input type="radio" name="url" value="<s:property value="stamp"/>"  style="background:url(<s:property value="stamp"/>);background-size:100% 100%;">
             </div>
             </s:if><s:else>
             <div style="float:left; background-color:#dddddd;" >
-            <input type="radio" name="url" value="<s:property value="url" />"style="background:url(./<s:property value="url"/>);background-size:100% 100%;" >
+            <input type="radio" name="url" value="<s:property value="stamp" />"style="background:url(<s:property value="stamp"/>);background-size:100% 100%;" >
             </div>
 
 

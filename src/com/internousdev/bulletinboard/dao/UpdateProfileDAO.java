@@ -16,7 +16,7 @@ import com.internousdev.util.db.mysql.MySqlConnector;
  * @author internousdev
  *
  */
-public class ProfileUpdateDAO {
+public class UpdateProfileDAO {
 
 	public ArrayList<UserDTO> update(int viewId){
 		Connection con = new MySqlConnector("openconnect").getConnection();

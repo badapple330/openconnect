@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.FollowListDeleteDAO;
+import com.internousdev.bulletinboard.dao.FollowDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -15,7 +15,6 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 public class UnfollowAction extends ActionSupport implements SessionAware {
-
 
 	/** セッション */
 	private Map<String, Object> session;
@@ -26,21 +25,19 @@ public class UnfollowAction extends ActionSupport implements SessionAware {
 	/** */
 	private int viewId;
 
+	public String execute() {
 
-	public String execute(){
-
-		if(session.containsKey("userId")){
+		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
 		}
 
-		FollowListDeleteDAO dao=new FollowListDeleteDAO();
-		if(dao.delete(userId,viewId)>0){
+		FollowDAO dao = new FollowDAO();
+		if (dao.unfollow(userId, viewId)) {
 			return SUCCESS;
-		}else{
+		} else {
 			return ERROR;
 		}
 	}
-
 
 	public Map<String, Object> getSession() {
 		return session;

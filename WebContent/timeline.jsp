@@ -32,7 +32,7 @@
   <script type="text/javascript">
   <!--
   function check(){
-  if(document.tlSend.sendContents.value == ""){
+  if(document.send_post_form.text.value == ""){
     window.alert('必須項目に未入力がありました');
     return false;
     }
@@ -77,7 +77,7 @@
             <h4 class="modal-title">ポストを投稿する</h4>
           </div>
 
-          <s:form action="SendPostAction" name="tlSend" onSubmit="return check()" id="tl">
+          <s:form action="SendPostAction" name="send_post_form" onSubmit="return check()" id="tl">
             <div class="modal-body">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -237,7 +237,10 @@
           </div>
         <!-- いいね前 -->
           <s:else>
-            <s:form action="BtnAction"><s:hidden name="userId" value="%{userId}"/><s:hidden name="senderId" value="%{senderId}"/><s:hidden name="postId" value="%{postId}"/><s:hidden name="btn_flg" value="1"/>
+            <s:form action="LikeAction"><s:hidden name="userId" value="%{userId}"/>
+              <s:hidden name="senderId" value="%{senderId}"/>
+              <s:hidden name="postId" value="%{postId}"/>
+              <s:hidden name="btn_flg" value="1"/>
               <div style="text-align:right">
                 <button type="button" onClick="submit()" class="like"><img src="pic/fff.png" width= "20" height="20"></button>
               </div>

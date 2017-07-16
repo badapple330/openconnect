@@ -11,23 +11,17 @@ import com.internousdev.bulletinboard.dao.UserDAO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AddGroupMemberAction extends ActionSupport implements SessionAware{
-
+public class AddGroupMemberAction extends ActionSupport implements SessionAware {
 	/** ユーザーID */
-	private int userId=0;
-
+	private int userId = 0;
 	/** セッション */
 	private Map<String,Object> session;
-
 	/** グループID */
 	private int groupId;
-
 	/** グループ名 */
 	private String groupName;
-	
 	/** メンバーリスト */
 	private ArrayList<Integer> addMemberList = new ArrayList<Integer>();
-
 	/** メンバーリスト */
 	private ArrayList<UserDTO> memberList = new ArrayList<UserDTO>();
 

@@ -281,19 +281,15 @@
                               <s:iterator value="userIconList" status="rs">
                                 <s:if test="%{#rs.count%2==0}">
                                   <div style="float: left">
-                                    <input type="radio" name="url" value="<s:property value="url"/>"
-                                      style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
+                                    <input type="radio" name="icon" value="<s:property value="icon"/>"
+                                      style="background:url(<s:property value="icon"/>);background-size:100% 100%;">
                                   </div>
                                 </s:if>
                                 <s:else>
-                                  <div
-                                    style="float: left; background-color: #dddddd;">
-                                    <input type="radio" name="url"
-                                      value="<s:property value="url" />"
-                                      style="background:url(./<s:property value="url"/>);background-size:100% 100%;">
+                                  <div style="float: left; background-color: #dddddd;">
+                                    <input type="radio" name="icon" value="<s:property value="icon" />"
+                                    src="<s:property value="icon"/>">
                                   </div>
-
-
                                 </s:else>
                               </s:iterator>
                               <div style="clear: both"></div>

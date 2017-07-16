@@ -628,8 +628,8 @@
 		</action>
 
 		<!-- タイムラインいいね -->
-		<action name="BtnAction" method="execute"
-			class="com.internousdev.bulletinboard.action.BtnAction">
+		<action name="LikeAction" method="execute"
+			class="com.internousdev.bulletinboard.action.LikeAction">
 			<result name="success" type="redirectAction">GoTimelineAction</result>
 			<result name="error" type="redirectAction">GoTimelineAction</result>
 		</action>

@@ -11,46 +11,39 @@ import com.internousdev.bulletinboard.dao.UserDAO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CreateGroupAction extends ActionSupport implements SessionAware{
+public class CreateGroupAction extends ActionSupport implements SessionAware {
 
 	/** ユーザーID */
-	private int userId=0;
+	private int userId = 0;
 
 	/** タイムラインのリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
 
 	/** セッション */
-	private Map<String,Object> session;
+	private Map<String, Object> session;
 
 	/** グループ名 */
 	private String groupName;
-
-
 
 	public String execute() {
 		String result = ERROR;
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
 		}
-		if(userId==0){return result;}
+		if (userId == 0) {
+			return result;
+		}
 
 		GroupDAO dao = new GroupDAO();
 
-		if(dao.groupmasterAdd(groupName)!=0){
-			if(dao.createGroup(userId, groupName)!= 0){
-
-				UserDAO msgDao = new UserDAO();
-				msgDao.msgSet(userId, "グループを作成しました");
-					result = SUCCESS;
-			}else{
-				//グループマスター情報はインサートできたけど、グループ情報をインサートできなかったときの処理
-				dao.groudmasterDelete(groupName);
-			}
+		if (dao.createGroup(userId, groupName)) {
+			UserDAO msgDao = new UserDAO();
+			msgDao.msgSet(userId, "グループを作成しました");
+			result = SUCCESS;
 		}
-	return result;
+		return result;
 	}
 
-	
 	public int getUserId() {
 		return userId;
 	}
@@ -82,6 +75,5 @@ public class CreateGroupAction extends ActionSupport implements SessionAware{
 	public void setFollowList(ArrayList<UserDTO> followList) {
 		this.followList = followList;
 	}
-
 
 }

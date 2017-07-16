@@ -31,9 +31,6 @@ public class UserDTO {
 	private int followerId;
 	/** フォローされる側のID */
 	private int followedId;
-	/** URL */
-	private String url;
-
 
 	//以下アクセサリー
 
@@ -142,14 +139,6 @@ public class UserDTO {
 
 	public void setColor(String color) {
 		this.color = color;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
 	}
 
 }

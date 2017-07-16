@@ -20,7 +20,7 @@ public class ChangeUserIconAction extends ActionSupport implements SessionAware{
 		private int userId=0;
 
 		/** 画像URL */
-		private String url;
+		private String icon;
 
 		/** セッション */
 		private Map<String,Object> session;
@@ -39,7 +39,7 @@ public class ChangeUserIconAction extends ActionSupport implements SessionAware{
 
 
 				ChangeIconDAO set = new ChangeIconDAO();
-				if(0<set.setUserIcon(userId,url)){
+				if(0<set.setUserIcon(userId,icon)){
 					result=SUCCESS;
 				}
 
@@ -54,8 +54,8 @@ public class ChangeUserIconAction extends ActionSupport implements SessionAware{
 			return userId;
 		}
 
-		public String getUrl() {
-			return url;
+		public String getIcon() {
+			return icon;
 		}
 
 		public Map<String, Object> getSession() {
@@ -66,8 +66,8 @@ public class ChangeUserIconAction extends ActionSupport implements SessionAware{
 			this.userId = userId;
 		}
 
-		public void setUrl(String url) {
-			this.url = url;
+		public void setIcon(String icon) {
+			this.icon = icon;
 		}
 
 		public void setSession(Map<String, Object> session) {
