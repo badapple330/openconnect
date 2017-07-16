@@ -601,12 +601,6 @@
 		</action>
 
 		<!-- プロフィールページ関連 -->
-		<action name="ProfileAction"
-			class="com.internousdev.bulletinboard.action.ProfileAction" method="execute">
-			<result name="success"> profile.jsp</result>
-			<result name="error">login.jsp</result>
-		</action>
-
 		<action name="GoProfileAction"
 			class="com.internousdev.bulletinboard.action.GoProfileAction"
 			method="execute">

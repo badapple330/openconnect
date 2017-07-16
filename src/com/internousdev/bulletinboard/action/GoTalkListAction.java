@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.bulletinboard.dao.ColorChangeDAO;
+import com.internousdev.bulletinboard.dao.ChangeColorDAO;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.ProfileDAO;
 import com.internousdev.bulletinboard.dao.TalkListDAO;
@@ -46,7 +46,7 @@ public class GoTalkListAction extends ActionSupport implements SessionAware{
 	session.put("userName", myData.getUserName());
 	session.put("userIcon", myData.getUserIcon());
 
-	ColorChangeDAO cdao=new ColorChangeDAO();
+	ChangeColorDAO cdao=new ChangeColorDAO();
 	String hColor=cdao.getColor(userId).gethColor();
 	String bColor=cdao.getColor(userId).getbColor();
 	String fColor= cdao.getColor(userId).getfColor();

@@ -6,8 +6,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bulletinboard.dao.ChangeIconDAO;
-import com.internousdev.bulletinboard.dao.FollowListDAO;
-import com.internousdev.bulletinboard.dao.FollowerDAO;
+import com.internousdev.bulletinboard.dao.FollowDAO;
 import com.internousdev.bulletinboard.dao.FooterInfoDAO;
 import com.internousdev.bulletinboard.dao.ProfileDAO;
 import com.internousdev.bulletinboard.dao.UpdateProfileDAO;
@@ -15,67 +14,51 @@ import com.internousdev.bulletinboard.dto.IconDTO;
 import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GoProfileAction extends ActionSupport implements SessionAware{
-
-
-
-	/** セッション */
-	private Map<String,Object> session;
+/**
+ *
+ * @author taka
+ *
+ */
+public class GoProfileAction extends ActionSupport implements SessionAware {
 
 	/** ユーザーID */
 	private int userId;
-
 	/** ユーザー名 */
 	private String snsId;
-
 	/** ユーザーアイコン */
 	private String userIcon;
-
 	/** フォローする側のアイコン */
 	private int Do;
-
 	/** フォローされる側のアイコン */
 	private int done;
-
 	/** フォロー番号 */
 	private int followNum;
-
 	/** フォロワー番号 */
 	private int followerNum;
-
 	/** EXP */
 	private int point;
-
 	/** レベル */
 	private int userLevel;
-
 	/**  */
 	private int viewId;
-
 	/** BIO */
 	private String profile;
-
 	/**  */
 	private int checkValue;
-
-
-	private int talkInfo=0;
-	private int groupInfo=0;
-
+	private int talkInfo = 0;
+	private int groupInfo = 0;
 	/** プロフィールリスト */
 	private UserDTO myData = new UserDTO();
-
 	/** フォローリスト */
 	private ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
-
 	/** フォロワーリスト */
 	private ArrayList<UserDTO> followerList = new ArrayList<UserDTO>();
-
-	/** ポストリスト　*/
+	/** アイコンリスト　*/
 	public ArrayList<IconDTO> userIconList = new ArrayList<IconDTO>();
+	/** セッション */
+	private Map<String, Object> session;
 
-
-	public String execute(){
+	public String execute() {
 		String result = ERROR;
 		if (session.containsKey("userId")) {
 			userId = (int) session.get("userId");
@@ -83,7 +66,7 @@ public class GoProfileAction extends ActionSupport implements SessionAware{
 			return result;
 		}
 		//@snsId のリンクから来た場合の処理
-		if(snsId != null){
+		if (snsId != null) {
 			ProfileDAO dao = new ProfileDAO();
 			//substringで@を取り除く
 			viewId = dao.getViewId(snsId.substring(1));
@@ -91,33 +74,30 @@ public class GoProfileAction extends ActionSupport implements SessionAware{
 
 		boolean checkIdFlag = false;
 
-		if(viewId == 0){
+		if (viewId == 0) {
 			viewId = userId;
 		}
 
-			UpdateProfileDAO pudao = new UpdateProfileDAO();
-			if (pudao.checkId(userId,viewId)) {
-			 checkIdFlag = true;
-			 checkValue = 1; //すでにフォロー済みの場合
-			}else{
-			 checkValue = 0;//未フォローの場合
-			}
+		UpdateProfileDAO pudao = new UpdateProfileDAO();
+		if (pudao.checkId(userId, viewId)) {
+			checkIdFlag = true;
+			checkValue = 1; //すでにフォロー済みの場合
+		} else {
+			checkValue = 0;//未フォローの場合
+		}
 
-			ProfileDAO dao = new ProfileDAO();
-			setMyData(dao.select(viewId));
+		ProfileDAO dao = new ProfileDAO();
+		setMyData(dao.select(viewId));
 
-			FollowListDAO fdao = new FollowListDAO();
+		FollowDAO fdao = new FollowDAO();
 
-			followList = fdao.getFollow(viewId);
-			setFollowNum((followList.size()));
+		followList = fdao.getFollowList(viewId);
+		setFollowNum((followList.size()));
 
-			FollowerDAO frdao = new FollowerDAO();
+		followerList = fdao.getFollowerList(viewId);
+		setFollowerNum((followerList.size()));
 
-			followerList = frdao.getFollower(viewId);
-			setFollowerNum((followerList.size()));
-
-
-		result=SUCCESS;
+		result = SUCCESS;
 
 		FooterInfoDAO infodao = new FooterInfoDAO();
 		setGroupInfo(infodao.groupInfoGet(userId));
@@ -126,7 +106,7 @@ public class GoProfileAction extends ActionSupport implements SessionAware{
 		ChangeIconDAO udao = new ChangeIconDAO();
 		userIconList = udao.getUserIcon();
 
-			return result;
+		return result;
 	}
 
 	public Map<String, Object> getSession() {
