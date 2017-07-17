@@ -54,9 +54,9 @@
 </head>
 <s:if test="groupId == 0">
   <div class="chatroomname">
-    <a style="color: white;"
-     href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{receiverId}"/></s:url>">
-      <s:property value="receiverName" /></a>
+    <a style="color: white;" href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{receiverId}"/></s:url>">
+      <s:property value="receiverName" />
+    </a>
   </div>
 </s:if>
 <s:else>
@@ -69,10 +69,9 @@
   <!-- 個人チャットの際のヘッダー -->
   <s:if test="groupId == 0">
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid" style ="background-color:<s:property value="#session.hColor"/>;">
+      <div class="container-fluid" style="background-color:<s:property value="#session.hColor"/>;">
         <div class="navbar-header">
-          <a class="navbar-brand"
-            href="<s:url action="GoTalkListAction"/>">&laquo;</a>
+          <a class="navbar-brand" href="<s:url action="GoTalkListAction"/>">&laquo;</a>
         </div>
         <div class="collapse navbar-collapse" id="nav_target"></div>
       </div>
@@ -91,29 +90,24 @@
         </div>
         <div class="collapse navbar-collapse" id="nav_target">
           <ul class="nav navbar-nav navbar-right">
-            <li><a data-toggle="modal" class="cursor"
-              data-target="#groupNameChange">グループ名変更</a></li>
-            <li><a data-toggle="modal" class="cursor"
-              data-target="#groupImageChange">グループ画像変更</a></li>
+            <li><a data-toggle="modal" class="cursor" data-target="#groupNameChange">グループ名変更</a></li>
+            <li><a data-toggle="modal" class="cursor" data-target="#groupImageChange">グループ画像変更</a></li>
             <li><a href="<s:url action='GoGroupMemberAction' />" target="groupMember" data-toggle="modal" class="cursor"
               data-target="#groupMemberModal">メンバーを確認</a></li>
-            <li class="dropdown"><a href="#"
-              class="dropdown-toggle" data-toggle="dropdown">メンバーを追加
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">メンバーを追加
                 <span class="caret"></span>
             </a>
               <ul class="dropdown-menu">
                 <li><a data-toggle="modal" class="cursor"
                   onclick="document.memberform.submit();return false;">フォローリストからメンバーを追加</a>
-                  <form name="memberform"
-                    action="GoAddGroupMemberAction">
-                    <s:hidden theme="simple" name="groupId"
-                      value="%{groupId}"><s:hidden name="groupName"></s:hidden></s:hidden>
+                  <form name="memberform" action="GoAddGroupMemberAction">
+                    <s:hidden theme="simple" name="groupId" value="%{groupId}">
+                      <s:hidden name="groupName"></s:hidden>
+                    </s:hidden>
                   </form></li>
-                <li><a href="#" data-toggle="modal"
-                  data-target="#memberAdd">ユーザー検索でメンバーを追加</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#memberAdd">ユーザー検索でメンバーを追加</a></li>
               </ul></li>
-            <li><a data-toggle="modal" class="cursor"
-              data-target="#groupExit">このグループから脱退</a></li>
+            <li><a data-toggle="modal" class="cursor" data-target="#groupExit">このグループから脱退</a></li>
           </ul>
         </div>
       </div>
@@ -122,24 +116,25 @@
 
     <!-- グループ名変更画面 -->
     <div class="modal fade" id="groupNameChange" tabindex="-1">
-    	<div class="modal-dialog">
-    	  <div class="modal-content">
-    	    <div class="modal-header">
-    	      <button type="button" class="close" data-dismiss="modal">
-    	        <span>&times;</span>
-    	      </button>
-    	      <h4 class="modal-title">グループ名更新(30字以内)</h4>
-    	    </div>
-    	    <s:form action="ChangeGroupNameAction">
-    	    <div class="modal-body">
-    	    	<textarea name="groupName" class="form-control" rows="1" maxlength="30" style="list-area:none; resize:none;"><s:property value="groupName"/></textarea>
-    	    </div>
-    	    <div class="modal-footer">
-    	    	<button type="submit" class="btn btn-primary">更新</button>
-    	    </div>
-    	    </s:form>
-    	   </div>
-    	</div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <h4 class="modal-title">グループ名更新(30字以内)</h4>
+          </div>
+          <s:form action="ChangeGroupNameAction">
+            <div class="modal-body">
+              <textarea name="groupName" class="form-control" rows="1" maxlength="30" style="list-area: none; resize: none;">
+              <s:property value="groupName" /></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">更新</button>
+            </div>
+          </s:form>
+        </div>
+      </div>
     </div>
 
     <!-- グループ画像変更画面 -->
@@ -153,30 +148,33 @@
             <h4 class="modal-title">画像を変更する</h4>
           </div>
           <s:form action="ChangeGroupIconAction">
-          <div class="modal-body">
-          	<s:iterator value="groupIconList" status="rs">
-          	<s:if test="%{#rs.count%2==0}">
-        <div style="float:left">
-            <input type="radio" name="url" value="<s:property value="stamp"/>"  style="background:url(<s:property value="stamp"/>);background-size:100% 100%;">
+            <div class="modal-body">
+              <s:iterator value="groupIconList" status="rs">
+                <s:if test="%{#rs.count%2==0}">
+                  <div style="float: left">
+                    <label>
+                      <input type="radio" class="none" name="url" value="<s:property value="stamp"/>">
+                      <span class="icon" style="background-image: url(<s:property value="stamp"/>);" ></span>
+                    </label>
+                  </div>
+                </s:if>
+                <s:else>
+                  <div style="float: left; background-color: #dddddd;">
+                    <label>
+                      <input type="radio" class="none" name="url" value="<s:property value="stamp" />">
+                      <span class="icon" style="background-image: url(<s:property value="stamp"/>);" ></span>
+                    </label>
+                  </div>
+                </s:else>
+              </s:iterator>
+              <div style="clear: both"></div>
             </div>
-            </s:if><s:else>
-            <div style="float:left; background-color:#dddddd;" >
-            <input type="radio" name="url" value="<s:property value="stamp" />"style="background:url(<s:property value="stamp"/>);background-size:100% 100%;" >
-            </div>
-
-
-            </s:else>
-            </s:iterator>
-            <div style="clear:both"></div>
-
-          </div>
-          <s:hidden name="groupId" />
-          <div class="modal-footer" >
+            <s:hidden name="groupId" />
+            <div class="modal-footer">
               <s:token />
               <button type="submit" class="btn btn-primary">変更</button>
-
             </div>
-           </s:form>
+          </s:form>
         </div>
       </div>
     </div>
@@ -244,12 +242,13 @@
     <s:iterator value="chat">
 
       <s:if test="userId == senderId">
-      <!-- 自分の投稿内容 -->
+        <!-- 自分の投稿内容 -->
         <div class="message_right">
           <h6 class="name_right"><s:property value="senderName" /></h6>
           <div style="float: right; position: absolute; right: 0px;">
-            <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
-            <h6 class="timeArea" title="<s:property value="(createdAt.substring(0,19))"/>"></h6>
+            <img class="user_icon" src="<s:property value="senderImg"/>"
+              alt="アイコン">
+            <h6 class="timeArea" title="<s:property value="createdAt.getTime()"/>"></h6>
           </div>
           <s:if test="stamp.startsWith('pic/stamp')">
             <img class="stamp_right" src="<s:property value="stamp"/>">
@@ -261,12 +260,12 @@
         <div style="clear: both;"></div>
       </s:if>
       <s:else>
-      <!-- 他人の投稿内容 -->
+        <!-- 他人の投稿内容 -->
         <div class="message_left">
           <h6 class="name_left"><s:property value="senderName" /></h6>
           <div style="float: left; position: absolute;">
             <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
-            <h6 class="timeArea" title="<s:property value="(createdAt.substring(0,19))"/>"></h6>
+            <h6 class="timeArea" title="<s:property value="createdAt.getTime()"/>"></h6>
           </div>
           <s:if test="stamp.startsWith('pic/stamp')">
             <img class="stamp_left" src="<s:property value="stamp"/>">
@@ -298,49 +297,53 @@
 
 
 
-  <div class = "nonbs-send-form" style ="background-color:<s:property value="#session.fColor"/>;">
+  <div class="nonbs-send-form"
+    style="background-color:<s:property value="#session.fColor"/>;">
 
-<div class="nonbs-panel-body">
-<s:form action="SendMessageAction">
-  <div class="nonbs-form-group">
-      <textarea name="text" class="nonbs-form-control" maxlength="255" ></textarea>
-  </div><s:hidden name="receiverId" /><s:hidden name="groupId" /><s:hidden name="groupName" /><s:hidden name="friendsName" />
-<div class="nonbs-rightside">
-<button type="submit" class="btn btn-default" onclick="style.display='none'">送信</button>
-</div>
-</s:form>
-</div>
-</div>
-
-
-<script>
-var submit = document.getElementByClassName('submit');
-function disableSubmit(button) {
-  setTimeout(function() {
-    button.disabled = true;
-  }, 10);
-  setTimeout(function() {
-    button.disabled = false;
-  }, 1000);
-}
-
-</script>
-
-<div class="stamp-form">
-  <a href="<s:url action='GoStampAction'></s:url>" target="stamp" class="stamp-btn" data-toggle="modal"
-  data-target="#stampModal">
-    <img height=20px; src="pic/stamp/icon.png">
-  </a>
-</div>
-
-
-<div class="modal fade" id="stampModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <iframe id="stamp" name="stamp"></iframe>
+    <div class="nonbs-panel-body">
+      <s:form action="SendMessageAction">
+        <div class="nonbs-form-group">
+          <textarea name="text" class="nonbs-form-control" maxlength="255"></textarea>
+        </div>
+        <s:hidden name="receiverId" />
+        <s:hidden name="groupId" />
+        <s:hidden name="groupName" />
+        <s:hidden name="friendsName" />
+        <div class="nonbs-rightside">
+          <button type="submit" class="btn btn-default" onclick="style.display='none'">送信</button>
+        </div>
+      </s:form>
     </div>
   </div>
-</div>
+
+
+  <script>
+      var submit = document.getElementByClassName('submit');
+      function disableSubmit(button) {
+        setTimeout(function() {
+          button.disabled = true;
+        }, 10);
+        setTimeout(function() {
+          button.disabled = false;
+        }, 1000);
+      }
+    </script>
+
+  <div class="stamp-form">
+    <a href="<s:url action='GoStampAction'></s:url>" target="stamp"
+      class="stamp-btn" data-toggle="modal" data-target="#stampModal">
+      <img height=20px; src="pic/stamp/icon.png">
+    </a>
+  </div>
+
+
+  <div class="modal fade" id="stampModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <iframe id="stamp" name="stamp"></iframe>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

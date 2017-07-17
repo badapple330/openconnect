@@ -21,6 +21,11 @@
   display: flex;
   margin: 1em 15px 1em 5px;
 }
+.user_icon{
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 50%;
+}
 .text_container_right{
   margin: 0 10px 0 5px;
 }
@@ -79,6 +84,7 @@ footer{
   width: 100%;
   height: auto;
   background-color: gray;
+  transform: translate3d(0, 0, 0);
 }
 #message_form{
   padding: 3px;

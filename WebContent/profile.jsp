@@ -31,14 +31,10 @@
       <div class="container-fluid"
         style="background-color:<s:property value="#session.hColor"/>;">
         <div class="navbar-header">
-
           <a class="navbar-brand" href="applist.jsp">Openconnect</a>
           <a class="talk_area" href="watch-position.jsp"><img src="pic/map_print.png"></a>
           <a class="talk_area" href="web_speech.jsp"><img src="pic/user_icon/syoki.png"></a>
           <a class="talk_area" data-toggle="modal" data-target="#color" class="cursor"><img src="pic/peint.png"></a>
-
-
-
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
             <span class="sr-only">MENU</span> <span class="icon-bar"></span>
             <span class="icon-bar"></span> <span class="icon-bar"></span>
@@ -73,7 +69,6 @@
     <h1 class="name">Profile</h1>
 
     <s:iterator value="myData">
-
       <BR>
       <table>
         <tr>
@@ -92,8 +87,6 @@
                 <a href="botMaintenance.jsp">メンテナンスページへ</a>
               </s:if>
             </div> <!-- フォロー・削除ボタン -->
-
-
             <div align="center">
               <s:if test="isFollowing">
                 <div class="square_btn">
@@ -102,12 +95,8 @@
                     REMOVE</a>
                 </div>
               </s:if>
-
-
-
               <s:else>
                 <s:if test="%{#session.userId != userId}">
-
                   <div class="square_btn">
                     <a href="<s:url action="FollowAction"><s:param name="viewId" value="%{userId}"/></s:url>">
                       FOLLOW</a>
@@ -142,7 +131,6 @@
                   <s:property value="userLevel" />
                 </p></li>
             </ul>
-
           </td>
         </tr>
       </table>
@@ -166,18 +154,14 @@
             </button>
             <h4 class="modal-title">Follow</h4>
           </div>
-
           <div class="modal-body">
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="form-group" style="float: left;">
 
                   <!-- フォローリストモーダル -->
-
-
                   <s:iterator value="followList">
                     <div class="friends-container">
-
                       <a href="<s:url action="GoProfileAction"><s:param name="viewId" value="%{userId}"/></s:url>">
                         <BR>
                         <img src="<s:property value="userIcon"/>" style="height: 50px; width: 50px;"
@@ -186,7 +170,6 @@
                       </a>
                     </div>
                   </s:iterator>
-
                 </div>
               </div>
             </div>
@@ -194,10 +177,7 @@
         </div>
       </div>
     </div>
-
-
     <!-- モーダル・ダイアログ -->
-
     <div class="modal fade" id="sampleModal2" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -207,13 +187,10 @@
             </button>
             <h4 class="modal-title">Follower</h4>
           </div>
-
           <div class="modal-body">
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="form-group" style="float: left;">
-
-
                   <!-- フォロワーリストモーダル -->
                   <s:iterator value="followerList">
                     <div class="friends-container">
@@ -244,32 +221,22 @@
               <span>×</span>
             </button>
           </div>
-
-
-
-
-
           <s:iterator value="myData">
-
             <BR>
             <table>
               <tr>
                 <td>
                   <div class="profile">
-
-                    <img src="<s:property value="userIcon"/>"
-                      class="edit_border_radius" alt="" /><br> <a
-                      data-toggle="modal" class="cursor"
-                      data-target="#userImageChange">アイコン画像変更</a>
-
+                    <img src="<s:property value="userIcon"/>" class="edit_border_radius" alt="" />
+                    <br>
+                    <a data-toggle="modal" class="cursor" data-target="#userImageChange">アイコン画像変更</a>
                     <!-- アイコン画像変更画面 -->
                     <div class="modal fade" id="userImageChange"
                       tabindex="-1">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <button type="button" class="close"
-                              data-dismiss="modal">
+                            <button type="button" class="close" data-dismiss="modal">
                               <span>&times;</span>
                             </button>
                             <h4 class="modal-title">画像を変更する</h4>
@@ -298,22 +265,15 @@
                             </div>
                             <s:hidden name="userId" />
                             <div class="modal-footer">
-
-                              <button type="submit"
-                                class="btn btn-primary">変更</button>
+                              <button type="submit" class="btn btn-primary">変更</button>
                             </div>
                           </s:form>
                         </div>
                       </div>
                     </div>
                   </div>
-
-
                 </td>
-
-
                 <td>
-
                   <ul class="myData">
                     <li><button type="button" disabled="disabled"
                         style="font-size: 0.8em; font-weight: bold; text-align: center; background-color: #6495ed; color: #fff;"

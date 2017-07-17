@@ -6,10 +6,7 @@ $(function(){
     var currentDate = new Date();
     $('.timeArea').each(function(){
         var getEntryDate = jQuery(this).attr('title');
-        getEntryDate = getEntryDate.replace( /-/g , ":" );
-        getEntryDate = getEntryDate.replace( /\s+/g , ":" );
-        var time = getEntryDate.split(':');
-        var entryDate = new Date(time[0], time[1]-1, time[2], time[3], time[4], time[5]);
+        var entryDate = new Date(getEntryDate*1);
         var elapsedTime = (currentDate.getTime() - entryDate.getTime())/1000;
         elapsedTime = Math.ceil(elapsedTime); // 小数点以下切り上げ
         var message = null;

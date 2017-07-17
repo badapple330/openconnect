@@ -98,7 +98,7 @@ public class TimelineDAO {
 				dto.setSenderId(rs.getInt("sender_id"));		// 投稿者のユーザーID
 				dto.setText(rs.getString("text"));				// 投稿内容
 //				dto.setImg(rs.getString("img"));				// 添付画像
-				dto.setCreatedAt(rs.getString("created_at"));	// 投稿日時
+				dto.setCreatedAt(rs.getTimestamp("created_at"));	// 投稿日時
 				dto.setUserName(rs.getString("user_name")); 	// 投稿者の名前
 				dto.setSnsId(rs.getString("sns_id")); 			// 投稿者のSNS用ID
 				dto.setUserIcon(rs.getString("user_icon")); 		// 投稿者のアイコン
@@ -111,7 +111,7 @@ public class TimelineDAO {
 					dto.setReSnsId(rs.getString("re_sns_id"));			// 返信先のSNS用ID
 					dto.setReUserIcon(rs.getString("re_user_icon"));			// 返信先のアイコン
 					dto.setReText(rs.getString("re_text"));				// 返信先の投稿内容
-					dto.setReCreatedAt(rs.getString("re_created_at"));	// 返信先の投稿日時
+					dto.setReCreatedAt(rs.getTimestamp("re_created_at"));	// 返信先の投稿日時
 				}
 				timeline.add(dto);
 			}

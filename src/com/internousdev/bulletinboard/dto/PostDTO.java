@@ -1,5 +1,7 @@
 package com.internousdev.bulletinboard.dto;
 
+import java.util.Date;
+
 public class PostDTO {
 
 	/** タイムラインID */
@@ -17,7 +19,7 @@ public class PostDTO {
 //	/** 添付画像 */
 //	private String img;
 	/** 送信日時 */
-	private String createdAt;
+	private Date createdAt;
 	/** いいね数 */
 	private int likeCount;
 	/** いいねされたか */
@@ -35,7 +37,7 @@ public class PostDTO {
 	/** 返信先の投稿内容 */
 	private String reText;
 	/** 返信先の投稿日時 */
-	private String reCreatedAt;
+	private Date reCreatedAt;
 
 
 
@@ -63,10 +65,10 @@ public class PostDTO {
 //	public void setImg(String img) {
 //		this.img = img;
 //	}
-	public String getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(String createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 	public String getUserName() {
@@ -135,10 +137,10 @@ public class PostDTO {
 	public void setReText(String reText) {
 		this.reText = reText;
 	}
-	public String getReCreatedAt() {
+	public Date getReCreatedAt() {
 		return reCreatedAt;
 	}
-	public void setReCreatedAt(String reCreatedAt) {
+	public void setReCreatedAt(Date reCreatedAt) {
 		this.reCreatedAt = reCreatedAt;
 	}
 }
