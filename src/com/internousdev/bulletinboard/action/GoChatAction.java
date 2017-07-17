@@ -1,6 +1,7 @@
 
 package com.internousdev.bulletinboard.action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -92,7 +93,12 @@ public class GoChatAction extends ActionSupport implements SessionAware {
 
 		// チャット履歴取得
 		ChatDAO get = new ChatDAO();
-		chat = get.selectChat(userId, receiverId, groupId);
+		try {
+			chat = get.selectChat(userId, receiverId, groupId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return result;
+		}
 
 		setMsgCount(chat.size());
 		result = SUCCESS;

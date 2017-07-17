@@ -1,5 +1,6 @@
 package com.internousdev.bulletinboard.action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -65,41 +66,46 @@ public class SendMessageAction extends ActionSupport implements SessionAware{
 		}
 
 
-		//送信内容がある場合に送信内容送信
-		if (!text.equals("")){
-			ChatDAO chatDAO = new ChatDAO();
-			if(chatDAO.insertMessage(userId, receiverId, groupId, text, stampId) != 0){
-				//botと話す場合の処理
-				if(receiverId < 0){
-					BotTalk bot = new BotTalk(receiverId,userId,text);
-					String response = bot.talkContents();
-					if(response != null){
-						bot.botSet(userId,response);
+		try {
+			//送信内容がある場合に送信内容送信
+			if (!text.equals("")){
+				ChatDAO chatDAO = new ChatDAO();
+				if(chatDAO.insertMessage(userId, receiverId, groupId, text, stampId)){
+					//botと話す場合の処理
+					if(receiverId < 0){
+						BotTalk bot = new BotTalk(receiverId,userId,text);
+						String response = bot.talkContents();
+						if(response != null){
+							bot.botSet(userId,response);
+							result=SUCCESS;
+						}
+					}else{
 						result=SUCCESS;
 					}
-				}else{
-					result=SUCCESS;
 				}
-			}
-		//スタンプだった場合にスタンプ送信
-		} else if(stampId != 0) {
-			text="スタンプを投稿しました";
-			ChatDAO set = new ChatDAO();
-			if(set.insertMessage(userId, receiverId, groupId, text, stampId) != 0){
-				if(receiverId < 0){
-					BotTalk bot = new BotTalk(receiverId,userId,text);
-					String response = bot.talkContents();
-					if(response != null){
-						bot.botSet(userId,response);
+			//スタンプだった場合にスタンプ送信
+			} else if(stampId != 0) {
+				text="スタンプを投稿しました";
+				ChatDAO chatDAO = new ChatDAO();
+				if(chatDAO.insertMessage(userId, receiverId, groupId, text, stampId)){
+					if(receiverId < 0){
+						BotTalk bot = new BotTalk(receiverId,userId,text);
+						String response = bot.talkContents();
+						if(response != null){
+							bot.botSet(userId,response);
+							result=SUCCESS;
+						}
+					}else{
 						result=SUCCESS;
 					}
-				}else{
-					result=SUCCESS;
 				}
-			}
 
-		}else{
-			result=SUCCESS;
+			}else{
+				result=SUCCESS;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return result;
 		}
 		return result;
 	}

@@ -43,10 +43,8 @@ public class FollowDAO {
 
 	//messagesテーブルに通知を送るメソッド
 	public boolean insertString(int userId, int viewId) {
-
 		int result = 0;
 		boolean insertFlag = false;
-
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		String sql = "insert into messages (receiver_id, sender_id, text) values (?,?,?)";
@@ -75,9 +73,7 @@ public class FollowDAO {
 	}
 
 	public boolean unfollow(int userId, int viewId) {
-
 		Connection con = new MySqlConnector("openconnect").getConnection();
-
 		boolean result = false;
 		String sql = "delete from follows where follower_id = ? && followed_id = ?";
 
@@ -99,11 +95,10 @@ public class FollowDAO {
 		}
 		return result;
 	}
+
 	public ArrayList<UserDTO> getFollowList(int userId) {
 		Connection con = new MySqlConnector("openconnect").getConnection();
-
 		ArrayList<UserDTO> followList = new ArrayList<UserDTO>();
-
 		String sql = "select * from users left join follows on users.user_id = follows.followed_id where follower_id=?";
 
 		try {
@@ -120,13 +115,10 @@ public class FollowDAO {
 				dto.setPoint(rs.getInt("point"));
 				dto.setUserLevel(rs.getInt("user_level"));
 				dto.setProfile(rs.getString("profile"));
-
 				followList.add(dto);
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
-
 		} finally {
 			try {
 				con.close();
@@ -135,24 +127,19 @@ public class FollowDAO {
 			}
 		}
 		return followList;
-
 	}
 
-	public ArrayList<UserDTO> getFollowerList(int userId){
+	public ArrayList<UserDTO> getFollowerList(int userId) {
 		Connection con = new MySqlConnector("openconnect").getConnection();
-
 		ArrayList<UserDTO> followerList = new ArrayList<UserDTO>();
+		String sql = "select * from users left join follows on users.user_id = follows.follower_id where followed_id=?";
 
-		String sql ="select * from users left join follows on users.user_id = follows.follower_id where followed_id=?";
-
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-
-			ps.setInt(1,userId);
-
+			ps.setInt(1, userId);
 			ResultSet rs = ps.executeQuery();
 
-			while(rs.next()){
+			while (rs.next()) {
 				UserDTO dto = new UserDTO();
 				dto.setUserId(rs.getInt("user_id"));
 				dto.setUserName(rs.getString("user_name"));
@@ -164,51 +151,46 @@ public class FollowDAO {
 
 				followerList.add(dto);
 			}
-
-		}catch(SQLException e){
+		} catch (SQLException e) {
 			e.printStackTrace();
-
-		}finally{
-			try{
+		} finally {
+			try {
 				con.close();
-			} catch(SQLException e){
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 		return followerList;
 	}
-	public boolean chaeckIfFollowing(int userId, int viewId){
+
+	public boolean chaeckIfFollowing(int userId, int viewId) {
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
 		boolean result = false;
 
-		String sql ="select followed_id from follows where follower_id=?";
+		String sql = "select followed_id from follows where follower_id=?";
 
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,userId);
+			ps.setInt(1, userId);
 			ResultSet rs = ps.executeQuery();
 
-			while(rs.next()){
-
+			while (rs.next()) {
 				if (rs.getInt("followed_id") == viewId) {
-
 					result = true;
 					break;
 				}
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 
-				}catch(SQLException e){
-					e.printStackTrace();
-
-				}finally{
-				try{
-					con.close();
-				} catch(SQLException e){
-					e.printStackTrace();
-				}
-				}
-				return result;
-
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
+		return result;
+	}
 }

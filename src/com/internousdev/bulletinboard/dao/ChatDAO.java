@@ -17,13 +17,12 @@ import com.internousdev.util.db.mysql.MySqlConnector;
  *
  */
 public class ChatDAO {
-	public ArrayList<MessageDTO> selectChat(int senderId, int receiverId, int groupId){
-		Connection con = new MySqlConnector("openconnect").getConnection();
+	public ArrayList<MessageDTO> selectChat(int senderId, int receiverId, int groupId) throws SQLException {
 		ArrayList<MessageDTO> chat = new ArrayList<MessageDTO>();
-		boolean isGroupChat;	/* グループチャットかどうか */
-		if(groupId != 0){
+		boolean isGroupChat; /* グループチャットかどうか */
+		if (groupId != 0) {
 			isGroupChat = true;
-		} else if(receiverId != 0){
+		} else if (receiverId != 0) {
 			isGroupChat = false;
 		} else {
 			return null;
@@ -34,8 +33,8 @@ public class ChatDAO {
 		String sql2 = "";
 		PreparedStatement ps2;
 
-		try{
-			if(isGroupChat){
+		try (Connection con = new MySqlConnector("openconnect").getConnection();) {
+			if (isGroupChat) {
 				sql1 = ""
 						+"SELECT m.*, user_name, user_icon, stamp, coalesce(is_read, 0) AS is_read from ( "
 						+	"SELECT message_id, receiver_id, sender_id, group_id, text, stamp_id, created_at "
@@ -105,7 +104,7 @@ public class ChatDAO {
 			}
 			ResultSet rs = ps1.executeQuery();
 
-			while(rs.next()){
+			while (rs.next()) {
 				MessageDTO dto = new MessageDTO();
 				dto.setMessageId(rs.getInt("message_id")); //投稿ID
 				dto.setReceiverId(rs.getInt("receiver_id")); //受取人ID
@@ -116,7 +115,7 @@ public class ChatDAO {
 				dto.setText(rs.getString("text")); //送信内容
 				dto.setStampId(rs.getInt("stamp_id")); //スタンプID
 				dto.setStamp(rs.getString("stamp")); //スタンプ
-				if((dto.getStamp()) == null){
+				if ((dto.getStamp()) == null) {
 					dto.setStamp("");
 				}
 				dto.setCreatedAt(rs.getTimestamp("created_at")); //投稿日時
@@ -124,7 +123,7 @@ public class ChatDAO {
 				chat.add(dto);
 			}
 
-			if(isGroupChat){
+			if (isGroupChat) {
 				sql2 = ""
 						+"INSERT INTO read_flg "
 						+"SELECT m.* FROM ( "
@@ -158,62 +157,44 @@ public class ChatDAO {
 				ps2.setInt(4, senderId);
 			}
 			ps2.executeUpdate();
-		} catch(SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch(SQLException e) {
-				e.printStackTrace();
-			}
+		} catch (SQLException e) {
+			throw e;
 		}
 		return chat;
 	}
 
+	public boolean insertMessage(int senderId, int receiverId, int groupId, String text, int stampId) throws SQLException {
+		boolean isGroup = false;
+		String sql = "";
 
-  public int insertMessage(int senderId, int receiverId, int groupId, String text, int stampId){
-	    Connection con = new MySqlConnector("openconnect").getConnection();
-
-	    int inserted=0;
-	    int k=0;
-	    String sql="";
-
-	    if(groupId !=0){
-	    	 sql = "insert into messages (sender_id, group_id, text, stamp_id) values (?, ?, ?, ?)";
-	    	 k=1;
-	    }
-	    else if(receiverId != 0){
-	    	sql = "insert into messages (sender_id, receiver_id, text, stamp_id) values (?, ?, ?, ?) ";
-	    	k=2;
-	    }
-
-	    try {
-	    	PreparedStatement ps = con.prepareStatement(sql);
-
-	    	if(k==1) {
-	    		ps.setInt(1, senderId);
-	    		ps.setInt(2, groupId);
-	    		ps.setString(3, text);
-	    		ps.setInt(4, stampId);
-	    	}
-	    	if(k==2) {
-	    		ps.setInt(1, senderId);
-	    		ps.setInt(2, receiverId);
-	    		ps.setString(3, text);
-	    		ps.setInt(4, stampId);
-	    	}
-	    	inserted = ps.executeUpdate();
-
-	    	ps.close();
-	    } catch(SQLException e) {
-	    	e.printStackTrace();
-	    } finally {
-			try{
-				con.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
+		if (groupId != 0) {
+			sql = "insert into messages (sender_id, group_id, text, stamp_id) values (?, ?, ?, ?)";
+			isGroup = true;
+		} else if (receiverId != 0) {
+			sql = "insert into messages (sender_id, receiver_id, text, stamp_id) values (?, ?, ?, ?) ";
+			isGroup = false;
 		}
-	return inserted;
+
+		try (Connection con = new MySqlConnector("openconnect").getConnection();) {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			if (isGroup) {
+				ps.setInt(1, senderId);
+				ps.setInt(2, groupId);
+				ps.setString(3, text);
+				ps.setInt(4, stampId);
+			} else if(!isGroup) {
+				ps.setInt(1, senderId);
+				ps.setInt(2, receiverId);
+				ps.setString(3, text);
+				ps.setInt(4, stampId);
+			}
+			if (ps.executeUpdate() > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			throw e;
+		}
+		return false;
 	}
 }

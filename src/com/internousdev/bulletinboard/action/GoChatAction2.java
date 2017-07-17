@@ -1,6 +1,7 @@
 
 package com.internousdev.bulletinboard.action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -16,9 +17,6 @@ import com.internousdev.bulletinboard.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoChatAction2 extends ActionSupport implements SessionAware {
-	/// ユーザー一覧またはグループ一覧から
-	/// ユーザーID,受取人ID,受け取り人名,または
-	/// ユーザーID,グループID,グループ名,を取得する。
 	/** シリアルID */
 	private static final long serialVersionUID = -7129551593360374656L;
 	/** * ユーザーID */
@@ -92,8 +90,12 @@ public class GoChatAction2 extends ActionSupport implements SessionAware {
 
 		// チャット履歴取得
 		ChatDAO get = new ChatDAO();
-		chat = get.selectChat(userId, receiverId, groupId);
-
+		try {
+			chat = get.selectChat(userId, receiverId, groupId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return result;
+		}
 		setMsgCount(chat.size());
 		result = SUCCESS;
 
