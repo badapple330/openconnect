@@ -49,7 +49,7 @@ public class ChatDAO {
 						+"ON m.stamp_id = s.stamp_id "
 						+"INNER JOIN ( "
 						+	"SELECT user_id, user_name, user_icon FROM users WHERE user_id IN ( "
-						+		"SELECT user_id FROM members WHERE group_id = ? "
+						+		"SELECT sender_id FROM messages WHERE group_id = ? "
 						+	") "
 						+") AS u "
 						+"ON u.user_id = m.sender_id "
