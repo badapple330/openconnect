@@ -11,8 +11,7 @@ goods_id int(100) primary key auto_increment comment '商品ID',
 goods_name varchar(255) not null comment '商品名',
 price int comment '単価',
 created_at datetime not null default current_timestamp comment '作成日',
-updated_at datetime not null default current_timestamp comment '更新日',
-index(goods_id)
+updated_at datetime not null default current_timestamp comment '更新日'
 );
 
 -- goods テーブルサンプル挿入 --
@@ -38,8 +37,7 @@ telnumber varchar(12) not null comment '電話番号',
 mailaddress varchar(255) unique not null comment 'メールアドレス',
 customer_pass varchar(255) not null comment '顧客パスワード',
 created_at datetime not null default current_timestamp comment '作成日',
-updated_at datetime not null default current_timestamp comment '更新日',
-index(customer_id)
+updated_at datetime not null default current_timestamp comment '更新日'
 );
 
 -- orders_infomationsテーブル作成
