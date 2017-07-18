@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" type="text/css" href="./css/category-item.css">
+
 <meta charset="UTF-8">
 <title><s:text name="%{getText('lang.companyOverview.Title')}"/></title>
 </head>
