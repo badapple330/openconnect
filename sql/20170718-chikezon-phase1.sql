@@ -1,7 +1,7 @@
 set names utf8;
 set foreign_key_checks=0;
 drop database if exists chikezon;
-create database if not Exists chikezon;
+create database chikezon;
 use chikezon;
 
 
@@ -10,6 +10,8 @@ create table goods(
 goods_id int(100) primary key auto_increment comment '商品ID',
 goods_name varchar(255) not null comment '商品名',
 price int comment '単価',
+created_at datetime not null default current_timestamp comment '作成日',
+updated_at datetime not null default current_timestamp comment '更新日',
 index(goods_id)
 );
 
@@ -26,26 +28,30 @@ insert into goods(goods_id,goods_name,price) values
 (9,"ぐなっしー写真撮影チケット",0),
 (10,"10億!!PIG宝くじ",10000);
 
--- customer_infoテーブル作成
-create table customer_info(
+-- customers_infomationsテーブル作成
+create table customer_infomations(
 customer_id int(100) primary key auto_increment comment '顧客ID',
 customer_name varchar(255) not null comment '顧客名',
 postcode varchar(255) not null comment '郵便番号',
 address varchar(255) not null comment '住所',
 telnumber varchar(12) not null comment '電話番号',
-mailad varchar(255) unique not null comment 'メールアドレス',
+mailaddress varchar(255) unique not null comment 'メールアドレス',
 customer_pass varchar(255) not null comment '顧客パスワード',
+created_at datetime not null default current_timestamp comment '作成日',
+updated_at datetime not null default current_timestamp comment '更新日',
 index(customer_id)
 );
 
--- order_infoテーブル作成
-create table order_info(
+-- orders_infomationsテーブル作成
+create table order_infomations(
 customer_id int(100) comment '顧客ID',
 goods_id int(100) comment '商品ID',
 order_count int(100) default 0 comment '注文数',
 total_amount int comment '合計金額',
-purchaseday timestamp default current_timestamp comment '購入日',
-foreign key(customer_id) references customer_info(customer_id),
+purchased_at timestamp default current_timestamp comment '購入日',
+created_at datetime not null default current_timestamp comment '作成日',
+updated_at datetime not null default current_timestamp comment '更新日',
+foreign key(customer_id) references customers_infomations(customer_id),
 foreign key(goods_id) references goods(goods_id)
 );
 
