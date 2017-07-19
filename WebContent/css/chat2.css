@@ -84,6 +84,7 @@ footer{
   width: 100%;
   height: auto;
   background-color: gray;
+  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 #message_form{
