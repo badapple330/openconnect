@@ -238,7 +238,7 @@ public class TimelineDAO {
 		int deleted = 0;
 		Connection con = new MySqlConnector("openconnect").getConnection();
 
-		String sql = "delete from like_count where post_id=?";
+		String sql = "delete from likes where post_id = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

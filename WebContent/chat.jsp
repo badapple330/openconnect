@@ -126,8 +126,8 @@
           </div>
           <s:form action="ChangeGroupNameAction">
             <div class="modal-body">
-              <textarea name="groupName" class="form-control" rows="1" maxlength="30" style="list-area: none; resize: none;">
-              <s:property value="groupName" /></textarea>
+              <textarea name="groupName" class="form-control" rows="1" maxlength="30"
+              style="list-area: none; resize: none;"><s:property value="groupName" /></textarea>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">更新</button>
@@ -246,8 +246,7 @@
         <div class="message_right">
           <h6 class="name_right"><s:property value="senderName" /></h6>
           <div style="float: right; position: absolute; right: 0px;">
-            <img class="user_icon" src="<s:property value="senderImg"/>"
-              alt="アイコン">
+            <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
             <h6 class="timeArea" title="<s:property value="createdAt.getTime()"/>"></h6>
           </div>
           <s:if test="stamp.startsWith('pic/stamp')">
