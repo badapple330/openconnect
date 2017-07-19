@@ -109,7 +109,13 @@ update_day datetime not null default current_timestamp on update current_timesta
 delete_flg boolean default false comment '削除フラグ'
 );
 
-
+/*管理者情報*/
+create table admins(
+admin_id int primary key comment '管理者ログインID',
+admin_name_e varchar(100) not null comment '管理者名',
+admin_password  varchar(20) not null comment '管理者パスワード',
+admin_phone_email varchar(200) not null comment '管理者Eメールアドレス'
+);
 /*
  * ユーザー情報
  */
@@ -166,3 +172,12 @@ insert into corporation(login_id,password,corporation_name,postal,address,capita
 ("test","ikemen","株式会社テスト","1119898","東京都台東区上野1-1-1","50000000","テスト次郎","テストタロウ","kudo@gmail.com","0311112222","800","50","kudouhideki@gmail.com","不承認",20160617,20160617,false),
 ("uematsu","ikemen","株式会社植松","1119898","東京都台東区上野1-1-1","50000000","田中タロウ","植松次郎","ue@gmail.com","0311112222","800","50","kudouhideki@gmail.com","承認",20160617,20160617,false);
 
+
+insert into admins(admin_id,admin_password,admin_name_e,admin_phone_email)values
+('1','internous01','takuma.inoue','takuma.inoue@gmail.com'),
+('2','internous01','akira.kazami','takuma.kazami@gmail.com'),
+('3','testuser','kubi','kubin@gmail.com'),
+('4','testuser','sora','howait@gmail.com'),
+('5','testuser','type10tank','tankatack@gmail.com'),
+('6','nihonnoyoakezeyo?','ryouma sakamoto','isin@gmail.com'),
+('7','tenkahubu','nobunaga.oda','toworld@gmail.com');
