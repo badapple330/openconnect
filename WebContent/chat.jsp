@@ -244,9 +244,13 @@
       <s:if test="userId == senderId">
         <!-- 自分の投稿内容 -->
         <div class="message_right">
-          <h6 class="name_right"><s:property value="senderName" /></h6>
+          <h6 class="name_right">
+          <a href="/openconnect/GoProfileAction.action?viewId=39">
+          <s:property value="senderName" /></a></h6>
           <div style="float: right; position: absolute; right: 0px;">
+          <a href="/openconnect/GoProfileAction.action?viewId=39">
             <img class="user_icon" src="<s:property value="senderImg"/>" alt="アイコン">
+            </a>
             <h6 class="timeArea" title="<s:property value="createdAt.getTime()"/>"></h6>
           </div>
           <s:if test="stamp.startsWith('pic/stamp')">
