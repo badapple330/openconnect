@@ -40,7 +40,18 @@
 		<script type="text/javascript">
   setTimeout("location.reload()", 1000 * 60)
 </script>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript">
+$(function(){
+	if($.cookie("access")){
+		$('#first').css({display:'none'});
+	}
+	$(window).load(function(){
+		$.cookie("access",$('body').addClass('access'));
+        })
+	});
+</script>
 </head>
 
 <body style="background-color:<s:property value="#session.bColor"/>;">
@@ -95,7 +106,7 @@
 	</div>
 </div>
 <!-- モーダルここまで -->
-
+<div id = "first" align="center" style="margin-top:100px; padding:10px; margin-bottom:10px; border:1px solid #333333; width:300px; margin-left:auto;margin-right:auto;"><p>タイムラインに投稿したり</p><p>誰かに♪を押されると</p><p>ポイントがたまり、100点で</p><p>レベルが上がります</p><p>レベルが上がると使える</p><p>スタンプが拾えます</p></div>
 
 
 <div class="container">
