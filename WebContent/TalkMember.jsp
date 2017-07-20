@@ -106,7 +106,7 @@ $(function(){
 	</div>
 </div>
 <!-- モーダルここまで -->
-<div id = "first" align="center" style="margin-top:100px; padding:10px; margin-bottom:10px; border:1px solid #333333; width:300px; margin-left:auto;margin-right:auto;"><p>タイムラインに投稿したり</p><p>誰かに♪を押されると</p><p>ポイントがたまり、100点で</p><p>レベルが上がります</p><p>レベルが上がると使える</p><p>スタンプが拾えます</p></div>
+<div id = "first" align="center" style="margin-top:100px; padding:10px; margin-bottom:10px; border:1px solid #333333; width:300px; margin-left:auto;margin-right:auto;">タイムラインに投稿したり<br>誰かに♪を押されると<br>ポイントがたまり、1000点で<br>レベルが上がります<br>レベルが上がると使える<br>スタンプが拾えます<br></div>
 
 
 <div class="container">
