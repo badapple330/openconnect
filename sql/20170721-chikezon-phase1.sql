@@ -64,7 +64,7 @@ insert into goods(goods_id,goods_name,price,image_path,heading,message) values
 "あの伝説的英雄Teetoが日本にやって来る！幾多の戦場を切り抜いた英雄のライブです！");
 
 -- customers_infomationsテーブル作成
-create table customer_infomations(
+create table customers_infomations(
 customer_id int(100) primary key auto_increment comment '顧客ID',
 customer_name varchar(255) not null comment '顧客名',
 postcode varchar(255) not null comment '郵便番号',
@@ -76,16 +76,28 @@ created_at datetime not null default current_timestamp comment '作成日',
 updated_at datetime not null default current_timestamp comment '更新日'
 );
 
--- orders_infomationsテーブル作成
-create table order_infomations(
-customer_id int(100) comment '顧客ID',
-goods_id int(100) comment '商品ID',
-order_count int(100) default 0 comment '注文数',
-total_amount int comment '合計金額',
-purchased_at timestamp default current_timestamp comment '購入日',
+-- purchasesテーブル作成
+create table purchases(
+purchase_id int(100) not null primary key comment '購入ID',
+user_id int(100) comment not null '顧客ID',
+total_price decimal(9,2) not null comment '合計価格',
+payment_method int not null comment '決済方法(1で代引き、2でクレカ)',
 created_at datetime not null default current_timestamp comment '作成日',
 updated_at datetime not null default current_timestamp comment '更新日',
-foreign key(customer_id) references customers_infomations(customer_id),
+foreign key(user_id) references openconnect.users(user_id)
+);
+
+
+-- purchases_unitsテーブル作成
+create table purchases_units(
+purchase_id int(100) not null comment '購入ID',
+goods_id int(100) not null comment '商品ID',
+order_count int(100) not null comment '注文数',
+total_amount int not null comment '小計価格',
+is_purchased boolean not null default FALSE comment '購入確定済フラグ(TRUEで確定済,FALSEはカートの中)'
+created_at datetime not null default current_timestamp comment '作成日',
+updated_at datetime not null default current_timestamp comment '更新日',
+foreign key(purchase_id) references purchases(purchase_id),
 foreign key(goods_id) references goods(goods_id)
 );
 
