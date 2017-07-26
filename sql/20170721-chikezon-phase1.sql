@@ -79,7 +79,7 @@ updated_at datetime not null default current_timestamp comment '更新日'
 -- purchasesテーブル作成
 create table purchases(
 purchase_id int(100) not null primary key comment '購入ID',
-user_id int(100) comment not null '顧客ID',
+user_id int(100) not null comment '顧客ID',
 total_price decimal(9,2) not null comment '合計価格',
 payment_method int not null comment '決済方法(1で代引き、2でクレカ)',
 created_at datetime not null default current_timestamp comment '作成日',
