@@ -94,7 +94,7 @@ purchase_id int(100) not null comment '購入ID',
 goods_id int(100) not null comment '商品ID',
 order_count int(100) not null comment '注文数',
 total_amount int not null comment '小計価格',
-is_purchased boolean not null default FALSE comment '購入確定済フラグ(TRUEで確定済,FALSEはカートの中)'
+is_purchased boolean not null default FALSE comment '購入確定済フラグ(TRUEで確定済,FALSEはカートの中)',
 created_at datetime not null default current_timestamp comment '作成日',
 updated_at datetime not null default current_timestamp comment '更新日',
 foreign key(purchase_id) references purchases(purchase_id),
