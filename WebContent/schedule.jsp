@@ -96,12 +96,17 @@
 						<tr>
 							<td><s:property value="id" /></td>
 							<td><input type="text" name="scheduleStartdayList" value="<s:property value="startDay" />"class="scheduleStartdayList" type="date"
-									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])" title="年-月-日で入力してください。" placeholder="開始日を入力" required><div class="hidden"><s:property value="startDay" /></div></td>
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])" title="年-月-日で入力してください。" placeholder="開始日を入力" required>
+									<div class="hidden"><s:property value="startDay" /></div></td>
 							<td><input type="text" name="scheduleEnddayList" value="<s:property value="endDay" />" class="scheduleEnddayList"
-									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])" title="年-月-日で入力してください。" placeholder="終了日を入力"><div class="hidden"><s:property value="endDay" />T00:01:00</div></td>
+									pattern="([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])" title="年-月-日で入力してください。" placeholder="終了日を入力">
+									<div class="hidden"><s:property value="endDay" />T00:01:00</div></td>
 							<td><input type="text" name="scheduleTitleList" value="<s:property value="title" />" class="scheduleTitleList"
 									placeholder="件名を入力" required><div class="hidden"><s:property value="teamName" />:<s:property value="title" /></div></td>
-							<td><input type="text" name="teamName[<s:property value="#st.index" />]"value="<s:property value="teamName" />"class="teamList" readonly><div class="hidden"><s:property value="teamName" /></div></td>
+							<td><input type="text" name="teamName[<s:property value="#st.index" />]"value="<s:property value="teamName" />"class="teamList"
+							readonly><div class="hidden"><s:property value="teamName" /></div></td>
+							<td><textarea name="scheduleCommentList" rows="1" cols="40" class="scheduleCommentList"
+								placeholder="メモ(連絡事項など)"> <s:property value="comment" /> </textarea><div class="hidden"><s:property value="comment"/></div></td>
 							<!-- <td><input type="button" class="button modal-open" value="削除" /></td>
 							<td><input  type="submit" class="button" value="編集"></td> -->
 						</tr>
@@ -158,53 +163,20 @@
 						<tr><td><input type="text" class="textcalendar" name="startDay" placeholder="開始日を入力" required></td></tr>
 						<tr><td><input type="text" class="textcalendar" name="endDay" placeholder="終了日を入力" required></td></tr>
 						<tr><td><input type="text" name="title" placeholder="件名を入力" required></td></tr>
+						<tr><td><textarea name="comment" cols="60" rows="5" id="ScheduleMemoAction_comment" placeholder="メモ(連絡事項など)"></textarea></td></tr>
 						<tr><td><button type="submit" class="button" name="startDay">追加</button></td></tr>
 								<%--  tokenタグ--%> <s:token />
 					</tbody>
 				</table>
 			</s:form>
-			</div>
-
-
-	<div class="blockC">
-		<s:form action="ScheduleMemoAction">
-				<table class="table">
-					<tr><td>【メモ】</td></tr>
-					<tr><td><textarea name="comment" cols="60" rows="5" id="ScheduleMemoAction_comment" placeholder="連絡事項"></textarea></td></tr>
-					<tr><td><input type="submit" value="保存"></td></tr>
-				</table>
-		</s:form>
-	</div>
-		<table class="memo">
-						<thead>
-							<tr>
-								<th>日時</th>
-								<th>メモ内容</th>
-								<th>削除</th>
-							</tr>
-						</thead>
-
-						<tbody>
-							<s:iterator value="memoList" status="i">
-								<tr>
-								<th scope="row">#<s:property value="#i.count" /></th>
-									<%-- <td><s:property value="memoList.get(#i.index).inquiryDate" /></td> --%>
-									<td class="comment_area"><textarea class="comment"><s:property	value="memoList.get(#i.index).comment" /></textarea></td>
-									<td><input type="button" class="button modal-open" value="削除" /></td>
-
-									<td><a href="<s:url action='MemoUpdateAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a>
-									<a href="<s:url action='MemoDeleteAction'><s:param name='id' value='memoList.get(#i.index).id' /></s:url>"></a></td>
-								</tr>
-							</s:iterator>
-						</tbody>
-					</table>
 		</div>
+</div>
 
 
 		<div class="pagetop"><div class = "pagetop-info"><b>PageTop</b></div></div>
 
 
-				<div id="modal-main">
+			<div id="modal-main">
 				<!-- #contents START -->
 				<div id="modal-style">
 					<table class="modal_border">

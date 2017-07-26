@@ -13,7 +13,7 @@ import com.internousdev.util.DBConnector;
 
 
 /**
- * スケジュール一覧をActionから受け取った検索文を検索するクラス。
+ * スケジュール一覧をActionから受け取った検索文で検索するクラス。
  * @author MASAHIRO KEDSUKA
  * @since 2016/09/07
  */
@@ -56,13 +56,14 @@ public class ScheduleSelectDAO {
 				ScheduleDTO dto = new ScheduleDTO();
 				dto.setId(rs.getInt("id"));
 				try{
-					dto.setStartDay(sdf.format(rs.getDate("start_day")).toString()); 
+					dto.setStartDay(sdf.format(rs.getDate("start_day")).toString());
 					}catch(Exception e){}
-				
+
 				try { dto.setEndDay(sdf.format(rs.getDate("end_day")).toString());
 				}catch(Exception e){}
 				dto.setTitle(rs.getString("title"));
 				dto.setTeamName(rs.getString("team_name"));
+				dto.setComment(rs.getString("memo_text"));
 				scheduleList.add(dto);
 
 			}

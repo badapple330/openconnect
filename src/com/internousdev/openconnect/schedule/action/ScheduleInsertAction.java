@@ -50,6 +50,12 @@ public class ScheduleInsertAction extends ActionSupport{
 	private String search;
 
 	/**
+	 * メモ
+	 * @author RYOTA SHISHIKURA
+	 */
+	private String comment;
+
+	/**
 	 *エラー
 	 * @author MASAHIRO KEDSUKA
 	 */
@@ -76,19 +82,21 @@ public class ScheduleInsertAction extends ActionSupport{
 
 		if(startDay.isEmpty()&&title.isEmpty()){
 			ret = ERROR;
-			errorMsg=(getText("追加できませんでした"));
+			errorMsg=(getText("開始日またはタイトルがありません"));
 			return ret;
 		}else{
 
 			ScheduleInsertDAO dao = new ScheduleInsertDAO();
 
-			k = dao.insert(startDay,endDay,title,search);
+			k = dao.insert(startDay,endDay,title,search,comment);
 
 			if (k>0) {
 				successMsg=(getText("追加しました。"));
 				ret = SUCCESS;
+			} else if(k<=0){
+				errorMsg=(getText("DBへの書き込みに失敗しました。変数確認：" + "”" + startDay + "”,”" + endDay + "”,”" + title + "”,”" + search + "”,”" + comment + "”"));
 			} else {
-				errorMsg=(getText("追加に失敗しました"));
+				errorMsg=(getText("想定外のエラーが発生しました。"));
 			}
 		}
 		return ret;
@@ -191,6 +199,23 @@ public class ScheduleInsertAction extends ActionSupport{
 	    this.search = search;
 	}
 
+	/**
+	 *	メモを取得します。
+	 *	@author RYOTA SHISHIKURA
+	 *	@return メモ
+	 */
+	 public String getComment(){
+		 return comment;
+	 }
+
+	 /**
+ 	 *	メモを設定します。
+ 	 *	@author RYOTA SHISHIKURA
+ 	 *	@param メモ
+ 	 */
+	 public void setComment(String comment){
+		 this.comment = comment;
+	 }
 
 	/**
 	 * 取得メソッド エラーメッセージを取得

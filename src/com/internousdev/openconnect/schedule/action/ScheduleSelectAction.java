@@ -65,7 +65,7 @@ public class ScheduleSelectAction extends ActionSupport{
 				selectSuccessMsg ="すべてを表示しました。";
 			}else{selectSuccessMsg = (getText("「"+search+"」を検索しました。"));}
 			result = SUCCESS;
-		} else {
+		}else{
 			selectErrorMsg = (getText("該当する情報は存在しません"));
 		}
 		return result;
