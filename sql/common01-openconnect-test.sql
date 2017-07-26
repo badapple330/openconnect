@@ -777,8 +777,8 @@ insert into user_icon(url) values
 ("pic/user_icon/tennosuke.png"),
 ("pic/user_icon/union.jpg"),
 ("pic/user_icon/rafureshia.jpg"),
-("pic/user_icon/hashibiro.jpg");
-
+("pic/user_icon/hashibiro.jpg"),
+("pic/user_icon/sentoutyouryuu.jpg");
 
 
 
