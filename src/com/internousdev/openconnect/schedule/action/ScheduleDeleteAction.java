@@ -44,9 +44,6 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	 * @author MASAHIRO KEDSUKA
 	 */
 	public Map<String, Object> session;
-	/**
-	 * 実行メソッド。DAOにデータを渡して削除する。
-	 */
 
 	/**
 	 * ScheduleSelectAcitionにチーム名渡すための変数
@@ -54,6 +51,9 @@ public class ScheduleDeleteAction extends ActionSupport implements SessionAware{
 	 */
 	private String search;
 
+	/**
+	* 実行メソッド。DAOにデータを渡して削除する。
+	*/
 	public String execute() throws SQLException{
 
 		String result =ERROR;    //削除の判定
