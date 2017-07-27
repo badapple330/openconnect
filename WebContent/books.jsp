@@ -50,7 +50,12 @@
 				<div class="search_bar">
 					<s:form action="BooksSelectAction">
 				未入力で全件表示<br>
-						<input type="text" name="search" maxlength="50" placeholder="タイトル">
+						<select name="searchClass">
+							<option value="title" label="タイトル">タイトル</option>
+							<option value="author" label="著者名">著者名</option>
+							<option value="publish_day" label="発売日">発売日</option>
+						</select>
+						<input type="text" name="search" maxlength="50">
 						<input class="button" type="submit" value="検索">
 					</s:form>
 				</div>
@@ -67,6 +72,10 @@
 					検索結果[
 					<s:property value="bookList.size()" />
 					]
+					<br>
+					検索タブ「
+					<s:property value="searchClass" />
+					」
 					<br>
 					検索ワード「
 					<s:property value="search" />

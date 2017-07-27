@@ -29,13 +29,13 @@ public class BooksDAO {
 	/**
 	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
 	 */
-	public ArrayList<BooksDTO> select(String search) {
+	public ArrayList<BooksDTO> select(String searchClass,String search) {
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = null;
 		con = db.getConnection();
 		String sql = "select @num :=@num + 1 as no, books.* from (select @num := 0) as no, books where status_flg!=1";
 		if (!search.equals("")) {
-			sql = sql + " " + "and title like \"%" + search + "%\"";
+			sql = sql + " " + "and "+searchClass+" like \"%" + search + "%\"";
 		}
 		sql = sql + " " + "order by title";
 

@@ -20,7 +20,11 @@ public class BooksSelectAction extends ActionSupport {
 	/**
 	 * サーチ
 	 */
-	private String search = "";
+	private String search;
+	/**
+	 * プルダウン
+	 */
+	private String searchClass ;
 	/**
 	 * サーチリスト
 	 */
@@ -80,14 +84,19 @@ public class BooksSelectAction extends ActionSupport {
 
 		if(search != null || search != null) {
 
-			bookList = dao.select(search);
+			bookList = dao.select(searchClass,search);
 
 
-
+			/**
+			 * ページ数の最大値
+			 */
 			pageCount = bookList.size()/pageLimit;
 			if(bookList.size()%pageLimit != 0){
 				pageCount++;
 			}
+			/**
+			 * ページ数の最大値を元にページの配列を作成
+			 */
 			arrayPageCount =new int[pageCount];
 			for(int i=0;i<pageCount;i++){
 				arrayPageCount[i] = i+1;
@@ -142,6 +151,20 @@ public class BooksSelectAction extends ActionSupport {
 	 */
 	public void setSearch(String search) {
 		this.search = search;
+	}
+	/**
+	 * 検索取得メソッド
+	 * @return search
+	 */
+	public String getSearchClass() {
+		return searchClass;
+	}
+	/**
+	 * 検索設定メソッド
+	 * @param search
+	 */
+	public void setSearchClass(String searchClass) {
+		this.searchClass = searchClass;
 	}
 	/**
 	 * 検索リスト取得メソッド
