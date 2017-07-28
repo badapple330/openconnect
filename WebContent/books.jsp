@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/books.css">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/books2.js" charset="utf-8"></script>
 
 <title>書籍一覧</title>
 </head>
@@ -75,7 +76,7 @@
 					]
 					<br>
 					検索タブ「
-					<s:property value="searchclass"/>
+					<s:property value="sTab"/>
 					」
 					<br>
 					検索ワード「
