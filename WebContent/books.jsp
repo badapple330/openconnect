@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="css/books.css">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/books2.js" charset="utf-8"></script>
 
 <title>書籍一覧</title>
 </head>
@@ -52,10 +51,9 @@
 					<s:form action="BooksSelectAction">
 				未入力で全件表示<br>
 						<select name="searchClass">
-							<option value="" ><s:set var="searchclass" value="すべて"/>すべて</option>
-							<option value="title"><s:set var="searchclass" value="タイトル"/>タイトル</option>
-							<option value="author"><s:set var="searchclass" value="著者名"/>著者名</option>
-							<option value="publish_day"><s:set var="searchclass" value="発売日"/>発売日</option>
+							<option value="title" label="タイトル">タイトル</option>
+							<option value="author" label="著者名">著者名</option>
+							<option value="publish_day" label="発売日">発売日</option>
 						</select>
 						<input type="text" name="search" maxlength="50">
 						<input class="button" type="submit" value="検索">
@@ -76,7 +74,7 @@
 					]
 					<br>
 					検索タブ「
-					<s:property value="sTab"/>
+					<s:property value="searchClass" />
 					」
 					<br>
 					検索ワード「
