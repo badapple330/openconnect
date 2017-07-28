@@ -51,9 +51,10 @@
 					<s:form action="BooksSelectAction">
 				未入力で全件表示<br>
 						<select name="searchClass">
-							<option value="title" label="タイトル">タイトル</option>
-							<option value="author" label="著者名">著者名</option>
-							<option value="publish_day" label="発売日">発売日</option>
+							<option value="" ><s:set var="searchclass" value="すべて"/>すべて</option>
+							<option value="title"><s:set var="searchclass" value="タイトル"/>タイトル</option>
+							<option value="author"><s:set var="searchclass" value="著者名"/>著者名</option>
+							<option value="publish_day"><s:set var="searchclass" value="発売日"/>発売日</option>
 						</select>
 						<input type="text" name="search" maxlength="50">
 						<input class="button" type="submit" value="検索">
@@ -74,7 +75,7 @@
 					]
 					<br>
 					検索タブ「
-					<s:property value="searchClass" />
+					<s:property value="searchclass"/>
 					」
 					<br>
 					検索ワード「

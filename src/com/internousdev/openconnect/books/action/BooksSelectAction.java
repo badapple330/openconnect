@@ -20,11 +20,11 @@ public class BooksSelectAction extends ActionSupport {
 	/**
 	 * サーチ
 	 */
-	private String search;
+	private String search = "";
 	/**
 	 * プルダウン
 	 */
-	private String searchClass ;
+	private String searchClass ="";
 	/**
 	 * サーチリスト
 	 */
@@ -95,7 +95,7 @@ public class BooksSelectAction extends ActionSupport {
 				pageCount++;
 			}
 			/**
-			 * ページ数の最大値を元にページの配列を作成
+			 * ページ数の最大値を元にそれぞれのページの配列を作成
 			 */
 			arrayPageCount =new int[pageCount];
 			for(int i=0;i<pageCount;i++){
@@ -153,15 +153,15 @@ public class BooksSelectAction extends ActionSupport {
 		this.search = search;
 	}
 	/**
-	 * 検索取得メソッド
-	 * @return search
+	 * プルダウン取得メソッド
+	 * @searchClass
 	 */
 	public String getSearchClass() {
 		return searchClass;
 	}
 	/**
-	 * 検索設定メソッド
-	 * @param search
+	 * プルダウン設定メソッド
+	 * @param searchClass
 	 */
 	public void setSearchClass(String searchClass) {
 		this.searchClass = searchClass;
