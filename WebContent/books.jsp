@@ -13,6 +13,17 @@
 <link rel="stylesheet" href="css/books.css">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	  $('[name=searchClass]').change(function() {
+	    // 選択されているvalue属性値を取り出す
+	    var val = $('[name=searchClass]').val();
+	    console.log(val); // 出力：ABC
+	    // 選択されている表示文字列を取り出す
+	    var txt = $('[name=searchClass] option:selected').text();
+	    console.log(txt); // 出力：えーびーしー
+	});
+
+</script>
 
 <title>書籍一覧</title>
 </head>
@@ -48,13 +59,14 @@
 				</div>
 
 				<div class="search_bar">
-					<s:form action="BooksSelectAction">
+					<s:form name="searchBar" action="BooksSelectAction">
 				未入力で全件表示<br>
-						<select name="searchClass">
-							<option value="title" label="タイトル">タイトル</option>
-							<option value="author" label="著者名">著者名</option>
-							<option value="publish_day" label="発売日">発売日</option>
-						</select>
+						<select name="searchClass" id="searchClass">
+							<option value="">選択ししてください</option>
+							<option value="title">タイトル</option>
+							<option value="author">著者名</option>
+							<option value="publish_day">発売日</option>
+						</select><br>
 						<input type="text" name="search" maxlength="50">
 						<input class="button" type="submit" value="検索">
 					</s:form>
@@ -74,11 +86,13 @@
 					]
 					<br>
 					検索タブ「
-					<s:property value="searchClass" />
+					<s:property value="searchTab"/>
+
 					」
 					<br>
+
 					検索ワード「
-					<s:property value="search" />
+					<s:property value="search"/>
 					」
 
 				</div>

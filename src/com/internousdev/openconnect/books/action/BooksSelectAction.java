@@ -71,6 +71,8 @@ public class BooksSelectAction extends ActionSupport {
 	 */
 	private int rightPage;
 
+	private String searchTab;
+
 
 
 
@@ -128,6 +130,11 @@ public class BooksSelectAction extends ActionSupport {
 				rightPage=2;
 			}
 
+		switch(searchClass){
+		case "title": searchTab="タイトル";break;
+		case "author": searchTab="著者名";break;
+		case "publish_day": searchTab="発売日";break;
+		}
 
 			result = SUCCESS;
 		} if (searchList.size() == 0) {
@@ -306,5 +313,25 @@ public class BooksSelectAction extends ActionSupport {
 	public void setRightPage(int rightPage) {
 		this.rightPage = rightPage;
 	}
+
+
+	/**
+	* 取得メソッド を取得
+	* @return searchTab
+	*/
+	public String getSearchTab() {
+		return searchTab;
+	}
+
+
+	/**
+	* 設定メソッド を設定
+	* @param searchTab
+	*/
+	public void setSearchTab(String searchTab) {
+		this.searchTab = searchTab;
+	}
+
+
 
 }
