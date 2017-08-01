@@ -75,7 +75,7 @@
 			<s:property value="selectErrorMsg" />
 
 
-			<s:form action="ScheduleUpdateAction">
+			<s:form action="ScheduleUpdate_TestAction">
 
 				<table id = "schedule" border=1 style="">
 					<tbody>
@@ -85,6 +85,7 @@
 							<th>end</th>
 							<th>title</th>
 							<th>チーム名</th>
+							<th>メモ</th>
 						</tr>
 
 						<!-- scheduleListに格納した情報をテーブルで表示 -->
@@ -146,7 +147,7 @@
 
 
 		<div class = "blockB">
-			<s:form action="ScheduleInsertAction">
+			<s:form action="ScheduleInsert_TestAction">
 				<table class="table">
 					<tbody>
 						<tr><td>【予定を登録】</td></tr>
@@ -176,6 +177,7 @@
 		<div class="pagetop"><div class = "pagetop-info"><b>PageTop</b></div></div>
 
 
+			<div class="modal-bg"></div>
 			<div id="modal-main">
 				<!-- #contents START -->
 				<div id="modal-style">
