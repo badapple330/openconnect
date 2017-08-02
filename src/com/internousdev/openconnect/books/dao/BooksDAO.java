@@ -122,10 +122,10 @@ public class BooksDAO {
 		int count = 0 ;
 
 		DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-		Connection conn = db.getConnection();
+		Connection con = db.getConnection();
 		String sql = "INSERT INTO books(title, sub_title, author, publisher, publish_day, initial)VALUES(?, ?, ?, ?, ?, ?)";
 		try{
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,title);
 			ps.setString(2,subTitle);
 			ps.setString(3,author);
@@ -139,7 +139,7 @@ public class BooksDAO {
 			e.printStackTrace();
 		}finally {
 			try{
-				conn.close();
+				con.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
