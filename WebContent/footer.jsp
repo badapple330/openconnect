@@ -10,15 +10,15 @@
  <div id = "footer">
 	<div class="footer-link">
 		<nav>
-			<ul>
-				<li style="list-style:none;"><a href="/openconnect/company_overview.jsp" target="blank">会社概要</a></li>
+			<ul style="list-style:none;">
+				<li><a href="company_overview.jsp" target="blank">会社概要</a></li>
 
-				<li><a href="/openconnect/terms_of_use.jsp" target="blank">利用規約</a></li>
+				<li><a href="terms_of_use.jsp" target="blank">利用規約</a></li>
 
 				<li><a href="GoTalkListAction.action" target="blank">SNS</a></li>
 
 				<!-- テストサーバーにリンク -->
-				<li><a href="http://test.internousdev.com/internousdev/">歴代サイトTOP(test)</a>
+				<li><a href="/internousdev">Internousdev</a>
 			</ul>
 
 		</nav>
