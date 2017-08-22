@@ -11,9 +11,9 @@
 	<div class="footer-link">
 		<nav>
 			<ul>
-				<li style="list-style:none;"><a href="company_overview.jsp" target="blank">会社概要</a></li>
+				<li style="list-style:none;"><a href="/openconnect/company_overview.jsp" target="blank">会社概要</a></li>
 
-				<li><a href="terms_of_use.jsp" target="blank">利用規約</a></li>
+				<li><a href="/openconnect/terms_of_use.jsp" target="blank">利用規約</a></li>
 
 				<li><a href="GoTalkListAction.action" target="blank">SNS</a></li>
 

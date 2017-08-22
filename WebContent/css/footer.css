@@ -102,5 +102,10 @@
 	width: 100%;
 	text-align: center;
 	background-color:#ffffff;
-}
 	}
+}
+
+
+li {
+	list-style:none;
+}
