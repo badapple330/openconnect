@@ -3,7 +3,7 @@ cd %USERPROFILE%\git
 : common
 : データベース演習課題用リポジトリー
 cd ./strutsdb
-git pull
+git pull 
 : Springフレームワーク練習用サンプルアプリケーション
 cd ../spring
 git pull
